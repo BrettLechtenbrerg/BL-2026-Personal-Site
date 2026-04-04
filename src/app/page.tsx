@@ -1,24 +1,28 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { Solution } from "@/components/sections/Solution";
+import { Pathways } from "@/components/sections/Pathways";
+import { Credibility } from "@/components/sections/Credibility";
+import { Testimonials } from "@/components/sections/Testimonials";
 
 export default function Home() {
   return (
     <>
       <Header />
       <main className="flex-1 pt-20">
+        {/* Hero Section */}
         <Hero />
 
-        {/* Social Proof Section - Coming Soon */}
-        <section className="py-16 bg-gray-50 border-y border-gray-100">
+        {/* Social Proof Bar */}
+        <section className="py-12 bg-gray-50 border-y border-gray-100">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-sm text-warm-gray mb-8">
+            <p className="text-sm text-warm-gray mb-6">
               Brett has spoken at and conducted training for organizations including:
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16 opacity-50">
-              {/* Logo placeholders */}
-              {["American Express", "Delta Airlines", "Citigroup", "Chamber of Commerce"].map((name) => (
-                <div key={name} className="text-gray-400 font-semibold">
+            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
+              {["American Express", "Delta Airlines", "Citigroup", "Murray Area Chamber"].map((name) => (
+                <div key={name} className="text-gray-400 font-semibold text-sm lg:text-base">
                   {name}
                 </div>
               ))}
@@ -26,7 +30,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* The Problem Section - Placeholder */}
+        {/* The Problem Section */}
         <section className="py-24 bg-white">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-cranberry font-semibold tracking-wide uppercase text-sm mb-4">
@@ -49,13 +53,47 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 bg-black text-white">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+        {/* The Solution - Master's Edge Introduction */}
+        <Solution />
+
+        {/* Three Pathways */}
+        <Pathways />
+
+        {/* Credibility / Why Brett */}
+        <Credibility />
+
+        {/* Testimonials */}
+        <Testimonials />
+
+        {/* As Seen On - Media Logos */}
+        <section className="py-12 bg-white border-y border-gray-100">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-sm text-warm-gray mb-6 uppercase tracking-wide">
+              As Seen On
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
+              {["Good Things Utah", "Channel 4", "Channel 13", "Profiles in Caring"].map((name) => (
+                <div key={name} className="text-gray-400 font-medium">
+                  {name}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-cranberry/30 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
+          </div>
+
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
               The First Step Is Always a Conversation
             </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
               No pitch. No pressure. Just a genuine discussion about where you are,
               where you want to be, and whether The Master&apos;s Edge is the right fit.
             </p>
@@ -63,7 +101,7 @@ export default function Home() {
               href="https://www.speaktobrett.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-cranberry text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-cranberry-dark transition-colors shadow-lg shadow-cranberry/25"
+              className="inline-flex items-center gap-2 bg-cranberry text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-cranberry-dark transition-all duration-300 shadow-xl shadow-cranberry/30 hover:shadow-2xl hover:shadow-cranberry/40 hover:-translate-y-1"
             >
               Talk to Brett
             </a>
