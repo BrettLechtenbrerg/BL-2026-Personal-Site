@@ -164,17 +164,15 @@ export function Hero() {
                 style={{ backgroundSize: "200% 100%" }}
               />
 
-              {/* Placeholder for Brett's photo */}
+              {/* Brett's Photo */}
               <div className="relative aspect-[4/5] bg-gradient-to-br from-cranberry/20 via-black to-gold/20 rounded-2xl overflow-hidden border border-white/10">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-cranberry to-gold rounded-full flex items-center justify-center">
-                      <span className="text-white text-4xl font-bold">BL</span>
-                    </div>
-                    <p className="text-white font-medium">Brett Lechtenberg</p>
-                    <p className="text-gray-400 text-sm mt-1">Photo Coming Soon</p>
-                  </div>
-                </div>
+                <Image
+                  src="/brett-hero.webp"
+                  alt="Brett Lechtenberg - Peak Performance Coach and 8th Degree Black Belt"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
               </div>
 
               {/* Floating credential badges */}
