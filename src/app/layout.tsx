@@ -33,6 +33,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Brett Lechtenberg" }],
   creator: "Brett Lechtenberg",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -41,11 +51,20 @@ export const metadata: Metadata = {
     title: "Brett Lechtenberg | Peak Performance Coach, Speaker & Author",
     description:
       "Discover who you're meant to become. Unlock peak performance through The Master's Edge methodology.",
+    images: [
+      {
+        url: "/logo.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Brett Lechtenberg Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Brett Lechtenberg | Peak Performance Coach",
     description: "Discover who you're meant to become with The Master's Edge.",
+    images: ["/logo.jpg"],
   },
   robots: {
     index: true,

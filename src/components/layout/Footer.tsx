@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { links } from "@/lib/utils";
 
 const quickLinks = [
@@ -18,9 +19,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Column */}
           <div>
-            <h3 className="text-xl font-bold mb-2">
-              <span className="text-cranberry">Brett</span> Lechtenberg
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/logo.jpg"
+                alt="Brett Lechtenberg"
+                width={56}
+                height={56}
+                className="rounded-full"
+              />
+              <h3 className="text-xl font-bold">
+                <span className="text-cranberry">Brett</span> Lechtenberg
+              </h3>
+            </div>
             <p className="text-warm-gray text-sm mb-4">
               Peak Performance Coach | Speaker | Author
             </p>

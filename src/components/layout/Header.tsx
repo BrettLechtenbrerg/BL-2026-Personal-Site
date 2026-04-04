@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -24,9 +25,22 @@ export function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative"
+            >
+              <Image
+                src="/logo.jpg"
+                alt="Brett Lechtenberg"
+                width={48}
+                height={48}
+                className="rounded-full"
+                priority
+              />
+            </motion.div>
             <motion.span
-              className="text-xl font-bold text-black tracking-tight"
+              className="hidden sm:block text-xl font-bold text-black tracking-tight"
               whileHover={{ scale: 1.02 }}
             >
               <span className="text-cranberry">Brett</span> Lechtenberg
