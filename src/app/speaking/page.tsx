@@ -63,6 +63,16 @@ export default function SpeakingPage() {
       <main className="flex-1 pt-20">
         {/* Hero - Dark gradient */}
         <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+          {/* Hero background image */}
+          <Image
+            src="/heroes/speaking.jpg"
+            alt="Speaker on stage with dramatic lighting"
+            fill
+            className="object-cover opacity-25"
+            priority
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}

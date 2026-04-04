@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Brain, Wrench, Building2, Sparkles, Target, Zap } from "lucide-react";
+import Image from "next/image";
 
 const foundations = [
   {
@@ -65,6 +66,16 @@ export default function MastersEdgePage() {
       <main className="flex-1 pt-20">
         {/* Hero - Dark with animated orbs */}
         <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+          {/* Hero background image */}
+          <Image
+            src="/heroes/masters-edge.jpg"
+            alt="Mountain peak at sunrise representing transformation"
+            fill
+            className="object-cover opacity-30"
+            priority
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
           {/* Animated background */}
           <div className="absolute inset-0 overflow-hidden">
             <motion.div

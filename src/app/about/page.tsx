@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Award, BookOpen, Brain, Building, Bot, Shield } from "lucide-react";
+import Image from "next/image";
 
 const credentials = [
   {
@@ -52,6 +53,16 @@ export default function AboutPage() {
       <main className="flex-1 pt-20">
         {/* Hero - Dark */}
         <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+          {/* Hero background image */}
+          <Image
+            src="/heroes/about.jpg"
+            alt="Martial arts training and discipline"
+            fill
+            className="object-cover opacity-25"
+            priority
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}

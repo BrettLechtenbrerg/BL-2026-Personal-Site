@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { GraduationCap, Handshake, Cog, Bot, Sparkles, Zap, Brain, Rocket } from "lucide-react";
+import Image from "next/image";
 
 const tiers = [
   {
@@ -51,6 +52,16 @@ export default function AIAdvisoryPage() {
       <main className="flex-1 pt-20">
         {/* Hero - Dark futuristic */}
         <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+          {/* Hero background image */}
+          <Image
+            src="/heroes/ai-advisory.jpg"
+            alt="AI and technology visualization"
+            fill
+            className="object-cover opacity-25"
+            priority
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80" />
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
