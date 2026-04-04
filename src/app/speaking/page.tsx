@@ -52,6 +52,7 @@ const talks = [
 
 const logos = [
   { name: "American Express", src: "/logos/american-express.png", width: 120 },
+  { name: "Delta", src: "/logos/delta.png", width: 120 },
   { name: "Packsize", src: "/logos/packsize.png", width: 120 },
   { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 140 },
   { name: "Purple", src: "/logos/purple.jpg", width: 100 },
