@@ -16,6 +16,16 @@ const trustedLogos = [
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+      {/* Hero background image */}
+      <Image
+        src="/heroes/homepage.jpg"
+        alt="Leadership and peak performance"
+        fill
+        className="object-cover opacity-20"
+        priority
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
