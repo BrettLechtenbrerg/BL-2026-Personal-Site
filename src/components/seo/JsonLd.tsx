@@ -6,7 +6,9 @@ export function JsonLd() {
     url: "https://brettlechtenberg.com",
     image: "https://brettlechtenberg.com/brett-hero.webp",
     sameAs: [
-      "https://www.linkedin.com/in/brettlechtenberg/",
+      "https://www.linkedin.com/in/brettlechtenberg",
+      "https://www.facebook.com/BrettGLechtenberg",
+      "https://www.instagram.com/blechtenberg/",
       "https://www.youtube.com/@BrettLechtenberg",
     ],
     jobTitle: "Peak Performance Coach",
