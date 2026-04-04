@@ -1,14 +1,12 @@
+"use client";
+
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
-import { Star } from "lucide-react";
-
-export const metadata = {
-  title: "Books & Media | Brett Lechtenberg",
-  description:
-    "Seven books, five bestsellers, and a growing library of media appearances — all built on one principle: teach what you've tested.",
-};
+import { motion } from "framer-motion";
+import { Star, BookOpen, Play, Tv } from "lucide-react";
+import Image from "next/image";
 
 const books = [
   {
@@ -67,122 +65,241 @@ export default function BooksPage() {
     <>
       <Header />
       <main className="flex-1 pt-20">
-        {/* Hero */}
-        <section className="py-24 bg-gradient-to-br from-white via-gray-50 to-gold/5">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-6">
-              Ideas That Have Helped Thousands
-            </h1>
-            <p className="text-xl text-warm-gray leading-relaxed">
+        {/* Hero - Dark */}
+        <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/40 rounded-full blur-[120px]"
+            />
+            <motion.div
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cranberry/30 rounded-full blur-[100px]"
+            />
+          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-full px-5 py-2 mb-6"
+            >
+              <BookOpen className="w-4 h-4 text-gold" />
+              <span className="text-gold font-semibold text-sm">Books & Media</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
+            >
+              Ideas That Have Helped{" "}
+              <span className="bg-gradient-to-r from-gold via-gold to-cranberry bg-clip-text text-transparent">
+                Thousands
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
+            >
               Seven books, five bestsellers, and a growing library of media
               appearances — all built on one principle:{" "}
-              <span className="text-black font-semibold">
-                teach what you&apos;ve tested.
-              </span>
-            </p>
+              <span className="text-white font-semibold">teach what you&apos;ve tested.</span>
+            </motion.p>
           </div>
         </section>
 
-        {/* Books */}
-        <section className="py-24 bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-black mb-12 text-center">
-              Brett&apos;s Books
-            </h2>
+        {/* Books - Gradient */}
+        <section className="py-24 bg-gradient-to-b from-white via-gold/5 to-cranberry/5 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold via-cranberry to-gold" />
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px]" />
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl font-bold text-black mb-12 text-center"
+            >
+              Brett&apos;s <span className="text-cranberry">Books</span>
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {books.map((book) => (
-                <div
+              {books.map((book, index) => (
+                <motion.div
                   key={book.title}
-                  className={`rounded-2xl p-8 border-2 ${
-                    book.upcoming
-                      ? "border-cranberry bg-cranberry/5"
-                      : "border-gray-100 bg-white"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`group relative rounded-2xl ${
+                    book.upcoming ? "" : ""
                   }`}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-bold text-black">{book.title}</h3>
-                    {book.bestseller && (
-                      <div className="flex items-center gap-1 text-gold">
-                        <Star className="w-4 h-4 fill-current" />
-                        <span className="text-xs font-semibold">Bestseller</span>
+                  {book.upcoming && (
+                    <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-40" />
+                  )}
+                  <div className={`relative rounded-2xl p-8 border-2 h-full ${
+                    book.upcoming
+                      ? "border-cranberry bg-gradient-to-br from-cranberry/10 via-white to-gold/10"
+                      : "border-gray-100 bg-white shadow-lg hover:shadow-xl transition-shadow"
+                  }`}>
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                          book.upcoming
+                            ? "bg-gradient-to-br from-cranberry to-cranberry-dark"
+                            : book.bestseller
+                              ? "bg-gradient-to-br from-gold to-gold-dark"
+                              : "bg-gray-100"
+                        }`}>
+                          <BookOpen className={`w-6 h-6 ${
+                            book.upcoming || book.bestseller ? "text-white" : "text-gray-500"
+                          }`} />
+                        </div>
+                        <h3 className="text-xl font-bold text-black">{book.title}</h3>
                       </div>
-                    )}
+                      {book.bestseller && (
+                        <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full">
+                          <Star className="w-4 h-4 text-gold fill-gold" />
+                          <span className="text-xs font-semibold text-gold">Bestseller</span>
+                        </div>
+                      )}
+                    </div>
+                    <p className={`text-sm font-semibold mb-3 ${
+                      book.upcoming ? "text-cranberry" : "text-gold"
+                    }`}>
+                      {book.status}
+                    </p>
+                    <p className="text-warm-gray">{book.description}</p>
                   </div>
-                  <p className="text-sm text-cranberry font-semibold mb-3">
-                    {book.status}
-                  </p>
-                  <p className="text-warm-gray">{book.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Media */}
-        <section className="py-24 bg-gray-50">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-black mb-12 text-center">
-              Brett in the Media
-            </h2>
+        {/* Media - Dark */}
+        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+          <motion.div
+            animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-20 right-10 w-96 h-96 bg-cranberry/25 rounded-full blur-[120px]"
+          />
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl font-bold text-white mb-12 text-center"
+            >
+              Brett in the <span className="text-gold">Media</span>
+            </motion.h2>
+
             <div className="text-center mb-12">
-              <p className="text-warm-gray uppercase tracking-wide text-sm mb-6">
-                As Seen On
-              </p>
+              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-5 py-2 mb-8">
+                <Tv className="w-4 h-4 text-gold" />
+                <span className="text-gray-400 text-sm">As Seen On</span>
+              </div>
               <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
-                {[
-                  "Good Things Utah",
-                  "Channel 4",
-                  "Channel 13",
-                  "Profiles in Caring",
-                ].map((name) => (
-                  <div key={name} className="text-gray-400 font-semibold text-lg">
+                {["Good Things Utah", "Channel 4", "Channel 13", "Profiles in Caring"].map((name, index) => (
+                  <motion.div
+                    key={name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-3 text-white font-semibold"
+                  >
                     {name}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
-            {/* Video placeholder */}
-            <div className="max-w-3xl mx-auto">
-              <div className="aspect-video bg-gray-200 rounded-2xl flex items-center justify-center">
-                <p className="text-gray-500">Good Things Utah Interview Video</p>
+            {/* Video */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto"
+            >
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
+                <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                  <iframe
+                    src="https://www.youtube.com/embed/Dq7agUEBr6I"
+                    title="Brett Lechtenberg on Good Things Utah"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
-            </div>
+              <div className="mt-4 flex items-center justify-center gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
+                  <Play className="w-5 h-5 text-white fill-white" />
+                </div>
+                <span className="text-gray-400">Good Things Utah Interview</span>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Free Book CTA */}
-        <section className="py-24 bg-white">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-cranberry to-cranberry-dark rounded-3xl p-12 text-white text-center">
-              <h2 className="text-3xl font-bold mb-4">
-                Get Your Free Copy of Reclaiming The Clock
+        {/* Free Book CTA - Gradient */}
+        <section className="py-24 bg-gradient-to-br from-cranberry via-cranberry-dark to-black relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
+            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cranberry-light/30 rounded-full blur-[100px]" />
+          </div>
+
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20"
+            >
+              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-gold to-gold-dark rounded-2xl flex items-center justify-center mb-8 shadow-lg">
+                <BookOpen className="w-10 h-10 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Get Your Free Copy of <span className="text-gold">Reclaiming The Clock</span>
               </h2>
-              <p className="text-lg text-white/80 mb-8">
+              <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
                 Brett&apos;s bestselling book on habit management and time creation —
                 delivered to your inbox.
               </p>
-              <Button
-                href={links.booking}
-                external
-                variant="secondary"
-                size="lg"
-              >
+              <Button href={links.booking} external variant="secondary" size="lg">
                 Get the Free Book
               </Button>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-24 bg-black text-white">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Want Brett to Write the Next Chapter With You?
-            </h2>
-            <Button href={links.booking} external size="lg">
-              Talk to Brett
-            </Button>
+        {/* CTA - Gold gradient */}
+        <section className="py-24 bg-gradient-to-br from-gold via-gold-dark to-cranberry relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-[100px]" />
+          </div>
+
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 text-black">
+                Want Brett to Write the Next Chapter With You?
+              </h2>
+              <Button href={links.booking} external size="lg" className="bg-black text-white hover:bg-gray-900">
+                Talk to Brett
+              </Button>
+            </motion.div>
           </div>
         </section>
       </main>
