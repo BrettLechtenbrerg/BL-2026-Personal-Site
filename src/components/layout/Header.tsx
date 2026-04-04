@@ -14,6 +14,7 @@ const navigation = [
   { name: "Coaching", href: "/coaching" },
   { name: "AI Advisory", href: "/ai-advisory" },
   { name: "Books & Media", href: "/books" },
+  { name: "Testimonials", href: "/testimonials" },
   { name: "About", href: "/about" },
 ];
 
