@@ -204,18 +204,18 @@ export default function TestimonialsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative group"
+                  className="relative group h-full"
                 >
                   <div className={`absolute -inset-1 bg-gradient-to-r ${testimonial.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
-                  <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100">
+                  <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100 h-full flex flex-col">
                     <div className={`absolute -top-5 left-8 w-12 h-12 bg-gradient-to-br ${testimonial.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
                       <Quote className="w-6 h-6 text-white" />
                     </div>
-                    <blockquote className="text-lg text-black leading-relaxed mb-6 pt-4">
+                    <blockquote className="text-lg text-black leading-relaxed mb-6 pt-4 flex-1">
                       &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
-                    <div className="flex items-center gap-4">
-                      <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg`}>
+                    <div className="flex items-center gap-4 mt-auto">
+                      <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg shrink-0`}>
                         {testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                       </div>
                       <div>
@@ -265,24 +265,26 @@ export default function TestimonialsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative"
+                  className="group relative h-full"
                 >
                   <div className="absolute -inset-1 bg-gradient-to-r from-gold via-cranberry to-gold rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex gap-6">
+                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex gap-6 h-full">
                     {testimonial.stat && (
-                      <div className="hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-gold to-gold-dark rounded-xl p-6 text-black min-w-[100px]">
+                      <div className="hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-gold to-gold-dark rounded-xl p-6 text-black min-w-[100px] shrink-0">
                         <span className="text-3xl font-black">{testimonial.stat}</span>
                         <span className="text-xs text-black/80">{testimonial.statLabel}</span>
                       </div>
                     )}
-                    <div className="flex-1">
-                      <blockquote className="text-gray-300 mb-4">
+                    <div className="flex-1 flex flex-col">
+                      <blockquote className="text-gray-300 mb-4 flex-1">
                         &ldquo;{testimonial.quote}&rdquo;
                       </blockquote>
-                      <cite className="text-white font-semibold not-italic">— {testimonial.name}</cite>
-                      {testimonial.title && (
-                        <p className="text-sm text-gold">{testimonial.title}</p>
-                      )}
+                      <div className="mt-auto">
+                        <cite className="text-white font-semibold not-italic">— {testimonial.name}</cite>
+                        {testimonial.title && (
+                          <p className="text-sm text-gold">{testimonial.title}</p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -319,20 +321,20 @@ export default function TestimonialsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="group relative"
+                  className="group relative h-full"
                 >
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-cranberry/50 to-gold/50 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity" />
-                  <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                  <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100 h-full flex flex-col">
                     <div className="flex items-center gap-1 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 text-gold fill-gold" />
                       ))}
                     </div>
-                    <blockquote className="text-gray-700 text-sm leading-relaxed mb-4">
+                    <blockquote className="text-gray-700 text-sm leading-relaxed mb-4 flex-1">
                       &ldquo;{testimonial.quote}&rdquo;
                     </blockquote>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold text-sm">
+                    <div className="flex items-center gap-3 mt-auto">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold text-sm shrink-0">
                         {testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                       </div>
                       <div>
