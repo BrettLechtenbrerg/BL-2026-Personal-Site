@@ -5,6 +5,14 @@ import { Solution } from "@/components/sections/Solution";
 import { Pathways } from "@/components/sections/Pathways";
 import { Credibility } from "@/components/sections/Credibility";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { MediaFeature } from "@/components/sections/MediaFeature";
+import Image from "next/image";
+
+const socialProofLogos = [
+  { name: "American Express", src: "/logos/american-express.svg", width: 140 },
+  { name: "Delta Airlines", src: "/logos/delta.svg", width: 120 },
+  { name: "Citigroup", src: "/logos/citigroup.svg", width: 100 },
+];
 
 export default function Home() {
   return (
@@ -21,11 +29,20 @@ export default function Home() {
               Brett has spoken at and conducted training for organizations including:
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
-              {["American Express", "Delta Airlines", "Citigroup", "Murray Area Chamber"].map((name) => (
-                <div key={name} className="text-gray-400 font-semibold text-sm lg:text-base">
-                  {name}
+              {socialProofLogos.map((logo) => (
+                <div key={logo.name} className="opacity-80 hover:opacity-100 transition-opacity">
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    width={logo.width}
+                    height={40}
+                    className="h-10 w-auto"
+                  />
                 </div>
               ))}
+              <div className="text-gray-400 font-semibold text-sm lg:text-base border border-gray-200 rounded-lg px-4 py-2">
+                Murray Area Chamber
+              </div>
             </div>
           </div>
         </section>
@@ -65,21 +82,8 @@ export default function Home() {
         {/* Testimonials */}
         <Testimonials />
 
-        {/* As Seen On - Media Logos */}
-        <section className="py-12 bg-white border-y border-gray-100">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-sm text-warm-gray mb-6 uppercase tracking-wide">
-              As Seen On
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
-              {["Good Things Utah", "Channel 4", "Channel 13", "Profiles in Caring"].map((name) => (
-                <div key={name} className="text-gray-400 font-medium">
-                  {name}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Media Feature with YouTube Video */}
+        <MediaFeature />
 
         {/* Final CTA Section */}
         <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">

@@ -4,6 +4,13 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
+
+const trustedLogos = [
+  { name: "American Express", src: "/logos/american-express.svg", width: 140 },
+  { name: "Delta Airlines", src: "/logos/delta.svg", width: 120 },
+  { name: "Citigroup", src: "/logos/citigroup.svg", width: 100 },
+];
 
 export function Hero() {
   return (
@@ -109,17 +116,25 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Trust badges */}
+            {/* Trust badges with logos */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 0.6 }}
               className="mt-12 pt-8 border-t border-white/10"
             >
-              <p className="text-gray-500 text-sm mb-4">Trusted by leaders at</p>
-              <div className="flex flex-wrap gap-6 text-gray-400 text-sm font-medium">
-                {["American Express", "Delta Airlines", "Citigroup"].map((name) => (
-                  <span key={name}>{name}</span>
+              <p className="text-gray-500 text-sm mb-6">Trusted by leaders at</p>
+              <div className="flex flex-wrap items-center gap-8">
+                {trustedLogos.map((logo) => (
+                  <div key={logo.name} className="opacity-70 hover:opacity-100 transition-opacity">
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      width={logo.width}
+                      height={40}
+                      className="h-10 w-auto"
+                    />
+                  </div>
                 ))}
               </div>
             </motion.div>
