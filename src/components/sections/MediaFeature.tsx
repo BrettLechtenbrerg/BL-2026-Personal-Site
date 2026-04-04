@@ -103,11 +103,11 @@ export function MediaFeature() {
                 {/* Good Things Utah */}
                 <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-colors">
                   <Image
-                    src="/logos/good-things-utah.svg"
+                    src="/logos/good-things-utah.webp"
                     alt="Good Things Utah"
                     width={80}
-                    height={40}
-                    className="h-10 w-auto"
+                    height={45}
+                    className="h-11 w-auto rounded"
                   />
                   <div>
                     <p className="text-white font-medium text-sm">Good Things Utah</p>
