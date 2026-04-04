@@ -9,9 +9,11 @@ import { MediaFeature } from "@/components/sections/MediaFeature";
 import Image from "next/image";
 
 const socialProofLogos = [
-  { name: "American Express", src: "/logos/american-express.svg", width: 140 },
-  { name: "Delta Airlines", src: "/logos/delta.svg", width: 120 },
-  { name: "Citigroup", src: "/logos/citigroup.svg", width: 100 },
+  { name: "American Express", src: "/logos/american-express.png", width: 120 },
+  { name: "Packsize", src: "/logos/packsize.png", width: 120 },
+  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 140 },
+  { name: "Purple", src: "/logos/purple.jpg", width: 100 },
+  { name: "Thumbtack", src: "/logos/thumbtack.png", width: 120 },
 ];
 
 export default function Home() {
@@ -40,8 +42,32 @@ export default function Home() {
                   />
                 </div>
               ))}
-              <div className="text-gray-400 font-semibold text-sm lg:text-base border border-gray-200 rounded-lg px-4 py-2">
-                Murray Area Chamber
+              <div className="opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/logos/murray-chamber.png"
+                  alt="Murray Area Chamber"
+                  width={100}
+                  height={40}
+                  className="h-10 w-auto"
+                />
+              </div>
+              <div className="opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/logos/heber-valley-chamber.png"
+                  alt="Heber Valley Chamber"
+                  width={100}
+                  height={40}
+                  className="h-10 w-auto"
+                />
+              </div>
+              <div className="opacity-80 hover:opacity-100 transition-opacity">
+                <Image
+                  src="/logos/park-city-chamber.png"
+                  alt="Park City Chamber"
+                  width={100}
+                  height={40}
+                  className="h-10 w-auto"
+                />
               </div>
             </div>
           </div>

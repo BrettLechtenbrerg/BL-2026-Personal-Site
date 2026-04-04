@@ -7,9 +7,10 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 const trustedLogos = [
-  { name: "American Express", src: "/logos/american-express.svg", width: 140 },
-  { name: "Delta Airlines", src: "/logos/delta.svg", width: 120 },
-  { name: "Citigroup", src: "/logos/citigroup.svg", width: 100 },
+  { name: "American Express", src: "/logos/american-express.png", width: 120 },
+  { name: "Packsize", src: "/logos/packsize.png", width: 120 },
+  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 140 },
+  { name: "Murray Area Chamber", src: "/logos/murray-chamber.png", width: 100 },
 ];
 
 export function Hero() {
