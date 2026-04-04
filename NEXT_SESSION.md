@@ -24,21 +24,26 @@ I want to continue building my personal website (Brett Lechtenberg).
 
 **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
 
-**Current Priority:**
-1. Initialize Next.js 16 project with TypeScript + Tailwind
-2. Set up brand colors and typography
-3. Build the homepage hero section with Overlap Dock animation
-
 **What's Done:**
-- GitHub repo created
-- Project folder set up
-- All documentation in place
+- ✅ Next.js 16 + TypeScript + Tailwind + Framer Motion
+- ✅ Brand colors & typography configured
+- ✅ Header, Footer, Button components
+- ✅ Hero section with spring animations
+- ✅ Initial homepage structure
+- ✅ Pushed to GitHub
 
-**What's Next:**
-- Initialize project with `npx create-next-app@latest`
-- Install Framer Motion, Lucide React
-- Configure Tailwind with brand colors
-- Build components
+**Current Priority:**
+1. Connect Vercel (I'll do this now if not done)
+2. Add my professional headshot to Hero
+3. Complete remaining homepage sections:
+   - The Solution section (Master's Edge intro)
+   - Three Pathways section
+   - Credibility section (stats row)
+   - Testimonials feature
+4. Build The Master's Edge page
+
+**What I Need Help With:**
+[Describe your specific focus]
 
 Let's continue!
 
@@ -48,10 +53,22 @@ Let's continue!
 
 ```bash
 cd "/Users/brettlechtenberg/Desktop/Claude Projects/BL-2026-Personal-Site"
-npm run dev          # Start dev server
+npm run dev          # Start dev server (localhost:3000)
 npm run build        # Build for production
+vercel --prod --yes  # Deploy to Vercel
 ```
 
 ---
 
-*Last updated: April 4, 2026*
+## VERCEL CONNECTION
+
+If not yet connected:
+1. Go to https://vercel.com/bretts-projects-3e254e58
+2. Click "Add New Project"
+3. Import from GitHub: `BrettLechtenbrerg/BL-2026-Personal-Site`
+4. Use default settings (Next.js auto-detected)
+5. Deploy
+
+---
+
+*Last updated: April 4, 2026 @ 9:10 AM*

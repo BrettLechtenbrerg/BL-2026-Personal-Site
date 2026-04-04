@@ -1,20 +1,19 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 4, 2026 @ 8:45 AM
-**Current Phase:** Project Setup
+**Last Updated:** April 4, 2026 @ 9:10 AM
+**Current Phase:** Foundation Complete - Ready for Vercel
 
 ---
 
 ## Current Focus
 
-**Priority:** Initialize Next.js project and create base structure
+**Priority:** Connect Vercel and continue building pages
 
 ### Immediate Tasks
-1. Initialize Next.js 16 with TypeScript and Tailwind
-2. Set up project structure (components, pages, lib)
-3. Configure brand colors and typography in Tailwind
-4. Create layout components (Header, Footer, Navigation)
-5. Build Homepage hero section
+1. Connect Vercel (user action required)
+2. Add Brett's professional headshot to Hero
+3. Build remaining homepage sections (The Solution, Three Pathways, Credibility)
+4. Create The Master's Edge page
 
 ---
 
@@ -23,18 +22,21 @@
 ### Infrastructure
 | Item | Status |
 |------|--------|
-| GitHub Repo | Done |
-| Project Folder | Done |
-| CLAUDE.md | Done |
-| STATE.md | Done |
-| NEXT_SESSION.md | Done |
-| Vercel Connection | Awaiting user |
-| Next.js Setup | Pending |
+| GitHub Repo | ✅ Done |
+| Project Folder | ✅ Done |
+| CLAUDE.md | ✅ Done |
+| STATE.md | ✅ Done |
+| NEXT_SESSION.md | ✅ Done |
+| Next.js Setup | ✅ Done |
+| Tailwind Config | ✅ Done |
+| Brand Colors | ✅ Done |
+| Framer Motion | ✅ Done |
+| **Vercel Connection** | ⏳ Awaiting user |
 
 ### Pages
 | Page | Status | Priority |
 |------|--------|----------|
-| Homepage | Pending | HIGH |
+| Homepage | 🔶 In Progress (Hero done) | HIGH |
 | The Master's Edge | Pending | HIGH |
 | Speaking & Training | Pending | MEDIUM |
 | Coaching | Pending | MEDIUM |
@@ -48,10 +50,10 @@
 ### Components
 | Component | Status |
 |-----------|--------|
-| Header/Nav | Pending |
-| Footer | Pending |
-| Hero Section | Pending |
-| CTA Button | Pending |
+| Header/Nav | ✅ Done |
+| Footer | ✅ Done |
+| Hero Section | ✅ Done |
+| CTA Button | ✅ Done |
 | Card Component | Pending |
 | Testimonial Card | Pending |
 | Stats Section | Pending |
@@ -62,9 +64,9 @@
 
 ### Hero Animation
 - Using **Style 1: Overlap Dock** from Animation Reference Guide
-- Brett's image slides from left with spring bounce
-- Content box slides from right with glassmorphism
-- Staggered text animations
+- Content slides from right with spring bounce
+- Floating credential badges animate in
+- Spring easing: `cubic-bezier(0.34, 1.56, 0.64, 1)`
 
 ### Color Application
 - Cranberry (#9B1B30): Primary CTAs, headers, key accents
@@ -77,8 +79,8 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** Initial (empty repo)
-**Uncommitted Changes:** None yet
+**Last Commit:** `e0409d7` - Initial setup: Next.js 16 + TypeScript + Tailwind + Framer Motion
+**Uncommitted Changes:** None
 
 ---
 
@@ -94,13 +96,14 @@
 
 ## Blockers
 
-*None currently*
+*None currently - awaiting user to connect Vercel*
 
 ---
 
 ## Next Session Priority
 
-1. User connects Vercel
-2. Initialize Next.js project
-3. Set up Tailwind with brand colors
-4. Build homepage hero section
+1. **User connects Vercel** ← Required next step
+2. Add Brett's headshot to Hero section
+3. Complete remaining homepage sections
+4. Build The Master's Edge methodology page
+5. Build Speaking & Training page
