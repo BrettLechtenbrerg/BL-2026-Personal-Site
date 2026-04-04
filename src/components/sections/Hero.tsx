@@ -6,13 +6,6 @@ import { links } from "@/lib/utils";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 
-const trustedLogos = [
-  { name: "American Express", src: "/logos/american-express.png", width: 120 },
-  { name: "Packsize", src: "/logos/packsize.png", width: 120 },
-  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 140 },
-  { name: "Murray Area Chamber", src: "/logos/murray-chamber.png", width: 100 },
-];
-
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
@@ -127,28 +120,6 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Trust badges with logos */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="mt-12 pt-8 border-t border-white/10"
-            >
-              <p className="text-gray-500 text-sm mb-6">Trusted by leaders at</p>
-              <div className="flex flex-wrap items-center gap-8">
-                {trustedLogos.map((logo) => (
-                  <div key={logo.name} className="opacity-70 hover:opacity-100 transition-opacity">
-                    <Image
-                      src={logo.src}
-                      alt={logo.name}
-                      width={logo.width}
-                      height={40}
-                      className="h-10 w-auto"
-                    />
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Image container */}
