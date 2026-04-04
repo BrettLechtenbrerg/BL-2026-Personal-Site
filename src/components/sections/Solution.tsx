@@ -10,21 +10,27 @@ const pillars = [
     title: "Mindset Mastery",
     description:
       "Build the focus, resilience, and confidence to perform at your peak — especially when conditions aren't ideal.",
-    color: "cranberry",
+    gradient: "from-cranberry to-cranberry-dark",
+    iconBg: "bg-cranberry",
+    shadow: "shadow-cranberry/30",
   },
   {
     icon: Wrench,
     title: "Skillset Enhancement",
     description:
       "Develop practical, high-leverage capabilities tailored to your situation: leadership, communication, productivity, strategic thinking.",
-    color: "gold",
+    gradient: "from-gold to-gold-dark",
+    iconBg: "bg-gold",
+    shadow: "shadow-gold/30",
   },
   {
     icon: Building2,
     title: "Support Structure",
     description:
       "Design the environment, systems, habits, and relationships that sustain peak performance over time.",
-    color: "cranberry",
+    gradient: "from-cranberry to-cranberry-dark",
+    iconBg: "bg-cranberry",
+    shadow: "shadow-cranberry/30",
   },
 ];
 
@@ -32,9 +38,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
@@ -43,18 +47,21 @@ const cardVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      type: "spring" as const,
-      stiffness: 100,
-      damping: 15,
-    },
+    transition: { type: "spring" as const, stiffness: 100, damping: 15 },
   },
 };
 
 export function Solution() {
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-b from-white via-cranberry/5 to-gold/5 relative overflow-hidden">
+      {/* Top gradient bar */}
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
+
+      {/* Background orbs */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-cranberry/20 rounded-full blur-[100px]" />
+      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,11 +70,14 @@ export function Solution() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-cranberry font-semibold tracking-wide uppercase text-sm mb-4">
-            The Master&apos;s Edge
-          </p>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cranberry to-cranberry-dark text-white rounded-full px-5 py-2 mb-6 shadow-lg shadow-cranberry/30">
+            <span className="font-semibold text-sm">The Master&apos;s Edge</span>
+          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
-            A Proven System for Peak Performance
+            A Proven System for{" "}
+            <span className="bg-gradient-to-r from-cranberry to-gold bg-clip-text text-transparent">
+              Peak Performance
+            </span>
           </h2>
           <p className="text-lg text-warm-gray max-w-3xl mx-auto leading-relaxed">
             The Master&apos;s Edge is Brett&apos;s proprietary coaching methodology — built
@@ -89,34 +99,29 @@ export function Solution() {
             <motion.div
               key={pillar.title}
               variants={cardVariants}
-              className="group relative bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100"
+              className="group relative"
             >
-              {/* Icon */}
-              <div
-                className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
-                  pillar.color === "cranberry"
-                    ? "bg-cranberry/10 text-cranberry"
-                    : "bg-gold/20 text-gold-dark"
-                }`}
-              >
-                <pillar.icon className="w-7 h-7" />
+              {/* Glow on hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${pillar.gradient} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl`} />
+
+              <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:border-transparent hover:shadow-2xl transition-all duration-300 h-full">
+                {/* Icon */}
+                <div className={`w-16 h-16 ${pillar.iconBg} rounded-2xl flex items-center justify-center mb-6 shadow-lg ${pillar.shadow}`}>
+                  <pillar.icon className="w-8 h-8 text-white" />
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-bold text-black mb-3">{pillar.title}</h3>
+                <p className="text-warm-gray leading-relaxed">{pillar.description}</p>
+
+                {/* Bottom accent */}
+                <div className={`absolute bottom-0 left-0 right-0 h-1.5 rounded-b-2xl bg-gradient-to-r ${pillar.gradient}`} />
               </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-bold text-black mb-3">{pillar.title}</h3>
-              <p className="text-warm-gray leading-relaxed">{pillar.description}</p>
-
-              {/* Hover accent */}
-              <div
-                className={`absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity ${
-                  pillar.color === "cranberry" ? "bg-cranberry" : "bg-gold"
-                }`}
-              />
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Result Statement */}
+        {/* Result Statement - Dark card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -124,16 +129,22 @@ export function Solution() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >
-          <p className="text-xl text-black mb-8">
-            The result? You{" "}
-            <span className="font-bold text-cranberry">Clarify</span> what matters,{" "}
-            <span className="font-bold text-gold-dark">Simplify</span> how you
-            operate, and{" "}
-            <span className="font-bold text-cranberry">Maximize</span> your results.
-          </p>
-          <Button href="/masters-edge" variant="outline" size="lg">
-            Explore The Master&apos;s Edge
-          </Button>
+          <div className="relative inline-block bg-gradient-to-br from-black via-gray-900 to-black rounded-3xl p-10 md:p-14 overflow-hidden">
+            {/* Background glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-cranberry/30 rounded-full blur-[80px]" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/20 rounded-full blur-[80px]" />
+
+            <p className="relative text-xl md:text-2xl text-white mb-8">
+              The result? You{" "}
+              <span className="font-bold text-cranberry">Clarify</span> what matters,{" "}
+              <span className="font-bold text-gold">Simplify</span> how you
+              operate, and{" "}
+              <span className="font-bold text-cranberry">Maximize</span> your results.
+            </p>
+            <Button href="/masters-edge" variant="secondary" size="lg">
+              Explore The Master&apos;s Edge
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
