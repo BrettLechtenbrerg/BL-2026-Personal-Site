@@ -5,65 +5,117 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Quote, Star, TrendingUp } from "lucide-react";
+import { Quote, Star, TrendingUp, Users, Award } from "lucide-react";
 
-const marqueeTestimonials = [
+const featuredTestimonials = [
   {
     quote:
-      "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.",
-    name: "Bill Schuffenhauer",
-    title: "Olympic Silver Medalist, 3x Olympian",
-    gradient: "from-cranberry to-cranberry-dark",
-  },
-  {
-    quote:
-      "In my lifetime, I've had the opportunity to meet extraordinary people from around the world, and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
+      "In my lifetime I have had the opportunity to meet extraordinary people from around the world and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
     name: "Sam Beard",
-    title: "Creator of initiatives for eight U.S. Presidents",
+    title: "Advisor to 8 U.S. Presidents",
     gradient: "from-gold to-gold-dark",
   },
   {
     quote:
-      "In my military career, I had to perform in any condition, at any given time, without fail. If you want to learn that kind of mindset in business and building teams, then Brett Lechtenberg is definitely a person that I turn to.",
-    name: "Green Beret",
-    title: "Trauma Survival Specialist",
+      "Brett knows flow, peak performance and goals. I have been around a ton of business coaches and high level performers and Brett is a top tier trainer, teacher and coach.",
+    name: "Bill Schuffenhauer",
+    title: "Olympic Silver Medalist & 3x Olympian",
     gradient: "from-cranberry to-cranberry-dark",
   },
   {
     quote:
-      "Brett is one of my 300. Just like the Spartans of old had to pick 300 to face down their foes — no-nonsense, amazing people. Brett is someone I turn to when I need to pick my 300.",
-    name: "8x World Karate Champion",
-    title: "",
+      "In my military career I had to perform in any conditions, at any given time, without fail. If you want to learn that kind of mindset in business and building teams then Brett Lechtenberg is definitely a person that I turn to help me with my goals and objectives.",
+    name: "Sal Rossano",
+    title: "Green Beret - Trauma Survival Specialist",
     gradient: "from-gold to-gold-dark",
+  },
+  {
+    quote:
+      "Brett is as good an instructor as I have been around. His training methods and information is always cutting edge. If you want to learn how to take your business to the next level with individual, or team training then Brett Lechtenberg is the person to get on your team.",
+    name: "Matt Gibbons",
+    title: "President, Murray Chamber of Commerce",
+    gradient: "from-cranberry to-cranberry-dark",
   },
 ];
 
 const businessResults = [
   {
     quote:
-      "I added 43 percent to my best month of the year and I am on track to exceed that already this month. Brett has some truly remarkable business building strategies.",
+      "I have been blown away with the powerful mindset tools, branding systems and business building strategies Brett has shared with me. I added 43 percent to my best month of the year and I am on track to exceed that already this month. Brett has some truly remarkable business building strategies and peak performance systems.",
     name: "Rob Balderas",
-    title: "Balderas Family Insurance",
+    title: "Balderas Family Insurance, Arlington, WA",
     stat: "+43%",
     statLabel: "Revenue",
   },
   {
     quote:
-      "He has helped me motivate my staff, implement more cash generation systems, and help build a culture of fun and positive growth.",
-    name: "John Nottingham",
-    title: "Sword and Shield Security",
-  },
-  {
-    quote:
-      "Brett has helped me more clearly understand marketing and branding — not only the implementation but the effect it has on my personal brand and the relationship I have with my community.",
+      "Brett has helped me more clearly understand marketing and branding. Not only the implementation but the effect it has on my personal brand and the relationship I have with my community. I could not recommend Brett and his team enough for their effectiveness and professionalism.",
     name: "Al Agon",
-    title: "Perfect Balance Fitness",
+    title: "Perfect Balance Fitness, Miami, FL",
   },
   {
     quote:
-      "Brett is as good an instructor as I have been around. His training methods and information are always cutting-edge.",
-    name: "Matt Gibbons",
-    title: "President, Murray Area Chamber of Commerce",
+      "Brett's books and training bring theory into practice. His trainings exist where the rubber meets the road. He not only teaches you the why, but he gives practical examples of how to implement the why. If you want to hit the next level, personally or as a business, Brett can help you get there.",
+    name: "Ben Holt",
+    title: "K2T3 PLLC, Sandy, UT",
+  },
+  {
+    quote:
+      "Brett is so experienced and knowledgeable with running a successful business. He is great at breaking down complex business systems into simple actions steps that are effective and give great results.",
+    name: "Dorie Olds",
+    title: "Beyond Creation Institute, Murray, UT",
+  },
+];
+
+const moreTestimonials = [
+  {
+    quote:
+      "Brett knows tons about business scaling, marketing, and how to improve the business! He has had success with his own businesses and can pass that along to you! He is always happy to help!",
+    name: "Dwight Christie",
+    title: "Dwight Christie Consulting, Midvale, UT",
+    rating: 5,
+  },
+  {
+    quote:
+      "Brett will teach you from personal experience in running all of the businesses he has. How he can help you to market yours effectively. He is the go to person if you need help to grow your business.",
+    name: "George Wilkinson",
+    title: "LegalShield, Ada, OK",
+    rating: 5,
+  },
+  {
+    quote:
+      "Master Brett Lechtenberg has a wealth of knowledge and experience in Mastery. He has worked hard to create a great system for helping his customers grow.",
+    name: "Anthony Miles",
+    title: "4th Wall Productions, Gilbert, AZ",
+    rating: 5,
+  },
+  {
+    quote:
+      "Brett is an all around great and amazing individual. He truly cares about others, it's an honor and privilege to know him.",
+    name: "Al Richards",
+    title: "Triple A Concrete, West Jordan, UT",
+    rating: 5,
+  },
+  {
+    quote:
+      "Brett came in and taught us some basic but in depth self defense moves and it was really useful! They were things that anyone of any size can use. I know that I will be going to him again to learn more!",
+    name: "Alexus A.",
+    title: "Thumbtack Review",
+    rating: 5,
+  },
+  {
+    quote:
+      "Brett is very knowledgeable on self defense and taught us a lot of valuable tips and tricks for defending yourself in difficult situations. He is very approachable and wants people to be able to come to his classes so they can defend themselves.",
+    name: "Brendan W.",
+    title: "Thumbtack Review",
+    rating: 5,
+  },
+  {
+    quote:
+      "If you want to know how to protect yourself and to make sure you go back to your family safely, he's the guy to go to! Amazing! As an EMT myself these basic skills that I was taught will help me in my career as well as in my professional life!",
+    name: "Amanda W.",
+    title: "Thumbtack Review",
+    rating: 5,
   },
 ];
 
@@ -123,22 +175,29 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Marquee Testimonials - Gradient */}
+        {/* Featured Testimonials - Gradient */}
         <section className="py-24 bg-gradient-to-b from-gold/10 via-white to-cranberry/10 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px]" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.h2
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl font-bold text-black mb-12 text-center"
+              className="text-center mb-12"
             >
-              Featured <span className="text-cranberry">Testimonials</span>
-            </motion.h2>
+              <div className="inline-flex items-center gap-2 bg-cranberry/10 border border-cranberry/20 rounded-full px-5 py-2 mb-6">
+                <Award className="w-4 h-4 text-cranberry" />
+                <span className="text-cranberry font-semibold text-sm">High-Profile Endorsements</span>
+              </div>
+              <h2 className="text-3xl font-bold text-black">
+                Featured <span className="text-cranberry">Testimonials</span>
+              </h2>
+            </motion.div>
+
             <div className="grid lg:grid-cols-2 gap-8">
-              {marqueeTestimonials.map((testimonial, index) => (
+              {featuredTestimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.name}
                   initial={{ opacity: 0, y: 30 }}
@@ -220,10 +279,66 @@ export default function TestimonialsPage() {
                       <blockquote className="text-gray-300 mb-4">
                         &ldquo;{testimonial.quote}&rdquo;
                       </blockquote>
-                      <cite className="text-white font-semibold">— {testimonial.name}</cite>
+                      <cite className="text-white font-semibold not-italic">— {testimonial.name}</cite>
                       {testimonial.title && (
                         <p className="text-sm text-gold">{testimonial.title}</p>
                       )}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* More Reviews - Light Gradient */}
+        <section className="py-24 bg-gradient-to-b from-white via-cranberry/5 to-gold/10 relative overflow-hidden">
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cranberry/10 rounded-full blur-[100px]" />
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2 mb-6 shadow-sm">
+                <Users className="w-4 h-4 text-cranberry" />
+                <span className="text-black font-semibold text-sm">5-Star Reviews</span>
+              </div>
+              <h2 className="text-3xl font-bold text-black">
+                More <span className="text-cranberry">Success Stories</span>
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {moreTestimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="group relative"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cranberry/50 to-gold/50 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity" />
+                  <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <div className="flex items-center gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 text-gold fill-gold" />
+                      ))}
+                    </div>
+                    <blockquote className="text-gray-700 text-sm leading-relaxed mb-4">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </blockquote>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold text-sm">
+                        {testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-black text-sm">{testimonial.name}</p>
+                        <p className="text-xs text-gray-500">{testimonial.title}</p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
