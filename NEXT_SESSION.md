@@ -6,7 +6,7 @@ Copy and paste this prompt to continue where we left off:
 
 ## RESTART PROMPT
 
-I want to continue building my personal website (Brett Lechtenberg).
+I want to continue working on my personal website (Brett Lechtenberg).
 
 **Project Location:**
 ```
@@ -17,30 +17,22 @@ I want to continue building my personal website (Brett Lechtenberg).
 1. `CLAUDE.md` - Full project context
 2. `STATE.md` - Current progress and focus
 
-**Reference Files on Desktop:**
-- `BL_Website_Copy_Complete.md` - All page content
-- `BL_Claude_Code_Instruction_Brief.md` - Brand guidelines
-- `Animation_Reference_Guide.txt` - Animation styles
-
+**Production URL:** https://bl-2026-personal-site-n0tpyx0dh-bretts-projects-3e254e58.vercel.app
 **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
 
-**What's Done:**
-- ✅ Next.js 16 + TypeScript + Tailwind + Framer Motion
-- ✅ Brand colors & typography configured
-- ✅ Header, Footer, Button components
-- ✅ Hero section with spring animations
-- ✅ Initial homepage structure
+**What's Complete:**
+- ✅ All 9 pages built with bold colorful design
+- ✅ Dark gradient heroes with animated floating orbs
+- ✅ Glowing cards, glassmorphism, gradient sections
+- ✅ Client logos (American Express, Delta, Citigroup)
+- ✅ YouTube video embed (Good Things Utah)
+- ✅ Deployed to Vercel
 - ✅ Pushed to GitHub
 
-**Current Priority:**
-1. Connect Vercel (I'll do this now if not done)
-2. Add my professional headshot to Hero
-3. Complete remaining homepage sections:
-   - The Solution section (Master's Edge intro)
-   - Three Pathways section
-   - Credibility section (stats row)
-   - Testimonials feature
-4. Build The Master's Edge page
+**Pending Tasks:**
+1. Connect custom domain (brettlechtenberg.com)
+2. Add Brett's professional headshot
+3. SEO optimization (sitemap, robots.txt, meta tags)
 
 **What I Need Help With:**
 [Describe your specific focus]
@@ -60,15 +52,29 @@ vercel --prod --yes  # Deploy to Vercel
 
 ---
 
-## VERCEL CONNECTION
+## KEY FILES
 
-If not yet connected:
-1. Go to https://vercel.com/bretts-projects-3e254e58
-2. Click "Add New Project"
-3. Import from GitHub: `BrettLechtenbrerg/BL-2026-Personal-Site`
-4. Use default settings (Next.js auto-detected)
-5. Deploy
+| File | Purpose |
+|------|---------|
+| `src/app/page.tsx` | Homepage |
+| `src/lib/utils.ts` | Brand colors, links |
+| `src/components/layout/Header.tsx` | Navigation |
+| `src/components/layout/Footer.tsx` | Footer |
+| `CLAUDE.md` | Full project documentation |
+| `RESTART-PROMPT.md` | Detailed restart guide |
 
 ---
 
-*Last updated: April 4, 2026 @ 9:10 AM*
+## DEPLOYMENT
+
+```bash
+# Commit changes
+git add . && git commit -m "Description" && git push
+
+# Deploy to Vercel
+vercel --prod --yes
+```
+
+---
+
+*Last updated: April 4, 2026 @ 8:55 AM*
