@@ -109,10 +109,10 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button - 48px touch target */}
           <button
             type="button"
-            className="lg:hidden p-2 text-gray-700"
+            className="lg:hidden p-3 -mr-2 min-w-[48px] min-h-[48px] flex items-center justify-center text-gray-700"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Toggle menu</span>
@@ -134,13 +134,13 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white border-b border-gray-100"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="px-4 py-4 space-y-1">
               {navigation.map((item) => (
                 item.hasDropdown ? (
                   <div key={item.name}>
                     <button
                       onClick={() => setMobileSpeakingOpen(!mobileSpeakingOpen)}
-                      className="flex items-center justify-between w-full py-2 text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
+                      className="flex items-center justify-between w-full py-3 min-h-[48px] text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
                     >
                       {item.name}
                       <ChevronDown className={`w-5 h-5 transition-transform ${mobileSpeakingOpen ? 'rotate-180' : ''}`} />
@@ -157,7 +157,7 @@ export function Header() {
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block py-2 text-sm text-gray-600 hover:text-cranberry transition-colors"
+                              className="block py-3 min-h-[44px] text-sm text-gray-600 hover:text-cranberry transition-colors"
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               {subItem.name}
@@ -171,7 +171,7 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="block py-2 text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
+                    className="block py-3 min-h-[48px] text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}

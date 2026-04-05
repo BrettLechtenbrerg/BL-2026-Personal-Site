@@ -66,12 +66,12 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-warm-gray mb-4">
               Quick Links
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-300 hover:text-cranberry transition-colors"
+                    className="block py-2 min-h-[44px] text-sm text-gray-300 hover:text-cranberry transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -85,10 +85,10 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-warm-gray mb-4">
               Connect
             </h4>
-            <div className="space-y-3">
+            <div className="space-y-1">
               <a
                 href={links.email}
-                className="block text-sm text-gray-300 hover:text-cranberry transition-colors"
+                className="block py-2 min-h-[44px] text-sm text-gray-300 hover:text-cranberry transition-colors"
               >
                 Brett@BrettLechtenberg.com
               </a>
@@ -96,19 +96,19 @@ export function Footer() {
                 href={links.booking}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm text-gray-300 hover:text-cranberry transition-colors"
+                className="block py-2 min-h-[44px] text-sm text-gray-300 hover:text-cranberry transition-colors"
               >
                 speaktobrett.com
               </a>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4 mt-6">
+            {/* Social Links - 44px minimum touch targets */}
+            <div className="flex gap-3 mt-6">
               <a
                 href="https://www.linkedin.com/in/brettlechtenberg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
+                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
@@ -117,7 +117,7 @@ export function Footer() {
                 href="https://www.facebook.com/BrettGLechtenberg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
+                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -126,7 +126,7 @@ export function Footer() {
                 href="https://www.instagram.com/blechtenberg/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
+                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -141,16 +141,16 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Brett Lechtenberg. All rights
             reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-2">
             <Link
               href="/privacy"
-              className="text-xs text-warm-gray hover:text-white transition-colors"
+              className="px-3 py-2 min-h-[44px] flex items-center text-xs text-warm-gray hover:text-white transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-xs text-warm-gray hover:text-white transition-colors"
+              className="px-3 py-2 min-h-[44px] flex items-center text-xs text-warm-gray hover:text-white transition-colors"
             >
               Terms of Service
             </Link>

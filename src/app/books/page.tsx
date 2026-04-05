@@ -292,6 +292,7 @@ export default function BooksPage() {
                       title="Brett Lechtenberg on Good Things Utah"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
+                      loading="lazy"
                       className="w-full h-full"
                     />
                   </div>
@@ -319,6 +320,7 @@ export default function BooksPage() {
                       title="Brett Lechtenberg - Profiles in Caring"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
+                      loading="lazy"
                       className="w-full h-full"
                     />
                   </div>
@@ -344,6 +346,7 @@ export default function BooksPage() {
                     <video
                       src="https://assets.cdn.filesafe.space/OfcMDEmwDKM6qQZahiuf/media/677031452ec4ebcc52554f53.mp4"
                       controls
+                      preload="none"
                       className="w-full h-full object-cover"
                       playsInline
                     />
@@ -370,6 +373,7 @@ export default function BooksPage() {
                     <video
                       src="https://assets.cdn.filesafe.space/OfcMDEmwDKM6qQZahiuf/media/67703145a28a507e83de06d7.mp4"
                       controls
+                      preload="none"
                       className="w-full h-full object-cover"
                       playsInline
                     />
