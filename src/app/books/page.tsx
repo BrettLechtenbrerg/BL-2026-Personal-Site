@@ -162,62 +162,56 @@ export default function BooksPage() {
                   ) : (
                     <div className={`absolute -inset-1 bg-gradient-to-r ${book.bestseller ? 'from-gold to-gold-dark' : 'from-cranberry to-cranberry-dark'} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
                   )}
-                  <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col ${
+                  <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden ${
                     book.upcoming
                       ? "border-cranberry bg-gradient-to-br from-cranberry/10 via-white to-gold/10"
                       : "border-gray-100 bg-white shadow-lg group-hover:shadow-xl transition-all duration-300"
                   }`}>
-                    {/* Header with title and bestseller badge */}
-                    <div className="flex items-start justify-between mb-4 flex-shrink-0">
-                      <h3 className="text-xl font-bold text-black">{book.title}</h3>
-                      {book.bestseller && (
-                        <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full flex-shrink-0">
-                          <Star className="w-4 h-4 text-gold fill-gold" />
-                          <span className="text-xs font-semibold text-gold">Bestseller</span>
-                        </div>
-                      )}
-                    </div>
+                    {/* Background Book Cover Image */}
+                    {book.image && (
+                      <div className="absolute inset-0 overflow-hidden">
+                        <Image
+                          src={book.image}
+                          alt=""
+                          fill
+                          className="object-cover opacity-15 grayscale"
+                        />
+                      </div>
+                    )}
 
-                    {/* Status */}
-                    <p className={`text-sm font-semibold mb-4 flex-shrink-0 ${
-                      book.upcoming ? "text-cranberry" : "text-gold"
-                    }`}>
-                      {book.status}
-                    </p>
+                    {/* Content overlay */}
+                    <div className="relative z-10 flex flex-col h-full">
+                      {/* Header with title and bestseller badge */}
+                      <div className="flex items-start justify-between mb-4 flex-shrink-0">
+                        <h3 className="text-xl font-bold text-black">{book.title}</h3>
+                        {book.bestseller && (
+                          <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full flex-shrink-0">
+                            <Star className="w-4 h-4 text-gold fill-gold" />
+                            <span className="text-xs font-semibold text-gold">Bestseller</span>
+                          </div>
+                        )}
+                      </div>
 
-                    {/* Book Cover Image */}
-                    <div className="flex justify-center mb-6">
-                      {book.image ? (
-                        <div className="relative w-48 h-64 rounded-lg overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow duration-300">
-                          <Image
-                            src={book.image}
-                            alt={`${book.title} book cover`}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <div className={`w-48 h-64 rounded-lg flex items-center justify-center ${
-                          book.upcoming
-                            ? "bg-gradient-to-br from-cranberry/20 to-gold/20 border-2 border-dashed border-cranberry/40"
-                            : "bg-gray-100"
-                        }`}>
-                          <div className="text-center">
-                            <BookOpen className={`w-12 h-12 mx-auto mb-2 ${
-                              book.upcoming ? "text-cranberry" : "text-gray-400"
-                            }`} />
-                            <span className={`text-sm font-medium ${
-                              book.upcoming ? "text-cranberry" : "text-gray-400"
-                            }`}>
-                              {book.upcoming ? "Coming Soon" : "Cover"}
-                            </span>
+                      {/* Status */}
+                      <p className={`text-sm font-semibold mb-4 flex-shrink-0 ${
+                        book.upcoming ? "text-cranberry" : "text-gold"
+                      }`}>
+                        {book.status}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-warm-gray flex-grow">{book.description}</p>
+
+                      {/* Coming Soon placeholder for upcoming books */}
+                      {book.upcoming && !book.image && (
+                        <div className="mt-4 flex items-center justify-center">
+                          <div className="flex items-center gap-2 text-cranberry">
+                            <BookOpen className="w-5 h-5" />
+                            <span className="text-sm font-medium">Coming Soon</span>
                           </div>
                         </div>
                       )}
                     </div>
-
-                    {/* Description */}
-                    <p className="text-warm-gray text-center flex-grow">{book.description}</p>
                   </div>
                 </motion.div>
               ))}
