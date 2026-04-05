@@ -166,15 +166,20 @@ export default function BooksPage() {
                   transition={{ delay: index * 0.1 }}
                   className="group relative rounded-2xl"
                 >
-                  {book.upcoming ? (
-                    <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-40" />
-                  ) : (
-                    <div className={`absolute -inset-1 bg-gradient-to-r ${book.bestseller ? 'from-gold to-gold-dark' : 'from-cranberry to-cranberry-dark'} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
-                  )}
-                  <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 ${
+                  {/* Glow effect on hover */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${
                     book.upcoming
-                      ? "border-cranberry"
-                      : "border-gray-100"
+                      ? 'from-cranberry via-gold to-cranberry opacity-40 group-hover:opacity-60'
+                      : book.bestseller
+                        ? 'from-gold via-cranberry to-gold opacity-0 group-hover:opacity-40'
+                        : 'from-cranberry via-gold to-cranberry opacity-0 group-hover:opacity-30'
+                  } rounded-2xl blur-lg transition-opacity duration-300`} />
+                  <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 ${
+                    book.upcoming
+                      ? "border-cranberry/60 group-hover:border-cranberry"
+                      : book.bestseller
+                        ? "border-gold/40 group-hover:border-gold/70"
+                        : "border-cranberry/30 group-hover:border-cranberry/50"
                   } ${"gradient" in book && book.gradient ? book.gradient : "bg-white"}`}>
                     {/* Background Book Cover Image */}
                     {book.image && (
