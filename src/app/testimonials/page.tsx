@@ -15,6 +15,7 @@ const featuredTestimonials = [
     name: "Sam Beard",
     title: "Advisor to 8 U.S. Presidents",
     gradient: "from-gold to-gold-dark",
+    image: "/testimonials/sam-beard.jpg",
   },
   {
     quote:
@@ -22,6 +23,7 @@ const featuredTestimonials = [
     name: "Bill Schuffenhauer",
     title: "Olympic Silver Medalist & 3x Olympian",
     gradient: "from-cranberry to-cranberry-dark",
+    image: "/testimonials/bill-schuffenhauer.png",
   },
   {
     quote:
@@ -29,6 +31,7 @@ const featuredTestimonials = [
     name: "Sal Rossano",
     title: "Green Beret - Trauma Survival Specialist",
     gradient: "from-gold to-gold-dark",
+    image: "/testimonials/sal-rossano.png",
   },
   {
     quote:
@@ -36,6 +39,7 @@ const featuredTestimonials = [
     name: "Matt Gibbons",
     title: "President, Murray Chamber of Commerce",
     gradient: "from-cranberry to-cranberry-dark",
+    image: "/testimonials/matt-gibbons.png",
   },
 ];
 
@@ -53,6 +57,7 @@ const businessResults = [
       "Brett has helped me more clearly understand marketing and branding. Not only the implementation but the effect it has on my personal brand and the relationship I have with my community. I could not recommend Brett and his team enough for their effectiveness and professionalism.",
     name: "Al Agon",
     title: "Perfect Balance Fitness, Miami, FL",
+    image: "/testimonials/al-agon.webp",
   },
   {
     quote:
@@ -218,22 +223,35 @@ export default function TestimonialsPage() {
                   className="relative group h-full"
                 >
                   <div className={`absolute -inset-1 bg-gradient-to-r ${testimonial.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
-                  <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100 h-full flex flex-col">
-                    <div className={`absolute -top-5 left-8 w-12 h-12 bg-gradient-to-br ${testimonial.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
-                      <Quote className="w-6 h-6 text-white" />
-                    </div>
-                    <blockquote className="text-lg text-black leading-relaxed mb-6 pt-4 flex-1">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </blockquote>
-                    <div className="flex items-center gap-4 mt-auto">
-                      <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg shrink-0`}>
-                        {testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                  <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100 h-full flex flex-col overflow-hidden">
+                    {/* Background person image */}
+                    {"image" in testimonial && testimonial.image && (
+                      <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
+                        <Image
+                          src={testimonial.image}
+                          alt=""
+                          fill
+                          className="object-contain opacity-10 grayscale"
+                        />
                       </div>
-                      <div>
-                        <p className="font-bold text-black">{testimonial.name}</p>
-                        {testimonial.title && (
-                          <p className="text-sm text-cranberry font-medium">{testimonial.title}</p>
-                        )}
+                    )}
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className={`absolute -top-5 left-0 w-12 h-12 bg-gradient-to-br ${testimonial.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
+                        <Quote className="w-6 h-6 text-white" />
+                      </div>
+                      <blockquote className="text-lg text-black leading-relaxed mb-6 pt-4 flex-1">
+                        &ldquo;{testimonial.quote}&rdquo;
+                      </blockquote>
+                      <div className="flex items-center gap-4 mt-auto">
+                        <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg shrink-0`}>
+                          {testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                        </div>
+                        <div>
+                          <p className="font-bold text-black">{testimonial.name}</p>
+                          {testimonial.title && (
+                            <p className="text-sm text-cranberry font-medium">{testimonial.title}</p>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -279,14 +297,25 @@ export default function TestimonialsPage() {
                   className="group relative h-full"
                 >
                   <div className="absolute -inset-1 bg-gradient-to-r from-gold via-cranberry to-gold rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex gap-6 h-full">
+                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex gap-6 h-full overflow-hidden">
+                    {/* Background person image */}
+                    {"image" in testimonial && testimonial.image && (
+                      <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
+                        <Image
+                          src={testimonial.image}
+                          alt=""
+                          fill
+                          className="object-contain opacity-10 grayscale"
+                        />
+                      </div>
+                    )}
                     {testimonial.stat && (
-                      <div className="hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-gold to-gold-dark rounded-xl p-6 text-black min-w-[100px] shrink-0">
+                      <div className="relative z-10 hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-gold to-gold-dark rounded-xl p-6 text-black min-w-[100px] shrink-0">
                         <span className="text-3xl font-black">{testimonial.stat}</span>
                         <span className="text-xs text-black/80">{testimonial.statLabel}</span>
                       </div>
                     )}
-                    <div className="flex-1 flex flex-col">
+                    <div className="relative z-10 flex-1 flex flex-col">
                       <blockquote className="text-gray-300 mb-4 flex-1">
                         &ldquo;{testimonial.quote}&rdquo;
                       </blockquote>
