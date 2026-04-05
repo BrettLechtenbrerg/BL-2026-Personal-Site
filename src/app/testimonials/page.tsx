@@ -238,16 +238,16 @@ export default function TestimonialsPage() {
                   transition={{ delay: index * 0.1 }}
                   className="relative group h-full"
                 >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${testimonial.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
-                  <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100 h-full flex flex-col overflow-hidden">
-                    {/* Background person image */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${testimonial.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
+                  <div className={`relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border-2 border-gray-200 group-hover:border-transparent group-hover:shadow-2xl h-full flex flex-col overflow-hidden transition-all duration-300`}>
+                    {/* Background person image - 15% darker for visibility */}
                     {"image" in testimonial && testimonial.image && (
                       <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
                         <Image
                           src={testimonial.image}
                           alt=""
                           fill
-                          className="object-contain opacity-10 grayscale"
+                          className="object-contain opacity-[0.15] grayscale"
                         />
                       </div>
                     )}
