@@ -13,7 +13,7 @@ const featuredTestimonials = [
     quote:
       "In my lifetime I have had the opportunity to meet extraordinary people from around the world and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
     name: "Sam Beard",
-    title: "Advisor to 8 U.S. Presidents",
+    title: "Creator 6 Presidential Programs for 8 U.S. Presidents",
     gradient: "from-gold to-gold-dark",
     image: "/testimonials/sam-beard.jpg",
   },
@@ -29,7 +29,7 @@ const featuredTestimonials = [
     quote:
       "In my military career I had to perform in any conditions, at any given time, without fail. If you want to learn that kind of mindset in business and building teams then Brett Lechtenberg is definitely a person that I turn to help me with my goals and objectives.",
     name: "Sal Rossano",
-    title: "Green Beret - Trauma Survival Specialist",
+    title: "Green Beret (Ret.) - Trauma Survival Specialist",
     gradient: "from-gold to-gold-dark",
     image: "/testimonials/sal-rossano.png",
   },
@@ -40,6 +40,22 @@ const featuredTestimonials = [
     title: "President, Murray Chamber of Commerce",
     gradient: "from-cranberry to-cranberry-dark",
     image: "/testimonials/matt-gibbons.png",
+  },
+  {
+    quote:
+      "Brett is one of my 300. Just like Spartans of old had to pick 300 to face down their foes who were no nonsense amazing people. Brett is someone I turn to when I need to pick my 300.",
+    name: "Jerry Fontanez",
+    title: "8-Time World Karate Champion",
+    gradient: "from-gold to-gold-dark",
+    image: "/testimonials/jerry-fontanez.jpg",
+  },
+  {
+    quote:
+      "Brett has an innate ability to break down complicated subjects into easy to learn and quick to implement subject matter. He has helped me motivate my staff, implement more cash generation systems and help build a culture of fun and positive growth.",
+    name: "John Nottingham",
+    title: "Sword and Shield Security, Phoenix, AZ",
+    gradient: "from-cranberry to-cranberry-dark",
+    image: "/testimonials/john-nottingham.webp",
   },
 ];
 
