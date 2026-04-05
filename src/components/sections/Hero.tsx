@@ -14,61 +14,47 @@ export function Hero() {
         src="/heroes/homepage.jpg"
         alt="Leadership and peak performance"
         fill
-        className="object-cover opacity-35"
+        className="object-cover opacity-30"
         priority
       />
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60" />
+
+      {/* Subtle animated gradient orbs - toned down */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
+            opacity: [0.2, 0.4, 0.2],
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-[600px] h-[600px] bg-cranberry/40 rounded-full blur-[120px]"
+          className="absolute top-0 right-0 w-[600px] h-[600px] bg-cranberry/30 rounded-full blur-[150px]"
         />
         <motion.div
           animate={{
             scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.15, 0.3, 0.15],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/30 rounded-full blur-[100px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cranberry/20 rounded-full blur-[80px]"
+          className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/20 rounded-full blur-[120px]"
         />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Content - slides in from left */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.34, 1.56, 0.64, 1],
-              delay: 0.2,
-            }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="order-2 lg:order-1"
           >
             {/* Eyebrow with icon */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/30 rounded-full px-4 py-2 mb-6"
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/30 rounded-full px-4 py-2 mb-8"
             >
               <Sparkles className="w-4 h-4 text-gold" />
               <span className="text-cranberry-light font-medium text-sm">
@@ -76,11 +62,11 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline - Original copy */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
               Discover Who You&apos;re{" "}
@@ -93,12 +79,12 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            {/* Subheadline */}
+            {/* Subheadline - Original copy */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="text-lg text-gray-300 leading-relaxed mb-8 max-w-xl"
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-lg text-gray-300 leading-relaxed mb-10 max-w-xl"
             >
               Brett Lechtenberg helps leaders unlock peak performance through{" "}
               <span className="text-gold font-semibold">The Master&apos;s Edge</span> — a
@@ -107,96 +93,65 @@ export function Hero() {
               business.
             </motion.p>
 
-            {/* CTAs */}
+            {/* CTAs - 2 buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
               className="flex flex-wrap gap-4"
             >
               <Button href={links.booking} external size="lg">
                 Talk to Brett
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button href="/masters-edge" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-                Explore The Master&apos;s Edge
+              <Button
+                href="/masters-edge"
+                variant="outline"
+                size="lg"
+                className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+              >
+                Learn More
               </Button>
             </motion.div>
-
           </motion.div>
 
-          {/* Image container */}
+          {/* Image - slides in from right */}
           <motion.div
-            initial={{ opacity: 0, x: -80, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{
-              duration: 1,
-              ease: [0.34, 1.56, 0.64, 1],
-              delay: 0.1,
-            }}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="order-1 lg:order-2 relative"
           >
-            {/* Glowing border effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-60" />
+            {/* Subtle glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-cranberry/40 via-gold/30 to-cranberry/40 rounded-3xl blur-2xl opacity-50" />
 
             {/* Image frame */}
-            <div className="relative">
-              {/* Animated border */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold via-50% to-cranberry rounded-3xl opacity-30"
-                style={{ backgroundSize: "200% 100%" }}
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <Image
+                src="/brett-hero.webp"
+                alt="Brett Lechtenberg - Peak Performance Coach"
+                fill
+                className="object-cover object-top"
+                priority
               />
-
-              {/* Brett's Photo */}
-              <div className="relative aspect-[4/5] bg-gradient-to-br from-cranberry/20 via-black to-gold/20 rounded-2xl overflow-hidden border border-white/10">
-                <Image
-                  src="/brett-hero.webp"
-                  alt="Brett Lechtenberg - Peak Performance Coach and 8th Degree Black Belt"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
-              </div>
-
-              {/* Floating credential badges */}
-              <motion.div
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="absolute -bottom-6 -left-6 bg-gradient-to-br from-gold to-gold-dark rounded-2xl shadow-2xl shadow-gold/20 p-5"
-              >
-                <p className="text-black font-black text-3xl">30+</p>
-                <p className="text-black/70 text-sm font-medium">Years in Business</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: -20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: 1.1, duration: 0.6 }}
-                className="absolute -top-6 -right-6 bg-gradient-to-br from-cranberry to-cranberry-dark text-white rounded-2xl shadow-2xl shadow-cranberry/30 p-5"
-              >
-                <p className="font-black text-3xl">8th°</p>
-                <p className="text-white/80 text-sm font-medium">Black Belt</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-                className="absolute top-1/2 -right-8 transform -translate-y-1/2 bg-white rounded-2xl shadow-2xl p-4"
-              >
-                <p className="text-cranberry font-black text-2xl">7</p>
-                <p className="text-gray-600 text-xs font-medium">Books<br/>Published</p>
-              </motion.div>
             </div>
+
+            {/* Single floating badge - 30+ Years - TOP RIGHT */}
+            <motion.div
+              initial={{ opacity: 0, y: -20, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="absolute -top-4 -right-4 bg-gradient-to-br from-gold to-gold-dark rounded-xl shadow-2xl shadow-gold/30 p-4"
+            >
+              <p className="text-black font-black text-2xl">30+</p>
+              <p className="text-black/70 text-xs font-semibold">Years Experience</p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
       {/* Value Pillars - Clarify, Simplify, Maximize */}
-      <div className="absolute bottom-24 left-0 right-0 z-10">
+      <div className="absolute bottom-64 left-0 right-0 z-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             {[
@@ -208,7 +163,7 @@ export function Hero() {
                 key={pillar.main}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.3 + index * 0.15, duration: 0.5 }}
+                transition={{ delay: 1 + index * 0.15, duration: 0.5 }}
                 className="group relative"
               >
                 <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
@@ -227,7 +182,7 @@ export function Hero() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
     </section>
   );
 }
