@@ -252,10 +252,10 @@ export default function TestimonialsPage() {
                       </div>
                     )}
                     <div className="relative z-10 flex flex-col h-full">
-                      <div className={`absolute -top-5 left-0 w-12 h-12 bg-gradient-to-br ${testimonial.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
+                      <div className={`absolute -top-5 -left-2 w-12 h-12 bg-gradient-to-br ${testimonial.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
                         <Quote className="w-6 h-6 text-white" />
                       </div>
-                      <blockquote className="text-lg text-black leading-relaxed mb-6 pt-4 flex-1">
+                      <blockquote className="text-lg text-black leading-relaxed mb-6 pt-10 flex-1">
                         &ldquo;{testimonial.quote}&rdquo;
                       </blockquote>
                       <div className="flex items-center gap-4 mt-auto">
