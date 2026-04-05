@@ -16,6 +16,7 @@ const books = [
       "The definitive guide to Brett's proprietary peak performance methodology. Built on 30+ years of experience and original flow state research.",
     bestseller: false,
     upcoming: true,
+    image: null,
   },
   {
     title: "Reclaiming The Clock",
@@ -23,6 +24,7 @@ const books = [
     description:
       "How to have more time, reduce stress, and increase peace of mind in a world of unparalleled distraction.",
     bestseller: true,
+    image: "/books/reclaiming-the-clock.png",
   },
   {
     title: "The Anti-Bully Program",
@@ -30,12 +32,14 @@ const books = [
     description:
       "A straightforward and insightful training program for families navigating bullying.",
     bestseller: true,
+    image: "/books/anti-bully-program.png",
   },
   {
     title: "The Anti-Cyber Bully Program",
     status: "#1 Amazon Bestseller",
     description: "Clear, actionable guidance for parents dealing with cyberbullying.",
     bestseller: true,
+    image: "/books/anti-cyber-bully-program.png",
   },
   {
     title: "Bullyproof: Unleash the Hero in Your Kid",
@@ -43,6 +47,7 @@ const books = [
     description:
       "A collaborative work bringing together experts on child empowerment and safety.",
     bestseller: true,
+    image: "/books/bullyproof.png",
   },
   {
     title: "The Ultimate Travel Safety Program",
@@ -50,6 +55,7 @@ const books = [
     description:
       "Essential safety training for travelers, missionaries, and anyone heading abroad.",
     bestseller: true,
+    image: "/books/travel-safety-program.png",
   },
   {
     title: "Protecting Your Castle",
@@ -57,6 +63,7 @@ const books = [
     description:
       "The premier anti-home burglary and safety training program for homeowners and renters.",
     bestseller: false,
+    image: "/books/protecting-your-castle.png",
   },
 ];
 
@@ -160,21 +167,9 @@ export default function BooksPage() {
                       ? "border-cranberry bg-gradient-to-br from-cranberry/10 via-white to-gold/10"
                       : "border-gray-100 bg-white shadow-lg group-hover:shadow-xl transition-all duration-300"
                   }`}>
+                    {/* Header with title and bestseller badge */}
                     <div className="flex items-start justify-between mb-4 flex-shrink-0">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                          book.upcoming
-                            ? "bg-gradient-to-br from-cranberry to-cranberry-dark"
-                            : book.bestseller
-                              ? "bg-gradient-to-br from-gold to-gold-dark"
-                              : "bg-gray-100"
-                        }`}>
-                          <BookOpen className={`w-6 h-6 ${
-                            book.upcoming || book.bestseller ? "text-white" : "text-gray-500"
-                          }`} />
-                        </div>
-                        <h3 className="text-xl font-bold text-black">{book.title}</h3>
-                      </div>
+                      <h3 className="text-xl font-bold text-black">{book.title}</h3>
                       {book.bestseller && (
                         <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full flex-shrink-0">
                           <Star className="w-4 h-4 text-gold fill-gold" />
@@ -182,12 +177,47 @@ export default function BooksPage() {
                         </div>
                       )}
                     </div>
-                    <p className={`text-sm font-semibold mb-3 flex-shrink-0 ${
+
+                    {/* Status */}
+                    <p className={`text-sm font-semibold mb-4 flex-shrink-0 ${
                       book.upcoming ? "text-cranberry" : "text-gold"
                     }`}>
                       {book.status}
                     </p>
-                    <p className="text-warm-gray flex-grow">{book.description}</p>
+
+                    {/* Book Cover Image */}
+                    <div className="flex justify-center mb-6">
+                      {book.image ? (
+                        <div className="relative w-48 h-64 rounded-lg overflow-hidden shadow-xl group-hover:shadow-2xl transition-shadow duration-300">
+                          <Image
+                            src={book.image}
+                            alt={`${book.title} book cover`}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className={`w-48 h-64 rounded-lg flex items-center justify-center ${
+                          book.upcoming
+                            ? "bg-gradient-to-br from-cranberry/20 to-gold/20 border-2 border-dashed border-cranberry/40"
+                            : "bg-gray-100"
+                        }`}>
+                          <div className="text-center">
+                            <BookOpen className={`w-12 h-12 mx-auto mb-2 ${
+                              book.upcoming ? "text-cranberry" : "text-gray-400"
+                            }`} />
+                            <span className={`text-sm font-medium ${
+                              book.upcoming ? "text-cranberry" : "text-gray-400"
+                            }`}>
+                              {book.upcoming ? "Coming Soon" : "Cover"}
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-warm-gray text-center flex-grow">{book.description}</p>
                   </div>
                 </motion.div>
               ))}
