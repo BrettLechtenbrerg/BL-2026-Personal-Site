@@ -212,14 +212,17 @@ export default function AIAdvisoryPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex items-start gap-6 h-full"
+                  className="group relative"
                 >
-                  <div className={`w-16 h-16 bg-gradient-to-br ${area.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                    <area.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-black mb-2">{area.title}</h3>
-                    <p className="text-warm-gray">{area.description}</p>
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${area.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
+                  <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex items-start gap-6 h-full group-hover:shadow-2xl transition-all duration-300">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${area.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                      <area.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-black mb-2">{area.title}</h3>
+                      <p className="text-warm-gray">{area.description}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}

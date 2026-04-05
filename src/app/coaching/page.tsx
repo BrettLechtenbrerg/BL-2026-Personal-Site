@@ -321,10 +321,13 @@ export default function CoachingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10"
+                  className="group relative"
                 >
-                  <h3 className="text-lg font-bold text-white mb-2">{faq.q}</h3>
-                  <p className="text-gray-400">{faq.a}</p>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-gold via-cranberry to-gold rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+                  <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 group-hover:border-white/20 transition-all duration-300">
+                    <h3 className="text-lg font-bold text-white mb-2">{faq.q}</h3>
+                    <p className="text-gray-400">{faq.a}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>

@@ -241,18 +241,21 @@ export default function MastersEdgePage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-full flex flex-col"
+                    className="group relative"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center mb-6 flex-shrink-0">
-                      <pillar.icon className="w-7 h-7 text-white" />
+                    <div className="absolute -inset-1 bg-gradient-to-r from-cranberry to-gold rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+                    <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-full flex flex-col group-hover:border-white/20 transition-all duration-300">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center mb-6 flex-shrink-0">
+                        <pillar.icon className="w-7 h-7 text-white" />
+                      </div>
+                      <h4 className="text-xl font-bold text-white mb-1 flex-shrink-0">
+                        {pillar.title}
+                      </h4>
+                      <p className="text-gold text-sm font-medium mb-3 flex-shrink-0">
+                        {pillar.subtitle}
+                      </p>
+                      <p className="text-gray-400 flex-grow">{pillar.description}</p>
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-1 flex-shrink-0">
-                      {pillar.title}
-                    </h4>
-                    <p className="text-gold text-sm font-medium mb-3 flex-shrink-0">
-                      {pillar.subtitle}
-                    </p>
-                    <p className="text-gray-400 flex-grow">{pillar.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -263,10 +266,10 @@ export default function MastersEdgePage() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative"
+              className="group relative"
             >
-              <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-40" />
-              <div className="relative text-center bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl p-12 border border-white/20">
+              <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
+              <div className="relative text-center bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl p-12 border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <h3 className="text-xl font-bold text-white mb-4">
                   Layer 3: The Transformation Promise
                 </h3>

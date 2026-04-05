@@ -3,6 +3,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
+import { LogoScroller } from "@/components/sections/LogoScroller";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Sparkles, Target, Lightbulb, Zap, Users, Smile, Mic2, Quote } from "lucide-react";
@@ -50,15 +51,6 @@ const talks = [
   },
 ];
 
-const logos = [
-  { name: "American Express", src: "/logos/american-express.png", width: 120 },
-  { name: "Delta", src: "/logos/delta.png", width: 120 },
-  { name: "Packsize", src: "/logos/packsize.png", width: 120 },
-  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 140 },
-  { name: "Purple", src: "/logos/purple.jpg", width: 100 },
-  { name: "Thumbtack", src: "/logos/thumbtack.png", width: 120 },
-  { name: "Murray Area Chamber", src: "/logos/murray-chamber.png", width: 100 },
-];
 
 export default function SpeakingPage() {
   return (
@@ -133,27 +125,8 @@ export default function SpeakingPage() {
           </div>
         </section>
 
-        {/* Client Logos */}
-        <section className="py-12 bg-gradient-to-r from-cranberry/10 via-white to-gold/10 border-y border-gray-100">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-sm text-warm-gray mb-6">
-              Brett has spoken at and conducted training for organizations including:
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
-              {logos.map((logo) => (
-                <div key={logo.name} className="opacity-80 hover:opacity-100 transition-opacity">
-                  <Image src={logo.src} alt={logo.name} width={logo.width} height={40} className="h-10 w-auto" />
-                </div>
-              ))}
-              <div className="opacity-80 hover:opacity-100 transition-opacity">
-                <Image src="/logos/heber-valley-chamber.png" alt="Heber Valley Chamber" width={100} height={40} className="h-10 w-auto" />
-              </div>
-              <div className="opacity-80 hover:opacity-100 transition-opacity">
-                <Image src="/logos/park-city-chamber.png" alt="Park City Chamber" width={100} height={40} className="h-10 w-auto" />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Client Logos - Scrolling */}
+        <LogoScroller />
 
         {/* What You Can Expect - Gradient background */}
         <section className="py-24 bg-gradient-to-b from-white via-cranberry/5 to-gold/5 relative overflow-hidden">
@@ -177,14 +150,17 @@ export default function SpeakingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-4 bg-white rounded-xl p-6 shadow-lg border border-gray-100 h-full"
+                  className="group relative"
                 >
-                  <div className={`w-14 h-14 bg-gradient-to-br ${outcome.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                    <outcome.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-black mb-1">{outcome.title}</h3>
-                    <p className="text-warm-gray text-sm">{outcome.description}</p>
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${outcome.gradient} rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
+                  <div className="relative flex items-start gap-4 bg-white rounded-xl p-6 shadow-lg border border-gray-100 h-full group-hover:shadow-xl transition-all duration-300">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${outcome.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                      <outcome.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-black mb-1">{outcome.title}</h3>
+                      <p className="text-warm-gray text-sm">{outcome.description}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}

@@ -148,17 +148,17 @@ export default function BooksPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`group relative rounded-2xl ${
-                    book.upcoming ? "" : ""
-                  }`}
+                  className="group relative rounded-2xl"
                 >
-                  {book.upcoming && (
+                  {book.upcoming ? (
                     <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-40" />
+                  ) : (
+                    <div className={`absolute -inset-1 bg-gradient-to-r ${book.bestseller ? 'from-gold to-gold-dark' : 'from-cranberry to-cranberry-dark'} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
                   )}
                   <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col ${
                     book.upcoming
                       ? "border-cranberry bg-gradient-to-br from-cranberry/10 via-white to-gold/10"
-                      : "border-gray-100 bg-white shadow-lg hover:shadow-xl transition-shadow"
+                      : "border-gray-100 bg-white shadow-lg group-hover:shadow-xl transition-all duration-300"
                   }`}>
                     <div className="flex items-start justify-between mb-4 flex-shrink-0">
                       <div className="flex items-center gap-3">
@@ -227,9 +227,12 @@ export default function BooksPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-3 text-white font-semibold"
+                    className="group relative"
                   >
-                    {name}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-gold to-cranberry rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+                    <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-3 text-white font-semibold group-hover:border-white/20 transition-all duration-300">
+                      {name}
+                    </div>
                   </motion.div>
                 ))}
               </div>
