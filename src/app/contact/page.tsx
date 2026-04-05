@@ -43,7 +43,7 @@ export default function ContactPage() {
             src="/heroes/contact.jpg"
             alt="Professional handshake representing connection"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-35"
             priority
           />
           {/* Dark overlay */}
@@ -101,12 +101,12 @@ export default function ContactPage() {
                 className="group relative"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-cranberry to-cranberry-dark rounded-2xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
-                <div className="relative bg-gradient-to-br from-cranberry via-cranberry-dark to-black text-white rounded-2xl p-8 text-center h-full">
-                  <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div className="relative bg-gradient-to-br from-cranberry via-cranberry-dark to-black text-white rounded-2xl p-8 text-center h-full flex flex-col">
+                  <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg flex-shrink-0">
                     <Calendar className="w-10 h-10" />
                   </div>
-                  <h2 className="text-2xl font-bold mb-4">Book a Call With Brett</h2>
-                  <p className="text-white/80 mb-8">
+                  <h2 className="text-2xl font-bold mb-4 flex-shrink-0">Book a Call With Brett</h2>
+                  <p className="text-white/80 mb-8 flex-grow">
                     Schedule a conversation at a time that works for you.
                   </p>
                   <Button
@@ -114,7 +114,7 @@ export default function ContactPage() {
                     external
                     variant="secondary"
                     size="lg"
-                    className="w-full"
+                    className="w-full mt-auto flex-shrink-0"
                   >
                     Book a Call
                   </Button>
@@ -130,19 +130,19 @@ export default function ContactPage() {
                 className="group relative"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-gold to-gold-dark rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                <div className="relative bg-white rounded-2xl p-8 text-center shadow-xl border border-gray-100 h-full">
-                  <div className="w-20 h-20 bg-gradient-to-br from-gold to-gold-dark rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div className="relative bg-white rounded-2xl p-8 text-center shadow-xl border border-gray-100 h-full flex flex-col">
+                  <div className="w-20 h-20 bg-gradient-to-br from-gold to-gold-dark rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg flex-shrink-0">
                     <Mail className="w-10 h-10 text-white" />
                   </div>
-                  <h2 className="text-2xl font-bold text-black mb-4">
+                  <h2 className="text-2xl font-bold text-black mb-4 flex-shrink-0">
                     Or Reach Out Directly
                   </h2>
-                  <p className="text-warm-gray mb-8">
+                  <p className="text-warm-gray mb-8 flex-grow">
                     Prefer email? Send Brett a message anytime.
                   </p>
                   <a
                     href={links.email}
-                    className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-cranberry to-cranberry-dark text-white px-6 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-cranberry/30 transition-all hover:-translate-y-1"
+                    className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-cranberry to-cranberry-dark text-white px-6 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-cranberry/30 transition-all hover:-translate-y-1 mt-auto flex-shrink-0"
                   >
                     Brett@BrettLechtenberg.com
                   </a>
@@ -159,13 +159,13 @@ export default function ContactPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="text-center bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
+                  className="text-center bg-white rounded-2xl p-6 shadow-lg border border-gray-100 h-full flex flex-col"
                 >
-                  <div className={`w-14 h-14 bg-gradient-to-br ${promise.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+                  <div className={`w-14 h-14 bg-gradient-to-br ${promise.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg flex-shrink-0`}>
                     <promise.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="font-bold text-black mb-2">{promise.title}</h3>
-                  <p className="text-warm-gray text-sm">{promise.description}</p>
+                  <h3 className="font-bold text-black mb-2 flex-shrink-0">{promise.title}</h3>
+                  <p className="text-warm-gray text-sm flex-grow">{promise.description}</p>
                 </motion.div>
               ))}
             </div>

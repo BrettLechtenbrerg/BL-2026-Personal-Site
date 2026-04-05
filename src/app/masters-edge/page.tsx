@@ -71,7 +71,7 @@ export default function MastersEdgePage() {
             src="/heroes/masters-edge.jpg"
             alt="Mountain peak at sunrise representing transformation"
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-45"
             priority
           />
           {/* Dark overlay */}
@@ -211,17 +211,17 @@ export default function MastersEdgePage() {
                     className="group relative"
                   >
                     <div className={`absolute -inset-1 bg-gradient-to-r ${foundation.gradient} rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity`} />
-                    <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${foundation.gradient} flex items-center justify-center mb-6`}>
+                    <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-full flex flex-col">
+                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${foundation.gradient} flex items-center justify-center mb-6 flex-shrink-0`}>
                         <foundation.icon className="w-7 h-7 text-white" />
                       </div>
-                      <p className="text-gold font-bold text-sm mb-2">
+                      <p className="text-gold font-bold text-sm mb-2 flex-shrink-0">
                         → Drives {foundation.drives}
                       </p>
-                      <h4 className="text-xl font-bold text-white mb-3">
+                      <h4 className="text-xl font-bold text-white mb-3 flex-shrink-0">
                         {foundation.title}
                       </h4>
-                      <p className="text-gray-400">{foundation.description}</p>
+                      <p className="text-gray-400 flex-grow">{foundation.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -241,18 +241,18 @@ export default function MastersEdgePage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+                    className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-full flex flex-col"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center mb-6 flex-shrink-0">
                       <pillar.icon className="w-7 h-7 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-1">
+                    <h4 className="text-xl font-bold text-white mb-1 flex-shrink-0">
                       {pillar.title}
                     </h4>
-                    <p className="text-gold text-sm font-medium mb-3">
+                    <p className="text-gold text-sm font-medium mb-3 flex-shrink-0">
                       {pillar.subtitle}
                     </p>
-                    <p className="text-gray-400">{pillar.description}</p>
+                    <p className="text-gray-400 flex-grow">{pillar.description}</p>
                   </motion.div>
                 ))}
               </div>

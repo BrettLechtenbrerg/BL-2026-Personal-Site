@@ -4,13 +4,19 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 
+const speakingDropdown = [
+  { name: "Speaking Overview", href: "/speaking" },
+  { name: "Book Brett", href: "/book-brett" },
+  { name: "Media Kit", href: "/media-kit" },
+];
+
 const navigation = [
   { name: "The Master's Edge", href: "/masters-edge" },
-  { name: "Speaking", href: "/speaking" },
+  { name: "Speaking", href: "/speaking", hasDropdown: true },
   { name: "Coaching", href: "/coaching" },
   { name: "AI Advisory", href: "/ai-advisory" },
   { name: "Books & Media", href: "/books" },
@@ -20,6 +26,8 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [speakingDropdownOpen, setSpeakingDropdownOpen] = useState(false);
+  const [mobileSpeakingOpen, setMobileSpeakingOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
@@ -51,13 +59,50 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
-              >
-                {item.name}
-              </Link>
+              item.hasDropdown ? (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => setSpeakingDropdownOpen(true)}
+                  onMouseLeave={() => setSpeakingDropdownOpen(false)}
+                >
+                  <button
+                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
+                  >
+                    {item.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform ${speakingDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {speakingDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
+                      >
+                        {speakingDropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-3 text-sm text-gray-700 hover:bg-cranberry/5 hover:text-cranberry transition-colors"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
             <Button href={links.booking} external size="sm">
               Talk to Brett
@@ -91,14 +136,47 @@ export function Header() {
           >
             <div className="px-4 py-4 space-y-2">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                item.hasDropdown ? (
+                  <div key={item.name}>
+                    <button
+                      onClick={() => setMobileSpeakingOpen(!mobileSpeakingOpen)}
+                      className="flex items-center justify-between w-full py-2 text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
+                    >
+                      {item.name}
+                      <ChevronDown className={`w-5 h-5 transition-transform ${mobileSpeakingOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <AnimatePresence>
+                      {mobileSpeakingOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="pl-4 space-y-1"
+                        >
+                          {speakingDropdown.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="block py-2 text-sm text-gray-600 hover:text-cranberry transition-colors"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block py-2 text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
               <div className="pt-4">
                 <Button href={links.booking} external className="w-full">

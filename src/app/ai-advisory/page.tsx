@@ -57,7 +57,7 @@ export default function AIAdvisoryPage() {
             src="/heroes/ai-advisory.jpg"
             alt="AI and technology visualization"
             fill
-            className="object-cover opacity-25"
+            className="object-cover opacity-40"
             priority
           />
           {/* Dark overlay */}
@@ -174,14 +174,14 @@ export default function AIAdvisoryPage() {
                   className="group relative"
                 >
                   <div className={`absolute -inset-1 bg-gradient-to-r ${tier.gradient} rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity`} />
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-full">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${tier.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-full flex flex-col">
+                    <div className={`w-16 h-16 bg-gradient-to-br ${tier.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg flex-shrink-0`}>
                       <tier.icon className="w-8 h-8 text-white" />
                     </div>
-                    <p className="text-sm text-gray-400 mb-1">{tier.subtitle}</p>
-                    <h3 className="text-2xl font-bold text-white mb-4">{tier.title}</h3>
-                    <p className="text-gray-400 mb-6">{tier.description}</p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-gray-400 mb-1 flex-shrink-0">{tier.subtitle}</p>
+                    <h3 className="text-2xl font-bold text-white mb-4 flex-shrink-0">{tier.title}</h3>
+                    <p className="text-gray-400 mb-6 flex-grow">{tier.description}</p>
+                    <p className="text-sm text-gray-500 mt-auto flex-shrink-0">
                       <span className="font-semibold text-gold">Best for:</span> {tier.bestFor}
                     </p>
                   </div>
@@ -212,7 +212,7 @@ export default function AIAdvisoryPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex gap-6"
+                  className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex items-start gap-6 h-full"
                 >
                   <div className={`w-16 h-16 bg-gradient-to-br ${area.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
                     <area.icon className="w-8 h-8 text-white" />

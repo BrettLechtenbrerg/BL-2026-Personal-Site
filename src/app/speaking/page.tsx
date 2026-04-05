@@ -72,7 +72,7 @@ export default function SpeakingPage() {
             src="/heroes/speaking.jpg"
             alt="Speaker on stage with dramatic lighting"
             fill
-            className="object-cover opacity-25"
+            className="object-cover opacity-40"
             priority
           />
           {/* Dark overlay */}
@@ -177,7 +177,7 @@ export default function SpeakingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-4 bg-white rounded-xl p-6 shadow-lg border border-gray-100"
+                  className="flex items-start gap-4 bg-white rounded-xl p-6 shadow-lg border border-gray-100 h-full"
                 >
                   <div className={`w-14 h-14 bg-gradient-to-br ${outcome.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
                     <outcome.icon className="w-7 h-7 text-white" />

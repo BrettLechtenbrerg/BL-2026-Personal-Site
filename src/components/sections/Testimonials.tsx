@@ -63,25 +63,25 @@ export function Testimonials() {
                 damping: 15,
                 delay: index * 0.15,
               }}
-              className="relative group"
+              className="relative group h-full"
             >
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
 
-              <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100">
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100 h-full flex flex-col">
                 {/* Quote icon */}
                 <div className="absolute -top-5 left-8 w-12 h-12 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-2xl flex items-center justify-center shadow-lg shadow-cranberry/30">
                   <Quote className="w-6 h-6 text-white" />
                 </div>
 
                 {/* Quote text */}
-                <blockquote className="text-lg lg:text-xl text-black leading-relaxed mb-6 pt-4">
+                <blockquote className="text-lg lg:text-xl text-black leading-relaxed mb-6 pt-4 flex-grow">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
 
                 {/* Attribution */}
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cranberry via-cranberry-dark to-gold flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                <div className="flex items-center gap-4 mt-auto flex-shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cranberry via-cranberry-dark to-gold flex items-center justify-center text-white font-bold text-lg shadow-lg flex-shrink-0">
                     {testimonial.name.split(" ").map((n) => n[0]).join("")}
                   </div>
                   <div>

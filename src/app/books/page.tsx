@@ -72,7 +72,7 @@ export default function BooksPage() {
             src="/heroes/books.jpg"
             alt="Library with books representing knowledge and publishing"
             fill
-            className="object-cover opacity-25"
+            className="object-cover opacity-40"
             priority
           />
           {/* Dark overlay */}
@@ -155,14 +155,14 @@ export default function BooksPage() {
                   {book.upcoming && (
                     <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-40" />
                   )}
-                  <div className={`relative rounded-2xl p-8 border-2 h-full ${
+                  <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col ${
                     book.upcoming
                       ? "border-cranberry bg-gradient-to-br from-cranberry/10 via-white to-gold/10"
                       : "border-gray-100 bg-white shadow-lg hover:shadow-xl transition-shadow"
                   }`}>
-                    <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-start justify-between mb-4 flex-shrink-0">
                       <div className="flex items-center gap-3">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
                           book.upcoming
                             ? "bg-gradient-to-br from-cranberry to-cranberry-dark"
                             : book.bestseller
@@ -176,18 +176,18 @@ export default function BooksPage() {
                         <h3 className="text-xl font-bold text-black">{book.title}</h3>
                       </div>
                       {book.bestseller && (
-                        <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full">
+                        <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full flex-shrink-0">
                           <Star className="w-4 h-4 text-gold fill-gold" />
                           <span className="text-xs font-semibold text-gold">Bestseller</span>
                         </div>
                       )}
                     </div>
-                    <p className={`text-sm font-semibold mb-3 ${
+                    <p className={`text-sm font-semibold mb-3 flex-shrink-0 ${
                       book.upcoming ? "text-cranberry" : "text-gold"
                     }`}>
                       {book.status}
                     </p>
-                    <p className="text-warm-gray">{book.description}</p>
+                    <p className="text-warm-gray flex-grow">{book.description}</p>
                   </div>
                 </motion.div>
               ))}

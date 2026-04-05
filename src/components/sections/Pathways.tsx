@@ -108,35 +108,35 @@ export function Pathways() {
               {/* Glow effect */}
               <div className={`absolute -inset-1 bg-gradient-to-r ${pathway.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
 
-              <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-500 h-full">
+              <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-500 h-full flex flex-col">
                 {/* Top gradient bar */}
-                <div className={`h-2 bg-gradient-to-r ${pathway.gradient}`} />
+                <div className={`h-2 bg-gradient-to-r ${pathway.gradient} flex-shrink-0`} />
 
-                <div className="p-8">
+                <div className="p-8 flex flex-col flex-grow">
                   {/* Icon */}
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br ${pathway.gradient} shadow-lg`}>
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br ${pathway.gradient} shadow-lg flex-shrink-0`}>
                     <pathway.icon className="w-8 h-8 text-white" />
                   </div>
 
                   {/* Title */}
-                  <p className={`text-sm font-semibold uppercase tracking-wide mb-2 ${pathway.iconColor}`}>
+                  <p className={`text-sm font-semibold uppercase tracking-wide mb-2 ${pathway.iconColor} flex-shrink-0`}>
                     {pathway.title}
                   </p>
 
                   {/* Headline */}
-                  <h3 className="text-xl font-bold text-white mb-4 leading-tight">
+                  <h3 className="text-xl font-bold text-white mb-4 leading-tight flex-shrink-0">
                     {pathway.headline}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 leading-relaxed mb-6">
+                  <p className="text-gray-400 leading-relaxed mb-6 flex-grow">
                     {pathway.description}
                   </p>
 
                   {/* CTA */}
                   <Link
                     href={pathway.href}
-                    className={`inline-flex items-center gap-2 font-semibold transition-all group-hover:gap-3 ${pathway.iconColor}`}
+                    className={`inline-flex items-center gap-2 font-semibold transition-all group-hover:gap-3 ${pathway.iconColor} flex-shrink-0 mt-auto`}
                   >
                     {pathway.cta}
                     <ArrowRight className="w-4 h-4" />

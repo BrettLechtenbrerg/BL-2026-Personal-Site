@@ -104,15 +104,15 @@ export function Solution() {
               {/* Glow on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${pillar.gradient} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl`} />
 
-              <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:border-transparent hover:shadow-2xl transition-all duration-300 h-full">
+              <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:border-transparent hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
                 {/* Icon */}
-                <div className={`w-16 h-16 ${pillar.iconBg} rounded-2xl flex items-center justify-center mb-6 shadow-lg ${pillar.shadow}`}>
+                <div className={`w-16 h-16 ${pillar.iconBg} rounded-2xl flex items-center justify-center mb-6 shadow-lg ${pillar.shadow} flex-shrink-0`}>
                   <pillar.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-black mb-3">{pillar.title}</h3>
-                <p className="text-warm-gray leading-relaxed">{pillar.description}</p>
+                <h3 className="text-xl font-bold text-black mb-3 flex-shrink-0">{pillar.title}</h3>
+                <p className="text-warm-gray leading-relaxed flex-grow">{pillar.description}</p>
 
                 {/* Bottom accent */}
                 <div className={`absolute bottom-0 left-0 right-0 h-1.5 rounded-b-2xl bg-gradient-to-r ${pillar.gradient}`} />

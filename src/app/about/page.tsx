@@ -5,8 +5,53 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Brain, Building, Bot, Shield } from "lucide-react";
+import { Award, BookOpen, Brain, Building, Bot, Shield, GraduationCap, Users, Mic2, Sparkles } from "lucide-react";
 import Image from "next/image";
+
+const timeline = [
+  {
+    year: "1980s",
+    title: "The Journey Begins",
+    description: "Started martial arts training, beginning a lifelong pursuit of mastery and discipline that would shape everything to come.",
+    icon: Award,
+    gradient: "from-cranberry to-cranberry-dark",
+  },
+  {
+    year: "1990s",
+    title: "Founds Personal Mastery Martial Arts",
+    description: "Opened Personal Mastery Martial Arts & Family Success Center in Sandy, Utah — a living laboratory for testing peak performance principles.",
+    icon: Building,
+    gradient: "from-gold to-gold-dark",
+  },
+  {
+    year: "2000s",
+    title: "Author & Speaker Emerges",
+    description: "Published first books on safety, time management, and personal empowerment. Began speaking at corporations and conferences nationwide.",
+    icon: BookOpen,
+    gradient: "from-cranberry to-cranberry-dark",
+  },
+  {
+    year: "2010s",
+    title: "Flow State Research",
+    description: "Completed formal research thesis on flow states and accelerated learning. Validated by the Flow Research Collective (Steven Kotler's organization).",
+    icon: Brain,
+    gradient: "from-gold to-gold-dark",
+  },
+  {
+    year: "2020s",
+    title: "The Master's Edge is Born",
+    description: "Synthesized 30+ years of experience into a proprietary coaching methodology. Began working with executives, business owners, and high performers.",
+    icon: Sparkles,
+    gradient: "from-cranberry to-cranberry-dark",
+  },
+  {
+    year: "Today",
+    title: "Total Success AI & Beyond",
+    description: "Co-founded Total Success AI to bring human-centered AI implementation to businesses. Continues coaching, speaking, and transforming lives.",
+    icon: Bot,
+    gradient: "from-gold to-gold-dark",
+  },
+];
 
 const credentials = [
   {
@@ -58,7 +103,7 @@ export default function AboutPage() {
             src="/heroes/about.jpg"
             alt="Martial arts training and discipline"
             fill
-            className="object-cover opacity-25"
+            className="object-cover opacity-40"
             priority
           />
           {/* Dark overlay */}
@@ -163,8 +208,110 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Credentials - Dark */}
+        {/* Timeline - The Journey */}
         <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-40 left-10 w-80 h-80 bg-cranberry/30 rounded-full blur-[120px]"
+          />
+          <motion.div
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-40 right-10 w-96 h-96 bg-gold/25 rounded-full blur-[100px]"
+          />
+
+          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                The <span className="bg-gradient-to-r from-cranberry to-gold bg-clip-text text-transparent">Journey</span>
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Four decades of learning, teaching, and transformation — distilled into a methodology that works.
+              </p>
+            </motion.div>
+
+            {/* Timeline */}
+            <div className="relative">
+              {/* Center line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cranberry via-gold to-cranberry rounded-full hidden md:block" />
+
+              <div className="space-y-12 md:space-y-0">
+                {timeline.map((item, index) => (
+                  <div key={item.year} className="relative md:mb-16">
+                    {/* Timeline dot */}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                      className={`absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-br ${item.gradient} border-4 border-gray-900 z-10 hidden md:block`}
+                      style={{ top: "2rem" }}
+                    />
+
+                    {/* Content card - alternating sides */}
+                    <motion.div
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 60,
+                        damping: 15,
+                        delay: index * 0.1
+                      }}
+                      className={`relative md:w-[calc(50%-3rem)] ${
+                        index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
+                      }`}
+                    >
+                      <div className="group relative">
+                        {/* Glow effect */}
+                        <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
+
+                        <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-colors">
+                          {/* Year badge */}
+                          <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.gradient} rounded-full px-4 py-1 mb-4`}>
+                            <span className="text-white font-bold text-sm">{item.year}</span>
+                          </div>
+
+                          <div className="flex items-start gap-4">
+                            {/* Icon */}
+                            <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                              <item.icon className="w-6 h-6 text-white" />
+                            </div>
+
+                            <div className="flex-1">
+                              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                              <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                            </div>
+                          </div>
+
+                          {/* Arrow pointing to timeline (desktop) */}
+                          <div
+                            className={`absolute top-8 hidden md:block w-4 h-4 bg-gray-900/90 border-white/10 transform rotate-45 ${
+                              index % 2 === 0
+                                ? "right-0 translate-x-1/2 border-t border-r"
+                                : "left-0 -translate-x-1/2 border-b border-l"
+                            }`}
+                          />
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Credentials - Dark */}
+        <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
           <motion.div
             animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
@@ -192,7 +339,7 @@ export default function AboutPage() {
                   className="group relative"
                 >
                   <div className={`absolute -inset-1 bg-gradient-to-r ${credential.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex gap-6">
+                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex items-start gap-6">
                     <div className={`w-16 h-16 bg-gradient-to-br ${credential.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
                       <credential.icon className="w-8 h-8 text-white" />
                     </div>

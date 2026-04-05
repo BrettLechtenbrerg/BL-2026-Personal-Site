@@ -53,7 +53,7 @@ export default function CoachingPage() {
             src="/heroes/coaching.jpg"
             alt="Professional coaching session"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-35"
             priority
           />
           {/* Dark overlay */}
@@ -202,16 +202,16 @@ export default function CoachingPage() {
                   className="group relative"
                 >
                   <div className={`absolute -inset-1 bg-gradient-to-r ${phase.gradient} rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity`} />
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 h-full">
-                    <div className={`w-16 h-16 mx-auto bg-gradient-to-br ${phase.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 h-full flex flex-col">
+                    <div className={`w-16 h-16 mx-auto bg-gradient-to-br ${phase.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg flex-shrink-0`}>
                       <phase.icon className="w-8 h-8 text-white" />
                     </div>
-                    <p className="text-sm text-gray-400 mb-2">{phase.phase}</p>
-                    <h3 className={`text-3xl font-bold ${phase.color} mb-1`}>
+                    <p className="text-sm text-gray-400 mb-2 flex-shrink-0">{phase.phase}</p>
+                    <h3 className={`text-3xl font-bold ${phase.color} mb-1 flex-shrink-0`}>
                       {phase.title}
                     </h3>
-                    <p className="text-gold font-medium mb-4">{phase.subtitle}</p>
-                    <p className="text-gray-400">{phase.description}</p>
+                    <p className="text-gold font-medium mb-4 flex-shrink-0">{phase.subtitle}</p>
+                    <p className="text-gray-400 flex-grow">{phase.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -256,7 +256,7 @@ export default function CoachingPage() {
                   className="relative group"
                 >
                   <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex gap-6">
+                  <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 flex items-start gap-6">
                     {testimonial.stat && (
                       <div className="hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl p-6 text-white min-w-[100px]">
                         <span className="text-3xl font-black">{testimonial.stat}</span>

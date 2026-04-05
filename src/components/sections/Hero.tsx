@@ -14,7 +14,7 @@ export function Hero() {
         src="/heroes/homepage.jpg"
         alt="Leadership and peak performance"
         fill
-        className="object-cover opacity-20"
+        className="object-cover opacity-35"
         priority
       />
       {/* Dark overlay */}
@@ -87,7 +87,10 @@ export function Hero() {
               <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
                 Meant
               </span>{" "}
-              to Become
+              to Become and Gain{" "}
+              <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
+                The Master&apos;s Edge
+              </span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -189,6 +192,37 @@ export function Hero() {
               </motion.div>
             </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Value Pillars - Clarify, Simplify, Maximize */}
+      <div className="absolute bottom-24 left-0 right-0 z-10">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+            {[
+              { main: "CLARIFY", sub: "Goals, Dreams, Desires", gradient: "from-cranberry to-cranberry-dark" },
+              { main: "SIMPLIFY", sub: "Life, Business, Relationships", gradient: "from-gold to-gold-dark" },
+              { main: "MAXIMIZE", sub: "Focus, Confidence, Actions, Results", gradient: "from-cranberry to-cranberry-dark" },
+            ].map((pillar, index) => (
+              <motion.div
+                key={pillar.main}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.3 + index * 0.15, duration: 0.5 }}
+                className="group relative"
+              >
+                <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
+                <div className={`relative bg-gradient-to-r ${pillar.gradient} rounded-full px-8 py-4 text-center shadow-xl hover:scale-105 transition-transform duration-300`}>
+                  <p className="text-white font-black text-xl tracking-wider mb-1">
+                    {pillar.main}
+                  </p>
+                  <p className="text-white/80 text-sm font-medium">
+                    {pillar.sub}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 

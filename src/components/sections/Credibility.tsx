@@ -63,11 +63,11 @@ export function Credibility() {
             <motion.div
               key={stat.label}
               variants={statVariants}
-              className="text-center relative"
+              className="text-center relative h-full"
             >
               {/* Glow behind stat */}
               <div className="absolute inset-0 bg-white/5 rounded-2xl blur-xl" />
-              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col justify-center">
                 <p className={`text-5xl lg:text-6xl font-black ${stat.color} mb-2`}>
                   {stat.value}
                 </p>

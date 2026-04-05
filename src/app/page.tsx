@@ -6,16 +6,7 @@ import { Pathways } from "@/components/sections/Pathways";
 import { Credibility } from "@/components/sections/Credibility";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { MediaFeature } from "@/components/sections/MediaFeature";
-import Image from "next/image";
-
-const socialProofLogos = [
-  { name: "American Express", src: "/logos/american-express.png", width: 120 },
-  { name: "Delta", src: "/logos/delta.png", width: 120 },
-  { name: "Packsize", src: "/logos/packsize.png", width: 120 },
-  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 140 },
-  { name: "Purple", src: "/logos/purple.jpg", width: 100 },
-  { name: "Thumbtack", src: "/logos/thumbtack.png", width: 120 },
-];
+import { LogoScroller } from "@/components/sections/LogoScroller";
 
 export default function Home() {
   return (
@@ -25,54 +16,8 @@ export default function Home() {
         {/* Hero Section */}
         <Hero />
 
-        {/* Social Proof Bar */}
-        <section className="py-12 bg-gray-50 border-y border-gray-100">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-sm text-warm-gray mb-6">
-              Brett has spoken at and conducted training for organizations including:
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
-              {socialProofLogos.map((logo) => (
-                <div key={logo.name} className="opacity-80 hover:opacity-100 transition-opacity">
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={logo.width}
-                    height={40}
-                    className="h-10 w-auto"
-                  />
-                </div>
-              ))}
-              <div className="opacity-80 hover:opacity-100 transition-opacity">
-                <Image
-                  src="/logos/murray-chamber.png"
-                  alt="Murray Area Chamber"
-                  width={100}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              </div>
-              <div className="opacity-80 hover:opacity-100 transition-opacity">
-                <Image
-                  src="/logos/heber-valley-chamber.png"
-                  alt="Heber Valley Chamber"
-                  width={100}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              </div>
-              <div className="opacity-80 hover:opacity-100 transition-opacity">
-                <Image
-                  src="/logos/park-city-chamber.png"
-                  alt="Park City Chamber"
-                  width={100}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Social Proof Bar - Scrolling Logos */}
+        <LogoScroller />
 
         {/* The Problem Section */}
         <section className="py-24 bg-white">
