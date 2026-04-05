@@ -258,7 +258,7 @@ export default function BooksPage() {
                 <span className="text-gray-400 text-sm">As Seen On</span>
               </div>
               <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
-                {["Good Things Utah", "Channel 4", "Channel 13", "Profiles in Caring"].map((name, index) => (
+                {["Good Things Utah", "The Daily Dish (CW30)", "Channel 4", "Channel 13", "Profiles in Caring"].map((name, index) => (
                   <motion.div
                     key={name}
                     initial={{ opacity: 0, y: 20 }}
@@ -276,32 +276,113 @@ export default function BooksPage() {
               </div>
             </div>
 
-            {/* Video */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto"
-            >
-              <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
-                <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                  <iframe
-                    src="https://www.youtube.com/embed/Dq7agUEBr6I"
-                    title="Brett Lechtenberg on Good Things Utah"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
+            {/* Videos Grid */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Good Things Utah - Master's Edge */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/Dq7agUEBr6I"
+                      title="Brett Lechtenberg on Good Things Utah"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="mt-4 flex items-center justify-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
-                  <Play className="w-5 h-5 text-white fill-white" />
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <span className="text-gray-400 text-sm">Good Things Utah - The Master&apos;s Edge</span>
                 </div>
-                <span className="text-gray-400">Good Things Utah Interview</span>
-              </div>
-            </motion.div>
+              </motion.div>
+
+              {/* Profiles in Caring */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/OF-ixkfGdtM?start=64"
+                      title="Brett Lechtenberg - Profiles in Caring"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <span className="text-gray-400 text-sm">Profiles in Caring</span>
+                </div>
+              </motion.div>
+
+              {/* Daily Dish */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <video
+                      src="https://assets.cdn.filesafe.space/OfcMDEmwDKM6qQZahiuf/media/677031452ec4ebcc52554f53.mp4"
+                      controls
+                      className="w-full h-full object-cover"
+                      playsInline
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <span className="text-gray-400 text-sm">The Daily Dish - CW30</span>
+                </div>
+              </motion.div>
+
+              {/* Wild Bear X on Good Things Utah */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <video
+                      src="https://assets.cdn.filesafe.space/OfcMDEmwDKM6qQZahiuf/media/67703145a28a507e83de06d7.mp4"
+                      controls
+                      className="w-full h-full object-cover"
+                      playsInline
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <span className="text-gray-400 text-sm">Good Things Utah - Wild Bear X</span>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
