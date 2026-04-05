@@ -17,6 +17,7 @@ const books = [
     bestseller: false,
     upcoming: true,
     image: "/books/masters-edge.png",
+    gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/10",
   },
   {
     title: "Reclaiming The Clock",
@@ -25,6 +26,7 @@ const books = [
       "How to have more time, reduce stress, and increase peace of mind in a world of unparalleled distraction.",
     bestseller: true,
     image: "/books/reclaiming-the-clock.png",
+    gradient: "bg-gradient-to-br from-gold/10 via-white to-cranberry/5",
   },
   {
     title: "The Anti-Bully Program",
@@ -33,6 +35,7 @@ const books = [
       "A straightforward and insightful training program for families navigating bullying.",
     bestseller: true,
     image: "/books/anti-bully-program.png",
+    gradient: "bg-gradient-to-tr from-cranberry/8 via-white to-gold/10",
   },
   {
     title: "The Anti-Cyber Bully Program",
@@ -40,6 +43,7 @@ const books = [
     description: "Clear, actionable guidance for parents dealing with cyberbullying.",
     bestseller: true,
     image: "/books/anti-cyber-bully-program.png",
+    gradient: "bg-gradient-to-bl from-gold/8 via-white to-cranberry/10",
   },
   {
     title: "Bullyproof: Unleash the Hero in Your Kid",
@@ -49,6 +53,7 @@ const books = [
     bestseller: true,
     image: "/books/bullyproof.png",
     imageScale: "scale-[0.85]",
+    gradient: "bg-gradient-to-r from-cranberry/5 via-gold/10 to-cranberry/5",
   },
   {
     title: "The Ultimate Travel Safety Program",
@@ -58,6 +63,7 @@ const books = [
     bestseller: true,
     image: "/books/travel-safety-program.png",
     imageScale: "scale-[0.85]",
+    gradient: "bg-gradient-to-tl from-gold/10 via-white to-cranberry/8",
   },
   {
     title: "Protecting Your Castle",
@@ -66,6 +72,7 @@ const books = [
       "The premier anti-home burglary and safety training program for homeowners and renters.",
     bestseller: false,
     image: "/books/protecting-your-castle.png",
+    gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/8",
   },
 ];
 
@@ -164,11 +171,11 @@ export default function BooksPage() {
                   ) : (
                     <div className={`absolute -inset-1 bg-gradient-to-r ${book.bestseller ? 'from-gold to-gold-dark' : 'from-cranberry to-cranberry-dark'} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
                   )}
-                  <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden ${
+                  <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 ${
                     book.upcoming
-                      ? "border-cranberry bg-gradient-to-br from-cranberry/10 via-white to-gold/10"
-                      : "border-gray-100 bg-white shadow-lg group-hover:shadow-xl transition-all duration-300"
-                  }`}>
+                      ? "border-cranberry"
+                      : "border-gray-100"
+                  } ${"gradient" in book && book.gradient ? book.gradient : "bg-white"}`}>
                     {/* Background Book Cover Image */}
                     {book.image && (
                       <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
