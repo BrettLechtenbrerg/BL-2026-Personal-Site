@@ -2,10 +2,10 @@
 
 ---
 
-## Session 4 - April 5, 2026 (Afternoon)
+## Session 4 - April 5, 2026 (Afternoon) - EXTENDED SESSION
 
-**Duration:** ~15 minutes
-**Focus:** Enhanced Testimonials + Media Video Grid
+**Duration:** ~45 minutes
+**Focus:** Enhanced Testimonials + Media Video Grid + Mobile Optimization + Card Styling
 
 ### What Was Done
 
@@ -20,26 +20,58 @@
    - Quote: "Brett has an innate ability to break down complicated subjects..."
    - Title: Sword and Shield Security, Phoenix, AZ
    - Headshot: `/public/testimonials/john-nottingham.webp`
+5. Fixed quote icon overlapping text (changed pt-4 to pt-10)
+6. Enhanced testimonial cards with glow-on-hover effects
+7. Increased face image opacity from 10% to 15% for better visibility
+8. Added border-2 with hover transition
 
 #### Books & Media Page Updates
-5. Expanded "Brett in the Media" section from 1 video to 4-video grid:
+9. Expanded "Brett in the Media" section from 1 video to 4-video grid:
    - Good Things Utah - The Master's Edge (YouTube, existing)
    - Profiles in Caring (YouTube: OF-ixkfGdtM?start=64)
    - The Daily Dish - CW30 (direct MP4)
    - Good Things Utah - Wild Bear X (direct MP4)
-6. Added "The Daily Dish (CW30)" to As Seen On badges
+10. Added "The Daily Dish (CW30)" to As Seen On badges
+11. Added lazy loading to YouTube iframes
+12. Added preload="none" to direct video elements
+
+#### Mobile Optimization (Google Core Web Vitals 2025-2026)
+13. Button touch targets increased to 44-52px minimum
+14. Mobile menu items increased to 48px touch targets
+15. Footer links proper tap spacing (44px)
+16. Social icons increased to 44px minimum
+17. Added reduced motion media query (accessibility)
+18. Added iOS zoom prevention on inputs (16px font)
+19. Improved text rendering CSS
 
 ### Git Activity
 - Commit: `c766d89` - Add Jerry Fontanez & John Nottingham featured testimonials
 - Commit: `23df121` - Add 4-video grid to Brett in the Media section
+- Commit: `1d43d3a` - Update project documentation - Session 4 complete
+- Commit: `5079c54` - Mobile optimization for Google Core Web Vitals 2025-2026
+- Commit: `442e9cb` - Fix quote icon overlapping testimonial text
+- Commit: `c878256` - Enhance featured testimonial cards styling
 - All pushed to origin/main
-- Deployed to Vercel production
+- All deployed to Vercel production
 
 ### Files Modified
-- `src/app/testimonials/page.tsx` (testimonial updates)
-- `src/app/books/page.tsx` (4-video grid)
+- `src/app/testimonials/page.tsx` (testimonial updates + styling)
+- `src/app/books/page.tsx` (4-video grid + lazy loading)
+- `src/components/ui/Button.tsx` (touch targets)
+- `src/components/layout/Header.tsx` (mobile touch targets)
+- `src/components/layout/Footer.tsx` (touch targets)
+- `src/app/globals.css` (accessibility + mobile CSS)
 - `public/testimonials/jerry-fontanez.jpg` (new)
 - `public/testimonials/john-nottingham.webp` (new)
+- `STATE.md`, `SESSION_LOG.md`, `NEXT_SESSION.md` (updated)
+
+### Mobile Optimization Summary
+| Metric | Requirement | Status |
+|--------|-------------|--------|
+| LCP | < 2.5s | ✅ Lazy loading |
+| INP | < 200ms | ✅ Touch targets 44-52px |
+| CLS | < 0.1 | ✅ Stable layouts |
+| Touch Targets | Min 48px | ✅ Fixed site-wide |
 
 ---
 

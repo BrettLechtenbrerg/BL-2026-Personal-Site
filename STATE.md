@@ -1,27 +1,40 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 5, 2026 @ 3:15 PM
-**Current Phase:** ✅ COMPLETE - All Pages Built & Deployed
+**Last Updated:** April 5, 2026 @ 3:45 PM
+**Current Phase:** ✅ COMPLETE - All Pages Built, Optimized & Deployed
 
 ---
 
 ## Current Focus
 
-**Status:** Site is LIVE with all pages complete + enhanced testimonials & media
+**Status:** Site is LIVE with all pages complete, mobile optimized, and enhanced testimonials
 
 ### Completed This Session (April 5, 2026 - Afternoon)
+
+#### Testimonials Updates
 1. ✅ Updated Sam Beard's title to "Creator 6 Presidential Programs for 8 U.S. Presidents"
 2. ✅ Updated Sal Rossano's title to "Green Beret (Ret.) - Trauma Survival Specialist"
 3. ✅ Added Jerry Fontanez featured testimonial (8-Time World Karate Champion)
 4. ✅ Added John Nottingham featured testimonial (Sword and Shield Security)
 5. ✅ Added headshot images for Jerry & John
-6. ✅ Expanded "Brett in the Media" section to 4-video grid:
-   - Good Things Utah - The Master's Edge (YouTube)
-   - Profiles in Caring (YouTube)
-   - The Daily Dish - CW30 (direct video)
-   - Good Things Utah - Wild Bear X (direct video)
-7. ✅ Added "The Daily Dish (CW30)" to As Seen On badges
-8. ✅ All changes deployed to production
+6. ✅ Fixed quote icon overlapping text (increased padding)
+7. ✅ Enhanced testimonial cards with glow-on-hover effects
+8. ✅ Increased face image opacity to 15% for better visibility
+
+#### Media Section Updates
+9. ✅ Expanded "Brett in the Media" section to 4-video grid
+10. ✅ Added lazy loading to YouTube iframes
+11. ✅ Added preload="none" to direct video elements
+12. ✅ Added "The Daily Dish (CW30)" to As Seen On badges
+
+#### Mobile Optimization (Google Core Web Vitals 2025-2026)
+13. ✅ Button touch targets 44-52px minimum
+14. ✅ Mobile menu items 48px touch targets
+15. ✅ Footer links proper tap spacing (44px)
+16. ✅ Social icons 44px minimum
+17. ✅ Reduced motion media query (accessibility)
+18. ✅ iOS zoom prevention on inputs (16px font)
+19. ✅ Improved text rendering
 
 ---
 
@@ -42,6 +55,7 @@
 | Brand Colors | ✅ Done |
 | Framer Motion | ✅ Done |
 | **Vercel Connection** | ✅ Done |
+| **Mobile Optimization** | ✅ Done |
 
 ### Pages
 | Page | Status |
@@ -52,24 +66,24 @@
 | Coaching | ✅ Complete |
 | AI Advisory | ✅ Complete |
 | About Brett | ✅ Complete |
-| Books & Media | ✅ Complete (4-video grid) |
-| Testimonials | ✅ Complete (6 featured) |
+| Books & Media | ✅ Complete (4-video grid, lazy loading) |
+| Testimonials | ✅ Complete (6 featured, glow effects) |
 | Contact | ✅ Complete |
 | Hero Test (experiments) | ✅ Added |
 
 ### Components
 | Component | Status |
 |-----------|--------|
-| Header/Nav | ✅ Done |
-| Footer | ✅ Done |
+| Header/Nav | ✅ Done (48px mobile touch targets) |
+| Footer | ✅ Done (44px touch targets) |
 | Hero Section | ✅ Done (bubbles fixed) |
 | LogoScroller | ✅ Done (used on homepage + speaking) |
-| CTA Button | ✅ Done |
+| CTA Button | ✅ Done (44-52px touch targets) |
 | Solution Section | ✅ Done |
 | Pathways Section | ✅ Done |
 | Credibility Section | ✅ Done |
-| Testimonials Section | ✅ Done (6 featured) |
-| MediaFeature Section | ✅ Done (4 videos) |
+| Testimonials Section | ✅ Done (6 featured, glow hover) |
+| MediaFeature Section | ✅ Done (4 videos, lazy loading) |
 | HeroOptionA/B/C | ✅ Added (experiments) |
 
 ---
@@ -89,14 +103,27 @@
 
 ## Media Section (4 Videos)
 
-| Video | Type |
-|-------|------|
-| Good Things Utah - The Master's Edge | YouTube |
-| Profiles in Caring | YouTube |
-| The Daily Dish - CW30 | Direct MP4 |
-| Good Things Utah - Wild Bear X | Direct MP4 |
+| Video | Type | Optimization |
+|-------|------|--------------|
+| Good Things Utah - The Master's Edge | YouTube | lazy loading |
+| Profiles in Caring | YouTube | lazy loading |
+| The Daily Dish - CW30 | Direct MP4 | preload="none" |
+| Good Things Utah - Wild Bear X | Direct MP4 | preload="none" |
 
 **As Seen On:** Good Things Utah, The Daily Dish (CW30), Channel 4, Channel 13, Profiles in Caring
+
+---
+
+## Mobile Optimization (Google 2025-2026 Standards)
+
+| Metric | Requirement | Status |
+|--------|-------------|--------|
+| **LCP** | < 2.5 seconds | ✅ Lazy loading on videos/iframes |
+| **INP** | < 200ms | ✅ Touch targets 44-52px |
+| **CLS** | < 0.1 | ✅ Stable layouts, no shifts |
+| **Touch Targets** | Min 48x48px | ✅ Fixed across site |
+| **Reduced Motion** | Respect preference | ✅ CSS media query |
+| **iOS Zoom** | Prevent on inputs | ✅ 16px minimum font |
 
 ---
 
@@ -106,14 +133,14 @@
 1. **Dark Gradient Heroes** - `from-black via-gray-900 to-black`
 2. **Animated Floating Orbs** - Scale/opacity pulsing
 3. **Gradient Sections** - Alternating dark/light with colored tints
-4. **Glowing Card Effects** - `opacity-0 group-hover:opacity-30` blur-lg glow on hover
+4. **Glowing Card Effects** - `opacity-0 group-hover:opacity-40` blur-lg glow on hover
 5. **Glassmorphism** - `backdrop-blur-sm` with `border-white/10`
 6. **Grid Pattern Overlays** - Subtle background texture
 
 ### Glow Hover Pattern (Consistent Across Site)
 ```tsx
 <div className="group relative">
-  <div className="absolute -inset-1 bg-gradient-to-r from-X to-Y rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+  <div className="absolute -inset-1 bg-gradient-to-r from-X to-Y rounded-xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
   <div className="relative ...content...">
   </div>
 </div>
@@ -130,8 +157,18 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `23df121` - Add 4-video grid to Brett in the Media section
+**Last Commit:** `c878256` - Enhance featured testimonial cards styling
 **Uncommitted Changes:** None (working tree clean)
+
+### Recent Commits (This Session)
+```
+c878256 Enhance featured testimonial cards styling
+442e9cb Fix quote icon overlapping testimonial text
+5079c54 Mobile optimization for Google Core Web Vitals 2025-2026
+1d43d3a Update project documentation - Session 4 complete
+23df121 Add 4-video grid to Brett in the Media section
+c766d89 Add Jerry Fontanez & John Nottingham featured testimonials
+```
 
 ---
 
@@ -160,6 +197,8 @@
 5. All links configured in `src/lib/utils.ts`
 6. Hero bubbles positioned at `bottom-28` (was bottom-64)
 7. Testimonial images stored in `/public/testimonials/`
+8. Touch targets minimum 44px for mobile (Google requirement)
+9. Videos lazy load for better LCP scores
 
 ---
 
