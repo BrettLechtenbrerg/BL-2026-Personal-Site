@@ -17,22 +17,23 @@ I want to continue working on my personal website (Brett Lechtenberg).
 1. `CLAUDE.md` - Full project context
 2. `STATE.md` - Current progress and focus
 
-**Production URL:** https://bl-2026-personal-site-n0tpyx0dh-bretts-projects-3e254e58.vercel.app
+**Production URL:** https://bl-2026-personal-site.vercel.app
 **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
 
 **What's Complete:**
 - ✅ All 9 pages built with bold colorful design
 - ✅ Dark gradient heroes with animated floating orbs
-- ✅ Glowing cards, glassmorphism, gradient sections
-- ✅ Client logos (American Express, Delta, Citigroup)
+- ✅ Glowing cards with consistent hover effects (site-wide)
+- ✅ Client logos with scrolling animation (homepage + speaking)
 - ✅ YouTube video embed (Good Things Utah)
+- ✅ Hero bubbles (Clarify/Simplify/Maximize) properly positioned
 - ✅ Deployed to Vercel
-- ✅ Pushed to GitHub
+- ✅ Pushed to GitHub (working tree clean)
 
 **Pending Tasks:**
 1. Connect custom domain (brettlechtenberg.com)
 2. Add Brett's professional headshot
-3. SEO optimization (sitemap, robots.txt, meta tags)
+3. SEO optimization (meta tags refinement)
 
 **What I Need Help With:**
 [Describe your specific focus]
@@ -60,6 +61,8 @@ vercel --prod --yes  # Deploy to Vercel
 | `src/lib/utils.ts` | Brand colors, links |
 | `src/components/layout/Header.tsx` | Navigation |
 | `src/components/layout/Footer.tsx` | Footer |
+| `src/components/sections/Hero.tsx` | Hero section (bubbles at bottom-28) |
+| `src/components/sections/LogoScroller.tsx` | Animated scrolling logos |
 | `CLAUDE.md` | Full project documentation |
 | `RESTART-PROMPT.md` | Detailed restart guide |
 
@@ -77,4 +80,4 @@ vercel --prod --yes
 
 ---
 
-*Last updated: April 4, 2026 @ 8:55 AM*
+*Last updated: April 5, 2026 @ 8:15 AM*

@@ -2,6 +2,60 @@
 
 ---
 
+## Session 3 - April 5, 2026
+
+**Duration:** ~20 minutes
+**Focus:** Fix Hero Bubbles + Consistent Glow Hover Effects
+
+### What Was Done
+
+#### Bug Fixes
+1. Fixed hero value pillars (Clarify/Simplify/Maximize bubbles) position
+   - Changed from `bottom-64` to `bottom-28`
+   - Bubbles now sit below Brett's picture, not overlapping
+
+#### UI Consistency Updates
+2. Added scrolling LogoScroller to Speaking page
+   - Replaced static logo grid with animated `<LogoScroller />` component
+   - Now matches homepage style with hover pause and shimmer effects
+
+3. Added consistent glow-on-hover effects to ALL cards:
+   - **Speaking page:** "What You Can Expect" outcome cards
+   - **AI Advisory page:** "Impact Areas" cards
+   - **Master's Edge page:** Pillar cards + Layer 3 transformation box
+   - **Coaching page:** FAQ cards
+   - **Books page:** Book cards + "As Seen On" media badges
+
+#### Hero Experiments Preserved
+4. Committed hero variant experiments for future reference:
+   - `src/app/hero-test/page.tsx`
+   - `src/components/sections/HeroOptionA.tsx`
+   - `src/components/sections/HeroOptionB.tsx`
+   - `src/components/sections/HeroOptionC.tsx`
+
+### Glow Pattern Applied Site-Wide
+```tsx
+<div className="group relative">
+  <div className="absolute -inset-1 bg-gradient-to-r ${gradient} rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+  <div className="relative ...">content</div>
+</div>
+```
+
+### Git Activity
+- Commit: `cf6e7c4` - Add consistent glow hover effects & fix hero bubbles position
+- All pushed to origin/main
+- Working tree clean
+
+### Files Modified
+- `src/components/sections/Hero.tsx` (bubble position fix)
+- `src/app/speaking/page.tsx` (LogoScroller + glow)
+- `src/app/ai-advisory/page.tsx` (glow)
+- `src/app/masters-edge/page.tsx` (glow)
+- `src/app/coaching/page.tsx` (glow)
+- `src/app/books/page.tsx` (glow)
+
+---
+
 ## Session 2 - April 4, 2026 (Continued)
 
 **Duration:** ~30 minutes
