@@ -169,12 +169,12 @@ export default function BooksPage() {
                   }`}>
                     {/* Background Book Cover Image */}
                     {book.image && (
-                      <div className="absolute inset-0 overflow-hidden">
+                      <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
                         <Image
                           src={book.image}
                           alt=""
                           fill
-                          className="object-cover opacity-15 grayscale"
+                          className="object-contain opacity-15 grayscale"
                         />
                       </div>
                     )}
