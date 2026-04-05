@@ -2,6 +2,47 @@
 
 ---
 
+## Session 4 - April 5, 2026 (Afternoon)
+
+**Duration:** ~15 minutes
+**Focus:** Enhanced Testimonials + Media Video Grid
+
+### What Was Done
+
+#### Testimonials Page Updates
+1. Updated Sam Beard's title: "Creator 6 Presidential Programs for 8 U.S. Presidents"
+2. Updated Sal Rossano's title: "Green Beret (Ret.) - Trauma Survival Specialist"
+3. Added Jerry Fontanez featured testimonial:
+   - Quote: "Brett is one of my 300. Just like Spartans of old..."
+   - Title: 8-Time World Karate Champion
+   - Headshot: `/public/testimonials/jerry-fontanez.jpg`
+4. Added John Nottingham featured testimonial:
+   - Quote: "Brett has an innate ability to break down complicated subjects..."
+   - Title: Sword and Shield Security, Phoenix, AZ
+   - Headshot: `/public/testimonials/john-nottingham.webp`
+
+#### Books & Media Page Updates
+5. Expanded "Brett in the Media" section from 1 video to 4-video grid:
+   - Good Things Utah - The Master's Edge (YouTube, existing)
+   - Profiles in Caring (YouTube: OF-ixkfGdtM?start=64)
+   - The Daily Dish - CW30 (direct MP4)
+   - Good Things Utah - Wild Bear X (direct MP4)
+6. Added "The Daily Dish (CW30)" to As Seen On badges
+
+### Git Activity
+- Commit: `c766d89` - Add Jerry Fontanez & John Nottingham featured testimonials
+- Commit: `23df121` - Add 4-video grid to Brett in the Media section
+- All pushed to origin/main
+- Deployed to Vercel production
+
+### Files Modified
+- `src/app/testimonials/page.tsx` (testimonial updates)
+- `src/app/books/page.tsx` (4-video grid)
+- `public/testimonials/jerry-fontanez.jpg` (new)
+- `public/testimonials/john-nottingham.webp` (new)
+
+---
+
 ## Session 3 - April 5, 2026
 
 **Duration:** ~20 minutes

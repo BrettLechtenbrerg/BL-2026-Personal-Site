@@ -1,21 +1,27 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 5, 2026 @ 8:15 AM
+**Last Updated:** April 5, 2026 @ 3:15 PM
 **Current Phase:** ✅ COMPLETE - All Pages Built & Deployed
 
 ---
 
 ## Current Focus
 
-**Status:** Site is LIVE with all pages complete + consistent hover effects
+**Status:** Site is LIVE with all pages complete + enhanced testimonials & media
 
-### Completed This Session (April 5, 2026)
-1. ✅ Fixed hero value pillars position (Clarify/Simplify/Maximize bubbles)
-2. ✅ Added scrolling LogoScroller to Speaking page
-3. ✅ Added consistent glow-on-hover effects to ALL cards site-wide
-4. ✅ Fixed Layer 3 transformation box hover glow on Master's Edge
-5. ✅ Deployed to production
-6. ✅ All changes committed and pushed to GitHub
+### Completed This Session (April 5, 2026 - Afternoon)
+1. ✅ Updated Sam Beard's title to "Creator 6 Presidential Programs for 8 U.S. Presidents"
+2. ✅ Updated Sal Rossano's title to "Green Beret (Ret.) - Trauma Survival Specialist"
+3. ✅ Added Jerry Fontanez featured testimonial (8-Time World Karate Champion)
+4. ✅ Added John Nottingham featured testimonial (Sword and Shield Security)
+5. ✅ Added headshot images for Jerry & John
+6. ✅ Expanded "Brett in the Media" section to 4-video grid:
+   - Good Things Utah - The Master's Edge (YouTube)
+   - Profiles in Caring (YouTube)
+   - The Daily Dish - CW30 (direct video)
+   - Good Things Utah - Wild Bear X (direct video)
+7. ✅ Added "The Daily Dish (CW30)" to As Seen On badges
+8. ✅ All changes deployed to production
 
 ---
 
@@ -46,8 +52,8 @@
 | Coaching | ✅ Complete |
 | AI Advisory | ✅ Complete |
 | About Brett | ✅ Complete |
-| Books & Media | ✅ Complete |
-| Testimonials | ✅ Complete |
+| Books & Media | ✅ Complete (4-video grid) |
+| Testimonials | ✅ Complete (6 featured) |
 | Contact | ✅ Complete |
 | Hero Test (experiments) | ✅ Added |
 
@@ -62,9 +68,35 @@
 | Solution Section | ✅ Done |
 | Pathways Section | ✅ Done |
 | Credibility Section | ✅ Done |
-| Testimonials Section | ✅ Done |
-| MediaFeature Section | ✅ Done |
+| Testimonials Section | ✅ Done (6 featured) |
+| MediaFeature Section | ✅ Done (4 videos) |
 | HeroOptionA/B/C | ✅ Added (experiments) |
+
+---
+
+## Testimonials (6 Featured)
+
+| Name | Title |
+|------|-------|
+| Sam Beard | Creator 6 Presidential Programs for 8 U.S. Presidents |
+| Bill Schuffenhauer | Olympic Silver Medalist & 3x Olympian |
+| Sal Rossano | Green Beret (Ret.) - Trauma Survival Specialist |
+| Matt Gibbons | President, Murray Chamber of Commerce |
+| Jerry Fontanez | 8-Time World Karate Champion |
+| John Nottingham | Sword and Shield Security, Phoenix, AZ |
+
+---
+
+## Media Section (4 Videos)
+
+| Video | Type |
+|-------|------|
+| Good Things Utah - The Master's Edge | YouTube |
+| Profiles in Caring | YouTube |
+| The Daily Dish - CW30 | Direct MP4 |
+| Good Things Utah - Wild Bear X | Direct MP4 |
+
+**As Seen On:** Good Things Utah, The Daily Dish (CW30), Channel 4, Channel 13, Profiles in Caring
 
 ---
 
@@ -98,7 +130,7 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `cf6e7c4` - Add consistent glow hover effects & fix hero bubbles position
+**Last Commit:** `23df121` - Add 4-video grid to Brett in the Media section
 **Uncommitted Changes:** None (working tree clean)
 
 ---
@@ -127,6 +159,7 @@
 4. All credential numbers must match CLAUDE.md exactly
 5. All links configured in `src/lib/utils.ts`
 6. Hero bubbles positioned at `bottom-28` (was bottom-64)
+7. Testimonial images stored in `/public/testimonials/`
 
 ---
 
