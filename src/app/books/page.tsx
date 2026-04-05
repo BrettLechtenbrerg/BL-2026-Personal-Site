@@ -16,7 +16,7 @@ const books = [
       "The definitive guide to Brett's proprietary peak performance methodology. Built on 30+ years of experience and original flow state research.",
     bestseller: false,
     upcoming: true,
-    image: null,
+    image: "/books/masters-edge.png",
   },
   {
     title: "Reclaiming The Clock",
