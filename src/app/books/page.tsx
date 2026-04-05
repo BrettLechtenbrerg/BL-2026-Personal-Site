@@ -48,6 +48,7 @@ const books = [
       "A collaborative work bringing together experts on child empowerment and safety.",
     bestseller: true,
     image: "/books/bullyproof.png",
+    imageScale: "scale-[0.85]",
   },
   {
     title: "The Ultimate Travel Safety Program",
@@ -56,6 +57,7 @@ const books = [
       "Essential safety training for travelers, missionaries, and anyone heading abroad.",
     bestseller: true,
     image: "/books/travel-safety-program.png",
+    imageScale: "scale-[0.85]",
   },
   {
     title: "Protecting Your Castle",
@@ -174,7 +176,7 @@ export default function BooksPage() {
                           src={book.image}
                           alt=""
                           fill
-                          className="object-contain opacity-15 grayscale"
+                          className={`object-contain opacity-15 grayscale ${"imageScale" in book && book.imageScale ? book.imageScale : ""}`}
                         />
                       </div>
                     )}
