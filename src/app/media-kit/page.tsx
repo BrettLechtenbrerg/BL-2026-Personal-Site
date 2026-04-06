@@ -152,9 +152,9 @@ export default function MediaKitPage() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
-                { src: "/brett-hero.webp", label: "Primary Headshot", description: "Professional portrait" },
-                { src: "/brett-speaking.jpg", label: "Speaking Photo", description: "On stage presentation" },
-                { src: "/brett-casual.jpg", label: "Casual Portrait", description: "Approachable setting" },
+                { src: "/media-kit/brett-headshot-nobg.webp", label: "Professional Headshot", description: "Transparent background - ideal for graphics", hasBg: false },
+                { src: "/media-kit/brett-fullbody-nobg.webp", label: "Full Body Portrait", description: "Transparent background - ideal for banners", hasBg: false },
+                { src: "/media-kit/brett-casual.webp", label: "Casual Portrait", description: "Approachable office setting", hasBg: true },
               ].map((photo, index) => (
                 <motion.div
                   key={photo.label}
@@ -164,18 +164,18 @@ export default function MediaKitPage() {
                   transition={{ delay: index * 0.1 }}
                   className="group"
                 >
-                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-4 shadow-lg">
+                  <div className={`relative aspect-[4/5] rounded-2xl overflow-hidden mb-4 shadow-lg ${!photo.hasBg ? 'bg-gradient-to-br from-gray-100 via-gray-50 to-white' : ''}`}>
                     <Image
                       src={photo.src}
                       alt={photo.label}
                       fill
-                      className="object-cover object-top"
+                      className={`${photo.hasBg ? 'object-cover' : 'object-contain'} object-center`}
                     />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                       <a
                         href={photo.src}
                         download
-                        className="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black px-4 py-2 rounded-lg font-semibold flex items-center gap-2"
+                        className="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black px-4 py-2 rounded-lg font-semibold flex items-center gap-2 shadow-lg"
                       >
                         <Download className="w-4 h-4" />
                         Download
