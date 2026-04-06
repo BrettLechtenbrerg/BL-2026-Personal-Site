@@ -413,20 +413,37 @@ export default function AboutPage() {
         <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              className="flex flex-col md:flex-row items-center gap-10"
             >
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Beyond <span className="text-gold">Business</span>
-              </h2>
-              <p className="text-lg text-gray-400">
-                Brett lives in Sandy, Utah with his family. When he&apos;s not coaching,
-                training, or speaking, you&apos;ll find him at Personal Mastery Martial
-                Arts — still on the mat, still learning, still practicing what he teaches.
-              </p>
+              {/* Family Photo */}
+              <div className="relative flex-shrink-0">
+                <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-full blur-lg opacity-40" />
+                <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white/20">
+                  <Image
+                    src="/heroes/family.webp"
+                    alt="Brett Lechtenberg with family"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="text-center md:text-left">
+                <h2 className="text-3xl font-bold text-white mb-6">
+                  Beyond <span className="text-gold">Business</span>
+                </h2>
+                <p className="text-lg text-gray-400">
+                  Brett lives in Sandy, Utah with his family. When he&apos;s not coaching,
+                  training, or speaking, you&apos;ll find him at Personal Mastery Martial
+                  Arts — still on the mat, still learning, still practicing what he teaches.
+                </p>
+              </div>
             </motion.div>
           </div>
         </section>
