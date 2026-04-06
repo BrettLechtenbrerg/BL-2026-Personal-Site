@@ -1,13 +1,42 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 5, 2026 @ 7:50 PM
+**Last Updated:** April 5, 2026 @ 7:48 PM
 **Current Phase:** ✅ COMPLETE - All Pages Built, Optimized & Deployed
 
 ---
 
 ## Current Focus
 
-**Status:** Site is LIVE with all pages complete, mobile optimized, media kit with professional headshots
+**Status:** Site is LIVE with all pages complete, mobile optimized, media kit, photo galleries, and video features
+
+### Completed (April 5, 2026 - Late Evening Session)
+
+#### Media Kit Page
+1. ✅ Added hero background image (speaking.jpg) with dark overlay
+
+#### Homepage - Brett in Action Section
+2. ✅ Replaced "more coming soon" placeholder with actual media entries
+3. ✅ Added The Daily Dish (CW30) card with branded badge
+4. ✅ Added Profiles in Caring card with gold badge
+
+#### Books & Media Page - USA Today Carousel
+5. ✅ Added 6 USA Today images to `/public/usa-today/`
+6. ✅ Created auto-scroll carousel with AnimatePresence
+7. ✅ Added navigation arrows and dot indicators
+8. ✅ Implemented pause-on-hover functionality
+9. ✅ Auto-scroll interval: 4 seconds
+
+#### Speaking Page - Brett in Action Gallery
+10. ✅ Added 7 speaking photos to `/public/speaking-gallery/`
+11. ✅ Created stunning bento-grid gallery layout
+12. ✅ Added animated floating orbs background
+13. ✅ Added hover zoom effects with captions
+14. ✅ Added sparkle icons on hover
+15. ✅ Added stats bar (100+ events, 50+ clients, 10K+ impacted, 30+ years)
+
+#### Video Updates
+16. ✅ Converted Daily Dish to YouTube embed (https://www.youtube.com/embed/tHNnmrkqPrM)
+17. ✅ Wild Bear X keeping MP4 with poster image (YouTube link TBD)
 
 ### Completed (April 5, 2026 - Evening Session)
 
@@ -131,10 +160,35 @@
 |-------|------|--------------|
 | Good Things Utah - The Master's Edge | YouTube | lazy loading |
 | Profiles in Caring | YouTube | lazy loading |
-| The Daily Dish - CW30 | Direct MP4 | preload="none" |
-| Good Things Utah - Wild Bear X | Direct MP4 | preload="none" |
+| The Daily Dish - CW30 | YouTube | lazy loading |
+| Good Things Utah - Wild Bear X | Direct MP4 | poster image |
 
 **As Seen On:** Good Things Utah, The Daily Dish (CW30), Channel 4, Channel 13, Profiles in Caring
+
+---
+
+## Photo Galleries
+
+### USA Today Carousel (Books & Media Page)
+| Image | Path |
+|-------|------|
+| usa-today-1.jpg | `/public/usa-today/` |
+| usa-today-2.jpg | `/public/usa-today/` |
+| usa-today-3.jpg | `/public/usa-today/` |
+| usa-today-4.jpg | `/public/usa-today/` |
+| usa-today-5.jpg | `/public/usa-today/` |
+| usa-today-6.jpg | `/public/usa-today/` |
+
+### Speaking Gallery (Speaking Page - Bento Grid)
+| Image | Path |
+|-------|------|
+| speaking-1.png | `/public/speaking-gallery/` |
+| speaking-2.webp | `/public/speaking-gallery/` |
+| speaking-3.webp | `/public/speaking-gallery/` |
+| speaking-4.jpg | `/public/speaking-gallery/` |
+| murray-chamber-training.webp | `/public/speaking-gallery/` |
+| speaking-6.jpg | `/public/speaking-gallery/` |
+| speaking-7.jpg | `/public/speaking-gallery/` |
 
 ---
 
@@ -181,19 +235,19 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `1c54fa9` - Add Brett's professional headshots to Media Kit page
-**Uncommitted Changes:** None (working tree clean)
+**Last Commit:** `ce4040b` - Convert Daily Dish video to YouTube embed
+**Uncommitted Changes:** None (will be pushed after STATE.md update)
 
 ### Recent Commits
 ```
+ce4040b Convert Daily Dish video to YouTube embed
+616a7bc Add poster images to Daily Dish and Wild Bear X videos
+596a4a4 Add auto-scroll to USA Today carousel
+5bef46a Add stunning Brett in Action gallery to Speaking page
+9a71ef1 Add USA Today feature carousel to Books & Media page
+4ae5034 Replace placeholder with actual media appearances on homepage
 1c54fa9 Add Brett's professional headshots to Media Kit page
 f1f4446 Add Proven 3-Step Process and What We Bring sections to AI Advisory
-d7d4d41 Add background images to timeline boxes on About page
-00f2db0 Add family photo to Beyond Business section on About page
-1971388 Update AI Advisory hero image with Brett and AI photo
-2cdfcd5 Update coaching hero image with optimized WebP
-bb02778 Final session documentation update - Session 4 complete
-c878256 Enhance featured testimonial cards styling
 ```
 
 ---
@@ -211,6 +265,7 @@ c878256 Enhance featured testimonial cards styling
 1. [ ] Connect custom domain (brettlechtenberg.com)
 2. [x] ~~Add Brett's professional headshot~~ ✅ Done - Media Kit page
 3. [ ] SEO optimization (meta tags refinement)
+4. [ ] Convert Wild Bear X video to YouTube embed (user will provide link)
 
 ---
 
