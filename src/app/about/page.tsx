@@ -15,6 +15,7 @@ const timeline = [
     description: "Started martial arts training, beginning a lifelong pursuit of mastery and discipline that would shape everything to come.",
     icon: Award,
     gradient: "from-cranberry to-cranberry-dark",
+    image: "/timeline/8th-dan.webp",
   },
   {
     year: "1990s",
@@ -22,6 +23,7 @@ const timeline = [
     description: "Opened Personal Mastery Martial Arts & Family Success Center in Sandy, Utah — a living laboratory for testing peak performance principles.",
     icon: Building,
     gradient: "from-gold to-gold-dark",
+    image: "/timeline/pmma-logo.webp",
   },
   {
     year: "2000s",
@@ -29,6 +31,7 @@ const timeline = [
     description: "Published first books on safety, time management, and personal empowerment. Began speaking at corporations and conferences nationwide.",
     icon: BookOpen,
     gradient: "from-cranberry to-cranberry-dark",
+    image: "/timeline/anti-bully.webp",
   },
   {
     year: "2010s",
@@ -36,6 +39,7 @@ const timeline = [
     description: "Completed formal research thesis on flow states and accelerated learning. Validated by the Flow Research Collective (Steven Kotler's organization).",
     icon: Brain,
     gradient: "from-gold to-gold-dark",
+    image: "/timeline/thesis.webp",
   },
   {
     year: "2020s",
@@ -43,6 +47,7 @@ const timeline = [
     description: "Synthesized 30+ years of experience into a proprietary coaching methodology. Began working with executives, business owners, and high performers.",
     icon: Sparkles,
     gradient: "from-cranberry to-cranberry-dark",
+    image: "/timeline/masters-edge.webp",
   },
   {
     year: "Today",
@@ -50,6 +55,7 @@ const timeline = [
     description: "Co-founded Total Success AI to bring human-centered AI implementation to businesses. Continues coaching, speaking, and transforming lives.",
     icon: Bot,
     gradient: "from-gold to-gold-dark",
+    image: "/timeline/tsai-logo.webp",
   },
 ];
 
@@ -274,21 +280,36 @@ export default function AboutPage() {
                         {/* Glow effect */}
                         <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
 
-                        <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-colors">
-                          {/* Year badge */}
-                          <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.gradient} rounded-full px-4 py-1 mb-4`}>
-                            <span className="text-white font-bold text-sm">{item.year}</span>
-                          </div>
+                        <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-colors overflow-hidden">
+                          {/* Background Image */}
+                          {item.image && (
+                            <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
+                              <Image
+                                src={item.image}
+                                alt=""
+                                fill
+                                className="object-contain opacity-20"
+                              />
+                            </div>
+                          )}
 
-                          <div className="flex items-start gap-4">
-                            {/* Icon */}
-                            <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                              <item.icon className="w-6 h-6 text-white" />
+                          {/* Content */}
+                          <div className="relative z-10">
+                            {/* Year badge */}
+                            <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.gradient} rounded-full px-4 py-1 mb-4`}>
+                              <span className="text-white font-bold text-sm">{item.year}</span>
                             </div>
 
-                            <div className="flex-1">
-                              <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                              <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                            <div className="flex items-start gap-4">
+                              {/* Icon */}
+                              <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                                <item.icon className="w-6 h-6 text-white" />
+                              </div>
+
+                              <div className="flex-1">
+                                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                              </div>
                             </div>
                           </div>
 
