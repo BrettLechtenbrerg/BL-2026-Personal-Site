@@ -86,7 +86,7 @@ export default function MediaKitPage() {
       <Header />
       <main className="flex-1 pt-20">
         {/* Hero */}
-        <section className="relative py-24 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
+        <section className="relative py-16 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Background Image */}
           <Image
             src="/heroes/speaking.jpg"

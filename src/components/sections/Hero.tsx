@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+    <section className="relative min-h-[90vh] flex items-start pt-8 overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Hero background image */}
       <Image
         src="/heroes/homepage.jpg"
