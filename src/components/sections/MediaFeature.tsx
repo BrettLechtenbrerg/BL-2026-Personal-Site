@@ -115,9 +115,26 @@ export function MediaFeature() {
                   </div>
                 </div>
 
-                {/* Placeholder for more appearances */}
-                <div className="border-2 border-dashed border-white/20 rounded-xl p-6 text-center">
-                  <p className="text-gray-500 text-sm">More media appearances coming soon</p>
+                {/* The Daily Dish */}
+                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-colors">
+                  <div className="w-20 h-11 bg-gradient-to-br from-cranberry to-cranberry-dark rounded flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-xs">CW30</span>
+                  </div>
+                  <div>
+                    <p className="text-white font-medium text-sm">The Daily Dish</p>
+                    <p className="text-gray-400 text-xs">CW30 Utah</p>
+                  </div>
+                </div>
+
+                {/* Profiles in Caring */}
+                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-colors">
+                  <div className="w-20 h-11 bg-gradient-to-br from-gold to-gold-dark rounded flex items-center justify-center flex-shrink-0">
+                    <span className="text-black font-bold text-xs text-center leading-tight">Profiles</span>
+                  </div>
+                  <div>
+                    <p className="text-white font-medium text-sm">Profiles in Caring</p>
+                    <p className="text-gray-400 text-xs">Community Feature</p>
+                  </div>
                 </div>
               </div>
 
