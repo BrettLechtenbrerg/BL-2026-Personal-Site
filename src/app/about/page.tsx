@@ -280,7 +280,7 @@ export default function AboutPage() {
                                 src={item.image}
                                 alt=""
                                 fill
-                                className="object-contain opacity-10 grayscale"
+                                className="object-contain opacity-20 grayscale"
                               />
                             </div>
                           )}
