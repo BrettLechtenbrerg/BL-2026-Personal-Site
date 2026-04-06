@@ -370,7 +370,7 @@ export default function BooksPage() {
                   <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
                   <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
                     <iframe
-                      src="https://www.youtube.com/embed/OF-ixkfGdtM?start=64"
+                      src="https://www.youtube.com/embed/tos_1uWdW4E?start=1"
                       title="Brett Lechtenberg - Profiles in Caring"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -426,7 +426,7 @@ export default function BooksPage() {
                   <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
                   <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
                     <iframe
-                      src="https://www.youtube.com/embed/tHNnmrkqPrM"
+                      src="https://www.youtube.com/embed/A4yGZCZL2S8"
                       title="Brett Lechtenberg on Good Things Utah - Wild Bear X"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
