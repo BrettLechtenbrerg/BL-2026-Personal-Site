@@ -379,6 +379,7 @@ export default function BooksPage() {
                       src="https://assets.cdn.filesafe.space/OfcMDEmwDKM6qQZahiuf/media/677031452ec4ebcc52554f53.mp4"
                       controls
                       preload="none"
+                      poster="/speaking-gallery/speaking-1.png"
                       className="w-full h-full object-cover"
                       playsInline
                     />
@@ -406,6 +407,7 @@ export default function BooksPage() {
                       src="https://assets.cdn.filesafe.space/OfcMDEmwDKM6qQZahiuf/media/67703145a28a507e83de06d7.mp4"
                       controls
                       preload="none"
+                      poster="/speaking-gallery/speaking-4.jpg"
                       className="w-full h-full object-cover"
                       playsInline
                     />
