@@ -434,8 +434,14 @@ export default function AIAdvisoryPage() {
               viewport={{ once: true }}
               className="bg-white/5 backdrop-blur-sm rounded-3xl p-12 border border-white/10"
             >
-              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-cranberry rounded-2xl flex items-center justify-center mb-8 shadow-lg">
-                <Bot className="w-10 h-10 text-white" />
+              <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden mb-8 shadow-lg">
+                <Image
+                  src="/timeline/tsai-logo.webp"
+                  alt="Total Success AI Logo"
+                  width={96}
+                  height={96}
+                  className="object-contain"
+                />
               </div>
               <h2 className="text-3xl font-bold text-white mb-6">
                 Powered by <span className="text-gold">Total Success AI</span>
