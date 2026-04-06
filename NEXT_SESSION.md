@@ -19,13 +19,15 @@ I want to continue working on my personal website (Brett Lechtenberg).
 
 **Production URL:** https://bl-2026-personal-site.vercel.app
 **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
+**Vercel:** https://vercel.com/bretts-projects-3e254e58/bl-2026-personal-site
 
 **What's Complete:**
-- ✅ All 9 pages built with bold colorful design
+- ✅ All 14 pages built with bold colorful design
 - ✅ Dark gradient heroes with animated floating orbs
 - ✅ Glowing cards with consistent hover effects (site-wide)
-- ✅ 6 Featured Testimonials with glow-on-hover and visible face images (15% opacity)
+- ✅ 6 Featured Testimonials with glow-on-hover and visible face images
 - ✅ 4-Video Media Grid with lazy loading
+- ✅ Media Kit with professional headshots (3 photos)
 - ✅ Client logos with scrolling animation
 - ✅ **Mobile optimized for Google Core Web Vitals 2025-2026**
 - ✅ Touch targets 44-52px site-wide
@@ -34,8 +36,7 @@ I want to continue working on my personal website (Brett Lechtenberg).
 
 **Pending Tasks:**
 1. Connect custom domain (brettlechtenberg.com)
-2. Add Brett's professional headshot
-3. SEO optimization (meta tags refinement)
+2. SEO optimization (meta tags refinement)
 
 **What I Need Help With:**
 [Describe your specific focus]
@@ -62,6 +63,7 @@ vercel --prod --yes  # Deploy to Vercel
 | `src/app/page.tsx` | Homepage |
 | `src/app/testimonials/page.tsx` | Testimonials (6 featured, glow effects) |
 | `src/app/books/page.tsx` | Books & Media (4-video grid, lazy loading) |
+| `src/app/media-kit/page.tsx` | Media Kit (headshots, bios, AV) |
 | `src/lib/utils.ts` | Brand colors, links |
 | `src/components/layout/Header.tsx` | Navigation (48px mobile touch targets) |
 | `src/components/layout/Footer.tsx` | Footer (44px touch targets) |
@@ -70,53 +72,40 @@ vercel --prod --yes  # Deploy to Vercel
 | `src/components/sections/LogoScroller.tsx` | Animated scrolling logos |
 | `src/app/globals.css` | Global styles + mobile accessibility |
 | `public/testimonials/` | Testimonial headshot images |
+| `public/media-kit/` | Brett's professional headshots |
 
 ---
 
-## TESTIMONIALS (6 Featured)
+## PAGES (14 Total)
 
-| Name | Title |
-|------|-------|
-| Sam Beard | Creator 6 Presidential Programs for 8 U.S. Presidents |
-| Bill Schuffenhauer | Olympic Silver Medalist & 3x Olympian |
-| Sal Rossano | Green Beret (Ret.) - Trauma Survival Specialist |
-| Matt Gibbons | President, Murray Chamber of Commerce |
-| Jerry Fontanez | 8-Time World Karate Champion |
-| John Nottingham | Sword and Shield Security, Phoenix, AZ |
-
----
-
-## MEDIA VIDEOS (4)
-
-| Video | Source | Optimization |
-|-------|--------|--------------|
-| Good Things Utah - The Master's Edge | YouTube | lazy loading |
-| Profiles in Caring | YouTube | lazy loading |
-| The Daily Dish - CW30 | Direct MP4 | preload="none" |
-| Good Things Utah - Wild Bear X | Direct MP4 | preload="none" |
-
----
-
-## MOBILE OPTIMIZATION (Google 2025-2026)
-
-| Metric | Requirement | Status |
-|--------|-------------|--------|
-| LCP | < 2.5s | ✅ Lazy loading |
-| INP | < 200ms | ✅ Touch targets 44-52px |
-| CLS | < 0.1 | ✅ Stable layouts |
-| Touch Targets | Min 48px | ✅ Fixed site-wide |
-| Reduced Motion | Respect preference | ✅ CSS media query |
+| Page | Route | Status |
+|------|-------|--------|
+| Homepage | `/` | ✅ |
+| The Master's Edge | `/masters-edge` | ✅ |
+| Speaking & Training | `/speaking` | ✅ |
+| Coaching | `/coaching` | ✅ |
+| AI Advisory | `/ai-advisory` | ✅ |
+| About Brett | `/about` | ✅ |
+| Books & Media | `/books` | ✅ |
+| Testimonials | `/testimonials` | ✅ |
+| Contact | `/contact` | ✅ |
+| Media Kit | `/media-kit` | ✅ |
+| Book Brett | `/book-brett` | ✅ |
+| Privacy Policy | `/privacy` | ✅ |
+| Terms of Service | `/terms` | ✅ |
+| Hero Test | `/hero-test` | ✅ |
 
 ---
 
 ## RECENT COMMITS
 
 ```
-c878256 Enhance featured testimonial cards styling
-442e9cb Fix quote icon overlapping testimonial text
-5079c54 Mobile optimization for Google Core Web Vitals 2025-2026
-23df121 Add 4-video grid to Brett in the Media section
-c766d89 Add Jerry Fontanez & John Nottingham featured testimonials
+1c54fa9 Add Brett's professional headshots to Media Kit page
+f1f4446 Add Proven 3-Step Process and What We Bring sections to AI Advisory
+d7d4d41 Add background images to timeline boxes on About page
+00f2db0 Add family photo to Beyond Business section on About page
+1971388 Update AI Advisory hero image with Brett and AI photo
+2cdfcd5 Update coaching hero image with optimized WebP
 ```
 
 ---
@@ -133,4 +122,4 @@ vercel --prod --yes
 
 ---
 
-*Last updated: April 5, 2026 @ 3:45 PM*
+*Last updated: April 5, 2026 @ 7:50 PM*
