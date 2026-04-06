@@ -215,10 +215,10 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline - The Journey (Light Mode) */}
-        <section className="py-24 bg-gradient-to-b from-gold/5 via-white to-cranberry/5 relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-b from-gray-200 via-gray-100 to-gray-200 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
-          <div className="absolute -top-40 -left-40 w-80 h-80 bg-cranberry/15 rounded-full blur-[100px]" />
-          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gold/15 rounded-full blur-[100px]" />
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-cranberry/20 rounded-full blur-[100px]" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
 
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <motion.div
