@@ -214,19 +214,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Timeline - The Journey */}
-        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-          <motion.div
-            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-40 left-10 w-80 h-80 bg-cranberry/30 rounded-full blur-[120px]"
-          />
-          <motion.div
-            animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-40 right-10 w-96 h-96 bg-gold/25 rounded-full blur-[100px]"
-          />
+        {/* Timeline - The Journey (Light Mode) */}
+        <section className="py-24 bg-gradient-to-b from-gold/5 via-white to-cranberry/5 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-cranberry/15 rounded-full blur-[100px]" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gold/15 rounded-full blur-[100px]" />
 
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -235,10 +227,10 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
                 The <span className="bg-gradient-to-r from-cranberry to-gold bg-clip-text text-transparent">Journey</span>
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-warm-gray max-w-2xl mx-auto">
                 Four decades of learning, teaching, and transformation — distilled into a methodology that works.
               </p>
             </motion.div>
@@ -257,7 +249,7 @@ export default function AboutPage() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                      className={`absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-br ${item.gradient} border-4 border-gray-900 z-10 hidden md:block`}
+                      className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br ${item.gradient} border-4 border-white shadow-lg z-10 hidden md:block`}
                       style={{ top: "2rem" }}
                     />
 
@@ -278,9 +270,9 @@ export default function AboutPage() {
                     >
                       <div className="group relative">
                         {/* Glow effect */}
-                        <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
+                        <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
 
-                        <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-colors overflow-hidden">
+                        <div className="relative bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                           {/* Background Image */}
                           {item.image && (
                             <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
@@ -288,7 +280,7 @@ export default function AboutPage() {
                                 src={item.image}
                                 alt=""
                                 fill
-                                className="object-contain opacity-20"
+                                className="object-contain opacity-10 grayscale"
                               />
                             </div>
                           )}
@@ -296,7 +288,7 @@ export default function AboutPage() {
                           {/* Content */}
                           <div className="relative z-10">
                             {/* Year badge */}
-                            <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.gradient} rounded-full px-4 py-1 mb-4`}>
+                            <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.gradient} rounded-full px-4 py-1 mb-4 shadow-md`}>
                               <span className="text-white font-bold text-sm">{item.year}</span>
                             </div>
 
@@ -307,15 +299,15 @@ export default function AboutPage() {
                               </div>
 
                               <div className="flex-1">
-                                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                                <h3 className="text-lg font-bold text-black mb-2">{item.title}</h3>
+                                <p className="text-warm-gray text-sm leading-relaxed">{item.description}</p>
                               </div>
                             </div>
                           </div>
 
                           {/* Arrow pointing to timeline (desktop) */}
                           <div
-                            className={`absolute top-8 hidden md:block w-4 h-4 bg-gray-900/90 border-white/10 transform rotate-45 ${
+                            className={`absolute top-8 hidden md:block w-4 h-4 bg-white border-gray-100 transform rotate-45 ${
                               index % 2 === 0
                                 ? "right-0 translate-x-1/2 border-t border-r"
                                 : "left-0 -translate-x-1/2 border-b border-l"
