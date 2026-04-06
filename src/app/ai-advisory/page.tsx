@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { GraduationCap, Handshake, Cog, Bot, Sparkles, Zap, Brain, Rocket } from "lucide-react";
+import { GraduationCap, Handshake, Cog, Bot, Sparkles, Zap, Brain, Rocket, Search, Target, Puzzle, TrendingUp, Clock, BarChart3 } from "lucide-react";
 import Image from "next/image";
 
 const tiers = [
@@ -43,6 +43,60 @@ const impactAreas = [
   { icon: Brain, title: "Prompt Engineering", description: "Learn to communicate with AI tools effectively — saving massive time and money", gradient: "from-gold to-gold-dark" },
   { icon: Zap, title: "Business Automation", description: "Automate repetitive tasks so your team can focus on high-value work", gradient: "from-cranberry to-cranberry-dark" },
   { icon: Sparkles, title: "Content Creation", description: "Generate, optimize, and repurpose content at scale", gradient: "from-gold to-gold-dark" },
+];
+
+const threeStepProcess = [
+  {
+    step: "01",
+    icon: Search,
+    title: "AI Impact Analysis",
+    gradient: "from-blue-500 to-blue-700",
+    points: [
+      "We analyze your workflows and show you how AI can save time, cut costs, and boost revenue.",
+      "Get clarity on what AI tools will give you the biggest ROI.",
+    ],
+  },
+  {
+    step: "02",
+    icon: Target,
+    title: "Precision Tool Selection",
+    gradient: "from-cranberry to-cranberry-dark",
+    points: [
+      "Set clear goals with our team and get AI recommendations tailored to your business.",
+      "We help you choose tools that streamline operations and improve your bottom line.",
+    ],
+  },
+  {
+    step: "03",
+    icon: Puzzle,
+    title: "Effortless Integration",
+    gradient: "from-gold to-gold-dark",
+    points: [
+      "We implement AI solutions for you or guide you every step of the way.",
+      "Achieve smooth adoption without the overwhelm or guesswork.",
+    ],
+  },
+];
+
+const whatWeBring = [
+  {
+    icon: TrendingUp,
+    title: "Stay Ahead of The Curve",
+    description: "AI training and future-proofing strategies can help you stay ahead of the curve, adapt quickly to market changes, seize emerging opportunities, and maintain a strong competitive edge. Falling behind can mean lost revenue, reduced market share, and diminished relevance in an ever-evolving business landscape.",
+    gradient: "from-blue-500 to-cranberry",
+  },
+  {
+    icon: Clock,
+    title: "Increased Efficiency and Productivity",
+    description: "AI-driven tools can handle repetitive, data-heavy tasks far more quickly and accurately than humans, freeing up time for more strategic or creative work. By automating routine processes, AI helps improve efficiency, reduce costs, and streamline overall operations.",
+    gradient: "from-cranberry to-gold",
+  },
+  {
+    icon: BarChart3,
+    title: "Deeper Insights and Better Decision-Making",
+    description: "AI algorithms can analyze large amounts of data in real time and provide actionable insights, uncover patterns, and predict trends. This capacity allows businesses (and individuals) to make more informed decisions, stay ahead of market shifts, and optimize strategies for better outcomes.",
+    gradient: "from-gold to-blue-500",
+  },
 ];
 
 export default function AIAdvisoryPage() {
@@ -145,8 +199,84 @@ export default function AIAdvisoryPage() {
           </div>
         </section>
 
-        {/* Three Tiers - Dark */}
+        {/* 3-Step Process - Dark with animated gradient */}
         <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+          <motion.div
+            animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-blue-500/30 rounded-full blur-[150px]"
+          />
+          <motion.div
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cranberry/25 rounded-full blur-[120px]"
+          />
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-5 py-2 mb-6">
+                <Zap className="w-4 h-4 text-blue-400" />
+                <span className="text-blue-300 font-semibold text-sm">Proven Methodology</span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                Our Proven <span className="bg-gradient-to-r from-blue-400 via-cranberry to-gold bg-clip-text text-transparent">3-Step Process</span>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                Our advisory services empower businesses to innovate, scale, and thrive in an AI-driven world.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {threeStepProcess.map((step, index) => (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                  className="group relative"
+                >
+                  {/* Glow effect */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${step.gradient} rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500`} />
+
+                  <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-3xl p-8 border border-white/10 h-full flex flex-col group-hover:border-white/20 transition-all duration-300">
+                    {/* Step number */}
+                    <div className={`absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center shadow-2xl transform rotate-12 group-hover:rotate-0 transition-transform duration-300`}>
+                      <span className="text-white font-black text-xl">{step.step}</span>
+                    </div>
+
+                    {/* Icon */}
+                    <div className={`w-20 h-20 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                      <step.icon className="w-10 h-10 text-white" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-2xl font-bold text-white mb-6">{step.title}</h3>
+
+                    {/* Points */}
+                    <ul className="space-y-4 flex-grow">
+                      {step.points.map((point, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className={`w-2 h-2 mt-2 rounded-full bg-gradient-to-r ${step.gradient} flex-shrink-0`} />
+                          <span className="text-gray-400">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Three Tiers - Dark */}
+        <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
           <motion.div
             animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
@@ -222,6 +352,62 @@ export default function AIAdvisoryPage() {
                     <div>
                       <h3 className="text-xl font-bold text-black mb-2">{area.title}</h3>
                       <p className="text-warm-gray">{area.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* What We Bring - Gradient with bold cards */}
+        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.35, 0.2] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/3 left-0 w-[600px] h-[600px] bg-gradient-to-r from-blue-500/20 via-cranberry/20 to-gold/20 rounded-full blur-[150px]"
+          />
+
+          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                What Brett and His Team Will Bring To{" "}
+                <span className="bg-gradient-to-r from-gold via-cranberry to-blue-400 bg-clip-text text-transparent">
+                  Your Business
+                </span>
+              </h2>
+            </motion.div>
+
+            <div className="space-y-8">
+              {whatWeBring.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15, type: "spring", stiffness: 50 }}
+                  className="group relative"
+                >
+                  {/* Large glow effect */}
+                  <div className={`absolute -inset-2 bg-gradient-to-r ${item.gradient} rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
+
+                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/10 group-hover:border-white/20 transition-all duration-300">
+                    <div className="flex flex-col md:flex-row items-start gap-6">
+                      {/* Icon */}
+                      <div className={`w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                        <item.icon className="w-10 h-10 text-white" />
+                      </div>
+
+                      <div className="flex-1">
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{item.title}</h3>
+                        <p className="text-lg text-gray-400 leading-relaxed">{item.description}</p>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
