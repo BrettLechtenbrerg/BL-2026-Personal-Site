@@ -54,8 +54,8 @@ export default function AIAdvisoryPage() {
         <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Hero background image */}
           <Image
-            src="/heroes/ai-advisory.jpg"
-            alt="AI and technology visualization"
+            src="/heroes/ai-advisory-hero.webp"
+            alt="Brett Lechtenberg - AI Advisory"
             fill
             className="object-cover opacity-40"
             priority
