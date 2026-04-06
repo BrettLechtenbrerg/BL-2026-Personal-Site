@@ -4,9 +4,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { Star, BookOpen, Play, Tv } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star, BookOpen, Play, Tv, ChevronLeft, ChevronRight, Newspaper } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 const books = [
   {
@@ -76,7 +77,26 @@ const books = [
   },
 ];
 
+const usaTodayImages = [
+  { src: "/usa-today/butler-elementary.png", alt: "Brett's Anti-Bullying Program featured at Butler Elementary - USA Today" },
+  { src: "/usa-today/phoenix-antibullying.png", alt: "USA Today coverage of Anti-Bullying program in Phoenix" },
+  { src: "/usa-today/screenshot-2015.png", alt: "USA Today feature article 2015" },
+  { src: "/usa-today/screenshot-2019.png", alt: "USA Today feature article 2019" },
+  { src: "/usa-today/lp-bully.png", alt: "Anti-Bully Program featured in USA Today" },
+  { src: "/usa-today/draper.jpg", alt: "Brett's program in Draper - USA Today" },
+];
+
 export default function BooksPage() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % usaTodayImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + usaTodayImages.length) % usaTodayImages.length);
+  };
+
   return (
     <>
       <Header />
@@ -387,6 +407,108 @@ export default function BooksPage() {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* USA Today Feature - Carousel */}
+        <section className="py-24 bg-gradient-to-b from-white via-cranberry/5 to-gold/5 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-cranberry/20 rounded-full blur-[100px]" />
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <div className="inline-flex items-center gap-2 bg-cranberry/10 border border-cranberry/20 rounded-full px-5 py-2 mb-6">
+                <Newspaper className="w-4 h-4 text-cranberry" />
+                <span className="text-cranberry font-semibold text-sm">National Press</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+                Featured in <span className="text-cranberry">USA Today</span>
+              </h2>
+              <p className="text-lg text-warm-gray max-w-2xl mx-auto">
+                Brett&apos;s anti-bullying programs have received national recognition and coverage.
+              </p>
+            </motion.div>
+
+            {/* Carousel */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative max-w-4xl mx-auto"
+            >
+              {/* Glow effect */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-xl opacity-20" />
+
+              <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+                {/* Image container */}
+                <div className="relative aspect-[16/10] bg-gray-100">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentImage}
+                      initial={{ opacity: 0, x: 100 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -100 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={usaTodayImages[currentImage].src}
+                        alt={usaTodayImages[currentImage].alt}
+                        fill
+                        className="object-contain"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Navigation arrows */}
+                  <button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all shadow-lg backdrop-blur-sm"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all shadow-lg backdrop-blur-sm"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </div>
+
+                {/* Caption and dots */}
+                <div className="p-6 bg-gradient-to-r from-cranberry/5 to-gold/5">
+                  <p className="text-center text-warm-gray text-sm mb-4">
+                    {usaTodayImages[currentImage].alt}
+                  </p>
+                  <div className="flex justify-center gap-2">
+                    {usaTodayImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImage(index)}
+                        className={`w-3 h-3 rounded-full transition-all ${
+                          index === currentImage
+                            ? "bg-cranberry w-8"
+                            : "bg-gray-300 hover:bg-gray-400"
+                        }`}
+                        aria-label={`Go to image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Image counter */}
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-sm px-4 py-2 rounded-full">
+                {currentImage + 1} / {usaTodayImages.length}
+              </div>
+            </motion.div>
           </div>
         </section>
 
