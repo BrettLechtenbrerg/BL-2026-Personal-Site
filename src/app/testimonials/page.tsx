@@ -153,7 +153,7 @@ export default function TestimonialsPage() {
             src="/heroes/testimonials.jpg"
             alt="Successful professionals collaborating"
             fill
-            className="object-cover opacity-35"
+            className="object-cover opacity-45"
             priority
           />
           {/* Dark overlay */}

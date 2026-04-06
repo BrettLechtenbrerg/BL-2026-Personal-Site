@@ -92,7 +92,7 @@ export default function MediaKitPage() {
             src="/heroes/speaking.jpg"
             alt="Brett Lechtenberg speaking at an event"
             fill
-            className="object-cover object-center"
+            className="object-cover object-center opacity-40"
             priority
           />
           {/* Dark overlay for text readability */}

@@ -120,7 +120,7 @@ export default function BooksPage() {
             src="/heroes/books.jpg"
             alt="Library with books representing knowledge and publishing"
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-50"
             priority
           />
           {/* Dark overlay */}
@@ -201,9 +201,9 @@ export default function BooksPage() {
                   {/* Glow effect on hover */}
                   <div className={`absolute -inset-1 bg-gradient-to-r ${
                     book.upcoming
-                      ? 'from-cranberry via-gold to-cranberry opacity-40 group-hover:opacity-60'
+                      ? 'from-cranberry via-gold to-cranberry opacity-50 group-hover:opacity-60'
                       : book.bestseller
-                        ? 'from-gold via-cranberry to-gold opacity-0 group-hover:opacity-40'
+                        ? 'from-gold via-cranberry to-gold opacity-0 group-hover:opacity-50'
                         : 'from-cranberry via-gold to-cranberry opacity-0 group-hover:opacity-30'
                   } rounded-2xl blur-lg transition-opacity duration-300`} />
                   <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 ${

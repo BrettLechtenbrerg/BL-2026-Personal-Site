@@ -111,7 +111,7 @@ export default function AIAdvisoryPage() {
             src="/heroes/ai-advisory-hero.webp"
             alt="Brett Lechtenberg - AI Advisory"
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-50"
             priority
           />
           {/* Dark overlay */}
@@ -395,7 +395,7 @@ export default function AIAdvisoryPage() {
                   className="group relative"
                 >
                   {/* Large glow effect */}
-                  <div className={`absolute -inset-2 bg-gradient-to-r ${item.gradient} rounded-3xl blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
+                  <div className={`absolute -inset-2 bg-gradient-to-r ${item.gradient} rounded-3xl blur-2xl opacity-20 group-hover:opacity-50 transition-opacity duration-500`} />
 
                   <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/10 group-hover:border-white/20 transition-all duration-300">
                     <div className="flex flex-col md:flex-row items-start gap-6">

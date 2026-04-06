@@ -109,7 +109,7 @@ export default function AboutPage() {
             src="/heroes/about.jpg"
             alt="Martial arts training and discipline"
             fill
-            className="object-cover opacity-40"
+            className="object-cover opacity-50"
             priority
           />
           {/* Dark overlay */}

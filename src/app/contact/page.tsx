@@ -43,7 +43,7 @@ export default function ContactPage() {
             src="/heroes/contact.jpg"
             alt="Professional handshake representing connection"
             fill
-            className="object-cover opacity-35"
+            className="object-cover opacity-45"
             priority
           />
           {/* Dark overlay */}

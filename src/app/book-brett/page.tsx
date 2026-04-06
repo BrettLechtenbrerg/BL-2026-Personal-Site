@@ -94,7 +94,7 @@ export default function BookBrettPage() {
             src="/heroes/speaking.jpg"
             alt="Brett speaking on stage"
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-40"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />

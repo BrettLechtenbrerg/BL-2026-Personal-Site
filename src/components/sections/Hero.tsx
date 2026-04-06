@@ -14,7 +14,7 @@ export function Hero() {
         src="/heroes/homepage.jpg"
         alt="Leadership and peak performance"
         fill
-        className="object-cover opacity-30"
+        className="object-cover opacity-40"
         priority
       />
       {/* Dark overlay */}

@@ -71,7 +71,7 @@ export default function MastersEdgePage() {
             src="/heroes/masters-edge.jpg"
             alt="Mountain peak at sunrise representing transformation"
             fill
-            className="object-cover opacity-45"
+            className="object-cover opacity-55"
             priority
           />
           {/* Dark overlay */}

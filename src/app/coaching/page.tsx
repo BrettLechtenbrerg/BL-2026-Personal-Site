@@ -53,7 +53,7 @@ export default function CoachingPage() {
             src="/heroes/coaching-hero.webp"
             alt="Brett Lechtenberg - Executive Coach"
             fill
-            className="object-cover opacity-35"
+            className="object-cover opacity-45"
             priority
           />
           {/* Dark overlay */}
