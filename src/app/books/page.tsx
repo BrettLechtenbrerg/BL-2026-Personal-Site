@@ -75,6 +75,16 @@ const books = [
     image: "/books/protecting-your-castle.png",
     gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/8",
   },
+  {
+    title: "How to Build a Rockstar Team",
+    status: "Free eBook",
+    description:
+      "The essential guide to building, leading, and retaining a team of motivated professionals who perform at their best.",
+    bestseller: false,
+    freebie: true,
+    image: "/books/rockstar-team.png",
+    gradient: "bg-gradient-to-bl from-gold/10 via-white to-cranberry/10",
+  },
 ];
 
 const usaTodayImages = [
@@ -202,16 +212,20 @@ export default function BooksPage() {
                   <div className={`absolute -inset-1 bg-gradient-to-r ${
                     book.upcoming
                       ? 'from-cranberry via-gold to-cranberry opacity-50 group-hover:opacity-60'
-                      : book.bestseller
-                        ? 'from-gold via-cranberry to-gold opacity-0 group-hover:opacity-50'
-                        : 'from-cranberry via-gold to-cranberry opacity-0 group-hover:opacity-30'
+                      : "freebie" in book && book.freebie
+                        ? 'from-green-500 via-emerald-400 to-green-500 opacity-40 group-hover:opacity-60'
+                        : book.bestseller
+                          ? 'from-gold via-cranberry to-gold opacity-0 group-hover:opacity-50'
+                          : 'from-cranberry via-gold to-cranberry opacity-0 group-hover:opacity-30'
                   } rounded-2xl blur-lg transition-opacity duration-300`} />
                   <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 ${
                     book.upcoming
                       ? "border-cranberry/60 group-hover:border-cranberry"
-                      : book.bestseller
-                        ? "border-gold/40 group-hover:border-gold/70"
-                        : "border-cranberry/30 group-hover:border-cranberry/50"
+                      : "freebie" in book && book.freebie
+                        ? "border-green-500/60 group-hover:border-green-500"
+                        : book.bestseller
+                          ? "border-gold/40 group-hover:border-gold/70"
+                          : "border-cranberry/30 group-hover:border-cranberry/50"
                   } ${"gradient" in book && book.gradient ? book.gradient : "bg-white"}`}>
                     {/* Background Book Cover Image */}
                     {book.image && (
@@ -227,10 +241,14 @@ export default function BooksPage() {
 
                     {/* Content overlay */}
                     <div className="relative z-10 flex flex-col h-full">
-                      {/* Header with title and bestseller badge */}
+                      {/* Header with title and badge */}
                       <div className="flex items-start justify-between mb-4 flex-shrink-0">
                         <h3 className="text-xl font-bold text-black">{book.title}</h3>
-                        {book.bestseller && (
+                        {"freebie" in book && book.freebie ? (
+                          <div className="flex items-center gap-1 bg-green-500/20 px-3 py-1 rounded-full flex-shrink-0 animate-pulse">
+                            <span className="text-xs font-bold text-green-600">FREE</span>
+                          </div>
+                        ) : book.bestseller && (
                           <div className="flex items-center gap-1 bg-gold/10 px-3 py-1 rounded-full flex-shrink-0">
                             <Star className="w-4 h-4 text-gold fill-gold" />
                             <span className="text-xs font-semibold text-gold">Bestseller</span>
@@ -240,7 +258,11 @@ export default function BooksPage() {
 
                       {/* Status */}
                       <p className={`text-sm font-semibold mb-4 flex-shrink-0 ${
-                        book.upcoming ? "text-cranberry" : "text-gold"
+                        book.upcoming
+                          ? "text-cranberry"
+                          : "freebie" in book && book.freebie
+                            ? "text-green-600"
+                            : "text-gold"
                       }`}>
                         {book.status}
                       </p>
@@ -546,14 +568,14 @@ export default function BooksPage() {
                 <BookOpen className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">
-                Get Your Free Copy of <span className="text-gold">Reclaiming The Clock</span>
+                Get Your Free Copy of <span className="text-gold">How to Build a Rockstar Team</span>
               </h2>
               <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-                Brett&apos;s bestselling book on habit management and time creation —
-                delivered to your inbox.
+                Brett&apos;s essential guide to building, leading, and retaining
+                a team of motivated professionals — delivered to your inbox.
               </p>
               <Button href={links.booking} external variant="secondary" size="lg">
-                Get the Free Book
+                Get the Free eBook
               </Button>
             </motion.div>
           </div>
