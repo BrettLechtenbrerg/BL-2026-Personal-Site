@@ -50,8 +50,8 @@ export default function CoachingPage() {
         <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Hero background image */}
           <Image
-            src="/heroes/coaching.jpg"
-            alt="Professional coaching session"
+            src="/heroes/coaching-hero.webp"
+            alt="Brett Lechtenberg - Executive Coach"
             fill
             className="object-cover opacity-35"
             priority
