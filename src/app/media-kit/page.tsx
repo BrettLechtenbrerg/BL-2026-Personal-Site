@@ -87,7 +87,17 @@ export default function MediaKitPage() {
       <main className="flex-1 pt-20">
         {/* Hero */}
         <section className="relative py-24 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
+          {/* Background Image */}
+          <Image
+            src="/heroes/speaking.jpg"
+            alt="Brett Lechtenberg speaking at an event"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/80" />
+          {/* Animated orbs */}
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
