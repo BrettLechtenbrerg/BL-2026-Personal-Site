@@ -7,7 +7,7 @@ import { links } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, BookOpen, Play, Tv, ChevronLeft, ChevronRight, Newspaper } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const books = [
   {
@@ -88,6 +88,7 @@ const usaTodayImages = [
 
 export default function BooksPage() {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % usaTodayImages.length);
@@ -96,6 +97,17 @@ export default function BooksPage() {
   const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + usaTodayImages.length) % usaTodayImages.length);
   };
+
+  // Auto-scroll every 4 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % usaTodayImages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <>
@@ -440,6 +452,8 @@ export default function BooksPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="relative max-w-4xl mx-auto"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
             >
               {/* Glow effect */}
               <div className="absolute -inset-4 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-xl opacity-20" />
