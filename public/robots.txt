@@ -1,0 +1,16 @@
+# Brett Lechtenberg - Peak Performance Coach
+# https://brettlechtenberg.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://brettlechtenberg.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Block common bot paths that don't need indexing
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
