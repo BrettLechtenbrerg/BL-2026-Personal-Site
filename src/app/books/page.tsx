@@ -375,13 +375,13 @@ export default function BooksPage() {
                 <div className="relative group">
                   <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
                   <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                    <video
-                      src="https://assets.cdn.filesafe.space/OfcMDEmwDKM6qQZahiuf/media/677031452ec4ebcc52554f53.mp4"
-                      controls
-                      preload="none"
-                      poster="/speaking-gallery/speaking-1.png"
-                      className="w-full h-full object-cover"
-                      playsInline
+                    <iframe
+                      src="https://www.youtube.com/embed/tHNnmrkqPrM"
+                      title="Brett Lechtenberg on The Daily Dish - CW30"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="w-full h-full"
                     />
                   </div>
                 </div>
