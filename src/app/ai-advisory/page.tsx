@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { GraduationCap, Handshake, Cog, Bot, Sparkles, Zap, Brain, Rocket, Search, Target, Puzzle, TrendingUp, Clock, BarChart3 } from "lucide-react";
+import { GraduationCap, Handshake, Cog, Bot, Sparkles, Zap, Brain, Rocket, TrendingUp, Clock, BarChart3 } from "lucide-react";
 import Image from "next/image";
 
 const tiers = [
@@ -47,8 +47,6 @@ const impactAreas = [
 
 const threeStepProcess = [
   {
-    step: "01",
-    icon: Search,
     title: "AI Impact Analysis",
     gradient: "from-blue-500 to-blue-700",
     points: [
@@ -57,8 +55,6 @@ const threeStepProcess = [
     ],
   },
   {
-    step: "02",
-    icon: Target,
     title: "Precision Tool Selection",
     gradient: "from-cranberry to-cranberry-dark",
     points: [
@@ -67,8 +63,6 @@ const threeStepProcess = [
     ],
   },
   {
-    step: "03",
-    icon: Puzzle,
     title: "Effortless Integration",
     gradient: "from-gold to-gold-dark",
     points: [
@@ -245,26 +239,34 @@ export default function AIAdvisoryPage() {
                   {/* Glow effect */}
                   <div className={`absolute -inset-1 bg-gradient-to-r ${step.gradient} rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500`} />
 
-                  <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-3xl p-8 border border-white/10 h-full flex flex-col group-hover:border-white/20 transition-all duration-300">
-                    {/* Step number */}
-                    <div className={`absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center shadow-2xl transform rotate-12 group-hover:rotate-0 transition-transform duration-300`}>
-                      <span className="text-white font-black text-xl">{step.step}</span>
+                  <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-3xl p-8 border border-white/10 h-full flex flex-col group-hover:border-white/20 transition-all duration-300 overflow-hidden">
+                    {/* Animated gradient accent line at top */}
+                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${step.gradient}`} />
+
+                    {/* Large faded step number in background */}
+                    <div className="absolute -top-6 -right-4 text-[140px] font-black text-white/[0.03] select-none leading-none">
+                      {index + 1}
                     </div>
 
-                    {/* Icon */}
-                    <div className={`w-20 h-20 bg-gradient-to-br ${step.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
-                      <step.icon className="w-10 h-10 text-white" />
+                    {/* Step label with gradient text */}
+                    <div className="mb-4">
+                      <span className={`text-sm font-bold tracking-widest bg-gradient-to-r ${step.gradient} bg-clip-text text-transparent`}>
+                        STEP {index + 1}
+                      </span>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-white mb-6">{step.title}</h3>
+                    {/* Title with animated underline on hover */}
+                    <div className="relative mb-6">
+                      <h3 className="text-2xl font-bold text-white">{step.title}</h3>
+                      <div className={`h-0.5 bg-gradient-to-r ${step.gradient} mt-2 w-12 group-hover:w-full transition-all duration-500`} />
+                    </div>
 
                     {/* Points */}
-                    <ul className="space-y-4 flex-grow">
+                    <ul className="space-y-4 flex-grow relative z-10">
                       {step.points.map((point, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className={`w-2 h-2 mt-2 rounded-full bg-gradient-to-r ${step.gradient} flex-shrink-0`} />
-                          <span className="text-gray-400">{point}</span>
+                          <div className={`w-1.5 h-1.5 mt-2 rounded-full bg-gradient-to-r ${step.gradient} flex-shrink-0 group-hover:scale-150 transition-transform duration-300`} />
+                          <span className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">{point}</span>
                         </li>
                       ))}
                     </ul>
