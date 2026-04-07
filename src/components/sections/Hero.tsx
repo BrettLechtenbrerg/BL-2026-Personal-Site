@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-start pt-8 overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+    <section className="relative min-h-screen sm:min-h-[90vh] flex items-start pt-8 overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Hero background image */}
       <Image
         src="/heroes/homepage.jpg"
@@ -151,7 +151,7 @@ export function Hero() {
       </div>
 
       {/* Value Pillars - Clarify, Simplify, Maximize */}
-      <div className="absolute bottom-28 left-0 right-0 z-10">
+      <div className="absolute bottom-8 sm:bottom-28 left-0 right-0 z-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             {[
