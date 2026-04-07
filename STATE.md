@@ -1,13 +1,22 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 6, 2026 @ 7:50 AM
-**Current Phase:** ✅ LAUNCH READY - SEO Optimized, All Pages Complete
+**Last Updated:** April 7, 2026 @ 3:35 PM
+**Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site is LAUNCH READY with full SEO optimization, all pages complete, mobile optimized
+**Status:** Site is LIVE at brettlechtenberg.com - All systems operational
+
+### Completed (April 7, 2026 - Afternoon Session - MOBILE FIX)
+
+#### iPhone 15 Hero Fix
+1. ✅ Fixed "Clarify, Simplify, Maximize" pillars overlapping text on iPhone 15
+2. ✅ Hero section: `min-h-[90vh]` → `min-h-screen sm:min-h-[90vh]` (full height on mobile)
+3. ✅ Pillar positioning: `bottom-28` → `bottom-8 sm:bottom-28` (closer to bottom on mobile)
+
+---
 
 ### Completed (April 6, 2026 - Morning Session - PRE-LAUNCH)
 
@@ -115,11 +124,13 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `5982085` - Reduce hero section top spacing across all pages
+**Last Commit:** `fa0e844` - Fix hero pillars overlapping text on iPhone 15
 **Uncommitted Changes:** None (working tree clean)
 
-### Recent Commits (April 6, 2026)
+### Recent Commits (April 6-7, 2026)
 ```
+fa0e844 Fix hero pillars overlapping text on iPhone 15
+f23c397 Update documentation for launch - STATE.md, SESSION_LOG.md, NEXT_SESSION.md
 5982085 Reduce hero section top spacing across all pages
 12c393a Add SEO optimizations for launch
 ae0c766 Darken Journey section background for more contrast
@@ -128,16 +139,14 @@ ae0c766 Darken Journey section background for more contrast
 27c363c Preview: Light mode Journey timeline section
 356187e Fix YouTube video links on Books & Media page
 74b68d1 Add 'How to Build a Rockstar Team' eBook and update free giveaway
-27aad22 Replace Wild Bear X video with YouTube embed
-2167261 Replace Bot icon with TSAI logo in Powered by section
 ```
 
 ---
 
 ## Deployment
 
-**Production URL:** https://bl-2026-personal-site.vercel.app
-**Custom Domain:** brettlechtenberg.com (ready to connect)
+**Production URL:** https://brettlechtenberg.com ✅ LIVE
+**Vercel Preview:** https://bl-2026-personal-site.vercel.app
 **Vercel Project:** `bretts-projects-3e254e58/bl-2026-personal-site`
 **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
 
@@ -212,9 +221,10 @@ BL-2026-Personal-Site/
 - [x] All commits pushed to GitHub
 - [x] Vercel deployment successful
 
-### To Go Live
-- [ ] Add custom domain in Vercel (brettlechtenberg.com)
-- [ ] Update DNS at domain registrar
+### Go Live ✅ COMPLETE
+- [x] Add custom domain in Vercel (brettlechtenberg.com)
+- [x] Update DNS at domain registrar
+- [x] Site live at brettlechtenberg.com
 - [ ] Verify in Google Search Console
 - [ ] Submit sitemap to Google
 - [ ] Test social sharing (Facebook, Twitter, LinkedIn)
@@ -234,4 +244,4 @@ BL-2026-Personal-Site/
 
 ## Blockers
 
-*None - site is LAUNCH READY*
+*None - site is LIVE at brettlechtenberg.com*

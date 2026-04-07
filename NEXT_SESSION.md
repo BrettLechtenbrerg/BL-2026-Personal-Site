@@ -17,12 +17,12 @@ I want to continue working on my personal website (Brett Lechtenberg).
 1. `CLAUDE.md` - Full project context
 2. `STATE.md` - Current progress and focus
 
-**Production URL:** https://bl-2026-personal-site.vercel.app
-**Custom Domain:** https://brettlechtenberg.com (when connected)
+**Production URL:** https://brettlechtenberg.com ✅ LIVE
+**Vercel Preview:** https://bl-2026-personal-site.vercel.app
 **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
-**Vercel:** https://vercel.com/bretts-projects-3e254e58/bl-2026-personal-site
+**Vercel Dashboard:** https://vercel.com/bretts-projects-3e254e58/bl-2026-personal-site
 
-**Site Status: ✅ LAUNCH READY**
+**Site Status: ✅ LIVE**
 
 **What's Complete:**
 - ✅ All 13 pages built with bold colorful design
@@ -38,14 +38,13 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ "How to Build a Rockstar Team" as free eBook giveaway
 - ✅ Client logos with scrolling animation
 - ✅ Mobile optimized for Google Core Web Vitals 2025-2026
-- ✅ Deployed to Vercel & pushed to GitHub (working tree clean)
+- ✅ Custom domain connected (brettlechtenberg.com)
+- ✅ iPhone 15 hero pillar overlay fixed (April 7, 2026)
 
-**To Complete Launch:**
-1. [ ] Add custom domain in Vercel (brettlechtenberg.com)
-2. [ ] Update DNS at domain registrar
-3. [ ] Verify in Google Search Console
-4. [ ] Submit sitemap: https://brettlechtenberg.com/sitemap.xml
-5. [ ] Test social sharing debuggers
+**Post-Launch Tasks:**
+1. [ ] Verify in Google Search Console
+2. [ ] Submit sitemap: https://brettlechtenberg.com/sitemap.xml
+3. [ ] Test social sharing debuggers (Facebook, Twitter, LinkedIn)
 
 **What I Need Help With:**
 [Describe your specific focus]
@@ -54,13 +53,26 @@ Let's continue!
 
 ---
 
+## WORKFLOW RULES
+
+| Rule | Setting |
+|------|---------|
+| **Project** | `BL-2026-Personal-Site` only |
+| **Local Path** | `/Users/brettlechtenberg/Desktop/Claude Projects/BL-2026-Personal-Site` |
+| **GitHub** | `BrettLechtenbrerg/BL-2026-Personal-Site` |
+| **Vercel** | `bretts-projects-3e254e58/bl-2026-personal-site` |
+| **Dev Server** | ❌ **NO** - not using it |
+| **Workflow** | Edit → Commit → Push → Vercel auto-deploys |
+
+---
+
 ## QUICK START COMMANDS
 
 ```bash
 cd "/Users/brettlechtenberg/Desktop/Claude Projects/BL-2026-Personal-Site"
-npm run dev          # Start dev server (localhost:3000)
+npm run dev          # Start dev server (localhost:3000) - IF NEEDED
 npm run build        # Build for production
-vercel --prod --yes  # Deploy to Vercel
+vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 ```
 
 ---
@@ -101,13 +113,12 @@ vercel --prod --yes  # Deploy to Vercel
 ## RECENT COMMITS
 
 ```
+fa0e844 Fix hero pillars overlapping text on iPhone 15
+f23c397 Update documentation for launch - STATE.md, SESSION_LOG.md, NEXT_SESSION.md
 5982085 Reduce hero section top spacing across all pages
 12c393a Add SEO optimizations for launch
 ae0c766 Darken Journey section background for more contrast
 3e03cf0 Darken timeline card background images
-231a436 Darken Journey timeline section background
-356187e Fix YouTube video links on Books & Media page
-74b68d1 Add 'How to Build a Rockstar Team' eBook and update free giveaway
 ```
 
 ---
@@ -123,4 +134,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 6, 2026 @ 7:50 AM*
+*Last updated: April 7, 2026 @ 3:35 PM*

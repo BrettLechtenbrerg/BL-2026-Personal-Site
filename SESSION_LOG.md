@@ -2,6 +2,38 @@
 
 ---
 
+## Session 6 - April 7, 2026 (Afternoon) - MOBILE FIX SESSION
+
+**Duration:** ~15 minutes
+**Focus:** Fix iPhone 15 hero overlay issue
+
+### What Was Done
+
+#### iPhone 15 Hero Fix
+1. Diagnosed issue: "Clarify, Simplify, Maximize" pillars were overlapping hero text on iPhone 15
+2. Root cause: Pillars positioned with `absolute bottom-28` didn't account for stacked mobile layout
+3. Fix applied to `src/components/sections/Hero.tsx`:
+   - Line 11: `min-h-[90vh]` → `min-h-screen sm:min-h-[90vh]` (full screen height on mobile)
+   - Line 154: `bottom-28` → `bottom-8 sm:bottom-28` (closer to bottom on mobile)
+4. Committed and pushed: `fa0e844`
+5. Verified deployment on Vercel (Ready in 28s)
+
+### Git Activity
+```
+fa0e844 Fix hero pillars overlapping text on iPhone 15
+```
+
+### Files Modified
+- `src/components/sections/Hero.tsx` (mobile responsive fix)
+
+### Site Status
+✅ Site is **LIVE** at brettlechtenberg.com
+- Custom domain connected
+- All deployments auto-push from GitHub
+- Mobile issue resolved
+
+---
+
 ## Session 5 - April 6, 2026 (Morning) - PRE-LAUNCH SESSION
 
 **Duration:** ~60 minutes
