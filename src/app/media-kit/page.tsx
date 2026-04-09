@@ -145,6 +145,41 @@ export default function MediaKitPage() {
           </div>
         </section>
 
+        {/* Speaker One-Sheet Download */}
+        <section className="py-16 bg-gradient-to-b from-gold/10 via-white to-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-br from-cranberry via-cranberry-dark to-black rounded-2xl p-8 md:p-12 shadow-2xl relative overflow-hidden"
+            >
+              {/* Background glow */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gold/20 rounded-full blur-[80px]" />
+
+              <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-5">
+                  <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
+                    <FileText className="w-8 h-8 text-gold" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">Speaker One-Sheet</h2>
+                    <p className="text-white/70">Everything you need in a single PDF — bio, topics, testimonials & more</p>
+                  </div>
+                </div>
+                <a
+                  href="/brett-lechtenberg-speaker-one-sheet.pdf"
+                  download
+                  className="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-black font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 shadow-lg"
+                >
+                  <Download className="w-5 h-5" />
+                  Download PDF
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Headshots */}
         <section className="py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
