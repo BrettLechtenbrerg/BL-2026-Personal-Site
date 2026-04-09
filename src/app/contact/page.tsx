@@ -196,8 +196,14 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10"
             >
-              <div className="w-24 h-24 mx-auto bg-gradient-to-br from-cranberry to-gold rounded-full flex items-center justify-center text-white font-bold text-3xl mb-6 shadow-lg">
-                BL
+              <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-6 shadow-lg border-2 border-gold/50">
+                <Image
+                  src="/media-kit/brett-casual.webp"
+                  alt="Brett Lechtenberg"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <p className="text-2xl font-bold text-white mb-2">Brett Lechtenberg</p>
               <p className="text-gray-400 mb-4">
