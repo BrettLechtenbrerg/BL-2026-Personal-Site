@@ -3,15 +3,15 @@
 import Image from "next/image";
 
 const logos = [
-  { name: "American Express", src: "/logos/american-express.png", width: 160 },
-  { name: "Delta", src: "/logos/delta.png", width: 140 },
-  { name: "Packsize", src: "/logos/packsize.png", width: 150 },
-  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 160, hasBackground: true },
-  { name: "Purple", src: "/logos/purple.jpg", width: 120, hasBackground: true },
-  { name: "Thumbtack", src: "/logos/thumbtack.png", width: 150 },
-  { name: "Murray Chamber", src: "/logos/murray-chamber.png", width: 120 },
-  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 130 },
-  { name: "Park City Chamber", src: "/logos/park-city-chamber.png", width: 130 },
+  { name: "American Express", src: "/logos/american-express.png", width: 200 },
+  { name: "Delta", src: "/logos/delta.png", width: 175 },
+  { name: "Packsize", src: "/logos/packsize.png", width: 188 },
+  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 200, hasBackground: true },
+  { name: "Purple", src: "/logos/purple.jpg", width: 150, hasBackground: true },
+  { name: "Thumbtack", src: "/logos/thumbtack.png", width: 188 },
+  { name: "Murray Chamber", src: "/logos/murray-chamber.png", width: 150 },
+  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 163 },
+  { name: "Park City Chamber", src: "/logos/park-city-chamber.png", width: 163 },
 ];
 
 export function LogoScroller() {
@@ -52,7 +52,7 @@ export function LogoScroller() {
               >
                 {/* Logo card with hover effects */}
                 <div
-                  className={`relative h-20 px-6 flex items-center justify-center rounded-xl transition-all duration-500 ease-out
+                  className={`relative h-[100px] px-6 flex items-center justify-center rounded-xl transition-all duration-500 ease-out
                     bg-white/80 backdrop-blur-sm
                     border border-gray-100/50
                     shadow-[0_2px_10px_-3px_rgba(0,0,0,0.07)]
@@ -74,8 +74,8 @@ export function LogoScroller() {
                     src={logo.src}
                     alt={logo.name}
                     width={logo.width}
-                    height={56}
-                    className={`relative h-10 w-auto object-contain transition-all duration-500
+                    height={70}
+                    className={`relative h-[50px] w-auto object-contain transition-all duration-500
                       group-hover:scale-110
                       ${logo.hasBackground ? "mix-blend-multiply" : ""}
                     `}
