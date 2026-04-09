@@ -233,7 +233,7 @@ BL-2026-Personal-Site/
 
 ## Important Notes
 
-1. Use speaktobrett.com for all "Talk to Brett" CTAs
+1. Use speaktobrett.com for all "Talk With Brett" CTAs
 2. The Master's Edge is always capitalized with "The"
 3. All links configured in `src/lib/utils.ts`
 4. OG image: `/brett-hero.webp`

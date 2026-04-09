@@ -101,7 +101,7 @@ export function HeroOptionA() {
               className="flex flex-wrap gap-4"
             >
               <Button href={links.booking} external size="lg">
-                Talk to Brett
+                Talk With Brett
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button

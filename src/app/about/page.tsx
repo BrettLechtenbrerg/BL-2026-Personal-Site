@@ -474,7 +474,7 @@ export default function AboutPage() {
                 Let&apos;s Talk About What&apos;s Possible
               </h2>
               <Button href={links.booking} external size="lg" variant="secondary">
-                Talk to Brett
+                Talk With Brett
               </Button>
             </motion.div>
           </div>

@@ -42,7 +42,7 @@ export function HeroOptionC() {
 
             {/* Single CTA */}
             <Button href={links.booking} external size="lg">
-              Talk to Brett
+              Talk With Brett
               <ArrowRight className="w-5 h-5" />
             </Button>
           </motion.div>

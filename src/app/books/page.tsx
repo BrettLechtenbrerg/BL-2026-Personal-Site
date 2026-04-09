@@ -593,7 +593,7 @@ export default function BooksPage() {
                 Want Brett to Write the Next Chapter With You?
               </h2>
               <Button href={links.booking} external size="lg" className="bg-black text-white hover:bg-gray-900">
-                Talk to Brett
+                Talk With Brett
               </Button>
             </motion.div>
           </div>

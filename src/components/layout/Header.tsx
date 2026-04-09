@@ -105,7 +105,7 @@ export function Header() {
               )
             ))}
             <Button href={links.booking} external size="sm">
-              Talk to Brett
+              Talk With Brett
             </Button>
           </div>
 
@@ -180,7 +180,7 @@ export function Header() {
               ))}
               <div className="pt-4">
                 <Button href={links.booking} external className="w-full">
-                  Talk to Brett
+                  Talk With Brett
                 </Button>
               </div>
             </div>

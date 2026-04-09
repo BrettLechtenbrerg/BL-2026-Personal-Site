@@ -475,7 +475,7 @@ export default function AIAdvisoryPage() {
                 AI could create the most impact.
               </p>
               <Button href={links.booking} external size="lg" variant="secondary">
-                Talk to Brett
+                Talk With Brett
               </Button>
             </motion.div>
           </div>

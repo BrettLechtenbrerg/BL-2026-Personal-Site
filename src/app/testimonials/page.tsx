@@ -418,7 +418,7 @@ export default function TestimonialsPage() {
                 Ready to Write Your Own Transformation Story?
               </h2>
               <Button href={links.booking} external size="lg" variant="secondary">
-                Talk to Brett
+                Talk With Brett
               </Button>
             </motion.div>
           </div>

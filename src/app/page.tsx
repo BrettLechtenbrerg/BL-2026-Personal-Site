@@ -79,7 +79,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-cranberry text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-cranberry-dark transition-all duration-300 shadow-xl shadow-cranberry/30 hover:shadow-2xl hover:shadow-cranberry/40 hover:-translate-y-1"
             >
-              Talk to Brett
+              Talk With Brett
             </a>
           </div>
         </section>
