@@ -2,6 +2,88 @@
 
 ---
 
+## Session 7 - April 9, 2026 (Morning) - SITE TWEAKS SESSION
+
+**Duration:** ~60 minutes
+**Focus:** Minor visual/copy tweaks + Media Kit additions
+
+### What Was Done
+
+#### Media Kit Enhancements
+1. Added Speaker One-Sheet PDF download section after hero
+   - File: `public/brett-lechtenberg-speaker-one-sheet.pdf`
+   - Section appears before headshots with download button
+2. Added "Twins" dual portrait images to headshots array:
+   - `brett-twins.png` (black background)
+   - `brett-twins-nobg.png` (transparent background)
+
+#### Site-Wide Copy Change
+3. Changed "Talk to Brett" → "Talk With Brett" across 10 files:
+   - Header.tsx (desktop + mobile nav)
+   - page.tsx, ai-advisory, testimonials, books, about
+   - Hero.tsx, HeroOptionA.tsx, HeroOptionC.tsx
+
+#### Logo Scroller Update
+4. Increased logo sizes by 25% in "Trusted by Leading Organizations":
+   - Container: h-20 → h-[100px]
+   - Images: h-10 → h-[50px]
+   - All width values increased proportionally
+
+#### Homepage Hero Updates
+5. Moved gradient from "Meant" to "Gain The Master's Edge" phrase
+6. Updated subheadline to viewer-focused tagline:
+   - Old: Brett-focused paragraph
+   - New: "Unlock Your Peak Performance. Master Flow States. Lead Without Limits."
+7. Replaced hero image with twins no-background version
+
+#### Why Brett Section
+8. Fixed black belt stat: "8th°" → "8th" with "Degree Black Belt" label
+9. Added apostrophe: "1000s" → "1000's"
+
+#### Contact Page Quick Reference
+10. Replaced "BL" gradient initials with casual portrait image
+
+### Git Activity (10 commits)
+```
+628d0ca Replace BL initials with casual portrait on contact page
+ce4e926 Replace hero image with twins no-background version
+9700807 Add apostrophe to 1000's in Why Brett section
+58600b5 Fix twins no-bg image dimensions
+f30da77 Replace twins no-bg image with properly edited version
+6de8aad Update hero subheadline to be viewer-focused
+9239df0 Move gradient from "Meant" to "Gain The Master's Edge" in hero
+641318a Update Black Belt stat in Why Brett section
+f72e1f2 Increase logo sizes by 25% in Trusted Organizations section
+4486c13 Change "Talk to Brett" to "Talk With Brett" site-wide
+```
+
+### Files Modified
+- `src/components/layout/Header.tsx`
+- `src/components/sections/Hero.tsx`
+- `src/components/sections/HeroOptionA.tsx`
+- `src/components/sections/HeroOptionC.tsx`
+- `src/components/sections/Credibility.tsx`
+- `src/components/sections/LogoScroller.tsx`
+- `src/app/page.tsx`
+- `src/app/contact/page.tsx`
+- `src/app/media-kit/page.tsx`
+- `src/app/ai-advisory/page.tsx`
+- `src/app/books/page.tsx`
+- `src/app/about/page.tsx`
+- `src/app/testimonials/page.tsx`
+
+### New Files Added
+- `public/brett-lechtenberg-speaker-one-sheet.pdf`
+- `public/media-kit/brett-twins.png`
+- `public/media-kit/brett-twins-nobg.png`
+
+### Site Status
+✅ Site is **LIVE** at brettlechtenberg.com
+- All changes deployed via GitHub → Vercel auto-deploy
+- No errors or issues
+
+---
+
 ## Session 6 - April 7, 2026 (Afternoon) - MOBILE FIX SESSION
 
 **Duration:** ~15 minutes

@@ -31,15 +31,18 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ Glowing cards with consistent hover effects (site-wide)
 - ✅ 6 Featured Testimonials with glow-on-hover
 - ✅ 4-Video Media Grid (all YouTube embeds)
-- ✅ Media Kit with professional headshots + hero image
+- ✅ Media Kit with professional headshots + hero image + Speaker One-Sheet PDF
 - ✅ USA Today Carousel - Auto-scroll with pause-on-hover
 - ✅ Speaking Gallery - Bento grid with 7 photos, stats bar
 - ✅ About Page - Light mode Journey timeline
 - ✅ "How to Build a Rockstar Team" as free eBook giveaway
-- ✅ Client logos with scrolling animation
+- ✅ Client logos with scrolling animation (25% larger - April 9, 2026)
 - ✅ Mobile optimized for Google Core Web Vitals 2025-2026
 - ✅ Custom domain connected (brettlechtenberg.com)
 - ✅ iPhone 15 hero pillar overlay fixed (April 7, 2026)
+- ✅ "Talk With Brett" CTAs site-wide (April 9, 2026)
+- ✅ Twins dual portrait images in Media Kit (April 9, 2026)
+- ✅ Viewer-focused hero subheadline (April 9, 2026)
 
 **Post-Launch Tasks:**
 1. [ ] Verify in Google Search Console
@@ -113,12 +116,15 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 ## RECENT COMMITS
 
 ```
-fa0e844 Fix hero pillars overlapping text on iPhone 15
-f23c397 Update documentation for launch - STATE.md, SESSION_LOG.md, NEXT_SESSION.md
-5982085 Reduce hero section top spacing across all pages
-12c393a Add SEO optimizations for launch
-ae0c766 Darken Journey section background for more contrast
-3e03cf0 Darken timeline card background images
+628d0ca Replace BL initials with casual portrait on contact page
+ce4e926 Replace hero image with twins no-background version
+9700807 Add apostrophe to 1000's in Why Brett section
+58600b5 Fix twins no-bg image dimensions
+6de8aad Update hero subheadline to be viewer-focused
+9239df0 Move gradient from "Meant" to "Gain The Master's Edge" in hero
+641318a Update Black Belt stat in Why Brett section
+f72e1f2 Increase logo sizes by 25% in Trusted Organizations section
+4486c13 Change "Talk to Brett" to "Talk With Brett" site-wide
 ```
 
 ---
@@ -134,4 +140,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 7, 2026 @ 3:35 PM*
+*Last updated: April 9, 2026 @ 8:55 AM*

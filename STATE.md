@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 7, 2026 @ 3:35 PM
+**Last Updated:** April 9, 2026 @ 8:55 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,37 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational
+
+### Completed (April 9, 2026 - Morning Session - SITE TWEAKS)
+
+#### Media Kit Updates
+1. ✅ Added Speaker One-Sheet PDF download section (`brett-lechtenberg-speaker-one-sheet.pdf`)
+2. ✅ Added "Twins" dual portrait image to headshots (`brett-twins.png`)
+3. ✅ Added "Twins" transparent background version (`brett-twins-nobg.png`)
+
+#### Site-Wide Copy Change
+4. ✅ Changed "Talk to Brett" → "Talk With Brett" across 10 files
+   - Header.tsx (2 instances), page.tsx, ai-advisory, testimonials, books, about, Hero.tsx, HeroOptionA.tsx, HeroOptionC.tsx
+
+#### Logo Scroller Update
+5. ✅ Increased logo sizes by 25% in "Trusted by Leading Organizations" section
+   - Container height: h-20 → h-[100px]
+   - Image height: h-10 → h-[50px]
+   - All logo widths increased proportionally
+
+#### Homepage Hero Updates
+6. ✅ Moved gradient from "Meant" to "Gain The Master's Edge" in headline
+7. ✅ Updated subheadline to viewer-focused tagline: "Unlock Your Peak Performance. Master Flow States. Lead Without Limits."
+8. ✅ Replaced hero image with twins no-background version
+
+#### Why Brett Section Updates
+9. ✅ Changed "8th°" → "8th" with "Degree Black Belt" label
+10. ✅ Added apostrophe: "1000s" → "1000's"
+
+#### Contact Page Update
+11. ✅ Replaced "BL" initials with casual portrait image in Quick Reference section
+
+---
 
 ### Completed (April 7, 2026 - Afternoon Session - MOBILE FIX)
 
@@ -124,21 +155,21 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `fa0e844` - Fix hero pillars overlapping text on iPhone 15
+**Last Commit:** `628d0ca` - Replace BL initials with casual portrait on contact page
 **Uncommitted Changes:** None (working tree clean)
 
-### Recent Commits (April 6-7, 2026)
+### Recent Commits (April 9, 2026)
 ```
-fa0e844 Fix hero pillars overlapping text on iPhone 15
-f23c397 Update documentation for launch - STATE.md, SESSION_LOG.md, NEXT_SESSION.md
-5982085 Reduce hero section top spacing across all pages
-12c393a Add SEO optimizations for launch
-ae0c766 Darken Journey section background for more contrast
-3e03cf0 Darken timeline card background images
-231a436 Darken Journey timeline section background
-27c363c Preview: Light mode Journey timeline section
-356187e Fix YouTube video links on Books & Media page
-74b68d1 Add 'How to Build a Rockstar Team' eBook and update free giveaway
+628d0ca Replace BL initials with casual portrait on contact page
+ce4e926 Replace hero image with twins no-background version
+9700807 Add apostrophe to 1000's in Why Brett section
+58600b5 Fix twins no-bg image dimensions
+f30da77 Replace twins no-bg image with properly edited version
+6de8aad Update hero subheadline to be viewer-focused
+9239df0 Move gradient from "Meant" to "Gain The Master's Edge" in hero
+641318a Update Black Belt stat in Why Brett section
+f72e1f2 Increase logo sizes by 25% in Trusted Organizations section
+4486c13 Change "Talk to Brett" to "Talk With Brett" site-wide
 ```
 
 ---
@@ -164,11 +195,17 @@ BL-2026-Personal-Site/
 │   ├── icon-512.png
 │   ├── logo.jpg
 │   ├── manifest.json
-│   ├── robots.txt ← NEW
+│   ├── robots.txt
+│   ├── brett-lechtenberg-speaker-one-sheet.pdf ← NEW
 │   ├── books/ (8 book covers)
 │   ├── heroes/ (12 hero images)
 │   ├── logos/ (14 client logos)
-│   ├── media-kit/ (3 headshots)
+│   ├── media-kit/ (5 headshots) ← UPDATED
+│   │   ├── brett-casual.webp
+│   │   ├── brett-fullbody-nobg.webp
+│   │   ├── brett-headshot-nobg.webp
+│   │   ├── brett-twins.png ← NEW
+│   │   └── brett-twins-nobg.png ← NEW
 │   ├── speaking-gallery/ (7 photos)
 │   ├── testimonials/ (6 headshots)
 │   ├── timeline/ (7 images + TSAI logo)
