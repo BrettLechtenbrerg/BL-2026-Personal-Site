@@ -69,13 +69,9 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
-              Discover Who You&apos;re{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Meant
-              </span>{" "}
-              to Become and Gain{" "}
+              Discover Who You&apos;re Meant to Become and{" "}
               <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
-                The Master&apos;s Edge
+                Gain The Master&apos;s Edge
               </span>
             </motion.h1>
 
