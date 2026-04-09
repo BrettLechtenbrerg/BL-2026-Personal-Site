@@ -75,18 +75,14 @@ export function Hero() {
               </span>
             </motion.h1>
 
-            {/* Subheadline - Original copy */}
+            {/* Subheadline - Viewer-focused */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg text-gray-300 leading-relaxed mb-10 max-w-xl"
+              className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl"
             >
-              Brett Lechtenberg helps leaders unlock peak performance through{" "}
-              <span className="text-gold font-semibold">The Master&apos;s Edge</span> — a
-              proven methodology built on 30+ years of real-world experience,
-              original flow state research, and strategies tested in his own
-              business.
+              Unlock Your Peak Performance. Master Flow States. Lead Without Limits.
             </motion.p>
 
             {/* CTAs - 2 buttons */}
