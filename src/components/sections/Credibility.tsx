@@ -7,7 +7,7 @@ const stats = [
   { value: "30+", label: "Years in Business", color: "text-gold" },
   { value: "7", label: "Books Authored", sublabel: "(5 Bestsellers)", color: "text-cranberry-light" },
   { value: "8th", label: "Degree Black Belt", color: "text-gold" },
-  { value: "1000s", label: "Trained", color: "text-cranberry-light" },
+  { value: "1000's", label: "Trained", color: "text-cranberry-light" },
 ];
 
 const containerVariants = {
