@@ -200,6 +200,8 @@ export default function MediaKitPage() {
                 { src: "/media-kit/brett-headshot-nobg.webp", label: "Professional Headshot", description: "Transparent background - ideal for graphics", hasBg: false },
                 { src: "/media-kit/brett-fullbody-nobg.webp", label: "Full Body Portrait", description: "Transparent background - ideal for banners", hasBg: false },
                 { src: "/media-kit/brett-casual.webp", label: "Casual Portrait", description: "Approachable office setting", hasBg: true },
+                { src: "/media-kit/brett-twins.png", label: "Dual Portrait", description: "Martial arts & business - black background", hasBg: true },
+                { src: "/media-kit/brett-twins-nobg.png", label: "Dual Portrait (No BG)", description: "Martial arts & business - transparent", hasBg: false },
               ].map((photo, index) => (
                 <motion.div
                   key={photo.label}
