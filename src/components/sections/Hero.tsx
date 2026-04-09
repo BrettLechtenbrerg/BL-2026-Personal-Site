@@ -120,7 +120,7 @@ export function Hero() {
             {/* Image frame */}
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
               <Image
-                src="/brett-hero.webp"
+                src="/media-kit/brett-twins-nobg.png"
                 alt="Brett Lechtenberg - Peak Performance Coach"
                 fill
                 className="object-cover object-top"
