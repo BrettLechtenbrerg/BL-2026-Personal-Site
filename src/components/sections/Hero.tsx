@@ -143,7 +143,8 @@ export function Hero() {
       </div>
 
       {/* Value Pillars - Clarify, Simplify, Maximize */}
-      <div className="absolute bottom-8 sm:bottom-28 left-0 right-0 z-10">
+      {/* Hidden on mobile/tablet/laptop - only visible on large desktop (1536px+) */}
+      <div className="hidden 2xl:block absolute bottom-28 left-0 right-0 z-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             {[
