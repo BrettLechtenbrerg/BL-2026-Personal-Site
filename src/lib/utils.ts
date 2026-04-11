@@ -27,7 +27,7 @@ export const easings = {
 
 // External links
 export const links = {
-  booking: "https://www.speaktobrett.com",
+  booking: "https://api.leadconnectorhq.com/widget/booking/SIk1yXBC2uMftMiRrBe9",
   email: "mailto:Brett@BrettLechtenberg.com",
   martialArts: "https://personalmasterymartialarts.com",
   ai: "https://totalsuccessai.com",
