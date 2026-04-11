@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 9, 2026 @ 8:55 AM
+**Last Updated:** April 11, 2026 @ 2:55 PM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,18 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational
+
+### Completed (April 11, 2026 - Afternoon Session - RESPONSIVE FIX)
+
+#### Value Pillars Fix (Clarify, Simplify, Maximize)
+1. ✅ Fixed pillars overlapping hero content on laptops, iPads, and iPhones
+2. ✅ Removed absolute-positioned pillars from `Hero.tsx`
+3. ✅ Added new section in `page.tsx` with pillars in normal document flow
+4. ✅ Pillars now visible on lg+ screens (1024px+) — laptops and desktops
+5. ✅ Hidden on mobile/tablet (below 1024px)
+6. ✅ **Cannot overlap any content** — physically sits below the hero
+
+---
 
 ### Completed (April 9, 2026 - Morning Session - SITE TWEAKS)
 
@@ -53,48 +65,28 @@
 
 #### Hero Image Brightness (All Pages)
 1. ✅ Increased hero image opacity by 10% across all 11 pages
-2. ✅ Homepage: 30% → 40%
-3. ✅ Speaking: 40% → 50%
-4. ✅ About: 40% → 50%
-5. ✅ Master's Edge: 45% → 55%
-6. ✅ Coaching: 35% → 45%
-7. ✅ AI Advisory: 40% → 50%
-8. ✅ Books: 40% → 50%
-9. ✅ Testimonials: 35% → 45%
-10. ✅ Contact: 35% → 45%
-11. ✅ Media Kit: Added 40% opacity
-12. ✅ Book Brett: 30% → 40%
 
 #### AI Advisory Page Updates
-13. ✅ Redesigned 3-Step Process section - removed cartoonish icons
-14. ✅ Added "STEP 1/2/3" gradient labels with animated underlines
-15. ✅ Large faded step numbers in background
-16. ✅ Replaced robot icon with TSAI logo in "Powered by" section
+2. ✅ Redesigned 3-Step Process section - removed cartoonish icons
+3. ✅ Added "STEP 1/2/3" gradient labels with animated underlines
+4. ✅ Large faded step numbers in background
+5. ✅ Replaced robot icon with TSAI logo in "Powered by" section
 
 #### Books & Media Page Updates
-17. ✅ Added "How to Build a Rockstar Team" eBook
-18. ✅ Made it the free giveaway (replaced Reclaiming the Clock)
-19. ✅ Added green freebie styling with glow and pulsing badge
-20. ✅ Fixed YouTube links (Profiles in Caring, Wild Bear X)
-21. ✅ Updated Wild Bear X to YouTube embed
+6. ✅ Added "How to Build a Rockstar Team" eBook
+7. ✅ Made it the free giveaway (replaced Reclaiming the Clock)
+8. ✅ Added green freebie styling with glow and pulsing badge
+9. ✅ Fixed YouTube links (Profiles in Caring, Wild Bear X)
 
 #### About Page - Journey Timeline
-22. ✅ Converted from dark to light mode
-23. ✅ Gray gradient background (gray-300 → gray-200 → gray-300)
-24. ✅ White cards with shadows
-25. ✅ Background images at 20% opacity
+10. ✅ Converted from dark to light mode
+11. ✅ Gray gradient background with white cards
 
 #### SEO Optimization (LAUNCH READY)
-26. ✅ Created robots.txt with sitemap reference
-27. ✅ Added metadata layouts for book-brett and media-kit pages
-28. ✅ Updated sitemap with all 13 pages
-29. ✅ Fixed OG image reference (brett-hero.webp)
-30. ✅ Fixed Twitter card image reference
-
-#### Hero Spacing Adjustments (All Pages)
-31. ✅ Homepage: min-h-screen → min-h-[90vh], items-center → items-start pt-8
-32. ✅ All pages: Reduced hero padding from py-32 to py-20
-33. ✅ Book-brett & media-kit: Reduced from py-24 to py-16
+12. ✅ Created robots.txt with sitemap reference
+13. ✅ Added metadata layouts for book-brett and media-kit pages
+14. ✅ Updated sitemap with all 13 pages
+15. ✅ Fixed OG image reference (brett-hero.webp)
 
 ---
 
@@ -105,7 +97,7 @@
 |------|--------|
 | GitHub Repo | ✅ Done |
 | Vercel Deployment | ✅ Done |
-| Custom Domain | ⏳ Ready to connect |
+| Custom Domain | ✅ Connected |
 | robots.txt | ✅ Created |
 | sitemap.xml | ✅ All 13 pages |
 | SEO Meta Tags | ✅ Complete |
@@ -134,42 +126,19 @@
 
 ---
 
-## SEO Checklist (COMPLETE)
-
-| Item | Status |
-|------|--------|
-| Meta title (all pages) | ✅ |
-| Meta description (all pages) | ✅ |
-| Keywords | ✅ |
-| Open Graph tags | ✅ |
-| Twitter Cards | ✅ |
-| robots.txt | ✅ |
-| sitemap.xml | ✅ |
-| Canonical URLs | ✅ |
-| JSON-LD (Person, Organization, Website) | ✅ |
-| Favicon & icons | ✅ |
-| PWA manifest | ✅ |
-
----
-
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `628d0ca` - Replace BL initials with casual portrait on contact page
+**Last Commit:** `db8e26a` - Move Clarify/Simplify/Maximize pillars below hero in normal flow
 **Uncommitted Changes:** None (working tree clean)
 
-### Recent Commits (April 9, 2026)
+### Recent Commits (April 11, 2026)
 ```
-628d0ca Replace BL initials with casual portrait on contact page
-ce4e926 Replace hero image with twins no-background version
-9700807 Add apostrophe to 1000's in Why Brett section
-58600b5 Fix twins no-bg image dimensions
-f30da77 Replace twins no-bg image with properly edited version
-6de8aad Update hero subheadline to be viewer-focused
-9239df0 Move gradient from "Meant" to "Gain The Master's Edge" in hero
-641318a Update Black Belt stat in Why Brett section
-f72e1f2 Increase logo sizes by 25% in Trusted Organizations section
-4486c13 Change "Talk to Brett" to "Talk With Brett" site-wide
+db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
+a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
+2332745 Fix logo scroller animation on mobile
+74f162c Connect booking buttons to GoHighLevel calendar
+9279dfd Fix favicon RGBA format for Next.js 16 Turbopack
 ```
 
 ---
@@ -196,16 +165,16 @@ BL-2026-Personal-Site/
 │   ├── logo.jpg
 │   ├── manifest.json
 │   ├── robots.txt
-│   ├── brett-lechtenberg-speaker-one-sheet.pdf ← NEW
+│   ├── brett-lechtenberg-speaker-one-sheet.pdf
 │   ├── books/ (8 book covers)
 │   ├── heroes/ (12 hero images)
 │   ├── logos/ (14 client logos)
-│   ├── media-kit/ (5 headshots) ← UPDATED
+│   ├── media-kit/ (5 headshots)
 │   │   ├── brett-casual.webp
 │   │   ├── brett-fullbody-nobg.webp
 │   │   ├── brett-headshot-nobg.webp
-│   │   ├── brett-twins.png ← NEW
-│   │   └── brett-twins-nobg.png ← NEW
+│   │   ├── brett-twins.png
+│   │   └── brett-twins-nobg.png
 │   ├── speaking-gallery/ (7 photos)
 │   ├── testimonials/ (6 headshots)
 │   ├── timeline/ (7 images + TSAI logo)
@@ -213,18 +182,18 @@ BL-2026-Personal-Site/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx (root + SEO)
-│   │   ├── page.tsx (homepage)
+│   │   ├── page.tsx (homepage + Value Pillars section)
 │   │   ├── sitemap.ts (13 pages)
 │   │   ├── robots.ts
 │   │   ├── globals.css
 │   │   ├── about/
 │   │   ├── ai-advisory/
-│   │   ├── book-brett/ ← layout.tsx added
+│   │   ├── book-brett/
 │   │   ├── books/
 │   │   ├── coaching/
 │   │   ├── contact/
 │   │   ├── masters-edge/
-│   │   ├── media-kit/ ← layout.tsx added
+│   │   ├── media-kit/
 │   │   ├── privacy/
 │   │   ├── speaking/
 │   │   ├── terms/
@@ -276,6 +245,7 @@ BL-2026-Personal-Site/
 4. OG image: `/brett-hero.webp`
 5. Free eBook: "How to Build a Rockstar Team" (not Reclaiming the Clock)
 6. TSAI logo in AI Advisory "Powered by" section
+7. Value Pillars now in `page.tsx` (not `Hero.tsx`) — in normal document flow
 
 ---
 

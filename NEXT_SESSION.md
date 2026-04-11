@@ -36,13 +36,16 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ Speaking Gallery - Bento grid with 7 photos, stats bar
 - ✅ About Page - Light mode Journey timeline
 - ✅ "How to Build a Rockstar Team" as free eBook giveaway
-- ✅ Client logos with scrolling animation (25% larger - April 9, 2026)
+- ✅ Client logos with scrolling animation (25% larger)
 - ✅ Mobile optimized for Google Core Web Vitals 2025-2026
 - ✅ Custom domain connected (brettlechtenberg.com)
-- ✅ iPhone 15 hero pillar overlay fixed (April 7, 2026)
-- ✅ "Talk With Brett" CTAs site-wide (April 9, 2026)
-- ✅ Twins dual portrait images in Media Kit (April 9, 2026)
-- ✅ Viewer-focused hero subheadline (April 9, 2026)
+- ✅ "Talk With Brett" CTAs site-wide
+- ✅ Twins dual portrait images in Media Kit
+- ✅ Viewer-focused hero subheadline
+- ✅ **Value Pillars (Clarify/Simplify/Maximize) moved to normal flow** (April 11, 2026)
+  - No longer overlaps on any device
+  - Visible on lg+ (laptops & desktops)
+  - Hidden on mobile/tablet
 
 **Post-Launch Tasks:**
 1. [ ] Verify in Google Search Console
@@ -85,9 +88,10 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 | File | Purpose |
 |------|---------|
 | `src/app/layout.tsx` | Root layout + SEO metadata |
-| `src/app/page.tsx` | Homepage |
+| `src/app/page.tsx` | Homepage + Value Pillars section |
 | `src/app/sitemap.ts` | Sitemap (13 pages) |
 | `public/robots.txt` | Search engine directives |
+| `src/components/sections/Hero.tsx` | Hero section (pillars removed) |
 | `src/components/seo/JsonLd.tsx` | Structured data |
 | `src/lib/utils.ts` | Brand colors, links |
 
@@ -116,15 +120,11 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 ## RECENT COMMITS
 
 ```
-628d0ca Replace BL initials with casual portrait on contact page
-ce4e926 Replace hero image with twins no-background version
-9700807 Add apostrophe to 1000's in Why Brett section
-58600b5 Fix twins no-bg image dimensions
-6de8aad Update hero subheadline to be viewer-focused
-9239df0 Move gradient from "Meant" to "Gain The Master's Edge" in hero
-641318a Update Black Belt stat in Why Brett section
-f72e1f2 Increase logo sizes by 25% in Trusted Organizations section
-4486c13 Change "Talk to Brett" to "Talk With Brett" site-wide
+db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
+a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
+2332745 Fix logo scroller animation on mobile
+74f162c Connect booking buttons to GoHighLevel calendar
+9279dfd Fix favicon RGBA format for Next.js 16 Turbopack
 ```
 
 ---
@@ -140,4 +140,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 9, 2026 @ 8:55 AM*
+*Last updated: April 11, 2026 @ 2:55 PM*

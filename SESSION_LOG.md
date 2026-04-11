@@ -2,6 +2,60 @@
 
 ---
 
+## Session 8 - April 11, 2026 (Afternoon) - RESPONSIVE FIX SESSION
+
+**Duration:** ~15 minutes
+**Focus:** Fix Clarify/Simplify/Maximize pillars overlapping on laptops, iPads, iPhones
+
+### Problem
+The "Clarify, Simplify, Maximize" value pillars were overlapping hero content on:
+- Laptops
+- iPads
+- iPhones
+
+Desktop looked fine.
+
+### Root Cause
+Pillars were absolutely positioned inside the Hero component, floating over content at `bottom-28`. On smaller viewports, this caused overlap with the hero text and image above.
+
+### Solution Applied
+**Moved pillars from inside Hero to below Hero in normal document flow.**
+
+This is the safest fix because elements in normal flow physically cannot overlap each other.
+
+#### Changes Made:
+1. **Hero.tsx** - Removed the absolute-positioned Value Pillars section entirely
+2. **page.tsx** - Added new Value Pillars section between Hero and LogoScroller
+   - Uses `hidden lg:block` — visible on lg+ (1024px+ = laptops & desktops)
+   - Hidden on mobile/tablet (below 1024px)
+   - Normal document flow — **cannot overlap anything**
+
+### Git Activity (2 commits)
+```
+db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
+a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
+```
+
+### Files Modified
+- `src/components/sections/Hero.tsx` (removed absolute pillars)
+- `src/app/page.tsx` (added pillars section in normal flow)
+
+### Result by Device
+| Device | Pillars? | Overlap? |
+|--------|----------|----------|
+| Desktop | ✅ Yes | ❌ Impossible |
+| Laptop | ✅ Yes | ❌ Impossible |
+| iPad | ❌ Hidden | N/A |
+| iPhone | ❌ Hidden | N/A |
+
+### Site Status
+✅ Site is **LIVE** at brettlechtenberg.com
+- All changes deployed via GitHub → Vercel auto-deploy
+- No errors or issues
+- Responsive fix confirmed working
+
+---
+
 ## Session 7 - April 9, 2026 (Morning) - SITE TWEAKS SESSION
 
 **Duration:** ~60 minutes
