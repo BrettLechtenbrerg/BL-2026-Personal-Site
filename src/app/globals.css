@@ -120,3 +120,36 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+/* Logo Scroller Animation - works on mobile */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 35s linear infinite;
+  -webkit-animation: scroll 35s linear infinite;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+}
+
+/* Allow logo scroller even with reduced motion (it's subtle/non-distracting) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll {
+    animation: scroll 60s linear infinite !important;
+    -webkit-animation: scroll 60s linear infinite !important;
+  }
+}

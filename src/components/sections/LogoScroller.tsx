@@ -87,29 +87,6 @@ export function LogoScroller() {
         </div>
       </div>
 
-      {/* Add animation keyframes via style tag */}
-      <style jsx global>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-scroll {
-          animation: scroll 35s linear infinite;
-        }
-
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-
-        .pause-animation {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }
