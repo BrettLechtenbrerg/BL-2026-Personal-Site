@@ -18,7 +18,8 @@ export default function Home() {
 
         {/* Value Pillars - Clarify, Simplify, Maximize */}
         {/* Hidden on mobile/tablet - visible on lg+ (laptops & desktops) */}
-        <section className="hidden lg:block bg-gradient-to-b from-black via-gray-900 to-gray-800 py-8">
+        {/* -mt-24 pulls it up to cover the white gradient from Hero */}
+        <section className="hidden lg:block bg-gradient-to-b from-black via-gray-900 to-gray-800 py-8 -mt-24 relative z-10">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="flex justify-center items-center gap-6">
               {[
