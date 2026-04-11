@@ -42,10 +42,10 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ "Talk With Brett" CTAs site-wide
 - ✅ Twins dual portrait images in Media Kit
 - ✅ Viewer-focused hero subheadline
-- ✅ **Value Pillars (Clarify/Simplify/Maximize) moved to normal flow** (April 11, 2026)
-  - No longer overlaps on any device
-  - Visible on lg+ (laptops & desktops)
-  - Hidden on mobile/tablet
+- ✅ **Value Pillars responsive fix (April 11, 2026):**
+  - Desktop (2xl+): Floating inside hero (original design)
+  - Laptop (lg-2xl): Section below hero with `-mt-24` (no white gradient)
+  - Mobile/Tablet: Hidden
 
 **Post-Launch Tasks:**
 1. [ ] Verify in Google Search Console
@@ -88,12 +88,22 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 | File | Purpose |
 |------|---------|
 | `src/app/layout.tsx` | Root layout + SEO metadata |
-| `src/app/page.tsx` | Homepage + Value Pillars section |
+| `src/app/page.tsx` | Homepage + laptop Value Pillars section |
 | `src/app/sitemap.ts` | Sitemap (13 pages) |
 | `public/robots.txt` | Search engine directives |
-| `src/components/sections/Hero.tsx` | Hero section (pillars removed) |
+| `src/components/sections/Hero.tsx` | Hero + desktop floating pillars |
 | `src/components/seo/JsonLd.tsx` | Structured data |
 | `src/lib/utils.ts` | Brand colors, links |
+
+---
+
+## VALUE PILLARS RESPONSIVE BEHAVIOR
+
+| Device | Breakpoint | Implementation |
+|--------|------------|----------------|
+| Desktop | 2xl+ (1536px+) | `Hero.tsx` - floating pillars with `hidden 2xl:block` |
+| Laptop | lg-2xl (1024-1536px) | `page.tsx` - section with `hidden lg:block 2xl:hidden` |
+| Mobile/Tablet | below lg | Hidden on both |
 
 ---
 
@@ -120,11 +130,11 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 ## RECENT COMMITS
 
 ```
+4327e78 Restore floating pillars on desktop, keep section for laptops only
+b78b74e Pull Value Pillars section up to cover white gradient
+8e17c88 Update project state files - April 11, 2026
 db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
 a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
-2332745 Fix logo scroller animation on mobile
-74f162c Connect booking buttons to GoHighLevel calendar
-9279dfd Fix favicon RGBA format for Next.js 16 Turbopack
 ```
 
 ---
@@ -140,4 +150,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 11, 2026 @ 2:55 PM*
+*Last updated: April 11, 2026 @ 3:15 PM*

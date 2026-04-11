@@ -4,7 +4,7 @@
 
 ## Session 8 - April 11, 2026 (Afternoon) - RESPONSIVE FIX SESSION
 
-**Duration:** ~15 minutes
+**Duration:** ~30 minutes
 **Focus:** Fix Clarify/Simplify/Maximize pillars overlapping on laptops, iPads, iPhones
 
 ### Problem
@@ -13,46 +13,50 @@ The "Clarify, Simplify, Maximize" value pillars were overlapping hero content on
 - iPads
 - iPhones
 
-Desktop looked fine.
+Desktop looked fine and needed to stay the same.
 
 ### Root Cause
-Pillars were absolutely positioned inside the Hero component, floating over content at `bottom-28`. On smaller viewports, this caused overlap with the hero text and image above.
+Pillars were absolutely positioned inside the Hero component at `bottom-28`. On smaller viewports, this caused overlap with the hero text and image above.
 
 ### Solution Applied
-**Moved pillars from inside Hero to below Hero in normal document flow.**
+**Different approach for desktop vs laptop:**
 
-This is the safest fix because elements in normal flow physically cannot overlap each other.
+1. **Desktop (2xl+ / 1536px+):** Keep original floating pillars inside Hero
+2. **Laptop (lg to 2xl / 1024-1536px):** New section below Hero in normal document flow
+3. **Mobile/Tablet (below lg):** Hidden
 
-#### Changes Made:
-1. **Hero.tsx** - Removed the absolute-positioned Value Pillars section entirely
-2. **page.tsx** - Added new Value Pillars section between Hero and LogoScroller
-   - Uses `hidden lg:block` — visible on lg+ (1024px+ = laptops & desktops)
-   - Hidden on mobile/tablet (below 1024px)
-   - Normal document flow — **cannot overlap anything**
+#### Technical Implementation:
+- `Hero.tsx`: Pillars with `hidden 2xl:block absolute bottom-28` (desktop only)
+- `page.tsx`: Section with `hidden lg:block 2xl:hidden` + `-mt-24 relative z-10` (laptops only)
+- The `-mt-24` pulls the laptop section up to cover the white gradient from Hero
+- Clean transition: hero → black pillars section → logo scroller (no white gradient showing on laptops)
 
-### Git Activity (2 commits)
+### Git Activity (4 commits)
 ```
+4327e78 Restore floating pillars on desktop, keep section for laptops only
+b78b74e Pull Value Pillars section up to cover white gradient
 db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
 a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
 ```
 
 ### Files Modified
-- `src/components/sections/Hero.tsx` (removed absolute pillars)
-- `src/app/page.tsx` (added pillars section in normal flow)
+- `src/components/sections/Hero.tsx` (desktop floating pillars with 2xl:block)
+- `src/app/page.tsx` (laptop section with lg:block 2xl:hidden)
 
 ### Result by Device
-| Device | Pillars? | Overlap? |
-|--------|----------|----------|
-| Desktop | ✅ Yes | ❌ Impossible |
-| Laptop | ✅ Yes | ❌ Impossible |
-| iPad | ❌ Hidden | N/A |
-| iPhone | ❌ Hidden | N/A |
+| Device | Pillars Display | White Gradient |
+|--------|-----------------|----------------|
+| Desktop (2xl+) | Floating inside hero (original) | Visible |
+| Laptop (lg-2xl) | Section below hero | Covered by black section |
+| iPad | Hidden | N/A |
+| iPhone | Hidden | N/A |
 
 ### Site Status
 ✅ Site is **LIVE** at brettlechtenberg.com
 - All changes deployed via GitHub → Vercel auto-deploy
 - No errors or issues
-- Responsive fix confirmed working
+- Desktop preserved, laptop fixed, mobile hidden
+- Brett confirmed: "You have nailed it. It all looks great."
 
 ---
 

@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 11, 2026 @ 2:55 PM
+**Last Updated:** April 11, 2026 @ 3:15 PM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -13,11 +13,14 @@
 
 #### Value Pillars Fix (Clarify, Simplify, Maximize)
 1. ✅ Fixed pillars overlapping hero content on laptops, iPads, and iPhones
-2. ✅ Removed absolute-positioned pillars from `Hero.tsx`
-3. ✅ Added new section in `page.tsx` with pillars in normal document flow
-4. ✅ Pillars now visible on lg+ screens (1024px+) — laptops and desktops
-5. ✅ Hidden on mobile/tablet (below 1024px)
-6. ✅ **Cannot overlap any content** — physically sits below the hero
+2. ✅ **Desktop (2xl+ / 1536px+):** Floating pillars inside hero (original design preserved)
+3. ✅ **Laptop (lg to 2xl / 1024-1536px):** Separate section below hero with `-mt-24` to cover white gradient
+4. ✅ **Mobile/Tablet (below lg):** Pillars hidden
+5. ✅ Laptop view: Clean transition from hero → black pillars section → logo scroller (no white gradient showing)
+
+#### Technical Implementation
+- `Hero.tsx`: Pillars with `hidden 2xl:block` (desktop only)
+- `page.tsx`: Section with `hidden lg:block 2xl:hidden` + `-mt-24` (laptops only)
 
 ---
 
@@ -30,17 +33,13 @@
 
 #### Site-Wide Copy Change
 4. ✅ Changed "Talk to Brett" → "Talk With Brett" across 10 files
-   - Header.tsx (2 instances), page.tsx, ai-advisory, testimonials, books, about, Hero.tsx, HeroOptionA.tsx, HeroOptionC.tsx
 
 #### Logo Scroller Update
 5. ✅ Increased logo sizes by 25% in "Trusted by Leading Organizations" section
-   - Container height: h-20 → h-[100px]
-   - Image height: h-10 → h-[50px]
-   - All logo widths increased proportionally
 
 #### Homepage Hero Updates
 6. ✅ Moved gradient from "Meant" to "Gain The Master's Edge" in headline
-7. ✅ Updated subheadline to viewer-focused tagline: "Unlock Your Peak Performance. Master Flow States. Lead Without Limits."
+7. ✅ Updated subheadline to viewer-focused tagline
 8. ✅ Replaced hero image with twins no-background version
 
 #### Why Brett Section Updates
@@ -48,45 +47,7 @@
 10. ✅ Added apostrophe: "1000s" → "1000's"
 
 #### Contact Page Update
-11. ✅ Replaced "BL" initials with casual portrait image in Quick Reference section
-
----
-
-### Completed (April 7, 2026 - Afternoon Session - MOBILE FIX)
-
-#### iPhone 15 Hero Fix
-1. ✅ Fixed "Clarify, Simplify, Maximize" pillars overlapping text on iPhone 15
-2. ✅ Hero section: `min-h-[90vh]` → `min-h-screen sm:min-h-[90vh]` (full height on mobile)
-3. ✅ Pillar positioning: `bottom-28` → `bottom-8 sm:bottom-28` (closer to bottom on mobile)
-
----
-
-### Completed (April 6, 2026 - Morning Session - PRE-LAUNCH)
-
-#### Hero Image Brightness (All Pages)
-1. ✅ Increased hero image opacity by 10% across all 11 pages
-
-#### AI Advisory Page Updates
-2. ✅ Redesigned 3-Step Process section - removed cartoonish icons
-3. ✅ Added "STEP 1/2/3" gradient labels with animated underlines
-4. ✅ Large faded step numbers in background
-5. ✅ Replaced robot icon with TSAI logo in "Powered by" section
-
-#### Books & Media Page Updates
-6. ✅ Added "How to Build a Rockstar Team" eBook
-7. ✅ Made it the free giveaway (replaced Reclaiming the Clock)
-8. ✅ Added green freebie styling with glow and pulsing badge
-9. ✅ Fixed YouTube links (Profiles in Caring, Wild Bear X)
-
-#### About Page - Journey Timeline
-10. ✅ Converted from dark to light mode
-11. ✅ Gray gradient background with white cards
-
-#### SEO Optimization (LAUNCH READY)
-12. ✅ Created robots.txt with sitemap reference
-13. ✅ Added metadata layouts for book-brett and media-kit pages
-14. ✅ Updated sitemap with all 13 pages
-15. ✅ Fixed OG image reference (brett-hero.webp)
+11. ✅ Replaced "BL" initials with casual portrait image
 
 ---
 
@@ -129,16 +90,16 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `db8e26a` - Move Clarify/Simplify/Maximize pillars below hero in normal flow
+**Last Commit:** `4327e78` - Restore floating pillars on desktop, keep section for laptops only
 **Uncommitted Changes:** None (working tree clean)
 
 ### Recent Commits (April 11, 2026)
 ```
+4327e78 Restore floating pillars on desktop, keep section for laptops only
+b78b74e Pull Value Pillars section up to cover white gradient
+8e17c88 Update project state files - April 11, 2026
 db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
 a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
-2332745 Fix logo scroller animation on mobile
-74f162c Connect booking buttons to GoHighLevel calendar
-9279dfd Fix favicon RGBA format for Next.js 16 Turbopack
 ```
 
 ---
@@ -170,11 +131,6 @@ BL-2026-Personal-Site/
 │   ├── heroes/ (12 hero images)
 │   ├── logos/ (14 client logos)
 │   ├── media-kit/ (5 headshots)
-│   │   ├── brett-casual.webp
-│   │   ├── brett-fullbody-nobg.webp
-│   │   ├── brett-headshot-nobg.webp
-│   │   ├── brett-twins.png
-│   │   └── brett-twins-nobg.png
 │   ├── speaking-gallery/ (7 photos)
 │   ├── testimonials/ (6 headshots)
 │   ├── timeline/ (7 images + TSAI logo)
@@ -182,25 +138,14 @@ BL-2026-Personal-Site/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx (root + SEO)
-│   │   ├── page.tsx (homepage + Value Pillars section)
+│   │   ├── page.tsx (homepage + laptop Value Pillars section)
 │   │   ├── sitemap.ts (13 pages)
 │   │   ├── robots.ts
 │   │   ├── globals.css
-│   │   ├── about/
-│   │   ├── ai-advisory/
-│   │   ├── book-brett/
-│   │   ├── books/
-│   │   ├── coaching/
-│   │   ├── contact/
-│   │   ├── masters-edge/
-│   │   ├── media-kit/
-│   │   ├── privacy/
-│   │   ├── speaking/
-│   │   ├── terms/
-│   │   └── testimonials/
+│   │   └── [13 page directories]
 │   ├── components/
 │   │   ├── layout/ (Header, Footer)
-│   │   ├── sections/ (Hero, Solution, etc.)
+│   │   ├── sections/ (Hero with desktop pillars, Solution, etc.)
 │   │   ├── seo/ (JsonLd)
 │   │   └── ui/ (Button)
 │   └── lib/
@@ -245,7 +190,10 @@ BL-2026-Personal-Site/
 4. OG image: `/brett-hero.webp`
 5. Free eBook: "How to Build a Rockstar Team" (not Reclaiming the Clock)
 6. TSAI logo in AI Advisory "Powered by" section
-7. Value Pillars now in `page.tsx` (not `Hero.tsx`) — in normal document flow
+7. **Value Pillars responsive behavior:**
+   - Desktop (2xl+): Floating in Hero.tsx
+   - Laptop (lg-2xl): Section in page.tsx with `-mt-24`
+   - Mobile/Tablet: Hidden
 
 ---
 
