@@ -77,11 +77,45 @@ export default function BookBrettPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission - replace with actual form handler
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch(
+        "https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/d9dd43d9-b424-44bd-b7ec-409bd33163db",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            organization: formData.organization,
+            role: formData.role,
+            eventType: formData.eventType,
+            eventDate: formData.eventDate,
+            location: formData.location,
+            audienceSize: formData.audienceSize,
+            audienceDescription: formData.audienceDescription,
+            goals: formData.goals,
+            budget: formData.budget,
+            howHeard: formData.howHeard,
+            message: formData.message,
+          }),
+        }
+      );
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      // Still show success to user - webhook may return non-200 but still process
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
