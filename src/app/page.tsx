@@ -16,6 +16,32 @@ export default function Home() {
         {/* Hero Section */}
         <Hero />
 
+        {/* Value Pillars - Clarify, Simplify, Maximize */}
+        {/* Hidden on mobile/tablet - visible on lg+ (laptops & desktops) */}
+        <section className="hidden lg:block bg-gradient-to-b from-black via-gray-900 to-gray-800 py-8">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-center items-center gap-6">
+              {[
+                { main: "CLARIFY", sub: "Goals, Dreams, Desires", gradient: "from-cranberry to-cranberry-dark" },
+                { main: "SIMPLIFY", sub: "Life, Business, Relationships", gradient: "from-gold to-gold-dark" },
+                { main: "MAXIMIZE", sub: "Focus, Confidence, Actions, Results", gradient: "from-cranberry to-cranberry-dark" },
+              ].map((pillar) => (
+                <div key={pillar.main} className="group relative">
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
+                  <div className={`relative bg-gradient-to-r ${pillar.gradient} rounded-full px-8 py-4 text-center shadow-xl hover:scale-105 transition-transform duration-300`}>
+                    <p className="text-white font-black text-xl tracking-wider mb-1">
+                      {pillar.main}
+                    </p>
+                    <p className="text-white/80 text-sm font-medium">
+                      {pillar.sub}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Social Proof Bar - Scrolling Logos */}
         <LogoScroller />
 

@@ -142,38 +142,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Value Pillars - Clarify, Simplify, Maximize */}
-      {/* Hidden on mobile/tablet/laptop - only visible on large desktop (1536px+) */}
-      <div className="hidden 2xl:block absolute bottom-28 left-0 right-0 z-10">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
-            {[
-              { main: "CLARIFY", sub: "Goals, Dreams, Desires", gradient: "from-cranberry to-cranberry-dark" },
-              { main: "SIMPLIFY", sub: "Life, Business, Relationships", gradient: "from-gold to-gold-dark" },
-              { main: "MAXIMIZE", sub: "Focus, Confidence, Actions, Results", gradient: "from-cranberry to-cranberry-dark" },
-            ].map((pillar, index) => (
-              <motion.div
-                key={pillar.main}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 + index * 0.15, duration: 0.5 }}
-                className="group relative"
-              >
-                <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
-                <div className={`relative bg-gradient-to-r ${pillar.gradient} rounded-full px-8 py-4 text-center shadow-xl hover:scale-105 transition-transform duration-300`}>
-                  <p className="text-white font-black text-xl tracking-wider mb-1">
-                    {pillar.main}
-                  </p>
-                  <p className="text-white/80 text-sm font-medium">
-                    {pillar.sub}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
     </section>
