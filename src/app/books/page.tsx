@@ -3,6 +3,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
+import { EbookModal } from "@/components/ui/EbookModal";
 import { links } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, BookOpen, Play, Tv, ChevronLeft, ChevronRight, Newspaper } from "lucide-react";
@@ -99,6 +100,7 @@ const usaTodayImages = [
 export default function BooksPage() {
   const [currentImage, setCurrentImage] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isEbookModalOpen, setIsEbookModalOpen] = useState(false);
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % usaTodayImages.length);
@@ -206,7 +208,8 @@ export default function BooksPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative rounded-2xl"
+                  className={`group relative rounded-2xl ${"freebie" in book && book.freebie ? "cursor-pointer" : ""}`}
+                  onClick={"freebie" in book && book.freebie ? () => setIsEbookModalOpen(true) : undefined}
                 >
                   {/* Glow effect on hover */}
                   <div className={`absolute -inset-1 bg-gradient-to-r ${
@@ -574,9 +577,13 @@ export default function BooksPage() {
                 Brett&apos;s essential guide to building, leading, and retaining
                 a team of motivated professionals — delivered to your inbox.
               </p>
-              <Button href={links.booking} external variant="secondary" size="lg">
+              <button
+                onClick={() => setIsEbookModalOpen(true)}
+                className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+              >
+                <BookOpen className="w-5 h-5" />
                 Get the Free eBook
-              </Button>
+              </button>
             </motion.div>
           </div>
         </section>
@@ -600,6 +607,12 @@ export default function BooksPage() {
         </section>
       </main>
       <Footer />
+
+      {/* eBook Lead Capture Modal */}
+      <EbookModal
+        isOpen={isEbookModalOpen}
+        onClose={() => setIsEbookModalOpen(false)}
+      />
     </>
   );
 }
