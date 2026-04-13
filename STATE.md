@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 11, 2026 @ 3:15 PM
+**Last Updated:** April 13, 2026 @ 6:20 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,42 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational
+
+### Completed (April 13, 2026 - Morning Session - EBOOK LEAD CAPTURE)
+
+#### eBook Lead Capture System
+1. ✅ Created popup modal for "How to Build a Rockstar Team" eBook download
+2. ✅ Form captures: First Name, Last Name, Email
+3. ✅ Integrated with GoHighLevel webhook for lead capture
+4. ✅ Tag applied: `rockstar ebook`
+5. ✅ Modal triggers from both book card AND "Get the Free eBook" button
+6. ✅ Hosted PDF on site for email delivery (better than attachments)
+
+#### Desktop Pillars Position Fix
+7. ✅ Moved floating pillars closer to hero content (`bottom-28` → `bottom-40`)
+8. ✅ Desktop (2xl+) view now looks properly positioned
+
+#### Repo Cleanup
+9. ✅ Deleted 16 duplicate files (macOS " 2" copies)
+10. ✅ Working tree clean
+
+#### Technical Implementation
+- New component: `src/components/ui/EbookModal.tsx`
+- Updated: `src/app/books/page.tsx` (modal integration)
+- Updated: `src/components/sections/Hero.tsx` (pillar position)
+- New file: `public/books/how-to-build-a-rockstar-team.pdf`
+
+#### GHL Webhook URL
+```
+https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/6b344d66-7b41-4533-a8e1-e747a3da3143
+```
+
+#### eBook Download Link
+```
+https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
+```
+
+---
 
 ### Completed (April 11, 2026 - Afternoon Session - RESPONSIVE FIX)
 
@@ -17,37 +53,6 @@
 3. ✅ **Laptop (lg to 2xl / 1024-1536px):** Separate section below hero with `-mt-24` to cover white gradient
 4. ✅ **Mobile/Tablet (below lg):** Pillars hidden
 5. ✅ Laptop view: Clean transition from hero → black pillars section → logo scroller (no white gradient showing)
-
-#### Technical Implementation
-- `Hero.tsx`: Pillars with `hidden 2xl:block` (desktop only)
-- `page.tsx`: Section with `hidden lg:block 2xl:hidden` + `-mt-24` (laptops only)
-
----
-
-### Completed (April 9, 2026 - Morning Session - SITE TWEAKS)
-
-#### Media Kit Updates
-1. ✅ Added Speaker One-Sheet PDF download section (`brett-lechtenberg-speaker-one-sheet.pdf`)
-2. ✅ Added "Twins" dual portrait image to headshots (`brett-twins.png`)
-3. ✅ Added "Twins" transparent background version (`brett-twins-nobg.png`)
-
-#### Site-Wide Copy Change
-4. ✅ Changed "Talk to Brett" → "Talk With Brett" across 10 files
-
-#### Logo Scroller Update
-5. ✅ Increased logo sizes by 25% in "Trusted by Leading Organizations" section
-
-#### Homepage Hero Updates
-6. ✅ Moved gradient from "Meant" to "Gain The Master's Edge" in headline
-7. ✅ Updated subheadline to viewer-focused tagline
-8. ✅ Replaced hero image with twins no-background version
-
-#### Why Brett Section Updates
-9. ✅ Changed "8th°" → "8th" with "Degree Black Belt" label
-10. ✅ Added apostrophe: "1000s" → "1000's"
-
-#### Contact Page Update
-11. ✅ Replaced "BL" initials with casual portrait image
 
 ---
 
@@ -67,6 +72,7 @@
 | JSON-LD Schema | ✅ Complete |
 | PWA Manifest | ✅ Complete |
 | Favicons/Icons | ✅ Complete |
+| eBook Lead Capture | ✅ Complete |
 
 ### Pages (13 Total)
 | Page | Route | SEO Metadata |
@@ -90,16 +96,16 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `4327e78` - Restore floating pillars on desktop, keep section for laptops only
+**Last Commit:** `41a6433` - Add Rockstar Team eBook PDF for download link
 **Uncommitted Changes:** None (working tree clean)
 
-### Recent Commits (April 11, 2026)
+### Recent Commits (April 13, 2026)
 ```
-4327e78 Restore floating pillars on desktop, keep section for laptops only
-b78b74e Pull Value Pillars section up to cover white gradient
-8e17c88 Update project state files - April 11, 2026
-db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
-a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
+41a6433 Add Rockstar Team eBook PDF for download link
+12f35ce Remove duplicate files (macOS copies)
+2689ed9 Add eBook lead capture modal with GoHighLevel integration
+07238b6 Move floating pillars closer to hero content (bottom-28 to bottom-40)
+64683db Revert: Restore 2xl breakpoint for floating pillars
 ```
 
 ---
@@ -127,7 +133,10 @@ BL-2026-Personal-Site/
 │   ├── manifest.json
 │   ├── robots.txt
 │   ├── brett-lechtenberg-speaker-one-sheet.pdf
-│   ├── books/ (8 book covers)
+│   ├── books/
+│   │   ├── rockstar-team.png (cover image)
+│   │   ├── how-to-build-a-rockstar-team.pdf (downloadable eBook)
+│   │   └── [7 other book covers]
 │   ├── heroes/ (12 hero images)
 │   ├── logos/ (14 client logos)
 │   ├── media-kit/ (5 headshots)
@@ -147,7 +156,7 @@ BL-2026-Personal-Site/
 │   │   ├── layout/ (Header, Footer)
 │   │   ├── sections/ (Hero with desktop pillars, Solution, etc.)
 │   │   ├── seo/ (JsonLd)
-│   │   └── ui/ (Button)
+│   │   └── ui/ (Button, EbookModal)
 │   └── lib/
 │       └── utils.ts (links, colors)
 ├── CLAUDE.md
@@ -180,6 +189,12 @@ BL-2026-Personal-Site/
 - [ ] Submit sitemap to Google
 - [ ] Test social sharing (Facebook, Twitter, LinkedIn)
 
+### Lead Capture ✅ COMPLETE
+- [x] eBook modal created
+- [x] GHL webhook integrated
+- [x] PDF hosted for download
+- [x] Form tested and working
+
 ---
 
 ## Important Notes
@@ -188,15 +203,17 @@ BL-2026-Personal-Site/
 2. The Master's Edge is always capitalized with "The"
 3. All links configured in `src/lib/utils.ts`
 4. OG image: `/brett-hero.webp`
-5. Free eBook: "How to Build a Rockstar Team" (not Reclaiming the Clock)
-6. TSAI logo in AI Advisory "Powered by" section
-7. **Value Pillars responsive behavior:**
-   - Desktop (2xl+): Floating in Hero.tsx
+5. Free eBook: "How to Build a Rockstar Team"
+6. **eBook Download URL:** `https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf`
+7. TSAI logo in AI Advisory "Powered by" section
+8. **Value Pillars responsive behavior:**
+   - Desktop (2xl+): Floating in Hero.tsx at `bottom-40`
    - Laptop (lg-2xl): Section in page.tsx with `-mt-24`
    - Mobile/Tablet: Hidden
+9. **GHL Webhook:** Sends firstName, lastName, email, tags["rockstar ebook"]
 
 ---
 
 ## Blockers
 
-*None - site is LIVE at brettlechtenberg.com*
+*None - site is LIVE at brettlechtenberg.com with lead capture working*

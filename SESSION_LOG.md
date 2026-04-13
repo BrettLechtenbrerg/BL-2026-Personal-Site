@@ -2,6 +2,73 @@
 
 ---
 
+## Session 9 - April 13, 2026 (Morning) - EBOOK LEAD CAPTURE SESSION
+
+**Duration:** ~60 minutes
+**Focus:** Add eBook lead capture modal + GHL integration + Desktop pillar fix
+
+### What Was Done
+
+#### eBook Lead Capture System
+1. Created `EbookModal.tsx` component with:
+   - First Name, Last Name, Email form fields
+   - Loading spinner while submitting
+   - Success state with "Check Your Email!" message
+   - Error handling
+2. Integrated GoHighLevel webhook for lead capture
+3. Form sends: `firstName`, `lastName`, `email`, `tags: ["rockstar ebook"]`
+4. Modal triggers from:
+   - Clicking the Rockstar Team book card in the grid
+   - Clicking the "Get the Free eBook" button at bottom
+5. Hosted PDF on site for email delivery (better deliverability than attachments)
+
+#### Desktop Pillars Position Fix
+6. Fixed floating pillars on desktop - too far from hero content
+7. Changed position from `bottom-28` to `bottom-40` (closer to image/text)
+8. Tested and confirmed by Brett
+
+#### Repo Cleanup
+9. Deleted 16 duplicate files (macOS " 2" copies):
+   - eslint.config 2.mjs, package 2.json
+   - Logo SVGs, page TSX files, component files
+   - src/lib/utils 2.ts
+10. Committed cleanup to keep repo clean
+
+### Git Activity (5 commits)
+```
+41a6433 Add Rockstar Team eBook PDF for download link
+12f35ce Remove duplicate files (macOS copies)
+2689ed9 Add eBook lead capture modal with GoHighLevel integration
+07238b6 Move floating pillars closer to hero content (bottom-28 to bottom-40)
+64683db Revert: Restore 2xl breakpoint for floating pillars
+```
+
+### Files Created
+- `src/components/ui/EbookModal.tsx` (new lead capture modal)
+- `public/books/how-to-build-a-rockstar-team.pdf` (downloadable eBook)
+
+### Files Modified
+- `src/app/books/page.tsx` (modal integration + click handlers)
+- `src/components/sections/Hero.tsx` (pillar position fix)
+
+### Key URLs
+- **eBook Download:** https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
+- **GHL Webhook:** `https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/6b344d66-7b41-4533-a8e1-e747a3da3143`
+
+### GHL Workflow Notes
+- Webhook sends test payload successfully
+- Brett mapped fields: firstName, lastName, email
+- Tag: `rockstar ebook`
+- Recommendation: Use download link in email instead of PDF attachment for better deliverability
+
+### Site Status
+✅ Site is **LIVE** at brettlechtenberg.com
+- Lead capture working
+- All changes deployed via GitHub → Vercel auto-deploy
+- No errors or issues
+
+---
+
 ## Session 8 - April 11, 2026 (Afternoon) - RESPONSIVE FIX SESSION
 
 **Duration:** ~30 minutes

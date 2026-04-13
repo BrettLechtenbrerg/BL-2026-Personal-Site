@@ -42,9 +42,14 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ "Talk With Brett" CTAs site-wide
 - ✅ Twins dual portrait images in Media Kit
 - ✅ Viewer-focused hero subheadline
-- ✅ **Value Pillars responsive fix (April 11, 2026):**
-  - Desktop (2xl+): Floating inside hero (original design)
-  - Laptop (lg-2xl): Section below hero with `-mt-24` (no white gradient)
+- ✅ **eBook Lead Capture Modal (April 13, 2026):**
+  - Popup form: First Name, Last Name, Email
+  - GHL webhook integration with "rockstar ebook" tag
+  - Triggers from book card AND "Get the Free eBook" button
+  - PDF hosted at: https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
+- ✅ **Value Pillars responsive fix:**
+  - Desktop (2xl+): Floating inside hero at `bottom-40`
+  - Laptop (lg-2xl): Section below hero with `-mt-24`
   - Mobile/Tablet: Hidden
 
 **Post-Launch Tasks:**
@@ -92,8 +97,20 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 | `src/app/sitemap.ts` | Sitemap (13 pages) |
 | `public/robots.txt` | Search engine directives |
 | `src/components/sections/Hero.tsx` | Hero + desktop floating pillars |
+| `src/components/ui/EbookModal.tsx` | Lead capture popup for eBook |
 | `src/components/seo/JsonLd.tsx` | Structured data |
 | `src/lib/utils.ts` | Brand colors, links |
+
+---
+
+## EBOOK LEAD CAPTURE
+
+| Item | Value |
+|------|-------|
+| **GHL Webhook** | `https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/6b344d66-7b41-4533-a8e1-e747a3da3143` |
+| **PDF Download** | `https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf` |
+| **Tag** | `rockstar ebook` |
+| **Fields** | firstName, lastName, email |
 
 ---
 
@@ -101,7 +118,7 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 
 | Device | Breakpoint | Implementation |
 |--------|------------|----------------|
-| Desktop | 2xl+ (1536px+) | `Hero.tsx` - floating pillars with `hidden 2xl:block` |
+| Desktop | 2xl+ (1536px+) | `Hero.tsx` - floating pillars with `hidden 2xl:block` at `bottom-40` |
 | Laptop | lg-2xl (1024-1536px) | `page.tsx` - section with `hidden lg:block 2xl:hidden` |
 | Mobile/Tablet | below lg | Hidden on both |
 
@@ -130,11 +147,11 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 ## RECENT COMMITS
 
 ```
-4327e78 Restore floating pillars on desktop, keep section for laptops only
-b78b74e Pull Value Pillars section up to cover white gradient
-8e17c88 Update project state files - April 11, 2026
-db8e26a Move Clarify/Simplify/Maximize pillars below hero in normal flow
-a203a5d Hide Clarify/Simplify/Maximize pillars on screens smaller than 2xl
+41a6433 Add Rockstar Team eBook PDF for download link
+12f35ce Remove duplicate files (macOS copies)
+2689ed9 Add eBook lead capture modal with GoHighLevel integration
+07238b6 Move floating pillars closer to hero content (bottom-28 to bottom-40)
+64683db Revert: Restore 2xl breakpoint for floating pillars
 ```
 
 ---
@@ -150,4 +167,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 11, 2026 @ 3:15 PM*
+*Last updated: April 13, 2026 @ 6:20 AM*
