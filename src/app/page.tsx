@@ -17,9 +17,9 @@ export default function Home() {
         <Hero />
 
         {/* Value Pillars - Clarify, Simplify, Maximize */}
-        {/* Only visible on lg to 2xl (laptops) - desktop uses floating pillars in Hero */}
+        {/* Only visible on lg to xl (laptops) - desktop uses floating pillars in Hero */}
         {/* -mt-24 pulls it up to cover the white gradient from Hero */}
-        <section className="hidden lg:block 2xl:hidden bg-gradient-to-b from-black via-gray-900 to-gray-800 py-8 -mt-24 relative z-10">
+        <section className="hidden lg:block xl:hidden bg-gradient-to-b from-black via-gray-900 to-gray-800 py-8 -mt-24 relative z-10">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="flex justify-center items-center gap-6">
               {[

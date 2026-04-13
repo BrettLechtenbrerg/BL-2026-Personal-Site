@@ -143,8 +143,8 @@ export function Hero() {
       </div>
 
       {/* Value Pillars - Clarify, Simplify, Maximize */}
-      {/* Only visible on 2xl+ (desktop) - floating inside hero */}
-      <div className="hidden 2xl:block absolute bottom-28 left-0 right-0 z-10">
+      {/* Only visible on xl+ (desktop) - floating inside hero */}
+      <div className="hidden xl:block absolute bottom-28 left-0 right-0 z-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center items-center gap-6">
             {[
