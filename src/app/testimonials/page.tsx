@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Quote, Star, TrendingUp, Users, Award } from "lucide-react";
+import { Quote, Star, TrendingUp, Users, Award, Play, Video } from "lucide-react";
 import Image from "next/image";
 
 const featuredTestimonials = [
@@ -204,6 +204,225 @@ export default function TestimonialsPage() {
               Don&apos;t take Brett&apos;s word for it. Hear from the leaders, athletes,
               coaches, and business owners who&apos;ve experienced The Master&apos;s Edge firsthand.
             </motion.p>
+          </div>
+        </section>
+
+        {/* Video Testimonials - Dark */}
+        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+          <motion.div
+            animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-20 left-10 w-96 h-96 bg-cranberry/25 rounded-full blur-[120px]"
+          />
+          <motion.div
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.25, 0.15] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-20 right-10 w-80 h-80 bg-gold/20 rounded-full blur-[100px]"
+          />
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <div className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/30 rounded-full px-5 py-2 mb-6">
+                <Video className="w-4 h-4 text-cranberry" />
+                <span className="text-cranberry font-semibold text-sm">Video Testimonials</span>
+              </div>
+              <h2 className="text-3xl font-bold text-white">
+                Hear It <span className="text-gold">Directly</span> From Them
+              </h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Dana Fisher - On Point Health */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/pofzL8xGFsQ"
+                      title="Dana Fisher - On Point Health Testimonial"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-white text-sm font-medium block">Dana Fisher</span>
+                    <span className="text-gray-400 text-xs">On Point Health</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Bob Morris - Sierra Home Services */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/OA7ptNxEjdM"
+                      title="Bob Morris - Sierra Home Services Testimonial"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-white text-sm font-medium block">Bob Morris</span>
+                    <span className="text-gray-400 text-xs">Sierra Home Services</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Joyce Mathie - Clean Differently */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/60csverI6oI"
+                      title="Joyce Mathie - Clean Differently Testimonial"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-white text-sm font-medium block">Joyce Mathie</span>
+                    <span className="text-gray-400 text-xs">Clean Differently</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Rich Lavine - South Paw Home Inspection */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/ryGzHBHCjcg"
+                      title="Rich Lavine - South Paw Home Inspection Testimonial"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-white text-sm font-medium block">Rich Lavine</span>
+                    <span className="text-gray-400 text-xs">South Paw Home Inspection</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Roger Knecht - Universal Business Builder */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/fwlsFGANDJc"
+                      title="Roger Knecht - Universal Business Builder Testimonial"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-white text-sm font-medium block">Roger Knecht</span>
+                    <span className="text-gray-400 text-xs">Universal Business Builder</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Matt Gibbons - Matt Gibbons Consulting */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+              >
+                <div className="relative group">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
+                    <iframe
+                      src="https://www.youtube.com/embed/p3E50SvodVc"
+                      title="Matt Gibbons - Matt Gibbons Consulting Testimonial"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-center gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
+                    <Play className="w-4 h-4 text-white fill-white" />
+                  </div>
+                  <div className="text-left">
+                    <span className="text-white text-sm font-medium block">Matt Gibbons</span>
+                    <span className="text-gray-400 text-xs">Matt Gibbons Consulting</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
