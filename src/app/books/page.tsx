@@ -29,6 +29,7 @@ const books = [
     bestseller: true,
     image: "/books/reclaiming-the-clock.png",
     gradient: "bg-gradient-to-br from-gold/10 via-white to-cranberry/5",
+    amazonUrl: "https://www.amazon.com/Reclaiming-Clock-increase-Unparalleled-distraction/dp/1543203868",
   },
   {
     title: "The Anti-Bully Program",
@@ -38,6 +39,7 @@ const books = [
     bestseller: true,
     image: "/books/anti-bully-program.png",
     gradient: "bg-gradient-to-tr from-cranberry/8 via-white to-gold/10",
+    amazonUrl: "https://www.amazon.com/Anti-Bully-Program-Common-Sense-Families/dp/1500561665",
   },
   {
     title: "The Anti-Cyber Bully Program",
@@ -46,6 +48,7 @@ const books = [
     bestseller: true,
     image: "/books/anti-cyber-bully-program.png",
     gradient: "bg-gradient-to-bl from-gold/8 via-white to-cranberry/10",
+    amazonUrl: "https://www.amazon.com/Anti-Cyber-Bully-Program-Families/dp/1502885824",
   },
   {
     title: "Bullyproof: Unleash the Hero in Your Kid",
@@ -56,6 +59,7 @@ const books = [
     image: "/books/bullyproof.png",
     imageScale: "scale-[0.85]",
     gradient: "bg-gradient-to-r from-cranberry/5 via-gold/10 to-cranberry/5",
+    amazonUrl: "https://www.amazon.com/Bullyproof-Unleash-Hero-Inside-Your/dp/0692522719",
   },
   {
     title: "The Ultimate Travel Safety Program",
@@ -66,6 +70,7 @@ const books = [
     image: "/books/travel-safety-program.png",
     imageScale: "scale-[0.85]",
     gradient: "bg-gradient-to-tl from-gold/10 via-white to-cranberry/8",
+    amazonUrl: "https://www.amazon.com/Ultimate-Travel-Safety-Program-missionaries/dp/1532765312",
   },
   {
     title: "Protecting Your Castle",
@@ -75,6 +80,7 @@ const books = [
     bestseller: false,
     image: "/books/protecting-your-castle.png",
     gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/8",
+    amazonUrl: "https://www.amazon.com/Protecting-Your-Castle-common-defense/dp/153290701X",
   },
   {
     title: "How to Build a Rockstar Team",
@@ -208,8 +214,14 @@ export default function BooksPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`group relative rounded-2xl ${"freebie" in book && book.freebie ? "cursor-pointer" : ""}`}
-                  onClick={"freebie" in book && book.freebie ? () => setIsEbookModalOpen(true) : undefined}
+                  className={`group relative rounded-2xl ${("freebie" in book && book.freebie) || ("amazonUrl" in book && book.amazonUrl) ? "cursor-pointer" : ""}`}
+                  onClick={
+                    "freebie" in book && book.freebie
+                      ? () => setIsEbookModalOpen(true)
+                      : "amazonUrl" in book && book.amazonUrl
+                        ? () => window.open(book.amazonUrl, "_blank", "noopener,noreferrer")
+                        : undefined
+                  }
                 >
                   {/* Glow effect on hover */}
                   <div className={`absolute -inset-1 bg-gradient-to-r ${
