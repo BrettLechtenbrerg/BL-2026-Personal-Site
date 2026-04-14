@@ -62,27 +62,27 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Headline - Original copy */}
+            {/* Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
-              Discover Who You&apos;re Meant to Become and{" "}
+              Where Human Performance, Leadership, and{" "}
               <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
-                Gain The Master&apos;s Edge
+                Innovation Come Together
               </span>
             </motion.h1>
 
-            {/* Subheadline - Viewer-focused */}
+            {/* Subheadline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl"
             >
-              Unlock Your Peak Performance. Master Flow States. Lead Without Limits.
+              Brett Lechtenberg equips leaders, teams, and entrepreneurs with transformational tools to improve performance, embrace change, and use AI as a force multiplier for growth.
             </motion.p>
 
             {/* CTAs - 2 buttons */}
