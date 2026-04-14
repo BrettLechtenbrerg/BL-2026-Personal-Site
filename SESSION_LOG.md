@@ -2,6 +2,62 @@
 
 ---
 
+## Session 10 - April 14, 2026 (Morning) - CONTENT UPDATES SESSION
+
+**Duration:** ~45 minutes
+**Focus:** Video Testimonials + Amazon Book Links + Homepage Headline
+
+### What Was Done
+
+#### Video Testimonials Section
+1. Added 6 video testimonials to `/testimonials` page
+2. New dark section after Hero with 3-column responsive grid (lg:grid-cols-3, md:grid-cols-2)
+3. YouTube embeds with glow effects on hover
+4. Videos added:
+   - Dana Fisher - On Point Health
+   - Bob Morris - Sierra Home Services
+   - Joyce Mathie - Clean Differently
+   - Rich Lavine - South Paw Home Inspection
+   - Roger Knecht - Universal Business Builder
+   - Matt Gibbons - Matt Gibbons Consulting
+
+#### Amazon Book Links
+5. Added clickable Amazon links to 6 book cards on `/books` page
+6. Books linked:
+   - Reclaiming The Clock
+   - The Anti-Bully Program
+   - The Anti-Cyber Bully Program
+   - Bullyproof the Kid and the Community
+   - Travel Safety
+   - Protecting Your Castle
+7. Cards open Amazon in new tab when clicked (noopener, noreferrer)
+8. Master's Edge (coming soon) and Rockstar Team (free eBook modal) unchanged
+
+#### Homepage Headline Update
+9. New headline: "Where Human Performance, Leadership, and Innovation Come Together"
+10. New subheadline: "Brett Lechtenberg equips leaders, teams, and entrepreneurs with transformational tools to improve performance, embrace change, and use AI as a force multiplier for growth."
+
+### Git Activity (3 commits)
+```
+b60df04 Update homepage headline and subheadline
+c3ac07b Add Amazon purchase links to book cards
+4253afd Add 6 video testimonials section to testimonials page
+```
+
+### Files Modified
+- `src/app/testimonials/page.tsx` (video testimonials section)
+- `src/app/books/page.tsx` (amazonUrl property + click handlers)
+- `src/components/sections/Hero.tsx` (new headline/subheadline)
+
+### Site Status
+✅ Site is **LIVE** at brettlechtenberg.com
+- All changes deployed via GitHub → Vercel auto-deploy
+- No errors or issues
+- Video testimonials working with lazy loading
+- Amazon links opening in new tabs
+
+---
+
 ## Session 9 - April 13, 2026 (Morning) - EBOOK LEAD CAPTURE SESSION
 
 **Duration:** ~60 minutes

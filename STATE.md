@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 13, 2026 @ 6:20 AM
+**Last Updated:** April 14, 2026 @ 7:15 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,31 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational
+
+### Completed (April 14, 2026 - Morning Session - CONTENT UPDATES)
+
+#### Video Testimonials Section
+1. ✅ Added 6 video testimonials to `/testimonials` page
+2. ✅ New dark section after Hero with 3-column grid
+3. ✅ YouTube embeds with glow effects on hover
+4. ✅ Videos: Dana Fisher, Bob Morris, Joyce Mathie, Rich Lavine, Roger Knecht, Matt Gibbons
+
+#### Amazon Book Links
+5. ✅ Added clickable Amazon links to 6 book cards on `/books` page
+6. ✅ Books linked: Reclaiming The Clock, Anti-Bully Program, Anti-Cyber Bully, Bullyproof, Travel Safety, Protecting Your Castle
+7. ✅ Cards open Amazon in new tab when clicked
+8. ✅ Master's Edge (coming soon) and Rockstar Team (free eBook modal) unchanged
+
+#### Homepage Headline Update
+9. ✅ New headline: "Where Human Performance, Leadership, and Innovation Come Together"
+10. ✅ New subheadline: "Brett Lechtenberg equips leaders, teams, and entrepreneurs with transformational tools to improve performance, embrace change, and use AI as a force multiplier for growth."
+
+#### Technical Implementation
+- Updated: `src/app/testimonials/page.tsx` (video testimonials section)
+- Updated: `src/app/books/page.tsx` (amazonUrl property + click handlers)
+- Updated: `src/components/sections/Hero.tsx` (new headline/subheadline)
+
+---
 
 ### Completed (April 13, 2026 - Morning Session - EBOOK LEAD CAPTURE)
 
@@ -22,37 +47,6 @@
 #### Desktop Pillars Position Fix
 7. ✅ Moved floating pillars closer to hero content (`bottom-28` → `bottom-40`)
 8. ✅ Desktop (2xl+) view now looks properly positioned
-
-#### Repo Cleanup
-9. ✅ Deleted 16 duplicate files (macOS " 2" copies)
-10. ✅ Working tree clean
-
-#### Technical Implementation
-- New component: `src/components/ui/EbookModal.tsx`
-- Updated: `src/app/books/page.tsx` (modal integration)
-- Updated: `src/components/sections/Hero.tsx` (pillar position)
-- New file: `public/books/how-to-build-a-rockstar-team.pdf`
-
-#### GHL Webhook URL
-```
-https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/6b344d66-7b41-4533-a8e1-e747a3da3143
-```
-
-#### eBook Download Link
-```
-https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
-```
-
----
-
-### Completed (April 11, 2026 - Afternoon Session - RESPONSIVE FIX)
-
-#### Value Pillars Fix (Clarify, Simplify, Maximize)
-1. ✅ Fixed pillars overlapping hero content on laptops, iPads, and iPhones
-2. ✅ **Desktop (2xl+ / 1536px+):** Floating pillars inside hero (original design preserved)
-3. ✅ **Laptop (lg to 2xl / 1024-1536px):** Separate section below hero with `-mt-24` to cover white gradient
-4. ✅ **Mobile/Tablet (below lg):** Pillars hidden
-5. ✅ Laptop view: Clean transition from hero → black pillars section → logo scroller (no white gradient showing)
 
 ---
 
@@ -73,6 +67,8 @@ https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
 | PWA Manifest | ✅ Complete |
 | Favicons/Icons | ✅ Complete |
 | eBook Lead Capture | ✅ Complete |
+| Video Testimonials | ✅ Complete |
+| Amazon Book Links | ✅ Complete |
 
 ### Pages (13 Total)
 | Page | Route | SEO Metadata |
@@ -96,16 +92,23 @@ https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `41a6433` - Add Rockstar Team eBook PDF for download link
-**Uncommitted Changes:** None (working tree clean)
+**Last Commit:** `b60df04` - Update homepage headline and subheadline
+**Uncommitted Changes:** None (5 untracked duplicate files to clean up)
+
+### Recent Commits (April 14, 2026)
+```
+b60df04 Update homepage headline and subheadline
+c3ac07b Add Amazon purchase links to book cards
+4253afd Add 6 video testimonials section to testimonials page
+```
 
 ### Recent Commits (April 13, 2026)
 ```
+fc8becf Update project state files - April 13, 2026
 41a6433 Add Rockstar Team eBook PDF for download link
 12f35ce Remove duplicate files (macOS copies)
 2689ed9 Add eBook lead capture modal with GoHighLevel integration
 07238b6 Move floating pillars closer to hero content (bottom-28 to bottom-40)
-64683db Revert: Restore 2xl breakpoint for floating pillars
 ```
 
 ---
@@ -116,6 +119,7 @@ https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
 **Vercel Preview:** https://bl-2026-personal-site.vercel.app
 **Vercel Project:** `bretts-projects-3e254e58/bl-2026-personal-site`
 **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
+**GitHub Account:** `BrettLechtenbrerg`
 
 ---
 
@@ -143,7 +147,7 @@ BL-2026-Personal-Site/
 │   ├── speaking-gallery/ (7 photos)
 │   ├── testimonials/ (6 headshots)
 │   ├── timeline/ (7 images + TSAI logo)
-│   └── usa-today/ (5 articles)
+│   └── usa-today/ (6 articles)
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx (root + SEO)
@@ -195,6 +199,11 @@ BL-2026-Personal-Site/
 - [x] PDF hosted for download
 - [x] Form tested and working
 
+### Content Enhancements ✅ COMPLETE
+- [x] Video testimonials section (6 videos)
+- [x] Amazon book links (6 books)
+- [x] Updated homepage messaging
+
 ---
 
 ## Important Notes
@@ -211,9 +220,11 @@ BL-2026-Personal-Site/
    - Laptop (lg-2xl): Section in page.tsx with `-mt-24`
    - Mobile/Tablet: Hidden
 9. **GHL Webhook:** Sends firstName, lastName, email, tags["rockstar ebook"]
+10. **Video Testimonials:** 6 YouTube embeds on /testimonials (3-column grid)
+11. **Amazon Links:** 6 books clickable → open Amazon in new tab
 
 ---
 
 ## Blockers
 
-*None - site is LIVE at brettlechtenberg.com with lead capture working*
+*None - site is LIVE at brettlechtenberg.com with all features working*

@@ -30,6 +30,14 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ Dark gradient heroes with animated floating orbs
 - ✅ Glowing cards with consistent hover effects (site-wide)
 - ✅ 6 Featured Testimonials with glow-on-hover
+- ✅ **6 Video Testimonials (April 14, 2026):**
+  - Dana Fisher, Bob Morris, Joyce Mathie, Rich Lavine, Roger Knecht, Matt Gibbons
+  - YouTube embeds in 3-column grid with glow effects
+- ✅ **Amazon Book Links (April 14, 2026):**
+  - 6 books linked to Amazon purchase pages
+  - Opens in new tab on card click
+- ✅ **Updated Homepage Messaging (April 14, 2026):**
+  - "Where Human Performance, Leadership, and Innovation Come Together"
 - ✅ 4-Video Media Grid (all YouTube embeds)
 - ✅ Media Kit with professional headshots + hero image + Speaker One-Sheet PDF
 - ✅ USA Today Carousel - Auto-scroll with pause-on-hover
@@ -41,8 +49,7 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ Custom domain connected (brettlechtenberg.com)
 - ✅ "Talk With Brett" CTAs site-wide
 - ✅ Twins dual portrait images in Media Kit
-- ✅ Viewer-focused hero subheadline
-- ✅ **eBook Lead Capture Modal (April 13, 2026):**
+- ✅ **eBook Lead Capture Modal:**
   - Popup form: First Name, Last Name, Email
   - GHL webhook integration with "rockstar ebook" tag
   - Triggers from book card AND "Get the Free eBook" button
@@ -100,6 +107,8 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 | `src/components/ui/EbookModal.tsx` | Lead capture popup for eBook |
 | `src/components/seo/JsonLd.tsx` | Structured data |
 | `src/lib/utils.ts` | Brand colors, links |
+| `src/app/testimonials/page.tsx` | Video testimonials section |
+| `src/app/books/page.tsx` | Amazon book links |
 
 ---
 
@@ -144,14 +153,12 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 
 ---
 
-## RECENT COMMITS
+## RECENT COMMITS (April 14, 2026)
 
 ```
-41a6433 Add Rockstar Team eBook PDF for download link
-12f35ce Remove duplicate files (macOS copies)
-2689ed9 Add eBook lead capture modal with GoHighLevel integration
-07238b6 Move floating pillars closer to hero content (bottom-28 to bottom-40)
-64683db Revert: Restore 2xl breakpoint for floating pillars
+b60df04 Update homepage headline and subheadline
+c3ac07b Add Amazon purchase links to book cards
+4253afd Add 6 video testimonials section to testimonials page
 ```
 
 ---
@@ -167,4 +174,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 13, 2026 @ 6:20 AM*
+*Last updated: April 14, 2026 @ 6:40 AM*
