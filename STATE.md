@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 14, 2026 @ 7:15 AM
+**Last Updated:** April 15, 2026 @ 6:30 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,23 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational
+
+### Completed (April 15, 2026 - Morning Session - HEADLINE UPDATE)
+
+#### Homepage Headline & Subheadline Refresh
+1. ✅ New headline: "Transform the Way You Focus, Lead, and Perform"
+2. ✅ Gradient applied only to "Focus, Lead," and "Perform" (not "and")
+3. ✅ New subheadline: "Brett Lechtenberg helps leaders, teams, and business owners unlock peak performance through transformational speaking, flow state mastery, leadership development, and practical AI strategies."
+
+#### Repo Cleanup
+4. ✅ Deleted 5 duplicate macOS files (" 2" copies)
+5. ✅ Deleted broken git branch "main 2"
+6. ✅ Working tree now clean
+
+#### Technical Implementation
+- Updated: `src/components/sections/Hero.tsx` (headline/subheadline with split gradient spans)
+
+---
 
 ### Completed (April 14, 2026 - Morning Session - CONTENT UPDATES)
 
@@ -23,30 +40,8 @@
 7. ✅ Cards open Amazon in new tab when clicked
 8. ✅ Master's Edge (coming soon) and Rockstar Team (free eBook modal) unchanged
 
-#### Homepage Headline Update
-9. ✅ New headline: "Where Human Performance, Leadership, and Innovation Come Together"
-10. ✅ New subheadline: "Brett Lechtenberg equips leaders, teams, and entrepreneurs with transformational tools to improve performance, embrace change, and use AI as a force multiplier for growth."
-
-#### Technical Implementation
-- Updated: `src/app/testimonials/page.tsx` (video testimonials section)
-- Updated: `src/app/books/page.tsx` (amazonUrl property + click handlers)
-- Updated: `src/components/sections/Hero.tsx` (new headline/subheadline)
-
----
-
-### Completed (April 13, 2026 - Morning Session - EBOOK LEAD CAPTURE)
-
-#### eBook Lead Capture System
-1. ✅ Created popup modal for "How to Build a Rockstar Team" eBook download
-2. ✅ Form captures: First Name, Last Name, Email
-3. ✅ Integrated with GoHighLevel webhook for lead capture
-4. ✅ Tag applied: `rockstar ebook`
-5. ✅ Modal triggers from both book card AND "Get the Free eBook" button
-6. ✅ Hosted PDF on site for email delivery (better than attachments)
-
-#### Desktop Pillars Position Fix
-7. ✅ Moved floating pillars closer to hero content (`bottom-28` → `bottom-40`)
-8. ✅ Desktop (2xl+) view now looks properly positioned
+#### Homepage Headline Update (superseded by April 15 update)
+9. ✅ Previous headline: "Where Human Performance, Leadership, and Innovation Come Together"
 
 ---
 
@@ -92,23 +87,21 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `b60df04` - Update homepage headline and subheadline
-**Uncommitted Changes:** None (5 untracked duplicate files to clean up)
+**Last Commit:** `7c87a8a` - Make 'and' white in headline, keep gradient on Focus, Lead, Perform
+**Uncommitted Changes:** None (working tree clean)
+
+### Recent Commits (April 15, 2026)
+```
+7c87a8a Make 'and' white in headline, keep gradient on Focus, Lead, Perform
+16dc240 Update homepage headline and subheadline
+```
 
 ### Recent Commits (April 14, 2026)
 ```
+9f7885e Update project state files - April 14, 2026 Session 10
 b60df04 Update homepage headline and subheadline
 c3ac07b Add Amazon purchase links to book cards
 4253afd Add 6 video testimonials section to testimonials page
-```
-
-### Recent Commits (April 13, 2026)
-```
-fc8becf Update project state files - April 13, 2026
-41a6433 Add Rockstar Team eBook PDF for download link
-12f35ce Remove duplicate files (macOS copies)
-2689ed9 Add eBook lead capture modal with GoHighLevel integration
-07238b6 Move floating pillars closer to hero content (bottom-28 to bottom-40)
 ```
 
 ---
@@ -202,7 +195,7 @@ BL-2026-Personal-Site/
 ### Content Enhancements ✅ COMPLETE
 - [x] Video testimonials section (6 videos)
 - [x] Amazon book links (6 books)
-- [x] Updated homepage messaging
+- [x] Updated homepage messaging (April 15 refresh)
 
 ---
 
@@ -222,6 +215,7 @@ BL-2026-Personal-Site/
 9. **GHL Webhook:** Sends firstName, lastName, email, tags["rockstar ebook"]
 10. **Video Testimonials:** 6 YouTube embeds on /testimonials (3-column grid)
 11. **Amazon Links:** 6 books clickable → open Amazon in new tab
+12. **Current Headline:** "Transform the Way You Focus, Lead, and Perform" (gradient on Focus, Lead, Perform only)
 
 ---
 

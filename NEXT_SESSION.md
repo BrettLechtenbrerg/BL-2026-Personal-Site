@@ -30,14 +30,17 @@ I want to continue working on my personal website (Brett Lechtenberg).
 - ✅ Dark gradient heroes with animated floating orbs
 - ✅ Glowing cards with consistent hover effects (site-wide)
 - ✅ 6 Featured Testimonials with glow-on-hover
-- ✅ **6 Video Testimonials (April 14, 2026):**
+- ✅ **6 Video Testimonials:**
   - Dana Fisher, Bob Morris, Joyce Mathie, Rich Lavine, Roger Knecht, Matt Gibbons
   - YouTube embeds in 3-column grid with glow effects
-- ✅ **Amazon Book Links (April 14, 2026):**
+- ✅ **Amazon Book Links:**
   - 6 books linked to Amazon purchase pages
   - Opens in new tab on card click
-- ✅ **Updated Homepage Messaging (April 14, 2026):**
-  - "Where Human Performance, Leadership, and Innovation Come Together"
+- ✅ **Current Homepage Headline (April 15, 2026):**
+  - "Transform the Way You Focus, Lead, and Perform"
+  - Gradient on "Focus, Lead," and "Perform" only (white "and")
+- ✅ **Current Subheadline:**
+  - "Brett Lechtenberg helps leaders, teams, and business owners unlock peak performance through transformational speaking, flow state mastery, leadership development, and practical AI strategies."
 - ✅ 4-Video Media Grid (all YouTube embeds)
 - ✅ Media Kit with professional headshots + hero image + Speaker One-Sheet PDF
 - ✅ USA Today Carousel - Auto-scroll with pause-on-hover
@@ -103,7 +106,7 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 | `src/app/page.tsx` | Homepage + laptop Value Pillars section |
 | `src/app/sitemap.ts` | Sitemap (13 pages) |
 | `public/robots.txt` | Search engine directives |
-| `src/components/sections/Hero.tsx` | Hero + desktop floating pillars |
+| `src/components/sections/Hero.tsx` | Hero + desktop floating pillars + headline |
 | `src/components/ui/EbookModal.tsx` | Lead capture popup for eBook |
 | `src/components/seo/JsonLd.tsx` | Structured data |
 | `src/lib/utils.ts` | Brand colors, links |
@@ -153,12 +156,11 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 
 ---
 
-## RECENT COMMITS (April 14, 2026)
+## RECENT COMMITS (April 15, 2026)
 
 ```
-b60df04 Update homepage headline and subheadline
-c3ac07b Add Amazon purchase links to book cards
-4253afd Add 6 video testimonials section to testimonials page
+7c87a8a Make 'and' white in headline, keep gradient on Focus, Lead, Perform
+16dc240 Update homepage headline and subheadline
 ```
 
 ---
@@ -174,4 +176,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 14, 2026 @ 6:40 AM*
+*Last updated: April 15, 2026 @ 6:30 AM*

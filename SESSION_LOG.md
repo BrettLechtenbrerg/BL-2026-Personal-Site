@@ -2,6 +2,47 @@
 
 ---
 
+## Session 11 - April 15, 2026 (Morning) - HEADLINE REFRESH SESSION
+
+**Duration:** ~15 minutes
+**Focus:** Homepage headline & subheadline update + repo cleanup
+
+### What Was Done
+
+#### Homepage Headline & Subheadline Refresh
+1. Updated headline from "Where Human Performance, Leadership, and Innovation Come Together"
+   → **New:** "Transform the Way You Focus, Lead, and Perform"
+2. Applied gradient color only to "Focus, Lead," and "Perform" (white "and")
+3. Updated subheadline:
+   → **New:** "Brett Lechtenberg helps leaders, teams, and business owners unlock peak performance through transformational speaking, flow state mastery, leadership development, and practical AI strategies."
+
+#### Repo Cleanup
+4. Deleted 5 duplicate macOS files (" 2" copies):
+   - `public/books/how-to-build-a-rockstar-team 2.pdf`
+   - `src/app/favicon 2.ico`
+   - `src/app/globals 2.css`
+   - `src/app/page 2.tsx`
+   - `src/lib/utils 2.ts`
+5. Deleted broken git branch "main 2"
+6. Working tree now clean
+
+### Git Activity (2 commits)
+```
+7c87a8a Make 'and' white in headline, keep gradient on Focus, Lead, Perform
+16dc240 Update homepage headline and subheadline
+```
+
+### Files Modified
+- `src/components/sections/Hero.tsx` (headline/subheadline with split gradient spans)
+
+### Site Status
+✅ Site is **LIVE** at brettlechtenberg.com
+- All changes deployed via GitHub → Vercel auto-deploy
+- No errors or issues
+- New headline visible on homepage
+
+---
+
 ## Session 10 - April 14, 2026 (Morning) - CONTENT UPDATES SESSION
 
 **Duration:** ~45 minutes
