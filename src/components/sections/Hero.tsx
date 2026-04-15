@@ -71,7 +71,11 @@ export function Hero() {
             >
               Transform the Way You{" "}
               <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
-                Focus, Lead, and Perform
+                Focus, Lead,
+              </span>{" "}
+              and{" "}
+              <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
+                Perform
               </span>
             </motion.h1>
 
