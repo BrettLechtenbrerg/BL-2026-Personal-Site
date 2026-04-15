@@ -69,9 +69,9 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
-              Where Human Performance, Leadership, and{" "}
+              Transform the Way You{" "}
               <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
-                Innovation Come Together
+                Focus, Lead, and Perform
               </span>
             </motion.h1>
 
@@ -82,7 +82,7 @@ export function Hero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl"
             >
-              Brett Lechtenberg equips leaders, teams, and entrepreneurs with transformational tools to improve performance, embrace change, and use AI as a force multiplier for growth.
+              Brett Lechtenberg helps leaders, teams, and business owners unlock peak performance through transformational speaking, flow state mastery, leadership development, and practical AI strategies.
             </motion.p>
 
             {/* CTAs - 2 buttons */}
