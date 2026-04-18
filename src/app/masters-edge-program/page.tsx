@@ -150,25 +150,25 @@ const stats = [
 // Testimonials
 const testimonials = [
   {
-    quote: "Brett really knows flow, peak performance, and goals. He has a deep understanding of what it takes to perform at a high level and teaches it in a way that makes it practical and powerful.",
+    quote: "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.",
     name: "Bill Schuffenhauer",
     title: "3x Olympian, Olympic Silver Medalist",
     initials: "BS",
   },
   {
-    quote: "Brett has a unique ability to combine leadership, mindset, and practical strategy in a way that creates real transformation.",
+    quote: "In my lifetime, I've had the opportunity to meet extraordinary people from around the world, and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
     name: "Sam Beard",
     title: "Creator of Initiatives for Eight U.S. Presidents",
     initials: "SB",
   },
   {
-    quote: "His training helped me think more clearly, lead more intentionally, and create stronger results in both business and life.",
+    quote: "Brett has an innate ability to break down complicated subjects into easy to learn and quick to implement subject matter. He has helped me motivate my staff, implement more cash generation systems, and build a culture of fun and positive growth.",
     name: "John Nottingham",
     title: "Sword and Shield Security",
     initials: "JN",
   },
   {
-    quote: "This work helped me identify where I was getting in my own way and gave me practical tools to perform at a much higher level.",
+    quote: "Brett is as good an instructor as I have been around. His training methods and information are always cutting-edge.",
     name: "Matt Gibbons",
     title: "President, Murray Area Chamber of Commerce",
     initials: "MG",
