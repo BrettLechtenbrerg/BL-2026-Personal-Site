@@ -234,7 +234,7 @@ const clientLogos = [
   { name: "Murray Chamber", src: "/logos/murray-chamber.png" },
   { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png" },
   { name: "Park City Chamber", src: "/logos/park-city-chamber.png" },
-  { name: "Good Things Utah", src: "/logos/good-things-utah.webp" },
+  { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png" },
 ];
 
 // FAQ Accordion component
