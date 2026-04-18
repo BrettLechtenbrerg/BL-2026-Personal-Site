@@ -174,7 +174,7 @@ const testimonials = [
     initials: "MG",
   },
   {
-    quote: "Brett's work reflects a serious understanding of flow, performance, and how to help people apply those ideas in meaningful ways.",
+    quote: "Excellent. The paper makes a compelling, empirical case for the utilization of flow for accelerated learning and skill acquisition.",
     name: "Flow Research Collective",
     title: "Steven Kotler's Peak Performance Organization",
     initials: "FRC",
