@@ -747,11 +747,6 @@ export default function MastersEdgeProgramPage() {
                   <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 h-full flex flex-col">
                     <p className="text-gray-300 italic flex-grow mb-6">
                       &quot;{testimonial.quote}&quot;
-                      {testimonial.highlight && (
-                        <span className="block mt-2 text-gold font-bold text-xl not-italic">
-                          +{testimonial.highlight} Revenue
-                        </span>
-                      )}
                     </p>
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center text-white font-bold">
