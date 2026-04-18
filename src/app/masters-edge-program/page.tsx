@@ -311,7 +311,7 @@ export default function MastersEdgeProgramPage() {
               className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 rounded-full px-5 py-2 mb-6"
             >
               <Sparkles className="w-4 h-4 text-gold" />
-              <span className="text-gold font-semibold text-sm">Limited Enrollment — Founding Cohort</span>
+              <span className="text-gold font-semibold text-sm">Limited Enrollment for each Cohort</span>
             </motion.div>
 
             <motion.h1

@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 18, 2026 @ 6:45 AM
+**Last Updated:** April 18, 2026 @ 7:35 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -9,33 +9,37 @@
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational
 
-### Completed (April 18, 2026 - Morning Session - MASTER'S EDGE PROGRAM BUILD)
+### Completed (April 18, 2026 - Session 13 - COPY UPDATES)
+
+#### Master's Edge Program Page - Major Copy Revisions
+1. ✅ Added NEW Section 2: "Who This Program Is For" (after Hero)
+2. ✅ Updated Hero subheadline: "approach to" → "way to operate in"
+3. ✅ Updated Emotional Connection section (Section 3) copy
+4. ✅ Replaced ALL 12 weekly descriptions in Program Framework
+5. ✅ Simplified "What You Get" section (titles only, removed verbose descriptions)
+6. ✅ Updated "Who It's For / Not For" lists
+7. ✅ Rewrote About Brett bio paragraphs
+8. ✅ Restored ALL 6 original testimonial quotes (were accidentally changed)
+9. ✅ Added Rob Balderas back with +43% Revenue highlight
+10. ✅ Updated FAQ answers (8 → 7 questions)
+11. ✅ Minor Final CTA copy tweaks
+
+#### Testimonials (6 Total - ALL CORRECT NOW)
+| Person | Quote |
+|--------|-------|
+| Bill Schuffenhauer | "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach." |
+| Sam Beard | "In my lifetime, I've had the opportunity to meet extraordinary people from around the world, and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW." |
+| John Nottingham | "Brett has an innate ability to break down complicated subjects into easy to learn and quick to implement subject matter. He has helped me motivate my staff, implement more cash generation systems, and build a culture of fun and positive growth." |
+| Matt Gibbons | "Brett is as good an instructor as I have been around. His training methods and information are always cutting-edge." |
+| Flow Research Collective | "Excellent. The paper makes a compelling, empirical case for the utilization of flow for accelerated learning and skill acquisition." |
+| Rob Balderas | "I have been blown away with the powerful mindset tools, branding systems, and business building strategies. I added 43 percent to my best month of the year." (+43% Revenue highlight) |
+
+### Completed (April 18, 2026 - Session 12 - MASTER'S EDGE PROGRAM BUILD)
 
 #### Master's Edge Program - NEW PAGES BUILT
-1. ✅ Created `/masters-edge-program` - Full sales landing page with 10 sections:
-   - Hero with scarcity badge
-   - Problem section
-   - 3-Phase Program (Clarify → Simplify → Maximize)
-   - What's Included (8 deliverables)
-   - Who It's For / Not For
-   - About Brett with stats and logos
-   - 6 Testimonials
-   - Pricing (Founding Member $997/mo vs Pay in Full $2,691)
-   - FAQ accordion (8 questions)
-   - Final CTA
-
-2. ✅ Created `/masters-edge-program/apply` - Application form page:
-   - Full Name, Email, Phone, Company, Role
-   - Revenue Range, Referral Source
-   - Challenge & Success outcome textareas
-   - Investment option radio buttons
-   - GHL webhook integration with tags
-   - Dark gradient background with orbs
-
-3. ✅ Created `/masters-edge-program/thank-you` - Confirmation page:
-   - Success checkmark animation
-   - "Book a Conversation" CTA
-   - What Happens Next (3 steps)
+1. ✅ Created `/masters-edge-program` - Full sales landing page with 11 sections
+2. ✅ Created `/masters-edge-program/apply` - Application form with GHL webhook
+3. ✅ Created `/masters-edge-program/thank-you` - Confirmation page
 
 #### Content Updates
 4. ✅ Headline: "12 Weeks That Change How You Focus, Lead, Operate, and Perform"
@@ -44,18 +48,12 @@
 7. ✅ Changed member limit from 8 → 12 everywhere
 
 #### Navigation Updates
-8. ✅ Added Master's Edge dropdown to site navigation:
-   - The Methodology → /masters-edge
-   - 12-Week Program → /masters-edge-program
+8. ✅ Added Master's Edge dropdown to site navigation
 9. ✅ Both desktop and mobile navigation updated
 
 #### Logo Updates
 10. ✅ Added USA Martial Arts logo to /masters-edge-program page
 11. ✅ Added USA Martial Arts logo to LogoScroller (all pages)
-12. ✅ Copied usa-martial-arts.png to public/logos/
-
-#### Git Cleanup
-13. ✅ Deleted 5 duplicate macOS " 2" files from earlier session
 
 ---
 
@@ -68,7 +66,7 @@
 | Vercel Deployment | ✅ Done |
 | Custom Domain | ✅ Connected |
 | robots.txt | ✅ Created |
-| sitemap.xml | ✅ All 15 pages (was 13, +2 new) |
+| sitemap.xml | ✅ All 15 pages |
 | SEO Meta Tags | ✅ Complete |
 | Open Graph | ✅ Complete |
 | Twitter Cards | ✅ Complete |
@@ -80,12 +78,12 @@
 | Amazon Book Links | ✅ Complete |
 | Master's Edge Program | ✅ Complete |
 
-### Pages (16 Total - was 13)
+### Pages (16 Total)
 | Page | Route | SEO Metadata |
 |------|-------|--------------|
 | Homepage | `/` | ✅ |
 | The Master's Edge | `/masters-edge` | ✅ |
-| **Master's Edge Program** | `/masters-edge-program` | ✅ NEW |
+| **Master's Edge Program** | `/masters-edge-program` | ✅ |
 | **Program Application** | `/masters-edge-program/apply` | ✅ noindex |
 | **Program Thank You** | `/masters-edge-program/thank-you` | ✅ noindex |
 | Speaking & Training | `/speaking` | ✅ |
@@ -105,18 +103,25 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `67d27fc` - Update subheadline: founding cohort → upcoming cohorts
+**Last Commit:** `810de77` - Add Rob Balderas testimonial back with +43% Revenue highlight
 **Uncommitted Changes:** None (working tree clean)
 
-### Recent Commits (April 18, 2026)
+### Recent Commits (April 18, 2026 - Session 13)
 ```
+810de77 Add Rob Balderas testimonial back with +43% Revenue highlight
+754022d Restore original testimonial quotes
+858cfaa Revert Flow Research Collective testimonial to original
+2f9c649 Fix TypeScript error: remove unused highlight rendering
+c4c36ef Update Master's Edge Program page with new copy and structure
+```
+
+### Earlier Commits (April 18, 2026 - Session 12)
+```
+48efe3f Update project state files - April 18, 2026 Session 12
 67d27fc Update subheadline: founding cohort → upcoming cohorts
 48cd23f Add Master's Edge Program to navigation and update member count
 196caa7 Replace Good Things Utah logo with USA Martial Arts logo
 62b3f69 Add dark gradient background with orbs to apply page form section
-3dc9f27 Update Master's Edge Program subheadline
-b0367ad Update Master's Edge Program headline and add more logos
-ea364a9 Add Master's Edge Program pages (hidden from nav)
 ```
 
 ---
@@ -150,7 +155,7 @@ BL-2026-Personal-Site/
 │   │   ├── how-to-build-a-rockstar-team.pdf (downloadable eBook)
 │   │   └── [7 other book covers]
 │   ├── heroes/ (12 hero images)
-│   ├── logos/ (15 client logos - added usa-martial-arts.png)
+│   ├── logos/ (15 client logos - includes usa-martial-arts.png)
 │   ├── media-kit/ (5 headshots)
 │   ├── speaking-gallery/ (7 photos)
 │   ├── testimonials/ (6 headshots)
@@ -160,11 +165,11 @@ BL-2026-Personal-Site/
 │   ├── app/
 │   │   ├── layout.tsx (root + SEO)
 │   │   ├── page.tsx (homepage + laptop Value Pillars section)
-│   │   ├── sitemap.ts (15 pages - updated)
+│   │   ├── sitemap.ts (15 pages)
 │   │   ├── robots.ts
 │   │   ├── globals.css
-│   │   ├── masters-edge-program/ (NEW)
-│   │   │   ├── page.tsx (sales landing page)
+│   │   ├── masters-edge-program/
+│   │   │   ├── page.tsx (sales landing page - 11 sections)
 │   │   │   ├── layout.tsx (SEO metadata)
 │   │   │   ├── apply/
 │   │   │   │   ├── page.tsx (application form)
@@ -233,10 +238,24 @@ About                   → /about
 14. **Program Headline:** "12 Weeks That Change How You Focus, Lead, Operate, and Perform"
 15. **Program Member Limit:** 12 members per cohort
 16. **USA Martial Arts Logo:** Added to LogoScroller and /masters-edge-program
+17. **Program Testimonials:** 6 total with original quotes restored (including Rob Balderas)
 
 ---
 
 ## Master's Edge Program Details
+
+### Page Sections (11 Total)
+1. Hero with scarcity badge
+2. Who This Program Is For (NEW)
+3. Emotional Connection ("You've Built Something Real")
+4. 3-Phase Program Framework (Clarify → Simplify → Maximize)
+5. What's Included (8 items)
+6. Who It's For / Not For
+7. About Brett with stats and logos
+8. 6 Testimonials (with Rob Balderas +43% highlight)
+9. Pricing (Founding Member $997/mo vs Pay in Full $2,691)
+10. FAQ accordion (7 questions)
+11. Final CTA
 
 ### Pricing
 | Option | Price | Notes |
@@ -245,11 +264,11 @@ About                   → /about
 | Pay in Full | $2,691 | Save $300, bonus 1:1 session |
 
 ### What's Included
-- 12 Weekly Group Coaching Sessions (90 min each)
-- Custom Diagnostic Assessment (Week 1 & 12)
-- The Master's Edge Toolkit (proprietary frameworks)
+- 12 Weekly Group Coaching Sessions
+- Custom Diagnostic Assessment
+- The Master's Edge Toolkit
 - Private Community Access
-- 2 Private 1:1 Sessions with Brett (Week 1 & 6)
+- 2 Private 1:1 Sessions with Brett
 - Flow State Research Materials
 - 30-Day Post-Program Support
 - Lifetime Access to Program Materials
