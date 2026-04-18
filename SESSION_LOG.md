@@ -2,6 +2,104 @@
 
 ---
 
+## Session 12 - April 18, 2026 (Morning) - MASTER'S EDGE PROGRAM BUILD
+
+**Duration:** ~60 minutes
+**Focus:** Build complete Master's Edge Program enrollment funnel (3 pages)
+
+### What Was Done
+
+#### Master's Edge Program - 3 New Pages Built
+1. Created `/masters-edge-program` - Full sales landing page with 10 sections:
+   - Hero with scarcity badge ("Limited Enrollment — Founding Cohort")
+   - Problem section ("You've Built Something Real. But Something's Off.")
+   - 3-Phase Program cards (Clarify → Simplify → Maximize) with weekly breakdowns
+   - What's Included (8 deliverables with icons)
+   - Who It's For / Not For (green checkmarks vs red X's)
+   - About Brett with stats and client logos
+   - 6 Testimonials (Bill Schuffenhauer, Rob Balderas, Sam Beard, etc.)
+   - Pricing cards (Founding Member $997/mo vs Pay in Full $2,691)
+   - FAQ accordion (8 questions with smooth animations)
+   - Final CTA section
+
+2. Created `/masters-edge-program/apply` - Application form page:
+   - Full Name, Email, Phone, Company, Role fields
+   - Revenue Range dropdown, Referral Source dropdown
+   - Challenge & Success outcome textareas
+   - Investment option radio buttons
+   - GHL webhook integration with ME Prospect tags
+   - Dark gradient background with cranberry/gold orbs
+
+3. Created `/masters-edge-program/thank-you` - Confirmation page:
+   - Success checkmark animation
+   - "Book a Conversation with Brett" CTA
+   - What Happens Next (3 steps)
+
+#### Content Updates
+4. Updated headline: "12 Weeks That Change How You Focus, Lead, Operate, and Perform"
+5. Applied gradient only to Focus, Lead, Operate, Perform (white "and")
+6. Updated subheadline to include "upcoming cohorts" (changed from "founding cohort")
+7. Changed member limit from 8 → 12 everywhere (CTA button, descriptions, meta)
+
+#### Navigation Updates
+8. Added Master's Edge dropdown to site navigation:
+   - "The Methodology" → /masters-edge
+   - "12-Week Program" → /masters-edge-program
+9. Updated both desktop and mobile navigation
+10. Refactored Header.tsx to support multiple dropdowns
+
+#### Logo Updates
+11. Added USA Martial Arts logo to /masters-edge-program page (About Brett section)
+12. Added USA Martial Arts logo to LogoScroller (all pages)
+13. Copied usa-martial-arts.png from Desktop to public/logos/
+
+#### Git Cleanup
+14. Deleted 5 duplicate macOS " 2" files at session start
+
+### Git Activity (7 commits)
+```
+67d27fc Update subheadline: founding cohort → upcoming cohorts
+48cd23f Add Master's Edge Program to navigation and update member count
+196caa7 Replace Good Things Utah logo with USA Martial Arts logo
+62b3f69 Add dark gradient background with orbs to apply page form section
+3dc9f27 Update Master's Edge Program subheadline
+b0367ad Update Master's Edge Program headline and add more logos
+ea364a9 Add Master's Edge Program pages (hidden from nav)
+```
+
+### Files Created
+- `src/app/masters-edge-program/page.tsx` (sales landing page - 900+ lines)
+- `src/app/masters-edge-program/layout.tsx` (SEO metadata)
+- `src/app/masters-edge-program/apply/page.tsx` (application form)
+- `src/app/masters-edge-program/apply/layout.tsx` (noindex)
+- `src/app/masters-edge-program/thank-you/page.tsx` (confirmation)
+- `src/app/masters-edge-program/thank-you/layout.tsx` (noindex)
+- `public/logos/usa-martial-arts.png`
+
+### Files Modified
+- `src/app/sitemap.ts` (added 2 new pages: /masters-edge-program, /masters-edge-program/thank-you)
+- `src/components/layout/Header.tsx` (added Master's Edge dropdown, refactored for multiple dropdowns)
+- `src/components/sections/LogoScroller.tsx` (added USA Martial Arts logo)
+
+### Key URLs
+- **Program Page:** https://brettlechtenberg.com/masters-edge-program
+- **Apply Page:** https://brettlechtenberg.com/masters-edge-program/apply
+- **Thank You Page:** https://brettlechtenberg.com/masters-edge-program/thank-you
+
+### GHL Integration
+- Uses same webhook as eBook (existing account)
+- Tags: `ME Prospect` + pricing preference tag
+- Custom fields: revenue_range, referral_source, main_challenge, success_outcome, investment_preference
+
+### Site Status
+✅ Site is **LIVE** at brettlechtenberg.com
+- All 3 new pages deployed and working
+- Navigation dropdown functional on desktop and mobile
+- Form submission tested and working
+- USA Martial Arts logo visible on all pages
+
+---
+
 ## Session 11 - April 15, 2026 (Morning) - HEADLINE REFRESH SESSION
 
 **Duration:** ~15 minutes

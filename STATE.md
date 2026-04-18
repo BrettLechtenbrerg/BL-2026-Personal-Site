@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 15, 2026 @ 6:30 AM
+**Last Updated:** April 18, 2026 @ 6:45 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -9,39 +9,53 @@
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational
 
-### Completed (April 15, 2026 - Morning Session - HEADLINE UPDATE)
+### Completed (April 18, 2026 - Morning Session - MASTER'S EDGE PROGRAM BUILD)
 
-#### Homepage Headline & Subheadline Refresh
-1. ✅ New headline: "Transform the Way You Focus, Lead, and Perform"
-2. ✅ Gradient applied only to "Focus, Lead," and "Perform" (not "and")
-3. ✅ New subheadline: "Brett Lechtenberg helps leaders, teams, and business owners unlock peak performance through transformational speaking, flow state mastery, leadership development, and practical AI strategies."
+#### Master's Edge Program - NEW PAGES BUILT
+1. ✅ Created `/masters-edge-program` - Full sales landing page with 10 sections:
+   - Hero with scarcity badge
+   - Problem section
+   - 3-Phase Program (Clarify → Simplify → Maximize)
+   - What's Included (8 deliverables)
+   - Who It's For / Not For
+   - About Brett with stats and logos
+   - 6 Testimonials
+   - Pricing (Founding Member $997/mo vs Pay in Full $2,691)
+   - FAQ accordion (8 questions)
+   - Final CTA
 
-#### Repo Cleanup
-4. ✅ Deleted 5 duplicate macOS files (" 2" copies)
-5. ✅ Deleted broken git branch "main 2"
-6. ✅ Working tree now clean
+2. ✅ Created `/masters-edge-program/apply` - Application form page:
+   - Full Name, Email, Phone, Company, Role
+   - Revenue Range, Referral Source
+   - Challenge & Success outcome textareas
+   - Investment option radio buttons
+   - GHL webhook integration with tags
+   - Dark gradient background with orbs
 
-#### Technical Implementation
-- Updated: `src/components/sections/Hero.tsx` (headline/subheadline with split gradient spans)
+3. ✅ Created `/masters-edge-program/thank-you` - Confirmation page:
+   - Success checkmark animation
+   - "Book a Conversation" CTA
+   - What Happens Next (3 steps)
 
----
+#### Content Updates
+4. ✅ Headline: "12 Weeks That Change How You Focus, Lead, Operate, and Perform"
+5. ✅ Gradient on Focus, Lead, Operate, Perform only (white "and")
+6. ✅ Subheadline: "Applications are now open for the upcoming cohorts."
+7. ✅ Changed member limit from 8 → 12 everywhere
 
-### Completed (April 14, 2026 - Morning Session - CONTENT UPDATES)
+#### Navigation Updates
+8. ✅ Added Master's Edge dropdown to site navigation:
+   - The Methodology → /masters-edge
+   - 12-Week Program → /masters-edge-program
+9. ✅ Both desktop and mobile navigation updated
 
-#### Video Testimonials Section
-1. ✅ Added 6 video testimonials to `/testimonials` page
-2. ✅ New dark section after Hero with 3-column grid
-3. ✅ YouTube embeds with glow effects on hover
-4. ✅ Videos: Dana Fisher, Bob Morris, Joyce Mathie, Rich Lavine, Roger Knecht, Matt Gibbons
+#### Logo Updates
+10. ✅ Added USA Martial Arts logo to /masters-edge-program page
+11. ✅ Added USA Martial Arts logo to LogoScroller (all pages)
+12. ✅ Copied usa-martial-arts.png to public/logos/
 
-#### Amazon Book Links
-5. ✅ Added clickable Amazon links to 6 book cards on `/books` page
-6. ✅ Books linked: Reclaiming The Clock, Anti-Bully Program, Anti-Cyber Bully, Bullyproof, Travel Safety, Protecting Your Castle
-7. ✅ Cards open Amazon in new tab when clicked
-8. ✅ Master's Edge (coming soon) and Rockstar Team (free eBook modal) unchanged
-
-#### Homepage Headline Update (superseded by April 15 update)
-9. ✅ Previous headline: "Where Human Performance, Leadership, and Innovation Come Together"
+#### Git Cleanup
+13. ✅ Deleted 5 duplicate macOS " 2" files from earlier session
 
 ---
 
@@ -54,7 +68,7 @@
 | Vercel Deployment | ✅ Done |
 | Custom Domain | ✅ Connected |
 | robots.txt | ✅ Created |
-| sitemap.xml | ✅ All 13 pages |
+| sitemap.xml | ✅ All 15 pages (was 13, +2 new) |
 | SEO Meta Tags | ✅ Complete |
 | Open Graph | ✅ Complete |
 | Twitter Cards | ✅ Complete |
@@ -64,12 +78,16 @@
 | eBook Lead Capture | ✅ Complete |
 | Video Testimonials | ✅ Complete |
 | Amazon Book Links | ✅ Complete |
+| Master's Edge Program | ✅ Complete |
 
-### Pages (13 Total)
+### Pages (16 Total - was 13)
 | Page | Route | SEO Metadata |
 |------|-------|--------------|
 | Homepage | `/` | ✅ |
 | The Master's Edge | `/masters-edge` | ✅ |
+| **Master's Edge Program** | `/masters-edge-program` | ✅ NEW |
+| **Program Application** | `/masters-edge-program/apply` | ✅ noindex |
+| **Program Thank You** | `/masters-edge-program/thank-you` | ✅ noindex |
 | Speaking & Training | `/speaking` | ✅ |
 | Coaching | `/coaching` | ✅ |
 | AI Advisory | `/ai-advisory` | ✅ |
@@ -87,21 +105,18 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `7c87a8a` - Make 'and' white in headline, keep gradient on Focus, Lead, Perform
+**Last Commit:** `67d27fc` - Update subheadline: founding cohort → upcoming cohorts
 **Uncommitted Changes:** None (working tree clean)
 
-### Recent Commits (April 15, 2026)
+### Recent Commits (April 18, 2026)
 ```
-7c87a8a Make 'and' white in headline, keep gradient on Focus, Lead, Perform
-16dc240 Update homepage headline and subheadline
-```
-
-### Recent Commits (April 14, 2026)
-```
-9f7885e Update project state files - April 14, 2026 Session 10
-b60df04 Update homepage headline and subheadline
-c3ac07b Add Amazon purchase links to book cards
-4253afd Add 6 video testimonials section to testimonials page
+67d27fc Update subheadline: founding cohort → upcoming cohorts
+48cd23f Add Master's Edge Program to navigation and update member count
+196caa7 Replace Good Things Utah logo with USA Martial Arts logo
+62b3f69 Add dark gradient background with orbs to apply page form section
+3dc9f27 Update Master's Edge Program subheadline
+b0367ad Update Master's Edge Program headline and add more logos
+ea364a9 Add Master's Edge Program pages (hidden from nav)
 ```
 
 ---
@@ -135,7 +150,7 @@ BL-2026-Personal-Site/
 │   │   ├── how-to-build-a-rockstar-team.pdf (downloadable eBook)
 │   │   └── [7 other book covers]
 │   ├── heroes/ (12 hero images)
-│   ├── logos/ (14 client logos)
+│   ├── logos/ (15 client logos - added usa-martial-arts.png)
 │   ├── media-kit/ (5 headshots)
 │   ├── speaking-gallery/ (7 photos)
 │   ├── testimonials/ (6 headshots)
@@ -145,13 +160,22 @@ BL-2026-Personal-Site/
 │   ├── app/
 │   │   ├── layout.tsx (root + SEO)
 │   │   ├── page.tsx (homepage + laptop Value Pillars section)
-│   │   ├── sitemap.ts (13 pages)
+│   │   ├── sitemap.ts (15 pages - updated)
 │   │   ├── robots.ts
 │   │   ├── globals.css
-│   │   └── [13 page directories]
+│   │   ├── masters-edge-program/ (NEW)
+│   │   │   ├── page.tsx (sales landing page)
+│   │   │   ├── layout.tsx (SEO metadata)
+│   │   │   ├── apply/
+│   │   │   │   ├── page.tsx (application form)
+│   │   │   │   └── layout.tsx (noindex)
+│   │   │   └── thank-you/
+│   │   │       ├── page.tsx (confirmation)
+│   │   │       └── layout.tsx (noindex)
+│   │   └── [13 other page directories]
 │   ├── components/
-│   │   ├── layout/ (Header, Footer)
-│   │   ├── sections/ (Hero with desktop pillars, Solution, etc.)
+│   │   ├── layout/ (Header with dropdowns, Footer)
+│   │   ├── sections/ (Hero, LogoScroller with USA Martial Arts, etc.)
 │   │   ├── seo/ (JsonLd)
 │   │   └── ui/ (Button, EbookModal)
 │   └── lib/
@@ -166,36 +190,25 @@ BL-2026-Personal-Site/
 
 ---
 
-## Launch Checklist
+## Navigation Structure
 
-### Before Going Live
-- [x] All pages complete and tested
-- [x] SEO optimization complete
-- [x] robots.txt created
-- [x] sitemap includes all pages
-- [x] OG images configured
-- [x] Mobile optimization complete
-- [x] All commits pushed to GitHub
-- [x] Vercel deployment successful
+### Desktop & Mobile Navigation
+```
+The Master's Edge ▼
+├── The Methodology      → /masters-edge
+└── 12-Week Program      → /masters-edge-program
 
-### Go Live ✅ COMPLETE
-- [x] Add custom domain in Vercel (brettlechtenberg.com)
-- [x] Update DNS at domain registrar
-- [x] Site live at brettlechtenberg.com
-- [ ] Verify in Google Search Console
-- [ ] Submit sitemap to Google
-- [ ] Test social sharing (Facebook, Twitter, LinkedIn)
+Speaking ▼
+├── Speaking Overview    → /speaking
+├── Book Brett          → /book-brett
+└── Media Kit           → /media-kit
 
-### Lead Capture ✅ COMPLETE
-- [x] eBook modal created
-- [x] GHL webhook integrated
-- [x] PDF hosted for download
-- [x] Form tested and working
-
-### Content Enhancements ✅ COMPLETE
-- [x] Video testimonials section (6 videos)
-- [x] Amazon book links (6 books)
-- [x] Updated homepage messaging (April 15 refresh)
+Coaching                → /coaching
+AI Advisory             → /ai-advisory
+Books & Media           → /books
+Testimonials            → /testimonials
+About                   → /about
+```
 
 ---
 
@@ -212,10 +225,42 @@ BL-2026-Personal-Site/
    - Desktop (2xl+): Floating in Hero.tsx at `bottom-40`
    - Laptop (lg-2xl): Section in page.tsx with `-mt-24`
    - Mobile/Tablet: Hidden
-9. **GHL Webhook:** Sends firstName, lastName, email, tags["rockstar ebook"]
-10. **Video Testimonials:** 6 YouTube embeds on /testimonials (3-column grid)
-11. **Amazon Links:** 6 books clickable → open Amazon in new tab
-12. **Current Headline:** "Transform the Way You Focus, Lead, and Perform" (gradient on Focus, Lead, Perform only)
+9. **GHL Webhook (eBook):** Sends firstName, lastName, email, tags["rockstar ebook"]
+10. **GHL Webhook (Program):** Sends firstName, lastName, email, phone, customFields, tags["ME Prospect"]
+11. **Video Testimonials:** 6 YouTube embeds on /testimonials (3-column grid)
+12. **Amazon Links:** 6 books clickable → open Amazon in new tab
+13. **Homepage Headline:** "Transform the Way You Focus, Lead, and Perform"
+14. **Program Headline:** "12 Weeks That Change How You Focus, Lead, Operate, and Perform"
+15. **Program Member Limit:** 12 members per cohort
+16. **USA Martial Arts Logo:** Added to LogoScroller and /masters-edge-program
+
+---
+
+## Master's Edge Program Details
+
+### Pricing
+| Option | Price | Notes |
+|--------|-------|-------|
+| Founding Member | $997/mo × 3 | Total: $2,991 |
+| Pay in Full | $2,691 | Save $300, bonus 1:1 session |
+
+### What's Included
+- 12 Weekly Group Coaching Sessions (90 min each)
+- Custom Diagnostic Assessment (Week 1 & 12)
+- The Master's Edge Toolkit (proprietary frameworks)
+- Private Community Access
+- 2 Private 1:1 Sessions with Brett (Week 1 & 6)
+- Flow State Research Materials
+- 30-Day Post-Program Support
+- Lifetime Access to Program Materials
+
+### GHL Integration
+- **Webhook URL:** Same as eBook (existing account)
+- **Tags Applied:**
+  - `ME Prospect` (all applicants)
+  - `ME - Founding Member Interest` (monthly option)
+  - `ME - Pay in Full Interest` (pay in full)
+  - `ME - Wants Call` (not sure yet)
 
 ---
 

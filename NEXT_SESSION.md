@@ -25,42 +25,50 @@ I want to continue working on my personal website (Brett Lechtenberg).
 **Site Status: ✅ LIVE**
 
 **What's Complete:**
-- ✅ All 13 pages built with bold colorful design
+- ✅ All 16 pages built (was 13, +3 new Master's Edge Program pages)
 - ✅ Full SEO optimization (meta tags, OG, Twitter, sitemap, robots.txt)
 - ✅ Dark gradient heroes with animated floating orbs
 - ✅ Glowing cards with consistent hover effects (site-wide)
+- ✅ **Master's Edge Program (NEW - April 18, 2026):**
+  - `/masters-edge-program` - Full sales landing page (10 sections)
+  - `/masters-edge-program/apply` - Application form with GHL webhook
+  - `/masters-edge-program/thank-you` - Confirmation page
+  - Navigation dropdown added under "The Master's Edge"
+  - Member limit: 12 per cohort
+  - Pricing: $997/mo × 3 or $2,691 pay in full
 - ✅ 6 Featured Testimonials with glow-on-hover
-- ✅ **6 Video Testimonials:**
-  - Dana Fisher, Bob Morris, Joyce Mathie, Rich Lavine, Roger Knecht, Matt Gibbons
-  - YouTube embeds in 3-column grid with glow effects
-- ✅ **Amazon Book Links:**
-  - 6 books linked to Amazon purchase pages
-  - Opens in new tab on card click
-- ✅ **Current Homepage Headline (April 15, 2026):**
+- ✅ 6 Video Testimonials on /testimonials
+- ✅ Amazon Book Links (6 books)
+- ✅ eBook Lead Capture Modal with GHL
+- ✅ USA Martial Arts Logo on all pages
+- ✅ **Current Homepage Headline:**
   - "Transform the Way You Focus, Lead, and Perform"
-  - Gradient on "Focus, Lead," and "Perform" only (white "and")
+- ✅ **Current Program Headline:**
+  - "12 Weeks That Change How You Focus, Lead, Operate, and Perform"
+  - Gradient on Focus, Lead, Operate, Perform only
 - ✅ **Current Subheadline:**
-  - "Brett Lechtenberg helps leaders, teams, and business owners unlock peak performance through transformational speaking, flow state mastery, leadership development, and practical AI strategies."
+  - "Applications are now open for the upcoming cohorts."
 - ✅ 4-Video Media Grid (all YouTube embeds)
 - ✅ Media Kit with professional headshots + hero image + Speaker One-Sheet PDF
 - ✅ USA Today Carousel - Auto-scroll with pause-on-hover
 - ✅ Speaking Gallery - Bento grid with 7 photos, stats bar
 - ✅ About Page - Light mode Journey timeline
-- ✅ "How to Build a Rockstar Team" as free eBook giveaway
-- ✅ Client logos with scrolling animation (25% larger)
+- ✅ Client logos with scrolling animation (USA Martial Arts added)
 - ✅ Mobile optimized for Google Core Web Vitals 2025-2026
 - ✅ Custom domain connected (brettlechtenberg.com)
-- ✅ "Talk With Brett" CTAs site-wide
-- ✅ Twins dual portrait images in Media Kit
-- ✅ **eBook Lead Capture Modal:**
-  - Popup form: First Name, Last Name, Email
-  - GHL webhook integration with "rockstar ebook" tag
-  - Triggers from book card AND "Get the Free eBook" button
-  - PDF hosted at: https://brettlechtenberg.com/books/how-to-build-a-rockstar-team.pdf
-- ✅ **Value Pillars responsive fix:**
-  - Desktop (2xl+): Floating inside hero at `bottom-40`
-  - Laptop (lg-2xl): Section below hero with `-mt-24`
-  - Mobile/Tablet: Hidden
+- ✅ Value Pillars responsive (desktop floating, laptop section, mobile hidden)
+
+**Navigation Structure:**
+```
+The Master's Edge ▼
+├── The Methodology      → /masters-edge
+└── 12-Week Program      → /masters-edge-program
+
+Speaking ▼
+├── Speaking Overview    → /speaking
+├── Book Brett          → /book-brett
+└── Media Kit           → /media-kit
+```
 
 **Post-Launch Tasks:**
 1. [ ] Verify in Google Search Console
@@ -104,14 +112,30 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 |------|---------|
 | `src/app/layout.tsx` | Root layout + SEO metadata |
 | `src/app/page.tsx` | Homepage + laptop Value Pillars section |
-| `src/app/sitemap.ts` | Sitemap (13 pages) |
+| `src/app/sitemap.ts` | Sitemap (15 pages) |
 | `public/robots.txt` | Search engine directives |
 | `src/components/sections/Hero.tsx` | Hero + desktop floating pillars + headline |
+| `src/components/layout/Header.tsx` | Navigation with Master's Edge & Speaking dropdowns |
+| `src/components/sections/LogoScroller.tsx` | Client logos (includes USA Martial Arts) |
 | `src/components/ui/EbookModal.tsx` | Lead capture popup for eBook |
 | `src/components/seo/JsonLd.tsx` | Structured data |
 | `src/lib/utils.ts` | Brand colors, links |
-| `src/app/testimonials/page.tsx` | Video testimonials section |
-| `src/app/books/page.tsx` | Amazon book links |
+| `src/app/masters-edge-program/page.tsx` | Program sales landing page |
+| `src/app/masters-edge-program/apply/page.tsx` | Program application form |
+
+---
+
+## MASTER'S EDGE PROGRAM DETAILS
+
+| Item | Value |
+|------|-------|
+| **Landing Page** | `/masters-edge-program` |
+| **Apply Page** | `/masters-edge-program/apply` |
+| **Thank You** | `/masters-edge-program/thank-you` |
+| **Member Limit** | 12 per cohort |
+| **Pricing - Monthly** | $997/mo × 3 = $2,991 |
+| **Pricing - Pay in Full** | $2,691 (save $300) |
+| **GHL Tags** | `ME Prospect`, pricing preference tags |
 
 ---
 
@@ -126,22 +150,15 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 
 ---
 
-## VALUE PILLARS RESPONSIVE BEHAVIOR
-
-| Device | Breakpoint | Implementation |
-|--------|------------|----------------|
-| Desktop | 2xl+ (1536px+) | `Hero.tsx` - floating pillars with `hidden 2xl:block` at `bottom-40` |
-| Laptop | lg-2xl (1024-1536px) | `page.tsx` - section with `hidden lg:block 2xl:hidden` |
-| Mobile/Tablet | below lg | Hidden on both |
-
----
-
-## PAGES (13 Total)
+## PAGES (16 Total)
 
 | Page | Route | SEO |
 |------|-------|-----|
 | Homepage | `/` | ✅ |
 | The Master's Edge | `/masters-edge` | ✅ |
+| **Master's Edge Program** | `/masters-edge-program` | ✅ |
+| **Program Application** | `/masters-edge-program/apply` | ✅ noindex |
+| **Program Thank You** | `/masters-edge-program/thank-you` | ✅ noindex |
 | Speaking & Training | `/speaking` | ✅ |
 | Coaching | `/coaching` | ✅ |
 | AI Advisory | `/ai-advisory` | ✅ |
@@ -156,11 +173,16 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 
 ---
 
-## RECENT COMMITS (April 15, 2026)
+## RECENT COMMITS (April 18, 2026)
 
 ```
-7c87a8a Make 'and' white in headline, keep gradient on Focus, Lead, Perform
-16dc240 Update homepage headline and subheadline
+67d27fc Update subheadline: founding cohort → upcoming cohorts
+48cd23f Add Master's Edge Program to navigation and update member count
+196caa7 Replace Good Things Utah logo with USA Martial Arts logo
+62b3f69 Add dark gradient background with orbs to apply page form section
+3dc9f27 Update Master's Edge Program subheadline
+b0367ad Update Master's Edge Program headline and add more logos
+ea364a9 Add Master's Edge Program pages (hidden from nav)
 ```
 
 ---
@@ -176,4 +198,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 15, 2026 @ 6:30 AM*
+*Last updated: April 18, 2026 @ 6:45 AM*
