@@ -347,7 +347,7 @@ export default function MastersEdgeProgramPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto"
             >
-              The Master&apos;s Edge Group Coaching Program takes the methodology behind 100+ corporate trainings and puts it to work on your business, your leadership, and your life. Applications now open for the founding cohort.
+              The Master&apos;s Edge is a 12-week group coaching program for business owners and leaders who want sharper focus, stronger leadership, better execution, and a more intentional approach to business and life. Applications are now open for the founding cohort.
             </motion.p>
 
             <motion.div
