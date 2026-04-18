@@ -12,6 +12,7 @@ const logos = [
   { name: "Murray Chamber", src: "/logos/murray-chamber.png", width: 150 },
   { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 163 },
   { name: "Park City Chamber", src: "/logos/park-city-chamber.png", width: 163 },
+  { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png", width: 150 },
 ];
 
 export function LogoScroller() {

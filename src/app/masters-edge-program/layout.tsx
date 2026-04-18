@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "The Master's Edge Program | 12-Week Peak Performance Coaching | Brett Lechtenberg",
   description:
-    "Join The Master's Edge — a 12-week group coaching program for business leaders. Clarify your vision, simplify your operations, and maximize your results. Limited to 8 members per cohort.",
+    "Join The Master's Edge — a 12-week group coaching program for business leaders. Clarify your vision, simplify your operations, and maximize your results. Limited to 12 members per cohort.",
   keywords: [
     "master's edge program",
     "peak performance coaching",

@@ -81,7 +81,7 @@ const included = [
   {
     icon: Users,
     title: "12 Weekly Group Coaching Sessions",
-    desc: "90-minute sessions with Brett. Small group (max 8). Live, interactive, not a webinar.",
+    desc: "90-minute sessions with Brett. Small group (max 12). Live, interactive, not a webinar.",
   },
   {
     icon: FileText,
@@ -357,7 +357,7 @@ export default function MastersEdgeProgramPage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button href="/masters-edge-program/apply" size="lg">
-                Apply Now — Limited to 8 Members
+                Apply Now — Limited to 12 Members
               </Button>
               <Button href="#program" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
                 See What&apos;s Inside

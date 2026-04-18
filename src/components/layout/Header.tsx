@@ -8,6 +8,11 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
 
+const mastersEdgeDropdown = [
+  { name: "The Methodology", href: "/masters-edge" },
+  { name: "12-Week Program", href: "/masters-edge-program" },
+];
+
 const speakingDropdown = [
   { name: "Speaking Overview", href: "/speaking" },
   { name: "Book Brett", href: "/book-brett" },
@@ -15,8 +20,8 @@ const speakingDropdown = [
 ];
 
 const navigation = [
-  { name: "The Master's Edge", href: "/masters-edge" },
-  { name: "Speaking", href: "/speaking", hasDropdown: true },
+  { name: "The Master's Edge", href: "/masters-edge", hasDropdown: true, dropdownType: "mastersEdge" },
+  { name: "Speaking", href: "/speaking", hasDropdown: true, dropdownType: "speaking" },
   { name: "Coaching", href: "/coaching" },
   { name: "AI Advisory", href: "/ai-advisory" },
   { name: "Books & Media", href: "/books" },
@@ -26,8 +31,14 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [speakingDropdownOpen, setSpeakingDropdownOpen] = useState(false);
-  const [mobileSpeakingOpen, setMobileSpeakingOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+
+  const getDropdownItems = (type: string) => {
+    if (type === "mastersEdge") return mastersEdgeDropdown;
+    if (type === "speaking") return speakingDropdown;
+    return [];
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
@@ -59,21 +70,21 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             {navigation.map((item) => (
-              item.hasDropdown ? (
+              item.hasDropdown && item.dropdownType ? (
                 <div
                   key={item.name}
                   className="relative"
-                  onMouseEnter={() => setSpeakingDropdownOpen(true)}
-                  onMouseLeave={() => setSpeakingDropdownOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(item.dropdownType!)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <button
                     className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
                   >
                     {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${speakingDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === item.dropdownType ? 'rotate-180' : ''}`} />
                   </button>
                   <AnimatePresence>
-                    {speakingDropdownOpen && (
+                    {openDropdown === item.dropdownType && (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -81,7 +92,7 @@ export function Header() {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
                       >
-                        {speakingDropdown.map((subItem) => (
+                        {getDropdownItems(item.dropdownType).map((subItem) => (
                           <Link
                             key={subItem.name}
                             href={subItem.href}
@@ -136,24 +147,24 @@ export function Header() {
           >
             <div className="px-4 py-4 space-y-1">
               {navigation.map((item) => (
-                item.hasDropdown ? (
+                item.hasDropdown && item.dropdownType ? (
                   <div key={item.name}>
                     <button
-                      onClick={() => setMobileSpeakingOpen(!mobileSpeakingOpen)}
+                      onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.dropdownType ? null : item.dropdownType!)}
                       className="flex items-center justify-between w-full py-3 min-h-[48px] text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
                     >
                       {item.name}
-                      <ChevronDown className={`w-5 h-5 transition-transform ${mobileSpeakingOpen ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-5 h-5 transition-transform ${mobileOpenDropdown === item.dropdownType ? 'rotate-180' : ''}`} />
                     </button>
                     <AnimatePresence>
-                      {mobileSpeakingOpen && (
+                      {mobileOpenDropdown === item.dropdownType && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
                           className="pl-4 space-y-1"
                         >
-                          {speakingDropdown.map((subItem) => (
+                          {getDropdownItems(item.dropdownType).map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
