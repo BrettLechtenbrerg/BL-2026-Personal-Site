@@ -35,43 +35,43 @@ const phases = [
   {
     phase: 1,
     title: "CLARIFY",
-    weeks: "Weeks 1-4",
-    tagline: "Strip away the noise. Find the real problems. Build the foundation.",
+    weeks: "Weeks 1–4",
+    tagline: "",
     accent: "cranberry",
     icon: Target,
     weeks_detail: [
-      { week: 1, title: "The First Principles Audit", desc: "Identify inherited beliefs and invisible ceilings" },
-      { week: 2, title: "Values Architecture", desc: "Align daily operations with what actually matters" },
-      { week: 3, title: "Priority Mapping", desc: "The Frontloading Framework for decision-making" },
-      { week: 4, title: "The Clarity Checkpoint", desc: "Your custom diagnostic and Phase 2 blueprint" },
+      { week: 1, title: "First Principles Audit", desc: "Identify where your time, energy, attention, and leadership are being drained." },
+      { week: 2, title: "Identity and Standards Reset", desc: "Define the standards, habits, and identity required for your next level." },
+      { week: 3, title: "Energy Architecture", desc: "Build a more intentional structure for managing your physical, mental, and emotional energy." },
+      { week: 4, title: "Focus and Elimination", desc: "Cut noise, remove friction, and create greater clarity around what matters most." },
     ],
   },
   {
     phase: 2,
     title: "SIMPLIFY",
-    weeks: "Weeks 5-8",
-    tagline: "Eliminate what doesn't serve you. Build systems that do.",
+    weeks: "Weeks 5–8",
+    tagline: "",
     accent: "gold",
     icon: Filter,
     weeks_detail: [
-      { week: 5, title: "The Frontloading System", desc: "Load knowledge and tools before you need them" },
-      { week: 6, title: "Energy Architecture", desc: "Design your days around peak performance windows" },
-      { week: 7, title: "The Elimination Protocol", desc: "Remove the 80% that produces nothing" },
-      { week: 8, title: "System Building", desc: "Your custom operating system for daily execution" },
+      { week: 5, title: "Decision-Making Under Pressure", desc: "Make stronger decisions with less hesitation and more confidence." },
+      { week: 6, title: "Leadership Rhythm and Presence", desc: "Strengthen how you lead yourself and others through consistency, presence, and intention." },
+      { week: 7, title: "Operational Simplicity", desc: "Reduce complexity and build cleaner systems for execution." },
+      { week: 8, title: "Communication and Alignment", desc: "Improve how you communicate expectations, priorities, and direction." },
     ],
   },
   {
     phase: 3,
     title: "MAXIMIZE",
-    weeks: "Weeks 9-12",
-    tagline: "With clarity and systems in place, unlock your highest gear.",
+    weeks: "Weeks 9–12",
+    tagline: "",
     accent: "gradient",
     icon: Rocket,
     weeks_detail: [
-      { week: 9, title: "Flow State Engineering", desc: "The conditions for consistent peak performance" },
-      { week: 10, title: "Performance Optimization", desc: "Compound the gains across business and life" },
-      { week: 11, title: "Scaling Your Edge", desc: "Extend your operating system to your team" },
-      { week: 12, title: "The Master's Edge Integration", desc: "Lock in the transformation, build forward" },
+      { week: 9, title: "Flow State Engineering", desc: "Create the conditions for deeper focus, better performance, and higher-quality output." },
+      { week: 10, title: "Performance Under Stress", desc: "Develop the ability to stay steady, clear, and effective when pressure rises." },
+      { week: 11, title: "Sustainable High Performance", desc: "Build a rhythm that supports strong results without constant burnout." },
+      { week: 12, title: "Integration and Expansion", desc: "Turn what you have learned into a long-term way of operating, leading, and performing." },
     ],
   },
 ];
@@ -80,107 +80,101 @@ const phases = [
 const included = [
   {
     icon: Users,
-    title: "12 Weekly Group Coaching Sessions",
-    desc: "90-minute sessions with Brett. Small group (max 12). Live, interactive, not a webinar.",
+    title: "12 weekly live group coaching sessions",
+    desc: "",
   },
   {
     icon: FileText,
-    title: "Custom Diagnostic Assessment",
-    desc: "Personalized assessment at Week 1 and Week 12 to measure your transformation quantitatively.",
+    title: "Custom diagnostic assessment",
+    desc: "",
   },
   {
     icon: Wrench,
     title: "The Master's Edge Toolkit",
-    desc: "Proprietary frameworks, worksheets, and tools built for your specific situation. Not templates. Custom.",
+    desc: "",
   },
   {
     icon: MessageCircle,
-    title: "Private Community Access",
-    desc: "Direct access to Brett and your cohort between sessions. Accountability, support, and real-time problem-solving.",
+    title: "Private community access",
+    desc: "",
   },
   {
     icon: Video,
-    title: "2 Private 1:1 Sessions with Brett",
-    desc: "One at the start (Week 1) and one at the midpoint (Week 6). 45 minutes each. Just you and Brett.",
+    title: "2 private 1:1 coaching sessions",
+    desc: "",
   },
   {
     icon: Zap,
-    title: "Flow State Research Materials",
-    desc: "Brett's original research on deliberate flow manipulation, validated by the Flow Research Collective. Not available anywhere else.",
+    title: "Flow state research materials",
+    desc: "",
   },
   {
     icon: Clock,
-    title: "30-Day Post-Program Support",
-    desc: "The program doesn't end at Week 12. You get 30 days of continued access to the community and one final check-in call.",
+    title: "30 days of post-program support",
+    desc: "",
   },
   {
     icon: BookOpen,
-    title: "Lifetime Access to Program Materials",
-    desc: "Every framework, worksheet, and recording. Yours forever.",
+    title: "Lifetime access to program materials",
+    desc: "",
   },
 ];
 
 // Who it's for / not for
 const forYou = [
-  "You're a business owner, executive, or leader making $150K+ and you know you're operating below your capability",
-  "You've tried coaching programs before and found them too generic",
-  "You're willing to do the work, not just consume content",
-  "You want a custom system, not a one-size-fits-all framework",
-  "You value small groups where you get real attention, not a 500-person cohort",
+  "You are a business owner, executive, or leader who has built real momentum and knows you are still operating below your full capability",
+  "You are ready to strengthen focus, leadership, execution, and performance",
+  "You have found other coaching too generic or too surface-level",
+  "You are willing to be honest, do the work, and apply what you learn",
+  "You want a more intentional system for how you lead and operate",
+  "You value being part of a small group of serious, growth-minded people",
 ];
 
 const notForYou = [
-  "You're looking for a quick fix or magic bullet",
-  "You're not willing to be honest about what's not working",
-  "You just want motivation without implementation",
-  "You're looking for the cheapest option available",
-  "You're not ready to change how you operate",
+  "You are looking for a quick fix",
+  "You want motivation without implementation",
+  "You are not ready to change how you currently operate",
+  "You are unwilling to look honestly at what is not working",
+  "You are simply shopping for the cheapest option",
 ];
 
 // Brett's stats
 const stats = [
-  { value: "30+", label: "Years Experience" },
+  { value: "30+", label: "Years Coaching Experience" },
   { value: "100+", label: "Speaking Events" },
   { value: "50+", label: "Corporate Clients" },
-  { value: "7", label: "Books Authored" },
+  { value: "7", label: "Books" },
   { value: "8th", label: "Degree Black Belt" },
 ];
 
 // Testimonials
 const testimonials = [
   {
-    quote: "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.",
+    quote: "Brett really knows flow, peak performance, and goals. He has a deep understanding of what it takes to perform at a high level and teaches it in a way that makes it practical and powerful.",
     name: "Bill Schuffenhauer",
     title: "3x Olympian, Olympic Silver Medalist",
     initials: "BS",
   },
   {
-    quote: "I have been blown away with the powerful mindset tools, branding systems, and business building strategies. I added 43 percent to my best month of the year.",
-    name: "Rob Balderas",
-    title: "Balderas Family Insurance",
-    initials: "RB",
-    highlight: "43%",
-  },
-  {
-    quote: "In my lifetime, I've had the opportunity to meet extraordinary people from around the world, and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
+    quote: "Brett has a unique ability to combine leadership, mindset, and practical strategy in a way that creates real transformation.",
     name: "Sam Beard",
     title: "Creator of Initiatives for Eight U.S. Presidents",
     initials: "SB",
   },
   {
-    quote: "Brett has an innate ability to break down complicated subjects into easy to learn and quick to implement subject matter. He has helped me motivate my staff, implement more cash generation systems, and build a culture of fun and positive growth.",
+    quote: "His training helped me think more clearly, lead more intentionally, and create stronger results in both business and life.",
     name: "John Nottingham",
     title: "Sword and Shield Security",
     initials: "JN",
   },
   {
-    quote: "Brett is as good an instructor as I have been around. His training methods and information are always cutting-edge.",
+    quote: "This work helped me identify where I was getting in my own way and gave me practical tools to perform at a much higher level.",
     name: "Matt Gibbons",
     title: "President, Murray Area Chamber of Commerce",
     initials: "MG",
   },
   {
-    quote: "Excellent. The paper makes a compelling, empirical case for the utilization of flow for accelerated learning and skill acquisition.",
+    quote: "Brett's work reflects a serious understanding of flow, performance, and how to help people apply those ideas in meaningful ways.",
     name: "Flow Research Collective",
     title: "Steven Kotler's Peak Performance Organization",
     initials: "FRC",
@@ -191,35 +185,31 @@ const testimonials = [
 const faqs = [
   {
     q: "When does the next cohort start?",
-    a: "The founding cohort is forming now. Once we have 6-8 committed members, we lock the start date (typically within 2-3 weeks of filling). You'll know your exact start date within 48 hours of being accepted.",
+    a: "The next cohort start date will be shared after your application is reviewed and approved.",
   },
   {
-    q: "What day and time are the sessions?",
-    a: "Sessions are scheduled based on the cohort's availability. We find a time that works for everyone before we start. Most cohorts meet on a weekday evening or Saturday morning.",
+    q: "How much time should I expect to commit each week?",
+    a: "Plan for the live coaching session, implementation time, and reflection. This program is designed for real growth, not passive consumption.",
   },
   {
-    q: "How much time commitment is required per week?",
-    a: "Plan for 3-4 hours per week: the 90-minute group session plus implementation time for your custom toolkit. The tools are designed to integrate into your existing work, not add to it.",
-  },
-  {
-    q: "Is this in-person or virtual?",
-    a: "Sessions are virtual (Zoom) so location doesn't limit who can join. The private community is always-on between sessions.",
+    q: "Is this virtual or in person?",
+    a: "The program is delivered virtually so you can participate from anywhere.",
   },
   {
     q: "What if I miss a session?",
-    a: "Every session is recorded. But the real value is in the live interaction and the small-group dynamic, so we ask that you commit to attending at least 10 of the 12 sessions.",
+    a: "If you miss a live session, you will still have access to the program materials and support.",
   },
   {
-    q: "How is this different from the 1:1 coaching?",
-    a: "The 1:1 coaching (at $3,000/month) is fully individualized. The Master's Edge Program gives you 80% of the same methodology at a fraction of the cost, plus the added benefit of a peer cohort. Many clients start with the program and upgrade to 1:1 later.",
+    q: "How is this different from 1:1 coaching?",
+    a: "The Master's Edge combines the power of live coaching, structured curriculum, practical tools, and a small-group environment that creates momentum, insight, and accountability.",
   },
   {
-    q: "What's the refund policy?",
-    a: "If after the first two sessions you feel this isn't the right fit, we'll refund your investment in full. No questions, no friction. Brett only wants people in the program who are getting value from it.",
+    q: "Is there a refund policy?",
+    a: "Please review the program terms during the application process. If you have questions before applying, book a conversation first.",
   },
   {
-    q: "I'm interested but have more questions.",
-    a: "Book a 15-minute conversation with Brett. It's not a sales call. It's a genuine discussion to see if there's a fit.",
+    q: "What if I still have questions?",
+    a: "Book a short conversation and we will talk through where you are, what you want, and whether this program is the right fit.",
   },
 ];
 
@@ -347,7 +337,7 @@ export default function MastersEdgeProgramPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto"
             >
-              The Master&apos;s Edge is a 12-week group coaching program for business owners and leaders who want sharper focus, stronger leadership, better execution, and a more intentional approach to business and life. Applications are now open for the upcoming cohorts.
+              The Master&apos;s Edge is a 12-week group coaching program for business owners and leaders who want sharper focus, stronger leadership, better execution, and a more intentional way to operate in business and life. Applications are now open for the upcoming cohorts.
             </motion.p>
 
             <motion.div
@@ -366,8 +356,61 @@ export default function MastersEdgeProgramPage() {
           </div>
         </section>
 
-        {/* SECTION 2: THE PROBLEM */}
+        {/* SECTION 2: WHO THIS PROGRAM IS FOR */}
         <section className="py-24 bg-white relative overflow-hidden">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">
+                Who This Program Is For
+              </h2>
+
+              <div className="space-y-6 text-lg text-warm-gray leading-relaxed">
+                <p>
+                  The Master&apos;s Edge is built for business owners, executives, and growth-minded leaders who have already achieved meaningful success but know they are still operating below their full capability.
+                </p>
+                <p>
+                  If you are carrying too much, reacting too often, struggling to maintain focus, or leading without the structure and rhythm you know you need, this program was designed for you.
+                </p>
+                <p className="font-semibold text-black">
+                  Over 12 weeks, you will learn how to:
+                </p>
+                <ul className="space-y-3 pl-6">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
+                    <span>Clarify what matters most</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
+                    <span>Lead with more confidence and consistency</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
+                    <span>Simplify the way you operate</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
+                    <span>Make better decisions with less hesitation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
+                    <span>Build a stronger system for execution, energy, and performance</span>
+                  </li>
+                </ul>
+                <p className="pt-4 border-t border-gray-100">
+                  This is not generic motivation. It is a structured coaching experience designed to help you operate at a higher level in business and life.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SECTION 3: EMOTIONAL CONNECTION */}
+        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold via-cranberry to-gold" />
 
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -384,16 +427,16 @@ export default function MastersEdgeProgramPage() {
 
               <div className="space-y-6 text-lg text-warm-gray leading-relaxed">
                 <p>
-                  You&apos;re successful by most definitions. Revenue is solid. The team is growing. People look at what you&apos;ve built and see someone who has it figured out.
+                  You&apos;ve built something meaningful. From the outside, it may look like things are working. Revenue is solid. The team is growing. People see progress.
                 </p>
                 <p>
-                  <strong className="text-black">But you know the truth.</strong>
+                  <strong className="text-black">But you know there is another level you have not fully stepped into yet.</strong>
                 </p>
                 <p>
-                  The days feel reactive instead of intentional. You&apos;re solving the same problems on repeat. The business runs, but it runs you. And the version of yourself you know is possible — the one who leads with clarity, operates from flow, and builds something extraordinary — keeps getting pushed to &quot;someday.&quot;
+                  Too many days still feel reactive instead of intentional. The same problems keep showing up. The business depends on you more than it should. And the version of yourself you know is possible — the one who leads with clarity, operates from flow, and performs at a higher level — keeps getting pushed further down the road.
                 </p>
                 <p>
-                  That gap isn&apos;t about working harder. It&apos;s about operating from a completely different system.
+                  That gap is not about working harder. It is about building a different way to operate.
                 </p>
                 <p className="text-xl font-semibold text-black pt-4 border-t border-gray-100">
                   The Master&apos;s Edge Program is that system.
@@ -418,8 +461,11 @@ export default function MastersEdgeProgramPage() {
                 12 Weeks. Three Phases.{" "}
                 <span className="text-gold">One Transformation.</span>
               </h2>
+              <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-4">
+                This program is designed to move you from scattered and reactive to clear, structured, and high-performing.
+              </p>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                Every week builds on the last. By Week 12, you won&apos;t just have new tools. You&apos;ll have a new operating system.
+                Every week builds on the last. By Week 12, you will not just have new tools. You will have a new operating system.
               </p>
             </motion.div>
 
@@ -462,8 +508,7 @@ export default function MastersEdgeProgramPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-400 text-sm mb-2">{phase.weeks}</p>
-                    <p className="text-white/80 mb-6 italic">&quot;{phase.tagline}&quot;</p>
+                    <p className="text-gray-400 text-sm mb-6">{phase.weeks}</p>
 
                     {/* Weekly breakdown */}
                     <div className="space-y-4 flex-grow">
@@ -498,6 +543,9 @@ export default function MastersEdgeProgramPage() {
                 Everything You Get in{" "}
                 <span className="text-cranberry">The Master&apos;s Edge Program</span>
               </h2>
+              <p className="text-lg text-warm-gray max-w-3xl mx-auto">
+                This is a high-touch coaching experience designed to give you both transformation and practical tools you can use immediately.
+              </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -508,13 +556,12 @@ export default function MastersEdgeProgramPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="group bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-cranberry/20 transition-all duration-300"
+                  className="group bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-cranberry/20 transition-all duration-300 flex items-center gap-4"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-black mb-2">{item.title}</h3>
-                  <p className="text-warm-gray text-sm">{item.desc}</p>
+                  <h3 className="text-base font-semibold text-black">{item.title}</h3>
                 </motion.div>
               ))}
             </div>
@@ -547,7 +594,7 @@ export default function MastersEdgeProgramPage() {
                   <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
                     <Check className="w-5 h-5 text-white" />
                   </div>
-                  This IS for you if...
+                  This program is for you if...
                 </h3>
                 <ul className="space-y-4">
                   {forYou.map((item, index) => (
@@ -570,7 +617,7 @@ export default function MastersEdgeProgramPage() {
                   <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center">
                     <X className="w-5 h-5 text-white" />
                   </div>
-                  This is NOT for you if...
+                  This program is not for you if...
                 </h3>
                 <ul className="space-y-4">
                   {notForYou.map((item, index) => (
@@ -627,13 +674,16 @@ export default function MastersEdgeProgramPage() {
                 className="space-y-6"
               >
                 <p className="text-lg text-warm-gray leading-relaxed">
-                  Brett Lechtenberg has spent 30+ years helping people discover who they&apos;re meant to become. As an 8th-degree black belt with over 40 years in martial arts, the author of 7 books (5 bestsellers), and a peak performance coach who has trained teams at American Express, Delta, Purple, Packsize, and 50+ other organizations, Brett brings a depth of real-world experience that most coaches simply can&apos;t match.
+                  Brett Lechtenberg has spent decades helping people and organizations elevate the way they think, lead, and perform.
                 </p>
                 <p className="text-lg text-warm-gray leading-relaxed">
-                  The Master&apos;s Edge isn&apos;t something Brett learned from a book. It&apos;s a methodology he built, tested in his own businesses, validated through original flow state research with the Flow Research Collective, and refined through 100+ speaking events and thousands of coaching hours.
+                  With more than 30 years of coaching, training, and leadership experience, Brett has worked with business owners, teams, and organizations across a wide range of industries. His work blends real-world leadership development, flow state research, personal discipline, and high-performance strategy into a practical system that creates lasting change.
+                </p>
+                <p className="text-lg text-warm-gray leading-relaxed">
+                  He has delivered 100+ speaking events, worked with 50+ corporate clients, written 7 books, and spent more than 40 years immersed in martial arts and human performance.
                 </p>
                 <p className="text-xl font-semibold text-black">
-                  He only teaches what he&apos;s tested himself. That&apos;s the difference.
+                  Brett only teaches what he has tested himself. That is the difference.
                 </p>
 
                 {/* Stats */}
@@ -755,23 +805,22 @@ export default function MastersEdgeProgramPage() {
                     <span className="text-gold font-semibold text-sm">FOUNDING RATE</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2">Founding Member</h3>
-                  <p className="text-gray-400 text-sm mb-6">Recommended</p>
+                  <h3 className="text-xl font-bold text-white mb-6">Founding Member</h3>
 
                   <div className="mb-6">
                     <span className="text-5xl font-bold text-white">$997</span>
                     <span className="text-gray-400">/month for 3 months</span>
-                    <p className="text-gray-500 text-sm mt-2">Total: $2,991</p>
+                    <p className="text-gray-500 text-sm mt-2">Total Investment: $2,991</p>
                   </div>
 
                   <ul className="space-y-3 mb-8 flex-grow">
                     <li className="flex items-center gap-2 text-gray-300">
                       <Check className="w-5 h-5 text-gold" />
-                      Everything listed above
+                      Full 12-week program access
                     </li>
                     <li className="flex items-center gap-2 text-gray-300">
                       <Check className="w-5 h-5 text-gold" />
-                      12 weekly group sessions
+                      All live group coaching sessions
                     </li>
                     <li className="flex items-center gap-2 text-gray-300">
                       <Check className="w-5 h-5 text-gold" />
@@ -779,12 +828,12 @@ export default function MastersEdgeProgramPage() {
                     </li>
                     <li className="flex items-center gap-2 text-gray-300">
                       <Check className="w-5 h-5 text-gold" />
-                      Lifetime access
+                      Toolkit, community, and post-program support
                     </li>
                   </ul>
 
                   <p className="text-gray-500 text-sm mb-6 italic">
-                    This rate is only available for the founding cohort. Future cohorts will be priced at $1,500/month.
+                    Future cohorts will be priced at $1,500/month.
                   </p>
 
                   <Button href="/masters-edge-program/apply" size="lg" className="w-full">
@@ -807,23 +856,22 @@ export default function MastersEdgeProgramPage() {
                     <span className="text-cranberry-light font-semibold text-sm">BEST VALUE</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2">Pay in Full</h3>
-                  <p className="text-gray-400 text-sm mb-6">Save $300</p>
+                  <h3 className="text-xl font-bold text-white mb-6">Pay in Full</h3>
 
                   <div className="mb-6">
                     <span className="text-5xl font-bold text-white">$2,691</span>
-                    <span className="text-gray-400"> one-time</span>
-                    <p className="text-green-400 text-sm mt-2">You save $300</p>
+                    <span className="text-gray-400"> one-time payment</span>
+                    <p className="text-green-400 text-sm mt-2">Save $300</p>
                   </div>
 
                   <ul className="space-y-3 mb-8 flex-grow">
                     <li className="flex items-center gap-2 text-gray-300">
                       <Check className="w-5 h-5 text-gold" />
-                      Everything in Founding Member
+                      Everything in the Founding Member option
                     </li>
                     <li className="flex items-center gap-2 text-gray-300">
                       <Check className="w-5 h-5 text-gold" />
-                      <strong className="text-gold">Bonus:</strong> 3rd private 1:1 session
+                      Bonus 3rd private 1:1 session
                     </li>
                     <li className="flex items-center gap-2 text-gray-300">
                       <Check className="w-5 h-5 text-gold" />
@@ -849,7 +897,7 @@ export default function MastersEdgeProgramPage() {
                 Not sure yet? Book a free 15-minute conversation with Brett. No pitch. No pressure. Just a real discussion about whether this is the right fit.
               </p>
               <Button href={links.booking} external variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-                Book a Conversation
+                Book a 15-Minute Conversation
               </Button>
             </motion.div>
           </div>
@@ -904,14 +952,14 @@ export default function MastersEdgeProgramPage() {
                 The First Step Is Always a Conversation
               </h2>
               <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
-                No pitch. No pressure. Just a genuine discussion about where you are, where you want to be, and whether The Master&apos;s Edge is the right fit.
+                No pitch. No pressure. Just a real conversation about where you are, where you want to go, and whether The Master&apos;s Edge is the right next step.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button href="/masters-edge-program/apply" size="lg" variant="secondary">
-                  Apply to The Master&apos;s Edge Program
+                  Apply Now
                 </Button>
                 <Button href={links.booking} external size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-                  Book a Conversation First
+                  Book a Conversation
                 </Button>
               </div>
             </motion.div>
