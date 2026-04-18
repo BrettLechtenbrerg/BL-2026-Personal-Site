@@ -187,14 +187,24 @@ export default function ApplyPage() {
         </section>
 
         {/* Application Form */}
-        <section className="py-16 bg-gradient-to-b from-white to-gray-50">
-          <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+        <section className="py-16 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
+          {/* Background orbs */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 -left-20 w-[400px] h-[400px] bg-cranberry/20 rounded-full blur-[120px]" />
+            <div className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-gold/15 rounded-full blur-[120px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cranberry/10 rounded-full blur-[150px]" />
+          </div>
+
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+
+          <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
             <motion.form
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 sm:p-10"
+              className="bg-white rounded-2xl shadow-2xl border border-white/20 p-8 sm:p-10 relative"
             >
               <div className="space-y-6">
                 {/* Full Name */}
