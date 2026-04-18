@@ -231,6 +231,10 @@ const clientLogos = [
   { name: "Purple", src: "/logos/purple.jpg" },
   { name: "Thumbtack", src: "/logos/thumbtack.png" },
   { name: "Member Solutions", src: "/logos/membersolutions.jpg" },
+  { name: "Murray Chamber", src: "/logos/murray-chamber.png" },
+  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png" },
+  { name: "Park City Chamber", src: "/logos/park-city-chamber.png" },
+  { name: "Good Things Utah", src: "/logos/good-things-utah.webp" },
 ];
 
 // FAQ Accordion component
@@ -321,7 +325,19 @@ export default function MastersEdgeProgramPage() {
             >
               12 Weeks That Change How You{" "}
               <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Lead, Operate, and Perform
+                Focus
+              </span>
+              ,{" "}
+              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
+                Lead
+              </span>
+              ,{" "}
+              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
+                Operate
+              </span>
+              , and{" "}
+              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
+                Perform
               </span>
             </motion.h1>
 
