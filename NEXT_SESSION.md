@@ -25,18 +25,21 @@ I want to continue working on my personal website (Brett Lechtenberg).
 **Site Status: ✅ LIVE**
 
 **What's Complete:**
-- ✅ All 16 pages built (was 13, +3 new Master's Edge Program pages)
+- ✅ All 16 pages built (was 13, +3 Master's Edge Program pages)
 - ✅ Full SEO optimization (meta tags, OG, Twitter, sitemap, robots.txt)
 - ✅ Dark gradient heroes with animated floating orbs
 - ✅ Glowing cards with consistent hover effects (site-wide)
-- ✅ **Master's Edge Program (NEW - April 18, 2026):**
-  - `/masters-edge-program` - Full sales landing page (10 sections)
+- ✅ **Master's Edge Program (Session 12-13 - April 18, 2026):**
+  - `/masters-edge-program` - Full sales landing page (11 sections)
   - `/masters-edge-program/apply` - Application form with GHL webhook
   - `/masters-edge-program/thank-you` - Confirmation page
   - Navigation dropdown added under "The Master's Edge"
+  - Hero badge: "Limited Enrollment for each Cohort"
   - Member limit: 12 per cohort
   - Pricing: $997/mo × 3 or $2,691 pay in full
-- ✅ 6 Featured Testimonials with glow-on-hover
+- ✅ **6 Testimonials (ALL CORRECT NOW):**
+  - Bill Schuffenhauer, Sam Beard, John Nottingham, Matt Gibbons, Flow Research Collective, Rob Balderas
+  - Rob Balderas restored with +43% Revenue highlight
 - ✅ 6 Video Testimonials on /testimonials
 - ✅ Amazon Book Links (6 books)
 - ✅ eBook Lead Capture Modal with GHL
@@ -120,7 +123,7 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 | `src/components/ui/EbookModal.tsx` | Lead capture popup for eBook |
 | `src/components/seo/JsonLd.tsx` | Structured data |
 | `src/lib/utils.ts` | Brand colors, links |
-| `src/app/masters-edge-program/page.tsx` | Program sales landing page |
+| `src/app/masters-edge-program/page.tsx` | Program sales landing page (11 sections) |
 | `src/app/masters-edge-program/apply/page.tsx` | Program application form |
 
 ---
@@ -132,10 +135,22 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 | **Landing Page** | `/masters-edge-program` |
 | **Apply Page** | `/masters-edge-program/apply` |
 | **Thank You** | `/masters-edge-program/thank-you` |
+| **Hero Badge** | "Limited Enrollment for each Cohort" |
 | **Member Limit** | 12 per cohort |
 | **Pricing - Monthly** | $997/mo × 3 = $2,991 |
 | **Pricing - Pay in Full** | $2,691 (save $300) |
 | **GHL Tags** | `ME Prospect`, pricing preference tags |
+| **Sections** | 11 total (Hero, Who It's For, Emotional, Framework, Included, Fit Filter, About Brett, Testimonials, Pricing, FAQ, Final CTA) |
+
+### Testimonials (6 Total)
+| Person | Title |
+|--------|-------|
+| Bill Schuffenhauer | 3x Olympian, Olympic Silver Medalist |
+| Sam Beard | Creator of Initiatives for Eight U.S. Presidents |
+| John Nottingham | Sword and Shield Security |
+| Matt Gibbons | President, Murray Area Chamber of Commerce |
+| Flow Research Collective | Steven Kotler's Peak Performance Organization |
+| Rob Balderas | Balderas Family Insurance (+43% Revenue highlight) |
 
 ---
 
@@ -173,16 +188,15 @@ vercel --prod --yes  # Manual deploy to Vercel (usually not needed)
 
 ---
 
-## RECENT COMMITS (April 18, 2026)
+## RECENT COMMITS (April 18, 2026 - Session 13)
 
 ```
-67d27fc Update subheadline: founding cohort → upcoming cohorts
-48cd23f Add Master's Edge Program to navigation and update member count
-196caa7 Replace Good Things Utah logo with USA Martial Arts logo
-62b3f69 Add dark gradient background with orbs to apply page form section
-3dc9f27 Update Master's Edge Program subheadline
-b0367ad Update Master's Edge Program headline and add more logos
-ea364a9 Add Master's Edge Program pages (hidden from nav)
+19d8ade Update hero badge: Limited Enrollment for each Cohort
+810de77 Add Rob Balderas testimonial back with +43% Revenue highlight
+754022d Restore original testimonial quotes
+858cfaa Revert Flow Research Collective testimonial to original
+2f9c649 Fix TypeScript error: remove unused highlight rendering
+c4c36ef Update Master's Edge Program page with new copy and structure
 ```
 
 ---
@@ -198,4 +212,4 @@ git add . && git commit -m "Description" && git push
 
 ---
 
-*Last updated: April 18, 2026 @ 6:45 AM*
+*Last updated: April 18, 2026 @ 7:45 AM*

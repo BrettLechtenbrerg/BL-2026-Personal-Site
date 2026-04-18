@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 18, 2026 @ 7:35 AM
+**Last Updated:** April 18, 2026 @ 7:50 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -23,6 +23,7 @@
 9. ✅ Added Rob Balderas back with +43% Revenue highlight
 10. ✅ Updated FAQ answers (8 → 7 questions)
 11. ✅ Minor Final CTA copy tweaks
+12. ✅ Updated hero badge: "Limited Enrollment — Founding Cohort" → "Limited Enrollment for each Cohort"
 
 #### Testimonials (6 Total - ALL CORRECT NOW)
 | Person | Quote |
@@ -103,11 +104,12 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `810de77` - Add Rob Balderas testimonial back with +43% Revenue highlight
+**Last Commit:** `19d8ade` - Update hero badge: Limited Enrollment for each Cohort
 **Uncommitted Changes:** None (working tree clean)
 
 ### Recent Commits (April 18, 2026 - Session 13)
 ```
+19d8ade Update hero badge: Limited Enrollment for each Cohort
 810de77 Add Rob Balderas testimonial back with +43% Revenue highlight
 754022d Restore original testimonial quotes
 858cfaa Revert Flow Research Collective testimonial to original
