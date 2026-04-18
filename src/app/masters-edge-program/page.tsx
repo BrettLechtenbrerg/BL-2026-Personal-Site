@@ -179,6 +179,13 @@ const testimonials = [
     title: "Steven Kotler's Peak Performance Organization",
     initials: "FRC",
   },
+  {
+    quote: "I have been blown away with the powerful mindset tools, branding systems, and business building strategies. I added 43 percent to my best month of the year.",
+    name: "Rob Balderas",
+    title: "Balderas Family Insurance",
+    initials: "RB",
+    highlight: "+43% Revenue",
+  },
 ];
 
 // FAQ items
@@ -748,6 +755,9 @@ export default function MastersEdgeProgramPage() {
                     <p className="text-gray-300 italic flex-grow mb-6">
                       &quot;{testimonial.quote}&quot;
                     </p>
+                    {testimonial.highlight && (
+                      <p className="text-gold font-bold text-xl mb-4">{testimonial.highlight}</p>
+                    )}
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center text-white font-bold">
                         {testimonial.initials}
