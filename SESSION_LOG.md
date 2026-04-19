@@ -2,6 +2,62 @@
 
 ---
 
+## Session 14 - April 19, 2026 (Morning) - GHL WEBHOOK FIX
+
+**Duration:** ~30 minutes
+**Focus:** Fixed Master's Edge application form GHL webhook integration
+
+### The Problem
+The previous GHL webhook setup wasn't reliably triggering the automation sequence. The workflow was using a "Contact Tag" trigger but tags weren't being properly applied.
+
+### The Solution
+1. Created new **Inbound Webhook** trigger in GHL "Master's Edge Nurture" workflow
+2. Deleted old Contact Tag trigger (me-lead)
+3. Updated website code with new webhook URL
+4. Configured full workflow in GHL:
+   - Create Contact (with field mappings)
+   - Create Or Update Opportunity (Master's Edge pipeline → New Lead)
+   - Internal Notification (full application details)
+   - Add Tag (me-lead)
+   - Nurture email sequence
+
+### Code Changes
+- Updated webhook URL: `035c7c0c-d9c7-47d5-ae85-4d0e6855d23e`
+- Flattened payload structure (no nested customField object)
+- Human-readable investment preference labels
+- Added `submitted_at` timestamp
+
+### GHL Workflow Configuration
+| Step | Configuration |
+|------|---------------|
+| Trigger | Inbound Webhook |
+| Create Contact | email, firstName, lastName, phone, company_name |
+| Opportunity | Master's Edge pipeline → New Lead, value $2,991 |
+| Notification | Email to Brett with full application details |
+| Add Tag | me-lead |
+
+### Verified Working ✅
+- Contact created in GHL
+- Opportunity created in pipeline
+- me-lead tag applied
+- Internal notification received (note: may go to spam initially)
+- Nurture sequence triggered
+
+### Git Activity (1 commit)
+```
+e40eb3c Update Master's Edge application form to use new GHL inbound webhook
+```
+
+### Files Modified
+- `src/app/masters-edge-program/apply/page.tsx`
+
+### Decisions Made
+- Use Inbound Webhook trigger instead of Contact Tag (more reliable)
+- One-step process (single webhook handles everything)
+- Flat payload structure for easier GHL field mapping
+
+---
+
 ## Session 13 - April 18, 2026 (Morning) - COPY UPDATES & TESTIMONIAL FIXES
 
 **Duration:** ~45 minutes

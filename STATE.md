@@ -1,13 +1,51 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 18, 2026 @ 7:50 AM
+**Last Updated:** April 19, 2026 @ 8:45 AM
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site is LIVE at brettlechtenberg.com - All systems operational
+**Status:** Site is LIVE at brettlechtenberg.com - All systems operational, GHL integration fully working
+
+### Completed (April 19, 2026 - Session 14 - GHL WEBHOOK FIX)
+
+#### Master's Edge Application Form - GHL Integration Fixed
+1. ✅ Created new Inbound Webhook trigger in GHL "Master's Edge Nurture" workflow
+2. ✅ Removed old Contact Tag trigger (was causing issues)
+3. ✅ Updated webhook URL in application form code
+4. ✅ Flattened payload structure for easier GHL field mapping
+5. ✅ Set up Create Contact step with field mappings (email, name, phone, company)
+6. ✅ Configured Create Or Update Opportunity (Master's Edge pipeline → New Lead)
+7. ✅ Built Internal Notification email with all application details
+8. ✅ Configured Add Tag step (me-lead)
+9. ✅ **TESTED & VERIFIED WORKING:**
+   - Contact created ✅
+   - Opportunity created ✅
+   - Tag applied ✅
+   - Internal notification received ✅
+   - Nurture sequence triggered ✅
+
+#### GHL Webhook Payload (11 Fields)
+| Field | Description |
+|-------|-------------|
+| `firstName` | First name |
+| `lastName` | Last name |
+| `full_name` | Full name |
+| `email` | Email address |
+| `phone` | Phone number |
+| `company_name` | Business name |
+| `job_title` | Role/title |
+| `revenue_range` | Annual revenue |
+| `referral_source` | How they found you |
+| `main_challenge` | Their #1 challenge |
+| `success_outcome` | What success looks like |
+| `investment_preference` | Human-readable label |
+| `additional_info` | Extra notes |
+| `tags` | Comma-separated tags |
+| `source` | "Master's Edge Program Application" |
+| `submitted_at` | Timestamp |
 
 ### Completed (April 18, 2026 - Session 13 - COPY UPDATES)
 
@@ -104,8 +142,13 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `19d8ade` - Update hero badge: Limited Enrollment for each Cohort
+**Last Commit:** `e40eb3c` - Update Master's Edge application form to use new GHL inbound webhook
 **Uncommitted Changes:** None (working tree clean)
+
+### Recent Commits (April 19, 2026 - Session 14)
+```
+e40eb3c Update Master's Edge application form to use new GHL inbound webhook
+```
 
 ### Recent Commits (April 18, 2026 - Session 13)
 ```
@@ -275,13 +318,16 @@ About                   → /about
 - 30-Day Post-Program Support
 - Lifetime Access to Program Materials
 
-### GHL Integration
-- **Webhook URL:** Same as eBook (existing account)
+### GHL Integration (VERIFIED WORKING - April 19, 2026)
+- **Webhook URL:** `https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/035c7c0c-d9c7-47d5-ae85-4d0e6855d23e`
+- **Workflow:** Master's Edge Nurture (Inbound Webhook trigger)
+- **Pipeline:** Master's Edge → New Lead stage
 - **Tags Applied:**
-  - `ME Prospect` (all applicants)
+  - `me-lead` (all applicants)
   - `ME - Founding Member Interest` (monthly option)
   - `ME - Pay in Full Interest` (pay in full)
   - `ME - Wants Call` (not sure yet)
+- **Internal Notification:** Email to Brett with full application details
 
 ---
 
