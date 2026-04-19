@@ -66,7 +66,7 @@ export default function ApplyPage() {
 
     try {
       // Determine tags based on investment option
-      const tags = ["ME Prospect"];
+      const tags = ["me-lead"];
       if (formData.investmentOption === "founding") {
         tags.push("ME - Founding Member Interest");
       } else if (formData.investmentOption === "pay-in-full") {
@@ -80,30 +80,45 @@ export default function ApplyPage() {
       const firstName = nameParts[0] || "";
       const lastName = nameParts.slice(1).join(" ") || "";
 
+      // Build investment option label for readability
+      const investmentLabel =
+        formData.investmentOption === "founding" ? "Founding Member ($997/mo × 3)" :
+        formData.investmentOption === "pay-in-full" ? "Pay in Full ($2,691)" :
+        "Not sure yet";
+
       const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/6b344d66-7b41-4533-a8e1-e747a3da3143",
+        "https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/035c7c0c-d9c7-47d5-ae85-4d0e6855d23e",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            // Contact info
             firstName,
             lastName,
+            full_name: formData.fullName,
             email: formData.email,
             phone: formData.phone,
-            companyName: formData.company,
-            jobTitle: formData.role,
-            customField: {
-              revenue_range: formData.revenueRange,
-              referral_source: formData.referralSource,
-              main_challenge: formData.challenge,
-              success_outcome: formData.successOutcome,
-              investment_preference: formData.investmentOption,
-              additional_info: formData.additionalInfo,
-            },
-            tags,
+
+            // Business info
+            company_name: formData.company,
+            job_title: formData.role,
+            revenue_range: formData.revenueRange,
+
+            // Application details
+            referral_source: formData.referralSource,
+            main_challenge: formData.challenge,
+            success_outcome: formData.successOutcome,
+            investment_preference: investmentLabel,
+            additional_info: formData.additionalInfo || "None provided",
+
+            // Tags for the workflow to apply
+            tags: tags.join(", "),
+
+            // Metadata
             source: "Master's Edge Program Application",
+            submitted_at: new Date().toISOString(),
           }),
         }
       );
