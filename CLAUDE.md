@@ -14,15 +14,28 @@
 
 ---
 
+## ⚠️ Working Directory Rule (REQUIRED)
+
+**Always work in `/Users/brettlechtenberg/dev/BL-2026-Personal-Site`.**
+
+An old copy lived at `~/Desktop/Claude Projects/BL-2026-Personal-Site` (iCloud-synced)
+which corrupts `.git/` and causes chronic session freezes — the same issue we hit
+on the TSAI and Murray Chamber projects. Project was migrated to `~/dev/` on
+2026-04-27. Never work in any iCloud / Google Drive / Dropbox path.
+
 ## Quick Start
 
 ```bash
-cd "/Users/brettlechtenberg/Desktop/Claude Projects/BL-2026-Personal-Site"
+cd ~/dev/BL-2026-Personal-Site
 npm install           # Install dependencies
 npm run dev           # Start dev server (localhost:3000)
 npm run build         # Build for production
-vercel --prod --yes   # Deploy to Vercel
+git push origin main  # Vercel auto-deploys on push
 ```
+
+This project is on Brett's personal Vercel team (`bretts-projects-3e254e58`),
+so the git author rule that applies to the Murray Chamber site (commits must
+be authored as `Power Hub CMS`) does NOT apply here. Any commit author works.
 
 ---
 
