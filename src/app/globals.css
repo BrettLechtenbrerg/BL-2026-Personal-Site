@@ -153,3 +153,113 @@ body {
     -webkit-animation: scroll 60s linear infinite !important;
   }
 }
+
+/* ─── Blog post body (.prose-blog) ───────────────────────────────────────
+ * Styles for markdown rendered by ReactMarkdown on /blog/[slug] pages.
+ * Light theme — cranberry headings, gold accents, warm-gray body text.
+ * No Tailwind Typography plugin — keeping deps lean.
+ */
+.prose-blog {
+  color: var(--warm-gray);
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+.prose-blog > * + * {
+  margin-top: 1.25em;
+}
+.prose-blog h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--cranberry);
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.25;
+  font-family: var(--font-heading), Montserrat, system-ui, sans-serif;
+}
+.prose-blog h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cranberry-dark);
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+  font-family: var(--font-heading), Montserrat, system-ui, sans-serif;
+}
+.prose-blog h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  font-family: var(--font-heading), Montserrat, system-ui, sans-serif;
+}
+.prose-blog p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.prose-blog a {
+  color: var(--cranberry);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+.prose-blog a:hover {
+  color: var(--cranberry-dark);
+}
+.prose-blog strong {
+  color: var(--black);
+  font-weight: 700;
+}
+.prose-blog ul,
+.prose-blog ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+.prose-blog ul { list-style-type: disc; }
+.prose-blog ol { list-style-type: decimal; }
+.prose-blog ul li::marker { color: var(--gold); }
+.prose-blog ol li::marker { color: var(--gold); }
+.prose-blog li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.prose-blog li > p {
+  margin: 0.25em 0;
+}
+.prose-blog blockquote {
+  border-left: 4px solid var(--gold);
+  padding-left: 1.25em;
+  margin-left: 0;
+  font-style: italic;
+  color: #374151;
+}
+.prose-blog code {
+  background: #f3f4f6;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  color: var(--cranberry-dark);
+}
+.prose-blog pre {
+  background: var(--black);
+  color: #f3f4f6;
+  padding: 1em 1.25em;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.prose-blog pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+.prose-blog hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 2.5em 0;
+}
+.prose-blog img {
+  border-radius: 12px;
+  margin: 1.5em 0;
+}
