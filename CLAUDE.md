@@ -224,6 +224,28 @@ BL-2026-Personal-Site/
 
 ---
 
+## Backups (multi-location source-only ZIP)
+
+Run before/after big changes. Mirrors the TSAI-Site convention.
+
+```bash
+./scripts/backup.sh                 # timestamped archive to all 3 destinations
+./scripts/backup.sh my-label        # adds a label, e.g. ...-my-label.zip
+```
+
+Source-only (excludes `node_modules`, `.next`, `.git`, `.vercel`). Fans out to:
+- **Local:** `~/dev/_backups/BL-2026-Personal-Site-source-only-*.zip`
+- **iCloud:** `~/Library/Mobile Documents/com~apple~CloudDocs/Backups/BL-2026-Personal-Site/`
+- **External:** `/Volumes/Brett's 8 TB/Backups/BL-2026-Personal-Site/`
+  (drive label is "Brett's 8 TB"; if unmounted, that destination is skipped, not fatal)
+
+**Restore:** `unzip <archive>.zip -d ~/dev/restored/ && cd ~/dev/restored/BL-2026-Personal-Site && npm install`
+
+> GitHub `origin/main` is still the primary source of truth; these zips are an
+> off-machine safety net (and capture untracked assets in `public/`).
+
+---
+
 ## Deployment Workflow
 
 ### Standard Deploy Process:
