@@ -1,13 +1,38 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** April 19, 2026 @ 8:45 AM
+**Last Updated:** June 3, 2026
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site is LIVE at brettlechtenberg.com - All systems operational, GHL integration fully working
+**Status:** Site is LIVE at brettlechtenberg.com - All systems operational.
+
+### Completed (June 3, 2026 - HIDDEN COURSE SYSTEM)
+
+#### The Master's Edge Interactive Workbook (new hidden course)
+- Built `/masters-edge/workbook` — an interactive 4-week participant workbook
+  (Clarify → Simplify → Maximize → Integration), ported from the TSAI hidden-
+  workshop pattern to this site's stack/brand (Tailwind v4, Lucide, cranberry/gold).
+- Features: sticky progress toolbar, section tabs, localStorage autosave,
+  PDF export (html2pdf CDN), email-results mailto, help modal, 7-day habit trackers.
+- HIDDEN via `robots:noindex` layout + not in sitemap + not linked in nav.
+  Verified live: page returns 200 with `noindex`. Share URL directly with cohorts.
+- Content sourced from Masters-Edge-Workbook.docx (Feynman/Sun Tzu/Bruce Lee/
+  Durant quotes, "The Idea," pillars, habits, in-room exercises).
+
+#### Lead capture (GHL) — wired, automation TODO
+- `src/app/api/workbook-lead/route.ts` fires `started`/`completed` events.
+- INERT until env vars set in Vercel: `GHL_WORKBOOK_STARTED_URL` /
+  `GHL_WORKBOOK_COMPLETED_URL`. Leads accepted + logged but not forwarded
+  until then (page never breaks). Flagged with TODO in the route file.
+
+#### Documentation added
+- `docs/COURSE_PATTERN.md` — canonical, step-by-step recipe for adding new
+  hidden interactive courses (copy the workbook as template; module-level field
+  components to avoid focus loss; how to promote a course to public).
+- Desktop restart prompt: `~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`.
 
 ### Completed (April 19, 2026 - Session 14 - GHL WEBHOOK FIX)
 

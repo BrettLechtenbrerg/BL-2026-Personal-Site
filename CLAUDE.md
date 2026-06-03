@@ -101,6 +101,10 @@ BL-2026-Personal-Site/
 │   │   ├── coaching/page.tsx        # Coaching services page
 │   │   ├── contact/page.tsx         # Contact page
 │   │   ├── masters-edge/page.tsx    # The Master's Edge methodology
+│   │   ├── masters-edge/workbook/   # HIDDEN interactive course (noindex)
+│   │   │   ├── page.tsx             #   - the 4-week workbook (reference course)
+│   │   │   └── layout.tsx           #   - robots:noindex makes it hidden
+│   │   ├── api/workbook-lead/       # GHL lead capture for courses (TODO: env vars)
 │   │   ├── speaking/page.tsx        # Speaking & Training page
 │   │   └── testimonials/page.tsx    # Testimonials page
 │   ├── components/
@@ -123,6 +127,8 @@ BL-2026-Personal-Site/
 │       ├── american-express.svg     # Client logo
 │       ├── delta.svg                # Client logo
 │       └── citigroup.svg            # Client logo
+├── docs/
+│   └── COURSE_PATTERN.md            # Canonical recipe for adding new courses
 ├── CLAUDE.md                        # This file - project documentation
 ├── STATE.md                         # Current development state
 ├── SESSION_LOG.md                   # Session history
@@ -145,6 +151,19 @@ BL-2026-Personal-Site/
 | Books & Media | `/books` | ✅ Complete | 7 books, media appearances |
 | Testimonials | `/testimonials` | ✅ Complete | Featured testimonials |
 | Contact | `/contact` | ✅ Complete | Booking calendar, email |
+
+### Hidden Courses (noindex — not in nav/sitemap; share URL directly)
+
+| Course | Path | Status | Description |
+|--------|------|--------|-------------|
+| The Master's Edge Workbook | `/masters-edge/workbook` | ✅ Live | Interactive 4-week participant workbook (Clarify → Simplify → Maximize → Integration). Autosave, PDF export, email results, GHL lead capture. |
+
+> **Adding a new course?** Read **`docs/COURSE_PATTERN.md`** — it's the canonical,
+> step-by-step recipe. Copy `src/app/masters-edge/workbook/` as the template.
+> "Hidden" = noindex layout + not in `sitemap.ts` + not linked in `Header.tsx`.
+> GHL lead capture is wired in `src/app/api/workbook-lead/route.ts` but inert
+> until `GHL_WORKBOOK_STARTED_URL` / `GHL_WORKBOOK_COMPLETED_URL` env vars are
+> set in Vercel (TODO).
 
 ---
 
