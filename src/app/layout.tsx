@@ -1,7 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { JsonLd } from "@/components/seo/JsonLd";
+
+// Google Analytics 4 Measurement ID for brettlechtenberg.com
+const GA_MEASUREMENT_ID = "G-E1WQV8Q2DK";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -134,6 +138,21 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        {/* Google Analytics 4 (gtag.js) — loaded in <head> per Google guidance */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <JsonLd />
         {children}
