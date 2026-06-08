@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   title: 'Blog · Brett Lechtenberg',
   description:
     'Practical writing on peak performance, leadership, and the disciplines that drive real results. From Brett Lechtenberg — coach, speaker, author.',
-  alternates: { canonical: 'https://brettlechtenberg.com/blog' },
+  alternates: { canonical: 'https://www.brettlechtenberg.com/blog' },
   openGraph: {
     title: 'Blog · Brett Lechtenberg',
     description:
       'Practical writing on peak performance, leadership, and the disciplines that drive real results.',
-    url: 'https://brettlechtenberg.com/blog',
+    url: 'https://www.brettlechtenberg.com/blog',
     type: 'website',
   },
   robots: { index: true, follow: true },

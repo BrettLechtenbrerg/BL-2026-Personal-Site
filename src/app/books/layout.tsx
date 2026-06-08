@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Books by Brett Lechtenberg",
     description:
       "Seven published books on peak performance, martial arts mastery, and business success.",
-    url: "https://brettlechtenberg.com/books",
+    url: "https://www.brettlechtenberg.com/books",
     images: [
       {
         url: "/og-image.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Seven books on peak performance and business success.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/books",
+    canonical: "https://www.brettlechtenberg.com/books",
   },
 };
 

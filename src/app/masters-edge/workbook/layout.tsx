@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "The Master's Edge — Participant Workbook",
     description:
       "Four Weeks to Peak Performance. Clarify. Simplify. Maximize. Complete your activities on any device.",
-    url: "https://brettlechtenberg.com/masters-edge/workbook",
+    url: "https://www.brettlechtenberg.com/masters-edge/workbook",
   },
 };
 

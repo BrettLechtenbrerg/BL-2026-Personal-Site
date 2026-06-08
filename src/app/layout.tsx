@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 // Base URL for all metadata (important for resolving relative URLs)
-const siteUrl = "https://brettlechtenberg.com";
+const siteUrl = "https://www.brettlechtenberg.com";
 
 export const viewport: Viewport = {
   width: "device-width",

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Speaking & Training | Brett Lechtenberg",
     description:
       "Keynotes and workshops that leave your audience changed, not just entertained. Book Brett for your event.",
-    url: "https://brettlechtenberg.com/speaking",
+    url: "https://www.brettlechtenberg.com/speaking",
     images: [
       {
         url: "/og-image.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Keynotes that leave your audience changed, not just entertained.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/speaking",
+    canonical: "https://www.brettlechtenberg.com/speaking",
   },
 };
 

@@ -1,11 +1,11 @@
 # Brett Lechtenberg - Peak Performance Coach
-# https://brettlechtenberg.com
+# https://www.brettlechtenberg.com
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://brettlechtenberg.com/sitemap.xml
+Sitemap: https://www.brettlechtenberg.com/sitemap.xml
 
 # Crawl-delay for polite bots
 Crawl-delay: 1

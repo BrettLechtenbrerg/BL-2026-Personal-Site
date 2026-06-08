@@ -17,7 +17,7 @@ interface BlogPostPageProps {
   params: Promise<BlogPostParams>;
 }
 
-const SITE_URL = 'https://brettlechtenberg.com';
+const SITE_URL = 'https://www.brettlechtenberg.com';
 
 // Pre-render every post at build time. Vercel rebuilds on every merge,
 // so new posts ship as static HTML — fast and SEO-friendly.

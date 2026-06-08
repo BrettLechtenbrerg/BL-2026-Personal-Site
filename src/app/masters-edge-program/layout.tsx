@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "The Master's Edge Program | Brett Lechtenberg",
     description:
       "12 weeks that change how you lead, operate, and perform. Applications open for the founding cohort.",
-    url: "https://brettlechtenberg.com/masters-edge-program",
+    url: "https://www.brettlechtenberg.com/masters-edge-program",
     siteName: "Brett Lechtenberg",
     images: [
       {

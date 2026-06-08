@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Client Testimonials | Brett Lechtenberg",
     description:
       "Real results from real clients. Success stories from leaders transformed by The Master's Edge.",
-    url: "https://brettlechtenberg.com/testimonials",
+    url: "https://www.brettlechtenberg.com/testimonials",
     images: [
       {
         url: "/og-image.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Real results from real clients transformed by The Master's Edge.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/testimonials",
+    canonical: "https://www.brettlechtenberg.com/testimonials",
   },
 };
 

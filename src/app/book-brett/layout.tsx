@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     title: "Book Brett Lechtenberg | Keynote Speaker & Executive Coach",
     description:
       "Book Brett for keynote speaking, corporate training, or executive coaching. Transform your organization with The Master's Edge methodology.",
-    url: "https://brettlechtenberg.com/book-brett",
+    url: "https://www.brettlechtenberg.com/book-brett",
     type: "website",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/book-brett",
+    canonical: "https://www.brettlechtenberg.com/book-brett",
   },
 };
 

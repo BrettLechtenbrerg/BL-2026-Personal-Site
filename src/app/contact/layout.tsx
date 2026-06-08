@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Contact | Brett Lechtenberg",
     description:
       "Book a conversation. No pitch, no pressure — just a genuine discussion about your goals.",
-    url: "https://brettlechtenberg.com/contact",
+    url: "https://www.brettlechtenberg.com/contact",
     images: [
       {
         url: "/og-image.jpg",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description: "Book a conversation about your goals and potential.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/contact",
+    canonical: "https://www.brettlechtenberg.com/contact",
   },
 };
 

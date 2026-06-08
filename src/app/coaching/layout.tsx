@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Executive & Business Coaching | Brett Lechtenberg",
     description:
       "Break through business plateaus with The Master's Edge coaching. Custom toolkit for peak performance.",
-    url: "https://brettlechtenberg.com/coaching",
+    url: "https://www.brettlechtenberg.com/coaching",
     images: [
       {
         url: "/og-image.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Break through business plateaus with custom coaching built for your goals.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/coaching",
+    canonical: "https://www.brettlechtenberg.com/coaching",
   },
 };
 

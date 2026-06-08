@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "The Master's Edge | Brett Lechtenberg",
     description:
       "A science-backed coaching system for unlocking peak performance. CLARIFY. SIMPLIFY. MAXIMIZE.",
-    url: "https://brettlechtenberg.com/masters-edge",
+    url: "https://www.brettlechtenberg.com/masters-edge",
     images: [
       {
         url: "/og-image.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "A science-backed coaching system for peak performance. CLARIFY. SIMPLIFY. MAXIMIZE.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/masters-edge",
+    canonical: "https://www.brettlechtenberg.com/masters-edge",
   },
 };
 

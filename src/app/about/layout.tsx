@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "About Brett Lechtenberg",
     description:
       "8th-degree black belt, 30+ years in business, flow state researcher. The person behind The Master's Edge.",
-    url: "https://brettlechtenberg.com/about",
+    url: "https://www.brettlechtenberg.com/about",
     images: [
       {
         url: "/brett-hero.webp",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "8th-degree black belt, 30+ years in business. Meet the creator of The Master's Edge.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/about",
+    canonical: "https://www.brettlechtenberg.com/about",
   },
 };
 

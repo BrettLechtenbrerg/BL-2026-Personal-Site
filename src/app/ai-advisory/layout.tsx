@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "AI Advisory Services | Brett Lechtenberg",
     description:
       "AI done right starts with people. Training, integration, and full-service AI solutions.",
-    url: "https://brettlechtenberg.com/ai-advisory",
+    url: "https://www.brettlechtenberg.com/ai-advisory",
     images: [
       {
         url: "/og-image.jpg",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       "Free your team to do what only humans can. AI implementation done right.",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/ai-advisory",
+    canonical: "https://www.brettlechtenberg.com/ai-advisory",
   },
 };
 

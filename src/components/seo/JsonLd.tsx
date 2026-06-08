@@ -3,8 +3,8 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Brett Lechtenberg",
-    url: "https://brettlechtenberg.com",
-    image: "https://brettlechtenberg.com/brett-hero.webp",
+    url: "https://www.brettlechtenberg.com",
+    image: "https://www.brettlechtenberg.com/brett-hero.webp",
     sameAs: [
       "https://www.linkedin.com/in/brettlechtenberg",
       "https://www.facebook.com/BrettGLechtenberg",
@@ -36,8 +36,8 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Brett Lechtenberg Coaching",
-    url: "https://brettlechtenberg.com",
-    logo: "https://brettlechtenberg.com/logo.jpg",
+    url: "https://www.brettlechtenberg.com",
+    logo: "https://www.brettlechtenberg.com/logo.jpg",
     description:
       "Peak performance coaching, speaking, and training services helping leaders and organizations achieve extraordinary results through The Master's Edge methodology.",
     founder: {
@@ -68,7 +68,7 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Brett Lechtenberg",
-    url: "https://brettlechtenberg.com",
+    url: "https://www.brettlechtenberg.com",
     description:
       "Official website of Brett Lechtenberg - Peak Performance Coach, Speaker & Author",
     publisher: {
@@ -79,7 +79,7 @@ export function JsonLd() {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://brettlechtenberg.com/?q={search_term_string}",
+        urlTemplate: "https://www.brettlechtenberg.com/?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },

@@ -17,11 +17,11 @@ export const metadata: Metadata = {
     title: "Brett Lechtenberg Media Kit | Press & Speaking Resources",
     description:
       "Access Brett's official bio, headshots, speaking topics, and press materials for media and event planning.",
-    url: "https://brettlechtenberg.com/media-kit",
+    url: "https://www.brettlechtenberg.com/media-kit",
     type: "website",
   },
   alternates: {
-    canonical: "https://brettlechtenberg.com/media-kit",
+    canonical: "https://www.brettlechtenberg.com/media-kit",
   },
 };
 
