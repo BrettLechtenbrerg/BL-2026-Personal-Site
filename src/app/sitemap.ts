@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.brettlechtenberg.com";
@@ -96,7 +97,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
   ];
 
-  return routes;
+  // Blog posts (one entry per markdown file in content/blog/)
+  const blogPosts = getAllPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.date ? new Date(post.date) : lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...routes, ...blogPosts];
 }
