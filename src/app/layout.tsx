@@ -5,6 +5,9 @@ import "./globals.css";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 // Google Analytics 4 Measurement ID for brettlechtenberg.com
+// Verified June 15, 2026: G-E1WQV8Q2DK -> GA4 property "Brett Lechtenberg
+// Website" (540646703), data flowing. Do not change without confirming
+// GA4 -> Admin -> Data streams matches this ID.
 const GA_MEASUREMENT_ID = "G-E1WQV8Q2DK";
 
 const montserrat = Montserrat({
