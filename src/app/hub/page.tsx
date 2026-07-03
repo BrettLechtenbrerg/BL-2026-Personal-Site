@@ -10,13 +10,15 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, Lock, MessageSquare } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, MessageSquare } from "lucide-react";
 
 export default function HubLoginPage() {
   const router = useRouter();
   const [checking, setChecking] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showUsername, setShowUsername] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -82,23 +84,46 @@ export default function HubLoginPage() {
         >
           <div>
             <label className="text-xs text-gray-400">Username</label>
-            <input
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              autoComplete="username"
-              autoFocus
-              className="mt-1 w-full px-3 py-2 rounded-lg bg-gray-950 border border-white/10 text-sm text-white focus:outline-none focus:border-[#D4AF37]/60"
-            />
+            <div className="relative mt-1">
+              <input
+                type={showUsername ? "text" : "password"}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                autoComplete="username"
+                autoFocus
+                className="w-full px-3 py-2 pr-10 rounded-lg bg-gray-950 border border-white/10 text-sm text-white focus:outline-none focus:border-[#D4AF37]/60"
+              />
+              <button
+                type="button"
+                onClick={() => setShowUsername((v) => !v)}
+                tabIndex={-1}
+                aria-label={showUsername ? "Hide username" : "Show username"}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+              >
+                {showUsername ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+              </button>
+            </div>
           </div>
           <div>
             <label className="text-xs text-gray-400">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
-              className="mt-1 w-full px-3 py-2 rounded-lg bg-gray-950 border border-white/10 text-sm text-white focus:outline-none focus:border-[#D4AF37]/60"
-            />
+            <div className="relative mt-1">
+              <input
+                type={showPassword ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+                className="w-full px-3 py-2 pr-10 rounded-lg bg-gray-950 border border-white/10 text-sm text-white focus:outline-none focus:border-[#D4AF37]/60"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((v) => !v)}
+                tabIndex={-1}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+              >
+                {showPassword ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+              </button>
+            </div>
           </div>
 
           {error && (
