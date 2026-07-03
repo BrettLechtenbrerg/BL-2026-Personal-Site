@@ -18,12 +18,12 @@
 - **Live:** https://www.brettlechtenberg.com (Vercel auto-deploys on push)
 - **Read first:** `CLAUDE.md` + `STATE.md` (current through July 3, 2026)
 
-## Hot items (July 3, 2026)
+## Hot items (July 3, 2026 — afternoon)
 
-1. **V2 draft verdict** — /speaking-v2 + /media-kit-v2 are hidden drafts
-   awaiting Brett's side-by-side comparison; promote on approval.
-2. **Comms Hub setup** — /hub is deployed with TEMP login (rotate
-   HUB_PASSWORD!); Supabase + GHL PIT env vars still needed.
-   Full recipe: `docs/COMMS_HUB.md`.
-3. **#7 Workbook webhooks** — GHL_WORKBOOK_STARTED_URL /
+1. **Rotate HUB_PASSWORD** — temp login (bladmin/bl-dev-2026) still live.
+2. **/speaking-v2 verdict** — still a hidden draft; /media-kit-v2 was
+   PROMOTED to live /media-kit July 3 PM.
+3. **GHL dedicated sending domain** — hub email verified working but
+   lands in spam until DNS is set up. Full context: `docs/COMMS_HUB.md`.
+4. **#7 Workbook webhooks** — GHL_WORKBOOK_STARTED_URL /
    _COMPLETED_URL still unset in Vercel.
