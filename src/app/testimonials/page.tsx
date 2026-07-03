@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { motion } from "framer-motion";
 import { Quote, Star, TrendingUp, Users, Award, Play, Video } from "lucide-react";
 import Image from "next/image";
@@ -457,6 +458,7 @@ export default function TestimonialsPage() {
                   transition={{ delay: index * 0.1 }}
                   className="relative group h-full"
                 >
+                  <TiltCard className="relative h-full">
                   <div className={`absolute -inset-1 bg-gradient-to-r ${testimonial.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
                   <div className={`relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border-2 border-gray-200 group-hover:border-transparent group-hover:shadow-2xl h-full flex flex-col overflow-hidden transition-all duration-300`}>
                     {/* Background person image - 15% darker for visibility */}
@@ -490,6 +492,7 @@ export default function TestimonialsPage() {
                       </div>
                     </div>
                   </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </div>
@@ -531,6 +534,7 @@ export default function TestimonialsPage() {
                   transition={{ delay: index * 0.1 }}
                   className="group relative h-full"
                 >
+                  <TiltCard className="relative h-full">
                   <div className="absolute -inset-1 bg-gradient-to-r from-gold via-cranberry to-gold rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
                   <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex gap-6 h-full overflow-hidden">
                     {/* Background person image */}
@@ -562,6 +566,7 @@ export default function TestimonialsPage() {
                       </div>
                     </div>
                   </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </div>
@@ -598,6 +603,7 @@ export default function TestimonialsPage() {
                   transition={{ delay: index * 0.05 }}
                   className="group relative h-full"
                 >
+                  <TiltCard className="relative h-full">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-cranberry/50 to-gold/50 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity" />
                   <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100 h-full flex flex-col">
                     <div className="flex items-center gap-1 mb-4">
@@ -618,6 +624,7 @@ export default function TestimonialsPage() {
                       </div>
                     </div>
                   </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </div>

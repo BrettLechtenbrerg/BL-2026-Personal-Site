@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { motion } from "framer-motion";
 import { Award, BookOpen, Brain, Building, Bot, Shield, GraduationCap, Users, Mic2, Sparkles } from "lucide-react";
 import Image from "next/image";
@@ -434,16 +435,18 @@ export default function AboutPage() {
               className="flex flex-col md:flex-row items-center gap-10"
             >
               {/* Family Photo */}
-              <div className="relative flex-shrink-0">
-                <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-full blur-lg opacity-40" />
-                <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white/20">
-                  <Image
-                    src="/heroes/family.webp"
-                    alt="Brett Lechtenberg with family"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+              <div className="group relative flex-shrink-0">
+                <TiltCard intensity={10} className="relative">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                  <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white/20 group-hover:border-gold/50 transition-colors duration-500">
+                    <Image
+                      src="/heroes/family.webp"
+                      alt="Brett Lechtenberg with family"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </TiltCard>
               </div>
 
               {/* Text */}

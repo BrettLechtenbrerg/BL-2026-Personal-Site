@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { EbookModal } from "@/components/ui/EbookModal";
+import { TiltCard } from "@/components/ui/TiltCard";
 import { links } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, BookOpen, Play, Tv, ChevronLeft, ChevronRight, Newspaper } from "lucide-react";
@@ -223,6 +224,7 @@ export default function BooksPage() {
                         : undefined
                   }
                 >
+                  <TiltCard className="relative h-full">
                   {/* Glow effect on hover */}
                   <div className={`absolute -inset-1 bg-gradient-to-r ${
                     book.upcoming
@@ -296,6 +298,7 @@ export default function BooksPage() {
                       )}
                     </div>
                   </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </div>
