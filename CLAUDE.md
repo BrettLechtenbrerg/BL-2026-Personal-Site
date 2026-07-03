@@ -162,7 +162,7 @@ BL-2026-Personal-Site/
 
 | Draft | Path | Status | Description |
 |-------|------|--------|-------------|
-| Speaking v2 | `/speaking-v2` | 🔍 Under review | Four-lane restructure (10 talks) per Desktop spec. Brett still deciding. Promote by moving content to /speaking, then delete. |
+| ~~Speaking v2/v3~~ | ~~`/speaking-v2`, `/speaking-v3`~~ | ✅ PROMOTED July 3 PM | v3 (four lanes + live imagery + Juan Diego video + accordion talk cards) is now the live /speaking; both draft routes deleted. |
 | ~~Media Kit v2~~ | ~~`/media-kit-v2`~~ | ✅ PROMOTED July 3 | Four-lane Talk Topics is now the live /media-kit; draft route deleted. |
 
 ### Comms Hub (noindex — internal tool, July 3 2026)
@@ -294,6 +294,11 @@ vercel logs            # View deployment logs
 - **(Afternoon)** Comms Hub fully configured + verified live (email
   delivered; SMS parked — no phone number). Add/Delete leads + login
   visibility toggles added. **/media-kit-v2 promoted to live /media-kit.**
+- **(Evening)** Site-wide design flair (TiltCard 3D cards, AnimatedCounter,
+  shimmer text, shine CTAs, scroll-progress bar, branded scrollbar).
+  **Speaking v3 promoted to live /speaking**: four lanes + accordion talk
+  cards + Juan Diego live video (LiveClip component) + bento gallery;
+  -v2/-v3 draft routes deleted.
 
 ### April 4, 2026
 - **All pages built** with bold color treatment

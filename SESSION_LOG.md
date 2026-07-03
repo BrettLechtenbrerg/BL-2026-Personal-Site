@@ -2,6 +2,54 @@
 
 ---
 
+## Session 18 - July 3, 2026 (Evening) - DESIGN FLAIR + SPEAKING V3 PROMOTED
+
+**Focus:** Site-wide design polish pass, then built and promoted the new
+speaking page (v1+v2 hybrid) with Brett's Juan Diego live speaking video.
+
+### Design flair pass (site-wide)
+- globals.css: shimmer gradient text (.text-shimmer), float/shine/
+  pulse-slow/ring-pulse keyframes, branded cranberry→gold scrollbar.
+- New components: TiltCard (3D mouse-tracking tilt, springy return) +
+  AnimatedCounter (count-up stats on scroll into view).
+- Button: light-sweep shine on all CTAs. Header: scroll-aware glass +
+  cranberry→gold scroll-progress bar + animated nav underlines (pinned
+  top-20 so mobile menu doesn't move it). Footer: shimmer top edge,
+  springy socials. Hero: shimmer headline, floating badge, portrait
+  hover sweep, scroll cue. Pathways: TiltCard + icon spins. Credibility:
+  count-up stats. Everything respects prefers-reduced-motion.
+- Extended TiltCard on request: /books cards (8), /testimonials cards
+  (all 3 sections), /about family photo (intensity 10 + gold ring).
+
+### Speaking v3 → promoted to live /speaking
+- Cut 90s highlight clip (20:00–21:30) from "Brett Speaking at Juan
+  Diego.MOV" on the 8TB drive: 1.7GB → 9MB 720×1280 h264 →
+  public/videos/juan-diego-clip.mp4 + poster frame.
+- New LiveClip component: vertical 9:16 player, poster + pulsing play
+  button, sound + native controls on tap.
+- v3 = v2's four lanes/10 talks + v1's outcomes grid, bento action
+  gallery, Matt Gibbons testimonial (unverified stats bar still omitted)
+  + NEW "Live From the Room" section: Juan Diego video paired with Danny
+  Larson's Juan Diego testimonial (same venue = strongest proof).
+- Brett flagged wall-of-text in the lanes → talk cards became accordions:
+  title/subtitle/duration always visible, full pitch expands on click,
+  flagship Master's Edge starts expanded.
+- PROMOTED: /speaking now serves this page (indexed layout untouched);
+  /speaking-v2 + /speaking-v3 routes deleted. Verified live: robots
+  index,follow; drafts 404; video streaming.
+- Honest Close proof-line placeholder comment survives (Aug 4).
+
+### Where else to use live clips (recommended, not yet done)
+1. /book-brett above the form · 2. /media-kit · 3. homepage Brett in
+Action · 4. /masters-edge-program About-Brett · 5. YouTube speaker reel
+(fills the media-kit-block placeholder).
+
+### Commits
+9d15d04 design flair · 7ecd071 progress-bar fix · 8e29205 speaking-v3
+draft · a558fb7 TiltCard books/testimonials/about · 91da623 promote v3
+
+---
+
 ## Session 17 - July 3, 2026 (Afternoon) - COMMS HUB LIVE + MEDIA KIT PROMOTED
 
 **Focus:** Burned through the full GHL/Supabase setup with Brett click-by-click,

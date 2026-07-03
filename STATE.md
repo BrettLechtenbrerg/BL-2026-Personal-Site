@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** July 3, 2026
+**Last Updated:** July 3, 2026 (evening — Session 18)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,35 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational.
+
+### Completed (July 3, 2026 — SESSION 18: DESIGN FLAIR + SPEAKING V3 PROMOTED)
+
+#### Site-wide design flair ✅
+- New utilities in globals.css: .text-shimmer, .shine (light sweep),
+  .animate-float / -pulse-slow / -ring-pulse, branded scrollbar.
+- New components: **TiltCard** (3D mouse-tracking tilt) and
+  **AnimatedCounter** (count-up stats on scroll).
+- Applied: all Buttons (shine), Header (scroll-aware glass + cranberry→gold
+  scroll-progress bar + nav underlines), Footer, homepage Hero/Pathways/
+  Credibility/Solution/Testimonials/MediaFeature/final CTA.
+- TiltCard extended on request: /books cards, /testimonials cards (all 3
+  sections), /about family photo. prefers-reduced-motion respected.
+
+#### /speaking — v3 PROMOTED TO LIVE ✅ (replaces the v2-vs-v1 decision)
+- v3 = v2's four-lane structure (10 talks) + v1's outcomes grid, bento
+  "Brett in Action" gallery, Matt Gibbons testimonial + NEW "Live From
+  the Room" section: 90s Juan Diego live speaking clip (LiveClip
+  component, /videos/juan-diego-clip.mp4, cut from 8TB drive footage)
+  paired with Danny Larson's Juan Diego testimonial.
+- Talk cards are ACCORDIONS (Brett's wall-of-text fix): title/subtitle/
+  duration always visible, details expand on click, flagship starts open.
+- /speaking-v2 + /speaking-v3 routes DELETED. Live layout.tsx (indexed
+  SEO metadata) untouched. Verified: index,follow · drafts 404 · video 200.
+- Unverified stats bar (100+/50+/10K+) still omitted — open item #7.
+- Honest Close proof line = placeholder comment in /speaking/page.tsx,
+  uncomment after Aug 4.
+- Video clip recommendations (not yet done): /book-brett, /media-kit,
+  homepage, /masters-edge-program, YouTube speaker reel.
 
 ### Completed (July 3, 2026 — SESSION 2: COMMS HUB FULLY OPERATIONAL + MEDIA KIT PROMOTED)
 
@@ -39,11 +68,7 @@
 - /media-kit-v2 draft route DELETED. Indexing metadata untouched (live
   layout.tsx was never modified).
 
-#### /speaking-v2 — STILL A DRAFT (decision pending)
-- Brett is still thinking. /speaking remains the live original;
-  /speaking-v2 stays hidden (noindex, out of sitemap/nav) until he decides.
-- Honest Close proof line placeholder in speaking-v2/page.tsx — uncomment
-  after Aug 4 (survives promotion).
+#### /speaking-v2 — RESOLVED in Session 18 (v3 promoted, see above)
 
 ### Completed (July 3, 2026 — SESSION 1: V2 DRAFT PAGES + COMMS HUB BUILD)
 
@@ -214,7 +239,7 @@
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `e40eb3c` - Update Master's Edge application form to use new GHL inbound webhook
+**Last Commit:** `91da623` - Promote speaking v3 to live /speaking with collapsible talk cards
 **Uncommitted Changes:** None (working tree clean)
 
 ### Recent Commits (April 19, 2026 - Session 14)
