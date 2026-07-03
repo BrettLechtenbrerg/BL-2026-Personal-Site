@@ -18,11 +18,11 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    "bg-cranberry text-white hover:bg-cranberry-dark shadow-lg shadow-cranberry/25",
+    "shine bg-cranberry text-white hover:bg-cranberry-dark shadow-lg shadow-cranberry/25 hover:shadow-xl hover:shadow-cranberry/40",
   secondary:
-    "bg-gold text-black hover:bg-gold-dark shadow-lg shadow-gold/25",
+    "shine bg-gold text-black hover:bg-gold-dark shadow-lg shadow-gold/25 hover:shadow-xl hover:shadow-gold/40",
   outline:
-    "border-2 border-cranberry text-cranberry hover:bg-cranberry hover:text-white",
+    "border-2 border-cranberry text-cranberry hover:bg-cranberry hover:text-white hover:shadow-lg hover:shadow-cranberry/25",
   ghost: "text-cranberry hover:bg-cranberry/10",
 };
 

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
@@ -33,6 +33,22 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Reading-progress bar along the bottom edge of the header
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const getDropdownItems = (type: string) => {
     if (type === "mastersEdge") return mastersEdgeDropdown;
@@ -41,7 +57,13 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-xl border-gray-200/80 shadow-lg shadow-black/[0.06]"
+          : "bg-white/90 backdrop-blur-md border-gray-100"
+      }`}
+    >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -78,10 +100,11 @@ export function Header() {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <button
-                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
+                    className="group relative flex items-center gap-1 py-1 text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
                   >
                     {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === item.dropdownType ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openDropdown === item.dropdownType ? 'rotate-180' : ''}`} />
+                    <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-cranberry to-gold transition-all duration-300 group-hover:w-full" />
                   </button>
                   <AnimatePresence>
                     {openDropdown === item.dropdownType && (
@@ -109,9 +132,10 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
+                  className="group relative py-1 text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
                 >
                   {item.name}
+                  <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-cranberry to-gold transition-all duration-300 group-hover:w-full" />
                 </Link>
               )
             ))}
@@ -135,6 +159,12 @@ export function Header() {
           </button>
         </div>
       </nav>
+
+      {/* Scroll progress bar */}
+      <motion.div
+        style={{ scaleX: progress }}
+        className="absolute bottom-0 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-cranberry via-gold to-cranberry"
+      />
 
       {/* Mobile Menu */}
       <AnimatePresence>

@@ -77,7 +77,7 @@ export function MediaFeature() {
 
               {/* Video label */}
               <div className="mt-4 flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl flex items-center justify-center">
+                <div className="animate-ring-pulse w-12 h-12 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl flex items-center justify-center">
                   <Play className="w-5 h-5 text-white fill-white" />
                 </div>
                 <div>
@@ -101,7 +101,7 @@ export function MediaFeature() {
 
               <div className="space-y-4">
                 {/* Good Things Utah */}
-                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-colors">
+                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20">
                   <Image
                     src="/logos/good-things-utah.webp"
                     alt="Good Things Utah"
@@ -116,7 +116,7 @@ export function MediaFeature() {
                 </div>
 
                 {/* The Daily Dish */}
-                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-colors">
+                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20">
                   <div className="w-20 h-11 bg-gradient-to-br from-cranberry to-cranberry-dark rounded flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-xs">CW30</span>
                   </div>
@@ -127,7 +127,7 @@ export function MediaFeature() {
                 </div>
 
                 {/* Profiles in Caring */}
-                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-colors">
+                <div className="bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/15 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20">
                   <div className="w-20 h-11 bg-gradient-to-br from-gold to-gold-dark rounded flex items-center justify-center flex-shrink-0">
                     <span className="text-black font-bold text-xs text-center leading-tight">Profiles</span>
                   </div>

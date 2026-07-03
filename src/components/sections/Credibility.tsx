@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 const stats = [
-  { value: "30+", label: "Years in Business", color: "text-gold" },
-  { value: "7", label: "Books Authored", sublabel: "(5 Bestsellers)", color: "text-cranberry-light" },
-  { value: "8th", label: "Degree Black Belt", color: "text-gold" },
-  { value: "1000's", label: "Trained", color: "text-cranberry-light" },
+  { value: 30, suffix: "+", label: "Years in Business", color: "text-gold" },
+  { value: 7, suffix: "", label: "Books Authored", sublabel: "(5 Bestsellers)", color: "text-cranberry-light" },
+  { value: 8, suffix: "th", label: "Degree Black Belt", color: "text-gold" },
+  { value: 1000, suffix: "'s", label: "Trained", color: "text-cranberry-light" },
 ];
 
 const containerVariants = {
@@ -63,13 +64,13 @@ export function Credibility() {
             <motion.div
               key={stat.label}
               variants={statVariants}
-              className="text-center relative h-full"
+              className="text-center relative h-full group"
             >
               {/* Glow behind stat */}
-              <div className="absolute inset-0 bg-white/5 rounded-2xl blur-xl" />
-              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col justify-center">
+              <div className="absolute inset-0 bg-white/5 rounded-2xl blur-xl transition-opacity duration-500 group-hover:bg-gold/10" />
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 h-full flex flex-col justify-center transition-all duration-500 group-hover:border-gold/40 group-hover:-translate-y-2 group-hover:shadow-xl group-hover:shadow-black/30">
                 <p className={`text-5xl lg:text-6xl font-black ${stat.color} mb-2`}>
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
                 <p className="text-white font-medium">{stat.label}</p>
                 {stat.sublabel && (

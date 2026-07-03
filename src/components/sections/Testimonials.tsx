@@ -68,9 +68,9 @@ export function Testimonials() {
               {/* Glow effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
 
-              <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100 h-full flex flex-col">
+              <div className="relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-gray-100 h-full flex flex-col transition-transform duration-500 group-hover:-translate-y-2">
                 {/* Quote icon */}
-                <div className="absolute -top-5 left-8 w-12 h-12 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-2xl flex items-center justify-center shadow-lg shadow-cranberry/30">
+                <div className="absolute -top-5 left-8 w-12 h-12 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-2xl flex items-center justify-center shadow-lg shadow-cranberry/30 transition-transform duration-500 ease-out group-hover:rotate-[10deg] group-hover:scale-110">
                   <Quote className="w-6 h-6 text-white" />
                 </div>
 
@@ -107,10 +107,10 @@ export function Testimonials() {
         >
           <Link
             href="/testimonials"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-cranberry to-cranberry-dark text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-cranberry/30 transition-all hover:-translate-y-1"
+            className="shine group inline-flex items-center gap-2 bg-gradient-to-r from-cranberry to-cranberry-dark text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:shadow-cranberry/30 transition-all hover:-translate-y-1"
           >
             See More Testimonials
-            <span className="text-xl">→</span>
+            <span className="text-xl transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </motion.div>
       </div>

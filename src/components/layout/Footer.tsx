@@ -33,7 +33,9 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="relative bg-black text-white">
+      {/* Gradient top edge */}
+      <div className="text-shimmer absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Column */}
@@ -71,7 +73,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="block py-2 min-h-[44px] text-sm text-gray-300 hover:text-cranberry transition-colors"
+                    className="block py-2 min-h-[44px] text-sm text-gray-300 hover:text-gold transition-all duration-300 hover:translate-x-1.5"
                   >
                     {link.name}
                   </Link>
@@ -108,7 +110,7 @@ export function Footer() {
                 href="https://www.linkedin.com/in/brettlechtenberg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
+                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cranberry/40"
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
@@ -117,7 +119,7 @@ export function Footer() {
                 href="https://www.facebook.com/BrettGLechtenberg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
+                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cranberry/40"
                 aria-label="Facebook"
               >
                 <FacebookIcon />
@@ -126,7 +128,7 @@ export function Footer() {
                 href="https://www.instagram.com/blechtenberg/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-colors"
+                className="w-11 h-11 bg-gray-800 hover:bg-cranberry rounded-lg flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cranberry/40"
                 aria-label="Instagram"
               >
                 <InstagramIcon />

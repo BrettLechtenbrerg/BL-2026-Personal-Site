@@ -28,8 +28,8 @@ export default function Home() {
                 { main: "MAXIMIZE", sub: "Focus, Confidence, Actions, Results", gradient: "from-cranberry to-cranberry-dark" },
               ].map((pillar) => (
                 <div key={pillar.main} className="group relative">
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
-                  <div className={`relative bg-gradient-to-r ${pillar.gradient} rounded-full px-8 py-4 text-center shadow-xl hover:scale-105 transition-transform duration-300`}>
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-500`} />
+                  <div className={`shine relative bg-gradient-to-r ${pillar.gradient} rounded-full px-8 py-4 text-center shadow-xl hover:scale-105 hover:-translate-y-0.5 transition-transform duration-300`}>
                     <p className="text-white font-black text-xl tracking-wider mb-1">
                       {pillar.main}
                     </p>
@@ -88,13 +88,19 @@ export default function Home() {
         <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-cranberry/30 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
+            <div className="animate-pulse-slow absolute top-0 left-1/4 w-96 h-96 bg-cranberry/30 rounded-full blur-3xl" />
+            <div className="animate-pulse-slow absolute bottom-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
           </div>
+
+          {/* Gradient top edge */}
+          <div className="text-shimmer absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
 
           <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              The First Step Is Always a Conversation
+              The First Step Is Always a{" "}
+              <span className="text-shimmer bg-gradient-to-r from-gold via-cranberry-light to-gold bg-clip-text text-transparent">
+                Conversation
+              </span>
             </h2>
             <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
               No pitch. No pressure. Just a genuine discussion about where you are,
@@ -104,7 +110,7 @@ export default function Home() {
               href="https://www.speaktobrett.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-cranberry text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-cranberry-dark transition-all duration-300 shadow-xl shadow-cranberry/30 hover:shadow-2xl hover:shadow-cranberry/40 hover:-translate-y-1"
+              className="shine animate-ring-pulse inline-flex items-center gap-2 bg-cranberry text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-cranberry-dark transition-all duration-300 shadow-xl shadow-cranberry/30 hover:shadow-2xl hover:shadow-cranberry/40 hover:-translate-y-1"
             >
               Talk With Brett
             </a>

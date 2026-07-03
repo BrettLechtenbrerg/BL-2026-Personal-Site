@@ -104,9 +104,9 @@ export function Solution() {
               {/* Glow on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${pillar.gradient} rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl`} />
 
-              <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:border-transparent hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
+              <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:border-transparent hover:shadow-2xl transition-all duration-300 h-full flex flex-col group-hover:-translate-y-2">
                 {/* Icon */}
-                <div className={`w-16 h-16 ${pillar.iconBg} rounded-2xl flex items-center justify-center mb-6 shadow-lg ${pillar.shadow} flex-shrink-0`}>
+                <div className={`w-16 h-16 ${pillar.iconBg} rounded-2xl flex items-center justify-center mb-6 shadow-lg ${pillar.shadow} flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-6`}>
                   <pillar.icon className="w-8 h-8 text-white" />
                 </div>
 
@@ -129,10 +129,12 @@ export function Solution() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center"
         >
-          <div className="relative inline-block bg-gradient-to-br from-black via-gray-900 to-black rounded-3xl p-10 md:p-14 overflow-hidden">
+          <div className="relative inline-block bg-gradient-to-br from-black via-gray-900 to-black rounded-3xl p-10 md:p-14 overflow-hidden ring-1 ring-white/10">
+            {/* Animated top accent */}
+            <div className="text-shimmer absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
             {/* Background glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-cranberry/30 rounded-full blur-[80px]" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/20 rounded-full blur-[80px]" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-cranberry/30 rounded-full blur-[80px] animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/20 rounded-full blur-[80px] animate-pulse-slow" />
 
             <p className="relative text-xl md:text-2xl text-white mb-8">
               The result? You{" "}

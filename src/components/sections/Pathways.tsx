@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Mic2, Users, Bot, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const pathways = [
   {
@@ -99,22 +100,23 @@ export function Pathways() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid lg:grid-cols-3 gap-8"
         >
-          {pathways.map((pathway, index) => (
+          {pathways.map((pathway) => (
             <motion.div
               key={pathway.title}
               variants={cardVariants}
               className="group relative"
             >
-              {/* Glow effect */}
-              <div className={`absolute -inset-1 bg-gradient-to-r ${pathway.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
+              <TiltCard className="relative h-full">
+                {/* Glow effect */}
+                <div className={`absolute -inset-1 bg-gradient-to-r ${pathway.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
 
-              <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-500 h-full flex flex-col">
+                <div className="shine relative bg-gray-900/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/30 transition-all duration-500 h-full flex flex-col">
                 {/* Top gradient bar */}
                 <div className={`h-2 bg-gradient-to-r ${pathway.gradient} flex-shrink-0`} />
 
                 <div className="p-8 flex flex-col flex-grow">
                   {/* Icon */}
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br ${pathway.gradient} shadow-lg flex-shrink-0`}>
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br ${pathway.gradient} shadow-lg flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-6`}>
                     <pathway.icon className="w-8 h-8 text-white" />
                   </div>
 
@@ -139,10 +141,11 @@ export function Pathways() {
                     className={`inline-flex items-center gap-2 font-semibold transition-all group-hover:gap-3 ${pathway.iconColor} flex-shrink-0 mt-auto`}
                   >
                     {pathway.cta}
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
-              </div>
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { links } from "@/lib/utils";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 export function Hero() {
@@ -70,11 +70,11 @@ export function Hero() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
               Transform the Way You{" "}
-              <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
+              <span className="text-shimmer bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
                 Focus, Lead,
               </span>{" "}
               and{" "}
-              <span className="bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
+              <span className="text-shimmer bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
                 Perform
               </span>
             </motion.h1>
@@ -118,18 +118,22 @@ export function Hero() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="order-1 lg:order-2 relative"
           >
-            {/* Subtle glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-cranberry/40 via-gold/30 to-cranberry/40 rounded-3xl blur-2xl opacity-50" />
+            {/* Breathing glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-cranberry/40 via-gold/30 to-cranberry/40 rounded-3xl blur-2xl opacity-50 animate-pulse-slow" />
 
             {/* Image frame */}
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <div className="group relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 hover:border-gold/40 hover:shadow-gold/20">
               <Image
                 src="/media-kit/brett-twins-nobg.png"
                 alt="Brett Lechtenberg - Peak Performance Coach"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 priority
               />
+              {/* Sweeping light on hover */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+              </div>
             </div>
 
             {/* Single floating badge - 30+ Years - TOP RIGHT */}
@@ -137,10 +141,12 @@ export function Hero() {
               initial={{ opacity: 0, y: -20, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="absolute -top-4 -right-4 bg-gradient-to-br from-gold to-gold-dark rounded-xl shadow-2xl shadow-gold/30 p-4"
+              className="absolute -top-4 -right-4"
             >
-              <p className="text-black font-black text-2xl">30+</p>
-              <p className="text-black/70 text-xs font-semibold">Years Experience</p>
+              <div className="animate-float bg-gradient-to-br from-gold to-gold-dark rounded-xl shadow-2xl shadow-gold/30 p-4">
+                <p className="text-black font-black text-2xl">30+</p>
+                <p className="text-black/70 text-xs font-semibold">Years Experience</p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -163,8 +169,8 @@ export function Hero() {
                 transition={{ delay: 1 + index * 0.15, duration: 0.5 }}
                 className="group relative"
               >
-                <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity`} />
-                <div className={`relative bg-gradient-to-r ${pillar.gradient} rounded-full px-8 py-4 text-center shadow-xl hover:scale-105 transition-transform duration-300`}>
+                <div className={`absolute -inset-1 bg-gradient-to-r ${pillar.gradient} rounded-full blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-500`} />
+                <div className={`shine relative bg-gradient-to-r ${pillar.gradient} rounded-full px-8 py-4 text-center shadow-xl hover:scale-105 hover:-translate-y-0.5 transition-transform duration-300`}>
                   <p className="text-white font-black text-xl tracking-wider mb-1">
                     {pillar.main}
                   </p>
@@ -177,6 +183,21 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-1 text-cranberry/70"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-6 h-6" />
+        </motion.div>
+      </motion.div>
 
       {/* Bottom gradient fade */}
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
