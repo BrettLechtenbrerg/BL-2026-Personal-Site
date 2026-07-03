@@ -2,6 +2,50 @@
 
 ---
 
+## Session 17 - July 3, 2026 (Afternoon) - COMMS HUB LIVE + MEDIA KIT PROMOTED
+
+**Focus:** Burned through the full GHL/Supabase setup with Brett click-by-click,
+verified the hub end-to-end, added lead management, promoted the media kit.
+
+### Comms Hub setup (Brett + agent together)
+- GHL PIT "BL Coms Hub" created on personal location — 5 scopes (caught the
+  Edit Conversations vs Edit Conversation Messages near-twin trap live).
+- Supabase `bl-comms-hub` created; migration run; hit "permission denied"
+  because auto-expose-new-tables was disabled → added GRANT to service_role
+  (migration file patched for future clones).
+- All 7 env vars set via vercel CLI; GHL_LOCATION_ID lifted from existing
+  webhook URLs (no digging needed).
+- Verified: login, 24 leads + tags, 17 inbox conversations, audit log.
+
+### Live testing
+- SMS: "1 sent" but carrier-failed — location has NO phone number.
+  Confirmed via message status readback. SMS parked until number + A2P.
+- EMAIL: delivered to Teresa's Gmail (spam folder — dedicated sending
+  domain is the fix, TODO). Full pipeline proven.
+
+### Features added mid-session (Brett requests)
+- Login username/password show-hide eye toggles.
+- Add lead (modal) + Delete lead (trash + destructive confirm) — needed
+  contacts.write scope added to the PIT in place; verified via live
+  create/delete round-trip.
+
+### Promotion
+- **/media-kit-v2 → /media-kit (LIVE).** Draft route deleted.
+- /speaking-v2 still a hidden draft — Brett still deciding.
+
+### Docs
+- docs/COMMS_HUB.md: contacts.write scope, add/delete feature, spam/SMS
+  notes, and a "Cloning the site" section (site + hub travel as one unit).
+
+### Open items
+- Rotate HUB_PASSWORD (temp bladmin/bl-dev-2026 still live)
+- Dedicated sending domain for email deliverability
+- Phone number + A2P when Brett wants SMS
+- /speaking-v2 verdict
+- #7 workbook webhooks still open; Aug 4 Honest Close line
+
+---
+
 ## Session 16 - July 3, 2026 - V2 DRAFT PAGES + COMMS HUB
 
 **Duration:** Full session

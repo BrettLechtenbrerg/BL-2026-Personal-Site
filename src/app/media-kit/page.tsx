@@ -1,5 +1,9 @@
 "use client";
 
+// Talk & Training Topics uses the four-lane structure per
+// CLAUDE_CODE_SPEC_Speaking_Page_v2.md (Section 9). Promoted from the
+// /media-kit-v2 draft on July 3, 2026 after side-by-side review.
+
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
@@ -8,36 +12,86 @@ import { Download, FileText, Image as ImageIcon, Mic2, Monitor, User, Copy, Chec
 import Image from "next/image";
 import { useState } from "react";
 
-const talks = [
+const talkLanes = [
   {
-    title: "The Master's Edge",
-    subtitle: "Peak Performance Through Mastery of Mindset, Skillset, and Support Structure",
-    duration: "60-90 min keynote or full-day workshop",
-    bestFor: "Corporate events, leadership summits, conference keynotes",
+    lane: "Peak Performance & Mindset",
+    talks: [
+      {
+        title: "The Master's Edge",
+        subtitle: "Peak Performance Through Mastery of Mindset, Skillset, and Support Structure",
+        duration: "60–90 min keynote or full-day workshop",
+        bestFor: "Corporate events, leadership summits, conference keynotes",
+      },
+      {
+        title: "The Limitless Mindset",
+        subtitle: "Breaking Through the Mental Barriers Between You and Your Best Performance",
+        duration: "60–90 min keynote or workshop",
+        bestFor: "Motivational events, personal development conferences",
+      },
+      {
+        title: "Reclaiming The Clock",
+        subtitle: "Mastering Habits, Productivity, and the Truth About Time",
+        duration: "60–90 min keynote or half-day workshop",
+        bestFor: "Business owners, entrepreneurs, chamber events",
+      },
+      {
+        title: "Flow by Design",
+        subtitle: "The Research-Backed Science of Peak States, Faster Learning & Effortless Performance",
+        duration: "60–90 min keynote",
+        bestFor: "Performance-driven organizations, L&D teams, high-pressure professions",
+      },
+    ],
   },
   {
-    title: "Reclaiming The Clock",
-    subtitle: "Mastering Habits, Productivity, and the Truth About Time",
-    duration: "60-90 min keynote or half-day workshop",
-    bestFor: "Business owners, entrepreneurs, chamber events",
+    lane: "Leadership & Team Culture",
+    talks: [
+      {
+        title: "Winning Team Culture",
+        subtitle: "The Science of Building an Empowered Team of Motivated Professionals",
+        duration: "Half-day or full-day training",
+        bestFor: "Corporate retreats, management training, sports organizations",
+      },
+      {
+        title: "The Road Less Traveled (Mastery Edition)",
+        subtitle: "What 40 Years of Martial Arts Mastery Teaches Leaders About Excellence, Patience & Longevity",
+        duration: "45–60 min keynote",
+        bestFor: "Leadership retreats, executive off-sites, milestone events",
+      },
+    ],
   },
   {
-    title: "A Category of One",
-    subtitle: "Position Yourself So Far Ahead That Comparison Becomes Irrelevant",
-    duration: "60-90 min keynote",
-    bestFor: "Sales conferences, industry events, competitive environments",
+    lane: "Sales & Ethical Influence",
+    talks: [
+      {
+        title: "The Honest Close",
+        subtitle: "The Three Beliefs Behind Every Yes — and the Ethical Framework That Earns Them",
+        duration: "60–90 min keynote or half-day training",
+        bestFor: "Sales teams, financial services, credit unions, business development",
+      },
+      {
+        title: "A Category of One",
+        subtitle: "Position Yourself So Far Ahead That Comparison Becomes Irrelevant",
+        duration: "60–90 min keynote",
+        bestFor: "Sales conferences, industry events, competitive environments",
+      },
+    ],
   },
   {
-    title: "The Limitless Mindset",
-    subtitle: "Breaking Through the Mental Barriers Between You and Your Best Performance",
-    duration: "60-90 min keynote or workshop",
-    bestFor: "Motivational events, personal development conferences",
-  },
-  {
-    title: "Winning Team Culture",
-    subtitle: "The Science of Building an Empowered Team of Motivated Professionals",
-    duration: "Half-day or full-day training",
-    bestFor: "Corporate retreats, management training, sports organizations",
+    lane: "AI for Humans",
+    talks: [
+      {
+        title: "Who Owns the Outcome?",
+        subtitle: "The Leadership Question That Decides Whether AI Transforms Your Organization — or Quietly Damages It",
+        duration: "15–25 min keynote, expandable to 60 min",
+        bestFor: "Executive teams, boards, leadership summits",
+      },
+      {
+        title: "The AI Edge",
+        subtitle: "Build It Before You Leave — Hands-On AI Workshop",
+        duration: "Half-day or full-day workshop",
+        bestFor: "Corporate teams, chambers of commerce, small business groups",
+      },
+    ],
   },
 ];
 
@@ -357,7 +411,7 @@ export default function MediaKitPage() {
           </div>
         </section>
 
-        {/* Talk Topics */}
+        {/* Talk Topics — FOUR-LANE STRUCTURE (the only changed section vs /media-kit) */}
         <section className="py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -372,27 +426,36 @@ export default function MediaKitPage() {
               <h2 className="text-2xl font-bold text-black">Talk & Training Topics</h2>
             </motion.div>
 
-            <div className="space-y-4">
-              {talks.map((talk, index) => (
-                <motion.div
-                  key={talk.title}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-gradient-to-r from-cranberry/5 to-gold/5 rounded-2xl p-6 border border-gray-100"
-                >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-black">{talk.title}</h3>
-                      <p className="text-cranberry font-medium">{talk.subtitle}</p>
-                    </div>
-                    <div className="text-sm text-warm-gray md:text-right">
-                      <p><span className="font-semibold">Duration:</span> {talk.duration}</p>
-                      <p><span className="font-semibold">Best for:</span> {talk.bestFor}</p>
-                    </div>
+            <div className="space-y-10">
+              {talkLanes.map((laneGroup) => (
+                <div key={laneGroup.lane}>
+                  <p className="text-gold-dark font-semibold text-sm tracking-[0.2em] uppercase mb-4">
+                    {laneGroup.lane}
+                  </p>
+                  <div className="space-y-4">
+                    {laneGroup.talks.map((talk, index) => (
+                      <motion.div
+                        key={talk.title}
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="bg-gradient-to-r from-cranberry/5 to-gold/5 rounded-2xl p-6 border border-gray-100"
+                      >
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-black">{talk.title}</h3>
+                            <p className="text-cranberry font-medium">{talk.subtitle}</p>
+                          </div>
+                          <div className="text-sm text-warm-gray md:text-right md:flex-shrink-0">
+                            <p><span className="font-semibold">Duration:</span> {talk.duration}</p>
+                            <p><span className="font-semibold">Best for:</span> {talk.bestFor}</p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 

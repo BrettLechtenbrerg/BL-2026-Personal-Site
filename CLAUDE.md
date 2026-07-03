@@ -162,14 +162,14 @@ BL-2026-Personal-Site/
 
 | Draft | Path | Status | Description |
 |-------|------|--------|-------------|
-| Speaking v2 | `/speaking-v2` | 🔍 Under review | Four-lane restructure (10 talks) per Desktop spec. Promote by moving content to /speaking, then delete. |
-| Media Kit v2 | `/media-kit-v2` | 🔍 Under review | /media-kit clone with four-lane Talk Topics section. |
+| Speaking v2 | `/speaking-v2` | 🔍 Under review | Four-lane restructure (10 talks) per Desktop spec. Brett still deciding. Promote by moving content to /speaking, then delete. |
+| ~~Media Kit v2~~ | ~~`/media-kit-v2`~~ | ✅ PROMOTED July 3 | Four-lane Talk Topics is now the live /media-kit; draft route deleted. |
 
 ### Comms Hub (noindex — internal tool, July 3 2026)
 
 | Tool | Path | Status | Description |
 |------|------|--------|-------------|
-| Comms Hub | `/hub` → `/hub/messaging` | ⚠️ Partially configured | GHL messaging center (Compose/Inbox/Log) — Leads-only clone of PMMA's Power Hub system. **Read `docs/COMMS_HUB.md`** for architecture, env vars, GHL scopes, and the test plan. Login works with TEMP credentials; Supabase + GHL PIT env vars still needed (Brett's part). Rotate HUB_PASSWORD before real use. |
+| Comms Hub | `/hub` → `/hub/messaging` | ✅ LIVE — email verified | GHL messaging center (Compose/Inbox/Log + Add/Delete leads) — Leads-only clone of PMMA's Power Hub system. **Read `docs/COMMS_HUB.md`** (architecture, env vars, 5 GHL scopes, test plan, cloning). Email send verified end-to-end (spam until dedicated sending domain). SMS parked — location has no phone number/A2P yet. ⚠️ TEMP login bladmin/bl-dev-2026 — rotate HUB_PASSWORD before real use. |
 
 > **Adding a new course?** Read **`docs/COURSE_PATTERN.md`** — it's the canonical,
 > step-by-step recipe. Copy `src/app/masters-edge/workbook/` as the template.
@@ -291,6 +291,9 @@ vercel logs            # View deployment logs
   /media-kit-v2 built from Desktop spec; noindex; live pages untouched
 - **Comms Hub:** /hub GHL messaging center (Compose/Inbox/Log) — see
   `docs/COMMS_HUB.md`; deployed fail-closed; temp login set, setup pending
+- **(Afternoon)** Comms Hub fully configured + verified live (email
+  delivered; SMS parked — no phone number). Add/Delete leads + login
+  visibility toggles added. **/media-kit-v2 promoted to live /media-kit.**
 
 ### April 4, 2026
 - **All pages built** with bold color treatment

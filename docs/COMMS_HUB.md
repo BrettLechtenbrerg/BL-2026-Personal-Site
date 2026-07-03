@@ -87,3 +87,38 @@ place. Regenerating mints a new token → paste into Vercel again.
 - Marketing SMS mostly skips with `no_consent` — that's the compliance gate;
   operational messages send normally.
 - Leads pull is capped at the 1,000 newest contacts, cached ~60s per instance.
+- Email lands in spam until a dedicated sending domain is set up in GHL
+  (Settings → Email Services). SMS requires the location to have a phone
+  number + A2P registration — the hub needs zero code changes when added.
+
+## Cloning the site (hub travels with it as one unit)
+
+The entire hub — UI, API routes, GHL libs, session guard — lives in this
+repo. **Zero business identifiers are hardcoded**: every GHL id, token,
+Supabase key, and credential comes from env vars. Clone the repo and the
+hub clones with it, dormant until env vars are set (fails closed, public
+site unaffected). To stand up a clone for a new business:
+
+1. **Repo** → clone/fork; deploy to Vercel. Done — site + hub code travel together.
+2. **Supabase** → new project; run
+   `supabase/migrations/20260703120000_create_hub_messages.sql` in the SQL
+   editor (includes the service_role GRANT — required when "Automatically
+   expose new tables" is disabled at project creation, which it should be).
+3. **GHL** → the clone points at whichever location its `GHL_LOCATION_ID` +
+   `GHL_PIT_TOKEN` name. Create a Private Integration on the TARGET
+   location with the 5 scopes listed above. The hub stores nothing in GHL
+   beyond normal contacts/conversations — so even a full GHL account
+   export/rebuild only requires minting a new PIT token and updating two
+   env vars; no code or data migration.
+4. **Env vars** → set all 7 (table above) in the new Vercel project; redeploy.
+5. **Verify** → run the test plan above.
+
+What does NOT travel automatically: the Supabase audit history (export
+`hub_messages` as CSV if it matters) and the GHL contacts themselves
+(they belong to the GHL location, not the site). Also note two site pages
+outside the hub — `src/app/masters-edge-program/apply/page.tsx` and
+`src/app/book-brett/page.tsx` — have GHL inbound-webhook URLs hardcoded;
+a clone for a different business must swap those.
+
+See also: the original cross-business recipe this was built from —
+`PMMA-MESSAGING-CLONE-GUIDE.md` (Desktop) / PMMA repo `docs/MESSAGING-CLONE-GUIDE.md`.
