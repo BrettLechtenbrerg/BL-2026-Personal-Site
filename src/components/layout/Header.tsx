@@ -160,10 +160,11 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Scroll progress bar */}
+      {/* Scroll progress bar — anchored under the nav row (top-20) so it stays
+          put when the mobile menu expands the header */}
       <motion.div
         style={{ scaleX: progress }}
-        className="absolute bottom-0 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-cranberry via-gold to-cranberry"
+        className="absolute top-20 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-cranberry via-gold to-cranberry"
       />
 
       {/* Mobile Menu */}
