@@ -87,3 +87,10 @@ REVOKE ALL ON hub_messages FROM anon, authenticated;
 
 -- Intentionally NO update or delete grants/policies for anyone — the log is
 -- append-only; a send record can never be altered or removed after the fact.
+
+-- Service-role grant — required because the project was created with
+-- "Automatically expose new tables" disabled, which also skips service_role's
+-- default privileges. RLS stays ON with zero policies; anon/authenticated
+-- stay revoked. (Added after live deploy hit: permission denied for table
+-- hub_messages.)
+GRANT SELECT, INSERT ON hub_messages TO service_role;
