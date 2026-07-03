@@ -2,6 +2,45 @@
 
 ---
 
+## Session 16 - July 3, 2026 - V2 DRAFT PAGES + COMMS HUB
+
+**Duration:** Full session
+**Focus:** Two big deliverables — hidden v2 draft pages for review, and the Comms Hub messaging system.
+
+### 1. Hidden v2 draft pages (side-by-side review)
+- Built `/speaking-v2` from Desktop spec `CLAUDE_CODE_SPEC_Speaking_Page_v2.md`:
+  four-lane restructure, 10 talks, pull-quote band, no unverified stats.
+- Built `/media-kit-v2`: clone of /media-kit with four-lane Talk Topics section.
+- Both noindex + out of sitemap/nav; live pages untouched; verified live via curl.
+- Brett reviewing for a day or two before promotion.
+
+### 2. Comms Hub (/hub) — GHL messaging center
+- Cloned PMMA's communication system (Desktop `PMMA-MESSAGING-CLONE-GUIDE.md`)
+  as a lean Leads-only build: login + Compose/Inbox/Log, HMAC sessions,
+  guarded API routes, locked-down Supabase audit table, GHL Conversations rails.
+- Decision rationale: build now while the PMMA pattern knowledge is fresh;
+  minimal scope (no roster/dashboard); fully separate infrastructure from PMMA.
+- Deployed inert (fails closed until env vars). Verified 401/503 posture live.
+- Set TEMPORARY hub credentials in Vercel via CLI (bladmin / bl-dev-2026) so
+  Brett could preview — must be rotated before real use.
+- Wrote `docs/COMMS_HUB.md` (architecture, env vars, GHL scopes, test plan)
+  + Brett's click-by-click setup instructions (Supabase, GHL PIT, Vercel env).
+
+### Commits
+- `75b62f4` speaking-v2 + media-kit-v2 draft pages
+- `9c12e06` v2 style fixes
+- `7f47f83` Comms Hub (20 files)
+- `9fb4e7f` redeploy for HUB_* env vars
+
+### Open items
+- Promote v2 pages after Brett approves comparison
+- Brett: Supabase + GHL PIT + remaining env vars → live SMS test together
+- Rotate HUB_PASSWORD to strong value
+- #7 workbook webhooks (GHL_WORKBOOK_STARTED_URL / _COMPLETED_URL) still open
+- Aug 4: uncomment Honest Close proof line
+
+---
+
 ## Session 14 - April 19, 2026 (Morning) - GHL WEBHOOK FIX
 
 **Duration:** ~30 minutes

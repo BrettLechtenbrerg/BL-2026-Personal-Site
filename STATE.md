@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** June 3, 2026
+**Last Updated:** July 3, 2026
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,55 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational.
+
+### Completed (July 3, 2026 — V2 DRAFT PAGES + COMMS HUB)
+
+#### Hidden draft pages for side-by-side review
+(spec: Desktop `CLAUDE_CODE_SPEC_Speaking_Page_v2.md` by "Flo", July 3)
+- **`/speaking-v2`** — four-lane restructure (Peak Performance & Mindset /
+  Leadership & Team Culture / Sales & Ethical Influence / AI for Humans),
+  10 talks total, flagship cards featured, "Hacks are for hacks" pull-quote
+  band between Lanes 1–2, new hero copy, trust-bar SEO sentence, media-kit
+  block, closing CTA. NO stats anywhere (old 100+/10K+ stats bar dropped per
+  spec — those numbers are pending verification).
+- **`/media-kit-v2`** — identical to live /media-kit except Talk & Training
+  Topics uses the four-lane grouping (10 talks, compact row format).
+- Both: noindex/nofollow, out of sitemap + nav. Live /speaking + /media-kit
+  UNTOUCHED. Brett is doing a day-or-two side-by-side comparison before
+  approving promotion (then: move v2 content over live, restore indexing,
+  delete draft routes).
+- Honest Close proof line ("Field-tested with America First Credit Union…")
+  is a commented-out placeholder in speaking-v2/page.tsx — uncomment after Aug 4.
+
+#### Comms Hub — GHL messaging center at /hub (NEW)
+- **Leads-only clone of PMMA's proven Power Hub communication system**
+  (per Desktop `PMMA-MESSAGING-CLONE-GUIDE.md`; PMMA system verified live
+  July 2). Full architecture + setup + test plan: **`docs/COMMS_HUB.md`**.
+- `/hub` login → `/hub/messaging` with three tabs: **Compose** (lead picker
+  w/ tag filter + search, SMS/email, {{first_name}}/{{last_name}} merge tags,
+  live preview, marketing-SMS consent gate, batch dedupe, confirm modal),
+  **Inbox** (GHL conversations, unread + needs-reply badges, thread view,
+  in-place replies), **Log** (append-only audit → `hub_messages` table).
+- Security: HMAC credential-bound session cookie (`src/lib/hub-session.ts`);
+  every `/api/hub/*` route calls `requireHubSession()`; login rate-limited
+  (8 fails/15 min/IP); fails closed (503) when env vars missing in prod.
+  Rotating HUB_PASSWORD in Vercel kills all sessions instantly.
+- Hidden: noindex layout, not in sitemap/nav.
+- **⚠️ TEMP CREDENTIALS LIVE (July 3):** HUB_USERNAME=`bladmin` /
+  HUB_PASSWORD=`bl-dev-2026` + random HUB_SESSION_SECRET set in Vercel
+  (production) via CLI so Brett could preview the live hub. These are the
+  dev fallbacks documented in the repo — **CHANGE HUB_PASSWORD to something
+  strong before real lead conversations happen.**
+- **NOT YET DONE (Brett's part, ~30 min — click-by-click in docs/COMMS_HUB.md):**
+  1. Supabase project + run
+     `supabase/migrations/20260703120000_create_hub_messages.sql` in SQL editor
+  2. GHL PIT token on Brett's PERSONAL location with 4 scopes (View Contacts,
+     View Conversations, View Conversation Messages, Edit Conversation Messages)
+  3. Vercel env: GHL_PIT_TOKEN, GHL_LOCATION_ID, NEXT_PUBLIC_SUPABASE_URL,
+     SUPABASE_SERVICE_ROLE_KEY → redeploy
+  4. Live test: tag self `test-lead` → SMS send → inbox reply round-trip
+- Until then: hub UI loads + login works, but Leads/Inbox show
+  "GHL_PIT_TOKEN not set" and sends log-but-fail. Public site unaffected.
 
 ### Completed (June 3, 2026 - HIDDEN COURSE SYSTEM)
 

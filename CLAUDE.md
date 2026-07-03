@@ -158,6 +158,19 @@ BL-2026-Personal-Site/
 |--------|------|--------|-------------|
 | The Master's Edge Workbook | `/masters-edge/workbook` | ✅ Live | Interactive 4-week participant workbook (Clarify → Simplify → Maximize → Integration). Autosave, PDF export, email results, GHL lead capture. |
 
+### Hidden Draft Pages (noindex — side-by-side review, July 3 2026)
+
+| Draft | Path | Status | Description |
+|-------|------|--------|-------------|
+| Speaking v2 | `/speaking-v2` | 🔍 Under review | Four-lane restructure (10 talks) per Desktop spec. Promote by moving content to /speaking, then delete. |
+| Media Kit v2 | `/media-kit-v2` | 🔍 Under review | /media-kit clone with four-lane Talk Topics section. |
+
+### Comms Hub (noindex — internal tool, July 3 2026)
+
+| Tool | Path | Status | Description |
+|------|------|--------|-------------|
+| Comms Hub | `/hub` → `/hub/messaging` | ⚠️ Partially configured | GHL messaging center (Compose/Inbox/Log) — Leads-only clone of PMMA's Power Hub system. **Read `docs/COMMS_HUB.md`** for architecture, env vars, GHL scopes, and the test plan. Login works with TEMP credentials; Supabase + GHL PIT env vars still needed (Brett's part). Rotate HUB_PASSWORD before real use. |
+
 > **Adding a new course?** Read **`docs/COURSE_PATTERN.md`** — it's the canonical,
 > step-by-step recipe. Copy `src/app/masters-edge/workbook/` as the template.
 > "Hidden" = noindex layout + not in `sitemap.ts` + not linked in `Header.tsx`.
@@ -272,6 +285,12 @@ vercel logs            # View deployment logs
 ---
 
 ## Work History
+
+### July 3, 2026
+- **Hidden v2 drafts:** /speaking-v2 (four-lane restructure, 10 talks) +
+  /media-kit-v2 built from Desktop spec; noindex; live pages untouched
+- **Comms Hub:** /hub GHL messaging center (Compose/Inbox/Log) — see
+  `docs/COMMS_HUB.md`; deployed fail-closed; temp login set, setup pending
 
 ### April 4, 2026
 - **All pages built** with bold color treatment
