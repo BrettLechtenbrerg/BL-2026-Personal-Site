@@ -276,7 +276,7 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
         <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
       )}
       <div
-        className={`relative bg-orange-50/40 rounded-2xl p-8 shadow-lg border h-full transition-all duration-300 group-hover:shadow-xl ${
+        className={`relative rounded-2xl p-8 shadow-lg border h-full transition-all duration-300 group-hover:shadow-xl ${
           talk.flagship
             ? "border-gold/60 bg-gradient-to-br from-orange-50/60 via-white to-gold/10"
             : "border-gray-100 bg-white"
@@ -448,7 +448,7 @@ export default function SpeakingV2Page() {
         {/* ===== 2. TRUST BAR ===== */}
         <LogoScroller />
         {/* Supporting text for SEO/accessibility (carousel logos are images) */}
-        <div className="bg-gray-50 pb-10 -mt-4">
+        <div className="bg-gray-50 py-6">
           <p className="text-center text-sm text-warm-gray/80 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             From Fortune 500 teams like American Express and Delta to chambers
             of commerce across Utah, Brett delivers transformation that outlasts
