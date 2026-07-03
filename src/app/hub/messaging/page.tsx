@@ -44,6 +44,8 @@ import {
   RefreshCw,
   CornerDownLeft,
   LogOut,
+  UserPlus,
+  Trash2,
 } from "lucide-react";
 
 interface Lead {
@@ -142,6 +144,15 @@ export default function HubMessagingPage() {
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const [results, setResults] = useState<SendResultRow[] | null>(null);
+
+  // Lead management (add / delete)
+  const [addingLead, setAddingLead] = useState(false);
+  const [newLead, setNewLead] = useState({ first_name: "", last_name: "", email: "", phone: "", tags: "" });
+  const [savingLead, setSavingLead] = useState(false);
+  const [addLeadError, setAddLeadError] = useState<string | null>(null);
+  const [deletingLead, setDeletingLead] = useState<Lead | null>(null);
+  const [deleteBusy, setDeleteBusy] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
 
   // Log
   const [log, setLog] = useState<LogRow[]>([]);
@@ -368,6 +379,62 @@ export default function HubMessagingPage() {
 
   const insertTag = (tag: string) => setBody((b) => `${b}{{${tag}}}`);
 
+  const saveNewLead = useCallback(async () => {
+    setSavingLead(true);
+    setAddLeadError(null);
+    try {
+      const res = await fetch("/api/hub/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: newLead.first_name,
+          last_name: newLead.last_name,
+          email: newLead.email,
+          phone: newLead.phone,
+          tags: newLead.tags
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean),
+        }),
+      });
+      if (guard(res)) return;
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Failed to add the lead.");
+      setAddingLead(false);
+      setNewLead({ first_name: "", last_name: "", email: "", phone: "", tags: "" });
+      await loadLeads();
+    } catch (err) {
+      setAddLeadError(err instanceof Error ? err.message : "Failed to add the lead.");
+    } finally {
+      setSavingLead(false);
+    }
+  }, [newLead, guard, loadLeads]);
+
+  const confirmDeleteLead = useCallback(async () => {
+    if (!deletingLead) return;
+    setDeleteBusy(true);
+    setDeleteError(null);
+    try {
+      const res = await fetch(`/api/hub/leads/${encodeURIComponent(deletingLead.contact_id)}`, {
+        method: "DELETE",
+      });
+      if (guard(res)) return;
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Failed to delete the lead.");
+      setSelectedLeads((prev) => {
+        const next = new Set(prev);
+        next.delete(deletingLead.contact_id);
+        return next;
+      });
+      setDeletingLead(null);
+      await loadLeads();
+    } catch (err) {
+      setDeleteError(err instanceof Error ? err.message : "Failed to delete the lead.");
+    } finally {
+      setDeleteBusy(false);
+    }
+  }, [deletingLead, guard, loadLeads]);
+
   // Live preview against the first selected lead (or a sample).
   const previewVars = useMemo(() => {
     const l = selectedLeadRows[0];
@@ -503,7 +570,18 @@ export default function HubMessagingPage() {
                 <h2 className="font-semibold text-gray-900 inline-flex items-center gap-2">
                   <ListChecks className="w-4 h-4" /> Recipients
                 </h2>
-                <span className="text-xs text-gray-500">{totalSelected} selected</span>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() => {
+                      setAddLeadError(null);
+                      setAddingLead(true);
+                    }}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-[#9B1B30] hover:underline"
+                  >
+                    <UserPlus className="w-3.5 h-3.5" /> Add lead
+                  </button>
+                  <span className="text-xs text-gray-500">{totalSelected} selected</span>
+                </div>
               </div>
 
               {/* Channel toggle */}
@@ -635,6 +713,17 @@ export default function HubMessagingPage() {
                               {l.tags.length > 1 ? ` +${l.tags.length - 1}` : ""}
                             </span>
                           )}
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setDeleteError(null);
+                              setDeletingLead(l);
+                            }}
+                            title={`Delete ${l.name} from GHL`}
+                            className="shrink-0 text-gray-300 hover:text-red-600 transition-colors"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
                         </label>
                       );
                     })}
@@ -1030,6 +1119,146 @@ export default function HubMessagingPage() {
           </section>
         )}
       </div>
+
+      {/* Add-lead modal */}
+      {addingLead && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl max-w-md w-full p-6">
+            <h3 className="font-semibold text-gray-900 text-lg mb-4 inline-flex items-center gap-2">
+              <UserPlus className="w-5 h-5" style={{ color: CRANBERRY }} /> Add lead
+            </h3>
+            <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs text-gray-600">First name *</label>
+                  <input
+                    value={newLead.first_name}
+                    onChange={(e) => setNewLead((p) => ({ ...p, first_name: e.target.value }))}
+                    autoFocus
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs text-gray-600">Last name</label>
+                  <input
+                    value={newLead.last_name}
+                    onChange={(e) => setNewLead((p) => ({ ...p, last_name: e.target.value }))}
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="text-xs text-gray-600">Cell phone</label>
+                <input
+                  type="tel"
+                  value={newLead.phone}
+                  onChange={(e) => setNewLead((p) => ({ ...p, phone: e.target.value }))}
+                  placeholder="801-555-1234"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900"
+                />
+              </div>
+              <div>
+                <label className="text-xs text-gray-600">Email</label>
+                <input
+                  type="email"
+                  value={newLead.email}
+                  onChange={(e) => setNewLead((p) => ({ ...p, email: e.target.value }))}
+                  placeholder="name@example.com"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900"
+                />
+                <p className="text-[11px] text-gray-400 mt-1">At least one of phone or email is required.</p>
+              </div>
+              <div>
+                <label className="text-xs text-gray-600">Tags (comma-separated)</label>
+                <input
+                  value={newLead.tags}
+                  onChange={(e) => setNewLead((p) => ({ ...p, tags: e.target.value }))}
+                  placeholder="speaking-inquiry, hot"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900"
+                />
+              </div>
+            </div>
+            {addLeadError && (
+              <div className="mt-3 flex items-center gap-2 rounded-lg bg-red-50 text-red-700 px-3 py-2 text-xs">
+                <AlertTriangle className="w-3.5 h-3.5 shrink-0" /> {addLeadError}
+              </div>
+            )}
+            <div className="flex gap-2 mt-5">
+              <button
+                onClick={() => setAddingLead(false)}
+                disabled={savingLead}
+                className="flex-1 px-4 py-2 rounded-lg border border-gray-300 text-sm text-gray-700 hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={saveNewLead}
+                disabled={savingLead || !newLead.first_name.trim() || (!newLead.phone.trim() && !newLead.email.trim())}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#9B1B30] text-white text-sm font-medium hover:bg-[#7A1526] disabled:opacity-40"
+              >
+                {savingLead ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" /> Saving…
+                  </>
+                ) : (
+                  <>
+                    <UserPlus className="w-4 h-4" /> Add lead
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete-lead confirm modal */}
+      {deletingLead && (
+        <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl max-w-md w-full p-6">
+            <h3 className="font-semibold text-gray-900 text-lg mb-2 inline-flex items-center gap-2">
+              <Trash2 className="w-5 h-5 text-red-600" /> Delete lead
+            </h3>
+            <p className="text-sm text-gray-600 mb-2">
+              Permanently delete <strong>{deletingLead.name}</strong>
+              {deletingLead.email ? ` (${deletingLead.email})` : deletingLead.phone ? ` (${deletingLead.phone})` : ""}{" "}
+              from GHL?
+            </p>
+            <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
+              This removes the contact and its conversation history from Go High
+              Level — not just from this list. This cannot be undone from the hub.
+            </p>
+            {deleteError && (
+              <div className="mb-3 flex items-center gap-2 rounded-lg bg-red-50 text-red-700 px-3 py-2 text-xs">
+                <AlertTriangle className="w-3.5 h-3.5 shrink-0" /> {deleteError}
+              </div>
+            )}
+            <div className="flex gap-2">
+              <button
+                onClick={() => setDeletingLead(null)}
+                disabled={deleteBusy}
+                className="flex-1 px-4 py-2 rounded-lg border border-gray-300 text-sm text-gray-700 hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeleteLead}
+                disabled={deleteBusy}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-red-600 text-white text-sm font-medium hover:bg-red-700 disabled:opacity-50"
+              >
+                {deleteBusy ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" /> Deleting…
+                  </>
+                ) : (
+                  <>
+                    <Trash2 className="w-4 h-4" /> Delete permanently
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Confirm-count modal */}
       {confirming && (

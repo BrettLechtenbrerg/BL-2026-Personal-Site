@@ -168,6 +168,11 @@ async function fetchAllContacts(): Promise<{
 // Module-level cache — per serverless instance, refreshed after CACHE_TTL_MS.
 let cache: { result: GhlLeadsResult; loadedAt: number } | null = null;
 
+/** Drop the cached pull so the next fetch hits GHL — call after create/delete. */
+export function clearLeadsCache(): void {
+  cache = null;
+}
+
 /**
  * Fetch all GHL contacts, grouped with their tags. No roster exclusion on
  * this site — the location's contacts ARE the audience. Best-effort: never
