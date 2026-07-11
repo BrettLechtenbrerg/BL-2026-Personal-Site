@@ -104,7 +104,8 @@ export function checkBotSignals(
   const originHost = hostFromUrl(request.headers.get("origin"));
   const refererHost = hostFromUrl(request.headers.get("referer"));
   const claimedHost = originHost || refererHost;
-  const isLocalhost = claimedHost?.startsWith("localhost");
+  const isLocalhost =
+    claimedHost === "localhost" || claimedHost?.startsWith("localhost:");
   if (!claimedHost || (!ALLOWED_HOSTS.includes(claimedHost) && !isLocalhost)) {
     return { ok: false, reason: "origin", status: 403 };
   }
