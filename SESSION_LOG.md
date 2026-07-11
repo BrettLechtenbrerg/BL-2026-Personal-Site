@@ -2,6 +2,39 @@
 
 ---
 
+## Session 19 - July 11, 2026 - ROCKSTAR TEAM QUIZ FUNNEL LIVE
+
+**Focus:** Cloned the totalsuccessai.com quiz-funnel system onto this site
+(same session also built PMMA's Confidence quiz — see that repo's log).
+All pushed; Vercel auto-deployed.
+
+### Rockstar Team Quiz — LIVE
+- /rockstar-team-quiz: quiz for business owners/leaders diagnosing their
+  team's #1 gap — Recognition / Connection / Ownership / Feedback /
+  Vision / Hiring. Email capture → analyzing animation → personalized
+  result, positioned around Brett's team-building/speaking offer.
+- src/components/RockstarTeamQuiz.tsx + /api/team-lead → GHL webhook env
+  GHL_TEAM_WEBHOOK_URL. Bot protection via src/lib/bot-protection.ts
+  (honeypot, timing, origin check — hardened this session: localhost
+  origin match is exact host/port only, blocks localhost.evil.com,
+  08bdde3).
+- Surfaced: Books & Media nav dropdown + homepage promo section (7cc7bf5).
+- Internal preview: /quiz-results-gallery (noindex) shows all 6 result
+  variations.
+
+### ⚠️ Open items
+- GHL_TEAM_WEBHOOK_URL NOT set in Vercel — quiz leads currently log
+  server-side only (Vercel function logs; nothing lost, no email yet).
+- GHL contact-email delivery bug (documented in ~/dev/TSAI-Site/docs/
+  SESSION-2026-07-11-QUIZ-FUNNELS.md) — plan is Resend for lead-magnet
+  delivery instead of GHL email.
+
+### Commits
+ac11dae quiz funnel · 7cc7bf5 surface in nav + homepage · 08bdde3 origin
+check hardening
+
+---
+
 ## Session 18 - July 3, 2026 (Evening) - DESIGN FLAIR + SPEAKING V3 PROMOTED
 
 **Focus:** Site-wide design polish pass, then built and promoted the new
