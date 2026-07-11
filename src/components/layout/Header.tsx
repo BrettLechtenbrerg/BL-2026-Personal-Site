@@ -19,12 +19,17 @@ const speakingDropdown = [
   { name: "Media Kit", href: "/media-kit" },
 ];
 
+const booksDropdown = [
+  { name: "All Books", href: "/books" },
+  { name: "Rockstar Team Quiz", href: "/rockstar-team-quiz" },
+];
+
 const navigation = [
   { name: "The Master's Edge", href: "/masters-edge", hasDropdown: true, dropdownType: "mastersEdge" },
   { name: "Speaking", href: "/speaking", hasDropdown: true, dropdownType: "speaking" },
   { name: "Coaching", href: "/coaching" },
   { name: "AI Advisory", href: "/ai-advisory" },
-  { name: "Books & Media", href: "/books" },
+  { name: "Books & Media", href: "/books", hasDropdown: true, dropdownType: "books" },
   { name: "Testimonials", href: "/testimonials" },
   { name: "About", href: "/about" },
 ];
@@ -53,6 +58,7 @@ export function Header() {
   const getDropdownItems = (type: string) => {
     if (type === "mastersEdge") return mastersEdgeDropdown;
     if (type === "speaking") return speakingDropdown;
+    if (type === "books") return booksDropdown;
     return [];
   };
 

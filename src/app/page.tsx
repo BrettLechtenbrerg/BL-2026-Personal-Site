@@ -6,6 +6,7 @@ import { Pathways } from "@/components/sections/Pathways";
 import { Credibility } from "@/components/sections/Credibility";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { MediaFeature } from "@/components/sections/MediaFeature";
+import { QuizPromo } from "@/components/sections/QuizPromo";
 import { LogoScroller } from "@/components/sections/LogoScroller";
 
 export default function Home() {
@@ -80,6 +81,9 @@ export default function Home() {
 
         {/* Testimonials */}
         <Testimonials />
+
+        {/* Rockstar Team Quiz Promo */}
+        <QuizPromo />
 
         {/* Media Feature with YouTube Video */}
         <MediaFeature />
