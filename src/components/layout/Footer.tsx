@@ -27,6 +27,7 @@ const quickLinks = [
   { name: "Coaching", href: "/coaching" },
   { name: "AI Advisory", href: "/ai-advisory" },
   { name: "Books & Media", href: "/books" },
+  { name: "Rockstar Team Quiz", href: "/rockstar-team-quiz" },
   { name: "Testimonials", href: "/testimonials" },
   { name: "Blog", href: "/blog" },
 ];

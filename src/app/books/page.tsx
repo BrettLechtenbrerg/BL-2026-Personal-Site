@@ -599,6 +599,16 @@ export default function BooksPage() {
                 <BookOpen className="w-5 h-5" />
                 Get the Free eBook
               </button>
+              <p className="mt-6 text-white/80">
+                Not sure where your team is leaking talent?{" "}
+                <a
+                  href="/rockstar-team-quiz"
+                  className="font-semibold text-gold underline underline-offset-4 hover:text-gold-light transition-colors"
+                >
+                  Take the free 2-minute Rockstar Team Quiz
+                </a>{" "}
+                and get your #1 gap diagnosed.
+              </p>
             </motion.div>
           </div>
         </section>
