@@ -18,7 +18,7 @@ const talkLanes = [
     talks: [
       {
         title: "The Master's Edge",
-        subtitle: "Peak Performance Through Mastery of Mindset, Skillset, and Support Structure",
+        subtitle: "Peak Performance Through Mastery of Mindset, Skillset, and Systems Design",
         duration: "60–90 min keynote or full-day workshop",
         bestFor: "Corporate events, leadership summits, conference keynotes",
       },
@@ -106,7 +106,7 @@ const avRequirements = [
 
 const shortBio = `Brett Lechtenberg is a peak performance coach, author of seven books, and the creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings a unique blend of real-world business acumen, original flow state research, and proven leadership principles to every audience he serves.`;
 
-const longBio = `Brett Lechtenberg is a peak performance coach, bestselling author, and the creator of The Master's Edge — a transformational methodology that helps leaders unlock their full potential through mastery of mindset, skillset, and support structure.
+const longBio = `Brett Lechtenberg is a peak performance coach, bestselling author, and the creator of The Master's Edge — a transformational methodology that helps leaders unlock their full potential through mastery of mindset, skillset, and systems design.
 
 For over three decades, Brett has run Personal Mastery Martial Arts & Family Success Center in Sandy, Utah — a living laboratory where every strategy was tested before it was ever taught. This real-world experience, combined with his formal research on flow states (validated by Steven Kotler's Flow Research Collective), gives Brett a unique perspective that resonates with audiences from corporate boardrooms to championship sports teams.
 

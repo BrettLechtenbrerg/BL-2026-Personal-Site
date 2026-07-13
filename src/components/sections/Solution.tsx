@@ -25,7 +25,7 @@ const pillars = [
   },
   {
     icon: Building2,
-    title: "Support Structure",
+    title: "Systems Design",
     description:
       "Design the environment, systems, habits, and relationships that sustain peak performance over time.",
     gradient: "from-cranberry to-cranberry-dark",

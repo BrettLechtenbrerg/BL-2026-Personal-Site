@@ -24,7 +24,7 @@ const phases = [
     title: "SIMPLIFY",
     subtitle: "Frontloaded Toolkit",
     description:
-      "We build the specific tools, frameworks, and systems you need — before the next high-stakes moment demands them. Your custom toolkit addresses Mindset, Skillset, and Support Structure.",
+      "We build the specific tools, frameworks, and systems you need — before the next high-stakes moment demands them. Your custom toolkit addresses Mindset, Skillset, and Systems Design.",
     icon: Sparkles,
     gradient: "from-gold to-gold-dark",
     color: "text-gold",

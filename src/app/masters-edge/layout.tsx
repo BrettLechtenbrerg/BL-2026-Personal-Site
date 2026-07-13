@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "leadership methodology",
     "mindset mastery",
     "skillset enhancement",
-    "support structure",
+    "systems design",
     "first principles thinking",
     "Brett Lechtenberg",
   ],

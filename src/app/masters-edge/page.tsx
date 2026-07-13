@@ -52,7 +52,7 @@ const pillars = [
   },
   {
     icon: Building2,
-    title: "Support Structure",
+    title: "Systems Design",
     subtitle: "Systems • Habits • Environment",
     description:
       "The piece most programs miss. We design the environment, systems, and routines that make peak performance sustainable.",

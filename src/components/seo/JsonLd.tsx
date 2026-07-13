@@ -85,7 +85,7 @@ export function JsonLd() {
     url: "https://www.brettlechtenberg.com/masters-edge",
     provider: { "@id": "https://www.brettlechtenberg.com/#brett" },
     description:
-      "The Master's Edge by Brett Lechtenberg is a science-backed peak performance coaching methodology for leaders and business owners: Mindset Mastery, Skillset Enhancement, and Support Structure, built on 30+ years of experience and validated flow state research. Clarify, Simplify, Maximize.",
+      "The Master's Edge by Brett Lechtenberg is a science-backed peak performance coaching methodology for leaders and business owners: Mindset Mastery, Skillset Enhancement, and Systems Design, built on 30+ years of experience and validated flow state research. Clarify, Simplify, Maximize.",
     areaServed: { "@type": "Country", name: "United States" },
   };
 

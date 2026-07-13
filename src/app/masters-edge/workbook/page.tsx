@@ -364,7 +364,7 @@ export default function MastersEdgeWorkbook() {
     body += `  What I can cut or simplify: ${data.w2_cut_simplify || "(not filled)"}\n`;
     body += `  7-Day "Load Tomorrow Tonight" Tracker:\n${trackerText(2)}\n`;
 
-    body += `=== WEEK 3 — MAXIMIZE (Flow · Support Structure) ===\n`;
+    body += `=== WEEK 3 — MAXIMIZE (Flow · Systems Design) ===\n`;
     body += `  Tomorrow's 90-minute target: ${data.w3_block_target || "(not filled)"}\n`;
     body += `  When the block happens: ${data.w3_block_when || "(not filled)"}\n`;
     body += `  What I'll remove (distractions): ${data.w3_remove || "(not filled)"}\n`;
@@ -374,7 +374,7 @@ export default function MastersEdgeWorkbook() {
     body += `=== WEEK 4 — THE MASTER'S EDGE (Integration) ===\n`;
     body += `  Mindset score (1-10): ${data.w4_mindset_score || "(not filled)"}\n`;
     body += `  Skillset score (1-10): ${data.w4_skillset_score || "(not filled)"}\n`;
-    body += `  Support Structure score (1-10): ${data.w4_support_score || "(not filled)"}\n`;
+    body += `  Systems Design score (1-10): ${data.w4_support_score || "(not filled)"}\n`;
     body += `  Weakest pillar + my 30-day move: ${data.w4_weakest_move || "(not filled)"}\n`;
     body += `  7-Day "Three-Pillar Review" Tracker:\n${trackerText(4)}\n`;
 
@@ -814,7 +814,7 @@ export default function MastersEdgeWorkbook() {
               release → flow → recovery. Manage energy, not time.
             </IdeaBlock>
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
-              Pillar this week: Support Structure
+              Pillar this week: Systems Design
             </p>
             <p className="text-black mb-2">
               <strong>Your habit — &ldquo;Engineer One Block&rdquo;:</strong>{" "}Each day, build one 90-minute flow block — clear target, calibrated
@@ -882,7 +882,7 @@ export default function MastersEdgeWorkbook() {
               finally move as one. No single pillar makes a master. The
               integration does. Because the layers stack, the weakest pillar caps
               the whole system: a strong mindset with no skillset is just
-              positive thinking; great skills with no support structure burn out;
+              positive thinking; great skills with no systems design burn out;
               a great environment with no clarity just drifts efficiently in the
               wrong direction.
             </IdeaBlock>
@@ -910,7 +910,7 @@ export default function MastersEdgeWorkbook() {
                   onChange={(v) => set("w4_skillset_score", v)}
                 />
                 <Field
-                  label="Support Structure score (1–10) — and why:"
+                  label="Systems Design score (1–10) — and why:"
                   value={data.w4_support_score}
                   onChange={(v) => set("w4_support_score", v)}
                 />
