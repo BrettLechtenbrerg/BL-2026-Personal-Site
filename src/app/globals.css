@@ -207,21 +207,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Logo Scroller Animation - works on mobile */
+/* Logo Scroller Animation - works on mobile.
+   translate3d keeps the track on the GPU compositor for subpixel-smooth
+   motion (plain translateX can jitter once the track gets long). */
 @keyframes scroll {
   0% {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-scroll {
-  animation: scroll 35s linear infinite;
-  -webkit-animation: scroll 35s linear infinite;
+  animation: scroll 24s linear infinite;
+  -webkit-animation: scroll 24s linear infinite;
   will-change: transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
