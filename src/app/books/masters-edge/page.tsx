@@ -216,12 +216,7 @@ export default function MastersEdgeBookPage() {
                 to your team in person?
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  href={links.booking}
-                  external
-                  size="lg"
-                  className="bg-white text-black hover:bg-gray-100"
-                >
+                <Button href={links.booking} external size="lg" variant="secondary">
                   Talk With Brett
                 </Button>
                 <Button
