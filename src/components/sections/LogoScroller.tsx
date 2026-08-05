@@ -2,18 +2,21 @@
 
 import Image from "next/image";
 
+// heightClass tunes each logo's rendered height so every mark carries the
+// same visual weight as Delta/America First (squares need to run taller,
+// ultra-wide wordmarks shorter). Default is h-[50px].
 const logos = [
-  { name: "American Express", src: "/logos/american-express.png", width: 200 },
+  { name: "American Express", src: "/logos/american-express.png", width: 200, heightClass: "h-[64px]" },
   { name: "Delta", src: "/logos/delta.png", width: 175 },
   { name: "America First Credit Union", src: "/logos/america-first.png", width: 175 },
-  { name: "Packsize", src: "/logos/packsize.png", width: 188 },
-  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 200, hasBackground: true },
-  { name: "Purple", src: "/logos/purple.jpg", width: 150, hasBackground: true },
+  { name: "Packsize", src: "/logos/packsize.png", width: 188, heightClass: "h-[32px]" },
+  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 200, hasBackground: true, heightClass: "h-[62px]" },
+  { name: "Purple", src: "/logos/purple.jpg", width: 150, hasBackground: true, heightClass: "h-[62px]" },
   { name: "Thumbtack", src: "/logos/thumbtack.png", width: 188 },
   { name: "Murray Chamber", src: "/logos/murray-chamber.png", width: 150 },
-  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 163 },
-  { name: "Park City Chamber", src: "/logos/park-city-chamber.png", width: 163 },
-  { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png", width: 150 },
+  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 163, heightClass: "h-[56px]" },
+  { name: "Park City Chamber", src: "/logos/park-city-chamber.png", width: 163, heightClass: "h-[38px]" },
+  { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png", width: 150, heightClass: "h-[64px]" },
 ];
 
 export function LogoScroller() {
@@ -77,7 +80,7 @@ export function LogoScroller() {
                     alt={logo.name}
                     width={logo.width}
                     height={70}
-                    className={`relative h-[50px] w-auto object-contain transition-all duration-500
+                    className={`relative ${logo.heightClass ?? "h-[50px]"} w-auto object-contain transition-all duration-500
                       group-hover:scale-110
                       ${logo.hasBackground ? "mix-blend-multiply" : ""}
                     `}
