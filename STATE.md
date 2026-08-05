@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** July 3, 2026 (evening — Session 18)
+**Last Updated:** August 5, 2026 (Session 19)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,23 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational.
+
+### Completed (August 5, 2026 — SESSION 19: AMERICA FIRST CREDIT UNION EVENT)
+
+Brett delivered "Super Ethical Sales & Team Building" for America First Credit
+Union's business development team, Aug 4 2026, 9–11am (booked by Lindsey Powers).
+
+- ✅ Logo `public/logos/america-first.png` added to LogoScroller ticker (all pages using it) + masters-edge-program clientLogos
+- ✅ Group photo `public/speaking-gallery/america-first-training.jpg` (optimized from Desktop PNG, ceiling cropped) — top-left large tile in /speaking "Brett in Action" bento; gallery reordered L,m,m,L,m,m,L,L for gap-free 5-row tiling
+- ✅ Lindsey Powers text-message testimonial added as second card next to Matt Gibbons on /speaking
+- ✅ Honest Close proof line now LIVE (rendered via new optional `proof` field on Talk): "Field-tested with America First Credit Union's business development team."
+- ✅ Client-list text mentions added: /about "Also" bullet, /media-kit long bio + long intro, /speaking trust-bar SEO line
+
+#### PENDING — America First letter of recommendation
+Brett requested a formal letter of recommendation from Lindsey Powers (expected
+within days after Aug 5). When it arrives: replace/upgrade the Lindsey Powers
+text-message quote card on /speaking (marked with a code comment) and consider
+adding it to /testimonials.
 
 ### Completed (July 3, 2026 — SESSION 18: DESIGN FLAIR + SPEAKING V3 PROMOTED)
 
