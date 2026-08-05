@@ -9,17 +9,19 @@ import { links } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, BookOpen, Play, Tv, ChevronLeft, ChevronRight, Newspaper } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const books = [
   {
     title: "The Master's Edge",
-    status: "Coming Soon",
+    status: "Coming Q4 2026",
     description:
       "The definitive guide to Brett's proprietary peak performance methodology. Built on 30+ years of experience and original flow state research.",
     bestseller: false,
     upcoming: true,
     image: "/books/masters-edge.png",
+    pageUrl: "/books/masters-edge",
     gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/10",
   },
   {
@@ -105,6 +107,7 @@ const usaTodayImages = [
 ];
 
 export default function BooksPage() {
+  const router = useRouter();
   const [currentImage, setCurrentImage] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isEbookModalOpen, setIsEbookModalOpen] = useState(false);
@@ -136,8 +139,8 @@ export default function BooksPage() {
         <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Hero background image */}
           <Image
-            src="/heroes/books.jpg"
-            alt="Library with books representing knowledge and publishing"
+            src="/books/masters-edge-stack.jpg"
+            alt="Stack of The Master's Edge hardcover books by Brett Lechtenberg"
             fill
             className="object-cover opacity-50"
             priority
@@ -215,13 +218,15 @@ export default function BooksPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`group relative rounded-2xl ${("freebie" in book && book.freebie) || ("amazonUrl" in book && book.amazonUrl) ? "cursor-pointer" : ""}`}
+                  className={`group relative rounded-2xl ${("freebie" in book && book.freebie) || ("amazonUrl" in book && book.amazonUrl) || ("pageUrl" in book && book.pageUrl) ? "cursor-pointer" : ""}`}
                   onClick={
                     "freebie" in book && book.freebie
                       ? () => setIsEbookModalOpen(true)
-                      : "amazonUrl" in book && book.amazonUrl
-                        ? () => window.open(book.amazonUrl, "_blank", "noopener,noreferrer")
-                        : undefined
+                      : "pageUrl" in book && book.pageUrl
+                        ? () => router.push(book.pageUrl)
+                        : "amazonUrl" in book && book.amazonUrl
+                          ? () => window.open(book.amazonUrl, "_blank", "noopener,noreferrer")
+                          : undefined
                   }
                 >
                   <TiltCard className="relative h-full">
@@ -295,6 +300,13 @@ export default function BooksPage() {
                             <span className="text-sm font-medium">Coming Soon</span>
                           </div>
                         </div>
+                      )}
+
+                      {/* Link hint for books with their own page */}
+                      {"pageUrl" in book && book.pageUrl && (
+                        <p className="mt-4 text-sm font-semibold text-cranberry group-hover:underline underline-offset-4">
+                          Preview the book →
+                        </p>
                       )}
                     </div>
                   </div>
