@@ -3,9 +3,9 @@
 import Image from "next/image";
 
 const logos = [
-  { name: "America First Credit Union", src: "/logos/america-first.png", width: 175 },
   { name: "American Express", src: "/logos/american-express.png", width: 200 },
   { name: "Delta", src: "/logos/delta.png", width: 175 },
+  { name: "America First Credit Union", src: "/logos/america-first.png", width: 175 },
   { name: "Packsize", src: "/logos/packsize.png", width: 188 },
   { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 200, hasBackground: true },
   { name: "Purple", src: "/logos/purple.jpg", width: 150, hasBackground: true },
