@@ -20,7 +20,7 @@ const books = [
       "The definitive guide to Brett's proprietary peak performance methodology. Built on 30+ years of experience and original flow state research.",
     bestseller: false,
     upcoming: true,
-    image: "/books/masters-edge-cover.jpg",
+    image: "/books/masters-edge-devices.jpg",
     pageUrl: "/books/masters-edge",
     gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/10",
   },
