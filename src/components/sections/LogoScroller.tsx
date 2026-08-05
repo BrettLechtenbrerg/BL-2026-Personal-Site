@@ -13,7 +13,7 @@ const logos = [
   { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 200, hasBackground: true, heightClass: "h-[62px]" },
   { name: "Purple", src: "/logos/purple.jpg", width: 150, hasBackground: true, heightClass: "h-[62px]" },
   { name: "Thumbtack", src: "/logos/thumbtack.png", width: 188 },
-  { name: "Murray Chamber", src: "/logos/murray-chamber.png", width: 150 },
+  { name: "Murray Chamber", src: "/logos/murray-chamber.png", width: 150, heightClass: "h-[56px]" },
   { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 163, heightClass: "h-[56px]" },
   { name: "Park City Chamber", src: "/logos/park-city-chamber.png", width: 163, heightClass: "h-[38px]" },
   { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png", width: 150, heightClass: "h-[64px]" },
