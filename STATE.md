@@ -20,6 +20,30 @@ Union's business development team, Aug 4 2026, 9–11am (booked by Lindsey Power
 - ✅ Honest Close proof line now LIVE (rendered via new optional `proof` field on Talk): "Field-tested with America First Credit Union's business development team."
 - ✅ Client-list text mentions added: /about "Also" bullet, /media-kit long bio + long intro, /speaking trust-bar SEO line
 
+#### Session 19 continued (Aug 5, afternoon) — polish round
+- ✅ HUB_PASSWORD ROTATED (open item #1 done!) — old bladmin/bl-dev-2026
+  returns 401; new 20-char password verified 200 and stored in Brett's
+  macOS Keychain (item "brettlechtenberg.com hub", account bladmin).
+- ✅ /books/masters-edge CTA button fixed: white/black class conflict made
+  "Talk With Brett" invisible → gold `secondary` variant.
+- ✅ Master's Edge card on /books: bg image → device-bundle mockup
+  `public/books/masters-edge-devices.jpg` (Brett rejected cover crop v1).
+- ✅ Nav: "New: The Master's Edge" added to Books & Media dropdown →
+  /books/masters-edge (desktop + mobile share nav data).
+- ✅ America First ticker logo remade from AFCU's official site SVG,
+  rendered 1240px in brand blue #00548E (Desktop PNG was 254px/ghosted);
+  moved to slot 3 so it's fully visible on load (slot 1 hid under fade).
+- ✅ Ticker speed/smoothness: 35s→24s loop + translate3d GPU compositing
+  (fixes glitch that appeared when 12th logo lengthened the track).
+- ✅ Ticker logo visual parity: trimmed internal padding from 6 logo files
+  (packsize 76% pad, park-city 62%, usa-martial-arts 62%, murray 44%,
+  purple 27%, membersolutions 14%) + per-logo `heightClass` in
+  LogoScroller (squares 62-64px, ultra-wide 32-38px, default 50px).
+- ✅ Rockstar quiz hero: "23+ years" → "30 years".
+- ✅ FOUNDING DATE recorded in CLAUDE.md credential standards:
+  **August 4, 1996** (30th anniversary Aug 4, 2026 — same day as the
+  AFCU training). Compute years-in-business from this date.
+
 #### Master's Edge book page — LIVE (Aug 5, same session)
 - New public page `/books/masters-edge` (layout.tsx metadata + sitemap entry):
   hero with bookstore-shelf mockup (`public/books/masters-edge-shelf.jpg`),
@@ -88,8 +112,8 @@ adding it to /testimonials.
   unit (all env-driven, zero hardcoded ids in the hub); GHL rebuild only
   needs a new PIT + 2 env vars. Watch-outs: apply + book-brett pages have
   hardcoded webhook URLs a different-business clone must swap.
-- **⚠️ STILL TEMP CREDENTIALS:** bladmin / bl-dev-2026 — ROTATE
-  HUB_PASSWORD in Vercel before real lead conversations.
+- **✅ CREDENTIALS ROTATED (Aug 5, 2026):** password in Brett's macOS
+  Keychain ("brettlechtenberg.com hub"); old bl-dev-2026 login dead.
 
 #### /media-kit — v2 PROMOTED TO LIVE ✅ (July 3, session 2)
 - Four-lane Talk & Training Topics is now the real /media-kit.
