@@ -214,7 +214,8 @@ BL-2026-Personal-Site/
 
 ## Credential Standards (USE EXACT FIGURES)
 
-- **Years in Business:** 30+
+- **Years in Business:** 30+ (founded August 4, 1996 — 30th anniversary
+  celebrated Aug 4, 2026; compute current figure from founding date)
 - **Martial Arts Rank:** 8th-Degree Black Belt
 - **Martial Arts Experience:** 40+ years
 - **Books:** 7 books, 5 bestsellers
