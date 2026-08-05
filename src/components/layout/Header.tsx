@@ -21,6 +21,7 @@ const speakingDropdown = [
 
 const booksDropdown = [
   { name: "All Books", href: "/books" },
+  { name: "New: The Master's Edge", href: "/books/masters-edge" },
   { name: "Rockstar Team Quiz", href: "/rockstar-team-quiz" },
 ];
 
