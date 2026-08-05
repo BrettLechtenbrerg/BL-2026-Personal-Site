@@ -34,7 +34,7 @@ export default function RockstarTeamQuizPage() {
               Revolving Door
             </h1>
             <p className="mt-4 text-lg text-white/80">
-              After 23+ years of building teams through the toughest economies,
+              After 30 years of building teams through the toughest economies,
               Brett distilled team-building into 15 strategies. This quiz finds
               the ONE gap costing you the most — then hands you the full book
               that fixes it, free.
