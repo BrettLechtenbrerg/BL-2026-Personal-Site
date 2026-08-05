@@ -36,13 +36,15 @@ const outcomes = [
   { icon: Smile, title: "Engaging Humor", description: "Substance combined with fun", gradient: "from-gold to-gold-dark" },
 ];
 
+// Size sequence L,m,m,L,m,m,L,L tiles the 4-col bento into 5 full rows — no holes.
 const galleryImages = [
-  { src: "/speaking-gallery/speaking-1.png", alt: "Brett delivering keynote presentation", size: "large" },
+  { src: "/speaking-gallery/america-first-training.jpg", alt: "Brett with the America First Credit Union team — Super Ethical Sales & Team Building, August 2026", size: "large" },
   { src: "/speaking-gallery/murray-chamber-training.webp", alt: "Murray Chamber of Commerce Training", size: "medium" },
   { src: "/speaking-gallery/speaking-2.png", alt: "Brett engaging with audience", size: "medium" },
-  { src: "/speaking-gallery/referral-community.png", alt: "Referral Community Event", size: "large" },
+  { src: "/speaking-gallery/speaking-1.png", alt: "Brett delivering keynote presentation", size: "large" },
   { src: "/speaking-gallery/speaking-3.png", alt: "Interactive workshop session", size: "medium" },
   { src: "/speaking-gallery/murray-chamber-2.jpeg", alt: "Team training at Murray Chamber", size: "medium" },
+  { src: "/speaking-gallery/referral-community.png", alt: "Referral Community Event", size: "large" },
   { src: "/speaking-gallery/speaking-4.jpg", alt: "Brett on stage", size: "large" },
 ];
 
@@ -52,6 +54,7 @@ type Talk = {
   subtitle: string;
   duration: string;
   paragraphs: string[];
+  proof?: string;
   bestFor: string;
   leavesWith: string[];
   flagship?: boolean;
@@ -212,6 +215,8 @@ const lanes: Lane[] = [
           "Every sale rests on three beliefs: the solution exists, we can find it together, and it's worth it. When reps struggle, it's almost never a script problem — it's a belief problem, usually the third one. This keynote and training experience diagnoses where belief breaks down and rebuilds the close as an act of service: honest questions, real clarity, and an invitation the client is glad they accepted.",
           "Built for teams navigating commission-based selling, new sales roles, or a market that's grown allergic to pressure.",
         ],
+        proof:
+          "Field-tested with America First Credit Union's business development team.",
         bestFor:
           "Sales teams and kickoffs, financial services and credit unions, business development groups, and any organization where relationships are the product.",
         leavesWith: [
@@ -362,10 +367,6 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
           )}
         </button>
 
-        {/*
-          [The Honest Close] Proof line to add after August 4:
-          "Field-tested with America First Credit Union's business development team."
-        */}
         <AnimatePresence initial={false}>
           {expanded && (
             <motion.div
@@ -380,6 +381,12 @@ function TalkCard({ talk, index }: { talk: Talk; index: number }) {
                     {paragraph}
                   </p>
                 ))}
+                {talk.proof && (
+                  <p className="inline-flex items-center gap-2 bg-cranberry/5 border border-cranberry/20 rounded-full px-4 py-1.5 text-sm font-semibold text-cranberry mb-5">
+                    <Star className="w-3.5 h-3.5 fill-cranberry text-cranberry" />
+                    {talk.proof}
+                  </p>
+                )}
                 <p className="text-sm text-warm-gray mb-5">
                   <span className="font-semibold text-cranberry">Best for:</span>{" "}
                   {talk.bestFor}
@@ -527,9 +534,9 @@ export default function SpeakingPage() {
         {/* Supporting text for SEO/accessibility (carousel logos are images) */}
         <div className="bg-gray-50 py-6">
           <p className="text-center text-sm text-warm-gray/80 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            From Fortune 500 teams like American Express and Delta to chambers
-            of commerce across Utah, Brett delivers transformation that outlasts
-            the event.
+            From Fortune 500 teams like American Express and Delta to America
+            First Credit Union and chambers of commerce across Utah, Brett
+            delivers transformation that outlasts the event.
           </p>
         </div>
 
@@ -832,35 +839,72 @@ export default function SpeakingPage() {
         <section className="py-20 bg-gradient-to-b from-gold/10 via-white to-cranberry/10 relative overflow-hidden">
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative group"
-            >
-              <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-              <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 transition-transform duration-500 group-hover:-translate-y-1">
-                <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-full flex items-center justify-center">
-                  <Quote className="w-5 h-5 text-white" />
-                </div>
-                <p className="text-lg italic text-black mb-4 pt-4">
-                  &ldquo;Brett is as good an instructor as I have been around. His
-                  training methods and information are always cutting-edge.&rdquo;
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold">
-                    MG
+          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
+                <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-full flex items-center justify-center">
+                    <Quote className="w-5 h-5 text-white" />
                   </div>
-                  <div>
-                    <p className="font-bold text-black">Matt Gibbons</p>
-                    <p className="text-sm text-cranberry">
-                      President, Murray Area Chamber of Commerce
-                    </p>
+                  <p className="text-lg italic text-black mb-4 pt-4">
+                    &ldquo;Brett is as good an instructor as I have been around. His
+                    training methods and information are always cutting-edge.&rdquo;
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold">
+                      MG
+                    </div>
+                    <div>
+                      <p className="font-bold text-black">Matt Gibbons</p>
+                      <p className="text-sm text-cranberry">
+                        President, Murray Area Chamber of Commerce
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+
+              {/* [America First] Initial text feedback from Lindsey Powers, day
+                  after the Aug 4, 2026 Super Ethical Sales & Team Building
+                  session. Swap in the formal letter of recommendation when it
+                  arrives. */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 }}
+                className="relative group"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-gold via-cranberry to-gold rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
+                <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
+                    <Quote className="w-5 h-5 text-white" />
+                  </div>
+                  <p className="text-lg italic text-black mb-4 pt-4">
+                    &ldquo;Thank you again, Brett!! I heard some more great comments
+                    from our team that they really enjoyed your training!&rdquo;
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-cranberry flex items-center justify-center text-white font-bold">
+                      LP
+                    </div>
+                    <div>
+                      <p className="font-bold text-black">Lindsey Powers</p>
+                      <p className="text-sm text-cranberry">
+                        America First Credit Union · Super Ethical Sales &
+                        Team Building, August 2026
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 

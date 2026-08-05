@@ -222,6 +222,7 @@ const faqs = [
 
 // Client logos
 const clientLogos = [
+  { name: "America First Credit Union", src: "/logos/america-first.png" },
   { name: "American Express", src: "/logos/american-express.png" },
   { name: "Delta", src: "/logos/delta.png" },
   { name: "Packsize", src: "/logos/packsize.png" },

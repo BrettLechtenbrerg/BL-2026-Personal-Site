@@ -382,7 +382,7 @@ export default function AboutPage() {
                 <li className="flex items-center gap-2"><span className="text-gold">•</span> 3x graduate of International Training Commission Executive Protection School</li>
                 <li className="flex items-center gap-2"><span className="text-cranberry">•</span> BA in Business Operations, Western Washington University</li>
                 <li className="flex items-center gap-2"><span className="text-gold">•</span> Featured on Good Things Utah, Channel 4, Channel 13</li>
-                <li className="flex items-center gap-2"><span className="text-cranberry">•</span> Trusted by American Express, Delta Airlines, Citigroup</li>
+                <li className="flex items-center gap-2"><span className="text-cranberry">•</span> Trusted by American Express, Delta Airlines, Citigroup, America First Credit Union</li>
               </ul>
             </motion.div>
           </div>

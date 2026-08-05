@@ -110,7 +110,7 @@ const longBio = `Brett Lechtenberg is a peak performance coach, bestselling auth
 
 For over three decades, Brett has run Personal Mastery Martial Arts & Family Success Center in Sandy, Utah — a living laboratory where every strategy was tested before it was ever taught. This real-world experience, combined with his formal research on flow states (validated by Steven Kotler's Flow Research Collective), gives Brett a unique perspective that resonates with audiences from corporate boardrooms to championship sports teams.
 
-An 8th-degree black belt and author of seven books on topics ranging from personal safety to time management, Brett has spoken at organizations including American Express, Delta, Packsize, and numerous chambers of commerce. His approach combines evidence-based strategies with engaging storytelling and practical application, ensuring audiences leave not just inspired, but equipped with tools they can implement immediately.
+An 8th-degree black belt and author of seven books on topics ranging from personal safety to time management, Brett has spoken at organizations including American Express, Delta, Packsize, America First Credit Union, and numerous chambers of commerce. His approach combines evidence-based strategies with engaging storytelling and practical application, ensuring audiences leave not just inspired, but equipped with tools they can implement immediately.
 
 Brett is also Co-Founder of Total Success AI, helping businesses implement AI solutions with a human-centered approach.`;
 
@@ -120,7 +120,7 @@ const longIntro = `Our next speaker is someone who doesn't just teach peak perfo
 
 Brett Lechtenberg has spent over 30 years running his own business, testing every strategy he teaches in the real world before sharing it with others. He's an 8th-degree black belt, author of seven books, and the creator of The Master's Edge — a methodology that has helped thousands of leaders clarify their goals, simplify their approach, and maximize their results.
 
-His original research on flow states has been validated by the Flow Research Collective, and his client list includes organizations like American Express, Delta, and Packsize.
+His original research on flow states has been validated by the Flow Research Collective, and his client list includes organizations like American Express, Delta, Packsize, and America First Credit Union.
 
 But what makes Brett different isn't just his credentials — it's his ability to take complex concepts and make them immediately actionable. Your audience won't just be inspired today; they'll leave with real tools they can use tomorrow.
 
