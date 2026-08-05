@@ -20,6 +20,17 @@ Union's business development team, Aug 4 2026, 9–11am (booked by Lindsey Power
 - ✅ Honest Close proof line now LIVE (rendered via new optional `proof` field on Talk): "Field-tested with America First Credit Union's business development team."
 - ✅ Client-list text mentions added: /about "Also" bullet, /media-kit long bio + long intro, /speaking trust-bar SEO line
 
+#### Master's Edge book page — LIVE (Aug 5, same session)
+- New public page `/books/masters-edge` (layout.tsx metadata + sitemap entry):
+  hero with bookstore-shelf mockup (`public/books/masters-edge-shelf.jpg`),
+  three-pillar "What's Inside" section, "Arriving 4th Quarter 2026" CTA.
+  Deliberately NO specific release date — Q4 2026 only.
+- /books hero background swapped to book-stack mockup
+  (`public/books/masters-edge-stack.jpg`, replaces /heroes/books.jpg).
+- Master's Edge card on /books: status now "Coming Q4 2026", clickable →
+  /books/masters-edge ("Preview the book →" hint).
+- Note: there was never a hidden book-release page; this was built fresh.
+
 #### PENDING — America First letter of recommendation
 Brett requested a formal letter of recommendation from Lindsey Powers (expected
 within days after Aug 5). When it arrives: replace/upgrade the Lindsey Powers
