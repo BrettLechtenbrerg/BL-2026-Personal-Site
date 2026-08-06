@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 6, 2026 (Session 20)
+**Last Updated:** August 6, 2026 (Session 21)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,33 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational.
+
+### Completed (August 6, 2026 — SESSION 21: GHL WEBHOOKS LIVE + VIDEO CLIPS + REDIRECT CLOSED)
+
+- ✅ **ALL 3 GHL LEAD WEBHOOKS LIVE (open item closed!)** — walked Brett
+  click-by-click through building 3 GHL workflows (Inbound Webhook trigger →
+  Create/Update Contact → Add Tag), set Vercel env vars, and verified
+  end-to-end through the LIVE site APIs:
+  - `GHL_TEAM_WEBHOOK_URL` → workflow "Quiz - Book Lead" (dynamic tag
+    `{{inboundWebhookRequest.gapTag}}` + book email with gapName/bookUrl +
+    internal notification to Brett). Live test: `delivered: "webhook"` ✅
+  - `GHL_WORKBOOK_STARTED_URL` → workflow "Workbook Started" (static tag
+    `workbook-started`). Live test: `forwarded: true` ✅
+  - `GHL_WORKBOOK_COMPLETED_URL` → workflow "Workbook Completed" (static tag
+    `workbook-completed`). Live test: `forwarded: true` ✅
+  - Gotchas hit: GHL email editor auto-links `{{contact.*}}` vars (must
+    unlink); empty "Select field" rows block Create Contact save.
+  - Brett to delete 4 test contacts in GHL (e2e-*/test-* @example.com).
+- ✅ **Juan Diego video clip placed on 2 more pages** (`04924d1`):
+  /book-brett sidebar card "See Brett Live" (above Quick Stats) +
+  /media-kit new dark "Speaker Footage" section after Headshots.
+  Reuses existing `LiveClip` component. Verified via screenshots.
+- ✅ **speaktobrett.com redirect CLOSED (no work needed)** — DNS + 308 to
+  https://www.brettlechtenberg.com/contact already working on apex/www/http.
+
+**Still open:** AFCU letter (arriving in a few days → swap Lindsey card),
+GHL dedicated sending domain (hub email in spam), speaking stats
+verify-or-retire decision.
 
 ### Completed (August 6, 2026 — SESSION 20: CLEANUP + MASTER'S EDGE HERO SWAP)
 
