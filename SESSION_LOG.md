@@ -2,6 +2,35 @@
 
 ---
 
+## Session 20 - August 6, 2026 - CLEANUP + MASTER'S EDGE HERO SWAP
+
+**Focus:** Close two small items. All pushed; Vercel verified live.
+
+### /hero-test deleted ✅
+- Removed leftover April Session 3 route src/app/hero-test/ + unused
+  HeroOptionA/B/C.tsx components (design decision long settled; page had
+  NO noindex — indexable debug-page risk). Commit `16fa3af`; live 404
+  verified.
+
+### /books/masters-edge hero image swapped ✅
+- Brett supplied cleaner landscape mockup (Desktop
+  `mockup-bookstore-shelf copy.png`, 1536x1024). Optimized 2.1MB PNG →
+  395KB JPG over same path public/books/masters-edge-shelf.jpg.
+- page.tsx: image column max-w-md → max-w-xl, Image width/height flipped
+  to 1536/1024, alt text corrected (new shot has no staff-pick card;
+  shows shelf beside Atomic Habits / Leaders Eat Last).
+- Commits `5cc6d9a` + `236ea29`; verified live with screenshot.
+
+### Notes
+- Canonical Desktop resume prompt was missing at session start —
+  recreated at ~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt at
+  close-out.
+- Session numbering: SESSION_LOG's July 11 quiz session and STATE.md's
+  Aug 5 AFCU session were both labeled "19". Today is 20; the historical
+  collision is left as-is.
+
+---
+
 ## Session 19 - July 11, 2026 - ROCKSTAR TEAM QUIZ FUNNEL LIVE
 
 **Focus:** Cloned the totalsuccessai.com quiz-funnel system onto this site

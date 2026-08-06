@@ -1,6 +1,6 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 5, 2026 (Session 19)
+**Last Updated:** August 6, 2026 (Session 20)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
@@ -8,6 +8,19 @@
 ## Current Focus
 
 **Status:** Site is LIVE at brettlechtenberg.com - All systems operational.
+
+### Completed (August 6, 2026 — SESSION 20: CLEANUP + MASTER'S EDGE HERO SWAP)
+
+- ✅ **/hero-test DELETED** (open item closed) — leftover April Session 3
+  hero A/B/C comparison page + 3 unused HeroOption components removed
+  (`16fa3af`). Verified live 404. It had NO noindex, so it was an SEO risk.
+- ✅ **/books/masters-edge hero image swapped** — new cleaner landscape
+  bookstore-shelf mockup from Desktop `mockup-bookstore-shelf copy.png`,
+  optimized 2.1MB PNG → 395KB JPG over the same path
+  `public/books/masters-edge-shelf.jpg` (now 1536x1024 landscape).
+  Image column widened max-w-md → max-w-xl; Image width/height props
+  flipped to 1536/1024; alt text updated (no staff-pick card in new shot).
+  Commits `5cc6d9a` + `236ea29`. Verified live via screenshot.
 
 ### Completed (August 5, 2026 — SESSION 19: AMERICA FIRST CREDIT UNION EVENT)
 
