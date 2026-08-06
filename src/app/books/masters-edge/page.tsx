@@ -128,7 +128,7 @@ export default function MastersEdgeBookPage() {
                 <TiltCard className="relative">
                   <Image
                     src="/books/masters-edge-shelf.jpg"
-                    alt="The Master's Edge hardcover on a bookstore shelf as a staff pick"
+                    alt="The Master's Edge hardcover on a bookstore shelf beside Atomic Habits and Leaders Eat Last"
                     width={1536}
                     height={1024}
                     priority
