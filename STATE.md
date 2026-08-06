@@ -304,8 +304,16 @@ adding it to /testimonials.
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `91da623` - Promote speaking v3 to live /speaking with collapsible talk cards
+**Last Commit:** `f9d4270` - Docs close-out Session 20 (or later)
 **Uncommitted Changes:** None (working tree clean)
+
+### Recent Commits (August 6, 2026 - Session 20)
+```
+f9d4270 Docs close-out Session 20: STATE.md, SESSION_LOG.md, NEXT_SESSION.md updated; Desktop resume prompt regenerated
+236ea29 Fix alt text: new shelf mockup has no staff-pick card; describe actual scene
+5cc6d9a Books/masters-edge hero: swap shelf mockup for cleaner landscape version (1536x1024), widen image column to max-w-xl
+16fa3af Delete leftover /hero-test route + unused HeroOption A/B/C components (April design experiment, decision long settled)
+```
 
 ### Recent Commits (April 19, 2026 - Session 14)
 ```
