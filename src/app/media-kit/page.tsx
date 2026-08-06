@@ -8,9 +8,10 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
-import { Download, FileText, Image as ImageIcon, Mic2, Monitor, User, Copy, Check } from "lucide-react";
+import { Download, FileText, Image as ImageIcon, Mic2, Monitor, User, Copy, Check, Play } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { LiveClip } from "@/components/ui/LiveClip";
 
 const talkLanes = [
   {
@@ -292,6 +293,72 @@ export default function MediaKitPage() {
             <p className="text-warm-gray text-sm mt-8">
               Need different formats or higher resolution? <a href="/contact" className="text-cranberry hover:underline">Contact us</a>.
             </p>
+          </div>
+        </section>
+
+        {/* Speaker Footage — Juan Diego live clip */}
+        <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.div
+              animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-0 left-0 w-[500px] h-[500px] bg-cranberry/30 rounded-full blur-[130px]"
+            />
+            <motion.div
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
+              transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold/25 rounded-full blur-[110px]"
+            />
+          </div>
+
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="w-12 h-12 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl flex items-center justify-center">
+                <Play className="w-6 h-6 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-white">Speaker Footage</h2>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="mx-auto w-full max-w-[320px] sm:max-w-[360px]"
+              >
+                <LiveClip
+                  src="/videos/juan-diego-clip.mp4"
+                  poster="/videos/juan-diego-poster.jpg"
+                  label="Brett Lechtenberg speaking live at Juan Diego Catholic High School"
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+              >
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 font-heading">
+                  See What Your Audience Gets
+                </h3>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  Unedited footage from Brett&apos;s recent session at Juan Diego
+                  Catholic High School — no studio, no script, just Brett in
+                  front of a live room.
+                </p>
+                <p className="text-gray-400 text-sm">
+                  Need raw video files or additional footage for event promotion?{" "}
+                  <a href="/contact" className="text-gold hover:underline">Contact us</a>.
+                </p>
+              </motion.div>
+            </div>
           </div>
         </section>
 

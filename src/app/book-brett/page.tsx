@@ -4,8 +4,9 @@ import { useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { Mic2, Calendar, Users, CheckCircle, Clock, Sparkles, Send } from "lucide-react";
+import { Mic2, Calendar, Users, CheckCircle, Clock, Sparkles, Send, Play } from "lucide-react";
 import Image from "next/image";
+import { LiveClip } from "@/components/ui/LiveClip";
 
 const eventTypes = [
   "Corporate Keynote",
@@ -484,6 +485,30 @@ export default function BookBrettPage() {
                       </div>
                     ))}
                   </div>
+                </motion.div>
+
+                {/* See Brett Live — Juan Diego footage */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.05 }}
+                  className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl p-8 text-white"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <Play className="w-4 h-4 text-gold" />
+                    <h3 className="text-xl font-bold">See Brett Live</h3>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-6">
+                    Unedited footage from a recent session at Juan Diego Catholic
+                    High School — no studio, no script.
+                  </p>
+                  <LiveClip
+                    src="/videos/juan-diego-clip.mp4"
+                    poster="/videos/juan-diego-poster.jpg"
+                    label="Brett Lechtenberg speaking live at Juan Diego Catholic High School"
+                    className="mx-auto max-w-[260px]"
+                  />
                 </motion.div>
 
                 {/* Quick Stats */}
