@@ -122,15 +122,15 @@ export default function MastersEdgeBookPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="relative max-w-md mx-auto w-full"
+                className="relative max-w-xl mx-auto w-full"
               >
                 <div className="absolute -inset-3 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-xl opacity-40" />
                 <TiltCard className="relative">
                   <Image
                     src="/books/masters-edge-shelf.jpg"
                     alt="The Master's Edge hardcover on a bookstore shelf as a staff pick"
-                    width={1024}
-                    height={1536}
+                    width={1536}
+                    height={1024}
                     priority
                     className="relative rounded-2xl shadow-2xl border border-white/10"
                   />
