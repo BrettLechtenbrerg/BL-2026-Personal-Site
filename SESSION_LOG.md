@@ -2,6 +2,55 @@
 
 ---
 
+## Session 21 - August 6, 2026 - GHL WEBHOOKS LIVE + VIDEO CLIPS + REDIRECT CLOSED
+
+**Focus:** Work the open-items list smallest-Brett-time-first. Three items
+closed. All pushed; Vercel deploys verified Ready.
+
+### speaktobrett.com redirect — CLOSED, zero work ✅
+- DNS + HTTP checked: apex, www, and http all 308 →
+  https://www.brettlechtenberg.com/contact. Item was stale; removed from
+  open list.
+
+### Juan Diego video clip → 2 more pages ✅ (`04924d1`)
+- /book-brett: new dark "See Brett Live" sidebar card above Quick Stats
+  (LiveClip, max-w-[260px]).
+- /media-kit: new dark "Speaker Footage" section between Headshots and
+  Biography — clip left, "See What Your Audience Gets" copy right,
+  animated orbs matching hero. Verified via screenshots on local prod
+  build, then pushed.
+
+### GHL LEAD WEBHOOKS — ALL 3 LIVE, END-TO-END TESTED ✅
+- Walked Brett click-by-click through 3 new GHL workflows (sub-account
+  OfcMDEmwDKM6qQZahiuf), each: Inbound Webhook trigger → Create/Update
+  Contact (email + firstName mapped from payload) → Add Contact Tag.
+- **"Quiz - Book Lead"** — DYNAMIC tag `{{inboundWebhookRequest.gapTag}}`
+  (gap-vision, gap-hiring, …) + Send Email (book link via
+  `{{inboundWebhookRequest.bookUrl}}` + gapName) + Internal Notification
+  to Brett (gapName + gapScores).
+- **"Workbook Started"** / **"Workbook Completed"** — static tags
+  `workbook-started` / `workbook-completed`, no emails.
+- Vercel env vars added (CLI) + deploys: GHL_TEAM_WEBHOOK_URL,
+  GHL_WORKBOOK_STARTED_URL, GHL_WORKBOOK_COMPLETED_URL.
+- LIVE tests through real site APIs (with Origin header + _ts timing to
+  pass bot-protection): /api/team-lead → `delivered:"webhook"`;
+  /api/workbook-lead started + completed → `forwarded:true`. ✅✅✅
+- GHL UI gotchas (for future walkthroughs): email editor auto-links
+  `{{contact.*}}` variables → "issues in your custom variables" (unlink
+  or re-insert via tag picker); empty "Select field" rows block
+  Create Contact save; accidental duplicate Create Update Contact step
+  must be deleted from canvas.
+- CLEANUP FOR BRETT: delete 4 test contacts in GHL (search example.com):
+  test-quiz-lead, e2e-test-lead, test-workbook-start/done, e2e-workbook-*.
+
+### Still open
+- AFCU recommendation letter (days away) → swap Lindsey text-message card
+  on /speaking.
+- GHL dedicated sending domain (hub email → spam). docs/COMMS_HUB.md.
+- Speaking stats 100+/50+/10K+ — verify or retire decision.
+
+---
+
 ## Session 20 - August 6, 2026 - CLEANUP + MASTER'S EDGE HERO SWAP
 
 **Focus:** Close two small items. All pushed; Vercel verified live.
