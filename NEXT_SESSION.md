@@ -28,7 +28,7 @@
    when ready; zero code changes). Full context: `docs/COMMS_HUB.md`.
 3. **Speaking stats verification** — 100+/50+/10K+ bar still omitted;
    verify or retire. **One-sheet PDF redesign** parked on lane canon.
-4. **Brett cleanup:** delete 4 GHL test contacts (search example.com).
+4. **Brett cleanup:** delete GHL test contacts (search example.com, up to 6).
 
 Resolved Session 21 (Aug 6): ALL 3 GHL lead webhooks LIVE + end-to-end
 tested (quiz → dynamic gap tag + book email + notification; workbook

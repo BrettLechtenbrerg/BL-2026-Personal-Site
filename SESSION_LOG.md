@@ -40,8 +40,9 @@ closed. All pushed; Vercel deploys verified Ready.
   or re-insert via tag picker); empty "Select field" rows block
   Create Contact save; accidental duplicate Create Update Contact step
   must be deleted from canvas.
-- CLEANUP FOR BRETT: delete 4 test contacts in GHL (search example.com):
-  test-quiz-lead, e2e-test-lead, test-workbook-start/done, e2e-workbook-*.
+- CLEANUP FOR BRETT: delete ALL test contacts in GHL (search example.com,
+  up to 6): test-quiz-lead, e2e-test-lead, test-workbook-start/done,
+  e2e-workbook-start/done.
 
 ### Still open
 - AFCU recommendation letter (days away) → swap Lindsey text-message card
