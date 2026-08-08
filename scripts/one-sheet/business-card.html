@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Brett Lechtenberg — Business Card (Front + Back)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* Standard US business card 3.5in × 2in, with 0.125in bleed on all sides
+     → trim boxes are 3.75in × 2.25in pages. Keep text inside the safe zone
+     (0.125in inside the trim line). Page 1 = front, page 2 = back. */
+  :root {
+    --cranberry: #9B1B30;
+    --cranberry-dark: #7A1526;
+    --gold: #D4AF37;
+    --gold-light: #E8C84A;
+    --black: #1A1A1A;
+    --warm-gray: #4A4A4A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: var(--black); }
+  h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+  @page { size: 3.75in 2.25in; margin: 0; }
+  .card {
+    width: 3.75in; height: 2.25in;
+    page-break-after: always;
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+  }
+  .card:last-child { page-break-after: auto; }
+
+  /* ===== FRONT ===== */
+  .front {
+    background:
+      radial-gradient(ellipse 2in 1.4in at 8% 0%, rgba(155,27,48,0.6), transparent 70%),
+      radial-gradient(ellipse 1.6in 1.2in at 95% 100%, rgba(212,175,55,0.2), transparent 70%),
+      linear-gradient(135deg, #141414 0%, #26101a 55%, #101010 100%);
+    color: #fff;
+    flex-direction: row; align-items: center;
+  }
+  .front::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, var(--cranberry), var(--gold));
+  }
+  .front .info { flex: 1; padding: 0 0 0 0.3in; position: relative; z-index: 1; }
+  .front .kicker {
+    font-family: 'Montserrat', sans-serif; font-size: 4.6pt; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 3pt;
+  }
+  .front h1 { font-size: 14.5pt; font-weight: 900; line-height: 1.02; letter-spacing: -0.01em; }
+  .front .role { font-size: 6pt; font-weight: 500; color: #d9d9d9; margin-top: 2.5pt; }
+  .front .role b { color: #fff; font-weight: 600; }
+  .contacts { margin-top: 7pt; }
+  .contact-line { display: flex; align-items: center; gap: 4pt; font-size: 5.8pt; color: #e8e8e8; margin-bottom: 2.5pt; }
+  .contact-line .ic {
+    width: 7pt; height: 7pt; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  }
+  .front .photo { width: 1.12in; align-self: flex-end; position: relative; z-index: 1; margin-right: 0.14in; }
+  .front .photo img { width: 100%; display: block; }
+
+  /* ===== BACK ===== */
+  .back { background: #fff; }
+  .back .top {
+    background: linear-gradient(90deg, var(--cranberry-dark), var(--cranberry));
+    color: #fff; text-align: center; padding: 0.16in 0.25in 0.1in;
+  }
+  .back .top h2 { font-size: 9.5pt; font-weight: 900; line-height: 1.15; }
+  .back .top h2 span { color: var(--gold-light); }
+  .back .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 0.3in; }
+  .stats { display: flex; justify-content: center; gap: 12pt; margin-bottom: 5pt; }
+  .stat { text-align: center; }
+  .stat .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 8.6pt; color: var(--cranberry); }
+  .stat .num span { color: var(--gold); }
+  .stat .lbl { font-size: 4.2pt; color: var(--warm-gray); font-weight: 500; margin-top: 0.5pt; }
+  .lanes {
+    text-align: center; font-family: 'Montserrat', sans-serif;
+    font-size: 4.3pt; font-weight: 700; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--warm-gray);
+    white-space: nowrap;
+  }
+  .lanes b { color: var(--cranberry); }
+  .back .cta {
+    background: var(--black); color: #fff; text-align: center; padding: 0.09in 0.25in 0.15in;
+  }
+  .back .cta .book { font-family: 'Montserrat', sans-serif; font-size: 6.6pt; font-weight: 700; }
+  .back .cta .book span { color: var(--gold-light); }
+  .back .cta .site { font-size: 5pt; color: #cfcfcf; margin-top: 1.5pt; }
+</style>
+</head>
+<body>
+
+<!-- FRONT -->
+<div class="card front">
+  <div class="info">
+    <div class="kicker">Keynotes · Corporate Training · Coaching</div>
+    <h1>Brett Lechtenberg</h1>
+    <div class="role"><b>Peak Performance Speaker, Coach &amp; Author</b><br/>Creator of The Master's Edge</div>
+    <div class="contacts">
+      <div class="contact-line"><span class="ic"></span> Brett@BrettLechtenberg.com</div>
+      <div class="contact-line"><span class="ic"></span> brettlechtenberg.com · speaktobrett.com</div>
+      <div class="contact-line"><span class="ic"></span> 8663 South Highland Dr, Sandy, UT 84093</div>
+    </div>
+  </div>
+  <div class="photo">
+    <img src="../../public/media-kit/brett-headshot-nobg.webp" alt="Brett Lechtenberg" />
+  </div>
+</div>
+
+<!-- BACK -->
+<div class="card back">
+  <div class="top">
+    <h2>Your Audience Leaves <span>Changed</span> —<br/>Not Just Entertained</h2>
+  </div>
+  <div class="mid">
+    <div class="stats">
+      <div class="stat"><div class="num">250<span>+</span></div><div class="lbl">Talks &amp; Trainings</div></div>
+      <div class="stat"><div class="num">100<span>+</span></div><div class="lbl">Businesses Coached</div></div>
+      <div class="stat"><div class="num">30<span>+</span></div><div class="lbl">Years in Business</div></div>
+      <div class="stat"><div class="num">7</div><div class="lbl">Books · 5 Bestsellers</div></div>
+      <div class="stat"><div class="num">8th</div><div class="lbl">Degree Black Belt</div></div>
+    </div>
+    <div class="lanes">Peak Performance · Leadership &amp; Culture · Sales &amp; Influence · <b>AI for Humans</b></div>
+  </div>
+  <div class="cta">
+    <div class="book">Book Brett for Your Event <span>→ speaktobrett.com</span></div>
+    <div class="site">Full media kit: brettlechtenberg.com/media-kit</div>
+  </div>
+</div>
+
+</body>
+</html>
