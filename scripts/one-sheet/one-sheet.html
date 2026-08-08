@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Brett Lechtenberg — Speaker One-Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cranberry: #9B1B30;
+    --cranberry-dark: #7A1526;
+    --cranberry-light: #C4324A;
+    --gold: #D4AF37;
+    --gold-light: #E8C84A;
+    --black: #1A1A1A;
+    --warm-gray: #4A4A4A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: var(--black); }
+  h1, h2, h3, .mont { font-family: 'Montserrat', sans-serif; }
+  @page { size: letter; margin: 0; }
+  .page {
+    width: 8.5in; height: 11in;
+    page-break-after: always;
+    overflow: hidden;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ===== PAGE 1 ===== */
+  .hero {
+    background: linear-gradient(135deg, #111 0%, #241016 55%, #111 100%);
+    color: #fff;
+    padding: 0.42in 0.55in 0;
+    display: flex; align-items: flex-end; gap: 0.35in;
+    position: relative;
+  }
+  .hero::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
+    background: linear-gradient(90deg, var(--cranberry), var(--gold));
+  }
+  .hero .glow {
+    position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.45;
+  }
+  .hero-text { flex: 1; padding-bottom: 0.34in; position: relative; z-index: 1; }
+  .kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8.5pt; font-weight: 600; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 7pt;
+  }
+  .hero h1 { font-size: 30pt; font-weight: 900; line-height: 1.04; letter-spacing: -0.01em; }
+  .hero .tagline { margin-top: 7pt; font-size: 10.5pt; color: #d9d9d9; font-weight: 500; }
+  .hero .tagline b { color: #fff; }
+  .hero-photo { width: 1.72in; position: relative; z-index: 1; align-self: flex-end; }
+  .hero-photo img { width: 100%; display: block; }
+
+  .stats {
+    display: flex; background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 0.14in 0.35in;
+  }
+  .stat { flex: 1; text-align: center; padding: 0 4pt; }
+  .stat .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 16.5pt; color: var(--cranberry); }
+  .stat .num span { color: var(--gold); }
+  .stat .lbl { font-size: 6.6pt; color: var(--warm-gray); margin-top: 2pt; line-height: 1.25; font-weight: 500; }
+
+  .body1 { flex: 1; padding: 0.2in 0.55in 0.08in; display: flex; flex-direction: column; gap: 0.14in; justify-content: space-evenly; }
+
+  .bio { font-size: 8.8pt; line-height: 1.5; color: var(--warm-gray); }
+  .bio b { color: var(--black); }
+
+  .sec-title {
+    font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 11.5pt;
+    color: var(--black); letter-spacing: 0.01em;
+  }
+  .sec-title .accent { color: var(--cranberry); }
+
+  .lanes { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+  .lane-card {
+    border: 1px solid #ececec; border-radius: 8pt; padding: 8pt 10pt;
+    border-top: 3px solid var(--cranberry);
+    background: linear-gradient(180deg, #fff, #fdfaf5);
+  }
+  .lane-card .n {
+    font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 7pt;
+    color: var(--gold); letter-spacing: 0.2em;
+  }
+  .lane-card h3 { font-size: 9.8pt; font-weight: 700; margin: 2pt 0 3pt; }
+  .lane-card p { font-size: 7.4pt; line-height: 1.4; color: var(--warm-gray); }
+
+  .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; }
+  .quote {
+    background: #1A1A1A; color: #fff; border-radius: 8pt; padding: 9pt 11pt;
+    position: relative;
+  }
+  .quote p { font-size: 7.8pt; line-height: 1.45; font-style: italic; color: #e8e8e8; }
+  .quote .who { margin-top: 5pt; font-size: 7.2pt; font-weight: 700; color: var(--gold); font-style: normal; }
+  .quote .who span { color: #aaa; font-weight: 500; }
+
+  .logos-strip { padding: 0 0 2pt; }
+  .logos-label {
+    font-size: 6.8pt; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--warm-gray); text-align: center; margin-bottom: 6pt;
+  }
+  .logos { display: flex; align-items: center; justify-content: center; gap: 16pt; flex-wrap: wrap; }
+  .logos img { height: 19pt; width: auto; object-fit: contain; opacity: 0.9; }
+  .logos img.tall { height: 26pt; }
+
+  .contact-bar {
+    background: linear-gradient(90deg, var(--cranberry-dark), var(--cranberry));
+    color: #fff; padding: 0.13in 0.55in;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .contact-bar .cta { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 10pt; }
+  .contact-bar .cta span { color: var(--gold-light); }
+  .contact-bar .links { font-size: 8pt; text-align: right; line-height: 1.55; color: #f3dede; }
+  .contact-bar .links b { color: #fff; font-weight: 600; }
+
+  /* ===== PAGE 2 ===== */
+  .p2-head {
+    background: linear-gradient(135deg, #111 0%, #241016 55%, #111 100%);
+    color: #fff; padding: 0.26in 0.55in; position: relative;
+  }
+  .p2-head::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+    background: linear-gradient(90deg, var(--cranberry), var(--gold));
+  }
+  .p2-head h2 { font-size: 17pt; font-weight: 900; }
+  .p2-head h2 span { color: var(--gold); }
+  .p2-head p { font-size: 8.4pt; color: #cfcfcf; margin-top: 3pt; }
+
+  .menu { flex: 1; padding: 0.16in 0.55in 0.1in; display: flex; flex-direction: column; gap: 7pt; }
+  .lane-block { }
+  .lane-head { display: flex; align-items: baseline; gap: 7pt; border-bottom: 1.5px solid var(--cranberry); padding-bottom: 3pt; margin-bottom: 5pt; }
+  .lane-head .n { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 8pt; color: var(--gold); letter-spacing: 0.18em; }
+  .lane-head h3 { font-size: 11pt; font-weight: 900; }
+  .lane-head .solves { font-size: 7pt; color: var(--warm-gray); font-style: italic; margin-left: auto; text-align: right; max-width: 3.4in; }
+
+  .talk { display: flex; gap: 8pt; padding: 3.5pt 0; }
+  .talk + .talk { border-top: 1px dotted #e3e3e3; }
+  .talk .marker { width: 5pt; padding-top: 3.5pt; }
+  .talk .marker i { display: block; width: 5pt; height: 5pt; border-radius: 50%; background: var(--gold); }
+  .talk .info { flex: 1; }
+  .talk h4 { font-family: 'Montserrat', sans-serif; font-size: 9.6pt; font-weight: 700; display: inline; }
+  .flag {
+    display: inline-block; background: var(--gold); color: #1A1A1A;
+    font-family: 'Montserrat', sans-serif; font-size: 5.8pt; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border-radius: 3pt; padding: 1.5pt 4pt; margin-left: 5pt; vertical-align: 1pt;
+  }
+  .talk .sub { font-size: 7.6pt; color: var(--warm-gray); line-height: 1.35; margin-top: 1pt; }
+  .talk .meta { font-size: 6.9pt; color: var(--cranberry); font-weight: 600; margin-top: 1.5pt; }
+  .talk .proof { font-size: 6.9pt; color: var(--warm-gray); margin-top: 1.5pt; }
+  .talk .proof b { color: var(--black); font-weight: 600; }
+
+  .p2-foot {
+    background: #1A1A1A; color: #fff; padding: 0.14in 0.55in;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .p2-foot .msg { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9.5pt; }
+  .p2-foot .msg span { color: var(--gold); }
+  .p2-foot .site { font-size: 8pt; color: #cfcfcf; }
+  .p2-foot .site b { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ================= PAGE 1 ================= -->
+<div class="page">
+  <div class="hero">
+    <div class="glow" style="width:2.4in;height:2.4in;background:var(--cranberry);top:-0.6in;left:-0.5in;"></div>
+    <div class="glow" style="width:1.8in;height:1.8in;background:var(--gold);bottom:-0.5in;right:1.4in;opacity:0.25;"></div>
+    <div class="hero-text">
+      <div class="kicker">Keynotes · Corporate Training · Workshops</div>
+      <h1>Brett Lechtenberg</h1>
+      <p class="tagline"><b>Peak Performance Speaker, Coach &amp; Author</b><br/>Creator of The Master's Edge — your audience leaves changed, not just entertained.</p>
+    </div>
+    <div class="hero-photo">
+      <img src="../../public/media-kit/brett-headshot-nobg.webp" alt="Brett Lechtenberg" />
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">250<span>+</span></div><div class="lbl">Talks, Trainings<br/>&amp; Seminars</div></div>
+    <div class="stat"><div class="num">100<span>+</span></div><div class="lbl">Businesses<br/>Coached</div></div>
+    <div class="stat"><div class="num">30<span>+</span></div><div class="lbl">Years in<br/>Business</div></div>
+    <div class="stat"><div class="num">7</div><div class="lbl">Books<br/>· 5 Bestsellers</div></div>
+    <div class="stat"><div class="num">8th</div><div class="lbl">Degree<br/>Black Belt</div></div>
+  </div>
+
+  <div class="body1">
+    <p class="bio">
+      Brett Lechtenberg has spent <b>30+ years</b> helping people and organizations elevate how they
+      think, lead, and perform. An <b>8th-degree black belt</b>, <b>flow state researcher validated by the
+      Flow Research Collective</b>, and co-founder of Total Success AI, Brett blends peak-performance
+      science with three decades of real-world business building. Every talk is grounded in
+      <b>The Master's Edge</b> methodology — First Principles, Frontloading, and the strategic use of
+      Flow — so your people leave with clarity, motivation, and tools they use Monday morning.
+    </p>
+
+    <div class="sec-title">Four Lanes. <span class="accent">One Promise: Transformation.</span></div>
+    <div class="lanes">
+      <div class="lane-card">
+        <div class="n">LANE 01</div>
+        <h3>Peak Performance &amp; Mindset</h3>
+        <p>For people stretched thin, distracted, and running on willpower — an inside-out operating system built on mindset, motivation, and flow.</p>
+      </div>
+      <div class="lane-card">
+        <div class="n">LANE 02</div>
+        <h3>Leadership &amp; Team Culture</h3>
+        <p>Research-backed trust, clarity, and shared identity — how real teams reach flow together, from Project Aristotle to the training floor.</p>
+      </div>
+      <div class="lane-card">
+        <div class="n">LANE 03</div>
+        <h3>Sales &amp; Ethical Influence</h3>
+        <p>&ldquo;I'm not selling, I'm serving.&rdquo; Transformation-over-transaction selling that closes more while strengthening the relationship.</p>
+      </div>
+      <div class="lane-card">
+        <div class="n">LANE 04</div>
+        <h3>AI for Humans</h3>
+        <p>Automate the tasks, amplify the people. First-principles AI adoption from a working practitioner — not a futurist with slides.</p>
+      </div>
+    </div>
+
+    <div class="quotes">
+      <div class="quote">
+        <p>&ldquo;Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.&rdquo;</p>
+
+        <div class="who">Bill Schuffenhauer <span>· 3-Time Olympian</span></div>
+      </div>
+      <div class="quote">
+        <p>&ldquo;Excellent. The paper makes a compelling, empirical case for the utilization of flow for accelerated learning and skill acquisition.&rdquo;</p>
+        <div class="who">Flow Research Collective <span>· on Brett's flow research</span></div>
+      </div>
+    </div>
+
+    <div class="logos-strip">
+      <div class="logos-label">Trusted by Leading Organizations</div>
+      <div class="logos">
+        <img src="../../public/logos/delta.png" alt="Delta" />
+        <img src="../../public/logos/american-express.png" alt="American Express" />
+        <img src="../../public/logos/america-first.png" alt="America First Credit Union" />
+        <img src="../../public/logos/packsize.png" alt="Packsize" />
+        <img class="tall" src="../../public/logos/purple.jpg" alt="Purple" />
+        <img class="tall" src="../../public/logos/thumbtack.png" alt="Thumbtack" />
+        <img class="tall" src="../../public/logos/murray-chamber.png" alt="Murray Area Chamber of Commerce" />
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-bar">
+    <div class="cta">Book Brett for Your Event <span>→ speaktobrett.com</span></div>
+    <div class="links">
+      <b>brettlechtenberg.com</b> · Brett@BrettLechtenberg.com<br/>
+      Sandy, Utah · Full media kit: brettlechtenberg.com/media-kit
+    </div>
+  </div>
+</div>
+
+<!-- ================= PAGE 2 ================= -->
+<div class="page">
+  <div class="p2-head">
+    <h2>Talks &amp; Training <span>Menu</span></h2>
+    <p>Ten programs across four lanes — every one grounded in The Master's Edge methodology. All talks can be tailored to your audience, timeframe, and format.</p>
+  </div>
+
+  <div class="menu">
+
+    <div class="lane-block">
+      <div class="lane-head">
+        <span class="n">LANE 01</span><h3>Peak Performance &amp; Mindset</h3>
+        <span class="solves">Solves: &ldquo;Our people are stretched thin, distracted, and running on willpower.&rdquo;</span>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>The Master's Edge</h4><span class="flag">Flagship</span>
+          <div class="sub">The Science of Inside-Out Transformation — First Principles, Frontloading, and Flow: the Clarify → Simplify → Maximize system from Brett's forthcoming book.</div>
+          <div class="meta">60–90 min keynote or full-day workshop</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>The Limitless Mindset</h4>
+          <div class="sub">The little-known mindset shifts that upgrade your business and your life — Brett's signature motivational experience, built on the I AM / I CAN identity principle.</div>
+          <div class="meta">60–90 min keynote or workshop</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>Reclaiming The Clock</h4>
+          <div class="sub">Mastering habits, productivity &amp; the truth about leveraging time — based on Brett's book. Rebuild the workday from first principles around highest-leverage work.</div>
+          <div class="meta">60–90 min keynote or half-day workshop</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>Flow by Design</h4>
+          <div class="sub">The research-backed science of peak states, faster learning &amp; effortless performance — flow as a trainable, repeatable condition with known triggers and blockers.</div>
+          <div class="meta">60–90 min keynote</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane-block">
+      <div class="lane-head">
+        <span class="n">LANE 02</span><h3>Leadership &amp; Team Culture</h3>
+        <span class="solves">Solves: &ldquo;Our teams don't trust each other and can't pull in the same direction.&rdquo;</span>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>Winning Team Culture</h4>
+          <div class="sub">The science &amp; art of developing an empowered team of motivated professionals — psychological safety, shared purpose, and the conditions that turn individuals into a crew. Brett's most requested corporate program.</div>
+          <div class="meta">Half-day or full-day training · keynote version available</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>The Road Less Traveled <span style="font-weight:600;">(Mastery Edition)</span></h4>
+          <div class="sub">What 40 years of martial arts mastery teaches leaders about excellence, patience &amp; longevity — a story-driven meditation on the long road being the fast road.</div>
+          <div class="meta">45–60 min keynote</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane-block">
+      <div class="lane-head">
+        <span class="n">LANE 03</span><h3>Sales &amp; Ethical Influence</h3>
+        <span class="solves">Solves: &ldquo;Our reps struggle to close — and old-school sales training feels manipulative.&rdquo;</span>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>The Honest Close</h4>
+          <div class="sub">The three beliefs behind every yes — and the ethical framework that earns them. Rebuilds the close as an act of service: honest questions, real clarity, an invitation clients are glad they accepted.</div>
+          <div class="meta">60–90 min keynote or half-day training</div>
+          <div class="proof"><b>Field-tested</b> with America First Credit Union's business development team.</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>A Category of One</h4>
+          <div class="sub">Maximize resilience &amp; problem-solving to position your business in a class by itself — escape the comparison trap with first-principles differentiation.</div>
+          <div class="meta">60–90 min keynote</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane-block">
+      <div class="lane-head">
+        <span class="n">LANE 04</span><h3>AI for Humans</h3>
+        <span class="solves">Solves: &ldquo;AI is moving fast, and we don't know what it means for our people.&rdquo;</span>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>Who Owns the Outcome?</h4>
+          <div class="sub">The leadership question that decides whether AI transforms your organization — or quietly damages it. A first-principles framework for what to automate, what to keep human, and how to lead the transition.</div>
+          <div class="meta">15–25 min keynote · expandable to 45–60 min</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>The AI Edge</h4>
+          <div class="sub">Build it before you leave — a hands-on workshop where every participant solves one real challenge from their own work with AI, in the room, before the session ends.</div>
+          <div class="meta">Half-day or full-day workshop · 90-minute starter version available</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p2-foot">
+    <div class="msg">Your audience leaves changed — <span>not just entertained.</span></div>
+    <div class="site">Book Brett: <b>speaktobrett.com</b> · Brett@BrettLechtenberg.com</div>
+  </div>
+</div>
+
+</body>
+</html>
