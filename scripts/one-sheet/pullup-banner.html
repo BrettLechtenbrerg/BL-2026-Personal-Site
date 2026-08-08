@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Brett Lechtenberg — Pull-Up Banner 30in × 60in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Retractable pull-up banner: 30in wide × 60in tall.
+     Printer notes: this file is exact final size (no bleed added — most
+     roll-up printers ask for specific bleed/tail specs, tell them to say
+     what they need and we re-render). The bottom ~8in is kept low-priority
+     because stands and floor angles often obscure it. Key message sits in
+     the top two-thirds for eye-level reading at 6–15 ft. */
+  :root {
+    --cranberry: #9B1B30;
+    --cranberry-dark: #7A1526;
+    --gold: #D4AF37;
+    --gold-light: #E8C84A;
+    --black: #1A1A1A;
+    --warm-gray: #4A4A4A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #fff; }
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+  @page { size: 30in 60in; margin: 0; }
+  .banner {
+    width: 30in; height: 60in;
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+    background:
+      radial-gradient(ellipse 26in 18in at 10% 4%, rgba(155,27,48,0.55), transparent 70%),
+      radial-gradient(ellipse 22in 16in at 95% 55%, rgba(212,175,55,0.16), transparent 70%),
+      radial-gradient(ellipse 24in 16in at 50% 100%, rgba(155,27,48,0.35), transparent 75%),
+      linear-gradient(100deg, rgba(255,255,255,0.018) 1.5pt, transparent 1.5pt),
+      linear-gradient(190deg, rgba(255,255,255,0.018) 1.5pt, transparent 1.5pt),
+      linear-gradient(160deg, #131313 0%, #241017 48%, #0e0e0e 100%);
+    background-size: auto, auto, auto, 2.2in 2.2in, 2.2in 2.2in, auto;
+  }
+
+  /* top gold hairline */
+  .topline { height: 0.22in; background: linear-gradient(90deg, var(--cranberry), var(--gold)); }
+
+  /* ===== IDENTITY ===== */
+  .identity { text-align: center; padding: 1.5in 2in 0; }
+  .kicker {
+    font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 0.62in; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); line-height: 1.3;
+  }
+  h1 { font-size: 2.55in; font-weight: 900; letter-spacing: -0.01em; line-height: 1.0; margin-top: 0.35in; }
+  .role { font-size: 0.78in; font-weight: 600; color: #e6e6e6; margin-top: 0.4in; }
+  .role b { color: #fff; }
+
+  /* ===== HEADLINE ===== */
+  .headline { text-align: center; padding: 1.1in 1.6in 0; }
+  .headline h2 { font-size: 1.7in; font-weight: 900; line-height: 1.12; }
+  .headline h2 .gold { color: var(--gold-light); }
+
+  /* ===== PHOTO + STATS ===== */
+  .centerpiece { position: relative; margin-top: 1.15in; height: 17.2in; }
+  .centerpiece .photo {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    bottom: 0; height: 17.2in; z-index: 1;
+  }
+  .centerpiece::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 0.14in;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .stat-col { position: absolute; top: 1.4in; z-index: 2; }
+  .stat-col.left { left: 2.1in; text-align: right; }
+  .stat-col.right { right: 2.1in; text-align: left; }
+  .stat { margin-bottom: 1.5in; }
+  .stat .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.55in; color: #fff; line-height: 1; }
+  .stat .num span { color: var(--gold); }
+  .stat .lbl { font-size: 0.52in; font-weight: 600; color: #d8c9cc; margin-top: 0.12in; line-height: 1.25; }
+
+  /* ===== LANES ===== */
+  .lanes-zone { padding: 1.5in 1.8in 0; }
+  .lanes-title {
+    text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 900;
+    font-size: 1.05in; margin-bottom: 0.85in;
+  }
+  .lanes-title span { color: var(--gold-light); }
+  .lane-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55in; }
+  .lane {
+    border-radius: 0.5in; padding: 0.75in 0.85in;
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    border: 3px solid rgba(255,255,255,0.16);
+    border-top: 0.16in solid var(--cranberry);
+  }
+  .lane.gold-card {
+    background: linear-gradient(160deg, rgba(212,175,55,0.30), rgba(212,175,55,0.08) 60%, rgba(0,0,0,0.2));
+    border: 3px solid rgba(212,175,55,0.6);
+    border-top: 0.16in solid var(--gold);
+  }
+  .lane h3 { font-size: 0.95in; font-weight: 900; line-height: 1.1; }
+  .lane p { font-size: 0.56in; font-weight: 500; color: #e3d6d9; line-height: 1.35; margin-top: 0.22in; }
+  .lane.gold-card p { color: #f0e6cb; }
+
+  /* ===== QUOTE ===== */
+  .quote-zone { padding: 1.2in 2.4in 1.1in; text-align: center; }
+  .quote-zone p {
+    font-size: 0.72in; font-style: italic; font-weight: 500;
+    color: #efe9e9; line-height: 1.4;
+  }
+  .quote-zone p .gold { color: var(--gold-light); font-weight: 700; }
+  .quote-zone .who {
+    font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.5in;
+    color: var(--gold); margin-top: 0.4in; letter-spacing: 0.04em;
+  }
+  .quote-zone .who span { color: #b9a0a6; font-weight: 600; }
+
+  /* ===== CTA FOOTER ===== */
+  .cta-zone {
+    margin-top: auto;
+    background: linear-gradient(90deg, var(--cranberry-dark), var(--cranberry));
+    border-top: 0.14in solid var(--gold);
+    display: flex; align-items: center; justify-content: center; gap: 1.4in;
+    padding: 1.15in 2in 2.3in; /* extra bottom padding: stand mechanism zone */
+  }
+  .cta-text { text-align: left; }
+  .cta-text .book { font-family: 'Montserrat', sans-serif; font-size: 1.32in; font-weight: 900; line-height: 1.1; }
+  .cta-text .book span { color: var(--gold-light); }
+  .cta-text .site { font-size: 0.66in; font-weight: 600; color: #f3dede; margin-top: 0.35in; line-height: 1.5; }
+  .cta-text .site b { color: #fff; }
+  .qr {
+    background: #fff; border-radius: 0.35in; padding: 0.3in; flex-shrink: 0;
+    box-shadow: 0 0.15in 0.6in rgba(0,0,0,0.4);
+  }
+  .qr img { width: 3.4in; height: 3.4in; display: block; }
+  .qr .scan {
+    text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: 0.42in; color: var(--black); margin-top: 0.18in; letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="topline"></div>
+
+  <div class="identity">
+    <div class="kicker">Keynotes · Corporate Training · Workshops</div>
+    <h1>Brett Lechtenberg</h1>
+    <div class="role"><b>Peak Performance Speaker &amp; Trainer</b> · Creator of The Master's Edge</div>
+  </div>
+
+  <div class="headline">
+    <h2>Your Audience Leaves <span class="gold">Changed</span> — Not Just Entertained</h2>
+  </div>
+
+  <div class="centerpiece">
+    <img class="photo" src="assets-brett-gi-large.png" alt="Brett Lechtenberg, 8th-degree black belt" />
+    <div class="stat-col left">
+      <div class="stat"><div class="num">250<span>+</span></div><div class="lbl">Talks, Trainings<br/>&amp; Seminars</div></div>
+      <div class="stat"><div class="num">100<span>+</span></div><div class="lbl">Businesses<br/>Coached</div></div>
+      <div class="stat"><div class="num">30<span>+</span></div><div class="lbl">Years in<br/>Business</div></div>
+    </div>
+    <div class="stat-col right">
+      <div class="stat"><div class="num">7</div><div class="lbl">Books<br/>· 5 Bestsellers</div></div>
+      <div class="stat"><div class="num">8th</div><div class="lbl">Degree<br/>Black Belt</div></div>
+      <div class="stat"><div class="num">1000<span>s</span></div><div class="lbl">of People<br/>Trained</div></div>
+    </div>
+  </div>
+
+  <div class="lanes-zone">
+    <div class="lanes-title">Four Lanes. <span>One Promise: Transformation.</span></div>
+    <div class="lane-grid">
+      <div class="lane gold-card">
+        <h3>Peak Performance &amp; Mindset</h3>
+        <p>The Master's Edge — the science of inside-out transformation</p>
+      </div>
+      <div class="lane">
+        <h3>Leadership &amp; Team Culture</h3>
+        <p>Research-backed trust, clarity &amp; winning team identity</p>
+      </div>
+      <div class="lane">
+        <h3>Sales &amp; Ethical Influence</h3>
+        <p>"I'm not selling, I'm serving" — transformation over transaction</p>
+      </div>
+      <div class="lane">
+        <h3>AI for Humans</h3>
+        <p>Automate the tasks, amplify the people</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-zone">
+    <p>&ldquo;In my lifetime I have had the opportunity to meet extraordinary people from around the world and <span class="gold">Brett Lechtenberg is one of them</span>.&rdquo;</p>
+    <div class="who">Sam Beard <span>&middot; Creator of 6 Presidential Programs for 8 U.S. Presidents</span></div>
+  </div>
+
+  <div class="cta-zone">
+    <div class="cta-text">
+      <div class="book">Book Brett <span>→ speaktobrett.com</span></div>
+      <div class="site"><b>brettlechtenberg.com</b> · Brett@BrettLechtenberg.com<br/>Full media kit: brettlechtenberg.com/media-kit</div>
+    </div>
+    <div class="qr">
+      <img src="assets-qr-speaktobrett.png" alt="QR code — speaktobrett.com" />
+      <div class="scan">SCAN TO BOOK</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
