@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Brett Lechtenberg — Speaker One-Sheet (Agency Edition)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Agency edition: front page = redesigned on current talk canon;
+     back page = faithful recreation of the original "Six Outcomes" page
+     (content verbatim), recolored from blue to brand cranberry/gold. */
+  :root {
+    --cranberry: #9B1B30;
+    --cranberry-dark: #7A1526;
+    --gold: #D4AF37;
+    --gold-light: #E8C84A;
+    --black: #1A1A1A;
+    --warm-gray: #4A4A4A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: var(--black); }
+  h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+  @page { size: letter; margin: 0; }
+  .page {
+    width: 8.5in; height: 11in;
+    page-break-after: always;
+    overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ===== FRONT PAGE ===== */
+  .photo-hero { height: 2.55in; position: relative; overflow: hidden; }
+  .photo-hero img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+  .photo-hero::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+    background: linear-gradient(90deg, var(--cranberry), var(--gold));
+  }
+
+  .name-block { text-align: center; padding: 0.16in 0.5in 0.12in; }
+  .name-block h1 { font-size: 25pt; font-weight: 900; letter-spacing: -0.01em; }
+  .name-block .role {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10.5pt; font-weight: 700; margin-top: 2pt;
+  }
+  .name-block .role span { color: var(--cranberry); }
+
+  .stats { display: flex; justify-content: center; gap: 26pt; padding: 0 0.5in 0.1in; }
+  .stat { text-align: center; }
+  .stat .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 12.5pt; color: var(--cranberry); }
+  .stat .num span { color: var(--gold); }
+  .stat .lbl { font-size: 6.4pt; color: var(--warm-gray); font-weight: 500; margin-top: 1pt; }
+
+  .talks-band {
+    background: linear-gradient(135deg, var(--cranberry-dark), var(--cranberry));
+    color: #fff; padding: 0.14in 0.5in 0.18in; flex-shrink: 0;
+  }
+  .talks-band h2 { text-align: center; font-size: 13pt; font-weight: 900; margin-bottom: 8pt; }
+  .talks-band h2 span { color: var(--gold-light); }
+  .talk-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; }
+  .talk-card {
+    background: rgba(0,0,0,0.28); border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 10pt; padding: 8pt 8pt 9pt; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 4pt;
+  }
+  .talk-card .flag {
+    background: var(--gold); color: var(--black);
+    font-family: 'Montserrat', sans-serif; font-size: 5.6pt; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border-radius: 3pt; padding: 1.5pt 4pt;
+  }
+  .talk-card h4 { font-size: 9pt; font-weight: 700; line-height: 1.2; }
+  .talk-card p { font-size: 6.6pt; line-height: 1.35; color: #f0dede; }
+  .talks-more {
+    text-align: center; font-size: 6.8pt; color: #f0dede; margin-top: 6pt;
+  }
+  .talks-more b { color: var(--gold-light); font-weight: 600; }
+
+  .system { padding: 0.12in 0.5in; border-bottom: 1px solid #eee; }
+  .system h3 { text-align: center; font-size: 10pt; font-weight: 900; margin-bottom: 6pt; }
+  .system h3 span { color: var(--cranberry); }
+  .steps { display: flex; align-items: stretch; justify-content: center; gap: 7pt; }
+  .step {
+    flex: 1; max-width: 2.1in; text-align: center;
+    border: 1px solid #ececec; border-radius: 8pt; padding: 6pt 8pt;
+    background: linear-gradient(180deg, #fff, #fdfaf5);
+  }
+  .step .k { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 8.6pt; color: var(--cranberry); }
+  .step .v { font-size: 6.8pt; color: var(--warm-gray); margin-top: 1.5pt; line-height: 1.3; }
+  .arrow { align-self: center; color: var(--gold); font-weight: 900; font-size: 11pt; }
+
+  .quotes-zone { flex: 1; padding: 0.1in 0.5in 0; display: flex; flex-direction: column; justify-content: space-evenly; }
+  .quote-row { display: flex; align-items: center; gap: 10pt; background: #1A1A1A; border-radius: 9pt; padding: 8pt 11pt; color: #fff; }
+  .quote-row.gold-edge { border-left: 3.5px solid var(--gold); }
+  .quote-row.cran-edge { border-left: 3.5px solid var(--cranberry); }
+  .quote-row img { width: 0.52in; height: 0.52in; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
+  .quote-row p { font-size: 7.6pt; line-height: 1.4; font-style: italic; color: #efefef; }
+  .quote-row .who { font-size: 6.9pt; font-weight: 700; color: var(--gold); margin-top: 3pt; font-style: normal; }
+  .quote-row .who span { color: #aaa; font-weight: 500; }
+
+  .logos-strip { padding: 4pt 0.5in 8pt; }
+  .logos-label {
+    font-size: 6.6pt; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--warm-gray); text-align: center; margin-bottom: 5pt;
+  }
+  .logos { display: flex; align-items: center; justify-content: center; gap: 15pt; }
+  .logos img { height: 17pt; width: auto; object-fit: contain; opacity: 0.9; }
+  .logos img.tall { height: 24pt; }
+
+  .contact-bar {
+    background: linear-gradient(90deg, var(--cranberry-dark), var(--cranberry));
+    color: #fff; padding: 0.12in 0.5in;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .contact-bar .cta { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 9.5pt; }
+  .contact-bar .cta span { color: var(--gold-light); }
+  .contact-bar .links { font-size: 7.6pt; text-align: right; line-height: 1.5; color: #f3dede; }
+  .contact-bar .links b { color: #fff; font-weight: 600; }
+
+  /* ===== BACK PAGE (original layout, recolored) ===== */
+  .back { flex-direction: row; }
+  .sidebar {
+    width: 2.55in; flex-shrink: 0;
+    background: linear-gradient(180deg, var(--cranberry-dark), var(--cranberry));
+    color: #fff; padding: 0.42in 0.28in 0;
+    display: flex; flex-direction: column;
+  }
+  .sidebar h3 { font-size: 13pt; font-weight: 900; color: var(--gold-light); margin-bottom: 9pt; }
+  .sidebar p { font-size: 8.6pt; line-height: 1.55; color: #f7ecec; margin-bottom: 9pt; }
+  .sidebar .photo { margin: auto -0.28in 0; overflow: hidden; }
+  .sidebar .photo img { width: 150%; margin-left: -25%; display: block; }
+
+  .main { flex: 1; padding: 0.42in 0.42in 0; display: flex; flex-direction: column; }
+  .ready { font-size: 11pt; font-weight: 900; }
+  .ready::after {
+    content: ""; display: inline-block; width: 1.4in; height: 1.5pt;
+    background: var(--gold); vertical-align: 3pt; margin-left: 8pt;
+  }
+  .main h2 { font-size: 24pt; font-weight: 900; line-height: 1.1; margin: 8pt 0 14pt; }
+  .outcome { margin-bottom: 13pt; }
+  .outcome h4 { font-size: 10.4pt; font-weight: 700; margin-bottom: 2.5pt; color: var(--cranberry); }
+  .outcome p { font-size: 8.8pt; line-height: 1.5; color: var(--warm-gray); }
+
+  .book-now { margin-top: auto; display: flex; align-items: flex-end; gap: 0.15in; padding-bottom: 0.32in; }
+  .book-info { flex: 1; }
+  .book-info h3 { font-size: 16pt; font-weight: 900; margin-bottom: 7pt; }
+  .book-line { display: flex; align-items: center; gap: 6pt; font-size: 8.8pt; margin-bottom: 5pt; color: var(--black); }
+  .book-line .ic {
+    width: 12pt; height: 12pt; border-radius: 50%; background: var(--cranberry);
+    color: #fff; font-size: 6.6pt; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; flex-shrink: 0;
+  }
+  .book-line a { color: var(--black); }
+  .book-photo { width: 1.05in; flex-shrink: 0; }
+  .book-photo img { width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<!-- ================= FRONT PAGE (redesigned) ================= -->
+<div class="page">
+  <div class="photo-hero">
+    <img src="../../public/speaking-gallery/america-first-training.jpg" alt="Brett Lechtenberg training the America First Credit Union team" />
+  </div>
+
+  <div class="name-block">
+    <h1>Brett Lechtenberg</h1>
+    <div class="role">Peak Performance Speaker &amp; Trainer: <span>Businesses – Teams – Individuals</span></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num">250<span>+</span></div><div class="lbl">Talks, Trainings &amp; Seminars</div></div>
+    <div class="stat"><div class="num">100<span>+</span></div><div class="lbl">Businesses Coached</div></div>
+    <div class="stat"><div class="num">30<span>+</span></div><div class="lbl">Years in Business</div></div>
+    <div class="stat"><div class="num">7</div><div class="lbl">Books · 5 Bestsellers</div></div>
+    <div class="stat"><div class="num">8th</div><div class="lbl">Degree Black Belt</div></div>
+  </div>
+
+  <div class="talks-band">
+    <h2>Signature Talks <span>and</span> Training</h2>
+    <div class="talk-cards">
+      <div class="talk-card">
+        <span class="flag">Flagship</span>
+        <h4>The Master's Edge</h4>
+        <p>The Science of Inside-Out Transformation — First Principles, Frontloading &amp; Flow</p>
+      </div>
+      <div class="talk-card">
+        <h4>Reclaiming The Clock</h4>
+        <p>Mastering Habits, Productivity &amp; the Truth About Leveraging Time</p>
+      </div>
+      <div class="talk-card">
+        <h4>A Category of One</h4>
+        <p>Maximize Resilience &amp; Problem-Solving to Position Your Business in a Class by Itself</p>
+      </div>
+      <div class="talk-card">
+        <h4>Winning Team Culture</h4>
+        <p>The Science &amp; Art of Developing an Empowered Team of Motivated Professionals</p>
+      </div>
+    </div>
+    <div class="talks-more">Ten programs across four lanes — including <b>AI for Humans</b> · Full menu at <b>brettlechtenberg.com/speaking</b></div>
+  </div>
+
+  <div class="system">
+    <h3>The Master's Edge <span>System</span></h3>
+    <div class="steps">
+      <div class="step"><div class="k">CLARIFY</div><div class="v">First Principles — find what truly drives your success</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="k">SIMPLIFY</div><div class="v">Frontloading — streamline the path and eliminate chaos</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="k">MAXIMIZE</div><div class="v">Flow — systems and habits that boost performance and fulfillment</div></div>
+    </div>
+  </div>
+
+  <div class="quotes-zone">
+    <div class="quote-row gold-edge">
+      <img src="../../public/testimonials/sam-beard.jpg" alt="Sam Beard" />
+      <div>
+        <p>&ldquo;In my lifetime I have had the opportunity to meet extraordinary people from around the world and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.&rdquo;</p>
+        <div class="who">Sam Beard <span>&middot; Creator of 6 Presidential Programs for 8 U.S. Presidents &middot; Founder, National Development Council</span></div>
+      </div>
+    </div>
+    <div class="quote-row cran-edge">
+      <img src="../../public/testimonials/bill-schuffenhauer.png" alt="Bill Schuffenhauer" />
+      <div>
+        <p>&ldquo;Brett really knows how to increase flow states and peak performance. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.&rdquo;</p>
+        <div class="who">Bill Schuffenhauer <span>&middot; Olympic Silver Medalist &amp; 3-Time Olympian</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logos-strip">
+    <div class="logos-label">Brett has spoken at and/or conducted training for</div>
+    <div class="logos">
+      <img src="../../public/logos/delta.png" alt="Delta" />
+      <img src="../../public/logos/american-express.png" alt="American Express" />
+      <img src="../../public/logos/america-first.png" alt="America First Credit Union" />
+      <img src="../../public/logos/packsize.png" alt="Packsize" />
+      <img class="tall" src="../../public/logos/purple.jpg" alt="Purple" />
+      <img class="tall" src="../../public/logos/thumbtack.png" alt="Thumbtack" />
+      <img class="tall" src="../../public/logos/murray-chamber.png" alt="Murray Area Chamber of Commerce" />
+    </div>
+  </div>
+
+  <div class="contact-bar">
+    <div class="cta">Book Brett for Your Event <span>→ speaktobrett.com</span></div>
+    <div class="links">
+      <b>brettlechtenberg.com</b> · Brett@BrettLechtenberg.com<br/>
+      Sandy, Utah · Full media kit: brettlechtenberg.com/media-kit
+    </div>
+  </div>
+</div>
+
+<!-- ================= BACK PAGE (original content verbatim, recolored) ================= -->
+<div class="page back">
+  <div class="sidebar">
+    <h3>About Brett</h3>
+    <p>Brett Lechtenberg is a thought leader in the fields of business and personal empowerment. His flow and peak performance-based transformational skills include entrepreneurial coaching, systems development and implementation, as well as personal mastery and family safety.</p>
+    <p>Brett holds an 8th-degree black belt in Tae Kwon Do and black belts in various other martial arts. Brett has used his martial arts school, Personal Mastery Martial Arts, as a laboratory for his personal development training, business systems, and his philosophies on personal mastery and flow state management for over 28 years.</p>
+    <div class="photo"><img src="../../public/media-kit/brett-fullbody-nobg.webp" alt="Brett Lechtenberg" /></div>
+  </div>
+
+  <div class="main">
+    <div class="ready">Are You Ready?</div>
+    <h2>Six Outcomes You<br/>Can Expect</h2>
+
+    <div class="outcome">
+      <h4>Transformative Impact</h4>
+      <p>Experience a keynote speaker who delivers profound, lasting impact, practical tools, and inspiration. He will make an unforgettable impression on your audience.</p>
+    </div>
+    <div class="outcome">
+      <h4>Tailored Customization</h4>
+      <p>Brett goes beyond the typical keynote with high-level customization that resonates with YOUR audience. They will feel as though the keynote is crafted specifically for them.</p>
+    </div>
+    <div class="outcome">
+      <h4>Actionable Insights</h4>
+      <p>Brett equips the audience with actionable tools they can implement immediately. Attendees will walk away with straightforward, practical strategies to thrive in their personal and professional lives.</p>
+    </div>
+    <div class="outcome">
+      <h4>Dynamic Energy</h4>
+      <p>Witness an electrifying keynote speaker who understands the power of high energy on and off stage, ensuring a memorable and engaging audience experience.</p>
+    </div>
+    <div class="outcome">
+      <h4>Evidence-based Approaches</h4>
+      <p>Brett's keynotes integrate science-backed strategies and real-world experiences with captivating storytelling to provide audiences with the inspiration and tools for enduring confidence and success.</p>
+    </div>
+    <div class="outcome">
+      <h4>Engaging Humor</h4>
+      <p>Humor is a vital element in Brett's core keynote stories. With a natural talent for fun and engaging performances, Brett leaves audiences laughing and inspired, creating a lasting positive impact.</p>
+    </div>
+
+    <div class="book-now">
+      <div class="book-info">
+        <h3>Book Now</h3>
+        <div class="book-line"><span class="ic">f</span> Brett on Facebook</div>
+        <div class="book-line"><span class="ic">@</span> Brett@BrettLechtenberg.com</div>
+        <div class="book-line"><span class="ic">⌖</span> 8663 South Highland Dr. Sandy, UT 84093</div>
+      </div>
+      <div class="book-photo"><img src="assets-brett-gi.png" alt="Brett Lechtenberg, 8th-degree black belt" /></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
