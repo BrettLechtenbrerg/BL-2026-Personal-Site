@@ -42,6 +42,15 @@
   .site { font-weight: 600; color: #d8c9cc; }
   .site b { color: #fff; }
   .photo { position: absolute; bottom: 0; z-index: 1; }
+  .lanes { display: flex; flex-wrap: wrap; }
+  .lane-pill {
+    font-family: 'Montserrat', sans-serif; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #efe6e8;
+    border: 1.5px solid rgba(212,175,55,0.55); border-radius: 999px;
+    background: rgba(212,175,55,0.10);
+    white-space: nowrap;
+  }
+  .lane-pill.ai { background: rgba(212,175,55,0.28); color: #ffe9a8; border-color: var(--gold); }
 
   /* ===== 1. FACEBOOK COVER 1640×624 (safe: keep clear of extreme edges) ===== */
   #facebook { width: 1640px; height: 624px; }
@@ -51,6 +60,8 @@
   #facebook .tagline { font-size: 30px; margin-top: 18px; }
   #facebook .site { font-size: 24px; margin-top: 22px; }
   #facebook .photo { right: 60px; height: 560px; }
+  #facebook .lanes { gap: 12px; margin-top: 24px; }
+  #facebook .lane-pill { font-size: 16px; padding: 8px 18px; }
 
   /* ===== 2. LINKEDIN BANNER 1584×396 (left ~430px hidden behind avatar on mobile — keep text right of 400px? actually avatar bottom-left; keep text center-right) ===== */
   #linkedin { width: 1584px; height: 396px; }
@@ -60,6 +71,8 @@
   #linkedin .tagline { font-size: 22px; margin-top: 12px; }
   #linkedin .site { font-size: 18px; margin-top: 14px; }
   #linkedin .photo { right: 40px; height: 360px; }
+  #linkedin .lanes { gap: 8px; margin-top: 14px; }
+  #linkedin .lane-pill { font-size: 12px; padding: 5px 13px; }
 
   /* ===== 3. YOUTUBE CHANNEL ART 2560×1440 (ALL text inside center safe zone 1546×423) ===== */
   #youtube { width: 2560px; height: 1440px; }
@@ -74,6 +87,8 @@
   #youtube .tagline { font-size: 26px; margin-top: 12px; }
   #youtube .site { font-size: 20px; margin-top: 14px; }
   #youtube .photo { position: static; height: 400px; }
+  #youtube .lanes { gap: 10px; margin-top: 16px; max-width: 900px; }
+  #youtube .lane-pill { font-size: 14px; padding: 6px 15px; }
   #youtube .glow-frame {
     position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
     width: 1606px; height: 483px; border: 2px solid rgba(212,175,55,0.25);
@@ -87,6 +102,8 @@
   #instagram .name { font-size: 92px; }
   #instagram .tagline { font-size: 34px; margin-top: 18px; max-width: 620px; line-height: 1.3; }
   #instagram .photo { right: -60px; height: 780px; }
+  #instagram .lanes { gap: 12px; margin-top: 26px; max-width: 560px; }
+  #instagram .lane-pill { font-size: 17px; padding: 9px 19px; }
   #instagram .site-bar {
     position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
     background: linear-gradient(90deg, var(--cranberry-dark), var(--cranberry));
@@ -106,6 +123,9 @@
   }
   #zoom .corner-br .site { font-size: 26px; }
   #zoom .corner-br .tagline { font-size: 22px; margin-top: 6px; }
+  #zoom .corner-bl { position: absolute; bottom: 60px; left: 70px; z-index: 2; }
+  #zoom .corner-bl .lanes { gap: 9px; max-width: 560px; }
+  #zoom .corner-bl .lane-pill { font-size: 13px; padding: 5px 14px; }
 
   /* ===== 6. EMAIL SIGNATURE BANNER 600×200 ===== */
   #email { width: 600px; height: 200px; }
@@ -115,6 +135,8 @@
   #email .tagline { font-size: 13px; margin-top: 6px; }
   #email .site { font-size: 11px; margin-top: 8px; }
   #email .photo { right: 10px; height: 185px; }
+  #email .lanes { gap: 4px; margin-top: 7px; }
+  #email .lane-pill { font-size: 6.5px; padding: 2.5px 6px; letter-spacing: 0.04em; }
 </style>
 </head>
 <body>
@@ -125,6 +147,12 @@
     <div class="kicker">Corporate Training · Keynotes · Coaching</div>
     <div class="name">Brett Lechtenberg</div>
     <div class="tagline">Your Audience Leaves <span class="gold">Changed</span> — Not Just Entertained</div>
+    <div class="lanes">
+      <span class="lane-pill">Peak Performance</span>
+      <span class="lane-pill">Leadership &amp; Culture</span>
+      <span class="lane-pill">Sales &amp; Influence</span>
+      <span class="lane-pill ai">AI for Humans</span>
+    </div>
     <div class="site"><b>speaktobrett.com</b> · brettlechtenberg.com</div>
   </div>
   <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
@@ -137,6 +165,12 @@
     <div class="kicker">Corporate Training · Keynotes · Coaching</div>
     <div class="name">Brett Lechtenberg</div>
     <div class="tagline">Peak Performance Speaker &amp; Trainer · Creator of The Master's Edge</div>
+    <div class="lanes">
+      <span class="lane-pill">Peak Performance</span>
+      <span class="lane-pill">Leadership &amp; Culture</span>
+      <span class="lane-pill">Sales &amp; Influence</span>
+      <span class="lane-pill ai">AI for Humans</span>
+    </div>
     <div class="site"><b>speaktobrett.com</b></div>
   </div>
   <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
@@ -151,6 +185,12 @@
       <div class="kicker">Corporate Training · Keynotes · Coaching</div>
       <div class="name">Brett Lechtenberg</div>
       <div class="tagline">Your Audience Leaves <span class="gold">Changed</span> — Not Just Entertained</div>
+      <div class="lanes">
+        <span class="lane-pill">Peak Performance</span>
+        <span class="lane-pill">Leadership &amp; Culture</span>
+        <span class="lane-pill">Sales &amp; Influence</span>
+        <span class="lane-pill ai">AI for Humans</span>
+      </div>
       <div class="site"><b>speaktobrett.com</b> · brettlechtenberg.com</div>
     </div>
     <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
@@ -164,6 +204,12 @@
     <div class="kicker">Corporate Training · Keynotes<br/>· Coaching</div>
     <div class="name">Brett<br/>Lechtenberg</div>
     <div class="tagline">Your Audience Leaves <span class="gold">Changed</span> — Not Just Entertained</div>
+    <div class="lanes">
+      <span class="lane-pill">Peak Performance</span>
+      <span class="lane-pill">Leadership &amp; Culture</span>
+      <span class="lane-pill">Sales &amp; Influence</span>
+      <span class="lane-pill ai">AI for Humans</span>
+    </div>
   </div>
   <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
   <div class="site-bar">Book Brett <span>→ speaktobrett.com</span></div>
@@ -179,6 +225,14 @@
     <div class="site"><b>speaktobrett.com</b></div>
     <div class="tagline">Creator of The Master's Edge</div>
   </div>
+  <div class="corner-bl">
+    <div class="lanes">
+      <span class="lane-pill">Peak Performance</span>
+      <span class="lane-pill">Leadership &amp; Culture</span>
+      <span class="lane-pill">Sales &amp; Influence</span>
+      <span class="lane-pill ai">AI for Humans</span>
+    </div>
+  </div>
   <div class="goldline"></div>
 </div>
 
@@ -188,6 +242,12 @@
     <div class="kicker">Corporate Training · Keynotes · Coaching</div>
     <div class="name">Brett Lechtenberg</div>
     <div class="tagline">Creator of The Master's Edge</div>
+    <div class="lanes">
+      <span class="lane-pill">Peak Performance</span>
+      <span class="lane-pill">Leadership &amp; Culture</span>
+      <span class="lane-pill">Sales &amp; Influence</span>
+      <span class="lane-pill ai">AI for Humans</span>
+    </div>
     <div class="site"><b>speaktobrett.com</b> · 801-718-3851</div>
   </div>
   <img class="photo" src="../../public/media-kit/brett-headshot-nobg.webp" alt="" />
