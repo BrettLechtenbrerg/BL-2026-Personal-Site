@@ -2,6 +2,75 @@
 
 ---
 
+## Session 22 - August 8, 2026 - STATS VERIFIED + FULL BRAND SYSTEM + SENDING DOMAIN LIVE
+
+**Focus:** Closed the entire open-items list, then built a complete branding
+asset system — 21 commits in this repo alone. Biggest single session yet.
+
+### Stats verified & upgraded site-wide ✅
+- Verification interview with Brett produced NEW official stats:
+  **250+ Talks/Trainings/Seminars** (broad honest label; replaces
+  unverified "100+ speaking events") and **100+ Businesses Coached**
+  (replaces misleading "50+ corporate clients"). Books stay 7 until the 2
+  new ones actually launch (~60 days — then update to 9 site-wide).
+- Applied: /speaking (stats bar REINSTATED under logo ticker with
+  AnimatedCounter), /masters-edge-program (stats + bio), homepage
+  MediaFeature card. CLAUDE.md credential standards updated; old stats in
+  DO NOT USE list.
+
+### Sam Beard credit line corrected ✅
+- Jefferson Awards is defunct → credit now "Creator of 6 Presidential
+  Programs for 8 U.S. Presidents · Founder, National Development Council"
+  (NDC still active). Locked in CLAUDE.md. Sam is writing the foreword to
+  Brett's Human First AI book — add that credit at book launch.
+
+### Print kit built (scripts/one-sheet/ — HTML + render.cjs pipeline) ✅
+- **Website one-sheet REDESIGNED + LIVE** (same URL, /media-kit button
+  unchanged): 2-page, four-lane talk canon (10 talks), verified stats,
+  Sam Beard featured testimonial with photo.
+- **Agency one-sheet** (for speaker-rep agency meeting): rebrand of the
+  classic blue layout — new front page (AFCU hero photo + logo badge
+  "Corporate Training", premium dark talks band, gold flagship card,
+  1-2-3 methodology stepper), back page "Six Outcomes" preserved verbatim
+  (28→30 years fixed; Highland Dr address kept BY DESIGN — never home
+  address, rule now in CLAUDE.md). High-res Hapkido photo. On Desktop.
+- **Business card** 3.75×2.25 (=3.5×2 + bleed): dark front w/ phone
+  801-718-3851, stats back. Kicker order: Corporate Training · Keynotes ·
+  Coaching.
+- **Pull-up banner 30×60in**: twins photo centerpiece, 6 stats flanking,
+  four lanes, Sam Beard quote, QR → speaktobrett.com. VIEW.png for
+  on-screen browsing.
+- **6 social banners** (all with four-lane pills, AI for Humans gold):
+  Facebook 1640×624, LinkedIn 1584×396, YouTube 2560×1440 (safe zone),
+  Instagram 1080×1080, Zoom background 1920×1080, email signature 600×200.
+- **sync-branding-assets.sh**: pushes whole kit to 3 storage locations
+  ("Brett Lechtenberg Branding Assets Aug 2026" in Masters Edge Book
+  folder, Brett's Personal File folder, 8 TB drive). RULE in CLAUDE.md:
+  always run after any re-render.
+
+### GHL dedicated sending domain — LIVE ✅ (last open item closed)
+- mail.brettlechtenberg.com via GoDaddy Domain Connect (auto-wrote SPF,
+  DKIM, CNAME, 2×MX). DMARC added manually (v=DMARC1;p=none; on
+  _dmarc.mail). All 6 records Verified, SSL Issued, warmup Stage 1.
+  Dedicated header: Brett Lechtenberg <brett@brettlechtenberg.com>.
+  Reputation builds over 2–4 weeks.
+
+### Client Launch System born (SEPARATE REPO) 🚀
+- `~/dev/client-launch-system` (GitHub BrettLechtenbrerg/client-launch-system,
+  private) — today's whole workflow productized: 15-section Brand Book
+  Creator (real questions, from Masters Edge Tool 11) + 3 example brand
+  books (Brett/PMMA/TSAI) + new-client.sh scaffolder + render pipeline +
+  9-section launch stack (website + press release = core inclusions).
+  Sal + Rocky scaffolded. Demo kit on Desktop ("Client Launch Program -
+  Demo Kit", files 01-12 + brochure). See ITS OWN RESUME-PROMPT.md.
+
+### Remaining open items
+1. AFCU letter (waiting on Lindsey Powers) → swap onto /speaking
+2. Books 7→9 at launch + "Foreword by Sam Beard" + re-render/sync kit
+3. GHL warmup: favor engaged recipients first 2–4 weeks
+
+---
+
 ## Session 21 - August 6, 2026 - GHL WEBHOOKS LIVE + VIDEO CLIPS + REDIRECT CLOSED
 
 **Focus:** Work the open-items list smallest-Brett-time-first. Three items

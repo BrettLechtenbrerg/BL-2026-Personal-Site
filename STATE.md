@@ -1,13 +1,24 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 6, 2026 (Session 21)
+**Last Updated:** August 8, 2026 (Session 22)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site is LIVE at brettlechtenberg.com - All systems operational.
+**Status:** Site LIVE, all systems operational. Session 22 closed the whole
+open-items list: stats verified & upgraded site-wide (250+ talks / 100+
+businesses coached), one-sheet redesigned + live, GHL dedicated sending
+domain live (mail.brettlechtenberg.com, warmup Stage 1), and a full print +
+social branding kit built and synced to 3 storage locations. The workflow
+was productized into a separate repo: `~/dev/client-launch-system` (Client
+Launch Program — has its own RESUME-PROMPT.md).
+
+**Only remaining:** AFCU letter (waiting on Lindsey), books 7→9 at launch
+(+ Sam Beard foreword credit + re-render/sync kit), GHL warmup etiquette.
+
+Full detail: SESSION_LOG.md Session 22.
 
 ### Completed (August 6, 2026 — SESSION 21: GHL WEBHOOKS LIVE + VIDEO CLIPS + REDIRECT CLOSED)
 
