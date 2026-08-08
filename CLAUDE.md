@@ -228,6 +228,11 @@ BL-2026-Personal-Site/
   short- and long-term consulting/coaching clients over the career — NOT
   concurrent clients, and NOT "corporate" clients)
 - **People Trained:** Thousands (no specific numbers)
+- **Sam Beard credit line:** "Creator of 6 Presidential Programs for 8 U.S.
+  Presidents · Founder, National Development Council" — do NOT cite the
+  Jefferson Awards (he co-founded it, but the org no longer exists; NDC is
+  still active). Sam is writing the foreword to Brett's Human First AI book —
+  add that credit when the book launches.
 - **Research:** Flow state researcher validated by Flow Research Collective
 - **Methodology:** The Master's Edge (always capitalized with "The")
 - **AI Company:** Total Success AI (co-founded with Manny Torres)
