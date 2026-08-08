@@ -141,8 +141,8 @@ const notForYou = [
 // Brett's stats
 const stats = [
   { value: "30+", label: "Years Coaching Experience" },
-  { value: "100+", label: "Speaking Events" },
-  { value: "50+", label: "Corporate Clients" },
+  { value: "250+", label: "Talks, Trainings & Seminars" },
+  { value: "100+", label: "Businesses Coached" },
   { value: "7", label: "Books" },
   { value: "8th", label: "Degree Black Belt" },
 ];
@@ -688,7 +688,7 @@ export default function MastersEdgeProgramPage() {
                   With more than 30 years of coaching, training, and leadership experience, Brett has worked with business owners, teams, and organizations across a wide range of industries. His work blends real-world leadership development, flow state research, personal discipline, and high-performance strategy into a practical system that creates lasting change.
                 </p>
                 <p className="text-lg text-warm-gray leading-relaxed">
-                  He has delivered 100+ speaking events, worked with 50+ corporate clients, written 7 books, and spent more than 40 years immersed in martial arts and human performance.
+                  He has delivered 250+ talks, trainings, and seminars, coached 100+ businesses, written 7 books, and spent more than 40 years immersed in martial arts and human performance.
                 </p>
                 <p className="text-xl font-semibold text-black">
                   Brett only teaches what he has tested himself. That is the difference.

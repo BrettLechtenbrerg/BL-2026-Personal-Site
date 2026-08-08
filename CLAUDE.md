@@ -218,7 +218,15 @@ BL-2026-Personal-Site/
   celebrated Aug 4, 2026; compute current figure from founding date)
 - **Martial Arts Rank:** 8th-Degree Black Belt
 - **Martial Arts Experience:** 40+ years
-- **Books:** 7 books, 5 bestsellers
+- **Books:** 7 books, 5 bestsellers (2 more launching ~Q4 2026 — update to 9
+  ONLY after they are actually live; never pre-count)
+- **Speaking:** 250+ talks, trainings & seminars (verified by Brett Aug 8 2026;
+  counts chamber events, corporate trainings, martial arts seminars — the
+  broad label is what makes the number honest, so never shorten to
+  "250+ keynotes" or "250+ corporate events")
+- **Clients:** 100+ businesses coached (verified by Brett Aug 8 2026; counts
+  short- and long-term consulting/coaching clients over the career — NOT
+  concurrent clients, and NOT "corporate" clients)
 - **People Trained:** Thousands (no specific numbers)
 - **Research:** Flow state researcher validated by Flow Research Collective
 - **Methodology:** The Master's Edge (always capitalized with "The")
@@ -316,6 +324,8 @@ vercel logs            # View deployment logs
 - "Clarity Map" (evolved into The Master's Edge)
 - "A.M.P. program" (evolved into The Master's Edge)
 - "7 #1 Best-Selling Books" (incorrect - use "7 books, 5 bestsellers")
+- "100+ Speaking Events" (replaced Aug 8 2026 → "250+ Talks, Trainings & Seminars")
+- "50+ Corporate Clients" (misleading "corporate" → "100+ Businesses Coached")
 - "Grand Master" in non-martial-arts contexts
 - pmmarocks.com (use personalmasterymartialarts.com)
 - Template placeholder content

@@ -8,6 +8,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { LogoScroller } from "@/components/sections/LogoScroller";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { LiveClip } from "@/components/ui/LiveClip";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -538,6 +539,34 @@ export default function SpeakingPage() {
             First Credit Union and chambers of commerce across Utah, Brett
             delivers transformation that outlasts the event.
           </p>
+          {/* Verified stats (Session 22, Aug 8 2026 — figures confirmed by Brett;
+              see CLAUDE.md Credential Standards) */}
+          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div>
+              <p className="text-cranberry font-black text-3xl">
+                <AnimatedCounter value={250} suffix="+" />
+              </p>
+              <p className="text-warm-gray text-xs mt-1">Talks, Trainings &amp; Seminars</p>
+            </div>
+            <div>
+              <p className="text-cranberry font-black text-3xl">
+                <AnimatedCounter value={100} suffix="+" />
+              </p>
+              <p className="text-warm-gray text-xs mt-1">Businesses Coached</p>
+            </div>
+            <div>
+              <p className="text-cranberry font-black text-3xl">
+                <AnimatedCounter value={30} suffix="+" />
+              </p>
+              <p className="text-warm-gray text-xs mt-1">Years in Business</p>
+            </div>
+            <div>
+              <p className="text-cranberry font-black text-3xl">
+                <AnimatedCounter value={7} />
+              </p>
+              <p className="text-warm-gray text-xs mt-1">Books · 5 Bestsellers</p>
+            </div>
+          </div>
         </div>
 
         {/* ===== NEW: SEE BRETT LIVE — Juan Diego video + matching testimonial ===== */}

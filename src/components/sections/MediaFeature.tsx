@@ -141,8 +141,8 @@ export function MediaFeature() {
               {/* Stats */}
               <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4 text-center">
                 <div>
-                  <p className="text-gold font-black text-2xl">100+</p>
-                  <p className="text-gray-400 text-xs">Speaking Events</p>
+                  <p className="text-gold font-black text-2xl">250+</p>
+                  <p className="text-gray-400 text-xs">Talks & Trainings</p>
                 </div>
                 <div>
                   <p className="text-cranberry-light font-black text-2xl">7</p>
