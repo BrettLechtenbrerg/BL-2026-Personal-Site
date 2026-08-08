@@ -45,20 +45,20 @@
   }
   .front .info { flex: 1; padding: 0 0 0 0.3in; position: relative; z-index: 1; }
   .front .kicker {
-    font-family: 'Montserrat', sans-serif; font-size: 4.6pt; font-weight: 700;
-    letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+    font-family: 'Montserrat', sans-serif; font-size: 5.4pt; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
     margin-bottom: 3pt;
   }
-  .front h1 { font-size: 14.5pt; font-weight: 900; line-height: 1.02; letter-spacing: -0.01em; }
-  .front .role { font-size: 6pt; font-weight: 500; color: #d9d9d9; margin-top: 2.5pt; }
+  .front h1 { font-size: 16pt; font-weight: 900; line-height: 1.02; letter-spacing: -0.01em; }
+  .front .role { font-size: 7pt; font-weight: 500; color: #d9d9d9; margin-top: 3pt; }
   .front .role b { color: #fff; font-weight: 600; }
   .contacts { margin-top: 7pt; }
-  .contact-line { display: flex; align-items: center; gap: 4pt; font-size: 5.8pt; color: #e8e8e8; margin-bottom: 2.5pt; }
+  .contact-line { display: flex; align-items: center; gap: 4.5pt; font-size: 7pt; color: #e8e8e8; margin-bottom: 3pt; }
   .contact-line .ic {
-    width: 7pt; height: 7pt; border-radius: 50%; flex-shrink: 0;
+    width: 7.5pt; height: 7.5pt; border-radius: 50%; flex-shrink: 0;
     background: linear-gradient(135deg, var(--gold), var(--gold-light));
   }
-  .front .photo { width: 1.12in; align-self: flex-end; position: relative; z-index: 1; margin-right: 0.14in; }
+  .front .photo { width: 1.02in; align-self: flex-end; position: relative; z-index: 1; margin-right: 0.14in; }
   .front .photo img { width: 100%; display: block; }
 
   /* ===== BACK ===== */
@@ -67,27 +67,27 @@
     background: linear-gradient(90deg, var(--cranberry-dark), var(--cranberry));
     color: #fff; text-align: center; padding: 0.16in 0.25in 0.1in;
   }
-  .back .top h2 { font-size: 9.5pt; font-weight: 900; line-height: 1.15; }
+  .back .top h2 { font-size: 10.5pt; font-weight: 900; line-height: 1.15; }
   .back .top h2 span { color: var(--gold-light); }
   .back .mid { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 0.3in; }
   .stats { display: flex; justify-content: center; gap: 12pt; margin-bottom: 5pt; }
   .stat { text-align: center; }
-  .stat .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 8.6pt; color: var(--cranberry); }
+  .stat .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 10pt; color: var(--cranberry); }
   .stat .num span { color: var(--gold); }
-  .stat .lbl { font-size: 4.2pt; color: var(--warm-gray); font-weight: 500; margin-top: 0.5pt; }
+  .stat .lbl { font-size: 5.2pt; color: var(--warm-gray); font-weight: 500; margin-top: 1pt; }
   .lanes {
     text-align: center; font-family: 'Montserrat', sans-serif;
-    font-size: 4.3pt; font-weight: 700; letter-spacing: 0.09em;
+    font-size: 5.2pt; font-weight: 700; letter-spacing: 0.07em;
     text-transform: uppercase; color: var(--warm-gray);
-    white-space: nowrap;
+    line-height: 1.6;
   }
   .lanes b { color: var(--cranberry); }
   .back .cta {
     background: var(--black); color: #fff; text-align: center; padding: 0.09in 0.25in 0.15in;
   }
-  .back .cta .book { font-family: 'Montserrat', sans-serif; font-size: 6.6pt; font-weight: 700; }
+  .back .cta .book { font-family: 'Montserrat', sans-serif; font-size: 7.8pt; font-weight: 700; }
   .back .cta .book span { color: var(--gold-light); }
-  .back .cta .site { font-size: 5pt; color: #cfcfcf; margin-top: 1.5pt; }
+  .back .cta .site { font-size: 6pt; color: #cfcfcf; margin-top: 2pt; }
 </style>
 </head>
 <body>
@@ -99,6 +99,7 @@
     <h1>Brett Lechtenberg</h1>
     <div class="role"><b>Peak Performance Speaker, Coach &amp; Author</b><br/>Creator of The Master's Edge</div>
     <div class="contacts">
+      <div class="contact-line"><span class="ic"></span> 801-718-3851</div>
       <div class="contact-line"><span class="ic"></span> Brett@BrettLechtenberg.com</div>
       <div class="contact-line"><span class="ic"></span> brettlechtenberg.com · speaktobrett.com</div>
       <div class="contact-line"><span class="ic"></span> 8663 South Highland Dr, Sandy, UT 84093</div>
@@ -122,7 +123,7 @@
       <div class="stat"><div class="num">7</div><div class="lbl">Books · 5 Bestsellers</div></div>
       <div class="stat"><div class="num">8th</div><div class="lbl">Degree Black Belt</div></div>
     </div>
-    <div class="lanes">Peak Performance · Leadership &amp; Culture · Sales &amp; Influence · <b>AI for Humans</b></div>
+    <div class="lanes">Peak Performance · Leadership &amp; Culture<br/>Sales &amp; Influence · <b>AI for Humans</b></div>
   </div>
   <div class="cta">
     <div class="book">Book Brett for Your Event <span>→ speaktobrett.com</span></div>
