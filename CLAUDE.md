@@ -237,6 +237,9 @@ BL-2026-Personal-Site/
 - **Methodology:** The Master's Edge (always capitalized with "The")
 - **AI Company:** Total Success AI (co-founded with Manny Torres)
 - **Location:** Sandy, Utah
+- **Public mailing address:** 8663 South Highland Dr, Sandy, UT 84093 — this is
+  Personal Mastery Martial Arts (Brett's school) and is the ONLY street address
+  ever published. Never put Brett's home address on any material.
 
 ---
 
