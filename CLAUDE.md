@@ -240,6 +240,13 @@ BL-2026-Personal-Site/
 - **Public mailing address:** 8663 South Highland Dr, Sandy, UT 84093 — this is
   Personal Mastery Martial Arts (Brett's school) and is the ONLY street address
   ever published. Never put Brett's home address on any material.
+- **Branding assets (print kit):** source of truth is `scripts/one-sheet/`
+  (HTML + render.cjs — website one-sheet, agency one-sheet, business card,
+  pull-up banner). After ANY re-render, ALWAYS run
+  `bash scripts/one-sheet/sync-branding-assets.sh` — it pushes the PDFs to all
+  three "Brett Lechtenberg Branding Assets Aug 2026" folders (Masters Edge Book
+  folder, Brett's Personal File folder, 8 TB drive) simultaneously. Never edit
+  those folder copies directly.
 
 ---
 
