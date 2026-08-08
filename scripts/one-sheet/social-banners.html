@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Brett Lechtenberg — Social Banner Set</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Each .asset is exact-pixel sized and screenshotted individually.
+     Shared brand system: cranberry/gold/black, Montserrat + Inter,
+     dark gradient + glow + grid background, gold hairline accents. */
+  :root {
+    --cranberry: #9B1B30;
+    --cranberry-dark: #7A1526;
+    --gold: #D4AF37;
+    --gold-light: #E8C84A;
+    --black: #1A1A1A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #fff; background: #333; }
+  h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+  .asset {
+    position: relative; overflow: hidden; margin-bottom: 40px;
+    background:
+      radial-gradient(ellipse 60% 90% at 8% 0%, rgba(155,27,48,0.55), transparent 70%),
+      radial-gradient(ellipse 45% 80% at 95% 100%, rgba(212,175,55,0.18), transparent 70%),
+      linear-gradient(100deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(190deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(135deg, #141414 0%, #26101a 55%, #0f0f0f 100%);
+    background-size: auto, auto, 90px 90px, 90px 90px, auto;
+  }
+  .goldline { position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+    background: linear-gradient(90deg, var(--cranberry), var(--gold)); }
+  .kicker {
+    font-family: 'Montserrat', sans-serif; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+  }
+  .name { font-family: 'Montserrat', sans-serif; font-weight: 900; letter-spacing: -0.01em; line-height: 1.0; }
+  .tagline { font-weight: 600; color: #e6e6e6; }
+  .tagline .gold { color: var(--gold-light); }
+  .site { font-weight: 600; color: #d8c9cc; }
+  .site b { color: #fff; }
+  .photo { position: absolute; bottom: 0; z-index: 1; }
+
+  /* ===== 1. FACEBOOK COVER 1640×624 (safe: keep clear of extreme edges) ===== */
+  #facebook { width: 1640px; height: 624px; }
+  #facebook .content { position: absolute; left: 90px; top: 50%; transform: translateY(-50%); z-index: 2; }
+  #facebook .kicker { font-size: 22px; margin-bottom: 14px; }
+  #facebook .name { font-size: 84px; }
+  #facebook .tagline { font-size: 30px; margin-top: 18px; }
+  #facebook .site { font-size: 24px; margin-top: 22px; }
+  #facebook .photo { right: 60px; height: 560px; }
+
+  /* ===== 2. LINKEDIN BANNER 1584×396 (left ~430px hidden behind avatar on mobile — keep text right of 400px? actually avatar bottom-left; keep text center-right) ===== */
+  #linkedin { width: 1584px; height: 396px; }
+  #linkedin .content { position: absolute; left: 480px; top: 50%; transform: translateY(-50%); z-index: 2; }
+  #linkedin .kicker { font-size: 17px; margin-bottom: 10px; }
+  #linkedin .name { font-size: 56px; }
+  #linkedin .tagline { font-size: 22px; margin-top: 12px; }
+  #linkedin .site { font-size: 18px; margin-top: 14px; }
+  #linkedin .photo { right: 40px; height: 360px; }
+
+  /* ===== 3. YOUTUBE CHANNEL ART 2560×1440 (ALL text inside center safe zone 1546×423) ===== */
+  #youtube { width: 2560px; height: 1440px; }
+  #youtube .safe {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 1546px; height: 423px; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  #youtube .text { }
+  #youtube .kicker { font-size: 20px; margin-bottom: 10px; }
+  #youtube .name { font-size: 74px; }
+  #youtube .tagline { font-size: 26px; margin-top: 12px; }
+  #youtube .site { font-size: 20px; margin-top: 14px; }
+  #youtube .photo { position: static; height: 400px; }
+  #youtube .glow-frame {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 1606px; height: 483px; border: 2px solid rgba(212,175,55,0.25);
+    border-radius: 24px; z-index: 1;
+  }
+
+  /* ===== 4. INSTAGRAM PROFILE / POST TEMPLATE 1080×1080 ===== */
+  #instagram { width: 1080px; height: 1080px; }
+  #instagram .content { position: absolute; left: 70px; top: 88px; z-index: 2; }
+  #instagram .kicker { font-size: 24px; margin-bottom: 14px; }
+  #instagram .name { font-size: 92px; }
+  #instagram .tagline { font-size: 34px; margin-top: 18px; max-width: 620px; line-height: 1.3; }
+  #instagram .photo { right: -60px; height: 780px; }
+  #instagram .site-bar {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    background: linear-gradient(90deg, var(--cranberry-dark), var(--cranberry));
+    border-top: 5px solid var(--gold);
+    padding: 26px 70px; font-size: 30px; font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #instagram .site-bar span { color: var(--gold-light); }
+
+  /* ===== 5. ZOOM / VIRTUAL BACKGROUND 1920×1080 (branding at edges, center left clear for Brett) ===== */
+  #zoom { width: 1920px; height: 1080px; }
+  #zoom .corner-tl { position: absolute; top: 60px; left: 70px; z-index: 2; }
+  #zoom .corner-tl .name { font-size: 54px; }
+  #zoom .corner-tl .kicker { font-size: 17px; margin-bottom: 8px; }
+  #zoom .corner-br {
+    position: absolute; bottom: 60px; right: 70px; z-index: 2; text-align: right;
+  }
+  #zoom .corner-br .site { font-size: 26px; }
+  #zoom .corner-br .tagline { font-size: 22px; margin-top: 6px; }
+
+  /* ===== 6. EMAIL SIGNATURE BANNER 600×200 ===== */
+  #email { width: 600px; height: 200px; }
+  #email .content { position: absolute; left: 30px; top: 50%; transform: translateY(-50%); z-index: 2; }
+  #email .kicker { font-size: 9px; margin-bottom: 5px; }
+  #email .name { font-size: 30px; }
+  #email .tagline { font-size: 13px; margin-top: 6px; }
+  #email .site { font-size: 11px; margin-top: 8px; }
+  #email .photo { right: 10px; height: 185px; }
+</style>
+</head>
+<body>
+
+<!-- FACEBOOK -->
+<div class="asset" id="facebook">
+  <div class="content">
+    <div class="kicker">Corporate Training · Keynotes · Coaching</div>
+    <div class="name">Brett Lechtenberg</div>
+    <div class="tagline">Your Audience Leaves <span class="gold">Changed</span> — Not Just Entertained</div>
+    <div class="site"><b>speaktobrett.com</b> · brettlechtenberg.com</div>
+  </div>
+  <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
+  <div class="goldline"></div>
+</div>
+
+<!-- LINKEDIN -->
+<div class="asset" id="linkedin">
+  <div class="content">
+    <div class="kicker">Corporate Training · Keynotes · Coaching</div>
+    <div class="name">Brett Lechtenberg</div>
+    <div class="tagline">Peak Performance Speaker &amp; Trainer · Creator of The Master's Edge</div>
+    <div class="site"><b>speaktobrett.com</b></div>
+  </div>
+  <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
+  <div class="goldline"></div>
+</div>
+
+<!-- YOUTUBE -->
+<div class="asset" id="youtube">
+  <div class="glow-frame"></div>
+  <div class="safe">
+    <div class="text">
+      <div class="kicker">Corporate Training · Keynotes · Coaching</div>
+      <div class="name">Brett Lechtenberg</div>
+      <div class="tagline">Your Audience Leaves <span class="gold">Changed</span> — Not Just Entertained</div>
+      <div class="site"><b>speaktobrett.com</b> · brettlechtenberg.com</div>
+    </div>
+    <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
+  </div>
+  <div class="goldline"></div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="asset" id="instagram">
+  <div class="content">
+    <div class="kicker">Corporate Training · Keynotes<br/>· Coaching</div>
+    <div class="name">Brett<br/>Lechtenberg</div>
+    <div class="tagline">Your Audience Leaves <span class="gold">Changed</span> — Not Just Entertained</div>
+  </div>
+  <img class="photo" src="../../public/media-kit/brett-twins-nobg.png" alt="" />
+  <div class="site-bar">Book Brett <span>→ speaktobrett.com</span></div>
+</div>
+
+<!-- ZOOM BACKGROUND -->
+<div class="asset" id="zoom">
+  <div class="corner-tl">
+    <div class="kicker">Corporate Training · Keynotes · Coaching</div>
+    <div class="name">Brett Lechtenberg</div>
+  </div>
+  <div class="corner-br">
+    <div class="site"><b>speaktobrett.com</b></div>
+    <div class="tagline">Creator of The Master's Edge</div>
+  </div>
+  <div class="goldline"></div>
+</div>
+
+<!-- EMAIL SIGNATURE -->
+<div class="asset" id="email">
+  <div class="content">
+    <div class="kicker">Corporate Training · Keynotes · Coaching</div>
+    <div class="name">Brett Lechtenberg</div>
+    <div class="tagline">Creator of The Master's Edge</div>
+    <div class="site"><b>speaktobrett.com</b> · 801-718-3851</div>
+  </div>
+  <img class="photo" src="../../public/media-kit/brett-headshot-nobg.webp" alt="" />
+  <div class="goldline"></div>
+</div>
+
+</body>
+</html>
