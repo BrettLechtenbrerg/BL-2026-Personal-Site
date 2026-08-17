@@ -593,12 +593,14 @@ export default function SpeakingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="mx-auto w-full max-w-[340px] sm:max-w-[380px]"
+                className="mx-auto w-full"
               >
                 <LiveClip
-                  src="/videos/juan-diego-clip.mp4"
-                  poster="/videos/juan-diego-poster.jpg"
-                  label="Brett Lechtenberg speaking live at Juan Diego Catholic High School"
+                  src="/videos/sizzle-reel-2026.mp4"
+                  poster="/videos/sizzle-reel-poster.jpg"
+                  label="Brett Lechtenberg 2026 speaker sizzle reel"
+                  aspect="wide"
+                  caption="▶ Watch the 2:43 sizzle reel — with sound"
                 />
               </motion.div>
 
@@ -622,9 +624,9 @@ export default function SpeakingPage() {
                   </span>
                 </h2>
                 <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  Unedited footage from Brett&apos;s recent session at Juan Diego
-                  Catholic High School — no studio, no script, just Brett doing
-                  what he does in front of a live room.
+                  Brett&apos;s official sizzle reel — live keynotes, corporate
+                  trainings, an 8th-degree black belt test, and the rooms he
+                  works, all in under three minutes.
                 </p>
 
                 {/* Juan Diego testimonial — same venue as the footage */}

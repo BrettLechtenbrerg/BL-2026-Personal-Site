@@ -497,17 +497,18 @@ export default function BookBrettPage() {
                 >
                   <div className="flex items-center gap-2 mb-2">
                     <Play className="w-4 h-4 text-gold" />
-                    <h3 className="text-xl font-bold">See Brett Live</h3>
+                    <h3 className="text-xl font-bold">See Brett in Action</h3>
                   </div>
                   <p className="text-gray-400 text-sm mb-6">
-                    Unedited footage from a recent session at Juan Diego Catholic
-                    High School — no studio, no script.
+                    The official 2:43 sizzle reel — keynotes, trainings, and
+                    live audiences.
                   </p>
                   <LiveClip
-                    src="/videos/juan-diego-clip.mp4"
-                    poster="/videos/juan-diego-poster.jpg"
-                    label="Brett Lechtenberg speaking live at Juan Diego Catholic High School"
-                    className="mx-auto max-w-[260px]"
+                    src="/videos/sizzle-reel-2026.mp4"
+                    poster="/videos/sizzle-reel-poster.jpg"
+                    label="Brett Lechtenberg 2026 speaker sizzle reel"
+                    aspect="wide"
+                    caption="▶ Watch — with sound"
                   />
                 </motion.div>
 

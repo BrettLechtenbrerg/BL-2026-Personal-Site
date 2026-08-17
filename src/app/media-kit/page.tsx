@@ -330,12 +330,14 @@ export default function MediaKitPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="mx-auto w-full max-w-[320px] sm:max-w-[360px]"
+                className="mx-auto w-full"
               >
                 <LiveClip
-                  src="/videos/juan-diego-clip.mp4"
-                  poster="/videos/juan-diego-poster.jpg"
-                  label="Brett Lechtenberg speaking live at Juan Diego Catholic High School"
+                  src="/videos/sizzle-reel-2026.mp4"
+                  poster="/videos/sizzle-reel-poster.jpg"
+                  label="Brett Lechtenberg 2026 speaker sizzle reel"
+                  aspect="wide"
+                  caption="▶ Watch the 2:43 sizzle reel — with sound"
                 />
               </motion.div>
 
@@ -349,9 +351,9 @@ export default function MediaKitPage() {
                   See What Your Audience Gets
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Unedited footage from Brett&apos;s recent session at Juan Diego
-                  Catholic High School — no studio, no script, just Brett in
-                  front of a live room.
+                  Brett&apos;s official 2026 sizzle reel — live keynotes,
+                  corporate trainings, and audience reaction in under three
+                  minutes.
                 </p>
                 <p className="text-gray-400 text-sm">
                   Need raw video files or additional footage for event promotion?{" "}

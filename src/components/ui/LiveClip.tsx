@@ -8,6 +8,10 @@ interface LiveClipProps {
   poster: string;
   /** Accessible label, e.g. "Brett speaking live at Juan Diego" */
   label: string;
+  /** "vertical" (default, 9:16 phone footage) or "wide" (16:9 produced video) */
+  aspect?: "vertical" | "wide";
+  /** Poster caption under the play button */
+  caption?: string;
   className?: string;
 }
 
@@ -16,7 +20,14 @@ interface LiveClipProps {
  * Shows a poster + branded play button; plays with sound and native
  * controls once tapped. Built for phone-shot event footage.
  */
-export function LiveClip({ src, poster, label, className }: LiveClipProps) {
+export function LiveClip({
+  src,
+  poster,
+  label,
+  aspect = "vertical",
+  caption = "▶ Watch Brett live — with sound",
+  className,
+}: LiveClipProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -32,7 +43,11 @@ export function LiveClip({ src, poster, label, className }: LiveClipProps) {
       <div className="absolute -inset-2 bg-gradient-to-b from-cranberry via-gold to-cranberry rounded-[2rem] blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
 
       {/* Frame */}
-      <div className="relative aspect-[9/16] rounded-[1.75rem] overflow-hidden border-2 border-white/15 bg-black shadow-2xl">
+      <div
+        className={`relative ${
+          aspect === "wide" ? "aspect-video rounded-2xl" : "aspect-[9/16] rounded-[1.75rem]"
+        } overflow-hidden border-2 border-white/15 bg-black shadow-2xl`}
+      >
         <video
           ref={videoRef}
           src={src}
@@ -55,7 +70,7 @@ export function LiveClip({ src, poster, label, className }: LiveClipProps) {
               <Play className="w-9 h-9 text-white fill-white translate-x-0.5" />
             </span>
             <span className="absolute bottom-5 left-0 right-0 text-center text-white/90 text-sm font-semibold tracking-wide">
-              ▶ Watch Brett live — with sound
+              {caption}
             </span>
           </button>
         )}
