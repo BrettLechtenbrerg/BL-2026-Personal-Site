@@ -16,9 +16,9 @@ interface LiveClipProps {
 }
 
 /**
- * Vertical (9:16) live-footage clip in a premium dark frame.
- * Shows a poster + branded play button; plays with sound and native
- * controls once tapped. Built for phone-shot event footage.
+ * Video clip in a premium dark frame — vertical (9:16) phone footage or
+ * wide (16:9) produced video. Shows a poster + branded play button; plays
+ * with sound and native controls once tapped.
  */
 export function LiveClip({
   src,

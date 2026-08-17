@@ -487,7 +487,7 @@ export default function BookBrettPage() {
                   </div>
                 </motion.div>
 
-                {/* See Brett Live — Juan Diego footage */}
+                {/* See Brett in Action — 2026 sizzle reel */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
