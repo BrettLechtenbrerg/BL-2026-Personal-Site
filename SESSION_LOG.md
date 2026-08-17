@@ -2,6 +2,33 @@
 
 ---
 
+## Session 23 - August 17, 2026 - 2026 SIZZLE REEL LIVE SITE-WIDE
+
+**Focus:** Brett finished the v2 sizzle reel (project: `~/Desktop/Brett's
+Sizzle Reel/`, see its RESUME_PROMPT.md) and we replaced the Juan Diego
+speaker clips with the official reel across the site.
+
+### Sizzle reel placed on 3 pages ✅ (`8f3f980`, comments `0dcadf8`)
+- Added `public/videos/sizzle-reel-2026.mp4` (2:43, 31MB web encode, crf 23)
+  + `sizzle-reel-poster.jpg` (title-card frame at 2.5s).
+- `LiveClip` component extended: `aspect` prop (`vertical` default | `wide`
+  16:9) + `caption` prop. Juan Diego clip/poster still in repo, unused.
+- Swapped on **/speaking** ("Don't Take Our Word for It. Watch." — full-width
+  16:9), **/media-kit** ("Speaker Footage"), **/book-brett** (sidebar, retitled
+  "See Brett in Action"). Copy updated to pitch the official 2:43 reel.
+- Juan Diego testimonial kept on /speaking — that footage appears in the reel.
+- Verified: tsc clean, eslint 0 errors, Vercel deploys Ready, mp4 serves 200,
+  Brett confirmed live on the site.
+
+### Source of truth for the reel
+- Locked master: `~/Desktop/Brett's Sizzle Reel/v2 FINAL - LOCKED/
+  Brett_Lechtenberg_Sizzle_Master_v2_FINAL.mp4` (read-only). v1 archived in
+  `v1 ARCHIVE - LOCKED (superseded by v2, 17 Aug 2026)/`.
+- Web encode also at `~/Desktop/Brett_Lechtenberg_Sizzle_Reel_2026_WEB.mp4`.
+- Possible next: feature reel on homepage after feedback; 30s v2 teaser.
+
+---
+
 ## Session 22 - August 8, 2026 - STATS VERIFIED + FULL BRAND SYSTEM + SENDING DOMAIN LIVE
 
 **Focus:** Closed the entire open-items list, then built a complete branding

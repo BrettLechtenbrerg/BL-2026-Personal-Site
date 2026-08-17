@@ -1,13 +1,20 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 8, 2026 (Session 22)
+**Last Updated:** August 17, 2026 (Session 23)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site LIVE, all systems operational. Session 22 closed the whole
+**Status:** Site LIVE. **Session 23 (Aug 17):** official 2026 sizzle reel
+(2:43) replaced the Juan Diego clips on /speaking, /media-kit, /book-brett
+(`LiveClip` got `aspect="wide"` + `caption` props). Reel master locked at
+`~/Desktop/Brett's Sizzle Reel/v2 FINAL - LOCKED/`; web encode in
+`public/videos/sizzle-reel-2026.mp4`. Awaiting Brett's feedback — then
+consider homepage placement (+ optional 30s v2 teaser).
+
+Session 22 closed the whole
 open-items list: stats verified & upgraded site-wide (250+ talks / 100+
 businesses coached), one-sheet redesigned + live, GHL dedicated sending
 domain live (mail.brettlechtenberg.com, warmup Stage 1), and a full print +
