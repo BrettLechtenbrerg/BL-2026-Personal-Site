@@ -97,6 +97,11 @@
     background: #1A1A1A; color: #fff; border-radius: 8pt; padding: 9pt 11pt;
     position: relative;
   }
+  .quote.with-photo { display: flex; align-items: center; gap: 8pt; }
+  .quote .photo {
+    width: 0.55in; height: 0.55in; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--gold); flex-shrink: 0;
+  }
   .quote p { font-size: 7.8pt; line-height: 1.45; font-style: italic; color: #e8e8e8; }
   .quote .who { margin-top: 5pt; font-size: 7.2pt; font-weight: 700; color: var(--gold); font-style: normal; }
   .quote .who span { color: #aaa; font-weight: 500; }
@@ -229,13 +234,13 @@
       </div>
       <div class="lane-card">
         <div class="n">LANE 03</div>
-        <h3>Sales &amp; Ethical Influence</h3>
-        <p>&ldquo;I'm not selling, I'm serving.&rdquo; Transformation-over-transaction selling that closes more while strengthening the relationship.</p>
+        <h3>AI for Humans</h3>
+        <p>Automate the tasks, amplify the people. First-principles AI adoption from a working practitioner — not a futurist with slides.</p>
       </div>
       <div class="lane-card">
         <div class="n">LANE 04</div>
-        <h3>AI for Humans</h3>
-        <p>Automate the tasks, amplify the people. First-principles AI adoption from a working practitioner — not a futurist with slides.</p>
+        <h3>Sales &amp; Ethical Influence</h3>
+        <p>&ldquo;I'm not selling, I'm serving.&rdquo; Transformation-over-transaction selling that closes more while strengthening the relationship.</p>
       </div>
     </div>
 
@@ -248,10 +253,12 @@
     </div>
 
     <div class="quotes">
-      <div class="quote">
-        <p>&ldquo;Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.&rdquo;</p>
-
-        <div class="who">Bill Schuffenhauer <span>· 3-Time Olympian</span></div>
+      <div class="quote with-photo">
+        <img class="photo" src="../../public/testimonials/bill-schuffenhauer.jpg" alt="Bill Schuffenhauer" />
+        <div>
+          <p>&ldquo;Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.&rdquo;</p>
+          <div class="who">Bill Schuffenhauer <span>· 3-Time Olympian</span></div>
+        </div>
       </div>
       <div class="quote">
         <p>&ldquo;Excellent. The paper makes a compelling, empirical case for the utilization of flow for accelerated learning and skill acquisition.&rdquo;</p>
@@ -355,7 +362,30 @@
 
     <div class="lane-block">
       <div class="lane-head">
-        <span class="n">LANE 03</span><h3>Sales &amp; Ethical Influence</h3>
+        <span class="n">LANE 03</span><h3>AI for Humans</h3>
+        <span class="solves">Solves: &ldquo;AI is moving fast, and we don't know what it means for our people.&rdquo;</span>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>Who Owns the Outcome?</h4>
+          <div class="sub">The leadership question that decides whether AI transforms your organization — or quietly damages it. A first-principles framework for what to automate, what to keep human, and how to lead the transition.</div>
+          <div class="meta">15–25 min keynote · expandable to 45–60 min</div>
+        </div>
+      </div>
+      <div class="talk">
+        <div class="marker"><i></i></div>
+        <div class="info">
+          <h4>The AI Edge</h4>
+          <div class="sub">Build it before you leave — a hands-on workshop where every participant solves one real challenge from their own work with AI, in the room, before the session ends.</div>
+          <div class="meta">Half-day or full-day workshop · 90-minute starter version available</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lane-block">
+      <div class="lane-head">
+        <span class="n">LANE 04</span><h3>Sales &amp; Ethical Influence</h3>
         <span class="solves">Solves: &ldquo;Our reps struggle to close — and old-school sales training feels manipulative.&rdquo;</span>
       </div>
       <div class="talk">
@@ -373,29 +403,6 @@
           <h4>A Category of One</h4>
           <div class="sub">Maximize resilience &amp; problem-solving to position your business in a class by itself — escape the comparison trap with first-principles differentiation.</div>
           <div class="meta">60–90 min keynote</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="lane-block">
-      <div class="lane-head">
-        <span class="n">LANE 04</span><h3>AI for Humans</h3>
-        <span class="solves">Solves: &ldquo;AI is moving fast, and we don't know what it means for our people.&rdquo;</span>
-      </div>
-      <div class="talk">
-        <div class="marker"><i></i></div>
-        <div class="info">
-          <h4>Who Owns the Outcome?</h4>
-          <div class="sub">The leadership question that decides whether AI transforms your organization — or quietly damages it. A first-principles framework for what to automate, what to keep human, and how to lead the transition.</div>
-          <div class="meta">15–25 min keynote · expandable to 45–60 min</div>
-        </div>
-      </div>
-      <div class="talk">
-        <div class="marker"><i></i></div>
-        <div class="info">
-          <h4>The AI Edge</h4>
-          <div class="sub">Build it before you leave — a hands-on workshop where every participant solves one real challenge from their own work with AI, in the room, before the session ends.</div>
-          <div class="meta">Half-day or full-day workshop · 90-minute starter version available</div>
         </div>
       </div>
     </div>
