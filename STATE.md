@@ -1,13 +1,21 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 17, 2026 (Session 23)
+**Last Updated:** August 18, 2026 (Session 24)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site LIVE. **Session 23 (Aug 17):** official 2026 sizzle reel
+**Status:** Site LIVE. **Session 24 (Aug 18):** one-sheet tweaks + site
+congruence — lanes 3/4 swapped everywhere (Lane 03 = AI for Humans,
+Lane 04 = Sales & Ethical Influence) on both one-sheets, /speaking, and
+/media-kit; new Bill Schuffenhauer photo (circular Olympic badge) on both
+one-sheet quotes (`public/testimonials/bill-schuffenhauer.jpg`). PDFs
+re-rendered + branding kit re-synced to all 3 locations. Commits
+`b991c6a` + `55c9ac2`.
+
+**Session 23 (Aug 17):** official 2026 sizzle reel
 (2:43) replaced the Juan Diego clips on /speaking, /media-kit, /book-brett
 (`LiveClip` got `aspect="wide"` + `caption` props). Reel master locked at
 `~/Desktop/Brett's Sizzle Reel/v2 FINAL - LOCKED/`; web encode in

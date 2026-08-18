@@ -2,6 +2,34 @@
 
 ---
 
+## Session 24 - August 18, 2026 - LANES 3/4 SWAPPED + NEW BILL PHOTO
+
+**Focus:** Brett reviewed the speaker one-sheet and requested two tweaks;
+then made the live site congruent with the sheet.
+
+### One-sheets updated ✅ (`b991c6a`)
+- **Lanes 3/4 swapped** (wording untouched): Lane 03 = AI for Humans,
+  Lane 04 = Sales & Ethical Influence — on page 1 lane cards AND page 2
+  talks menu of `scripts/one-sheet/one-sheet.html`.
+- **New Bill Schuffenhauer photo** added to his page-1 quote (gold-ring
+  circle, matches Sam Beard treatment). Source: `~/Desktop/Brett's Sizzle
+  Reel/Website Assets/Bill Schuffenhauer FB image.jpg` (circular Olympic
+  badge image) → saved as `public/testimonials/bill-schuffenhauer.jpg`.
+  Old blurry medal photo (`bill-schuffenhauer.png`) still in repo, unused.
+- Agency one-sheet also switched to the new Bill photo.
+- Both PDFs re-rendered (render.cjs) + `sync-branding-assets.sh` run
+  (all 3 storage locations synced). Desktop copy of the website PDF
+  refreshed.
+
+### Site made congruent with one-sheet ✅ (`55c9ac2`)
+- **/speaking**: lane data blocks reordered + renumbered — 03 = AI for
+  Humans, 04 = Sales & Ethical Influence. Talk content and anchor ids
+  (`#honest-close`, `#ai-edge`, etc.) unchanged, so existing links work.
+- **/media-kit**: talks menu lanes reordered to match.
+- tsc clean; pushed; Vercel auto-deploy.
+
+---
+
 ## Session 23 - August 17, 2026 - 2026 SIZZLE REEL LIVE SITE-WIDE
 
 **Focus:** Brett finished the v2 sizzle reel (project: `~/Desktop/Brett's
