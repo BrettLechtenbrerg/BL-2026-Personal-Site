@@ -61,23 +61,6 @@ const talkLanes = [
     ],
   },
   {
-    lane: "Sales & Ethical Influence",
-    talks: [
-      {
-        title: "The Honest Close",
-        subtitle: "The Three Beliefs Behind Every Yes — and the Ethical Framework That Earns Them",
-        duration: "60–90 min keynote or half-day training",
-        bestFor: "Sales teams, financial services, credit unions, business development",
-      },
-      {
-        title: "A Category of One",
-        subtitle: "Position Yourself So Far Ahead That Comparison Becomes Irrelevant",
-        duration: "60–90 min keynote",
-        bestFor: "Sales conferences, industry events, competitive environments",
-      },
-    ],
-  },
-  {
     lane: "AI for Humans",
     talks: [
       {
@@ -91,6 +74,23 @@ const talkLanes = [
         subtitle: "Build It Before You Leave — Hands-On AI Workshop",
         duration: "Half-day or full-day workshop",
         bestFor: "Corporate teams, chambers of commerce, small business groups",
+      },
+    ],
+  },
+  {
+    lane: "Sales & Ethical Influence",
+    talks: [
+      {
+        title: "The Honest Close",
+        subtitle: "The Three Beliefs Behind Every Yes — and the Ethical Framework That Earns Them",
+        duration: "60–90 min keynote or half-day training",
+        bestFor: "Sales teams, financial services, credit unions, business development",
+      },
+      {
+        title: "A Category of One",
+        subtitle: "Position Yourself So Far Ahead That Comparison Becomes Irrelevant",
+        duration: "60–90 min keynote",
+        bestFor: "Sales conferences, industry events, competitive environments",
       },
     ],
   },

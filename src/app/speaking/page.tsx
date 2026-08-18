@@ -200,6 +200,52 @@ const lanes: Lane[] = [
   },
   {
     number: "03",
+    name: "AI for Humans",
+    problem:
+      "The problem this lane solves: \u201cAI is moving fast, and we don't know what it means for our people.\u201d",
+    intro:
+      "Brett's position on artificial intelligence is refreshingly human: automate the tasks, amplify the people. As co-founder of Total Success AI and a working practitioner — not a futurist with slides — he helps organizations adopt AI from first principles: clarify the real problem, simplify the workflow, and free your people to do the deep, creative, relational work only humans can do.",
+    talks: [
+      {
+        id: "who-owns-the-outcome",
+        title: "Who Owns the Outcome?",
+        subtitle:
+          "The Leadership Question That Decides Whether AI Transforms Your Organization — or Quietly Damages It",
+        duration: "15–25 min keynote, expandable to 45–60 min",
+        paragraphs: [
+          "AI can automate the task. It cannot own the outcome. That responsibility still belongs to a human — and the organizations that thrive in the AI era will be the ones whose leaders understand exactly where the machine's job ends and human judgment begins.",
+          "In this keynote, Brett cuts through both the hype and the fear, giving leaders a first-principles decision framework for what to automate, what to keep human, and how to lead people through the transition with trust intact.",
+        ],
+        bestFor:
+          "Executive teams, boards, leadership summits, and industry conferences wrestling with AI strategy and workforce questions.",
+        leavesWith: [
+          "A clear ownership framework: where AI accountability must stay human, and why.",
+          "A first-principles method for choosing automation targets based on real problems, not trends.",
+          "Language and leadership moves for bringing anxious teams along instead of leaving them behind.",
+        ],
+      },
+      {
+        id: "ai-edge",
+        title: "The AI Edge",
+        subtitle: "Build It Before You Leave · Hands-On Workshop",
+        duration:
+          "Half-day or full-day workshop; 90-minute starter version available",
+        paragraphs: [
+          "Most AI training is a demo reel. This is a build session. Every participant arrives with one real challenge from their actual work — and leaves with a working AI solution they built in the room, plus the first-principles skill to build the next one on their own.",
+          "No hype, no jargon, no \u201c10 prompt hacks\u201d — because a prompt trick is a hack, and a system built on first principles is a tool. This workshop delivers tools.",
+        ],
+        bestFor:
+          "Corporate teams, chambers of commerce, small business groups, credit unions, and any organization that wants capability, not just awareness.",
+        leavesWith: [
+          "A working AI solution to a real problem from their own role — finished before the session ends.",
+          "A repeatable first-principles process for identifying and building the next automation.",
+          "The confidence to use AI on Monday morning, not \u201csomeday.\u201d",
+        ],
+      },
+    ],
+  },
+  {
+    number: "04",
     name: "Sales & Ethical Influence",
     problem:
       "The problem this lane solves: \u201cOur reps struggle to close — and the old-school sales training we've tried feels manipulative.\u201d",
@@ -242,52 +288,6 @@ const lanes: Lane[] = [
           "A first-principles process for uncovering the value proposition competitors can't duplicate.",
           "Resilience and problem-solving frames that turn market pressure into positioning advantage.",
           "A clear next step for translating \u201cdifferent\u201d into premium pricing and loyal clients.",
-        ],
-      },
-    ],
-  },
-  {
-    number: "04",
-    name: "AI for Humans",
-    problem:
-      "The problem this lane solves: \u201cAI is moving fast, and we don't know what it means for our people.\u201d",
-    intro:
-      "Brett's position on artificial intelligence is refreshingly human: automate the tasks, amplify the people. As co-founder of Total Success AI and a working practitioner — not a futurist with slides — he helps organizations adopt AI from first principles: clarify the real problem, simplify the workflow, and free your people to do the deep, creative, relational work only humans can do.",
-    talks: [
-      {
-        id: "who-owns-the-outcome",
-        title: "Who Owns the Outcome?",
-        subtitle:
-          "The Leadership Question That Decides Whether AI Transforms Your Organization — or Quietly Damages It",
-        duration: "15–25 min keynote, expandable to 45–60 min",
-        paragraphs: [
-          "AI can automate the task. It cannot own the outcome. That responsibility still belongs to a human — and the organizations that thrive in the AI era will be the ones whose leaders understand exactly where the machine's job ends and human judgment begins.",
-          "In this keynote, Brett cuts through both the hype and the fear, giving leaders a first-principles decision framework for what to automate, what to keep human, and how to lead people through the transition with trust intact.",
-        ],
-        bestFor:
-          "Executive teams, boards, leadership summits, and industry conferences wrestling with AI strategy and workforce questions.",
-        leavesWith: [
-          "A clear ownership framework: where AI accountability must stay human, and why.",
-          "A first-principles method for choosing automation targets based on real problems, not trends.",
-          "Language and leadership moves for bringing anxious teams along instead of leaving them behind.",
-        ],
-      },
-      {
-        id: "ai-edge",
-        title: "The AI Edge",
-        subtitle: "Build It Before You Leave · Hands-On Workshop",
-        duration:
-          "Half-day or full-day workshop; 90-minute starter version available",
-        paragraphs: [
-          "Most AI training is a demo reel. This is a build session. Every participant arrives with one real challenge from their actual work — and leaves with a working AI solution they built in the room, plus the first-principles skill to build the next one on their own.",
-          "No hype, no jargon, no \u201c10 prompt hacks\u201d — because a prompt trick is a hack, and a system built on first principles is a tool. This workshop delivers tools.",
-        ],
-        bestFor:
-          "Corporate teams, chambers of commerce, small business groups, credit unions, and any organization that wants capability, not just awareness.",
-        leavesWith: [
-          "A working AI solution to a real problem from their own role — finished before the session ends.",
-          "A repeatable first-principles process for identifying and building the next automation.",
-          "The confidence to use AI on Monday morning, not \u201csomeday.\u201d",
         ],
       },
     ],
