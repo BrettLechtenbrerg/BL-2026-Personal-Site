@@ -2,6 +2,31 @@
 
 ---
 
+## Session 25 - August 22, 2026 - SIZZLE REEL v3 (VO CUT) LIVE
+
+**Focus:** Brett met Hollywood director/producer Rupert Hitzig; reel rebuilt
+around Rupert's script order (Who is Brett → What he does → How → How he
+helps your org → Credentials → CTA) with an 11Labs voiceover. v3 replaced
+v2 site-wide.
+
+### Site updated ✅ (`3f2459c`)
+- `public/videos/sizzle-reel-2026.mp4` replaced with the v3 web encode
+  (2:56, 32MB, crf 23, **no music** — VO + low live-clip sound).
+- Captions on /speaking, /media-kit, /book-brett: 2:43 → 2:56 (text only;
+  LiveClip props/poster unchanged — poster is the title card, identical in v3).
+- Verified live: www.brettlechtenberg.com/speaking serves the 2:56 caption.
+- Push note: default `gh` account is PMMARocks-1 (no write access); pushed
+  with a one-off credential override using the `BrettLechtenbrerg` token.
+
+### Reel project (see `~/Desktop/Brett's Sizzle Reel/RESUME_PROMPT.md`)
+- v3 FINAL locked in `00 CURRENT - APPROVED (v3 VO FINAL, 22 Aug 2026)/`;
+  v2 moved to `zz OLD MATERIAL - DO NOT USE/v2 ARCHIVE - SUPERSEDED BY v3`.
+- Build: `_work/build_master_v3_vo.sh` (+ `_work/make_logo_scatter.py`);
+  VO: `Brett Lechtenberg Sizzle Reel - Voice Over 8-22-26.mp3`;
+  script doc: `Sizzle Reel Voiceover — Rupert's Advice -8-22-26.docx`.
+
+---
+
 ## Session 24 - August 18, 2026 - LANES 3/4 SWAPPED + NEW BILL PHOTO
 
 **Focus:** Brett reviewed the speaker one-sheet and requested two tweaks;

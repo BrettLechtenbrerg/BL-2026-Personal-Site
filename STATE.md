@@ -1,13 +1,20 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 18, 2026 (Session 24)
+**Last Updated:** August 22, 2026 (Session 25)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site LIVE. **Session 24 (Aug 18):** one-sheet tweaks + site
+**Status:** Site LIVE. **Session 25 (Aug 22):** sizzle reel v3 (Rupert Hitzig
+script order, 11Labs VO, no music, 2:56) replaced v2 on /speaking,
+/media-kit, /book-brett — new `public/videos/sizzle-reel-2026.mp4` + caption
+bumps (`3f2459c`). Reel project state: `~/Desktop/Brett's Sizzle
+Reel/RESUME_PROMPT.md` (v3 FINAL locked; v2 archived). Still open from
+Session 23: consider homepage reel placement + optional 30s teaser.
+
+**Session 24 (Aug 18):** one-sheet tweaks + site
 congruence — lanes 3/4 swapped everywhere (Lane 03 = AI for Humans,
 Lane 04 = Sales & Ethical Influence) on both one-sheets, /speaking, and
 /media-kit; new Bill Schuffenhauer photo (circular Olympic badge) on both
