@@ -500,7 +500,7 @@ export default function BookBrettPage() {
                     <h3 className="text-xl font-bold">See Brett in Action</h3>
                   </div>
                   <p className="text-gray-400 text-sm mb-6">
-                    The official 2:43 sizzle reel — keynotes, trainings, and
+                    The official 2:56 sizzle reel — keynotes, trainings, and
                     live audiences.
                   </p>
                   <LiveClip
