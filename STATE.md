@@ -1,18 +1,24 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 22, 2026 (Session 25)
+**Last Updated:** August 23, 2026 (Session 26)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site LIVE. **Session 25 (Aug 22):** sizzle reel v3 (Rupert Hitzig
+**Status:** Site LIVE. **Session 26 (Aug 23):** sizzle reel v3.1 (Rupert's
+notes: Times New Roman cards, 4-quote testimonials w/ Matt Gibbons + John
+Nottingham, de-jittered stills) replaced v3 — same 2:56, `f39bc85`, verified
+live. Swipe-cut variant awaiting Brett+Rupert side-by-side (reel folder,
+`01 PENDING RUPERT/`). Reel project state: `~/Desktop/Brett's Sizzle
+Reel/RESUME_PROMPT.md` (v3.1 FINAL locked). Still open from Session 23:
+homepage reel placement + optional 30s teaser.
+
+**Session 25 (Aug 22):** sizzle reel v3 (Rupert Hitzig
 script order, 11Labs VO, no music, 2:56) replaced v2 on /speaking,
 /media-kit, /book-brett — new `public/videos/sizzle-reel-2026.mp4` + caption
-bumps (`3f2459c`). Reel project state: `~/Desktop/Brett's Sizzle
-Reel/RESUME_PROMPT.md` (v3 FINAL locked; v2 archived). Still open from
-Session 23: consider homepage reel placement + optional 30s teaser.
+bumps (`3f2459c`).
 
 **Session 24 (Aug 18):** one-sheet tweaks + site
 congruence — lanes 3/4 swapped everywhere (Lane 03 = AI for Humans,

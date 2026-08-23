@@ -2,6 +2,35 @@
 
 ---
 
+## Session 26 - August 23, 2026 - SIZZLE REEL v3.1 (RUPERT NOTES) LIVE
+
+**Focus:** Rupert's 3 notes applied to the reel — Times New Roman on all
+cards/captions, testimonial card expanded to 4 quotes (adds Matt Gibbons +
+John Nottingham), all still-image jitter eliminated. v3.1 replaced v3
+site-wide. Swipe-transition variant built for Brett+Rupert side-by-side.
+
+### Site updated ✅ (`f39bc85`)
+- `public/videos/sizzle-reel-2026.mp4` replaced with the v3.1 web encode
+  (2:56, 24MB, crf 23). Captions untouched — duration unchanged.
+- Verified live: content-length matches the new file byte-for-byte.
+- Push note: default `gh` account is now BoardChairIs1; pushed via
+  `gh auth switch -u BrettLechtenbrerg` + credential override, switched back.
+
+### Reel project (see `~/Desktop/Brett's Sizzle Reel/RESUME_PROMPT.md`)
+- v3.1 FINAL in `00 CURRENT - APPROVED (v3.1 FINAL, 23 Aug 2026)/`;
+  22 Aug v3 archived to `zz OLD MATERIAL/v3 ARCHIVE - SUPERSEDED BY v3.1`.
+- 🔒 LOCKED: jitter-free Ken Burns = zoompan at 8K then lanczos → 1080p
+  (casual shot only; all other stills static). Recipe in RESUME_PROMPT.md.
+- Swipe variant (`_work/build_master_v3_swipe.sh`, VO-sync via freeze pads)
+  in `01 PENDING RUPERT - swipe transition previews/` — NOT approved/live.
+
+### Open for next session
+- Rupert side-by-side verdict: swipes vs hard cuts → promote winner.
+- Carry-overs: homepage reel placement, optional 30s teaser (needs v3.1
+  rebuild if revived — old teaser is v1-era), AFCU letter (Lindsey).
+
+---
+
 ## Session 25 - August 22, 2026 - SIZZLE REEL v3 (VO CUT) LIVE
 
 **Focus:** Brett met Hollywood director/producer Rupert Hitzig; reel rebuilt
