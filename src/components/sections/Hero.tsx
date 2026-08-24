@@ -69,13 +69,9 @@ export function Hero() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
-              Transform the Way You{" "}
+              Achieve More{" "}
               <span className="text-shimmer bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
-                Focus, Lead,
-              </span>{" "}
-              and{" "}
-              <span className="text-shimmer bg-gradient-to-r from-gold via-cranberry-light to-cranberry bg-clip-text text-transparent">
-                Perform
+                Without Doing More
               </span>
             </motion.h1>
 
@@ -86,7 +82,7 @@ export function Hero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl"
             >
-              Brett Lechtenberg helps leaders, teams, and business owners unlock peak performance through transformational speaking, flow state mastery, leadership development, and practical AI strategies.
+              Build the focus, leadership, and AI advantage to accomplish more, lead more effectively, and perform at your best&mdash;without adding more hours or overwhelm.
             </motion.p>
 
             {/* CTAs - 2 buttons */}
