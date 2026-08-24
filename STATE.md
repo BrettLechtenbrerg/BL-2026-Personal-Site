@@ -1,13 +1,19 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 23, 2026 (Session 26)
+**Last Updated:** August 24, 2026 (Session 27)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site LIVE. **Session 26 (Aug 23):** sizzle reel v3.1 (Rupert's
+**Status:** Site LIVE. **Session 27 (Aug 24):** homepage hero copy replaced
+(`1d86a4d`, verified live) — headline now **"Achieve More Without Doing
+More"**, subheadline "Build the focus, leadership, and AI advantage to
+accomplish more, lead more effectively, and perform at your best—without
+adding more hours or overwhelm." (`src/components/sections/Hero.tsx`).
+
+**Session 26 (Aug 23):** sizzle reel v3.1 (Rupert's
 notes: Times New Roman cards, 4-quote testimonials w/ Matt Gibbons + John
 Nottingham, de-jittered stills) replaced v3 — same 2:56, `f39bc85`, verified
 live. Swipe-cut variant awaiting Brett+Rupert side-by-side (reel folder,
@@ -370,7 +376,7 @@ adding it to /testimonials.
 ## Git Status
 
 **Branch:** main
-**Last Commit:** `f9d4270` - Docs close-out Session 20 (or later)
+**Last Commit:** `1d86a4d` - New homepage hero headline (or later docs commit)
 **Uncommitted Changes:** None (working tree clean)
 
 ### Recent Commits (August 6, 2026 - Session 20)
@@ -515,7 +521,7 @@ About                   → /about
 10. **GHL Webhook (Program):** Sends firstName, lastName, email, phone, customFields, tags["ME Prospect"]
 11. **Video Testimonials:** 6 YouTube embeds on /testimonials (3-column grid)
 12. **Amazon Links:** 6 books clickable → open Amazon in new tab
-13. **Homepage Headline:** "Transform the Way You Focus, Lead, and Perform"
+13. **Homepage Headline:** "Achieve More Without Doing More" (Session 27)
 14. **Program Headline:** "12 Weeks That Change How You Focus, Lead, Operate, and Perform"
 15. **Program Member Limit:** 12 members per cohort
 16. **USA Martial Arts Logo:** Added to LogoScroller and /masters-edge-program

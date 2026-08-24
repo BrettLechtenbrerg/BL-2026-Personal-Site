@@ -2,6 +2,30 @@
 
 ---
 
+## Session 27 - August 24, 2026 - NEW HOMEPAGE HERO HEADLINE LIVE
+
+**Focus:** Brett's new homepage hero copy, deployed and verified.
+
+### Site updated ✅ (`1d86a4d`)
+- `src/components/sections/Hero.tsx`:
+  - Headline: "Transform the Way You Focus, Lead, and Perform" →
+    **"Achieve More Without Doing More"** (gradient shimmer on
+    "Without Doing More").
+  - Subheadline → "Build the focus, leadership, and AI advantage to
+    accomplish more, lead more effectively, and perform at your best—
+    without adding more hours or overwhelm."
+- Type-check clean; Vercel production deploy Ready; verified live via
+  screenshot of https://www.brettlechtenberg.com.
+- Push note: `gh` active account was BoardChairIs1 again → switched with
+  `gh auth switch -u BrettLechtenbrerg` and LEFT IT ACTIVE.
+
+### Open for next session (unchanged from Session 26)
+- Rupert side-by-side verdict: swipes vs hard cuts → promote winner.
+- Homepage reel placement, optional 30s teaser (needs v3.1 rebuild),
+  AFCU letter (Lindsey), books 7→9 at launch, GHL warmup etiquette.
+
+---
+
 ## Session 26 - August 23, 2026 - SIZZLE REEL v3.1 (RUPERT NOTES) LIVE
 
 **Focus:** Rupert's 3 notes applied to the reel — Times New Roman on all
