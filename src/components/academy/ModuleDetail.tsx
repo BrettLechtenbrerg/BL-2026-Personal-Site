@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2, FileText, Loader2, Sparkles, Swords } from "lucide-react";
+import { ArrowLeft, BookOpen, CheckCircle2, FileText, Loader2, Sparkles, Swords } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
 
 export interface ModuleDetailData {
@@ -23,6 +23,7 @@ export interface ModuleDetailData {
   pdfs: { label: string; href: string }[];
   images: string[];
   keyPoints: string[];
+  lesson: { heading: string; paragraphs: string[]; bullets?: string[] }[];
   questionCount: number;
 }
 
@@ -110,6 +111,39 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
             allowFullScreen
             className="absolute inset-0 h-full w-full"
           />
+        </div>
+      </div>
+
+      {/* Written lesson — for members who learn best by reading */}
+      <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+        <h2 className="mb-1 flex items-center gap-2 font-heading text-lg font-bold text-gold">
+          <BookOpen size={18} /> The Lesson
+        </h2>
+        <p className="mb-4 text-xs text-white/50">
+          Prefer reading? Everything the video covers — and everything the quiz tests — is here.
+        </p>
+        <div className="space-y-5">
+          {m.lesson.map((section) => (
+            <section key={section.heading}>
+              <h3 className="mb-2 font-heading text-base font-bold text-white">
+                {section.heading}
+              </h3>
+              {section.paragraphs.map((p, i) => (
+                <p key={i} className="mb-2 text-sm leading-relaxed text-white/75">
+                  {p}
+                </p>
+              ))}
+              {section.bullets && (
+                <ul className="mt-1 space-y-1">
+                  {section.bullets.map((b) => (
+                    <li key={b} className="pl-4 text-sm leading-relaxed text-white/75">
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
         </div>
       </div>
 

@@ -23,6 +23,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
         pdfs: m.pdfs,
         images: m.images,
         keyPoints: m.keyPoints,
+        lesson: m.lesson,
         questionCount: m.quiz.length,
       }}
     />

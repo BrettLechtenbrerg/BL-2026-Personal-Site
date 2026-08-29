@@ -1,6 +1,7 @@
 # Master's Edge Academy — `/academy`
 
-> Private, hidden (noindex) learning academy: modules with video + resources,
+> Private, hidden (noindex) learning academy: 15 modules (one per Master's Edge
+> tool) each with video, full written lesson, and resources,
 > typeform-style quizzes with an 80% pass gate, XP + martial-arts belt levels,
 > badges, a members-only community feed, leaderboard, and a final certification
 > (capstone project reviewed by Brett + auto-scored final exam) that prints a
@@ -22,9 +23,12 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 2. **Schema** — ✅ already applied to the `bl-comms-hub` Supabase project
    (all `me_` tables). To re-apply or apply elsewhere, paste
    `supabase/academy-schema.sql` into the Supabase SQL editor (idempotent).
-3. **Swap placeholder videos** — in `src/content/academy/modules.ts`, replace
-   `VIDEO_ID_1/2/3` with real unlisted YouTube embed ids
-   (`https://www.youtube.com/embed/<id>`).
+3. **Swap placeholder videos** — all 15 modules currently cycle through Brett's
+   3 media-appearance videos. Replace each module's `videoUrl` in
+   `src/content/academy/modules.ts` with its real unlisted lesson video
+   (`https://www.youtube.com/embed/<id>`) as they get filmed. Every module
+   also has a full written lesson, so reading-first members are covered
+   even before the real videos exist.
 4. Push to `main` → Vercel deploys. Share `brettlechtenberg.com/academy` +
    the enrollment code directly with members.
 
