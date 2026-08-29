@@ -41,6 +41,8 @@ export interface AcademyModule {
   videoUrl: string;
   /** Paths under /public, e.g. /academy/fire-yourself/workbook.pdf */
   pdfs: { label: string; href: string }[];
+  /** Audio lessons (e.g. NotebookLM deep dives) under /public. Optional. */
+  audio?: { label: string; href: string }[];
   /** Paths under /public, e.g. /academy/fire-yourself/diagram.png */
   images: string[];
   /** Key teaching points shown on the module page. */
@@ -4617,6 +4619,11 @@ export const academyModules: AcademyModule[] = [
     order: 43,
     title: "The Master's Edge Framework",
     tagline: "Free Course",
+    // Brett: drop the NotebookLM deep-dive file into
+    // public/academy/masters-edge-framework/ and update the filename below.
+    audio: [
+      // { label: "Deep Dive: The Master's Edge Framework (audio overview)", href: "/academy/masters-edge-framework/deep-dive.m4a" },
+    ],
     description:
       "The complete Master's Edge system in one sitting — the map of the room. Three pillars, three sciences, six pillars of training design, five failure modes, and the scorecard. Then prove you own it: a 26-question scenario exam.",
     videoUrl: PLACEHOLDER_VIDEO(43),

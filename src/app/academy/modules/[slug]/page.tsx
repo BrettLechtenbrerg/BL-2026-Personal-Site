@@ -21,6 +21,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
         description: m.description,
         videoUrl: m.videoUrl,
         pdfs: m.pdfs,
+        audio: m.audio,
         images: m.images,
         keyPoints: m.keyPoints,
         lesson: m.lesson,

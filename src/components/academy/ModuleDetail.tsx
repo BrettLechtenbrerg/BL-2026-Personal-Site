@@ -21,6 +21,7 @@ export interface ModuleDetailData {
   description: string;
   videoUrl: string;
   pdfs: { label: string; href: string }[];
+  audio?: { label: string; href: string }[];
   images: string[];
   keyPoints: string[];
   lesson: { heading: string; paragraphs: string[]; bullets?: string[] }[];
@@ -146,6 +147,28 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
           ))}
         </div>
       </div>
+
+      {/* Audio lessons — e.g. NotebookLM deep-dive overviews */}
+      {(m.audio?.length ?? 0) > 0 && (
+        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Listen</h2>
+          <div className="space-y-4">
+            {m.audio!.map((track) => (
+              <div key={track.href}>
+                <p className="mb-2 text-sm font-semibold text-white/80">{track.label}</p>
+                <audio controls preload="none" className="w-full">
+                  <source src={track.href} />
+                  Your browser doesn&apos;t support audio playback —{" "}
+                  <a href={track.href} className="underline">
+                    download the file
+                  </a>
+                  .
+                </audio>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Key points */}
       <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
