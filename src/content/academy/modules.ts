@@ -4618,7 +4618,7 @@ export const academyModules: AcademyModule[] = [
     title: "The Master's Edge Framework",
     tagline: "Free Course",
     description:
-      "The complete Master's Edge system in one sitting — the map of the room. Three pillars, three sciences, six pillars of training design, five failure modes, and the scorecard. Then prove you own it: a 22-question scenario exam.",
+      "The complete Master's Edge system in one sitting — the map of the room. Three pillars, three sciences, six pillars of training design, five failure modes, and the scorecard. Then prove you own it: a 26-question scenario exam.",
     videoUrl: PLACEHOLDER_VIDEO(43),
     pdfs: [],
     images: [],
