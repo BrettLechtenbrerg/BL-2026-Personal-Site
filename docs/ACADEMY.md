@@ -13,13 +13,13 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 
 ---
 
-## Launch checklist (do these before sharing the link)
+## Launch checklist
 
-1. **Set env vars in Vercel** (Project → Settings → Environment Variables):
-   - `ACADEMY_ACCESS_CODE` — the enrollment code you give members (any string).
-   - `ACADEMY_SESSION_SECRET` — `openssl rand -hex 32`.
-   - (Already set: `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.)
-   Without them, production fails closed: signup returns 503, sessions 503.
+1. **Env vars** — ✅ all set in Vercel production (Aug 29 2026):
+   `ACADEMY_ACCESS_CODE` (enrollment code **EDGE2026**), `ACADEMY_SESSION_SECRET`,
+   `CRON_SECRET`, plus the pre-existing Supabase vars. If any is removed,
+   production fails closed: signup/sessions return 503. To rotate the code:
+   `npx vercel env rm ACADEMY_ACCESS_CODE production` then re-add + redeploy.
 2. **Schema** — ✅ already applied to the `bl-comms-hub` Supabase project
    (all `me_` tables). To re-apply or apply elsewhere, paste
    `supabase/academy-schema.sql` into the Supabase SQL editor (idempotent).
@@ -49,7 +49,8 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 ## Adding a module
 
 1. Append an entry to `src/content/academy/modules.ts` (slug, title, order,
-   video embed URL, quiz questions with `correctIndex` + `explanation`).
+   video embed URL, `lesson` sections — the written material for readers —
+   and quiz questions with `correctIndex` + `explanation`).
 2. Drop PDFs/images into `public/academy/<slug>/` and list them in the entry.
 3. Optionally add a badge name/emoji for it in `badges.ts` → `moduleBadgeMeta`.
 Pages, linear unlock, quiz, XP, and the module badge all pick it up automatically.

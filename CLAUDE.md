@@ -157,7 +157,7 @@ BL-2026-Personal-Site/
 | Course | Path | Status | Description |
 |--------|------|--------|-------------|
 | The Master's Edge Workbook | `/masters-edge/workbook` | ✅ Live | Interactive 4-week participant workbook (Clarify → Simplify → Maximize → Integration). Autosave, PDF export, email results, GHL lead capture. |
-| Master's Edge Academy | `/academy` | 🟡 Built — needs env vars + real videos | Full private LMS: enrollment-code signup, per-member accounts, 15 modules (video + written lesson + quiz, one per Master's Edge tool), 80% pass gate, XP + belt levels, badges, community feed, leaderboard, certification + printable certificate. Admin review at `/hub/academy`. **Read `docs/ACADEMY.md`** (launch checklist: `ACADEMY_ACCESS_CODE` + `ACADEMY_SESSION_SECRET` in Vercel, swap placeholder video ids). |
+| Master's Edge Academy | `/academy` | ✅ LIVE (Aug 29 2026) — placeholder videos until real lessons filmed | Full private LMS: enrollment-code signup (code EDGE2026), per-member accounts, 15 modules (video + written lesson + quiz, one per Master's Edge tool), 80% pass gate, XP + belt levels, badges, community feed, leaderboard, certification + printable certificate. Admin review at `/hub/academy`. All env vars set; Supabase keep-alive cron Mon+Thu. **Read `docs/ACADEMY.md`**. |
 
 ### Hidden Draft Pages (noindex — side-by-side review, July 3 2026)
 
