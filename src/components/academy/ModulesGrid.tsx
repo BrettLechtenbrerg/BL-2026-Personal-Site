@@ -19,6 +19,15 @@ export interface ModuleCard {
   questionCount: number;
 }
 
+export interface CourseInfo {
+  id: string;
+  title: string;
+  emoji: string;
+  description: string;
+  fromOrder: number;
+  toOrder: number;
+}
+
 interface ProgressRow {
   module_slug: string;
   lesson_done: boolean;
@@ -26,7 +35,13 @@ interface ProgressRow {
   passed: boolean;
 }
 
-export default function ModulesGrid({ modules }: { modules: ModuleCard[] }) {
+export default function ModulesGrid({
+  modules,
+  courses,
+}: {
+  modules: ModuleCard[];
+  courses: CourseInfo[];
+}) {
   const { loading } = useAcademyUser();
   const [progress, setProgress] = useState<ProgressRow[]>([]);
   const [unlocked, setUnlocked] = useState<string[]>([]);
@@ -55,11 +70,33 @@ export default function ModulesGrid({ modules }: { modules: ModuleCard[] }) {
 
   return (
     <div>
-      <h1 className="mb-1 font-heading text-3xl font-bold">Training Modules</h1>
-      <p className="mb-8 text-white/60">Pass each module&apos;s quiz (80%+) to unlock the next.</p>
+      <h1 className="mb-1 font-heading text-3xl font-bold">Your Courses</h1>
+      <p className="mb-8 text-white/60">
+        Three courses, {modules.length} modules. Pass each quiz at 80%+ to earn its badge.
+      </p>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        {modules.map((m, i) => {
+      {courses.map((course) => {
+        const courseModules = modules.filter(
+          (m) => m.order >= course.fromOrder && m.order <= course.toOrder
+        );
+        const passedCount = courseModules.filter((m) =>
+          progress.some((p) => p.module_slug === m.slug && p.passed)
+        ).length;
+        return (
+          <section key={course.id} className="mb-12">
+            <div className="mb-4 flex items-end justify-between gap-3">
+              <div>
+                <h2 className="flex items-center gap-2 font-heading text-2xl font-bold">
+                  <span>{course.emoji}</span> {course.title}
+                </h2>
+                <p className="mt-1 max-w-2xl text-sm text-white/60">{course.description}</p>
+              </div>
+              <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-gold">
+                {passedCount}/{courseModules.length}
+              </span>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {courseModules.map((m, i) => {
           const row = progress.find((p) => p.module_slug === m.slug);
           const isUnlocked = unlocked.includes(m.slug);
           const isPassed = row?.passed ?? false;
@@ -68,7 +105,7 @@ export default function ModulesGrid({ modules }: { modules: ModuleCard[] }) {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.06 }}
+              transition={{ delay: Math.min(i * 0.04, 0.4) }}
               className={`relative h-full rounded-2xl border p-6 backdrop-blur-md transition-all ${
                 isPassed
                   ? "border-gold/40 bg-gold/10"
@@ -101,15 +138,22 @@ export default function ModulesGrid({ modules }: { modules: ModuleCard[] }) {
             </motion.div>
           );
 
-          return isUnlocked ? (
-            <Link key={m.slug} href={`/academy/modules/${m.slug}`} className="block h-full">
-              {card}
-            </Link>
-          ) : (
-            <div key={m.slug}>{card}</div>
-          );
-        })}
-      </div>
+                return isUnlocked ? (
+                  <Link
+                    key={m.slug}
+                    href={`/academy/modules/${m.slug}`}
+                    className="block h-full"
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  <div key={m.slug}>{card}</div>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }

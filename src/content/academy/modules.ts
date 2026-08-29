@@ -53,6 +53,55 @@ export interface AcademyModule {
 /** Pass threshold for every module quiz (percent). */
 export const PASS_PERCENT = 80;
 
+//------------------------------------------------------------------------------
+// Courses (tracks) — modules are grouped by order range
+//------------------------------------------------------------------------------
+export interface AcademyCourse {
+  id: string;
+  title: string;
+  emoji: string;
+  description: string;
+  /** Inclusive order range of the modules in this course. */
+  fromOrder: number;
+  toOrder: number;
+}
+
+export const academyCourses: AcademyCourse[] = [
+  {
+    id: "business-tools",
+    title: "Master's Edge Business Tools",
+    emoji: "🛠️",
+    description:
+      "Fifteen practical tools for running and scaling your business — from firing yourself out of low-value work to competitor intelligence.",
+    fromOrder: 1,
+    toOrder: 15,
+  },
+  {
+    id: "reclaiming-the-clock",
+    title: "Reclaiming the Clock",
+    emoji: "⏰",
+    description:
+      "Brett's best-selling time system: the Time Maze, your 5%, impact zones, the Daily Dozen, and the laws that make hours multiply.",
+    fromOrder: 16,
+    toOrder: 23,
+  },
+  {
+    id: "masters-edge-book",
+    title: "The Master's Edge Book",
+    emoji: "⚔️",
+    description:
+      "Nineteen chapters of martial-arts wisdom meets performance science — parable by parable, from the Sword in the Shrine to the Six Pillars.",
+    fromOrder: 24,
+    toOrder: 42,
+  },
+];
+
+export function courseForOrder(order: number): AcademyCourse {
+  return (
+    academyCourses.find((c) => order >= c.fromOrder && order <= c.toOrder) ?? academyCourses[0]
+  );
+}
+
 // PLACEHOLDER videos — Brett's existing media appearances, so modules play a
 // real video today. Swap each for the actual unlisted lesson video when filmed.
 const PLACEHOLDER_VIDEOS = [
@@ -4633,14 +4682,23 @@ export function getModule(slug: string): AcademyModule | undefined {
 }
 
 /**
- * Linear unlock: module N+1 opens once module N is passed. Returns the slugs
- * currently unlocked given the set of passed module slugs.
+ * PREVIEW MODE (Brett's request while he decides the final layout):
+ * every module is unlocked. To restore linear unlocking — module N+1 opens
+ * once module N is passed, per course — swap in the commented block below.
  */
 export function unlockedSlugs(passed: Set<string>): Set<string> {
+  void passed; // unused while preview mode is on
+  return new Set(orderedModules().map((m) => m.slug));
+  /* Linear per-course unlock — restore when the layout is final:
   const unlocked = new Set<string>();
-  for (const m of orderedModules()) {
-    unlocked.add(m.slug);
-    if (!passed.has(m.slug)) break; // everything after the first unpassed stays locked
+  for (const course of academyCourses) {
+    for (const m of orderedModules().filter(
+      (x) => x.order >= course.fromOrder && x.order <= course.toOrder
+    )) {
+      unlocked.add(m.slug);
+      if (!passed.has(m.slug)) break; // rest of THIS course stays locked
+    }
   }
   return unlocked;
+  */
 }

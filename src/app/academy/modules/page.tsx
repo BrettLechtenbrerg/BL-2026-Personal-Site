@@ -3,7 +3,7 @@
 // data reaches the client bundle)
 //==============================================================================
 
-import { orderedModules } from "@/content/academy/modules";
+import { orderedModules, academyCourses } from "@/content/academy/modules";
 import ModulesGrid from "@/components/academy/ModulesGrid";
 
 export default function ModulesPage() {
@@ -15,5 +15,13 @@ export default function ModulesPage() {
     description: m.description,
     questionCount: m.quiz.length,
   }));
-  return <ModulesGrid modules={modules} />;
+  const courses = academyCourses.map((c) => ({
+    id: c.id,
+    title: c.title,
+    emoji: c.emoji,
+    description: c.description,
+    fromOrder: c.fromOrder,
+    toOrder: c.toOrder,
+  }));
+  return <ModulesGrid modules={modules} courses={courses} />;
 }
