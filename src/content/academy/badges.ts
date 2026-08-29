@@ -22,6 +22,15 @@ const moduleBadgeMeta: Record<string, { name: string; emoji: string }> = {
   "fire-yourself": { name: "Role Evolver", emoji: "🔥" },
   "ideal-week": { name: "Time Architect", emoji: "📅" },
   "decision-journal": { name: "Clear Thinker", emoji: "🧭" },
+  // Reclaiming the Clock track
+  "time-maze": { name: "Maze Solver", emoji: "🌀" },
+  "mapping-values": { name: "Values Mapper", emoji: "🗺️" },
+  "daily-dozen": { name: "Morning Champion", emoji: "🌅" },
+  "five-percent": { name: "5% Master", emoji: "💎" },
+  "rules-of-freedom": { name: "Freedom Keeper", emoji: "🕊️" },
+  "laws-of-maximization": { name: "Maximizer", emoji: "⚡" },
+  "harmony-acceptance": { name: "Harmony Holder", emoji: "☸️" },
+  "tools-and-stick": { name: "Clock Reclaimer", emoji: "⏰" },
 };
 
 export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {

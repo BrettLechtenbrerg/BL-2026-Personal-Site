@@ -1686,6 +1686,867 @@ export const academyModules: AcademyModule[] = [
       },
     ],
   },
+
+  //============================================================================
+  // RECLAIMING THE CLOCK — modules 16–23, from Brett's best-selling book
+  // (Time Maze™, Responsibility Backpack™, Acceptance Catapult™ © 2017)
+  //============================================================================
+
+  //----------------------------------------------------------------------------
+  // Module 16 — The Time Maze
+  //----------------------------------------------------------------------------
+  {
+    slug: "time-maze",
+    order: 16,
+    title: "The Time Maze",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Stop racing the clock and start solving the maze. Brett's signature framework: your day is a maze, your obligations are a backpack — and there's a trick to solving any maze faster.",
+    videoUrl: PLACEHOLDER_VIDEO(16),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Your day is a maze; your tasks are a backpack you empty as you navigate it.",
+      "Unfinished tasks roll into tomorrow's NEW maze — a heavier pack, different traps.",
+      "Ounces equal pounds, pounds equal pain: a compounding backpack breaks you down.",
+      "Only carry what's truly YOURS — others slip their weight into your pack.",
+      "Solve the maze backwards: from the finish, the path is obvious.",
+    ],
+    lesson: [
+      {
+        heading: "Your Day Is a Maze, Not a Clock",
+        paragraphs: [
+          "Racing a clock is a losing game — the clock never gets tired. So change the picture: each day is a maze you enter in the morning, with turns, distractions, and dead ends. Your daily tasks and responsibilities ride in a backpack, and completing a task is dropping an item from the pack at its right place along the route. The goal is to reach the exit — pack empty — with time to spare.",
+          "Most people never make it out. Phone calls, emails, random interruptions and wrong turns keep them from emptying the pack — they give up mid-maze and 'start again tomorrow.'",
+        ],
+      },
+      {
+        heading: "The Compounding Backpack",
+        paragraphs: [
+          "Here's the trap: tomorrow isn't the same maze. It's a NEW maze with different dead ends — and every task you didn't finish yesterday is still in your pack, under today's new load. Backpackers and soldiers know the rule: ounces equal pounds, and pounds equal pain. Day after day the pack gets heavier, the stress compounds — sleep suffers, focus slips, family time evaporates, money worries grow.",
+          "And much of that weight was never yours. People slip their duties into your backpack constantly. Part of reclaiming the clock is refusing weight that doesn't belong to you — taking on someone else's load only after a careful, strategic decision that it works for YOU.",
+        ],
+      },
+      {
+        heading: "Solve It Backwards",
+        paragraphs: [
+          "There are three ways to solve a maze. Most people get dropped at the entrance and wander — no map, no plan, maximum frustration. Better: view it from the top down and trace start to finish — that's having a strategy. But the trick that beats both: work the maze BACKWARDS, from finish to start. Try it on paper — it's almost always faster.",
+          "Applied to your life: start from what a finished, successful day looks like and work back to now. The rest of this course — values, impact zones, the Daily Dozen, selective ignorance, the 30% rule — is how you build that backwards map.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "In the Time Maze framework, what does your backpack represent?",
+        options: [
+          "Your fears about work",
+          "The day's tasks and responsibilities, which you drop off as you complete them",
+          "Your long-term goals",
+          "Money worries",
+        ],
+        correctIndex: 1,
+        explanation:
+          "You load the pack each morning, navigate the maze, and empty it task by task — aiming to exit with an empty pack and time to spare.",
+      },
+      {
+        question: "Why do unfinished tasks hurt more than one bad day?",
+        options: [
+          "They don't — tomorrow is a fresh start",
+          "They roll into tomorrow's NEW maze on top of new tasks — the pack compounds daily: ounces equal pounds, pounds equal pain",
+          "Your boss notices",
+          "They expire and disappear",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Tomorrow brings a different maze AND a heavier pack. The compounding weight is what breaks people down — stress, sleep, focus, family.",
+      },
+      {
+        question: "What's the fastest way to solve a maze — and a day?",
+        options: [
+          "Enter at the start and figure it out as you go",
+          "Work it backwards from the finish — then build your day from the outcome back to now",
+          "Move faster through every turn",
+          "Skip the maze entirely",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Backwards is almost always faster on paper mazes — and in life. Start from what a completed day looks like and map back.",
+      },
+      {
+        question: "What should be in your backpack?",
+        options: [
+          "Everything anyone asks of you — that's teamwork",
+          "Only tasks that are truly YOURS — others' weight gets in only by deliberate, strategic choice",
+          "As much as possible, to build endurance",
+          "Only work tasks, never personal ones",
+        ],
+        correctIndex: 1,
+        explanation:
+          "People slip their obligations into your pack constantly. Reclaiming the clock starts with refusing weight that was never yours.",
+      },
+      {
+        question: "Why does the book replace the clock metaphor with a maze?",
+        options: [
+          "Clocks are old-fashioned",
+          "You can't beat a clock — but a maze can be SOLVED, with a map, a strategy, and a lighter pack",
+          "Mazes are more fun",
+          "Time isn't real",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Racing time is unwinnable. Solving a maze is a skill you can learn — which is exactly what this course teaches.",
+      },
+    ],
+  },
+
+  //----------------------------------------------------------------------------
+  // Module 17 — Mapping Your Values
+  //----------------------------------------------------------------------------
+  {
+    slug: "mapping-values",
+    order: 17,
+    title: "Mapping Your Values",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Time is the universal amplifier. Map your true top-ten values — not the ones pushed on you — and align your goals so every reclaimed hour amplifies what actually matters.",
+    videoUrl: PLACEHOLDER_VIDEO(17),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Conflict occurs when your goals and your values are out of alignment.",
+      "List YOUR top ten values — not what others value or pushed on you.",
+      "Time is the universal amplifier: it multiplies whatever you point it at.",
+      "Almost every 'why don't I have X?' answer boils down to time.",
+      "Make time itself a top value — it feeds every other value on the list.",
+    ],
+    lesson: [
+      {
+        heading: "Values First, Backpack Second",
+        paragraphs: [
+          "Value mapping decides what goes in your backpack at all — it's how you keep the pack light. Write your top ten values: peace of mind, health, relationship with spouse or kids, financial security, faith, free time, accomplishment — whatever is genuinely YOURS. Not what your parents valued, not what culture pushed on you.",
+          "The test that matters: conflict occurs when your goals and your values are out of alignment. What you want has to agree with what you believe is important — otherwise every day is a quiet fight with yourself.",
+        ],
+      },
+      {
+        heading: "Time Is the Universal Amplifier",
+        paragraphs: [
+          "Point all your time at any one thing and that thing grows — focus every hour on making money and you WILL make money. Time multiplies whatever it touches. That's why it amplifies neglect too: ask people why they don't have the marriage, health, or finances they want and the answers all boil down to 'I don't have time.'",
+          "Imagine your spouse saying 'I'm leaving — I never see you,' or your doctor saying 'drop thirty pounds or you have six months.' Suddenly the time appears. The ultimatum didn't create time; it re-aimed it. Value mapping is how you re-aim WITHOUT the ultimatum.",
+        ],
+      },
+      {
+        heading: "Make Time Your #1 Value",
+        paragraphs: [
+          "Brett's own answer: put TIME above everything. Do whatever it takes to create time first — because reclaimed time feeds every other value. Create time and the date nights happen, the workouts happen, the business grows, the mission gets funded.",
+          "Fill the values sheet out for real — don't play the broken telephone game of assuming you know how it ends. Your top ten, on paper. Everything else in this course gets built on it.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "When does inner conflict occur, according to the book?",
+        options: [
+          "When you work too many hours",
+          "When your goals and your values are out of alignment",
+          "When others disagree with you",
+          "When you have too many values",
+        ],
+        correctIndex: 1,
+        explanation:
+          "What you want (goals) must agree with what you believe is important (values) — misalignment turns every day into a quiet fight with yourself.",
+      },
+      {
+        question: "What does 'time is the universal amplifier' mean?",
+        options: [
+          "Time makes everything louder",
+          "Time multiplies whatever you point it at — focus and neglect both compound",
+          "Time heals all wounds",
+          "More hours always equals more money",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Aim all your time at anything and it grows. That's also why neglected values wither — they're being amplified toward zero.",
+      },
+      {
+        question: "Whose values belong on your top-ten list?",
+        options: [
+          "A balanced mix of yours and your family's expectations",
+          "Only YOURS — not what others value or what was pushed upon you",
+          "Whatever successful people list",
+          "The 25 from the book, in order",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The sheet only works if it's honest. Inherited or imposed values put someone else's items in your backpack.",
+      },
+      {
+        question: "Why do the spouse-ultimatum and doctor-ultimatum stories matter?",
+        options: [
+          "They prove ultimatums are healthy",
+          "They show the time was always available — crisis just re-aimed it. Value mapping re-aims it WITHOUT the crisis",
+          "They show some people can't change",
+          "They're about communication skills",
+        ],
+        correctIndex: 1,
+        explanation:
+          "'I don't have time' really means 'it's not currently a priority.' The exercise moves your real priorities up before life forces them up.",
+      },
+      {
+        question: "Why did Brett make TIME his #1 value?",
+        options: [
+          "He collects watches",
+          "Reclaimed time feeds every other value — create time first and relationships, health, and business all improve",
+          "Time is easier to measure than love",
+          "His coach told him to",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Time is the input every other value consumes. Secure the amplifier first, then point it at what matters.",
+      },
+    ],
+  },
+
+  //----------------------------------------------------------------------------
+  // Module 18 — The Daily Dozen
+  //----------------------------------------------------------------------------
+  {
+    slug: "daily-dozen",
+    order: 18,
+    title: "The Daily Dozen",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Win your morning, win your day: build your personal set of before-9am activities — joy-bringers and stress-killers — so even a chaotic day starts accomplished and at peace.",
+    videoUrl: PLACEHOLDER_VIDEO(18),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "The Daily Dozen: activities you complete before 9am so the day starts won.",
+      "It rarely equals twelve — seven to nine is typical. It evolves over time.",
+      "Pick joy-bringers (tied to your values) and stress-eliminators.",
+      "Affirmations work in present tense — as if already happening.",
+      "Values → clarity → goals → Daily Dozen: the order matters.",
+    ],
+    lesson: [
+      {
+        heading: "Win the Morning, Win the Day",
+        paragraphs: [
+          "Your Daily Dozen is the set of activities you work to accomplish before 9am — so that even if the rest of the day totally falls apart, you already feel accomplished and at peace. The name is a nickname, not a quota: most people run seven to nine items, and the list evolves as your life does.",
+          "The order of construction matters: values first, then clarity, then the goals your values produce — THEN the Daily Dozen falls into place easily. Done right, you wake with energy, stop skipping meals and rushing, stop living for the weekend, and start living for each day.",
+        ],
+      },
+      {
+        heading: "Build It From Joy and Stress-Relief",
+        paragraphs: [
+          "Two selection rules: pick things that bring you the most JOY (correlated to your values), and things that ELIMINATE recurring stress. Brett's own dozen is a model, not a mandate: positive reading, a present-tense affirmation, appreciation, music and a big glass of water, shower, healthy breakfast with vitamins, checking the bank account, talking with his wife and son, a workout, maximizing his first impact zone, and Facebook birthday wishes.",
+          "Details that matter: affirmations are spoken as if already happening — 'I am living it now,' not 'someday I will.' The glass of water replaces the coffee you thought you needed — you lose eight to twelve ounces of water overnight just by breathing, and rehydrating restores energy on its own.",
+        ],
+      },
+      {
+        heading: "Make It Yours, Keep It Consistent",
+        paragraphs: [
+          "Audio books versus paper, gym versus walk, God versus gratitude — the medium is yours; the structure is what counts. Appreciation deserves a permanent slot: it's easy to fixate on what went wrong, so spend a few deliberate minutes on what's going well.",
+          "Consistency converts the list into identity. When your first two waking hours are pre-decided and value-aligned, you stop negotiating with yourself every morning — and the maze gets solved before it even starts.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "What is the Daily Dozen?",
+        options: [
+          "Twelve annual goals",
+          "The set of activities you complete before 9am so the day starts already won",
+          "A dozen work tasks per day",
+          "Twelve affirmations",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Even if the rest of the day falls apart, you feel accomplished and at peace — the day starts won, not chased.",
+      },
+      {
+        question: "How many items does a Daily Dozen usually contain?",
+        options: [
+          "Exactly twelve — it's a strict quota",
+          "Seven to nine is typical — the name is a nickname, and the list evolves",
+          "At least twenty",
+          "Three maximum",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Brett himself usually runs seven to nine. What matters is joy, stress-relief, and consistency — not hitting a number.",
+      },
+      {
+        question: "What two criteria select an activity for your Daily Dozen?",
+        options: [
+          "Difficulty and duration",
+          "It brings you joy (tied to your values) or eliminates recurring stress",
+          "Whatever successful people do",
+          "Productivity and profit",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Joy-bringers correlated to values, plus stress-eliminators — that's the whole filter.",
+      },
+      {
+        question: "How should affirmations be phrased?",
+        options: [
+          "As future hopes: 'someday I will…'",
+          "Present tense, as if already happening: 'I am living it now'",
+          "As questions",
+          "As warnings about failure",
+        ],
+        correctIndex: 1,
+        explanation:
+          "You program yourself by living the outcome now, not by postponing it to a vague someday.",
+      },
+      {
+        question: "Why the big glass of water first thing every morning?",
+        options: [
+          "It's a tradition",
+          "You lose 8–12 ounces overnight just breathing — rehydrating restores energy, often replacing the coffee",
+          "It fills you up so you eat less",
+          "Cold water builds discipline",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Overnight dehydration drains energy and clarity. Water first — then see if you even need the stimulant.",
+      },
+    ],
+  },
+
+  //----------------------------------------------------------------------------
+  // Module 19 — Your 5% and Impact Zones
+  //----------------------------------------------------------------------------
+  {
+    slug: "five-percent",
+    order: 19,
+    title: "Your 5% and Impact Zones",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Find the handful of activities only you can do brilliantly — your 5% — and schedule them into your daily impact zones, the 2–4 hour windows when you're naturally sharpest.",
+    videoUrl: PLACEHOLDER_VIDEO(19),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Your 5%: the work you love that uses your unique gifts.",
+      "'That's not in my 5%' — the phrase that grows your team and frees your time.",
+      "The 70% rule: if someone can do it 70% as well, hand it off — they'll improve.",
+      "Impact zones: 2–3 daily windows of peak clarity, lasting 2–4 hours.",
+      "Highest-focus work goes in impact zones; everything else goes elsewhere.",
+    ],
+    lesson: [
+      {
+        heading: "Work in Your 5%",
+        paragraphs: [
+          "Out of everything you do, a thin slice — about 5% — is work you love that uses your unique gifts. That slice is where your greatest value lives. The discipline is moving everything else OUT: listing your daily activities on the left of a page and systematically moving only the true 5% to the right.",
+          "The objection is always 'nobody can do it as well as me.' Maybe true — but do you really need to be filing, filling the company car, or writing the budget? If someone can do it 70% as well today, hand it off: with training and reps, they'll close the gap, and some will eventually beat you at it. Your team can't grow if you never give them the chance.",
+        ],
+      },
+      {
+        heading: "'That's Not in My 5%'",
+        paragraphs: [
+          "When Brett's team brought him tasks they could handle, the answer became a mantra: 'I trust you. You can do it. It's not in my 5%.' If they hadn't been trained, he trained them — but if they knew how and were just leaning on him, that was someone cramming weight into his backpack.",
+          "Expect turbulence: you may lose people who were only there for a paycheck. But empowering the team to own their work — and their own 5% — is how the business grows dramatically while your time frees up.",
+        ],
+      },
+      {
+        heading: "Impact Zones",
+        paragraphs: [
+          "You already know the feeling — 'in the groove,' 'in the zone.' Those are impact zones: windows when your clarity, focus, and output peak. Most people have two or three per day, each lasting two to four hours — they just never track them, so the magic seems random.",
+          "Brett's run 8:30–11:30am and 5:00–7:30pm. Find yours by observing a week, then schedule deliberately: the 5% work — writing, designing, strategy — goes IN the zones; checkbook, lawn, lunch meetings go elsewhere. You can even shift zones slightly by adjusting sleep and meal patterns. Work your 5% inside your impact zones and the effect is exponential: more done in a week than most manage in a month.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "What is your 5%?",
+        options: [
+          "The profit margin you keep",
+          "The work you love that uses your unique gifts — where your greatest value lives",
+          "The hardest 5% of your tasks",
+          "Five percent of your calendar",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The exercise: list all activities, then systematically move only the true 5% to your side of the page. Everything else finds another owner.",
+      },
+      {
+        question: "What is the 70% rule for delegation?",
+        options: [
+          "Keep 70% of tasks for yourself",
+          "If someone can do it 70% as well today, hand it off — training and reps close the gap",
+          "Only delegate to people with 70% of your experience",
+          "Delegate 70% of your salary",
+        ],
+        correctIndex: 1,
+        explanation:
+          "'Nobody does it as well as me' is usually true AND irrelevant. They get better because you train them — some end up better than you.",
+      },
+      {
+        question: "What does the phrase 'That's not in my 5%' accomplish?",
+        options: [
+          "It avoids blame",
+          "It stops trained people from leaning on you and cramming their weight into your backpack — while empowering them to own the work",
+          "It ends meetings faster",
+          "It impresses clients",
+        ],
+        correctIndex: 1,
+        explanation:
+          "'I trust you. You can do it. It's not in my 5%.' — the mantra that grows the team and frees the owner.",
+      },
+      {
+        question: "What are impact zones?",
+        options: [
+          "Gym time slots",
+          "Your 2–3 daily windows of peak clarity and focus, each lasting 2–4 hours",
+          "Deadline periods",
+          "Meeting-free days",
+        ],
+        correctIndex: 1,
+        explanation:
+          "'In the groove' isn't random — it recurs daily at trackable times. Find yours by observing a week.",
+      },
+      {
+        question: "What belongs inside your impact zones?",
+        options: [
+          "Email and errands — get them done fast while sharp",
+          "Your 5% — the highest-focus, highest-value work. Low-thought tasks get scheduled elsewhere",
+          "Whatever comes up first",
+          "Meetings, so you perform well",
+        ],
+        correctIndex: 1,
+        explanation:
+          "5% work inside impact zones is the exponential combination — a week's output beating most people's month.",
+      },
+    ],
+  },
+
+  //----------------------------------------------------------------------------
+  // Module 20 — The Ten Rules of Freedom
+  //----------------------------------------------------------------------------
+  {
+    slug: "rules-of-freedom",
+    order: 20,
+    title: "The Ten Rules of Freedom",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Rewire how you think about time, work, and retirement: live for right now, ride your cycles of inspiration, honor self-promises, and make retirement your worst-case scenario — not the goal.",
+    videoUrl: PLACEHOLDER_VIDEO(20),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Live your life for right now — don't park your dreams behind retirement.",
+      "Interest and energy are cyclical — capture inspiration when it strikes.",
+      "Action first: emotion builds AFTER you start, not before.",
+      "Emphasize your strengths; let weaknesses sit if you choose.",
+      "Honor self-promises — positive stress is deadlines you set and keep.",
+    ],
+    lesson: [
+      {
+        heading: "Retirement as Worst-Case Scenario",
+        paragraphs: [
+          "The rules are ordered to a provocative end: make retirement the WORST-case outcome, not the finish line. Rule #1 — live your life for right now. Don't build a bucket list for age 65; make your business or job revolve around attaining the life you want NOW, instead of making your life revolve around the job.",
+          "Money gets demoted too: money is rarely a solution — it only solves the problems that not having money created. And watch net versus gross: many people burn enormous time generating impressive gross income that nets almost nothing after the dust settles.",
+        ],
+      },
+      {
+        heading: "Ride Your Cycles, Start Before You Feel Ready",
+        paragraphs: [
+          "Interest and energy are cyclical. Mid-project, you'll get sudden inspiration for something else entirely — don't fight it or lose it; log the idea (notepad beside the keyboard, voice memo) and return to your task. The idea is safe, your focus is intact.",
+          "And don't wait to 'feel motivated': emotion builds when you start with action, not before it. Related: don't wait for permission either — act, and ask forgiveness if you ever need to (you probably won't).",
+        ],
+      },
+      {
+        heading: "Strengths, Enough-ness, and Positive Stress",
+        paragraphs: [
+          "Emphasize your strengths — build your work around what you're great at; weaknesses can be worked on or simply left to sit. But beware too much of a good thing: master these tools, and you could end up with abundant time and nothing to aim it at. Time without purpose is not the win — find the purpose.",
+          "Finally, the engine of it all: positive stress. Negative stress is worrying about money; positive stress is setting a timeline and honoring the self-promise. Set it, announce it to yourself, make it happen — only the weak break self-promises. Each kept promise spikes positive stress briefly, then drops negative stress dramatically. That trade is the freedom.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "How are the Ten Rules of Freedom deliberately ordered?",
+        options: [
+          "Alphabetically",
+          "To make retirement the worst-case scenario — not the goal you defer your life toward",
+          "Easiest to hardest",
+          "By age group",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Live for right now: make the business revolve around the life you want today, not a bucket list parked at 65.",
+      },
+      {
+        question: "Mid-project, you're hit with inspiration for something unrelated. The rule?",
+        options: [
+          "Suppress it — focus means ignoring ideas",
+          "Log it immediately (notepad, voice memo), then return to your task — the idea is saved, focus intact",
+          "Abandon the current project",
+          "Schedule a meeting about it",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Interest and energy are cyclical — inspiration is fuel, not a distraction, IF you capture it without derailing.",
+      },
+      {
+        question: "What's the relationship between action and motivation?",
+        options: [
+          "Wait for motivation, then act",
+          "Emotion builds AFTER you start — action first, feelings follow",
+          "Neither matters without talent",
+          "Motivation is permanent once found",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Waiting to feel ready is the trap. Start, and the emotional momentum arrives on its own.",
+      },
+      {
+        question: "What does 'money is rarely a solution' mean?",
+        options: [
+          "Money doesn't matter at all",
+          "Money only solves the problems that not having money created — misaligned values are the real bottleneck",
+          "Never seek higher income",
+          "Barter instead",
+        ],
+        correctIndex: 1,
+        explanation:
+          "If goals and values are misaligned, more money won't fix the life. Align first — then focused time creates the income anyway.",
+      },
+      {
+        question: "What is positive stress?",
+        options: [
+          "Stress that feels exciting",
+          "Setting a timeline, honoring the self-promise, and feeling negative stress drop when you deliver",
+          "Other people's deadlines",
+          "Caffeine",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Self-imposed deadlines you actually keep — brief positive spike, dramatic negative drop. Only the weak break self-promises.",
+      },
+    ],
+  },
+
+  //----------------------------------------------------------------------------
+  // Module 21 — The Laws of Maximization
+  //----------------------------------------------------------------------------
+  {
+    slug: "laws-of-maximization",
+    order: 21,
+    title: "The Laws of Maximization",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Fifteen tactical laws for squeezing more from every hour: Parkinson's Law, the least-slack rule, embedding, batching, the post-it note philosophy, and the 30% rule that ends lateness forever.",
+    videoUrl: PLACEHOLDER_VIDEO(21),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Parkinson's Law: tasks expand to fill the time you give them — so give less.",
+      "Least slack rule: shortest task first — the snowball is mathematically real.",
+      "Embed short tasks inside long-running ones; batch similar tasks together.",
+      "Never touch things twice: do it right, do it to completion.",
+      "The 30% rule: pad every time estimate by 30% and lateness disappears.",
+    ],
+    lesson: [
+      {
+        heading: "Compress and Sequence",
+        paragraphs: [
+          "Parkinson's Law: any task expands in complexity based on how much time you give it. The counter is a challenging, self-imposed time limit — honored like any self-promise. More time doesn't make it easier; it makes it bigger.",
+          "Then sequence with the least-slack rule: shortest task first. Five minutes, then ten, then fifteen — the snowball effect is backed by real operations math. And embed: start the laundry (long-running), and while it rolls, make the short call, then clean the floors. Series tasks nest inside each other.",
+        ],
+      },
+      {
+        heading: "Protect Completion",
+        paragraphs: [
+          "Do things right the first time — or make time to do them again. Never touch things twice — no half-doing a task and ping-ponging back later; do it to completion. Batch similar tasks: email two or three times a day and ONLY then (email is almost never your 5%, and it certainly doesn't belong in an impact zone); file all at once; return calls all at once.",
+          "Work both ways: never walk anywhere empty-handed — upstairs trip, downstairs return, both with a purpose. Simple reprogramming, twice the throughput.",
+        ],
+      },
+      {
+        heading: "Plan Small, Pad Smart",
+        paragraphs: [
+          "The post-it note philosophy: fifteen minutes of planning to start the day, fifteen to close it, thirty once a week — and if the day's plan doesn't fit on a post-it note in normal handwriting, it isn't going to happen. Working in your 5%, the post-it is a full day.",
+          "And the law that ends lateness: the 30% rule. The nine-minute school run takes nine minutes only when every light cooperates and every shoe is pre-tied — which is never. Pad every estimate by 30% and you arrive calm, early, and trusted. Schedule your day at 70% capacity and surprises stop being emergencies.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "What does Parkinson's Law say about tasks?",
+        options: [
+          "Tasks get easier with more time",
+          "Tasks expand in complexity to fill the time you give them — so set challenging limits",
+          "Tasks are fixed in size",
+          "Only work tasks obey laws",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Give a task a week and it becomes a week-sized task. The counter: tight self-imposed deadlines, honored as self-promises.",
+      },
+      {
+        question: "Facing a 5-minute, 10-minute, and 15-minute task, what order does the least-slack rule prescribe?",
+        options: [
+          "Longest first — eat the frog",
+          "Shortest first: 5, then 10, then 15 — the snowball effect has real math behind it",
+          "Random order",
+          "Hardest first regardless of length",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Shortest-to-longest — the 'least slack rule' from operations science — builds momentum and completions fastest.",
+      },
+      {
+        question: "What does 'never touch things twice' forbid?",
+        options: [
+          "Delegating anything",
+          "Half-doing a task and ping-ponging back later — do it right AND to completion",
+          "Rereading emails",
+          "Editing your work",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Partial work plus a return trip costs more than finishing once. Schedule tasks so they get DONE.",
+      },
+      {
+        question: "How often should you handle email, per the batching law?",
+        options: [
+          "Continuously — responsiveness wins",
+          "Two or three fixed times a day, and only then — email is rarely your 5% and never impact-zone work",
+          "Once a week",
+          "Only when the inbox is full",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Batch it with filing and calls: all at once, outside your peak windows, leaving impact zones for real work.",
+      },
+      {
+        question: "What is the 30% rule?",
+        options: [
+          "Save 30% of income",
+          "Pad every time estimate by 30% — the nine-minute trip only takes nine when everything is perfect, which is never",
+          "Work 30% harder than peers",
+          "Delegate 30% of tasks",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Chronic lateness is chronic under-padding. Estimate +30% and arrive calm, early, and trusted.",
+      },
+    ],
+  },
+
+  //----------------------------------------------------------------------------
+  // Module 22 — Harmony and the Acceptance Catapult
+  //----------------------------------------------------------------------------
+  {
+    slug: "harmony-acceptance",
+    order: 22,
+    title: "Harmony and the Acceptance Catapult",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Stop chasing 'balance' — it doesn't exist. Build harmony across family, fitness, finances, and faith, and use the Acceptance Catapult to stop fighting reality and start compounding.",
+    videoUrl: PLACEHOLDER_VIDEO(22),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Balance is a scale that never settles; harmony is everyone doing their part over time.",
+      "The four aspects to keep in harmony: family, fitness, finances, faith.",
+      "Sometimes you give 10%, sometimes 90% — harmony absorbs the swings.",
+      "Front-of-mind awareness: what you focus on daily, you get more of.",
+      "The Acceptance Catapult: accept that some things are hard — then do them anyway.",
+    ],
+    lesson: [
+      {
+        heading: "Harmony, Not Balance",
+        paragraphs: [
+          "Balance implies a scale sitting perfectly level — and life never sits level. Chasing it wastes energy and breeds guilt. Harmony is different: like Jerry the restaurant trainer taught Brett's management class, on any shift you'll FEEL like you're doing all the work — and the others feel exactly the same about you. Focus on your best; the freeloaders weed themselves out over time.",
+          "Sometimes you're at 10%, sometimes 90%. In a marriage, sometimes you carry more, sometimes your spouse does. That's not imbalance — that's harmony absorbing life's swings.",
+        ],
+      },
+      {
+        heading: "The Four-Part Harmony Practice",
+        paragraphs: [
+          "Keep four aspects of life in harmony: family, fitness, finances, and faith (or spirituality, whatever that means for you). The practices: put hobbies back into your week — you're reclaiming the time for them now. Keep fitness non-negotiable — reclaimed time is worthless if you're too unhealthy to use it. Keep a consistent schedule, especially sleep and your Daily Dozen.",
+          "Mind your money daily — checking the bank account puts finances at the front of your mind, and front-of-mind awareness is real: like seeing your new car's model everywhere, whatever you consciously track, you get more of.",
+        ],
+      },
+      {
+        heading: "The Acceptance Catapult",
+        paragraphs: [
+          "Most people burn energy hunting shortcuts or resenting difficulty. The Acceptance Catapult flips it: accept five truths — 'this is the way it is, and I'll deal with it' — and the acceptance itself catapults you forward. The first: some things are just HARD. Social media, bookkeeping, difficult conversations — hard. Accept it, stop negotiating with reality, and do the work.",
+          "Acceptance isn't resignation — it's the end of the exhausting inner argument about whether the work should be easier. That reclaimed energy goes into the work itself. Liberation through acceptance: that's the catapult.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "Why does the book reject 'balance' as a goal?",
+        options: [
+          "Balance is too easy",
+          "Balance is a scale that never settles — life swings constantly, and chasing level wastes energy and breeds guilt",
+          "Balance is only for gymnasts",
+          "Work should always come first",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Harmony replaces it: everyone doing their part over time, absorbing the natural swings between 10% days and 90% days.",
+      },
+      {
+        question: "What did Jerry the restaurant trainer teach about feeling like you do all the work?",
+        options: [
+          "Confront slackers immediately",
+          "Everyone feels that way about everyone else — focus on your best and the true freeloaders weed themselves out",
+          "Work less to match the others",
+          "Report it to management",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The feeling is universal and mostly mutual. Do your part, extend trust, and time sorts out the rest.",
+      },
+      {
+        question: "What are the four aspects to keep in harmony?",
+        options: [
+          "Work, sleep, food, exercise",
+          "Family, fitness, finances, and faith",
+          "Money, power, respect, fame",
+          "Mind, body, soul, career",
+        ],
+        correctIndex: 1,
+        explanation:
+          "The four F's — supported by hobbies, consistent schedules, daily money awareness, and the Daily Dozen.",
+      },
+      {
+        question: "Why check your bank account every day?",
+        options: [
+          "To catch bank errors",
+          "Front-of-mind awareness — what you consciously track daily, you get more of, like suddenly seeing your new car everywhere",
+          "Banks require it",
+          "To feel guilty about spending",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Focus on your money and you start having more of it — the new-car effect applied to finances.",
+      },
+      {
+        question: "What is the Acceptance Catapult?",
+        options: [
+          "A technique for lowering your standards",
+          "Accepting hard truths — 'this is how it is, I'll deal with it' — which ends the inner argument and catapults that energy into the work",
+          "Giving up on difficult goals",
+          "A morning stretching routine",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Some things are just hard. Acceptance isn't resignation — it's reclaiming the energy you were burning on resentment.",
+      },
+    ],
+  },
+
+  //----------------------------------------------------------------------------
+  // Module 23 — Tools, Technology, and Making It Stick
+  //----------------------------------------------------------------------------
+  {
+    slug: "tools-and-stick",
+    order: 23,
+    title: "Tools, Technology, and Making It Stick",
+    tagline: "Reclaiming the Clock",
+    description:
+      "Three free tools beat three hundred apps: capture ideas instantly, coordinate projects visibly, schedule everything. Then the part that matters — working the program so the skills never fade.",
+    videoUrl: PLACEHOLDER_VIDEO(23),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Three tools, not three hundred apps: capture, coordinate, schedule.",
+      "Capture ideas the moment they strike — voice or text — so your mind can rest.",
+      "Schedule EVERYTHING: personal time, workouts, appointments — that's harmony kept.",
+      "The program only works as well as you work it.",
+      "All skills are perishable — review often, like swimming after ten years away.",
+    ],
+    lesson: [
+      {
+        heading: "Three Tools Beat Three Hundred Apps",
+        paragraphs: [
+          "You don't need three hundred apps when three will do. Brett's stack (free versions, no affiliation): a note-capture tool (Evernote) — project files you can talk into from a bank line, a car, or bed, so inspiration is never lost; a project board (Trello) — when an editor, a writer, and a cover designer share one project, everyone sees where everything stands; and a scheduler (Acuity) — preset links and times, so appointments book themselves into slots YOU chose.",
+          "The specific brands matter less than the three functions: capture instantly, coordinate visibly, schedule everything. If you have no tools, adopt three. If you have thirty, scale back.",
+        ],
+      },
+      {
+        heading: "Capture and Schedule Like You Mean It",
+        paragraphs: [
+          "The capture habit connects to the Rules of Freedom: inspiration is cyclical, so bank every idea the moment it strikes — talk into the phone, hit save, done. Ease the stress off your mind and watch how many MORE ideas flood in.",
+          "And schedule everything — not just business. Personal time, workout time, date nights, naps: if it matters to your harmony, it gets a slot. What gets scheduled gets protected; what floats gets eaten by other people's priorities.",
+        ],
+      },
+      {
+        heading: "The Program Only Works If You Work It",
+        paragraphs: [
+          "The wrap-up truth: most people never evaluate how they spend their life until it's too late — finishing this course already puts you in the top percentage. But the results belong to those who IMPLEMENT: the students who report back amazed are the ones who put the material in place within days.",
+          "Final warning: all skills are perishable. Swim after ten years away and you still swim — just worse. Time management decays the same way. Review the frameworks often — the maze, the values, the Dozen, the 5%, the laws — and you become, in the book's words, a productivity machine.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "What's the book's rule on productivity apps?",
+        options: [
+          "More tools = more productivity",
+          "Three tools covering capture, coordination, and scheduling beat three hundred apps",
+          "Never pay for software",
+          "Paper only — digital is a distraction",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Capture instantly, coordinate visibly, schedule everything. Too many tools IS the time problem.",
+      },
+      {
+        question: "Why capture ideas the instant they strike?",
+        options: [
+          "To prove you had them first",
+          "Inspiration is cyclical and perishable — banking it eases your mind, and MORE ideas flood in",
+          "To fill your note app",
+          "Ideas are only valid when written",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Talk into the phone, save, return to work. The mind, relieved of remembering, generates more.",
+      },
+      {
+        question: "What should go on your calendar?",
+        options: [
+          "Business appointments only",
+          "Everything that matters to your harmony — personal time, workouts, date nights included",
+          "Only recurring meetings",
+          "As little as possible, for flexibility",
+        ],
+        correctIndex: 1,
+        explanation:
+          "What gets scheduled gets protected. What floats gets eaten by other people's priorities.",
+      },
+      {
+        question: "Who gets results from this program?",
+        options: [
+          "Everyone who reads it",
+          "Those who implement within days — the program only works as well as you work it",
+          "Natural organizers",
+          "People with assistants",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Reading is the entry fee. The students who report back amazed are the ones who put material in place immediately.",
+      },
+      {
+        question: "Why must you review these skills regularly?",
+        options: [
+          "The rules change yearly",
+          "All skills are perishable — like swimming after ten years away, unused time-management skill decays",
+          "To memorize the book",
+          "You don't — once learned, always learned",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Review often — maze, values, Dozen, 5%, laws — and stay a productivity machine instead of becoming a former one.",
+      },
+    ],
+  },
 ];
 
 //==============================================================================
