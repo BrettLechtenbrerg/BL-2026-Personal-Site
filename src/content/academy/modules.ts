@@ -44,8 +44,14 @@ export interface AcademyModule {
 /** Pass threshold for every module quiz (percent). */
 export const PASS_PERCENT = 80;
 
-// PLACEHOLDER video — Brett: replace VIDEO_ID_x with real unlisted video ids.
-const PLACEHOLDER_VIDEO = (n: number) => `https://www.youtube.com/embed/VIDEO_ID_${n}`;
+// PLACEHOLDER videos — Brett's existing media appearances, so modules play a
+// real video today. Swap each for the actual unlisted lesson video when filmed.
+const PLACEHOLDER_VIDEOS = [
+  "https://www.youtube.com/embed/Dq7agUEBr6I", // Good Things Utah
+  "https://www.youtube.com/embed/tHNnmrkqPrM", // The Daily Dish — CW30
+  "https://www.youtube.com/embed/tos_1uWdW4E", // Profiles in Caring
+];
+const PLACEHOLDER_VIDEO = (n: number) => PLACEHOLDER_VIDEOS[n - 1];
 
 export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
