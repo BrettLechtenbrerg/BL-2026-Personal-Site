@@ -4628,6 +4628,12 @@ export const academyModules: AcademyModule[] = [
         href: "/academy/masters-edge-framework/deep-dive.m4a",
       },
     ],
+    videoFiles: [
+      {
+        label: "Engineering Human Performance: The Master's Edge Stack (NotebookLM video overview)",
+        href: "/academy/masters-edge-framework/video-overview.mp4",
+      },
+    ],
     description:
       "The complete Master's Edge system in one sitting — the map of the room. Three pillars, three sciences, six pillars of training design, five failure modes, and the scorecard. Then prove you own it: a 26-question scenario exam.",
     videoUrl: PLACEHOLDER_VIDEO(43),
