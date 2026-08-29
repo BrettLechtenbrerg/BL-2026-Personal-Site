@@ -1,7 +1,7 @@
 "use client";
 
 //==============================================================================
-// Academy — module grid with linear lock/progress states
+// Academy — modules grouped by course, with lock/progress states
 //==============================================================================
 
 import { useEffect, useState } from "react";
@@ -97,46 +97,46 @@ export default function ModulesGrid({
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {courseModules.map((m, i) => {
-          const row = progress.find((p) => p.module_slug === m.slug);
-          const isUnlocked = unlocked.includes(m.slug);
-          const isPassed = row?.passed ?? false;
+                const row = progress.find((p) => p.module_slug === m.slug);
+                const isUnlocked = unlocked.includes(m.slug);
+                const isPassed = row?.passed ?? false;
 
-          const card = (
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: Math.min(i * 0.04, 0.4) }}
-              className={`relative h-full rounded-2xl border p-6 backdrop-blur-md transition-all ${
-                isPassed
-                  ? "border-gold/40 bg-gold/10"
-                  : isUnlocked
-                    ? "border-white/15 bg-white/5 hover:border-cranberry-light hover:shadow-[0_0_30px_rgba(155,27,48,0.3)]"
-                    : "border-white/10 bg-white/[0.02] opacity-60"
-              }`}
-            >
-              <div className="mb-3 flex items-center justify-between">
-                <span className="rounded-full bg-cranberry/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold">
-                  Module {m.order} · {m.tagline}
-                </span>
-                {isPassed ? (
-                  <CheckCircle2 className="text-gold" size={22} />
-                ) : isUnlocked ? (
-                  <PlayCircle className="text-cranberry-light" size={22} />
-                ) : (
-                  <Lock className="text-white/40" size={20} />
-                )}
-              </div>
-              <h2 className="mb-2 font-heading text-xl font-bold text-white">{m.title}</h2>
-              <p className="text-sm leading-relaxed text-white/60">{m.description}</p>
-              <div className="mt-4 text-xs text-white/50">
-                {isPassed
-                  ? `Passed · ${row?.quiz_score ?? "—"}%`
-                  : row?.quiz_score != null
-                    ? `Best quiz score: ${row.quiz_score}%`
-                    : `${m.questionCount}-question quiz`}
-              </div>
-            </motion.div>
-          );
+                const card = (
+                  <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: Math.min(i * 0.04, 0.4) }}
+                    className={`relative h-full rounded-2xl border p-6 backdrop-blur-md transition-all ${
+                      isPassed
+                        ? "border-gold/40 bg-gold/10"
+                        : isUnlocked
+                          ? "border-white/15 bg-white/5 hover:border-cranberry-light hover:shadow-[0_0_30px_rgba(155,27,48,0.3)]"
+                          : "border-white/10 bg-white/[0.02] opacity-60"
+                    }`}
+                  >
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="rounded-full bg-cranberry/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold">
+                        Module {m.order} · {m.tagline}
+                      </span>
+                      {isPassed ? (
+                        <CheckCircle2 className="text-gold" size={22} />
+                      ) : isUnlocked ? (
+                        <PlayCircle className="text-cranberry-light" size={22} />
+                      ) : (
+                        <Lock className="text-white/40" size={20} />
+                      )}
+                    </div>
+                    <h2 className="mb-2 font-heading text-xl font-bold text-white">{m.title}</h2>
+                    <p className="text-sm leading-relaxed text-white/60">{m.description}</p>
+                    <div className="mt-4 text-xs text-white/50">
+                      {isPassed
+                        ? `Passed · ${row?.quiz_score ?? "—"}%`
+                        : row?.quiz_score != null
+                          ? `Best quiz score: ${row.quiz_score}%`
+                          : `${m.questionCount}-question quiz`}
+                    </div>
+                  </motion.div>
+                );
 
                 return isUnlocked ? (
                   <Link

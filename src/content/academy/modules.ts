@@ -96,12 +96,6 @@ export const academyCourses: AcademyCourse[] = [
   },
 ];
 
-export function courseForOrder(order: number): AcademyCourse {
-  return (
-    academyCourses.find((c) => order >= c.fromOrder && order <= c.toOrder) ?? academyCourses[0]
-  );
-}
-
 // PLACEHOLDER videos — Brett's existing media appearances, so modules play a
 // real video today. Swap each for the actual unlisted lesson video when filmed.
 const PLACEHOLDER_VIDEOS = [
