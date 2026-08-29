@@ -120,6 +120,7 @@ export default function AcademyLoginPage() {
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   placeholder="Enrollment code"
+                  autoComplete="off"
                   required
                   className={`${inputClass} pl-9`}
                 />
@@ -129,6 +130,7 @@ export default function AcademyLoginPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name"
+                autoComplete="name"
                 required
                 minLength={2}
                 maxLength={80}
@@ -142,6 +144,7 @@ export default function AcademyLoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
+            autoComplete="email"
             required
             className={inputClass}
           />
@@ -152,6 +155,7 @@ export default function AcademyLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder={mode === "signup" ? "Create a password (8+ characters)" : "Password"}
+              autoComplete={mode === "signup" ? "new-password" : "current-password"}
               required
               minLength={mode === "signup" ? 8 : 1}
               maxLength={100}
