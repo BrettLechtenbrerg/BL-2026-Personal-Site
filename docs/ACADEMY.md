@@ -1,7 +1,10 @@
 # Master's Edge Academy — `/academy`
 
-> Private, hidden (noindex) learning academy: 15 modules (one per Master's Edge
-> tool) each with video, full written lesson, and resources,
+> Private, hidden (noindex) learning academy: 4 courses / 43 modules —
+> Business Tools (1–15), Reclaiming the Clock (16–23), The Master's Edge Book
+> (24–42), and the Framework free-giveaway course (43, with NotebookLM audio +
+> video overviews). Each module: video, full written lesson, optional
+> audio/videoFiles, and resources,
 > typeform-style quizzes with an 80% pass gate, XP + martial-arts belt levels,
 > badges, a members-only community feed, leaderboard, and a final certification
 > (capstone project reviewed by Brett + auto-scored final exam) that prints a
@@ -45,6 +48,16 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
   modeled on `hub-session.ts`). Every `/api/academy/*` route verifies it.
 - Dev fallbacks (localhost only): code `masters-edge-dev`, dev session secret.
 - Admin review reuses the existing hub login — no second admin account.
+
+## Current mode (Aug 29, 2026)
+
+- **Preview mode is ON**: all modules unlocked while Brett decides the final
+  layout. Restore linear per-course unlocking via the commented block in
+  `unlockedSlugs()` (src/content/academy/modules.ts).
+- **Media on modules**: optional `audio` and `videoFiles` arrays render native
+  players ABOVE the YouTube embed. Files live under
+  `public/academy/<slug>/`; keep them under ~90MB (Supabase Storage beyond).
+- **Session log**: docs/SESSION-NOTES.md — read it first next session.
 
 ## Adding a module
 

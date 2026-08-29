@@ -25,12 +25,13 @@ Aug 29, 2026:
 - Framework course (module 43, from book Appendix A) is the planned **free
   giveaway** — NOT yet public, still behind the enrollment code by Brett's
   choice. A code-free lead-magnet signup was offered, not yet requested.
-- Module 43 has NotebookLM deep-dive AUDIO installed and live
-  (public/academy/masters-edge-framework/deep-dive.m4a, 39MB).
-- VIDEO overview: Brett is generating it in NotebookLM; will hand over the
-  file same way (Desktop + filename). Both self-hosted video (videoFiles) and
-  the YouTube placeholder (videoUrl) render side-by-side ON PURPOSE — Brett
-  will compare and pick one. >90MB files go to Supabase Storage, not the repo.
+- Module 43 has BOTH NotebookLM artifacts installed and verified streaming:
+  - AUDIO: public/academy/masters-edge-framework/deep-dive.m4a (39MB)
+  - VIDEO: public/academy/masters-edge-framework/video-overview.mp4 (88MB,
+    "Engineering Human Performance: The Master's Edge Stack")
+  Page order (Brett's request): Video Overview → Listen → YouTube placeholder
+  → written lesson. Both video players stay until Brett picks one.
+  Future files >90MB go to Supabase Storage, not the repo.
 - All 43 placeholder videos still cycle Brett's 3 TV appearances; real lesson
   videos pending.
 
