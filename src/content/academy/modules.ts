@@ -43,6 +43,9 @@ export interface AcademyModule {
   pdfs: { label: string; href: string }[];
   /** Audio lessons (e.g. NotebookLM deep dives) under /public. Optional. */
   audio?: { label: string; href: string }[];
+  /** Self-hosted video files (e.g. NotebookLM video overviews). Optional —
+   *  renders IN ADDITION to videoUrl (YouTube embed) so both can be compared. */
+  videoFiles?: { label: string; href: string }[];
   /** Paths under /public, e.g. /academy/fire-yourself/diagram.png */
   images: string[];
   /** Key teaching points shown on the module page. */

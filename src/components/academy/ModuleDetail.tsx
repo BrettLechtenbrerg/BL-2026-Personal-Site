@@ -22,6 +22,7 @@ export interface ModuleDetailData {
   videoUrl: string;
   pdfs: { label: string; href: string }[];
   audio?: { label: string; href: string }[];
+  videoFiles?: { label: string; href: string }[];
   images: string[];
   keyPoints: string[];
   lesson: { heading: string; paragraphs: string[]; bullets?: string[] }[];
@@ -147,6 +148,29 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
           ))}
         </div>
       </div>
+
+      {/* Self-hosted videos (e.g. NotebookLM video overviews) — shown alongside
+          the YouTube embed above so Brett can compare both before choosing */}
+      {(m.videoFiles?.length ?? 0) > 0 && (
+        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Video Overview</h2>
+          <div className="space-y-4">
+            {m.videoFiles!.map((v) => (
+              <div key={v.href}>
+                <p className="mb-2 text-sm font-semibold text-white/80">{v.label}</p>
+                <video controls preload="metadata" playsInline className="w-full rounded-lg">
+                  <source src={v.href} />
+                  Your browser doesn&apos;t support video playback —{" "}
+                  <a href={v.href} className="underline">
+                    download the file
+                  </a>
+                  .
+                </video>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Audio lessons — e.g. NotebookLM deep-dive overviews */}
       {(m.audio?.length ?? 0) > 0 && (
