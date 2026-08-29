@@ -31,6 +31,26 @@ const moduleBadgeMeta: Record<string, { name: string; emoji: string }> = {
   "laws-of-maximization": { name: "Maximizer", emoji: "⚡" },
   "harmony-acceptance": { name: "Harmony Holder", emoji: "☸️" },
   "tools-and-stick": { name: "Clock Reclaimer", emoji: "⏰" },
+  // The Master's Edge Book track
+  "sword-in-shrine": { name: "Edge Keeper", emoji: "⚔️" },
+  "acceptance-catapult": { name: "Catapult Rider", emoji: "🎯" },
+  "masters-garden": { name: "Garden Tender", emoji: "🌱" },
+  "two-beliefs": { name: "Growth Chooser", emoji: "🧠" },
+  "burned-dojo": { name: "Rebuilder", emoji: "🌅" },
+  "bamboo-warrior": { name: "Bamboo Bender", emoji: "🎍" },
+  "swordsmiths-fire": { name: "Forged in Fire", emoji: "🔨" },
+  "one-mountain": { name: "Mountain Climber", emoji: "⛰️" },
+  "calm-river": { name: "Calm River", emoji: "🌊" },
+  "warriors-ledger": { name: "Ledger Keeper", emoji: "📖" },
+  "twin-tigers": { name: "Tiger Tamer", emoji: "🐯" },
+  "garden-of-words": { name: "Word Gardener", emoji: "🌸" },
+  "stone-steps": { name: "Step Cutter", emoji: "🪨" },
+  "consistent-warrior": { name: "Consistent Warrior", emoji: "🔁" },
+  "lantern-bearer": { name: "Lantern Bearer", emoji: "🏮" },
+  "trust-trinity": { name: "Trust Builder", emoji: "🤝" },
+  "masters-state": { name: "Flow Engineer", emoji: "🌀" },
+  "unseen-belt": { name: "Unseen Belt", emoji: "🥋" },
+  "six-pillars": { name: "Pillar Builder", emoji: "🏛️" },
 };
 
 export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {

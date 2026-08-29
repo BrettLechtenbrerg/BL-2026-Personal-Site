@@ -2547,6 +2547,2014 @@ export const academyModules: AcademyModule[] = [
       },
     ],
   },
+
+  //============================================================================
+  // THE MASTER'S EDGE BOOK — modules 24–42, one per chapter
+  // (parables, frameworks, and practices from Brett's book, 2026)
+  //============================================================================
+
+{
+  slug: "sword-in-shrine",
+  order: 24,
+  title: "The Sword in the Shrine: The Master's Edge",
+  tagline: "The Master's Edge Book",
+  description: "The lord owned the better sword. The captain kept the better promise. Discover the three meanings of the edge — and why yesterday's sharpness belongs to yesterday.",
+  videoUrl: PLACEHOLDER_VIDEO(24),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "The edge is not in the steel; it is in the stone — lifted daily.",
+    "Yesterday's edge belongs to yesterday: mastery is a condition, not a credential.",
+    "Sharpening is removal — grind away everything that doesn't serve the cut.",
+    "The plain sword, kept, beats the famous sword kept in silk.",
+    "A sword is a promise; the edge is whether you've kept it.",
+  ],
+  lesson: [
+    {
+      heading: "Osen and the Shrine Sword",
+      paragraphs: [
+        "A lord enshrined the most famous sword in the province behind silk cords and told visitors, 'While this sword is in my house, my house is safe.' Meanwhile Osen, the quiet captain of his guard, met every dawn in the courtyard with a flat stone and a plain blade. When the young guards teased her — 'Captain, your sword was sharp yesterday' — she answered, 'Yesterday's edge belongs to yesterday.'",
+        "When raiders came over the passes, the lord drew his famous blade for the first time in his life — and it cut nothing. Years of stillness had rounded the edge; the finest steel in the province had become a bar of iron with a famous name. It was Osen's plain sword, honed that very morning, that held the gate. Her lesson to the humbled lord: 'The edge is not in the steel. It is in the stone — and the stone must be lifted every day.'",
+      ],
+    },
+    {
+      heading: "The Three Meanings of the Edge",
+      paragraphs: [
+        "First, the edge is the essential line — everything useless ground away. You don't add sharpness; you remove every particle that isn't serving the cut. Second, the edge is where growth lives: the narrow band where a challenge slightly exceeds your skill — 'hard fun' — where every real gain on the mat, in your company, in your marriage actually happens. Third, and this is the meaning almost everyone misses: the edge is a maintenance discipline, not a possession. Conditions decay. The masters are the people who never stopped lifting the stone.",
+        "The craft has three components. Mindset Mastery is the steel — the frameworks and resilience the blade is made of, because brittle steel fails no matter how finely you grind it. Skillset Enhancement is the geometry — layered, connecting capabilities that shape the cut. Systems Design is the daily stone — the habits and environment everyone skips because it looks like maintenance instead of progress. Underneath run three engines: frontloading, first principles thinking, and flow — the state the whole system is built to reach.",
+      ],
+      bullets: [
+        "Mindset Mastery — the steel",
+        "Skillset Enhancement — the geometry",
+        "Systems Design — the daily stone",
+      ],
+    },
+    {
+      heading: "The Monday Morning Test",
+      paragraphs: [
+        "This framework survived the most honest feedback loop in the world: a martial arts floor, almost every day for thirty years, then a second room full of business owners who needed it to work by Monday. So the only test we'll ever use is this: did it change what you DO? Not what you know, not what you highlighted — what your hands do Monday morning when the book is closed and the week comes at you.",
+        "Start sharpening now. Run the Edge Audit — rate yourself one to five on mindset, skillset, and systems, no aspirational scoring; the lowest number is where this work pays first. Name your One Strike: the single capability that, perfected, would change your next year most. Take the Shrine Inventory — list what you're proudest of and date its last deliberate practice; anything over six months is resting on silk cords. Then lift the stone once: one ten-minute maintenance act, same time tomorrow morning.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "Why did the lord's famous sword fail when the raiders came?",
+      options: [
+        "The smith had used inferior steel from the start",
+        "The lord swung it with poor technique",
+        "Years of stillness had rusted and rounded its unmaintained edge",
+        "Osen had secretly swapped it for a replica",
+      ],
+      correctIndex: 2,
+      explanation: "The steel was the finest in the province. But an edge is a condition, and conditions decay — the shrine preserved the sword's fame while quietly destroying its function. Sharpness is maintained daily or lost quietly.",
+    },
+    {
+      question: "According to the chapter, how is a blade actually sharpened?",
+      options: [
+        "By removal — grinding away everything that doesn't serve the cut",
+        "By adding layers of harder steel to the edge",
+        "By resting it so the metal can recover",
+        "By using it constantly in real combat",
+      ],
+      correctIndex: 0,
+      explanation: "You don't add your way to an edge; you grind away what isn't serving the cut. That's why mastery looks minimal — and why this book will keep asking what you'll remove, not just what you'll add.",
+    },
+    {
+      question: "What are the three components of the Master's Edge craft, in order?",
+      options: [
+        "Talent, opportunity, luck",
+        "Mindset Mastery, Skillset Enhancement, Systems Design",
+        "Strength, speed, strategy",
+        "Vision, execution, delegation",
+      ],
+      correctIndex: 1,
+      explanation: "Mindset is the steel, skillset is the geometry, and systems are the daily stone. They come in that order because each one is the platform the next stands on — skip a layer and the system breaks.",
+    },
+    {
+      question: "Which component do most people skip — and why?",
+      options: [
+        "Mindset, because it feels too abstract",
+        "Skillset, because it takes too long to build",
+        "Systems Design, because it looks like maintenance instead of progress",
+        "None — most people balance all three naturally",
+      ],
+      correctIndex: 2,
+      explanation: "Systems Design is Osen in the courtyard at dawn — unglamorous, invisible, essential. Without the right systems, even the strongest mindset and sharpest skills erode. Every unlifted stone is a slow disaster.",
+    },
+    {
+      question: "What is the only test this book applies to its own teaching?",
+      options: [
+        "Whether you can pass a written exam on the concepts",
+        "Whether you feel more motivated after reading",
+        "Whether you can explain the frameworks to others",
+        "Whether it changed what you DO on Monday morning",
+      ],
+      correctIndex: 3,
+      explanation: "Training that merely informs is entertainment with homework. Training that transforms changes the way your hands move — Monday morning, when the book is closed and the week comes at you.",
+    },
+  ],
+},
+{
+  slug: "acceptance-catapult",
+  order: 25,
+  title: "The Acceptance Catapult",
+  tagline: "The Master's Edge Book",
+  description: "Liang climbed a mountain chasing the Dragon's Breath — and found a mirror instead. Acceptance isn't the soft skill it sounds like. Done right, it's a catapult.",
+  videoUrl: PLACEHOLDER_VIDEO(25),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "What you resist, persists. What you accept, transforms.",
+    "Acceptance is not resignation — it's an accurate map of the terrain.",
+    "Five acceptances, in order: skip one and the catapult won't fire.",
+    "Budget 10x the effort, focus, time, and resources you expect.",
+    "Mastery isn't a summit you stand on; it's an altitude you maintain.",
+  ],
+  lesson: [
+    {
+      heading: "Liang and the Dragon's Breath",
+      paragraphs: [
+        "Liang was a skilled young martial artist with a restless heart, convinced that mastering the legendary Dragon's Breath technique would finally make him content. He climbed the Whispering Mountains to find Master Wu — and for weeks the master taught him only to tend the garden, meditate by streams, and practice forms before dawn. Not one word about the Dragon's Breath. Liang's patience finally shattered.",
+        "Master Wu led him to a reflecting pool. 'You have been seeking the Dragon's Breath not as a technique, but as a solution to your unrest,' he said. 'True mastery lies not in seeking, but in accepting. The Dragon's Breath is not a technique; it is the moment when acceptance ignites the power within.' Liang had been so fixed on what he thought he needed that he missed the lessons around him. You've met Liang — the owner chasing the one funnel, hire, or software that will finally fix everything, while the unglamorous reps feel like a distraction. They aren't the distraction. They ARE the goal.",
+      ],
+    },
+    {
+      heading: "The 5-Step Acceptance Catapult",
+      paragraphs: [
+        "Five acceptances, in order — skip one and the catapult won't fire. One: accept that some things will be really challenging for YOU, not people in general; difficulty is not a malfunction, it's the price of anything worth having. Two: accept that overcoming it requires Success Habits — daily practices that carry you when motivation won't, moving through a study phase, an application phase, and a mastery phase. Three: accept that you must fall in love with those habits, so completely that you do them every day no matter what. The habit you negotiate with daily is a habit you've already lost.",
+        "Four: accept that success is your duty — and that it will take ten times the effort, focus, time, and resources you expect. Budget for 10x from the start and the long road stops feeling like evidence you're failing. Five: after you achieve the dream, accept that you must keep the fundamental habits that got you there, or slide back to where you started. Stockdale lived every step in a prison camp: unwavering faith he'd prevail, paired with the discipline to confront the brutal facts of his reality. The blind optimists — home by Christmas, then Easter — didn't make it. Acceptance did.",
+      ],
+      bullets: [
+        "1. Accept it will be really challenging — for you",
+        "2. Accept it requires Success Habits",
+        "3. Accept you must fall in love with those habits",
+        "4. Accept success is your duty — and budget 10x",
+        "5. Accept you must keep the fundamentals after you arrive",
+      ],
+    },
+    {
+      heading: "The Acceptance Audit — Your Practice",
+      paragraphs: [
+        "Every coaching engagement I run begins with an acceptance audit before any strategy: we name what is true right now — the real numbers, the real habits, the real hours — with zero judgment. Clients expect it to be discouraging. It's the opposite; you can feel the room exhale. Energy that was spent defending a story gets reassigned to building a future. You cannot navigate terrain you refuse to see.",
+        "Start with one drill this week. The Mirror Breath: hand on heart, three slow breaths, then 'I accept who I am and who I'm becoming' — before the hard call, not after. The Progress Journal: two lines at day's end — one thing done well, one thing you're working on. The Accept-the-Moment Drill: when frustration spikes mid-task, one breath, 'This is where I am. I keep going.' Works in sparring, works in spreadsheets. Frustration is a sign you're growing — perfection is not the goal; presence is.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What was Master Wu actually teaching Liang through gardening, meditation, and pre-dawn forms?",
+      options: [
+        "Patience as punishment for his arrogance",
+        "That acceptance of yourself and the journey is the true mastery",
+        "Basic conditioning required before advanced techniques",
+        "That the Dragon's Breath requires physical stillness to perform",
+      ],
+      correctIndex: 1,
+      explanation: "The Dragon's Breath was never a technique — it's the moment acceptance ignites the power within. Liang was chasing a solution to his unrest; Wu handed him a mirror instead.",
+    },
+    {
+      question: "In the 5-Step Acceptance Catapult, how much effort should you budget compared to your expectations?",
+      options: [
+        "Twice as much",
+        "Half as much, if you work smart",
+        "Ten times the effort, focus, time, and resources",
+        "Exactly what you planned, executed consistently",
+      ],
+      correctIndex: 2,
+      explanation: "Step 4: success is your duty, and it takes 10x what you expect. Brett has watched that multiplier hold for belt tests and businesses alike. Budget for it from the start and the long road stops feeling like failure.",
+    },
+    {
+      question: "According to Stockdale, which prisoners didn't survive the camp?",
+      options: [
+        "The optimists who kept predicting release dates they couldn't control",
+        "The pessimists who gave up all hope of release",
+        "The prisoners who resisted their captors most openly",
+        "The ones without military discipline",
+      ],
+      correctIndex: 0,
+      explanation: "The men who said 'home by Christmas,' then Easter, then Christmas again — until their hearts broke. Stockdale held unwavering faith he'd prevail while confronting the brutal facts. That's the Acceptance Catapult under the worst conditions imaginable.",
+    },
+    {
+      question: "What does the chapter say acceptance is NOT?",
+      options: [
+        "A daily practice",
+        "A source of strength",
+        "A door into flow",
+        "Resignation — wanting less or training softer",
+      ],
+      correctIndex: 3,
+      explanation: "Master Wu never told Liang to want less or train softer. Acceptance is the opposite of resignation: it's an accurate map. You cannot navigate terrain you refuse to see.",
+    },
+    {
+      question: "What is the fate of a habit you negotiate with daily?",
+      options: [
+        "It eventually becomes automatic anyway",
+        "It's a habit you've already lost",
+        "It builds willpower through repeated decisions",
+        "It works fine as long as you win most negotiations",
+      ],
+      correctIndex: 1,
+      explanation: "Step 3 demands you embrace Success Habits so completely that you do them every day, no matter what. 'Fall in love' is a stretch on purpose — you don't need to enjoy every rep, but daily renegotiation means the habit is already gone.",
+    },
+  ],
+},
+{
+  slug: "masters-garden",
+  order: 26,
+  title: "The Master's Garden: Personal Responsibility",
+  tagline: "The Master's Edge Book",
+  description: "You can't control the rain, the sun, or the insects — but you can always control the tending. The garden was never a distraction from the training. It IS the training.",
+  videoUrl: PLACEHOLDER_VIDEO(26),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "You can't control everything — you can always control your response.",
+    "The Gardener's Stance: the controls live inside you, not in the weather.",
+    "Small neglected problems compound — in gardens, in ledgers, in teams.",
+    "The stance is a choice, re-chosen at every setback, forever.",
+    "Your team learns ownership by watching you take it.",
+  ],
+  lesson: [
+    {
+      heading: "Kai and the Neglected Corner",
+      paragraphs: [
+        "At a legendary school known for producing wise masters, the famous garden held a secret: no gardener tended it — every student was responsible for its care. Young Kai protested: 'Why do we waste time pulling weeds instead of training in the dojo?' The Master walked him to a withered, weed-choked corner. 'This corner reflects your current state of mind. Ignore your life, and weeds of doubt, blame, and procrastination will choke the potential within you.'",
+        "'But I can't control everything!' Kai argued. 'Sometimes it rains too much, the sun is too harsh, insects come no matter what.' The Master knelt and pulled weeds by hand. 'True. But you control how you respond. You can choose to weed, to water, to nurture. A warrior does not become great by blaming the world or waiting for perfect conditions. Mastery begins when you take total responsibility for every area of your life.' Now walk your own property: your business has a neglected corner — and listen to how you talk about it: you'll hear Kai. The market rained too much. The algorithm changed.",
+      ],
+    },
+    {
+      heading: "The Gardener's Stance vs. the Spectator's Stance",
+      paragraphs: [
+        "Psychologists call it locus of control; I call it the Gardener's Stance. Everyone I've ever trained sorts into one of two stances. The Spectator's Stance says the controls live outside you — the economy, the boss, the ref, the weather. It feels safe because you're never guilty. But notice the price: if the controls are out there, so is the power. You've traded blame for helplessness, and it costs more stress, more anxiety, and disconnection from your own life.",
+        "The Gardener's Stance says the controls live inside you — not control of everything, control of your response to everything. When things go wrong, the first question is 'what's mine here?' And here's the move most people miss: the stance is a choice, available at every setback, forever. You choose it at this weed, then the next one. Viktor Frankl proved it in the worst place on earth: stripped of everything down to his name, he found the one freedom no one could take — the freedom to choose one's attitude in any circumstances. He didn't control the rain. He controlled the tending.",
+      ],
+      bullets: [
+        "Spectator's Stance: controls outside → blame, helplessness, anxiety",
+        "Gardener's Stance: controls inside → 'what's mine here?'",
+        "The stance is re-chosen at every single setback",
+      ],
+    },
+    {
+      heading: "Whose Weed Is That? — Your Practice",
+      paragraphs: [
+        "In my consulting work I use one line borrowed from my own dojang: 'Whose weed is that?' A client explains a missed quarter — the market, the platform, the salesperson who quit — and I let them finish, then ask it. Not to shame them; the weather they describe is usually real. But we can't work on the weather. The whole engagement turns the day the client starts answering 'mine' before I ask — because every weed they own is a weed we can actually pull.",
+        "Start with one practice. The Weed-Pulling Challenge: name one habit that chokes you and choose the plant that replaces it — a pulled weed with nothing planted grows back. Responding with Calm: next time something goes sideways, take one breath before you respond; that breath is where the Gardener's Stance gets chosen. Lead by Example: take responsibility this week for one thing nobody asked you to own — don't announce it, let it be noticed. This is how leaders are recognized before they're ever appointed.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What was the true secret of the legendary school's garden?",
+      options: [
+        "It was tended by the Master himself every night",
+        "It grew wild, proving nature needs no interference",
+        "No gardener tended it — every student was responsible for its care",
+        "Only students who failed their tests were assigned to it",
+      ],
+      correctIndex: 2,
+      explanation: "The garden was the curriculum. Every weed pulled and plant nurtured was a reflection of each student's own journey toward mastery — which is why Kai's question 'shouldn't we be training instead?' missed the point. The garden WAS the training.",
+    },
+    {
+      question: "In the Gardener's Stance framework, what do you actually control?",
+      options: [
+        "Your response to everything, not everything itself",
+        "Every outcome, if you take enough responsibility",
+        "Nothing — circumstances decide results",
+        "Only your business, not external markets",
+      ],
+      correctIndex: 0,
+      explanation: "The weather isn't yours; the weeding is. Not control of everything — control of your response to everything. The first question when things go wrong: 'what's mine here?'",
+    },
+    {
+      question: "What hidden price does the Spectator's Stance charge?",
+      options: [
+        "It makes you work harder than necessary",
+        "If the controls are out there, so is the power — blame buys helplessness",
+        "It causes you to over-invest in planning",
+        "It damages only your reputation, not your results",
+      ],
+      correctIndex: 1,
+      explanation: "The Spectator's Stance feels safe because you're never guilty. But you've traded blame for helplessness — plus more stress, more anxiety, and that gnawing disconnection from your own life.",
+    },
+    {
+      question: "How often is the Gardener's Stance chosen?",
+      options: [
+        "Once, in a defining moment of commitment",
+        "Only during major crises",
+        "It's a personality trait — some people are born with it",
+        "At every setback, separately, forever — weed by weed",
+      ],
+      correctIndex: 3,
+      explanation: "You don't take the Gardener's Stance once and own it for life. You choose it at this weed, then the next one. String enough choices together and it becomes who you are.",
+    },
+    {
+      question: "What did Viktor Frankl conclude could never be taken from a person?",
+      options: [
+        "Their professional knowledge and skills",
+        "Their physical resilience",
+        "The freedom to choose one's attitude in any circumstances",
+        "Their memories of loved ones",
+      ],
+      correctIndex: 2,
+      explanation: "Everything was stripped from Frankl — his manuscript, his family, even his name. Yet he observed that the last human freedom is choosing one's attitude in any given set of circumstances. He didn't control the rain; he controlled the tending.",
+    },
+  ],
+},
+{
+  slug: "two-beliefs",
+  order: 27,
+  title: "The Two Beliefs: Fixed vs Growth Mindset",
+  tagline: "The Master's Edge Book",
+  description: "Master Goro never trained two students — he trained two beliefs. One boy defended a gift for seven years; the other built himself. The ceiling you keep hitting is painted on.",
+  videoUrl: PLACEHOLDER_VIDEO(27),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Talent decides where you start; belief decides whether you move.",
+    "A protected gift becomes a cage — challenges become threats to it.",
+    "Growth or fixed is a choice — and it's re-chosen daily.",
+    "The counter-move costs one word: yet.",
+    "The verdict never argues with reps — you out-evidence it.",
+  ],
+  lesson: [
+    {
+      heading: "Haru, Ren, and the Flying Scissor Takedown",
+      paragraphs: [
+        "Two boys entered Master Goro's school the same spring. Haru had balance like a cat and memory like a scroll — within a season the village called him gifted. Ren fell during stances and kicked with the wrong leg; the village had a word for him too, and it was not kind. Then something strange happened, slowly. Haru stopped entering tournaments he wasn't certain to win — every loss put the word 'gifted' on trial. When the flying scissor takedown resisted him, he declared it impractical and never touched it again.",
+        "Ren had no reputation to protect, so his hands were free. He lost constantly and mined every loss like ore. He failed the takedown four hundred times — and on the four hundred and first, it worked, and he alone could do it. When Ren defeated Haru in their seventh year, the crowd called it a miracle. Master Goro corrected them: 'I never trained two students. I trained two beliefs. One believed he was something, and spent seven years defending it. One believed he was becoming something, and spent seven years building it. Talent decides where you start. Belief decides whether you move.'",
+      ],
+    },
+    {
+      heading: "The Ceiling Is Painted On",
+      paragraphs: [
+        "The villain of the parable isn't Haru — it's the word 'gifted' and what believing it did to him. A fixed mindset says your ability is static, leading to a life spent looking capable: avoiding challenges, quitting early, seeing effort as proof you lack the gift, ignoring feedback, feeling threatened by others' success. A growth mindset says ability is developed — so challenges become invitations, obstacles become curriculum, effort becomes the path, criticism becomes coaching. Carol Dweck proved this single belief predicts achievement better than talent — and that it can be changed.",
+        "Here's the strange historical part: for most of a century, our culture decided intelligence alone was fixed at birth. Nobody thought a deadlift or a golf swing was genetic destiny — but thinking? Carved in stone at delivery. The irony history forgot: Alfred Binet, inventor of the intelligence test, called fixed intelligence 'brutal pessimism' and designed 'mental orthopedics' — reps for the mind. The measuring stick's own maker said the measurement was a starting line, not a ceiling. If the father of the IQ test believed your mind was trainable, whose permission are you waiting for?",
+      ],
+    },
+    {
+      heading: "CATCH — CHOOSE — PROVE",
+      paragraphs: [
+        "Three moves to switch columns. CATCH the verdict: fixed mindset talks in identity language — 'I'm bad at this,' 'I'm not that kind of person.' You cannot choose against a voice you haven't noticed, so catch it the way a sparring student sees the shoulder twitch before the punch. CHOOSE the growth response: the counter-move costs one word — yet. 'I can't read a financial statement — yet.' On my mat this choice has a call-and-response every student knows: 'Are you ready for a challenge?' 'Bring it on, sir!' We install the answer before the challenge arrives.",
+        "PROVE it with reps: a belief you never test is just a slogan. Ren didn't out-believe Haru with affirmations — he failed the takedown four hundred times on purpose. Start this week: keep a Verdict Log for seven days, catching every fixed-mindset verdict you think or say. Friday, run the Yet Edit — append 'yet' to every entry that deserves a future. Then launch a 401 Project: pick one skill a verdict has kept from you, schedule three deliberate reps a week for thirty days, and log each one. You're not chasing mastery in a month; you're building evidence the verdict can't survive.",
+      ],
+      bullets: [
+        "CATCH the verdict — identity language is the tell",
+        "CHOOSE growth — one word: yet",
+        "PROVE it — reps the fixed voice can't argue with",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "Why did Haru — the gifted student — stop growing?",
+      options: [
+        "He lacked the natural talent everyone believed he had",
+        "Master Goro secretly favored Ren with better instruction",
+        "He suffered an injury that limited his training",
+        "Every challenge became a threat to the word 'gifted' — so he avoided them",
+      ],
+      correctIndex: 3,
+      explanation: "The moment Haru's ability became a fixed possession, every loss put 'gifted' on trial. He entered only tournaments he could win and abandoned techniques that resisted him. A protected gift becomes a cage.",
+    },
+    {
+      question: "How does the fixed-mindset voice reveal itself?",
+      options: [
+        "It talks in identity language — what you ARE instead of where you are so far",
+        "It argues that the task requires too much effort",
+        "It speaks only in moments of physical exhaustion",
+        "It compares you unfavorably to specific rivals",
+      ],
+      correctIndex: 0,
+      explanation: "The voice never argues about effort — it argues about identity. 'I'm not a numbers person.' The tell is any sentence about what you are instead of where you are so far. Catching it is Move 1: pure awareness.",
+    },
+    {
+      question: "What single word converts a verdict into a growth choice?",
+      options: [
+        "Try",
+        "Yet",
+        "Believe",
+        "Maybe",
+      ],
+      correctIndex: 1,
+      explanation: "'I can't read a financial statement — yet.' One word turns a verdict about identity into a statement about position on a path. That's Move 2: CHOOSE — and it's installed in the calm, before the challenge arrives.",
+    },
+    {
+      question: "What did Alfred Binet, inventor of the intelligence test, believe about intelligence?",
+      options: [
+        "That his test proved intelligence was fixed at birth",
+        "That intelligence could not be measured at all",
+        "That fixed intelligence was 'brutal pessimism' — the mind could be trained",
+        "That only children under ten could grow their intelligence",
+      ],
+      correctIndex: 2,
+      explanation: "Binet built the test to identify children who needed help — then spent his career protesting its use as a life verdict. He designed 'mental orthopedics,' reps for the mind. The measuring stick's maker said measurement was a starting line, not a ceiling.",
+    },
+    {
+      question: "How do you silence the fixed-mindset verdict, according to Move 3?",
+      options: [
+        "Debate it with positive affirmations each morning",
+        "Ignore it until it fades on its own",
+        "Avoid situations that trigger it",
+        "Out-evidence it with scheduled, deliberate reps",
+      ],
+      correctIndex: 3,
+      explanation: "You don't debate the fixed voice into silence — you out-evidence it, four hundred and one times if necessary. Ren's proof wasn't a belief; it was the four hundred and first attempt. A belief you never test is just a slogan.",
+    },
+  ],
+},
+{
+  slug: "burned-dojo",
+  order: 28,
+  title: "The Burned Dojo: Optimism",
+  tagline: "The Master's Edge Book",
+  description: "The fire decided what Master Ono lost — it didn't get to decide what he did that morning. Trained optimism isn't predicting sunshine. It's something you supply.",
+  videoUrl: PLACEHOLDER_VIDEO(28),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "The fire decides what you lost — not what you do this morning.",
+    "Take inventory of what the fire couldn't touch.",
+    "Grief is honest; despair is lazy.",
+    "Rewrite it true, not rosy — temporary, specific, situational.",
+    "When you can't bring your best, bring your attitude — it's the event you can still win.",
+  ],
+  lesson: [
+    {
+      heading: "Master Ono's Morning in the Ashes",
+      paragraphs: [
+        "Master Ono's dojo — the hall his grandfather raised beam by beam — burned on a winter night. By morning the village had gathered at the black rectangle in the snow, and his students stood in silent line, waiting to learn what kind of man their teacher was. 'Master… everything is lost,' said Daiki. Ono walked the char line, then pressed his palm to the scorched foundation stone. 'The dojo my grandfather built is gone. That is true, and we will grieve it properly. But look — the stone survived. It always does.'",
+        "Then he took inventory: a foundation that had already survived fire; forty students who now knew they trained for the art and not the building; his grandfather's ground with no walls on it — which meant they could finally build the hall the school had become. 'The fire decided what we lost. It does not get to decide what we do this morning. Grief is honest. Despair is lazy. We will train at dawn tomorrow in the field — and men who train in snow get strong in ways men with roofs never learn.' A master's first act in the ashes is to take inventory of what the fire couldn't touch.",
+      ],
+    },
+    {
+      heading: "What Died in the Camp, What Lived in the Ashes",
+      paragraphs: [
+        "Remember Stockdale's optimists, home by Christmas until their hearts quit? What died in that camp wasn't optimism. It was wishing: hope with no discipline under it, mortgaged to a calendar they didn't control. Ono predicted nothing: he took inventory, told the truth, and brought something to the morning. Martin Seligman proved optimism isn't a temperament — it's an explanatory style you can train. Pessimists explain bad events as permanent, everywhere, and personal; optimists as temporary, specific, and situational. Trainable, measurable, and it predicts who keeps functioning under fire.",
+        "And a sixteen-year-old girl gave us the genuine article. Dr. Edith Eger, a trained ballerina, was forced to dance in Auschwitz hours after her parents were killed — and she danced, because dancing was the one thing the camp couldn't take. She shared her loaf of bread with the other prisoners. At fifty she earned her PhD and became one of the world's great trauma psychologists. Her whole discipline distills into one working question she asked all her life: 'What am I doing now? And is it working?' Pain is unavoidable; suffering is what happens when we stop asking better questions.",
+      ],
+    },
+    {
+      heading: "READ IT — REWRITE IT — BRING IT",
+      paragraphs: [
+        "Three moves, run in order, every time life burns something down. READ IT: within minutes of any setback your mind files a story running on the three pessimist settings — permanent ('the business is finished'), everywhere ('everything is falling apart'), personal ('I'm the kind of person this happens to'). Catch the story you just told yourself. REWRITE IT: not rosy — true. 'The business is finished' rewrites to 'revenue is down 67 percent and I don't yet know the way back' — worse-sounding and infinitely more useful, because that sentence has handles on it. A season, not a sentence.",
+        "BRING IT: when a setback has genuinely capped your performance, attitude is the event you can still win. Mark Petersen taught me this — training for Spartan races through cancer treatment, finishing the sixty-hour Agoge on a broken foot, back from a kidney transplant to teach again. His line: no matter what, he can always bring the enthusiasm and optimism. Start with the Story Audit — log the story you tell after each setback and grade it against the three settings. Then the Bring List: three things you can still bring where your performance is capped. Bring one tomorrow. That's competing.",
+      ],
+      bullets: [
+        "READ IT — catch the permanent/everywhere/personal story",
+        "REWRITE IT — true, not rosy: temporary, specific, situational",
+        "BRING IT — contribute something anyway",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What was Master Ono's first act in the ashes of his dojo?",
+      options: [
+        "He announced the date the new hall would be finished",
+        "He took inventory of what the fire couldn't touch",
+        "He led the village in a formal mourning ceremony",
+        "He dismissed his students until spring",
+      ],
+      correctIndex: 1,
+      explanation: "The surviving foundation stone, forty students, his grandfather's ground with no walls on it. He grieved honestly — but a master's first act in the ashes is counting what survived, then training at dawn in the field.",
+    },
+    {
+      question: "What actually killed Stockdale's fellow prisoners, according to this chapter?",
+      options: [
+        "Optimism itself — hope is dangerous under extreme conditions",
+        "Their refusal to cooperate with captors",
+        "Wishing — predictions mortgaged to a calendar they didn't control",
+        "Physical weakness from the conditions",
+      ],
+      correctIndex: 2,
+      explanation: "What died in the camp wasn't optimism — it was hope with no discipline under it. When 'home by Christmas' failed, the belief collapsed. Ono predicted nothing; he took inventory and brought something to the morning.",
+    },
+    {
+      question: "How do pessimists explain bad events, per Seligman's research?",
+      options: [
+        "As permanent, everywhere, and personal",
+        "As temporary, specific, and situational",
+        "As random and meaningless",
+        "As caused entirely by other people",
+      ],
+      correctIndex: 0,
+      explanation: "Seligman proved optimism is a trainable explanatory style, not a temperament. Pessimists file setbacks as permanent, everywhere, personal; optimists as temporary, specific, situational — and that style predicts who keeps functioning under fire.",
+    },
+    {
+      question: "What does the REWRITE IT move demand of your new story?",
+      options: [
+        "That it emphasizes the silver lining in every loss",
+        "That it assigns responsibility to the right people",
+        "That it predicts a realistic recovery date",
+        "That it's true — not rosy — with the real numbers in it",
+      ],
+      correctIndex: 3,
+      explanation: "The NO LIES standard applies to hope too. 'Revenue is down 67 percent and I don't yet know the way back' sounds worse than sunshine — and is infinitely more useful, because that sentence has handles on it.",
+    },
+    {
+      question: "What did Mark Petersen say he can always bring, no matter what?",
+      options: [
+        "His physical best, through sheer willpower",
+        "The enthusiasm and optimism",
+        "A detailed recovery plan",
+        "Financial resources to solve the problem",
+      ],
+      correctIndex: 1,
+      explanation: "Through cancer, a broken-foot Agoge finish, and a kidney transplant, Mark's discipline held: when your performance is genuinely capped, attitude is the event you can still win. Optimism isn't something you feel — it's something you supply.",
+    },
+  ],
+},
+{
+  slug: "bamboo-warrior",
+  order: 29,
+  title: "The Bamboo Warrior: Resilience",
+  tagline: "The Master's Edge Book",
+  description: "Getting knocked down is the curriculum. Learn the Bend-Endure-Rise framework that turns every storm — a lost client, a brutal season, a million-dollar mistake — into height.",
+  videoUrl: PLACEHOLDER_VIDEO(29),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Resilience isn't a personality trait — it's a structure you can build.",
+    "Bend is a moment, Endure is a season, Rise is a choice — train all three.",
+    "Sort your business into roots (never change) and branches (free to bend) before the storm.",
+    "A storm you don't learn from is a storm you'll take twice.",
+    "Bamboo grows in groves — isolated owners snap first.",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Bamboo Warrior",
+      paragraphs: [
+        "Young Kenji sat on the dojo steps, head hung low, convinced he wasn't strong enough to be a great warrior. Master Ryota walked him to the garden and pointed at the bamboo swaying in the wind. The mighty oak, he explained, will sometimes snap under a great storm. But the bamboo bends — it sways, it endures, and when the storm passes, it stands tall again. \"Do not fear the storm. Become the bamboo — bend, endure, and rise stronger than before.\"",
+        "I've watched hundreds of business owners meet their storms, and they sort almost perfectly into Ryota's two trees. Oak owners meet the storm with pure rigidity — \"we've always done it this way\" — and one storm at the wrong angle breaks what wouldn't bend. Bamboo owners hold a rooted core — their values, their craft, their reason — with total flexibility about everything above ground. The offer can change. The model can change. The roots don't.",
+      ],
+    },
+    {
+      heading: "The Framework: Bend — Endure — Rise",
+      paragraphs: [
+        "Here's what took me years to see: resilience isn't something nature hands out. Bamboo isn't brave; bamboo has the right architecture — which means you can build it. Scientists call the method stress inoculation: building capacity through controlled doses of pressure. On the mat we've always called it Tuesday. The framework is three distinct moves, and most people only train their favorite.",
+        "BEND — adapt at the moment of impact. When the storm hits, your first job isn't to fix it; it's to not snap. Soften the stance, breathe, and let go of the plan the market just voted on. ENDURE — hold your core through the ugly middle where nothing works yet and quitting feels reasonable. You don't need heroics; you need to still be there when the weather turns. RISE — come back stronger, not merely upright. Bamboo grows past its old position. Harvest the storm: what did it teach us, what do we rebuild differently?",
+      ],
+      bullets: [
+        "Bend is a moment: absorb the impact instead of defending a dead plan.",
+        "Endure is a season: your values and daily fundamentals carry you through the middle.",
+        "Rise is a choice: grow past your old height so the next storm finds you built differently.",
+      ],
+    },
+    {
+      heading: "Roots and Branches: Build It Before the Storm",
+      paragraphs: [
+        "In 2007 my wife and I joined a franchise that defrauded its members — our million-dollar education. On one of the worst days, my mentor Senior Master Don MacKay told me two things: \"In ninety days, this will be different — if you let it,\" and to see the lost money not as a loss but as an investment in my education. Years later, when a second franchise system turned, every expensive page of that education protected us. We exited on our terms, with real profit, while others fell into the same hole.",
+        "Your move this week: sort your business into roots and branches BEFORE storm season — two columns on one page. Roots are what you will not change under pressure: values, quality bar, how you treat people. Branches are what you're free to bend: pricing, offers, schedules, org chart. It takes twenty minutes and pays for itself the first bad quarter, because inside the storm is the worst possible time to decide what you're willing to lose. And build your grove — bamboo doesn't grow alone, and neither should you.",
+      ],
+      bullets: [
+        "Bend & Breathe: on the next surprise hit, drop your shoulders and exhale before you respond.",
+        "Fail Forward: after each wobble, write one sentence — what did that attempt teach me?",
+        "The Support Circle: weekly, share one challenge and one way you're meeting it. Groves beat lone trees.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "Why does Master Ryota say the bamboo is stronger than the mighty oak?",
+      options: [
+        "Bamboo grows faster and taller than any oak.",
+        "Bamboo's wood is denser and harder to cut.",
+        "Bamboo bends with the storm instead of snapping, then stands tall again.",
+        "Bamboo hides from the storm behind the mountains.",
+      ],
+      correctIndex: 2,
+      explanation: "The oak looks unbeatable in calm weather, but rigidity breaks at the wrong angle. Bamboo sways, endures, and rises — strength at impact looks like bending, not resisting.",
+    },
+    {
+      question: "In Brett's framework, what is the correct nature of each move?",
+      options: [
+        "Bend is a moment, Endure is a season, Rise is a choice.",
+        "Bend is a choice, Endure is a moment, Rise is a season.",
+        "All three happen simultaneously in every storm.",
+        "Bend and Rise are optional; only Endure matters.",
+      ],
+      correctIndex: 0,
+      explanation: "Three different skills on three different timescales. Most people only train their favorite — the framework works because it forces you to train all three.",
+    },
+    {
+      question: "What did Don MacKay tell Brett to do with the million dollars lost in the 2007 franchise disaster?",
+      options: [
+        "Sue the franchise to recover every cent.",
+        "See it not as a loss, but as an investment in his education.",
+        "Forget it ever happened and move on quickly.",
+        "Write it off and never trust a partner again.",
+      ],
+      correctIndex: 1,
+      explanation: "It felt almost cruel in the moment — and it was the truest thing anyone said that year. Those lessons protected Brett when a second franchise turned a decade later.",
+    },
+    {
+      question: "What belongs in the ROOTS column of the roots-and-branches exercise?",
+      options: [
+        "Pricing and current offers.",
+        "The org chart and class schedule.",
+        "This quarter's marketing campaigns.",
+        "Your values, quality bar, and how you treat people.",
+      ],
+      correctIndex: 3,
+      explanation: "Roots are what you will not change under pressure. Everything else — pricing, offers, schedules, structure — is a branch you're free to bend when the storm hits.",
+    },
+    {
+      question: "Why does Brett say \"bamboo grows in groves\"?",
+      options: [
+        "Dense planting shields bamboo from the wind entirely.",
+        "Resilience is contagious in both directions — isolated owners snap first.",
+        "Teams slow you down but make failure less embarrassing.",
+        "Groves guarantee no storm can ever reach you.",
+      ],
+      correctIndex: 1,
+      explanation: "Owners hide their storms out of pride. A support circle — team, family, peers — gives everyone watching permission to get back up, and keeps you from breaking alone.",
+    },
+  ],
+},
+{
+  slug: "swordsmiths-fire",
+  order: 30,
+  title: "The Swordsmith's Fire: Tenacity",
+  tagline: "The Master's Edge Book",
+  description: "The blade isn't afraid of fire — the blade is made of fire. Learn the Forging Cycle that turns week-eight moments, setbacks, and fear itself into unbreakable steel.",
+  videoUrl: PLACEHOLDER_VIDEO(30),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "No blade is ruined by fire, hammer, fold, or rest — only by the smith who quits between them.",
+    "The Forging Cycle: Heat, Hammer, Fold, Quench — repeated for as long as you're serious.",
+    "The hotter the fire, the harder the steel — pick work at the edge of your ability.",
+    "A folded setback becomes structural strength; a skipped one is a crack waiting for pressure.",
+    "Become what you fear — the thing you fear holds power only while it stays outside you.",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Swordsmith's Fire",
+      paragraphs: [
+        "In the village of Kurogane, Master Tetsu forged blades that could not be broken. His apprentice Hiro hammered cold iron all day and blamed the metal. \"The iron is honest,\" Tetsu smiled. \"It is the smith who is impatient.\" The real secret: first the fire — iron must feel heat it believes it cannot survive. Then the hammer — a thousand blows, each placed where the last one taught him to strike. Then the fold — burying each day's lessons deep in the blade where no enemy can reach them. And finally the quench — because strength is set in the stillness after the effort, never during it.",
+        "Every January my academy fills, and every March it empties a little — week eight is when the novelty dies and only the work remains. That's where I lose the students who came for the feeling, and where I first spot the future black belts. The difference isn't talent; I've had forty years to check. It's tenacity. Your business is your iron. Your habits are the hammer. And your week-eight moments are the fire. Cold iron never changes.",
+      ],
+    },
+    {
+      heading: "The Framework: The Forging Cycle",
+      paragraphs: [
+        "Tenacity isn't summoned — it's built, in four moves run in rhythm. HEAT: walk into the challenge that scares you — the bigger client, the harder conversation, the number you've never hit. The hotter the fire, the harder the steel; comfortable reps make warm iron, and warm iron doesn't change. HAMMER: strike in rhythm, not in rage. One heroic all-nighter changes nothing. A thousand blows — daily, structured, unglamorous — and the hammer never negotiates about whether today counts.",
+        "FOLD: after every attempt, fold what you learned back into the work — the objection you can now answer, the hire you'll never make again, the pricing mistake that taught you your worth. That's the difference between ten years of experience and one year repeated ten times. QUENCH: set the strength in stillness. Push without recovery and the fire's work is wasted — ask any burned-out owner who confused exhaustion with commitment. Then back into the fire, one lesson deeper, unbreakable not because you avoided the blows but because you're made of them.",
+      ],
+      bullets: [
+        "Heat: pick work at the edge of your ability — hot enough that you come out different.",
+        "Hammer: daily structured effort; rhythm beats rage every time.",
+        "Fold: bury each lesson in the blade — skipped setbacks become cracks.",
+        "Quench: rest is where strength becomes permanent, not a break from the forging.",
+      ],
+    },
+    {
+      heading: "Become What You Fear",
+      paragraphs: [
+        "Grand Master Tom Fisher — Vietnam veteran, business owner, lifelong teacher — handed me the deepest version of the swordsmith's secret: \"Become what you fear.\" He wasn't telling us to become frightening. Whatever you fear — the confrontation, the failure, the fire itself — it holds power over you exactly as long as it stays outside you. Walk into it, study it, drill it, absorb what makes it formidable, and the fear doesn't just shrink. It changes owners. Flow research confirms it: peak states trigger at the edge of your ability — right where fear lives.",
+        "Wilma Rudolph proved the cycle past all reason. Told at eight she'd never walk without a brace after polio, her family went to work — fifty-mile bus rides to therapy, siblings massaging her leg daily for years. Heat, hammer, fold, quench. By nine the brace came off. In Rome in 1960 she became the first American woman to win three track-and-field golds in a single Olympics. The girl in the brace and the fastest woman alive were the same iron. When you hit the ugly middle, ask my consulting question: \"Is this the fire, or is this the ruin?\" Almost always, it's just the fire.",
+      ],
+      bullets: [
+        "The Balance and Rise Challenge: re-attempt one thing this week that failed last time — the getting-back-up IS the exercise.",
+        "Mindful Mastery Breathing: in for four, hold, out for four, two minutes — the quench that sets the steel.",
+        "Name what you fear in your business right now — then stop circling it and train toward it.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "According to Master Tetsu, what is the only thing that can ruin a blade?",
+      options: [
+        "Fire that burns too hot for the iron.",
+        "Folding the metal too many times.",
+        "The smith who quits between the steps.",
+        "Bad iron that should have been replaced.",
+      ],
+      correctIndex: 2,
+      explanation: "No blade is ever ruined by the fire, the hammer, the folding, or the rest. Stumbling is part of the process; stopping is the only failure with no lesson in it.",
+    },
+    {
+      question: "What does the FOLD step represent in your business?",
+      options: [
+        "Folding each setback's lesson back into how you work, making it structural strength.",
+        "Doubling your effort whenever progress stalls.",
+        "Hiding your failures so competitors can't exploit them.",
+        "Restarting the plan from scratch after every setback.",
+      ],
+      correctIndex: 0,
+      explanation: "The objection you can now answer, the hire you'll never repeat — folded lessons become strength no storm can reach. Skipped ones are cracks waiting for pressure. That's ten years of experience versus one year repeated ten times.",
+    },
+    {
+      question: "Why does Brett insist the QUENCH is not optional?",
+      options: [
+        "Rest is a reward you earn only after hitting your goals.",
+        "Cooling down prevents injuries during training.",
+        "Taking breaks impresses your team with work-life balance.",
+        "Strength is set in the stillness after effort — push without recovery and the fire's work is wasted.",
+      ],
+      correctIndex: 3,
+      explanation: "The quench isn't a break from the forging; it's the step where strength becomes permanent. Burned-out owners confuse exhaustion with commitment — even steel must rest.",
+    },
+    {
+      question: "What did Grand Master Tom Fisher mean by \"Become what you fear\"?",
+      options: [
+        "Make yourself intimidating so others fear you.",
+        "Train into the thing you fear until its strength lives inside you and the fear changes owners.",
+        "Accept that fear is permanent and work around it.",
+        "Avoid fearful situations until you feel confident.",
+      ],
+      correctIndex: 1,
+      explanation: "The thing you fear holds power over you exactly as long as it remains outside you. Walk into it, study it, drill it — Tom's lesson is a flow trigger with a warrior's name on it.",
+    },
+    {
+      question: "What made Wilma Rudolph's transformation from leg brace to Olympic gold possible?",
+      options: [
+        "A rare natural talent that surfaced once the polio passed.",
+        "An experimental medical treatment unavailable to others.",
+        "Years of relentless, repeated work — therapy trips and daily massage — folding lessons into the blade.",
+        "Switching sports until she found one her leg could handle.",
+      ],
+      correctIndex: 2,
+      explanation: "The girl in the brace and the fastest woman alive were the same iron. The difference was a family that kept running the forging cycle when every expert said the metal was ruined.",
+    },
+  ],
+},
+{
+  slug: "one-mountain",
+  order: 31,
+  title: "The One Mountain: G.R.I.T.",
+  tagline: "The Master's Edge Book",
+  description: "Toughness survives the storm; grit points it at the same summit for a decade. Learn the four letters Brett has drilled into forty years of students: Guts, Resilience, Intensity, Tenacity.",
+  videoUrl: PLACEHOLDER_VIDEO(31),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "G.R.I.T. = Guts, Resilience, Intensity, Tenacity — four qualities fused into one operating state.",
+    "Summits collected are coins; a mountain married is a fortune — depth beats collection.",
+    "Change routes freely; change mountains almost never.",
+    "Grit answers to someone — name who you'd have to explain your quitting to.",
+    "REPS are Repeated Excellence Protocols, not repetitions — intensity makes years count.",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the One Mountain",
+      paragraphs: [
+        "Young Taro announced he would climb every peak in the range until no one could question him. The old guide Sadao said only: \"Or you could climb one.\" Ten years later Taro had touched eleven mountains, finished four — the four easiest — and owned none of them. Sadao had climbed Kita-dake for fifty-one years. He failed on her north face nine times; it took nineteen years to solve it, and that solving is why lowland climbers pay for a guide from his village at all. \"Storms turned me back forty times,\" he said. \"Not once did they change which mountain I woke up facing.\"",
+        "Which mountain should you marry? Sadao's answer is the whole test: \"It's the one you kept thinking about while you were climbing all the others.\" Resilience taught you to bend through a storm. Tenacity forged you through a season. What's left is direction, held for years — the part almost everyone gets wrong about toughness. Angela Duckworth's research proved it: passion plus perseverance, aimed at the same goal across years, predicts achievement better than talent does. But on my mat, grit was an acronym before it was a bestseller.",
+      ],
+    },
+    {
+      heading: "The Framework: Guts, Resilience, Intensity, Tenacity",
+      paragraphs: [
+        "G — Guts: the courage to start, and to stay enrolled. Guts isn't the absence of the minute of doubt — I had mine on the edge of a bed during COVID, business down sixty-seven percent, functionally blind from cataracts, both legs screaming. Guts is what happens after the minute: you swing your legs down anyway. R — Resilience: bend, endure, rise, running continuously in the background, absorbing each hit so the mission never has to. I — Intensity: not drama — quality of attention. Reps are REPS: Repeated Excellence Protocols. Ten thousand distracted repetitions build a distracted black belt.",
+        "T — Tenacity: the forge — the refusal to quit inside any single storm, the closer that finishes each round so Guts can start the next one. Now watch the loop: Guts starts the climb, Resilience absorbs the rockfall, Intensity makes every attempt a lesson, Tenacity finishes the season — and then Guts starts again, same mountain, next season. That loop, run for years without changing mountains, is grit. The storm asks: can you survive tonight? The decade asks the harder question: will you still be pointed at the same summit in ten years?",
+      ],
+      bullets: [
+        "Guts gets you enrolled and keeps you enrolled when the plates disappear from the breakfast table.",
+        "Intensity is the difference between spending a decade on something and letting a decade pass near it.",
+        "Grit answers to someone: Brett's day three of CDT was won by two sons who weren't in the room.",
+      ],
+    },
+    {
+      heading: "Routes Change. Mountains Don't.",
+      paragraphs: [
+        "My friend Bill Schuffenhauer grew up in chaos — drug-addicted parents, seventeen foster homes, stretches eating from a dumpster behind a McDonald's. He decided to change his stars, clawed up to elite decathlete — and an injury took the 2000 Olympics away at the doorstep. Taro would have switched mountains. Bill switched routes and kept the mountain: the dream was never \"decathlon,\" it was the Games. He rebuilt as a bobsledder, and in 2002 stood on the Olympic podium — in Salt Lake City, about a mile from that dumpster. Twenty years of one mountain between the starting line and the summit.",
+        "When the shiny new vertical or pivot tempts you — the Taro moment — run the One Mountain audit. Three questions: What is your actual mountain, the one-sentence mission under the business? Is this new idea a new ROUTE up that mountain, or a different mountain wearing makeup? And if you take it, what happens to the nineteen years of north-face knowledge you've already paid for? Route changes get a green light all day — that's how Bill won his medal. Mountain changes need to survive all three questions in writing.",
+      ],
+      bullets: [
+        "Name Your Mountain: write the mission that would still be true if your business model died tomorrow.",
+        "The Who-You'd-Tell Drill: list the people you couldn't face after quitting — read it on hard mornings.",
+        "The Starting-Line Photo: own your origin — the dumpster doesn't shrink the medal; it's the medal's unit of measurement.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What do the four letters of Brett's G.R.I.T. acronym stand for?",
+      options: [
+        "Goals, Rigor, Integrity, Toughness.",
+        "Guts, Resilience, Intensity, Tenacity.",
+        "Growth, Resolve, Initiative, Training.",
+        "Grind, Repeat, Improve, Triumph.",
+      ],
+      correctIndex: 1,
+      explanation: "Guts starts the climb, Resilience absorbs the rockfall, Intensity makes every attempt a lesson, Tenacity finishes the season — and the loop, run for years at one mountain, is grit.",
+    },
+    {
+      question: "What was Sadao's advantage over Taro after fifty-one years?",
+      options: [
+        "He had summited more total peaks than Taro.",
+        "He was naturally stronger and faster on rock.",
+        "He climbed only in perfect weather, avoiding all risk.",
+        "He married one mountain and let her teach him everything — depth Taro's collection could never buy.",
+      ],
+      correctIndex: 3,
+      explanation: "Taro collected summits like coins — and coins spend. Sadao failed nine times on one face, took nineteen years to solve it, and became the reason climbers survive the mountain.",
+    },
+    {
+      question: "How did Bill Schuffenhauer demonstrate the route/mountain distinction?",
+      options: [
+        "He lost the decathlon but kept the Olympics — switching routes to bobsled, never the mountain.",
+        "He quit sports entirely and rebuilt his life in business.",
+        "He kept training as a decathlete until his injury fully healed.",
+        "He collected medals across many unrelated sports.",
+      ],
+      correctIndex: 0,
+      explanation: "The dream was never 'decathlon' — it was the Games. Change routes freely; change mountains almost never. His 2002 medal came a mile from the dumpster he once ate from.",
+    },
+    {
+      question: "What kept Brett from quitting on day three of the brutal CDT course?",
+      options: [
+        "The refund policy made quitting too expensive.",
+        "His fever finally broke and the pain stopped.",
+        "He couldn't face explaining to his sons how Daddy quit because something was hard and painful.",
+        "Don MacKay ordered him to finish the course.",
+      ],
+      correctIndex: 2,
+      explanation: "Grit almost always answers to someone. Name the people you'd have to explain your quitting to — before the morning you need them — and you've found your deepest reserve.",
+    },
+    {
+      question: "What does Brett mean when he says reps are really REPS?",
+      options: [
+        "Repetitions Every Practice Session — daily volume is everything.",
+        "Repeated Excellence Protocols — one specific point of excellence per rep, not distracted counting.",
+        "Rest, Eat, Practice, Sleep — the full training cycle.",
+        "Rapid Execution Performance Standards for competition.",
+      ],
+      correctIndex: 1,
+      explanation: "Ten thousand distracted repetitions build a distracted black belt. Intensity — quality of attention — is what makes a decade of study different from a decade merely passing nearby.",
+    },
+  ],
+},
+{
+  slug: "calm-river",
+  order: 32,
+  title: "The Calm River: Reappraisal Over Anxiety",
+  tagline: "The Master's Edge Book",
+  description: "Anxiety is almost never about what's happening — it's about what you're pre-living. Learn the Rule of Reappraisal and the 5×5 breathing protocol that manufacture calm before the 1 percent arrives.",
+  videoUrl: PLACEHOLDER_VIDEO(32),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Calm isn't the absence of obstacles — it's a current that has learned to move around them.",
+    "The Rule of Reappraisal: turn around and appraise what you've already accomplished.",
+    "Your brain registers headwinds vividly and forgets tailwinds — correct the count.",
+    "The 1 percent is not won in the 1 percent — it's won in the 99.",
+    "5×5 Breathing: in for five, hold, out for five, hold empty — five cycles, about a hundred seconds.",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Calm River",
+      paragraphs: [
+        "Aria was Master Li's most agile student, but her greatest battle was in her own thoughts: \"What if I fail? What if I let everyone down?\" Master Li walked her to the river at dawn and had her watch the current navigate the rocks. \"Notice how the river never stops or panics. It simply adjusts, flowing patiently and calmly. Anxiety and stress are like the stones — impossible to avoid. But cultivate a mind as steady as the river, and we keep moving peacefully forward.\" He taught her three skills: mindful breathing, positive self-talk, and grounding in the present moment.",
+        "Now read the owner's version of Aria's worry: What if the launch flops? What if payroll gets tight? What if that key client walks? Same sentence structure, same machine. Business owners don't call it anxiety — they call it \"staying on top of things\" — but the two a.m. ceiling stare is the same pre-lived disaster in high definition. Notice what Master Li did NOT teach: removing the stones. The river never gets a cleared channel, and neither do you. There will always be a launch, a payroll, a client.",
+      ],
+    },
+    {
+      heading: "The Rule of Reappraisal",
+      paragraphs: [
+        "When I hit a wall in my training and felt hopeless, Grand Master Na gave me one sentence that changed my relationship with learning: \"Don't focus on the road ahead. Look at how far you've come.\" A few years earlier I could barely do anything; now I was doing jump spin kicks and breaking bricks. The Rule of Reappraisal: when discouraged or anxious, deliberately turn around and appraise what you've already accomplished — and who helped you. Four questions, in order: What have I achieved? What can I say I've done that I couldn't say before? How have others helped me? How does it make me feel?",
+        "The science backs the masters. Davidai and Gilovich documented the headwinds/tailwinds asymmetry: your brain vividly registers obstacles and almost immediately forgets advantages and wins. You're wired to lose track of your own progress. Seligman's team found that five to ten minutes a day writing what went well measurably increased happiness for six months. Anxiety lives on the road ahead. Reappraisal corrects the count. Keep a running tailwinds file: wins, solved problems, skills that didn't exist ninety days ago.",
+      ],
+      bullets: [
+        "Question 1: What have I achieved?",
+        "Question 2: What can I say I've done that I couldn't say before?",
+        "Question 3: How have others helped me?",
+        "Question 4: How does it make me feel?",
+      ],
+    },
+    {
+      heading: "Range Time: Winning the 1 Percent in the 99",
+      paragraphs: [
+        "Tom Patire — America's Leading Personal Safety Expert, my teacher through CDT and bodyguard school — has a line that belongs in every business book: \"Bodyguard work is 99 percent boredom and 1 percent sheer terror.\" Running a company has the same shape. Tom's real lesson: the 1 percent is not won in the 1 percent. It's won in the 99. The bodyguard who stays calm in terror has rehearsed so many times in the boredom that terror has nothing new to say to him. The research calls it Frontloading — load the tools and rehearsal in before the challenge, and you outperform anyone learning mid-crisis.",
+        "Your range time is 5×5 Breathing: in through the nose for five, hold for five, out for five — then hold for five more with lungs empty. Five cycles, about a hundred seconds, no equipment. The empty-lung hold is the hard part — that's the design: sitting calmly while your body suggests panicking is composure practice in miniature. My student Dale Hughes ran the protocol with his family after their car rolled into a ditch — he didn't find calm, he brought it, manufactured a hundred seconds at a time on ordinary days. Practice in your 99 percent, and your 1 percent meets a person who is ready.",
+      ],
+      bullets: [
+        "River Breathing: in for four, hold for two, out for four — watch each worry drift downstream.",
+        "The Three-Breath Bell: pick one recurring sound; every time it rings — stop, three slow breaths, small smile, continue.",
+        "The P.A.P.A. Meditation: Presence, Appreciation, Projecting, Allowing — start at one minute per phase.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What does the calm river teach about the stones in its path?",
+      options: [
+        "With enough patience, the current eventually removes every stone.",
+        "The stones never leave — the river adjusts and flows around them without panicking.",
+        "A wise river finds a channel with no stones at all.",
+        "Stones only matter to rivers that flow too fast.",
+      ],
+      correctIndex: 1,
+      explanation: "Master Li never taught Aria to remove the stones. There will always be a launch, a payroll, a client. Calm isn't the absence of obstacles — it's a current that moves around them.",
+    },
+    {
+      question: "What is the first question of the Rule of Reappraisal?",
+      options: [
+        "What have I achieved?",
+        "What should I do next?",
+        "What went wrong this quarter?",
+        "Who is responsible for my setbacks?",
+      ],
+      correctIndex: 0,
+      explanation: "The four questions run in order: What have I achieved? What can I say I've done that I couldn't say before? How have others helped me? How does it make me feel? Turn around and correct the count.",
+    },
+    {
+      question: "What is the headwinds/tailwinds asymmetry?",
+      options: [
+        "Obstacles always outnumber advantages in any real business.",
+        "Optimists see tailwinds; pessimists see headwinds — it's fixed personality.",
+        "Markets punish businesses facing headwinds twice as hard.",
+        "The brain vividly registers obstacles but almost immediately forgets advantages and wins.",
+      ],
+      correctIndex: 3,
+      explanation: "Davidai and Gilovich showed you're wired to lose track of your own progress. You're not negative because your business is failing — the brain won't check the record unless you make it.",
+    },
+    {
+      question: "According to Tom Patire's lesson, where is the 1 percent of sheer terror actually won?",
+      options: [
+        "In the moment itself, through raw courage.",
+        "By avoiding high-stakes situations altogether.",
+        "In the 99 percent — through rehearsal so thorough that terror has nothing new to say.",
+        "By hiring specialists to handle every crisis.",
+      ],
+      correctIndex: 2,
+      explanation: "Composure is manufactured in the boring reps that feel unnecessary on a quiet Tuesday. The science calls it Frontloading: load the tools in before the challenge, not mid-crisis.",
+    },
+    {
+      question: "What makes 5×5 Breathing different from most breathing exercises?",
+      options: [
+        "The empty-lung hold after the exhale — deliberate composure practice in miniature.",
+        "It requires a special app to time the cycles precisely.",
+        "It takes a full twenty minutes to complete properly.",
+        "It only works when performed during an actual crisis.",
+      ],
+      correctIndex: 0,
+      explanation: "In for five, hold, out for five, hold empty for five — five cycles, about a hundred seconds. Sitting calmly with empty lungs while your body suggests panicking is the design, not a flaw. Start with a three count and earn your way up.",
+    },
+  ],
+},
+{
+  slug: "warriors-ledger",
+  order: 33,
+  title: "The Warrior's Ledger: Confidence",
+  tagline: "The Master's Edge Book",
+  description: "Confidence isn't the absence of doubt — it's the presence of evidence. Learn the four-step Personal Confidence Model that Brett has built into thousands of students and tested in his own research.",
+  videoUrl: PLACEHOLDER_VIDEO(33),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "The fearful mind is a poor historian — it forgets victories and files every stumble twice.",
+    "Self-talk must be RCB: Real, Credible, backed by a Body of work. No lies.",
+    "Feed your Personal Lie Detector proof — it vetoes any belief it can't verify.",
+    "Plan and practice from the controllables only — process goals, not outcome wishes.",
+    "Practice makes permanent; only mindful practice makes perfect.",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Warrior's Ledger",
+      paragraphs: [
+        "Sana was quick of foot, strong of technique, and convinced she was neither. When she asked to be excused from the village demonstration, Master Ryo didn't argue. He handed her a small gray book — a warrior's ledger — with one rule: record only what actually happened. Nothing you hope, nothing you fear. Held my stance a full minute when last month I could not. Fell nine times; stood up nine times. Months later, asked again to be excused, Ryo said: \"First, read me your ledger.\" Somewhere in the reading, her voice changed. \"Master, I've been telling myself a story that my own book contradicts.\"",
+        "\"The fearful mind is a poor historian,\" said Ryo. \"It forgets every victory and files every stumble twice. But ink does not flinch. When your courage fails, you do not need louder words — you need truer records.\" Parents bring me their children for confidence more than for any kick or punch, and most believe it's something a child either has or doesn't. Business owners believe the same lie about themselves. Nobody is built that way. Confidence is a learnable, developable skill — constructed on evidence — with one warning attached: it's far easier to build than to repair.",
+      ],
+    },
+    {
+      heading: "The Framework: The Personal Confidence Model",
+      paragraphs: [
+        "Step 1: Arm yourself with self-talk that passes the lie detector — and frontload it. Every phrase must be RCB: Real, Credible, backed by a Body of work. NO LIES. Say what's true and earned: I've trained hard for this. I've made payroll through two recessions. Build your Credibility Inventory — the hard things you've actually overcome — before you need it. Step 2: Determine what is actually possible. Your mind's Personal Lie Detector vetoes any belief it can't verify. Don't fight the detector — feed it proof, and belief stops being a wish and becomes a verdict.",
+        "Step 3: Outline the steps within your control. You don't control whether the client says yes; you control the proposal, the follow-up cadence, the preparation. Process goals, not outcome wishes. Step 4: Practice mindfully until the steps are reflex. Practice makes permanent — only mindful practice, each rep aimed at one specific improvement, makes perfect. Reps are Repeated Excellence Protocols. Drill the controllables until they run without thinking, and pressure won't need your nerves' permission. Self-talk that's true. Belief that's verified. Steps that are yours. Practice that's mindful.",
+      ],
+      bullets: [
+        "Step 1: RCB self-talk plus a frontloaded Credibility Inventory.",
+        "Step 2: Feed the Personal Lie Detector proof of what's possible.",
+        "Step 3: Separate controllables from uncontrollables — plan from the left column only.",
+        "Step 4: Mindful REPS until the skills are reflex.",
+      ],
+    },
+    {
+      heading: "Become the Evidence",
+      paragraphs: [
+        "For decades the four-minute mile was the Personal Lie Detector of an entire species — physiologists said it sat at the edge of human capacity. Roger Bannister, a medical student training on lunch breaks, ran the model: RCB self-talk grounded in training logs, possibility verified by studying the physiology, controllables — pace, splits, pacemakers — drilled until reflex. On May 6, 1954, he ran 3:59.4. Forty-six days later John Landy ran faster. The body didn't change in forty-six days. The evidence changed — and the world's lie detector stopped vetoing the belief for everyone.",
+        "My friend Sal Rossano, retired Green Beret, opens every talk with: \"According to every statistic, I shouldn't be standing here today.\" A 1.93 GPA. A first Selection attempt ended by hypothermia — an exit most would file as a verdict. Sal filed it as an unfinished ledger entry, went back knowing what it cost, and earned the Green Beret. Then cum laude, a master's, PA board certification. His Evidence Method — Choose, Prepare, Act, Collect Evidence, Become — has its engine in the middle: action creates evidence; evidence creates belief. Confidence is the paycheck, not the prerequisite.",
+      ],
+      bullets: [
+        "Start Your Ledger tonight: ten hard things you've actually overcome — specific, dated, true.",
+        "The RCB Rewrite: if your body doesn't respond when you read it aloud, it's not true enough yet.",
+        "The Two-Column Split: controllables left, uncontrollables right — plan from the left only, revisit weekly.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What was Master Ryo's one rule for the warrior's ledger?",
+      options: [
+        "Write your goals for tomorrow every night.",
+        "Record only your victories to stay motivated.",
+        "Write daily affirmations of who you want to become.",
+        "Record only what actually happened — nothing you hope, nothing you fear.",
+      ],
+      correctIndex: 3,
+      explanation: "No boasts, no despair — only what you did. Boasts and despair are both lies, and the fearful mind is a poor historian. When courage fails, you don't need louder words — you need truer records.",
+    },
+    {
+      question: "What does RCB stand for in Step 1 of the Personal Confidence Model?",
+      options: [
+        "Real, Credible, backed by a Body of work.",
+        "Repeat, Commit, Believe.",
+        "Resilient, Confident, Brave.",
+        "Record, Check, Build.",
+      ],
+      correctIndex: 0,
+      explanation: "Your mind knows the difference between a claim and a record — hollow affirmations bounce off; evidence sinks in and holds. The rule that binds it all: never say what you hope to do. No lies.",
+    },
+    {
+      question: "How do you handle your Personal Lie Detector, according to Step 2?",
+      options: [
+        "Override it by repeating affirmations more loudly.",
+        "Ignore it — doubt is just fear talking.",
+        "Feed it proof that what you want has been done, so belief becomes a verdict instead of a wish.",
+        "Set smaller goals so it never triggers.",
+      ],
+      correctIndex: 2,
+      explanation: "The detector will let you believe you can break a brick or build a million-dollar business because it has seen others do it. It vetoes what it can't verify — so don't fight it, feed it.",
+    },
+    {
+      question: "What proved that the four-minute-mile barrier was never in the runners' legs?",
+      options: [
+        "Bannister used a revolutionary new training technology.",
+        "John Landy broke it just forty-six days after Bannister — the evidence changed, not the human body.",
+        "Doctors discovered the physiology papers had a calculation error.",
+        "Track surfaces improved dramatically in 1954.",
+      ],
+      correctIndex: 1,
+      explanation: "Runners had chased it since the 1880s, stalling at 4:01 and 4:02. Once the world's Personal Lie Detector saw it done, it stopped vetoing the belief — for everyone. Today strong high schoolers break four minutes.",
+    },
+    {
+      question: "In Sal Rossano's Evidence Method, what is the engine that drives confidence?",
+      options: [
+        "Belief creates action, and action creates results.",
+        "Visualizing success until it feels inevitable.",
+        "Surrounding yourself with confident people.",
+        "Action creates evidence; evidence creates belief — courage comes before confidence.",
+      ],
+      correctIndex: 3,
+      explanation: "Choose. Prepare. Act. Collect Evidence. Become. Not belief first — evidence first. Confidence is the paycheck, not the prerequisite, and the arena is the only place evidence gets minted.",
+    },
+  ],
+},
+{
+  slug: "twin-tigers",
+  order: 34,
+  title: "The Twin Tigers: Lead With Your Strengths",
+  tagline: "The Master's Edge Book",
+  description: "Whatever you lead with becomes the frame for everything that follows. Learn to ring your bell first, work your gaps like projects, and find the partner whose mallet matches your bell.",
+  videoUrl: PLACEHOLDER_VIDEO(34),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Whatever you lead with becomes the frame for everything that follows",
+    "Name your bell: you cannot lead with a strength you haven't named",
+    "Work gaps with curiosity, as projects — never as identity",
+    "Some gaps you shouldn't close yourself: hire your Riku, partner with your Hana",
+    "Under pressure, fall back to your foundation — never experiment under fire",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Twin Tigers",
+      paragraphs: [
+        "High in emerald mountains, Master Arata trained two siblings known as the Twin Tigers. Hana had lightning speed; Riku had thunderous strength. Yet each led with what they lacked — Hana mourned her weak strikes, Riku his slow feet — and every time they led with weakness, their shoulders drooped and their training plateaued. So the master handed Hana a bell and Riku a mallet: ring your speed, strike your power. The dojo applauded. Then he pointed to a broad stone neither could lift alone. Together — Hana guiding footing, Riku providing force — they raised it easily.",
+        "Master Arata's correction wasn't 'ignore your weaknesses.' It was a sequence: gifts first, gaps second, and gaps approached with curiosity instead of complaint. Once the Tigers led with their strengths, positive emotion opened their minds — Hana found power in her hips, Riku mastered footwork drills. You've heard the business version of their complaints: 'I'm terrible at marketing.' 'I'm not a numbers person.' Same soundtrack, better shoes — and the same plateau, until you change what you lead with.",
+      ],
+    },
+    {
+      heading: "The Framework: Strengths First, Gaps Second",
+      paragraphs: [
+        "Three moves. First, name your bell — the skill people compliment, the work that energizes instead of drains. Most owners list their weaknesses in seconds and go silent when asked for strengths. Second, lead with it — out loud, first, daily. Answer 'how's business?' with what's working before what's worrying. This isn't fluff: Barbara Fredrickson's broaden-and-build research shows leading with what's going well literally expands awareness and opens the mind to creative solutions. Positive emotion isn't the reward for solving problems; it's the state that solves them.",
+        "Third, work your gaps with curiosity, as projects — not as identity. 'I'm bad at sales' is a label; 'I'm running a ninety-day project to get competent at sales' is a plan. And some gaps you shouldn't close personally at all — that's what the stone teaches. Hana didn't need to become strong; she needed Riku. Wozniak never became a marketer and Jobs never became an engineer; each led so completely with his strength that the other's gift ran at full power. Hire your Riku. Partner with your Hana. The stone doesn't care whose muscles moved it.",
+      ],
+      bullets: [
+        "Name your bell — you can't lead with an unnamed strength",
+        "Lead with it out loud, first, daily",
+        "Work gaps as projects, with curiosity — never as identity",
+      ],
+    },
+    {
+      heading: "Practice: Foundation Under Pressure",
+      paragraphs: [
+        "Grand Master Tom Fisher taught me the high-stakes version: your strength is a foundation you have built on — thousands of reps deep, pressure-tested, load-bearing. When adrenaline hits, you don't rise to the technique you admire; you fall to the foundation you've drilled. A fighter who experiments under fire donates the fight. So when the negotiation turns hostile or the quarter collapses, plant your feet on what you've built. The time to work gaps is in training, with curiosity. The high-stakes moment belongs to your foundation.",
+        "Start this week with the Strength Spotlight: ask three people who know your work, 'What am I best at?' and write down what they say. Then pick ONE business gap — not five — and run Targeted Reps: one small daily rep, charted for a week. Trade strengths with a peer in Partner Swap Coaching, alternate strength-work then gap-work in that order, and end team meetings with each person naming one win they saw in someone else. A team arranged around its bells and mallets outperforms the same team arranged around its job titles — every single time.",
+      ],
+      bullets: [
+        "Ask three people: 'What am I best at?'",
+        "Choose ONE gap and chart a small daily rep",
+        "End meetings with each person naming a win they saw in someone else",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What was actually holding the Twin Tigers back?",
+      options: [
+        "They lacked natural talent",
+        "Their master pushed them too hard",
+        "They led with their weaknesses, which framed everything that followed",
+        "They refused to train together",
+      ],
+      correctIndex: 2,
+      explanation: "Hana and Riku had real gifts — speed and strength. The problem was where they led: every complaint dropped their shoulders and plateaued their training. Whatever you lead with becomes the frame for everything that follows.",
+    },
+    {
+      question: "According to Fredrickson's broaden-and-build research cited in the chapter, positive emotion is…",
+      options: [
+        "The state that opens the mind to creative solutions",
+        "The reward you earn after solving problems",
+        "A distraction from serious deliberate practice",
+        "Useful only for beginners who need encouragement",
+      ],
+      correctIndex: 0,
+      explanation: "Leading with what's going well literally expands your awareness. That's why Hana found power in her hips only after she started leading with her speed — positive emotion isn't the prize for solving problems; it's the state that solves them.",
+    },
+    {
+      question: "What does the heavy stone in the parable teach about weaknesses?",
+      options: [
+        "Every weakness must eventually be fixed personally",
+        "Weaknesses disappear once you name your strengths",
+        "Strength always beats speed when combined",
+        "Some gaps should be closed by partnership, not by you",
+      ],
+      correctIndex: 3,
+      explanation: "Hana didn't need to become strong; she needed Riku. Wozniak never became a marketer and Jobs never became an engineer — each led with his strength so the other's could run at full power. Hire your Riku; the stone doesn't care whose muscles moved it.",
+    },
+    {
+      question: "Tom Fisher's rule for high-pressure moments is:",
+      options: [
+        "Try the newest tactic you've learned to surprise opponents",
+        "Stand on your proven foundation — pressure is the worst lab for the unproven",
+        "Focus on fixing your weakness while stakes are high",
+        "Avoid high-pressure situations until your gaps are closed",
+      ],
+      correctIndex: 1,
+      explanation: "Under adrenaline you fall to the foundation you've drilled, not the technique you admire. Work gaps in training, with curiosity; the high-stakes moment belongs to your thousands-of-reps, load-bearing foundation.",
+    },
+    {
+      question: "How does the chapter reframe 'I'm bad at sales'?",
+      options: [
+        "As proof you should delegate all selling forever",
+        "As honest self-awareness worth repeating daily",
+        "As a temporary project: 'a ninety-day project to get competent at sales'",
+        "As a sign you chose the wrong business",
+      ],
+      correctIndex: 2,
+      explanation: "'I'm bad at sales' is an identity label; a ninety-day competence project is a plan. Weaknesses addressed after strengths become temporary projects instead of permanent labels — worked from momentum instead of shame.",
+    },
+  ],
+},
+{
+  slug: "garden-of-words",
+  order: 35,
+  title: "The Garden of Words: Compassionate Communication",
+  tagline: "The Master's Edge Book",
+  description: "You'll throw ten thousand more sentences than punches, and every one lands on someone. Train your tongue like you train your hands — with the Way of the Open Palm.",
+  videoUrl: PLACEHOLDER_VIDEO(35),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Words are stones in the sand — you're always planting thorns or flowers",
+    "Under nearly every blowup sit two unmet needs wearing armor",
+    "The Way of the Open Palm: breathe, observe, feel, name the need, request",
+    "You can be honest and kind at the same time — truth intact, contempt removed",
+    "A true martial artist controls fists, feet, AND tongue",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Garden of Words",
+      paragraphs: [
+        "At Harmony House Martial Arts, Master Aya's dojo, two teens collided. Jin was intense and blunt; Mira was bright, talkative, and giggled when nervous. When Mira tripped during drills, Jin snapped: 'This isn't a comedy show.' Mira fired back, and the dojo's energy dropped like a stone. Master Aya led them to her rock garden — her Garden of Words — placed a stone in the sand, and raked lines around it. 'This stone is a difficult moment. What you say in that moment shapes what grows around it. You can plant thorns, or you can plant flowers.'",
+        "Then she went under the conflict. Jin's sharpness was fear that people wouldn't respect the training he cared about. Mira's joking was fear she didn't belong. Both needs were real; both had been expressed as weapons. So each tried again — 'When you laugh during drills, I feel frustrated, because I want us both to get better. Could we focus this round and joke after?' — truth without attacking character. That's compassionate communication: words as bridges, not weapons; listening to understand, not just to respond. Underneath nearly every blowup sit two unmet needs wearing armor.",
+      ],
+    },
+    {
+      heading: "The Way of the Open Palm",
+      paragraphs: [
+        "I'll confess: I was Jin. For years I believed harsh was motivating — sharp words for my team, brutal words in my own head. Then an interview with performance psychologist Dr. Michael Gervais stopped me cold: negative self-talk can whip you into getting better, but you may not like who you've become when you get there. The research supports language that builds the performer, not just extracts the performance. I rebuilt my words from inside the house — so when I tell you a Jin can learn to speak like a master without losing an ounce of standards, I'm reporting a renovation, not a theory.",
+        "The framework is the Way of the Open Palm — open hand instead of closed fist, backed by Marshall Rosenberg's Nonviolent Communication. Five moves, in order: Breathe — one breath lets your rational mind outrun your temper. Observe without judgment — state facts a camera would agree with; indictments get appealed, not heard. Share feelings without blaming — 'you made me feel' turns listeners into lawyers. Name the need under the feeling — unspoken needs are the problem, never the needs themselves. Make a clear, positive request — ask for what you want, not what you're sick of.",
+      ],
+      bullets: [
+        "Breathe before anything",
+        "Observe without judgment — camera facts only",
+        "Share feelings without blame",
+        "Name the need under the feeling",
+        "Make a clear, positive request",
+      ],
+    },
+    {
+      heading: "Practice: The Sentence Frame and the Rehearsed Card",
+      paragraphs: [
+        "The frame my students learn — children and CEOs alike: 'When ___ happened, I felt ___, because I need ___.' It looks simple. A front kick looks simple too; both take a thousand reps to own. Nelson Mandela ran the whole framework from a prison cell — studying Afrikaans, seeing men inside a system instead of monsters, naming the fear beneath their hostility, making requests with everyone's dignity intact. Some warders became lifelong friends. Your hostile negotiation and fractured partnership are smaller stones in the same garden.",
+        "This week: list your five most-said stress phrases, sort them thorns or flowers, and rewrite every thorn. Use the feelings-first frame once at work and once at home. Practice the Listening Stance: eyes on the speaker, body turned, mouth closed, mind open — two full minutes, no rehearsing your reply. Take the bluntest thing you need to say, write the harsh version, then rewrite it honest AND kind before delivering. And before any difficult conversation, write the Open Palm sequence on one card and rehearse it aloud until it survives your own adrenaline — it's armor for your composure.",
+      ],
+      bullets: [
+        "Rewrite your five stress phrases from thorns to flowers",
+        "Run the sentence frame once at work, once at home",
+        "Rehearse hard conversations on one card: observation, feeling, need, request",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What did Master Aya find underneath Jin's sharpness and Mira's joking?",
+      options: [
+        "Laziness and a lack of discipline",
+        "Legitimate unmet needs — respect for the training, and belonging",
+        "A rivalry over who would earn rank first",
+        "Two students who simply didn't like each other",
+      ],
+      correctIndex: 1,
+      explanation: "Jin feared disrespect for the training he loved; Mira feared she didn't belong. Underneath nearly every blowup sit two unmet needs wearing armor — the words were weapons, but the needs were legitimate.",
+    },
+    {
+      question: "Which statement is an observation in the Open Palm sense?",
+      options: [
+        "\"You never take anything seriously\"",
+        "\"You're being disrespectful again\"",
+        "\"You obviously don't care about this team\"",
+        "\"You laughed during the drill\"",
+      ],
+      correctIndex: 3,
+      explanation: "An observation states facts a camera would agree with. 'You never take anything seriously' is an indictment — and indictments get appealed, not heard.",
+    },
+    {
+      question: "The question Dr. Gervais's interview put in front of Brett was:",
+      options: [
+        "Who are you becoming while harsh language gets results?",
+        "Does negative self-talk ever produce results?",
+        "Should coaches ever raise their voices?",
+        "How do elite athletes handle criticism?",
+      ],
+      correctIndex: 0,
+      explanation: "Harsh language had produced results for years — that was never the question. Gervais's point: you can whip yourself into getting better, but you may not like what you've become once you get there. The research favors language that builds the performer.",
+    },
+    {
+      question: "Which move in the Open Palm sequence does the chapter say almost nobody does?",
+      options: [
+        "Breathing before speaking",
+        "Sharing feelings honestly",
+        "Naming the need under the feeling",
+        "Making any request at all",
+      ],
+      correctIndex: 2,
+      explanation: "Needs are universal and legitimate — they're never the problem. Unspoken needs are. Naming the need under the feeling is the move that changes everything, and the one people skip.",
+    },
+    {
+      question: "How did Mandela demonstrate compassionate communication in prison?",
+      options: [
+        "He refused to speak to guards until they showed respect",
+        "He won debates against the warders using superior logic",
+        "He stayed silent and let his conduct speak entirely",
+        "He learned his jailers' language and spoke to their needs with dignity intact",
+      ],
+      correctIndex: 3,
+      explanation: "Mandela studied Afrikaans, saw men inside a system rather than monsters, understood the fear beneath their hostility, and made requests with everyone's dignity intact. Some of those warders became lifelong friends — his words built the bridge his enemies walked across.",
+    },
+  ],
+},
+{
+  slug: "stone-steps",
+  order: 36,
+  title: "The Stone Steps: Goal Setting",
+  tagline: "The Master's Edge Book",
+  description: "Most people set goals like tourists climb mountains — staring at the summit, tripping over the next step. Masters climb with three types of goals, in the right order.",
+  videoUrl: PLACEHOLDER_VIDEO(36),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "The size of a goal is not its power — the clarity of the next step is",
+    "Outcome goals give direction, but you don't fully control them",
+    "Process goals are the stones — daily actions you completely control",
+    "Progress goals are the motivation engine: the look back down the mountain",
+    "One summit per season, three to five daily stones, a Friday progress review",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Stone Steps",
+      paragraphs: [
+        "Young Tomo asked Master Rin for the secret to greatness. Instead of an answer, the master led him to stone steps carved into a mountainside — the Steps of Intention, where every warrior left behind a goal for each step. 'You do not reach the top by climbing randomly,' Master Rin said. 'Greatness is not a single leap. It is the sum of many small, intentional steps.' On each stone Tomo wrote one small goal: drink more water, practice forms five minutes longer, help a younger student, hold his stance with better posture.",
+        "Halfway up, Tomo paused and looked down at dozens of steps behind him. Each goal had seemed insignificant — together, they had changed him. 'You don't need to see the top,' the master said. 'You just need to take the next step.' Now audit your own goals honestly. 'Double revenue.' 'Scale to seven figures.' Summit statements — real, worthy, and unclimbable as written, because you can't put your foot on a summit. The size of a goal is not its power. The clarity of the next step is its power.",
+      ],
+    },
+    {
+      heading: "The Framework: The Three Types of Goals",
+      paragraphs: [
+        "Every goal you'll ever set is one of three types, and most people fail because they only set the first. Outcome Goals are the summit — the larger result that gives the journey direction: the next belt, the revenue number, selling on your terms. You need one, but it has a brutal limitation: you don't fully control it. Process Goals are the stones — daily actions you completely control: fifteen minutes of forms, five sales conversations a day, the weekly numbers review that actually happens. Discipline, structure, and every dream that ever became real were built here.",
+        "Progress Goals are the look back down the mountain — the stance held ten seconds longer, closing rate up three points. They convert effort into visible evidence, and visible progress is among the most powerful motivators a human can access. The order matters: outcome for direction, process for action, progress for fuel. John Wooden proved the process scales — he scripted practices to the minute, taught All-Americans to put on socks properly, and almost never mentioned winning. Ten national championships in twelve years. The summit took care of itself because nobody was staring at it.",
+      ],
+      bullets: [
+        "Outcome goal: the summit — direction, set once per season",
+        "Process goals: the stones — daily actions you fully control",
+        "Progress goals: the look back — visible evidence that fuels the climb",
+      ],
+    },
+    {
+      heading: "Practice: Slaying Your Goliath, Stone by Stone",
+      paragraphs: [
+        "My own summit was set as a freshman: win the Washington state title in triple jump — from the smallest class A school in the state, in an event I first couldn't do without a person under each arm. I missed districts by one place, got in on an injury, and lost anyway — but the stone got placed: preparation lets you seize opportunities the moment they appear. Senior year, with weeks left, I finally ran the brutal 400-meter sprint plan I'd been avoiding. At the 106-degree state championships I felt calm — the heat was bad, but NOT THAT BAD. Gold medal. The reps I'd banked were load-bearing.",
+        "Build your year the way I coach clients: ONE outcome goal per season, three to five process goals owned daily, and a fifteen-minute progress review every Friday — 'what does the ledger say this week?' Then practice: put three process goals on a card you check daily and rewrite weekly. Build a Goal Ladder — the five stones between here and your quarterly summit — where your team can see it. End each day naming the one stone you placed. And map your next 'belt': the specific capabilities, numbers, and systems that mark your next level. Most owners chase 'more.' Masters test for the next rank.",
+      ],
+      bullets: [
+        "Three process goals on a pocket card — not ten, three",
+        "Friday progress review: fifteen minutes, every week",
+        "Define your next business 'belt' and map the stones to it",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "Why does the chapter call \"double revenue this year\" unclimbable as written?",
+      options: [
+        "Because doubling revenue is unrealistic for most businesses",
+        "Because it's a summit statement — you can't put your foot on a summit",
+        "Because revenue goals should always be quarterly",
+        "Because it lacks a financial forecast behind it",
+      ],
+      correctIndex: 1,
+      explanation: "The goal is real and worthy — but it's a destination, not a step. The size of a goal is not its power; the clarity of the next step is. Summits give direction, then you live in your stones.",
+    },
+    {
+      question: "What is the brutal limitation of outcome goals?",
+      options: [
+        "They take too long to define clearly",
+        "They only work for athletes, not business owners",
+        "You don't fully control them",
+        "They make daily work feel meaningless",
+      ],
+      correctIndex: 2,
+      explanation: "The outcome goal is the destination, not the climbing. You need it for direction — a staircase to nowhere is just exercise — but the daily actions you completely control live in your process goals.",
+    },
+    {
+      question: "What was the first thing John Wooden taught every UCLA team?",
+      options: [
+        "How to put on their socks properly",
+        "The championship schedule for the season",
+        "His famous definition of success",
+        "Full-court defensive rotations",
+      ],
+      correctIndex: 0,
+      explanation: "Wrinkles cause blisters, blisters steal practice time, and practice is where everything is built. Wooden lived in process goals — and ten national championships in twelve years followed because nobody was staring at the summit.",
+    },
+    {
+      question: "What role do progress goals play in the system?",
+      options: [
+        "They replace outcome goals once you're experienced",
+        "They set the direction for the whole year",
+        "They keep you accountable to your coach",
+        "They convert effort into visible evidence — the motivation engine",
+      ],
+      correctIndex: 3,
+      explanation: "Progress goals are the look back down the mountain: the stance held longer, the closing rate up three points. Visible progress is among the most powerful motivators a human can access — outcome for direction, process for action, progress for fuel.",
+    },
+    {
+      question: "What mix does Brett prescribe to coaching clients?",
+      options: [
+        "Ten outcome goals reviewed monthly",
+        "One outcome goal per season, 3-5 daily process goals, a Friday progress review",
+        "One process goal per quarter, reviewed annually",
+        "Five outcome goals with weekly accountability partners",
+      ],
+      correctIndex: 1,
+      explanation: "Most owners arrive inverted — ten summits, no stones, no look back down the mountain. The Friday review is the piece they fight and then never give up: fifteen minutes of 'what does the ledger say this week?' — where next week's motivation actually comes from.",
+    },
+  ],
+},
+{
+  slug: "consistent-warrior",
+  order: 37,
+  title: "The Consistent Warrior: Consistency",
+  tagline: "The Master's Edge Book",
+  description: "Inspiration is weather; consistency is climate — and you can't build anything on weather. The water shapes the stone, and consistency shapes the warrior.",
+  videoUrl: PLACEHOLDER_VIDEO(37),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Inspiration is weather; consistency is climate — you can't build on weather",
+    "The stream beats the stone with attendance, not intensity",
+    "Flow daily: decide your minimum in advance and never negotiate it",
+    "Small and steady beats big and rare — frequency builds automaticity",
+    "Track the practice daily; check the stone monthly",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Consistent Warrior",
+      paragraphs: [
+        "Kenta was strong, quick, and eager — but he only practiced when he felt inspired, skipping days when tired or unmotivated. When he asked Master Toshi why he hadn't improved like the others, the master led him to a stream and pointed at a large, smooth stone in the water. 'The water does not strike the rock with force, yet through its consistent flow, it has worn the stone smooth. Mastery is not achieved by bursts of effort. The stone is shaped not by power but by persistence.'",
+        "Kenta's flaw hides well because he wasn't lazy — the talent was real. His flaw was a dependency: effort chained to inspiration. Now find the Kenta in your operation: follow-up calls that happen in enthusiastic streaks, the financial review that occurs when anxiety spikes instead of every Friday, content and prospecting brilliant in bursts and absent in between. Burst effort feels productive. But the stream doesn't beat the stone with intensity. It beats it with attendance. Keep this sentence: inspiration is weather; consistency is climate. You can't build anything on weather.",
+      ],
+    },
+    {
+      heading: "The Framework: The Stream's Three Rules",
+      paragraphs: [
+        "Rule one: flow daily — show up regardless of feeling. The stream doesn't consult its mood. Decide your daily minimum in advance and divorce it completely from inspiration, energy, and circumstances. Rule two: small and steady beats big and rare. Five focused minutes every day outbuilds five heroic hours once a month. The habit researchers measured why: automaticity — the point where a behavior runs without willpower — is built by frequency, not size. On average it takes about two months of daily repetition before a behavior carries itself. Bursts reset the clock every time.",
+        "Rule three: let the stone do the telling. Day to day, nothing visibly changes — and that's exactly when Kentas quit. Track the practice, not the feeling: a checked box, a logged rep, a chart on the wall. Then, monthly, look at the stone — the smoother technique, the fuller pipeline, the calmer numbers. Cal Ripken Jr. lived it: 2,632 consecutive games, shattering Gehrig's 'unbreakable' record. The streak wasn't 2,632 heroic performances — he had bad games by the hundreds. Its material was attendance: the decision, made once and renewed daily, that showing up was not weather-dependent.",
+      ],
+      bullets: [
+        "Flow daily — the stream doesn't consult its mood",
+        "Small and steady beats big and rare",
+        "Let the stone do the telling — track daily, review monthly",
+      ],
+    },
+    {
+      heading: "Practice: One Commitment, Insultingly Small",
+      paragraphs: [
+        "New clients ask me for the perfect weekly system. I give them something smaller and far harder: ONE daily commitment, sized so small it's embarrassing. Five sales touches. One page of the financials. Ten minutes on the skill they're avoiding. The rule: it happens every business day and is never skipped for being too easy. Clients laugh at the size — then around week six the thing starts running itself, and we stack the next stone. A year later they have six automatic behaviors compounding daily. The owner who wanted the perfect system is running something better: a climate.",
+        "This week, keep it insultingly small: one business skill, five minutes, daily, non-negotiable — too small to skip is the whole design. Hold your most boring-but-vital commitment thirty days without redesigning it. Put a consistency chart on the wall where your team can watch the chain grow — an unbroken chain becomes something you protect. Weld new habits to existing anchors: financials with the first coffee, follow-ups right after lunch. And run one technique daily for a week, then compare Friday to Monday. That visible delta converts more people to consistency than any speech.",
+      ],
+      bullets: [
+        "One daily commitment, too small to skip",
+        "Thirty days on one boring-but-vital routine — no redesigning",
+        "Chart the chain where everyone can see it",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What was Kenta's actual flaw?",
+      options: [
+        "He lacked the natural talent of the other students",
+        "His effort was chained to inspiration — he only trained when he felt like it",
+        "He trained too hard and burned out",
+        "He refused to listen to Master Toshi's corrections",
+      ],
+      correctIndex: 1,
+      explanation: "Kenta wasn't lazy — he was strong, quick, and eager. His flaw was a dependency: when the feeling showed up, so did he. Mastery only ever shows up on a schedule.",
+    },
+    {
+      question: "How does the stream shape the stone?",
+      options: [
+        "With overwhelming force applied at the right moment",
+        "By striking hardest during storms",
+        "With attendance — steady flow over time, not intensity",
+        "By finding the stone's weakest point",
+      ],
+      correctIndex: 2,
+      explanation: "The water never strikes with force. Burst effort feels productive because it's intense, but the stream beats the stone with attendance — small, steady actions repeated over time.",
+    },
+    {
+      question: "What did habit researchers find about automaticity?",
+      options: [
+        "It's built by frequency, not size — roughly two months of daily repetition",
+        "It arrives after any thirty-day challenge",
+        "It requires intense willpower throughout",
+        "It only develops for physical habits, not mental ones",
+      ],
+      correctIndex: 0,
+      explanation: "Automaticity — where a behavior runs without willpower — comes from frequency, not size. Five daily minutes outbuilds five heroic hours monthly, because bursts reset the clock every time.",
+    },
+    {
+      question: "What was Cal Ripken Jr.'s streak actually made of?",
+      options: [
+        "2,632 consecutive heroic performances",
+        "Superior conditioning that prevented all injuries",
+        "A contract that required him to play every game",
+        "Attendance — a decision made once and renewed daily",
+      ],
+      correctIndex: 3,
+      explanation: "Ripken had bad games, ordinary games, forgettable games by the hundreds. The streak's material was showing up, not weather-dependent brilliance — and the sport understood: the streak WAS the achievement.",
+    },
+    {
+      question: "Why does Brett size a client's first daily commitment 'so small it's embarrassing'?",
+      options: [
+        "To avoid overwhelming clients who lack discipline",
+        "Because bigger commitments cost too much time",
+        "Too small to skip is the design — it must never be negotiable",
+        "To test whether the client is serious before real work",
+      ],
+      correctIndex: 2,
+      explanation: "The rule is that it happens every business day and is never skipped for being too easy. Around week six it starts running itself; then you stack the next stone. A year later, six automatic behaviors are compounding — a climate, not a system.",
+    },
+  ],
+},
+{
+  slug: "lantern-bearer",
+  order: 38,
+  title: "The Lantern Bearer: Help First",
+  tagline: "The Master's Edge Book",
+  description: "Two words that matter most at the exact moment every instinct votes against them — when you're the one drowning. The lantern bearer never walks in darkness.",
+  videoUrl: PLACEHOLDER_VIDEO(38),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "When you're in trouble and someone else is too — help first",
+    "The lantern lights both paths: the light you hold for another falls on your road",
+    "Helping first switches sides of the rope and ends the tug-of-war",
+    "Help first doesn't mean help only — the lantern bearer still walks home",
+    "Small help counts: the rule runs on gestures, not grand rescues",
+  ],
+  lesson: [
+    {
+      heading: "The Parable of the Lantern Bearer",
+      paragraphs: [
+        "In Master Hana's mountain dojo, new student Daiki noticed something odd: every evening, the senior students paused at the gate with their lanterns and waited — sometimes minutes — for a villager headed the same way. Then they walked beside the stranger, holding the lantern high, lighting the other's path before their own. When Daiki asked why, Master Hana handed him a lantern: 'When you hold the lantern for another, whose path is lit?' Daiki looked at the light spilling across the stones. 'Both of ours, Master. And the light spreads wider when I hold it higher for someone else.'",
+        "'You have just seen the secret,' the master said. 'The lantern bearer never walks in darkness. Help another traveler first — especially on the nights you feel most lost — and you will find your own path lit in ways you cannot explain to those who have never tried it.' Years later Daiki handed his own student a lantern and asked the same question. That is the Master's Edge: the strongest hand is the one holding the light for someone else — and standing in the brightest part of the road because of it.",
+      ],
+    },
+    {
+      heading: "The Framework: Help First",
+      paragraphs: [
+        "The rule in full: when you're in a difficult situation and you notice someone else is too — help first. It's completely counterintuitive, and that's the point. In trouble, every instinct narrows you toward yourself: my deadline, my stress, my drowning. But a home or workplace where everyone waits for help is a tug-of-war — both sides pulling, both wondering why the other won't budge. The person who helps first switches sides of the rope. Suddenly you're on the same team, the other person feels understood, and they're far more likely to reciprocate — usually right when you need it most.",
+        "I teach it with two mornings. Same overwhelmed father, same chaotic kids, same wife at her limit. Morning one, he slips past like Tom Cruise in Mission Impossible — and the day ends in tears and days of damage. Morning two, he says two words — help first — and becomes a first responder: separates the kids, hugs his wife, asks what he can do. Her mood lifts everyone's, and when he sits down to work she's his biggest supporter. Same chaos; the only variable was which direction he pointed his lantern first. Help first doesn't mean help only — the lantern bearer still walks home.",
+      ],
+      bullets: [
+        "Trouble is the signal to help, not the excuse to hide",
+        "Helping first switches you to the same side of the rope",
+        "Give with boundaries — help first, not help only",
+      ],
+    },
+    {
+      heading: "Practice: Handing Out Lanterns",
+      paragraphs: [
+        "When the 2010 earthquake leveled Port-au-Prince, chef Jos\u00e9 Andr\u00e9s flew in and did the only thing he knew: he started cooking. Out of it came World Central Kitchen, built on a dojo-simple idea: when people are drowning, don't assess, don't committee — show up and feed them first. Millions of meals later, he became one of the world's most trusted humanitarian voices. And Help First is the quiet engine of my business life too: networking doesn't work — helping works. Walk into every room asking who needs a lantern, and within a year you'll be the person everyone wants to walk beside.",
+        "This week: install the Two-Word Reset — when you're overwhelmed AND notice someone else struggling, say 'help first' before doing anything, then take one action; the phrase flips the first-responder switch. Run a Lift Inventory: write down three people whose help got you somewhere you couldn't have gone alone, and message one of them. Do one deliberate no-ledger act of help daily. Find your stuck tug-of-war — you already know which relationship — and switch sides with one genuine, no-strings act. Leaders: open one meeting with 'Who's drowning, and who can help?' Then go first.",
+      ],
+      bullets: [
+        "Two-Word Reset: say 'help first,' then take one action",
+        "One no-ledger act of help per day",
+        "Audit your stuck tug-of-war and switch sides first",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "Why did Master Hana's senior students wait at the gate each night?",
+      options: [
+        "To walk beside villagers, lighting the stranger's path before their own",
+        "To guard the dojo against intruders after dark",
+        "To earn rank promotions through visible service",
+        "Because Master Hana required it as discipline training",
+      ],
+      correctIndex: 0,
+      explanation: "The waiting wasn't duty or display — it was wisdom. The lantern held high for another lights both paths, and spreads wider. The lantern bearer never walks in darkness.",
+    },
+    {
+      question: "When does the Help First rule matter most?",
+      options: [
+        "When you have spare time and energy to give",
+        "Precisely when you're the one drowning — trouble is the signal, not the excuse",
+        "Only in professional settings where reciprocity is likely",
+        "After your own tasks are safely finished",
+      ],
+      correctIndex: 1,
+      explanation: "The moment the rule matters most is exactly the moment every instinct votes against it. The mornings you most want to hide in the bathroom are the mornings the rule pays most.",
+    },
+    {
+      question: "In the two-mornings story, what was the only variable that changed?",
+      options: [
+        "The father's schedule was lighter the second morning",
+        "The kids were calmer the second time",
+        "His wife asked directly for help",
+        "Which direction he pointed his lantern first",
+      ],
+      correctIndex: 3,
+      explanation: "Same chaos, same behind-schedule man. Two words — help first — flipped the first-responder switch, and the ending rewrote itself: his wife gained strength, her mood lifted everyone's, and he ended the day supported instead of buried.",
+    },
+    {
+      question: "What caveat does the givers-and-takers research add to Help First?",
+      options: [
+        "Givers should always help anonymously",
+        "Takers ultimately outperform givers in competitive fields",
+        "The least successful people are also givers — the ones with no boundaries",
+        "Generosity only pays off inside close-knit teams",
+      ],
+      correctIndex: 2,
+      explanation: "The most successful people long-term are disproportionately givers — but so are the least successful: those who help with no boundaries. Help first doesn't mean help only; the lantern bearer still walks home.",
+    },
+    {
+      question: "What made José Andrés's response in Haiti a Help First example?",
+      options: [
+        "He donated money from his restaurant empire",
+        "With his own empire bearing down, he showed up and fed people first — no assessing, no committees",
+        "He waited for governments to coordinate, then assisted",
+        "He publicized the disaster through his television fame",
+      ],
+      correctIndex: 1,
+      explanation: "Andrés had every reason to point the lantern inward — his own kitchens, his own full schedule. He cooked in the mud instead. World Central Kitchen was built on the dojo-simple idea: when people are drowning, show up and feed them first.",
+    },
+  ],
+},
+{
+  slug: "trust-trinity",
+  order: 39,
+  title: "The Trust Trinity",
+  tagline: "The Master's Edge Book",
+  description: "Every owner has a trust problem — in themselves, their systems, or their people. Learn the three-legged framework that turns eighty-hour weeks into a business that compounds.",
+  videoUrl: PLACEHOLDER_VIDEO(39),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Doubt is a skill-capper — capability can't flow past broken trust.",
+    "The trinity is a stool: trust yourself, trust the system, trust your people.",
+    "Each trust has its own build; diagnose the short leg — they don't fix each other.",
+    "Trust the process especially at the plateau — the river shapes over generations.",
+    "Delegation isn't a task-transfer, it's a trust-transfer.",
+  ],
+  lesson: [
+    {
+      heading: "Kenji on the Rock",
+      paragraphs: [
+        "In Master Sora's mountain dojo trained a young warrior named Kenji — strong, skilled, and stuck. He questioned his abilities, his training methods, and his fellow warriors: all three trusts down at once. So Master Sora took him to a river and had him step onto a rock midstream — afraid, before any lecture — and named the Trust Trinity. First, trust yourself: you are capable of more than you know. Second, trust the system: the training methods, like the river, have been refined over generations. Third, trust your teammates and coaches, who walk the path beside you.",
+        "Kenji realized his doubts were the only opponent that ever really had him beaten. He trained on with newfound confidence and became celebrated not just for skill, but for unwavering trust. Notice the order of the lesson: the rock came before the lecture. Trust is built by doing the scary thing with support — never by being talked into it. Your business runs on the same stool. Count your legs.",
+      ],
+    },
+    {
+      heading: "The Three Legs — and the Proof From Space",
+      paragraphs: [
+        "The trinity builds in order. Trust yourself: confidence built on evidence — your track record, your ledger, your reps — because the other two trusts are decisions, and a person who doesn't trust themselves can't hold a decision. Trust the system: letting your processes work through setbacks; a system you override on every exception is a system you don't have. Trust your people: the one that scales. When Google studied hundreds of its own teams, the number one factor in the best ones wasn't talent — it was psychological safety. Same trinity, measured in spreadsheets.",
+        "Apollo 13 ran the trinity at full load. Self-trust: three drilled astronauts flew a crippled ship manually with zero margin for panic. System-trust: nobody improvised from scratch — they fell back on procedures, checklists, and simulations, adapting the system but trusting its bones. People-trust: the crew bet their lives, hour after hour, on calculations done by strangers in Houston. Three days later the parachutes opened. Your worst quarter is not two hundred thousand miles from Earth — the trinity that brought them home will hold your business.",
+      ],
+    },
+    {
+      heading: "Find Your Short Leg",
+      paragraphs: [
+        "Each missing leg produces its own signature limp. Missing self-trust looks like second-guessing every decision. Missing system-trust looks like chaos worshipped as flexibility — nothing documented, everything living in your head. Missing people-trust is the expensive one: the eighty-hour weeks, the bottleneck at your desk. \"Nobody does it like I do\" — true, and if it stays true, you own a job, not a business. When a client tells me \"I can't delegate,\" I run the trinity diagnostic — and usually it's not the people at all. Build the missing leg and the \"people problem\" dissolves.",
+        "This week, run the drills. The Trinity Audit: three columns — Myself, My Systems, My People — honest trust level and one piece of evidence under each; the shortest column is your next ninety days. The Form Practice: run one documented process for thirty days exactly as written, no overrides. The Partner Drill: hand off one meaningful task with a documented process and a feedback loop — then don't touch it. And the Rock Step: name the decision you've been circling and take the smallest step onto it. Trust is built mid-step, never before it.",
+      ],
+      bullets: [
+        "Trinity Audit: find your shortest column — that's your next ninety days.",
+        "Run one process thirty days with zero overrides.",
+        "Hand off one task with a process and feedback loop — the drill is for you.",
+        "Take the smallest step onto the thing you've been circling.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "In the parable, what was Kenji's actual problem?",
+      options: [
+        "He lacked the physical skill of his fellow warriors",
+        "His training methods were genuinely flawed",
+        "Broken trust — in himself, the system, and his teammates",
+        "He trained too hard and burned out",
+      ],
+      correctIndex: 2,
+      explanation: "Kenji was strong and skilled — and stuck. All three trusts were down at once. Capability can't flow past broken trust; fix the trust and the skill you already have gets released.",
+    },
+    {
+      question: "Why does self-trust come first in the Trust Trinity system?",
+      options: [
+        "The other two trusts are decisions, and you can't hold a decision without it",
+        "It's the easiest of the three to build",
+        "Systems and people can't be trusted until they're proven",
+        "Confidence attracts better employees",
+      ],
+      correctIndex: 0,
+      explanation: "Trusting the system and trusting people are choices you make. A person who doesn't trust themselves can't hold a decision — so self-trust, built on evidence, is the foundation.",
+    },
+    {
+      question: "What did Google's study of its own teams find was the number one factor in the best ones?",
+      options: [
+        "Individual talent and seniority",
+        "Balanced workload across the team",
+        "Clear performance metrics",
+        "Psychological safety",
+      ],
+      correctIndex: 3,
+      explanation: "The top factor wasn't talent, seniority, or workload — it was psychological safety: shared confidence that the team can be trusted with your honest effort and honest mistakes. The people-trust leg, measured in spreadsheets.",
+    },
+    {
+      question: "Brett says a system you override on every exception is…",
+      options: [
+        "A flexible system that adapts to reality",
+        "A system you don't have",
+        "A sign your people need more training",
+        "Proof the system needs a rewrite",
+      ],
+      correctIndex: 1,
+      explanation: "System-trust means letting the process work through setbacks instead of abandoning it at the first bad week. Constant overrides mean nobody follows the system — so effectively there isn't one.",
+    },
+    {
+      question: "When an owner says \"I can't delegate — nobody does it right,\" what does the trinity diagnostic usually reveal?",
+      options: [
+        "The people really are the problem and need replacing",
+        "The owner should hire more experienced staff",
+        "A missing system or missing self-trust — not a people problem",
+        "The tasks simply can't be delegated",
+      ],
+      correctIndex: 2,
+      explanation: "Usually there's no documented way to do it \"right\" (missing system) or the owner's identity is being the only one who can (missing self-trust). Build the missing leg and the \"people problem\" dissolves. Delegation is a trust-transfer.",
+    },
+  ],
+},
+{
+  slug: "masters-state",
+  order: 40,
+  title: "The Master's State: Engineering Flow",
+  tagline: "The Master's Edge Book",
+  description: "Flow isn't a gift that descends on the worthy — it's a state with conditions, and the conditions can be engineered. Learn to oil the hinges so the door stands open when you arrive.",
+  videoUrl: PLACEHOLDER_VIDEO(40),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "The masters don't move faster — they arrive fully; speed is a byproduct of undivided presence.",
+    "The door has hinges: flow has conditions, and conditions can be engineered.",
+    "The edge is the doorway — calibrate challenges slightly past your skill.",
+    "The four pillars are the load-bearing infrastructure of every peak state.",
+    "Chasing flow closes the door; building a life where it lives opens it.",
+  ],
+  lesson: [
+    {
+      heading: "The Master Who Slowed Time",
+      paragraphs: [
+        "In a harbor town lived Master Ito, famous for one strange fact: no one had ever seen him hurry. Young Kazuo watched him spar four attackers at a festival — silver-haired, unhurried, untouched, arriving at each moment slightly before it happened. \"How did you move so fast?\" Kazuo asked. \"I have never moved fast in my life,\" said Ito. \"Their minds were in four places. Mine was in one. When the whole of you arrives in a single moment, the moment opens — wide and slow, like a door swinging open. Inside that door, there is no hurry.\"",
+        "Kazuo trained for years chasing the door, then begged for the secret technique. \"There is no technique,\" Ito said. \"The door has hinges, and the hinges can be oiled. Sleep like it matters. Train at the edge of what you can do. Give each practice one clear task. Do these things every day, and the door will be standing open when you get there.\" That answer refuses the mystique — and it's the whole difference between engineering flow and every airport book about \"getting in the zone.\" Hope is not a system.",
+      ],
+    },
+    {
+      heading: "Oiling the Hinges",
+      paragraphs: [
+        "You already know flow — you've entered it by accident your whole life: the day before vacation, the conversation that felt like five minutes, the stadium singing as one. This chapter is about doing it on purpose. Hinge 1 is the Four Pillars — nutrition and hydration, sleep, exercise, socialization/mindfulness. You train sleep the way you train a kick; a sleep-starved brain doesn't enter flow, it enters survival. Hinge 2 is Csikszentmihalyi's challenge/skills balance: a challenge slightly beyond your skill. Too easy and the mind wanders; too hard and fear drags it out.",
+        "Hinge 3: one clear task with immediate feedback — \"work on the business\" never produced flow; \"draft the pricing section before 11\" opens the door. Hinge 4: your Impact Zones — the ultradian windows when you're naturally most focused; guard the majors for your 5% work. Hinge 5: the recovery cycle — flow works like lifting weights; skip recovery and you get less flow, then none. I proved this in my own lab: sixteen martial artists, three months, a rubber knife, deliberately induced flow. Learning that tradition schedules across months became functional in hours — with retention bundled in.",
+      ],
+      bullets: [
+        "Hinge 1: Four Pillars — nutrition/hydration, sleep, exercise, socialization/mindfulness.",
+        "Hinge 2: challenge/skills balance — train at the edge.",
+        "Hinge 3: one clear task, immediate feedback.",
+        "Hinge 4: Impact Zones — schedule with your biology, not against it.",
+        "Hinge 5: recovery — flow is earned in the off-hours.",
+      ],
+    },
+    {
+      heading: "Your First Flow Assignment",
+      paragraphs: [
+        "The first assignment I give every coaching client: for five workdays, keep an energy log — one line per hour, focus rated one to five. By Friday your Impact Zones sit right there in the data, usually two majors. Then we perform surgery on the calendar: the zones get strategy, sales, and creation; meetings, email, and errands get exiled to the valleys. No new skills, nothing purchased — clients routinely call it the highest-leverage change of the whole engagement. The same person, re-scheduled onto their own biology, does more by Wednesday than the old calendar allowed all week.",
+        "Then clear the blockers, in order. Sleep first — a person who isn't sleeping isn't flowing. Then the phone: out of reach during your zones, stripped of every badge and buzzer. Then rhythm: key into your ultradian cycles so your biology is an ally, not an ambush. Notice that none of these require talent. They require decisions. Run the Pillar Audit — rate each pillar one to five and improve only the lowest for two weeks — and the Edge Calibration: is your biggest project boring you or scaring you into avoidance? Adjust one variable until it sits just past your skill, and feel the pull.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What did Master Ito mean by \"I have never moved fast in my life\"?",
+      options: [
+        "He was being modest about decades of speed training",
+        "His attackers were unskilled, so he didn't need speed",
+        "He used deception to appear slower than he was",
+        "Undivided presence opens the moment — speed is a byproduct of arriving fully",
+      ],
+      correctIndex: 3,
+      explanation: "His opponents' minds were in four places; his was in one. When the whole of you arrives in a single moment, the moment opens wide and slow. The masters don't move faster than life — they build a life where the moment opens.",
+    },
+    {
+      question: "According to the challenge/skills balance, where does flow live?",
+      options: [
+        "In a challenge slightly beyond your current skill",
+        "In tasks you've fully mastered, where confidence is highest",
+        "In the hardest challenge you can find — pressure creates focus",
+        "In alternating easy and hard tasks throughout the day",
+      ],
+      correctIndex: 0,
+      explanation: "Csikszentmihalyi's sweet spot: slightly beyond current skill. Too easy and the mind wanders out of the moment; too hard and fear drags it out. Calibrate the edge and recalibrate as you grow.",
+    },
+    {
+      question: "What are Impact Zones?",
+      options: [
+        "The moments of highest pressure in a negotiation",
+        "Your natural ultradian windows of peak focus, usually two to four hours",
+        "The first and last hours of every workday",
+        "Deep-work blocks you schedule at random to stay flexible",
+      ],
+      correctIndex: 1,
+      explanation: "Impact Zones are the windows when you're naturally most focused — scientists call them ultradian rhythms. Map majors and minors, guard the majors for your 5% work, and give the valleys your administrivia.",
+    },
+    {
+      question: "What did Brett's rubber-knife experiment show about deliberately induced flow?",
+      options: [
+        "Only young, experienced students benefited from it",
+        "It worked, but skills faded before the next session",
+        "Learning accelerated across age and experience, with retention bundled in — but flow is an accelerant, not a magic wand",
+        "Three hours was enough to master all four common knife attacks",
+      ],
+      correctIndex: 2,
+      explanation: "Time dilation was near-universal, learning rate barely varied by age or experience, and skills held at the next session. The honest note: three hours covered two of four attacks — flow compresses tuition; it doesn't waive it.",
+    },
+    {
+      question: "Which blocker does Brett screen for first with every client?",
+      options: [
+        "Phone notifications",
+        "Sleep",
+        "Poorly defined goals",
+        "A misaligned calendar",
+      ],
+      correctIndex: 1,
+      explanation: "Sleep comes first — a person who isn't sleeping isn't flowing, full stop. Then the phone, then rhythm. None of these require talent; they require decisions.",
+    },
+  ],
+},
+{
+  slug: "unseen-belt",
+  order: 41,
+  title: "The Unseen Belt: Strong Ethical Character",
+  tagline: "The Master's Edge Book",
+  description: "What does your company do when you're not in the room? That answer IS your business. Character isn't installed by inspiration — it's installed by repetition, exactly like a kick.",
+  videoUrl: PLACEHOLDER_VIDEO(41),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "True character is what you do when no one is watching.",
+    "Doing the right thing builds an inner strength that compounds like a ledger.",
+    "Integrity is a daily practice — small right decisions, made until they make you.",
+    "People follow who you are before they follow what you say.",
+    "Your greatest rank is the one in your heart.",
+  ],
+  lesson: [
+    {
+      heading: "Kaito and the Clear Belt",
+      paragraphs: [
+        "At Integrity Dojo, Master Daigo cared more about character than medals. His student Kaito was fast, strong, and hungry to win — but when no one was watching, he cut corners: skipped the bow, ignored struggling classmates, even took credit for someone else's move. So Master Daigo handed out a strange new belt — clear, almost invisible. \"This is the Unseen Belt — the one that shows up in how you act when no one's watching, how you treat people who can't help you, and how honest you are with yourself.\"",
+        "The dojo ran a thirty-day Character Challenge: daily points not for kicks, but for helping without being asked, owning mistakes honestly, showing respect in frustration, keeping small promises, returning what wasn't yours. Kaito struggled — he'd been best at techniques, not at being trustworthy. Then something shifted: he stayed late with a shy beginner, stood up for a teased classmate, and felt a quiet pride that came not from applause but from doing what was right. \"This one,\" Daigo said, hand over his heart, \"doesn't fade, can't be taken, and is what real mastery is made of.\"",
+      ],
+    },
+    {
+      heading: "Character Is a System, Not a Sermon",
+      paragraphs: [
+        "Kaito didn't have a mindset problem — he had a systems problem. Master Daigo didn't lecture him into integrity; he built a system — thirty days, daily points, observable behaviors — and let the system train the character. Character is installed by repetition, exactly like a kick. In business, character is the system that governs all your other systems: every process has a moment where the procedure meets a temptation. What decides it isn't the flowchart — it's the unseen belt of the person executing it, starting with yours; a team's character converges toward the owner's at cruising speed.",
+        "The Character Challenge runs on three rules. One: make it behavioral, not aspirational — \"be more honest\" trains nothing; \"own one mistake out loud this week\" trains character the way reps train a punch. Two: track it like revenue — the measurement isn't the reward, it's the attention; what you track, you become conscious of, and conscious choosing hardens into excellence as habit. Character is consistency applied to values. Three: aim for the quiet pride — internal, un-stealable, compounding. When your people work for that currency, no competitor can poach your culture.",
+      ],
+    },
+    {
+      heading: "The Integrity Invoice — Decide Before It Arrives",
+      paragraphs: [
+        "In 1982, someone laced Tylenol capsules with cyanide, and seven people died. The contamination was local to Chicago; Johnson & Johnson was legally a victim; advisors called a national recall unnecessary. CEO James Burke pulled every bottle in America anyway — thirty-one million bottles, nine figures burned. His explanation: the company credo put customers first, and it wasn't decoration — it was the operating system. The decision had been made years before the crisis, when the company decided what it was. Tylenol returned in tamper-proof packaging and won back its market within a year.",
+        "Your version will be smaller and it will still cost something — the refund nobody would catch, the disclosure, the promise the market shift made expensive. I call these integrity invoices, and I teach owners to decide them BEFORE they arrive: a one-page \"we always / we never\" list, written in calm times, posted where the team can see it. Owners who write the list make Burke decisions in minutes; owners who don't negotiate with themselves in the dark — and the dark usually wins.",
+      ],
+      bullets: [
+        "Invisible Acts Challenge: one unposted act of kindness or honesty this week.",
+        "Right-Thing Rehearsals: write your three likeliest integrity invoices and decide them now, in calm.",
+        "The 3 Daily Do Rights: small character habits, done daily, tracked.",
+        "Heart Belt Reflection: weekly — \"What kind of person am I becoming?\"",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What is the Unseen Belt?",
+      options: [
+        "The character shown when no one is watching — how you treat people who can't help you, and how honest you are with yourself",
+        "A secret rank awarded only to instructors",
+        "The reputation you build over years of visible wins",
+        "The humility to hide your accomplishments from others",
+      ],
+      correctIndex: 0,
+      explanation: "Master Daigo's clear belt lives over the heart, not around the waist. Reputation is what your business does while being watched — and being watched is a part-time condition. Character is what you really are.",
+    },
+    {
+      question: "Why does Brett say Kaito had a systems problem, not a mindset problem?",
+      options: [
+        "Kaito's dojo lacked proper rules and supervision",
+        "Character was installed by a repeatable system — thirty days of tracked, observable behaviors — not by a lecture",
+        "Kaito's techniques were poorly systematized",
+        "Mindset problems can't actually be fixed",
+      ],
+      correctIndex: 1,
+      explanation: "Master Daigo didn't lecture Kaito into integrity. He built a system — daily points for specific behaviors — and let the system train the character. Character is installed by repetition, exactly like a kick.",
+    },
+    {
+      question: "What made James Burke's Tylenol recall remarkable?",
+      options: [
+        "It was legally required and he executed it flawlessly",
+        "It cost nothing because insurance covered the losses",
+        "The government forced it, but Burke took the credit",
+        "Nobody required it — the credo decided it years before the crisis, when the company decided what it was",
+      ],
+      correctIndex: 3,
+      explanation: "The contamination was local and the company was legally a victim, yet Burke pulled thirty-one million bottles at nine-figure cost. The credo was the operating system, not decoration — the unseen belt worn at corporate scale.",
+    },
+    {
+      question: "What is an \"integrity invoice\"?",
+      options: [
+        "A fine issued for ethics violations",
+        "The annual cost of a compliance program",
+        "A moment where doing the right thing has a visible price tag",
+        "A bill you send clients for extra honest work",
+      ],
+      correctIndex: 2,
+      explanation: "The refund nobody would catch, the mis-quote in the client's favor, the star who hits numbers by cutting corners. Decide these BEFORE they arrive with a \"we always / we never\" list — the crisis is the worst time to discover your values.",
+    },
+    {
+      question: "Which practice makes character behavioral rather than aspirational?",
+      options: [
+        "Resolving to \"be more honest\" this quarter",
+        "Owning one mistake out loud this week and tracking it",
+        "Reading a book on ethics every month",
+        "Posting your values statement on the wall",
+      ],
+      correctIndex: 1,
+      explanation: "\"Be more honest\" trains nothing. Specific, observable, repeated behaviors — own an error, keep a small promise, help unasked — train character the way reps train a punch.",
+    },
+  ],
+},
+{
+  slug: "six-pillars",
+  order: 42,
+  title: "The Six Pillars: Building Systems That Teach",
+  tagline: "The Master's Edge Book",
+  description: "Every craft has a final test, and it's never performance — it's transmission. Six pillars turn \"I know how\" into \"now they know how,\" and build a business that teaches even when you're gone.",
+  videoUrl: PLACEHOLDER_VIDEO(42),
+  pdfs: [],
+  images: [],
+  keyPoints: [
+    "Skill that lives only in your body dies with your body.",
+    "The system is the senior student — teaching continues whether you're present or not.",
+    "Every lesson should rehearse your absence — the Learning Circle closes with the teacher silent.",
+    "Hard fun is the standard: challenged AND engaged, or the design is wrong.",
+    "The greatest students build builders.",
+  ],
+  lesson: [
+    {
+      heading: "The Empty Dojo",
+      paragraphs: [
+        "When Emi earned her final rank, she asked Master Rokuro, \"I can defeat every student in this hall. Is that mastery?\" \"No,\" he said, and walked her a full day to a small dojo in a neighboring town. Through the doorway she watched a class in full motion — seniors correcting juniors, a young woman leading forms, the curriculum painted in stages on the wall so every student could see the whole mountain and their place on it. \"Their teacher is skilled,\" Emi said. \"Which one is he?\" \"He is not here,\" said Rokuro. \"He has been away for a month.\"",
+        "\"Anyone can build skill that lives in their body, Emi. It dies with the body. A master builds skill that lives in a system — in the ordering of the lessons, in the eyes of the seniors, in the walls themselves. When you can be absent and your teaching remains present, then you may call yourself a master.\" Now run the test on your business: if you stepped away for a month tomorrow, would the visitor see systems running and seniors teaching juniors — or drift, bottleneck, and forty texts a day to the absent master? If your presence is the system, you don't have a system. You ARE the system.",
+      ],
+    },
+    {
+      heading: "The Six Pillars of Effective Training",
+      paragraphs: [
+        "Whether you're building an onboarding, a team skills program, or a client curriculum, the same six pillars hold the roof. Pillar 1: Structured Planning & Design — map the journey from where they are to where they need to be. Pillar 2: Defined Objectives & Goals — what will they be able to DO after this that they couldn't before? \"Understand leadership\" trains nothing. Pillar 3: Structured Content Modules — discrete, digestible units, each with one clear purpose. Pillar 4: Actionable & Relevant Content — \"hard fun,\" the challenge/skills balance from the flow chapter applied to teaching.",
+        "Pillar 5: Assessment & Measurement — not a quiz at the end but a system for knowing whether behavior actually changed; what you refuse to measure, you've agreed not to know. Pillar 6: Feedback Loops — collect input from learners, teachers, and results every cycle and fold it back into the design. Beneath all six runs the Learning Circle: create a vision, do it WITH the students, tell them how, then step back and let the team perform without the instructor. Look at that last step — every single lesson is a small rehearsal of the empty dojo.",
+      ],
+      bullets: [
+        "Pillar 1: Structured Planning & Design",
+        "Pillar 2: Defined Objectives & Goals",
+        "Pillar 3: Structured Content Modules",
+        "Pillar 4: Actionable & Relevant Content — hard fun",
+        "Pillar 5: Assessment & Measurement",
+        "Pillar 6: Feedback Loops",
+      ],
+    },
+    {
+      heading: "Build the Room That Teaches",
+      paragraphs: [
+        "My academy has survived every storm in this book because it was built on these pillars. The curriculum climbs its wall in painted stages; the seniors teach the juniors; the Lantern Bearers are the living Pillar 6. When a client tells me \"training doesn't stick with my team,\" the same two pillars are almost always missing: Pillar 5 — nothing was measured, so nothing was expected — and Pillar 6 — the program never improved because nobody asked it to. We rebuild their onboarding as a belt system, and people who can SEE the mountain and their place on it climb differently.",
+        "Start this week. The Empty Room Test: write what would actually happen during a one-month absence, area by area — every \"it would stall\" is your systems to-do list, pre-prioritized. The Belt Map: pick one role and map its visible stages from novice to mastery, with objectives at each stage. The Learning Circle Rep: take one task you always do yourself — create the vision, do it WITH your person, tell them how, then step back and resist the touch-up. The silence is the lesson. A master's job is to make himself progressively unnecessary, one system at a time.",
+      ],
+    },
+  ],
+  quiz: [
+    {
+      question: "What did Master Rokuro show Emi as the true test of mastery?",
+      options: [
+        "A tournament where his students won every division",
+        "A dojo that ran and taught perfectly while its master had been absent for a month",
+        "A library of scrolls documenting every technique",
+        "A duel that proved technique beats strength",
+      ],
+      correctIndex: 1,
+      explanation: "The dojo was empty of its master and completely full of his teaching — seniors teaching juniors, the curriculum painted on the wall. Skill that lives only in your body dies with your body; mastery is what remains when you leave the room.",
+    },
+    {
+      question: "Which pillar does the objective \"resolve a tier-one complaint in under ten minutes using our process\" exemplify?",
+      options: [
+        "Pillar 2: Defined Objectives & Goals — something you can watch happen",
+        "Pillar 4: Actionable & Relevant Content",
+        "Pillar 6: Feedback Loops",
+        "Pillar 1: Structured Planning & Design",
+      ],
+      correctIndex: 0,
+      explanation: "Pillar 2 asks: what will they be able to DO after this that they couldn't before? \"Understand leadership\" trains nothing — a defined, observable behavior trains something you can watch happen.",
+    },
+    {
+      question: "What is \"hard fun\"?",
+      options: [
+        "Training so difficult that only the committed survive it",
+        "Gamifying lessons with points and prizes",
+        "Team-building activities scheduled after real training",
+        "Content challenging enough to demand growth and relevant enough to use this week — the challenge/skills balance applied to teaching",
+      ],
+      correctIndex: 3,
+      explanation: "Hard fun puts the learner in the same flow state the Master Who Slowed Time lived in. Boring training isn't just wasteful — it's flow-proof. If people aren't challenged AND engaged, the design is wrong, not the people.",
+    },
+    {
+      question: "How does the Learning Circle end — and why does that matter?",
+      options: [
+        "With a written test that certifies the student",
+        "With the teacher demonstrating the perfect version one last time",
+        "With the team performing without the instructor — a small rehearsal of the empty dojo",
+        "With a group discussion of what was learned",
+      ],
+      correctIndex: 2,
+      explanation: "Create a vision, do it WITH the students, tell them how, then step back. The Circle ends with the teacher deliberately unnecessary — every lesson rehearses your absence.",
+    },
+    {
+      question: "When training \"doesn't stick,\" which two pillars are almost always missing?",
+      options: [
+        "Pillars 1 and 2 — no plan and no objectives",
+        "Pillars 5 and 6 — nothing measured, and no feedback loop to improve the program",
+        "Pillars 3 and 4 — content too long and too dull",
+        "Pillars 2 and 3 — vague goals and unstructured modules",
+      ],
+      correctIndex: 1,
+      explanation: "Nothing was measured, so nothing was expected (Pillar 5), and the program never improved because nobody asked it to (Pillar 6). Rebuild as a belt system: visible stages, real tests, and a debrief after every cohort.",
+    },
+  ],
+},
 ];
 
 //==============================================================================
