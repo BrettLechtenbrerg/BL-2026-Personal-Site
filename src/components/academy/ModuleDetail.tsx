@@ -103,7 +103,52 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
       <h1 className="mb-2 font-heading text-3xl font-bold">{m.title}</h1>
       <p className="mb-6 leading-relaxed text-white/70">{m.description}</p>
 
-      {/* Video */}
+      {/* Self-hosted videos (e.g. NotebookLM video overviews) — shown alongside
+          the YouTube embed below so Brett can compare both before choosing */}
+      {(m.videoFiles?.length ?? 0) > 0 && (
+        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Video Overview</h2>
+          <div className="space-y-4">
+            {m.videoFiles!.map((v) => (
+              <div key={v.href}>
+                <p className="mb-2 text-sm font-semibold text-white/80">{v.label}</p>
+                <video controls preload="metadata" playsInline className="w-full rounded-lg">
+                  <source src={v.href} />
+                  Your browser doesn&apos;t support video playback —{" "}
+                  <a href={v.href} className="underline">
+                    download the file
+                  </a>
+                  .
+                </video>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Audio lessons — e.g. NotebookLM deep-dive overviews */}
+      {(m.audio?.length ?? 0) > 0 && (
+        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Listen</h2>
+          <div className="space-y-4">
+            {m.audio!.map((track) => (
+              <div key={track.href}>
+                <p className="mb-2 text-sm font-semibold text-white/80">{track.label}</p>
+                <audio controls preload="none" className="w-full">
+                  <source src={track.href} />
+                  Your browser doesn&apos;t support audio playback —{" "}
+                  <a href={track.href} className="underline">
+                    download the file
+                  </a>
+                  .
+                </audio>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Video (YouTube embed) */}
       <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40">
         <div className="relative aspect-video">
           <iframe
@@ -149,50 +194,6 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
         </div>
       </div>
 
-      {/* Self-hosted videos (e.g. NotebookLM video overviews) — shown alongside
-          the YouTube embed above so Brett can compare both before choosing */}
-      {(m.videoFiles?.length ?? 0) > 0 && (
-        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Video Overview</h2>
-          <div className="space-y-4">
-            {m.videoFiles!.map((v) => (
-              <div key={v.href}>
-                <p className="mb-2 text-sm font-semibold text-white/80">{v.label}</p>
-                <video controls preload="metadata" playsInline className="w-full rounded-lg">
-                  <source src={v.href} />
-                  Your browser doesn&apos;t support video playback —{" "}
-                  <a href={v.href} className="underline">
-                    download the file
-                  </a>
-                  .
-                </video>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Audio lessons — e.g. NotebookLM deep-dive overviews */}
-      {(m.audio?.length ?? 0) > 0 && (
-        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Listen</h2>
-          <div className="space-y-4">
-            {m.audio!.map((track) => (
-              <div key={track.href}>
-                <p className="mb-2 text-sm font-semibold text-white/80">{track.label}</p>
-                <audio controls preload="none" className="w-full">
-                  <source src={track.href} />
-                  Your browser doesn&apos;t support audio playback —{" "}
-                  <a href={track.href} className="underline">
-                    download the file
-                  </a>
-                  .
-                </audio>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Key points */}
       <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
