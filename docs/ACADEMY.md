@@ -1,0 +1,85 @@
+# Master's Edge Academy — `/academy`
+
+> Private, hidden (noindex) learning academy: modules with video + resources,
+> typeform-style quizzes with an 80% pass gate, XP + martial-arts belt levels,
+> badges, a members-only community feed, leaderboard, and a final certification
+> (capstone project reviewed by Brett + auto-scored final exam) that prints a
+> branded certificate.
+
+Built August 29, 2026. Verified end-to-end locally against the live Supabase
+project (signup → lesson → quiz fail/pass → badges/XP → community → leaderboard
+→ certification → admin approve → certificate). Test data was removed after.
+
+---
+
+## Launch checklist (do these before sharing the link)
+
+1. **Set env vars in Vercel** (Project → Settings → Environment Variables):
+   - `ACADEMY_ACCESS_CODE` — the enrollment code you give members (any string).
+   - `ACADEMY_SESSION_SECRET` — `openssl rand -hex 32`.
+   - (Already set: `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.)
+   Without them, production fails closed: signup returns 503, sessions 503.
+2. **Schema** — ✅ already applied to the `bl-comms-hub` Supabase project
+   (all `me_` tables). To re-apply or apply elsewhere, paste
+   `supabase/academy-schema.sql` into the Supabase SQL editor (idempotent).
+3. **Swap placeholder videos** — in `src/content/academy/modules.ts`, replace
+   `VIDEO_ID_1/2/3` with real unlisted YouTube embed ids
+   (`https://www.youtube.com/embed/<id>`).
+4. Push to `main` → Vercel deploys. Share `brettlechtenberg.com/academy` +
+   the enrollment code directly with members.
+
+> ⚠️ The Supabase free-tier project **pauses after ~1 week of inactivity**
+> (it was paused when we built this — we restored it). A paused project takes
+> both the Academy and the Comms Hub down. Consider the Pro plan or a weekly
+> keep-alive before launch.
+
+## How auth works
+
+- One shared **enrollment code** gates signup; each member then has their own
+  email + password (bcrypt-hashed) and avatar.
+- Sessions: HMAC-signed HttpOnly cookie (`src/lib/academy-session.ts`,
+  modeled on `hub-session.ts`). Every `/api/academy/*` route verifies it.
+- Dev fallbacks (localhost only): code `masters-edge-dev`, dev session secret.
+- Admin review reuses the existing hub login — no second admin account.
+
+## Adding a module
+
+1. Append an entry to `src/content/academy/modules.ts` (slug, title, order,
+   video embed URL, quiz questions with `correctIndex` + `explanation`).
+2. Drop PDFs/images into `public/academy/<slug>/` and list them in the entry.
+3. Optionally add a badge name/emoji for it in `badges.ts` → `moduleBadgeMeta`.
+Pages, linear unlock, quiz, XP, and the module badge all pick it up automatically.
+
+**Never import `modules.ts` from a `"use client"` file** — it contains quiz
+answers. Server components/API routes strip answers before data reaches the
+browser (verified: no `correctIndex` in client bundles).
+
+## Certification & awarding
+
+- Unlocks when every module is passed. Two halves:
+  **capstone project** (Brett approves at `/hub/academy`) and
+  **final exam** (auto-scored, 80%+ = approved).
+- Both approved → `certified-masters-edge` badge (Black Belt) + printable
+  certificate at `/academy/certificate`.
+- Review queue: `/hub/academy` (hub login) — approve or request revision with
+  feedback; feedback shows on the member's certification page.
+
+## Gamification
+
+XP: lesson +50 · quiz pass +100 (+25 perfect) · post +10 · comment +5 ·
+daily visit +5. Belts by XP (White → Red); Black Belt only via certification.
+Badges in `src/content/academy/badges.ts`. Ledger table `me_xp_events`;
+`me_users.xp` is the cached sum.
+
+## Key files
+
+| Area | Path |
+|---|---|
+| Schema (idempotent) | `supabase/academy-schema.sql` |
+| Session + guard | `src/lib/academy-session.ts` |
+| DB helpers (XP, badges, certify) | `src/lib/academy-db.ts` |
+| Content (modules, quizzes, exam) | `src/content/academy/modules.ts` |
+| Badges + belts | `src/content/academy/badges.ts` |
+| Member APIs | `src/app/api/academy/*` |
+| Admin API + page | `src/app/api/hub/academy/route.ts`, `src/app/hub/academy/page.tsx` |
+| Member pages | `src/app/academy/*` |
