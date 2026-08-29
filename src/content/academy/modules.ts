@@ -94,6 +94,15 @@ export const academyCourses: AcademyCourse[] = [
     fromOrder: 24,
     toOrder: 42,
   },
+  {
+    id: "framework",
+    title: "The Master's Edge Framework",
+    emoji: "🎁",
+    description:
+      "The free giveaway course: the complete framework with the stories removed — the map of the room. One deep module, one serious 22-question exam.",
+    fromOrder: 43,
+    toOrder: 43,
+  },
 ];
 
 // PLACEHOLDER videos — Brett's existing media appearances, so modules play a
@@ -4598,6 +4607,387 @@ export const academyModules: AcademyModule[] = [
     },
   ],
 },
+
+  //============================================================================
+  // THE MASTER'S EDGE FRAMEWORK — module 43, the free giveaway course
+  // (from Appendix A of the book: the framework with the stories removed)
+  //============================================================================
+  {
+    slug: "masters-edge-framework",
+    order: 43,
+    title: "The Master's Edge Framework",
+    tagline: "Free Course",
+    description:
+      "The complete Master's Edge system in one sitting — the map of the room. Three pillars, three sciences, six pillars of training design, five failure modes, and the scorecard. Then prove you own it: a 22-question scenario exam.",
+    videoUrl: PLACEHOLDER_VIDEO(43),
+    pdfs: [],
+    images: [],
+    keyPoints: [
+      "Training should transform, not inform — the only measure is whether behavior changed.",
+      "Three pillars: Mindset Mastery (steel), Skillset Enhancement (geometry), Systems Design (daily stone).",
+      "Three sciences underneath: Frontloading, First Principles, Flow.",
+      "The layers stack: science → capability → delivery. Skip a layer and the system breaks.",
+      "Six pillars of training design, five ways programs fail, one scorecard to rate yourself.",
+    ],
+    lesson: [
+      {
+        heading: "The Map of the Room",
+        paragraphs: [
+          "The chapters of The Master's Edge walk you around the room the way Master Na walked Brett — sign by sign, story by story. This framework is something different: the system with the stories removed, gathered in one place so you can find any piece of it in thirty seconds, years later. It's what Brett hands clients on day one.",
+          "The whole system rests on one principle: peak performance — in business, teams, and life — comes from mastering three interconnected elements. And underneath everything runs one philosophy, the test for every tool Brett builds: training should transform, not inform. The only measure that finally matters is whether it changed what people do.",
+        ],
+      },
+      {
+        heading: "The Three Pillars of Capability",
+        paragraphs: [
+          "Mindset Mastery is the steel — the mental frameworks, growth orientation, and resilience that let you perform under any conditions: focus, energy, and the confidence to take decisive action. Brittle steel fails no matter how finely you grind it.",
+          "Skillset Enhancement is the geometry — practical capabilities that drive results: leadership, communication, goals, consistency, trust. Skills are never taught in isolation; they layer and connect to create compound growth. Systems Design is the daily stone — deliberately designing the environment, habits, structures, and relationships that sustain performance over time. Optimizers tune what exists; masters design what should exist. Without the right systems, even the strongest mindset and sharpest skills eventually erode.",
+        ],
+      },
+      {
+        heading: "The Scientific Foundation: Frontloading",
+        paragraphs: [
+          "Frontloading means equipping people BEFORE they face the challenge — not while they're scrambling to survive it. Load the critical knowledge, context, and preparation in first; the challenge comes second. From educational research to Toyota's development process, the finding repeats: prepared people dramatically outperform people expected to learn on the fly.",
+          "Why it works: it reduces cognitive overload (learning first means every resource goes to execution when it counts), it builds confidence before pressure arrives (people freeze when they feel unprepared), and it eliminates expensive downstream problems (problems solved early cost a fraction of problems discovered late). A martial arts student drills techniques hundreds of times before belt-test pressure arrives. A business owner practices the negotiation framework before the hard negotiation — not during it.",
+        ],
+      },
+      {
+        heading: "First Principles and Flow",
+        paragraphs: [
+          "First Principles Thinking — as old as Aristotle — refuses to reason by analogy ('everyone does it this way, so we should too'). It breaks a problem down to its most fundamental, indisputable truths, then rebuilds from that bedrock. It solves the RIGHT problems (the owner who 'needs more marketing' may actually have a product that doesn't solve a compelling problem), eliminates inherited limitations ('how we've always done it' builds invisible ceilings), and creates truly custom solutions — no two toolkits look alike. It's the martial arts method itself: master stance, balance, rotation, follow-through, and the complex technique assembles naturally.",
+          "Flow — identified by Mihaly Csikszentmihalyi — is the state of optimal performance: so absorbed in a challenging activity that time dissolves and performance peaks. It is not luck; it's reproducible, with one core condition: a precise balance between challenge and skill. Too little challenge produces boredom; too much produces anxiety. Matched at a high level — with clear goals and immediate feedback — the brain floods with performance-enhancing neurochemistry. Flow shows up more at WORK than at leisure; training that doesn't help people access it leaves their best work on the table.",
+        ],
+      },
+      {
+        heading: "The Layered System and the Six Pillars",
+        paragraphs: [
+          "The framework stacks, bottom to top: the Scientific Foundation (Frontloading, First Principles, Flow) informs the Capability Builder (Mindset, Skillset, Systems), which fuels the Delivery System — the six pillars of training design. Every layer depends on the ones below it. Skip a layer and the system breaks.",
+          "The six pillars: (1) Structured Planning & Design — map the whole journey before teaching a single lesson; proven architecture creates MORE flexibility, not less. (2) Defined Objectives — finish the sentence 'after this training, participants will be able to…' with a specific, observable action. (3) Structured Content Modules — sequenced, digestible units, each with a mini-objective and a bridge to the next. (4) Actionable & Relevant Content — 'hard fun' that passes the Monday morning test: usable today, in their actual role. (5) Assessment & Measurement — belt-testing philosophy: measure behavior change under pressure, not satisfaction. (6) Feedback Loops — collect input, act on it VISIBLY, collect again.",
+        ],
+      },
+      {
+        heading: "Five Failures and the Scorecard",
+        paragraphs: [
+          "The six pillars exist because five failures are everywhere: treating training as an event instead of a system (events create awareness; systems create change), measuring satisfaction instead of behavior change (a five-star evaluation tells you nothing), delivering generic content to a specific audience, skipping the foundation to look advanced (the spinning kick before the front kick — impressive, and it collapses under pressure), and never closing the feedback loop — which is worse than not asking, because it teaches people their input doesn't matter.",
+          "Rate yourself on each pillar, 1 to 5. 25–30: optimized — keep refining. 18–24: solid — your two lowest scores are your next moves. 10–17: significant gaps — strengthen Planning and Objectives first; the rest can't deliver without them. Below 10: rebuild — you're training by instinct rather than design. And under any score, three deeper questions: Am I frontloading the right preparation? Am I solving first-principles problems or surface symptoms? Am I creating the conditions for flow? The ultimate test never changes: did it change what people DO?",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "What is the single philosophy underneath the entire Master's Edge framework?",
+        options: [
+          "Work harder than your competition",
+          "Training should transform, not inform — the only measure is whether it changed what people do",
+          "Knowledge is power",
+          "Customers come first"
+        ],
+        correctIndex: 1,
+        explanation:
+          "Every tool Brett builds is tested against one question: did it change behavior? Not what people know, not what they enjoyed — what they actually do differently.",
+      },
+      {
+        question: "Match the metaphor: in the three-pillar model, what are the steel, the geometry, and the daily stone?",
+        options: [
+          "Vision, mission, values",
+          "Planning, execution, review",
+          "Mindset Mastery (steel), Skillset Enhancement (geometry), Systems Design (daily stone)",
+          "Frontloading (steel), First Principles (geometry), Flow (daily stone)"
+        ],
+        correctIndex: 2,
+        explanation:
+          "The blade metaphor from chapter one maps the capability model: what the blade is made of, the shape of its cut, and the maintenance that keeps it sharp.",
+      },
+      {
+        question: "A business owner with strong skills and a resilient mindset still burns out and backslides within a year. Which pillar did they most likely neglect?",
+        options: [
+          "Systems Design — without the right environment and habits, even the strongest mindset and sharpest skills erode",
+          "None — burnout is unavoidable",
+          "Mindset Mastery — they need more resilience",
+          "Skillset Enhancement — they need more training"
+        ],
+        correctIndex: 0,
+        explanation:
+          "Systems Design is the pillar everyone skips because it looks like maintenance instead of progress. It's Osen in the courtyard at dawn — and it's what sustains the other two.",
+      },
+      {
+        question: "What is the difference between an optimizer and a master, in Systems Design terms?",
+        options: [
+          "Optimizers tune what exists; masters design what SHOULD exist",
+          "Optimizers use data; masters use intuition",
+          "There is no difference",
+          "Optimizers are faster; masters are slower"
+        ],
+        correctIndex: 0,
+        explanation:
+          "Systems Design is not optimizing what happens to exist — it's deliberately designing the environment, habits, structures, and relationships that should exist.",
+      },
+      {
+        question: "Your team keeps fumbling client crises, so you plan a workshop DURING the next crisis so lessons stick. Which science says this is backwards?",
+        options: [
+          "Flow — crises are too boring for engagement",
+          "Frontloading — equip people BEFORE the challenge; learning during it splits attention between understanding the problem and learning how to solve it",
+          "First Principles — you should question whether clients matter",
+          "None — pressure is the best teacher"
+        ],
+        correctIndex: 1,
+        explanation:
+          "Meeting a challenge and new concepts simultaneously causes cognitive overload. Frontload the training first, so every resource goes to execution when the crisis arrives.",
+      },
+      {
+        question: "Why does frontloading eliminate 'expensive downstream problems'?",
+        options: [
+          "It shifts blame to the trainer",
+          "It makes training cheaper to deliver",
+          "Problems solved early cost a fraction of problems discovered late — in product development and human performance alike",
+          "It reduces the number of problems to zero"
+        ],
+        correctIndex: 2,
+        explanation:
+          "Toyota's development process and educational research agree: catch it early, pay pennies; discover it late, pay dollars. Preparation is the cheap insurance.",
+      },
+      {
+        question: "'Everyone in our industry charges hourly, so we charge hourly.' What kind of reasoning is this — and what does First Principles Thinking do with it?",
+        options: [
+          "Flow reasoning — it balances challenge and skill",
+          "Frontloading — it prepares you for negotiations",
+          "First-principles reasoning — keep it",
+          "Reasoning by analogy — First Principles rejects it, breaks pricing down to fundamental truths, and rebuilds from bedrock regardless of precedent"
+        ],
+        correctIndex: 3,
+        explanation:
+          "'Everyone does it this way' builds invisible ceilings. First Principles asks WHY until it hits bedrock, then rebuilds — finding solutions the analogy-following competition never will.",
+      },
+      {
+        question: "An owner says 'I need more marketing.' Applying First Principles, what should you check FIRST?",
+        options: [
+          "Whether the real problem is deeper — e.g. a product that doesn't solve a compelling problem. Most people solve symptoms",
+          "What competitors spend on marketing",
+          "Whether they can afford an agency",
+          "Which ad platform has the best rates"
+        ],
+        correctIndex: 0,
+        explanation:
+          "First Principles solves the RIGHT problem. 'More marketing' may be a symptom; the fundamental truth underneath might be product-market fit.",
+      },
+      {
+        question: "How does the martial arts method embody First Principles Thinking?",
+        options: [
+          "Students copy the master's style exactly",
+          "Before mastering a complex technique you master its components — stance, balance, rotation, follow-through — and the technique assembles naturally",
+          "Belts are awarded by seniority",
+          "Techniques never change across generations"
+        ],
+        correctIndex: 1,
+        explanation:
+          "Each component is a first principle. Master the fundamentals and complexity assembles itself — in martial arts and in business performance alike.",
+      },
+      {
+        question: "What is the CORE condition for entering flow?",
+        options: [
+          "Working alone",
+          "Total silence and no deadlines",
+          "A precise balance between the challenge of the task and the skill of the performer — with clear goals and immediate feedback",
+          "High caffeine and high stakes"
+        ],
+        correctIndex: 2,
+        explanation:
+          "Too little challenge → boredom. Too much → anxiety. Matched at a high level with clear goals and immediate feedback, performance chemistry floods in.",
+      },
+      {
+        question: "Your best analyst is bored and coasting. Per flow science, what's the right move?",
+        options: [
+          "Move them to an easier team",
+          "Add more meetings for engagement",
+          "Reduce their workload further so they can rest",
+          "Raise the challenge to match their skill — boredom means the challenge sits below their ability"
+        ],
+        correctIndex: 3,
+        explanation:
+          "The challenge-skill balance works both directions: anxiety means lower the challenge or raise the skill; boredom means raise the challenge. Flow lives on the line between.",
+      },
+      {
+        question: "Where does research say flow shows up MORE often — and why does that matter for training?",
+        options: [
+          "At work — so any training program that doesn't help people access flow is leaving their best work on the table",
+          "On vacation — so offer more PTO",
+          "Nowhere measurable — flow is anecdotal",
+          "At leisure — so work should be easier"
+        ],
+        correctIndex: 0,
+        explanation:
+          "People in flow report their highest productivity, creativity, and satisfaction — and it happens more at work than leisure. Training should engineer the conditions for it.",
+      },
+      {
+        question: "In the layered system, what is the correct bottom-to-top stack?",
+        options: [
+          "Delivery System → Capability Builder → Scientific Foundation",
+          "Scientific Foundation (Frontloading, First Principles, Flow) → Capability Builder (Mindset, Skillset, Systems) → Delivery System (six pillars)",
+          "Six pillars → three sciences → three capabilities",
+          "Mindset → Flow → Feedback"
+        ],
+        correctIndex: 1,
+        explanation:
+          "Science informs capability; capability fuels delivery; delivery creates the conditions for flow. Every layer depends on the ones below — skip one and the system breaks.",
+      },
+      {
+        question: "A consultant delivers a brilliant one-day leadership workshop. Evaluations average 4.9 stars. Six weeks later, nothing has changed. Which TWO failure modes is this?",
+        options: [
+          "Too advanced + too long",
+          "Generic content + skipped foundation",
+          "Training as an event instead of a system + measuring satisfaction instead of behavior change",
+          "No objectives + no modules"
+        ],
+        correctIndex: 2,
+        explanation:
+          "Events create awareness; systems create change. And a five-star evaluation tells you nothing about whether anyone applied a single thing.",
+      },
+      {
+        question: "Pillar 2 demands you finish one sentence. Which is it — and which completion PASSES?",
+        options: [
+          "'Participants will understand…' — 'the importance of leadership'",
+          "'The deck includes…' — '47 slides and a workbook'",
+          "'This training will cover…' — 'the fundamentals of communication'",
+          "'After this training, participants will be able to…' — 'run a five-step objection-handling conversation with a live prospect'"
+        ],
+        correctIndex: 3,
+        explanation:
+          "The completion must be a specific, OBSERVABLE action. 'Understand' and 'cover' are invisible; a demonstrable conversation is a yellow-belt front kick — you can test it.",
+      },
+      {
+        question: "What is the 'Monday morning test' (Pillar 4)?",
+        options: [
+          "Could a participant use this content TODAY, in their actual role? If not, it's interesting but not actionable",
+          "Schedule all training on Mondays",
+          "Test energy levels before training",
+          "Quiz participants first thing Monday"
+        ],
+        correctIndex: 0,
+        explanation:
+          "Relevance is the filter. Content pitched as 'hard fun' that applies immediately in the participant's real role transforms; everything else entertains.",
+      },
+      {
+        question: "What is 'hard fun' — and which pillar does it belong to?",
+        options: [
+          "Team-building games — Pillar 6",
+          "Challenge that stretches people just past their comfort zone without shutting them down — Pillar 4, Actionable & Relevant Content",
+          "Punishing workloads — Pillar 1",
+          "Optional homework — Pillar 3"
+        ],
+        correctIndex: 1,
+        explanation:
+          "Hard fun is the flow condition applied to teaching: difficult enough to demand all of you, never so brutal you shut down. That's the edge where growth lives.",
+      },
+      {
+        question: "Belt-testing philosophy says you advance by ____, not by ____. (Pillar 5)",
+        options: [
+          "Enthusiasm; accuracy",
+          "Attendance; participation",
+          "Demonstrating techniques under pressure; answering questions about them",
+          "Seniority; skill"
+        ],
+        correctIndex: 2,
+        explanation:
+          "Measure behavior change — did the person change what they DO? That's the only assessment that ultimately matters, at every level: reaction, learning, behavior, results.",
+      },
+      {
+        question: "Why is collecting feedback and filing it away WORSE than never asking (Pillar 6)?",
+        options: [
+          "It creates legal liability",
+          "It isn't worse — any collection helps",
+          "It wastes storage space",
+          "It teaches people their input doesn't matter — the power is in acting on it VISIBLY, then collecting again"
+        ],
+        correctIndex: 3,
+        explanation:
+          "The loop is the power: collect → act visibly → collect again. Brett's methodology was refined for three decades in the most honest loop there is — the martial arts classroom.",
+      },
+      {
+        question: "A trainer opens with advanced closing techniques because 'basics bore people.' Reps look impressive in class and collapse with real prospects. Which failure mode — and what's the martial arts parallel?",
+        options: [
+          "Skipping the foundation to look advanced — teaching the spinning kick before the front kick",
+          "Generic content — wrong audience",
+          "No feedback loop — nobody was surveyed",
+          "Event thinking — the workshop was too short"
+        ],
+        correctIndex: 0,
+        explanation:
+          "Advanced-first looks impressive and collapses under real-world pressure. Foundations aren't optional — they're what the impressive stuff stands on.",
+      },
+      {
+        question: "You score your training program: Planning 2, Objectives 2, Modules 4, Content 4, Assessment 3, Feedback 3 (total 18). What does the scorecard prescribe?",
+        options: [
+          "Celebrate — 18 is optimized",
+          "Strengthen your two lowest scores first: Planning and Objectives — the rest can't deliver without them",
+          "Rebuild everything from scratch",
+          "Add more content modules"
+        ],
+        correctIndex: 1,
+        explanation:
+          "18–24 is a solid foundation, and your two lowest scores are your next moves. Planning and Objectives are also the prescribed first fixes for 10–17 — everything else stands on them.",
+      },
+      {
+        question: "Under any scorecard result, which three deeper questions sit underneath?",
+        options: [
+          "Who approved it? What did it cost? When does it end?",
+          "Is it profitable? Is it scalable? Is it popular?",
+          "Am I frontloading the right preparation? Am I solving first-principles problems or surface symptoms? Am I creating the conditions for flow?",
+          "Do people like me? Is it modern? Is it digital?"
+        ],
+        correctIndex: 2,
+        explanation:
+          "The three sciences never stop applying — they're the questions under every score, every program, every tool.",
+      },
+      {
+        question: "What is the Custom Toolkit Promise — and what keeps the customization rigorous instead of random?",
+        options: [
+          "Clients build their own tools — self-service is the rigor",
+          "Tools are chosen from a menu of 50 options",
+          "Every client gets the same proven toolkit — consistency is the rigor",
+          "Every engagement builds tools that fit YOU and no one else — kept rigorous because every tool is grounded in Frontloading, First Principles, and Flow"
+        ],
+        correctIndex: 3,
+        explanation:
+          "The tools are always unique to the person; the science driving them is proven and repeatable. That's the difference between custom and random.",
+      },
+      {
+        question: "Why does structure create MORE flexibility, not less (Pillar 1)?",
+        options: [
+          "A proven architecture lets you adapt WITHIN it instead of improvising from scratch",
+          "Structure eliminates the need to adapt",
+          "Flexible people don't need plans",
+          "It doesn't — structure is rigidity"
+        ],
+        correctIndex: 0,
+        explanation:
+          "Without architecture, training is a collection of activities that entertain but don't transform. With it, adaptation has a frame to adapt inside.",
+      },
+      {
+        question: "The six pillars are 'an ecosystem, not a checklist.' What does that mean in practice?",
+        options: [
+          "You can skip any three pillars if the others are strong",
+          "Each pillar feeds the next — planning gives the blueprint, objectives say what to build, modules organize, actionable content makes it real, assessment tells you if it worked, feedback improves the next version. Skip one and the structure weakens",
+          "The order doesn't matter",
+          "Only trainers need to understand them"
+        ],
+        correctIndex: 1,
+        explanation:
+          "Start with intention. Build with structure. Deliver with relevance. Measure with rigor. Improve with feedback. Repeat — the closing sequence of the whole framework.",
+      },
+      {
+        question: "The ultimate test of any training — the one that 'never changes' — is:",
+        options: [
+          "Did attendance grow?",
+          "Did participants enjoy it?",
+          "Did it change what people DO — not what they know, not what they enjoyed?",
+          "Did it finish on time and on budget?"
+        ],
+        correctIndex: 2,
+        explanation:
+          "Transform, not inform. Behavior is the only scoreboard — the framework opens with this philosophy and closes with it.",
+      },
+    ],
+  },
 ];
 
 //==============================================================================

@@ -51,6 +51,8 @@ const moduleBadgeMeta: Record<string, { name: string; emoji: string }> = {
   "masters-state": { name: "Flow Engineer", emoji: "🌀" },
   "unseen-belt": { name: "Unseen Belt", emoji: "🥋" },
   "six-pillars": { name: "Pillar Builder", emoji: "🏛️" },
+  // Free giveaway course
+  "masters-edge-framework": { name: "Framework Holder", emoji: "🎁" },
 };
 
 export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {
