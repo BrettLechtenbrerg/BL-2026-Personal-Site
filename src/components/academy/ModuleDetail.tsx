@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, BookOpen, CheckCircle2, FileText, Loader2, Sparkles, Swords } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
 import Flashcards, { type Flashcard } from "./Flashcards";
+import PodcastPlayer from "./PodcastPlayer";
 
 export interface ModuleDetailData {
   slug: string;
@@ -128,25 +129,12 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
         </div>
       )}
 
-      {/* Audio lessons — e.g. NotebookLM deep-dive overviews */}
+      {/* Podcast overviews — e.g. NotebookLM deep dives */}
       {(m.audio?.length ?? 0) > 0 && (
-        <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Podcast Overview</h2>
-          <div className="space-y-4">
-            {m.audio!.map((track) => (
-              <div key={track.href}>
-                <p className="mb-2 text-sm font-semibold text-white/80">{track.label}</p>
-                <audio controls preload="none" className="w-full">
-                  <source src={track.href} />
-                  Your browser doesn&apos;t support audio playback —{" "}
-                  <a href={track.href} className="underline">
-                    download the file
-                  </a>
-                  .
-                </audio>
-              </div>
-            ))}
-          </div>
+        <div className="mb-6 space-y-4">
+          {m.audio!.map((track) => (
+            <PodcastPlayer key={track.href} label={track.label} src={track.href} />
+          ))}
         </div>
       )}
 
