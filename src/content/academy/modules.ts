@@ -371,6 +371,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "decision-journal",
+    videoFiles: [
+      { label: "The Decision Journal (NotebookLM video overview)", href: "/academy/decision-journal/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Decision Journal (NotebookLM audio overview)", href: "/academy/decision-journal/deep-dive.m4a" },
+    ],
     order: 3,
     title: "The Decision Journal",
     tagline: "Strategic Thinking",

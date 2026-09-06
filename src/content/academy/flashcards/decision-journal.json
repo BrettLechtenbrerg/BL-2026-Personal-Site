@@ -1,0 +1,202 @@
+[
+  {
+    "front": "What is the primary purpose of a Decision Journal?",
+    "back": "To document important decisions with full context before commitment to sharpen judgment through outcome reviews."
+  },
+  {
+    "front": "How does hindsight bias affect a person's memory of their own wins?",
+    "back": "It makes the successful outcomes feel like they were inevitable."
+  },
+  {
+    "front": "In the context of decision-making, how does hindsight bias interpret losses?",
+    "back": "It characterizes them as mere bad luck rather than the result of the decision process."
+  },
+  {
+    "front": "Why is hindsight bias problematic for self-improvement?",
+    "back": "It makes it nearly impossible to learn from your own decisions by rewriting history."
+  },
+  {
+    "front": "What specific timing is required for capturing reasoning in a Decision Journal to defeat bias?",
+    "back": "Reasoning must be captured before the outcome is known."
+  },
+  {
+    "front": "What four elements should be captured in a Decision Journal entry before reality weighs in?",
+    "back": "What you decided, why, what you expected, and how confident you were."
+  },
+  {
+    "front": "According to the source, when should you open a journal for a financial decision?",
+    "back": "When the stakes involve significant money, defined as $\\$1,000$ or more."
+  },
+  {
+    "front": "What is a non-financial threshold for using a Decision Journal?",
+    "back": "When a choice is hard to reverse or significantly affects people."
+  },
+  {
+    "front": "Under what psychological conditions is it most important to use a Decision Journal?",
+    "back": "When deciding under pressure or strong emotion."
+  },
+  {
+    "front": "How should the central question of a journal entry be stated?",
+    "back": "In a single sentence."
+  },
+  {
+    "front": "Which specific choice must always be included in the list of real options in a journal entry?",
+    "back": "The 'do nothing' option."
+  },
+  {
+    "front": "What does it mean to 'steel-man' the other side of a decision?",
+    "back": "To argue the best possible case against your own preferred choice."
+  },
+  {
+    "front": "What does an inability to state the opposing case suggest about your understanding of a decision?",
+    "back": "It suggests that you do not understand the decision yet."
+  },
+  {
+    "front": "What metric should be recorded alongside an expected outcome in a journal entry?",
+    "back": "A confidence percentage."
+  },
+  {
+    "front": "What action must be taken immediately after writing an expected outcome and confidence level?",
+    "back": "Set a review date and keep it."
+  },
+  {
+    "front": "What is the primary action performed on the review date of a Decision Journal entry?",
+    "back": "Comparing what actually happened to what was expected."
+  },
+  {
+    "front": "What are the 'gaps' found during the review process considered to be?",
+    "back": "Valuable insights (the 'gold') for improving judgment."
+  },
+  {
+    "front": "What is an example of a specific pattern a journal might reveal regarding hiring?",
+    "back": "Being consistently overconfident in the success of new hires."
+  },
+  {
+    "front": "What is a common judgment gap related to project management that a journal can identify?",
+    "back": "The consistent underestimation of timelines."
+  },
+  {
+    "front": "What does a Decision Journal transform 'vague gut feel' into over several months?",
+    "back": "Calibrated judgment."
+  },
+  {
+    "front": "Which skill is described as the single highest-leverage skill a business owner can build?",
+    "back": "Calibrated judgment."
+  },
+  {
+    "front": "The principle of documenting reasoning while it is still _____ ensures clarity before commitment.",
+    "back": "Fresh"
+  },
+  {
+    "front": "When listing options, what two scenarios should be considered for each?",
+    "back": "Best and worst cases."
+  },
+  {
+    "front": "Why is it important to capture context 'BEFORE' you commit to a decision?",
+    "back": "To eliminate hindsight bias and capture actual reasoning before history is rewritten."
+  },
+  {
+    "front": "Concept: Hindsight Bias",
+    "back": "Definition: The tendency of people to overestimate their ability to have predicted an outcome that could not possibly have been predicted."
+  },
+  {
+    "front": "Concept: Steel-manning",
+    "back": "Definition: The practice of addressing the strongest version of an opponent's argument to improve one's own understanding."
+  },
+  {
+    "front": "Concept: Calibrated Judgment",
+    "back": "Definition: The development of pattern recognition and refined intuition by comparing past expectations to actual outcomes."
+  },
+  {
+    "front": "What is the recommended threshold for financial decisions requiring a journal entry?",
+    "back": "$\\$1,000$+."
+  },
+  {
+    "front": "How should reasoning be captured to ensure it is not influenced by the outcome?",
+    "back": "By documenting it while it is fresh and before the commitment is made."
+  },
+  {
+    "front": "The Decision Journal is a tool designed to build _____ recognition over time.",
+    "back": "Pattern"
+  },
+  {
+    "front": "What should a user do once they arrive at the set review date?",
+    "back": "Compare the actual outcome to the initial expectations and confidence level."
+  },
+  {
+    "front": "Why should the 'do nothing' option be included in all decision journal entries?",
+    "back": "To ensure it is treated as a valid, real option alongside active choices."
+  },
+  {
+    "front": "According to the Decision Journal, when is judgment most likely to grow?",
+    "back": "When outcomes are compared to initial expectations on the review date."
+  },
+  {
+    "front": "What does it mean to state the question in 'one sentence' for a journal entry?",
+    "back": "To force clarity and focus on the core decision being made."
+  },
+  {
+    "front": "What is the primary benefit of documenting 'how confident you were' before a decision?",
+    "back": "It allows for the calibration of confidence levels against actual success rates over time."
+  },
+  {
+    "front": "When a decision affects the _____, the Decision Journal threshold has been met.",
+    "back": "Team (or people)"
+  },
+  {
+    "front": "What is the suggested action if you cannot argue the best case against your preferred choice?",
+    "back": "Recognize that you do not understand the decision yet and delay commitment."
+  },
+  {
+    "front": "What is the result of using a Decision Journal consistently over several months?",
+    "back": "The conversion of vague intuition into calibrated, high-leverage judgment."
+  },
+  {
+    "front": "A decision should be journaled if it is _____ to reverse.",
+    "back": "Hard"
+  },
+  {
+    "front": "What is the significance of the phrase 'the gaps are the gold' in decision reviews?",
+    "back": "The discrepancies between predictions and reality provide the most critical learning opportunities."
+  },
+  {
+    "front": "What prevents a learner from identifying they are underestimating timelines?",
+    "back": "The absence of documented initial timeline expectations to compare against actual results."
+  },
+  {
+    "front": "How does the Decision Journal address decisions made under 'strong emotion'?",
+    "back": "By requiring the documentation of reasoning to create a rational record for future review."
+  },
+  {
+    "front": "Why is the review date considered a non-negotiable step in journaling?",
+    "back": "Because the learning occurs only when the actual outcome is compared to the original entry."
+  },
+  {
+    "front": "Which tool is specifically mentioned to help eliminate hindsight bias?",
+    "back": "The Decision Journal."
+  },
+  {
+    "front": "Documenting reasoning _____ you commit is the key to defeating history-rewriting memory.",
+    "back": "Before"
+  },
+  {
+    "front": "True or False: Every choice made in a business should have a Decision Journal entry.",
+    "back": "False (only those that clear a specific threshold)."
+  },
+  {
+    "front": "What is the relationship between 'steel-manning' and the 'do nothing' option?",
+    "back": "Both are required components for preparing a thorough journal entry."
+  },
+  {
+    "front": "What is the primary result of calibrated judgment for a business owner?",
+    "back": "High-leverage decision-making skill."
+  },
+  {
+    "front": "How does the journal help identify if you are 'consistently overconfident'?",
+    "back": "By comparing recorded confidence percentages with the frequency of successful outcomes."
+  },
+  {
+    "front": "If a decision is made under pressure, what should be done before committing?",
+    "back": "Open a Decision Journal entry to document context and reasoning."
+  }
+]
