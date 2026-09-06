@@ -709,6 +709,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "partnership-evaluator",
+    videoFiles: [
+      { label: "The Partnership Evaluator (NotebookLM video overview)", href: "/academy/partnership-evaluator/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Partnership Evaluator (NotebookLM audio overview)", href: "/academy/partnership-evaluator/deep-dive.m4a" },
+    ],
     order: 6,
     title: "The Partnership Evaluator",
     tagline: "Due Diligence",
