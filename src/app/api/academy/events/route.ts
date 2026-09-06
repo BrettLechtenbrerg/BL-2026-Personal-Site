@@ -2,8 +2,7 @@
 // ACADEMY — Events API (office hours, live calls) — members only
 //==============================================================================
 // GET    → all events from 90 days ago onward, soonest first.
-// POST   { title, description?, startsAt, endsAt, link?, recordingUrl? }
-//        → create (admin only)
+// POST   { title, description?, startsAt, endsAt, link? } → create (admin only)
 // PATCH  { id, recordingUrl }  → attach a recording after the call (admin only)
 // DELETE { id }                → remove (admin only)
 // Links must be http(s) — rendered as plain <a href> client-side.
