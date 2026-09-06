@@ -36,12 +36,15 @@ STATE: Phase 0 DONE. No CRM code written yet.
   ✅ Vercel env (production, sensitive): TWENTY_API_KEY, RESEND_API_KEY
   ✅ Twenty MCP wired in Claude Code (user scope, OAuth) — Claude can read/write the CRM
   ✅ Resend: existing Free account, auth.brettlechtenberg.com verified
+  ✅ Phase 1 plan approved (docs/crm/04-PHASE1-PLAN.md)
   ⏳ Cal.com account — not created yet (needed in Phase 3)
   ⏸ SMS/Twilio — paused by Brett until Phase 6
 
-NEXT: Draft the Phase 1 plan (Supabase contacts/consent tables, Resend adapter,
-swap src/lib/ghl-*.ts behind the /hub UI, sms() stub) into .gg/plans/ for
-Brett's review. DO NOT write code until Brett approves the Phase 1 plan.
+NEXT: BUILD Phase 1 per docs/crm/04-PHASE1-PLAN.md (approved Sept 6).
+  Work items 1-9 in order; site forms stay on GHL; delete ghl-*.ts only after
+  the manual test passes. Env already set: TWENTY_API_KEY, RESEND_API_KEY,
+  HUB_REPLY_TO_EMAIL. Still needed from Brett: RESEND_WEBHOOK_SECRET (create
+  webhook in Resend dashboard pointing at /api/webhooks/resend).
 ```
 
 ---

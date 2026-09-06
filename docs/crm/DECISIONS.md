@@ -15,3 +15,4 @@ Append-only. One line per decision. Newest at the bottom.
 | 2026-09-06 | Spam gate = port PMMA `botDefense.ts` + Turnstile + rate limit + quarantine stage | GHL webhooks accept anything; that's the root cause of spam. |
 | 2026-09-06 | Twenty MCP via **OAuth** in Claude Code (user scope) | No key in config files. |
 | 2026-09-06 | Secrets only in Vercel env (sensitive): `TWENTY_API_KEY`, `RESEND_API_KEY` | Never in git or chat. |
+| 2026-09-06 | Phase 1 approved; replies via Reply-To `brett@brettlechtenberg.com` + Twenty Gmail sync, no Resend inbound yet | Zero DNS/risk on Free plan; Resend receiving revisited at Phase 5 with Pro domain. |
