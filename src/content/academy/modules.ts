@@ -935,6 +935,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "sop-factory",
+    videoFiles: [
+      { label: "The SOP Factory (NotebookLM video overview)", href: "/academy/sop-factory/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The SOP Factory (NotebookLM audio overview)", href: "/academy/sop-factory/deep-dive.m4a" },
+    ],
     order: 8,
     title: "The SOP Factory",
     tagline: "Systems",

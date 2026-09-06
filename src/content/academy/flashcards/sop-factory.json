@@ -1,0 +1,202 @@
+[
+  {
+    "front": "In business systems, what is the primary consequence of the 'Knowledge Trap'?",
+    "back": "The owner becomes a bottleneck for every critical process."
+  },
+  {
+    "front": "According to 'The SOP Factory,' what distinguishes a 'job with overhead' from a true company?",
+    "back": "A job with overhead depends entirely on one person's availability."
+  },
+  {
+    "front": "What is the core motto of 'The SOP Factory' systems approach?",
+    "back": "Document once, delegate forever."
+  },
+  {
+    "front": "When should an owner practically trigger the writing of a new SOP?",
+    "back": "Right before delegating a process or onboarding a new hire."
+  },
+  {
+    "front": "What realization about 'critical work' should prompt the immediate creation of an SOP?",
+    "back": "Realizing you are currently the only person who knows how the process works."
+  },
+  {
+    "front": "How should an owner describe a process during the extraction phase of SOP creation?",
+    "back": "By talking through the steps as if teaching a smart new hire."
+  },
+  {
+    "front": "What two elements must be included in an SOP alongside basic steps to ensure efficiency?",
+    "back": "Decision points and quality checks."
+  },
+  {
+    "front": "In an SOP, what is the specific purpose of a 'decision point'?",
+    "back": "To provide logic for different scenarios, such as 'if the refund is over $200, do X.'"
+  },
+  {
+    "front": "In an SOP, what is the specific purpose of a 'quality check'?",
+    "back": "To verify specific criteria are met before a task is sent or completed."
+  },
+  {
+    "front": "What is the common result of providing steps without decision points in an SOP?",
+    "back": "It produces 'robots' who get stuck when the process deviates."
+  },
+  {
+    "front": "What is the common result of providing decision points without quality checks in an SOP?",
+    "back": "It produces 'confident mistakes' where tasks are completed incorrectly."
+  },
+  {
+    "front": "What are the two distinct forms every SOP should exist in?",
+    "back": "A full document for training and a short checklist for daily use."
+  },
+  {
+    "front": "Why is the 'full document' form of an SOP considered unsuitable for daily use?",
+    "back": "Users generally will not re-read multiple pages to perform a routine task."
+  },
+  {
+    "front": "What three components must be included in an SOP handoff plan?",
+    "back": "Who learns it, when they learn it, and the method of verification."
+  },
+  {
+    "front": "How does the act of writing a process down function as an 'automation audit'?",
+    "back": "It exposes waste, unnecessary approvals, and work that software could perform."
+  },
+  {
+    "front": "Term: The Knowledge Trap",
+    "back": "Definition: A state where critical business processes live only in the owner's head."
+  },
+  {
+    "front": "According to the text, why is the 'owner as a bottleneck' a barrier to scaling?",
+    "back": "The business cannot operate or grow without the owner's constant availability."
+  },
+  {
+    "front": "The trigger for writing an SOP is practical: document any process right before you _____ it.",
+    "back": "delegate"
+  },
+  {
+    "front": "What is the primary goal of extracting processes 'trapped in your head'?",
+    "back": "To ensure the business no longer depends on one person's availability."
+  },
+  {
+    "front": "Steps without _____ produce robots who get stuck.",
+    "back": "decision points"
+  },
+  {
+    "front": "Decision points without _____ produce confident mistakes.",
+    "back": "quality checks"
+  },
+  {
+    "front": "What is the specific utility of the 'short checklist' form of an SOP?",
+    "back": "It serves as a guide for routine, daily task execution."
+  },
+  {
+    "front": "What is the specific utility of the 'full document' form of an SOP?",
+    "back": "It provides the comprehensive context and steps needed for initial training."
+  },
+  {
+    "front": "In the handoff process, how is the 'verification' step defined?",
+    "back": "It is the plan for how the owner will confirm the delegate has mastered the SOP."
+  },
+  {
+    "front": "Documentation helps identify 'waste' by revealing steps that exist for _____.",
+    "back": "no reason"
+  },
+  {
+    "front": "How does an SOP help identify 'software' opportunities?",
+    "back": "It highlights manual work that could be replaced by automation."
+  },
+  {
+    "front": "Which element of an SOP involves verifying 'Y' before sending a deliverable?",
+    "back": "The quality check."
+  },
+  {
+    "front": "Which element of an SOP uses 'if/then' logic to handle variations in a task?",
+    "back": "The decision point."
+  },
+  {
+    "front": "What is the 'bonus payoff' of documentation mentioned in 'The SOP Factory'?",
+    "back": "It exposes waste and inefficiencies within the existing process."
+  },
+  {
+    "front": "An SOP is a(n) _____ in disguise because it exposes work software could do.",
+    "back": "automation audit"
+  },
+  {
+    "front": "Concept: Handoff Plan",
+    "back": "Definition: A strategy for assigning an SOP to a specific person with a timeline and verification method."
+  },
+  {
+    "front": "What happens to an owner's ability to take vacation in a 'Knowledge Trap' scenario?",
+    "back": "They cannot take vacation because the business depends on their availability."
+  },
+  {
+    "front": "When 'Ask the owner' is the only way to handle a refund, the owner has become a _____.",
+    "back": "bottleneck"
+  },
+  {
+    "front": "To 'delegate forever,' what must first be done to the processes in an owner's head?",
+    "back": "They must be extracted into clear, followable SOPs."
+  },
+  {
+    "front": "In an SOP, the instruction 'before sending, verify Y' is an example of a _____.",
+    "back": "quality check"
+  },
+  {
+    "front": "In an SOP, the instruction 'if the refund is over $200, do X' is an example of a _____.",
+    "back": "decision point"
+  },
+  {
+    "front": "What is the relationship between SOPs and business scaling?",
+    "back": "SOPs allow tasks to be delegated, removing the owner as a bottleneck to growth."
+  },
+  {
+    "front": "What kind of mistakes are produced when an SOP lacks quality checks?",
+    "back": "Confident mistakes."
+  },
+  {
+    "front": "Why is 'onboarding someone new' a critical time to create an SOP?",
+    "back": "It provides a natural opportunity to document a process as it is being taught."
+  },
+  {
+    "front": "What does an SOP 'audit' look for regarding approvals?",
+    "back": "Approvals that nobody actually needs."
+  },
+  {
+    "front": "Who is the 'training' version of an SOP primarily intended for?",
+    "back": "New hires or individuals learning a task for the first time."
+  },
+  {
+    "front": "Why should an SOP be created for any process that is 'critical' but only known by one person?",
+    "back": "To mitigate the risk of the business stalling if that person is unavailable."
+  },
+  {
+    "front": "In the 'The SOP Factory' framework, what does 'delegate forever' imply about documentation?",
+    "back": "Once a process is documented, it should never require the owner's input again."
+  },
+  {
+    "front": "What is the impact of 'steps without decision points' on employee performance?",
+    "back": "Employees become unable to handle variations and stop working when they get stuck."
+  },
+  {
+    "front": "What does 'The SOP Factory' suggest is the benefit of pairing every SOP with a handoff plan?",
+    "back": "It ensures the knowledge is actually transferred and proficiency is verified."
+  },
+  {
+    "front": "According to the text, what is the 'practical' trigger for SOP documentation?",
+    "back": "Documenting a process right before you are about to delegate it."
+  },
+  {
+    "front": "How does 'The SOP Factory' define the owner's role in a 'Knowledge Trap'?",
+    "back": "The owner is the bottleneck for everything in the business."
+  },
+  {
+    "front": "The 'training' form of an SOP is a _____ document, whereas the 'daily use' form is a checklist.",
+    "back": "full"
+  },
+  {
+    "front": "In a handoff plan, the question 'How will you verify they've got it?' refers to the _____.",
+    "back": "verification method"
+  },
+  {
+    "front": "What is identified during an 'automation audit' besides software opportunities and unnecessary approvals?",
+    "back": "Steps that exist for no reason."
+  }
+]
