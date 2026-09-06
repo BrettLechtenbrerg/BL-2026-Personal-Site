@@ -163,6 +163,10 @@ function insertMedia(src, anchor, key, label, href) {
   const start = src.indexOf(anchor);
   const blockEnd = src.indexOf("\n  },\n", start); // end of this module object
   const block = src.slice(start, blockEnd);
+  if (block.includes(JSON.stringify(href))) {
+    console.log(`  (modules.ts already lists ${href} — file replaced, entry unchanged)`);
+    return src;
+  }
   const keyIdx = block.indexOf(`\n    ${key}: [\n`);
   if (keyIdx !== -1) {
     // Append to the existing array.

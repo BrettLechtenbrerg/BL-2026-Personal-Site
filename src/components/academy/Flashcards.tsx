@@ -1,11 +1,12 @@
 "use client";
 
 //==============================================================================
-// Academy — flashcard deck: tap/space to flip, arrows to move, shuffle.
+// Academy — flashcard deck: tap/space to flip, ←/→ to move (when the deck has
+// focus), shuffle.
 // Pure client state; nothing is persisted (study aid, not graded).
 //==============================================================================
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight, Layers, Shuffle } from "lucide-react";
 
 export interface Flashcard {
@@ -34,21 +35,16 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
     setFlipped(false);
   };
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.target as HTMLElement)?.tagName === "INPUT" || (e.target as HTMLElement)?.tagName === "TEXTAREA") return;
-      if (e.key === "ArrowRight") go(1);
-      else if (e.key === "ArrowLeft") go(-1);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cards.length]);
-
   if (!card) return null;
 
   return (
-    <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+    <div
+      onKeyDown={(e) => {
+        if (e.key === "ArrowRight") go(1);
+        else if (e.key === "ArrowLeft") go(-1);
+      }}
+      className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md"
+    >
       <div className="mb-3 flex items-center justify-between">
         <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-gold">
           <Layers size={18} /> Flashcards
