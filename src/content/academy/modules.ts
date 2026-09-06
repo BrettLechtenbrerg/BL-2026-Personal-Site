@@ -258,6 +258,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "ideal-week",
+    videoFiles: [
+      { label: "The Ideal Week Designer (NotebookLM video overview)", href: "/academy/ideal-week/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Ideal Week Designer (NotebookLM audio overview)", href: "/academy/ideal-week/deep-dive.m4a" },
+    ],
     order: 2,
     title: "The Ideal Week Designer",
     tagline: "Time Mastery",
