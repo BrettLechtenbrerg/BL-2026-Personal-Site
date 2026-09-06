@@ -3,21 +3,20 @@
 //==============================================================================
 // Comms Hub — Messaging
 //==============================================================================
-// Text or email leads without logging into Go High Level. Leads-only trim of
-// PMMA's proven Power Hub Messaging Center (July 2026): this site has no
-// roster, so the audience is every contact in Brett's personal GHL location
-// (speaking inquiries, workbook leads, Master's Edge applications), filterable
-// by GHL tag, newest first.
+// Text or email leads without a CRM login. Leads-only trim of PMMA's proven
+// Power Hub Messaging Center (July 2026): this site has no roster, so the
+// audience is every person in the Twenty CRM workspace (speaking inquiries,
+// workbook leads, Master's Edge applications), newest first.
 //
 // Pick recipients, compose an SMS or email (with merge tags), preview the
-// rendered message, and send through GHL's existing Twilio / email rails.
-// Every attempt is logged append-only to hub_messages.
+// rendered message, and send — email via Resend; SMS paused until Phase 6
+// (docs/crm/03-BL-PILOT-PLAN.md). Every attempt is logged to hub_messages.
 //
 // Data:
-//   GET  /api/hub/messaging/leads        → GHL contacts for the picker
+//   GET  /api/hub/messaging/leads        → Twenty people for the picker
 //   POST /api/hub/messaging/send         → send + log
 //   GET  /api/hub/messaging/log          → recent sends
-//   GET  /api/hub/messaging/inbox        → recent GHL conversations
+//   GET  /api/hub/messaging/inbox        → recent threads (from hub_messages)
 //   GET/POST …/inbox/[conversationId]    → thread + reply
 //
 // Gated by the HMAC session cookie — every /api/hub/* route verifies it
@@ -64,7 +63,7 @@ interface SendResultRow {
   recipient_name: string;
   status: "sent" | "skipped" | "failed";
   skip_reason?: string;
-  ghl_message_id?: string;
+  provider_message_id?: string;
   error?: string;
 }
 
@@ -133,7 +132,8 @@ export default function HubMessagingPage() {
   const [selectedLeads, setSelectedLeads] = useState<Set<string>>(new Set());
 
   // Compose
-  const [channel, setChannel] = useState<Channel>("sms");
+  // SMS is paused until Phase 6 — default to email so the first send just works.
+  const [channel, setChannel] = useState<Channel>("email");
   const [subject, setSubject] = useState("");
   const [body, setBody] = useState("");
   const [marketing, setMarketing] = useState(false);
@@ -252,9 +252,7 @@ export default function HubMessagingPage() {
         );
         if (guard(res)) return;
         const json = await res.json();
-        if (json.scope_error) {
-          setThreadNotice(json.error || "Thread view needs an extra GHL scope.");
-        } else if (!res.ok) {
+        if (!res.ok) {
           setThreadNotice(json.error || "Failed to load the thread.");
         } else {
           setThread(json.messages ?? []);
@@ -308,7 +306,7 @@ export default function HubMessagingPage() {
       setThread((prev) => [
         ...prev,
         {
-          id: json.ghl_message_id || `local-${Date.now()}`,
+          id: json.provider_message_id || `local-${Date.now()}`,
           direction: "outbound",
           channel: replyChannel,
           body: reply,
@@ -482,15 +480,9 @@ export default function HubMessagingPage() {
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "Send failed.");
       setResults(json.results ?? []);
-      if (json.scope_error) {
-        setSendError(
-          "GHL messaging scope not enabled — add `conversations/message.write` to the PIT token. Nothing was delivered."
-        );
-      } else {
-        // Message went out — clear the recipients so the next send doesn't
-        // also re-blast the people we just messaged. Results panel stays up.
-        setSelectedLeads(new Set());
-      }
+      // Message went out — clear the recipients so the next send doesn't
+      // also re-blast the people we just messaged. Results panel stays up.
+      setSelectedLeads(new Set());
     } catch (err) {
       setSendError(err instanceof Error ? err.message : "Send failed.");
     } finally {
@@ -512,7 +504,7 @@ export default function HubMessagingPage() {
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Comms Hub — Messaging</h1>
             <p className="text-sm text-gray-500 mt-1">
-              Text or email leads through GHL — no GHL login needed.
+              Email leads straight from here — SMS returns in Phase 6.
             </p>
           </div>
           <button
@@ -601,7 +593,7 @@ export default function HubMessagingPage() {
                     ) : (
                       <Mail className="w-4 h-4" />
                     )}
-                    {c === "sms" ? "SMS" : "Email"}
+                    {c === "sms" ? "SMS (paused)" : "Email"}
                   </button>
                 ))}
               </div>
@@ -633,7 +625,7 @@ export default function HubMessagingPage() {
                   onClick={loadLeads}
                   disabled={loadingLeads}
                   className="px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-600 hover:bg-gray-50 disabled:opacity-40"
-                  title="Refresh leads from GHL"
+                  title="Refresh leads from the CRM"
                 >
                   {loadingLeads ? <Loader2 className="w-4 h-4 animate-spin" /> : "Refresh"}
                 </button>
@@ -657,7 +649,7 @@ export default function HubMessagingPage() {
               <div className="max-h-[28rem] overflow-y-auto -mx-1 px-1 space-y-1">
                 {loadingLeads ? (
                   <div className="flex items-center gap-2 text-gray-400 text-sm py-6 justify-center">
-                    <Loader2 className="w-4 h-4 animate-spin" /> Loading leads from GHL…
+                    <Loader2 className="w-4 h-4 animate-spin" /> Loading leads from the CRM…
                   </div>
                 ) : leadsError ? (
                   <div className="flex items-center gap-2 rounded-lg bg-red-50 text-red-700 px-3 py-2 text-sm">
@@ -719,7 +711,7 @@ export default function HubMessagingPage() {
                               setDeleteError(null);
                               setDeletingLead(l);
                             }}
-                            title={`Delete ${l.name} from GHL`}
+                            title={`Delete ${l.name} from the CRM`}
                             className="shrink-0 text-gray-300 hover:text-red-600 transition-colors"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -777,23 +769,22 @@ export default function HubMessagingPage() {
                 )}
               </div>
 
-              {/* Marketing toggle (enforces SMS consent) */}
-              {channel === "sms" && (
-                <label className="flex items-start gap-2 text-xs text-gray-600">
-                  <input
-                    type="checkbox"
-                    checked={marketing}
-                    onChange={(e) => setMarketing(e.target.checked)}
-                    className="accent-[#9B1B30] mt-0.5"
-                  />
-                  <Megaphone className="w-3.5 h-3.5 mt-0.5 shrink-0" />
-                  <span>
-                    This is a <strong>marketing</strong> text (only sends to contacts who
-                    opted into marketing SMS). Leave off for operational messages like
-                    &ldquo;here&apos;s the workbook link.&rdquo;
-                  </span>
-                </label>
-              )}
+              {/* Marketing toggle (enforces consent; email adds an unsubscribe link) */}
+              <label className="flex items-start gap-2 text-xs text-gray-600">
+                <input
+                  type="checkbox"
+                  checked={marketing}
+                  onChange={(e) => setMarketing(e.target.checked)}
+                  className="accent-[#9B1B30] mt-0.5"
+                />
+                <Megaphone className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+                <span>
+                  This is a <strong>marketing</strong> {channel === "sms" ? "text" : "email"} —
+                  only sends to contacts with recorded marketing consent
+                  {channel === "email" ? " and adds an unsubscribe link" : ""}. Leave off for
+                  operational messages like &ldquo;here&apos;s the workbook link.&rdquo;
+                </span>
+              </label>
 
               {/* Live preview */}
               <div>
@@ -844,7 +835,7 @@ export default function HubMessagingPage() {
                 <div className="rounded-lg border border-gray-200 p-3">
                   {!sendError && results.some((r) => r.status === "sent") && (
                     <div className="mb-2 rounded-lg bg-emerald-50 border border-emerald-200 px-3 py-2 text-xs text-emerald-800">
-                      ✅ Message handed to GHL for delivery. Your selection was
+                      ✅ Message handed off for delivery. Your selection was
                       cleared on purpose so the same people can&apos;t be
                       double-messaged — pick new recipients to send again.
                     </div>
@@ -1019,7 +1010,7 @@ export default function HubMessagingPage() {
                     )}
                     {replySent && (
                       <div className="mb-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-2 text-xs">
-                        ✅ Reply handed to GHL for delivery.
+                        ✅ Reply handed off for delivery.
                       </div>
                     )}
                     <div className="flex gap-2">
@@ -1045,8 +1036,8 @@ export default function HubMessagingPage() {
                     </div>
                     <p className="text-[10px] text-gray-400 mt-1">
                       Replies send over{" "}
-                      {activeConv.last_message_channel === "email" ? "email" : "SMS"} through
-                      GHL and are logged like every Comms Hub send.
+                      {activeConv.last_message_channel === "email" ? "email" : "SMS"} and
+                      are logged like every Comms Hub send.
                     </p>
                   </div>
                 </>
@@ -1221,7 +1212,7 @@ export default function HubMessagingPage() {
             <p className="text-sm text-gray-600 mb-2">
               Permanently delete <strong>{deletingLead.name}</strong>
               {deletingLead.email ? ` (${deletingLead.email})` : deletingLead.phone ? ` (${deletingLead.phone})` : ""}{" "}
-              from GHL?
+              from the CRM?
             </p>
             <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
               This removes the contact and its conversation history from Go High
@@ -1271,7 +1262,7 @@ export default function HubMessagingPage() {
               Sending a <strong>{channel === "sms" ? "text message" : "email"}</strong> to{" "}
               <strong>{totalSelected}</strong>{" "}
               {totalSelected === 1 ? "recipient" : "recipients"}
-              {marketing && channel === "sms" ? " (marketing — consent enforced)" : ""}.
+              {marketing ? " (marketing — consent enforced)" : ""}.
             </p>
             <div className="rounded-lg bg-gray-50 border border-gray-200 p-3 text-sm text-gray-900 whitespace-pre-wrap max-h-40 overflow-y-auto mb-4">
               {channel === "email" && subject && (

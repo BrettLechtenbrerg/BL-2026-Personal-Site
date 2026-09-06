@@ -34,7 +34,7 @@ export async function GET(request: Request) {
     let query = supabase
       .from("hub_messages")
       .select(
-        "id, recipient_name, channel, to_value, ghl_contact_id, subject, body, status, skip_reason, ghl_message_id, error, sent_by, batch_id, created_at"
+        "id, recipient_name, channel, to_value, contact_id, subject, body, status, skip_reason, provider, provider_message_id, delivered_at, bounced_at, error, sent_by, batch_id, created_at"
       )
       .order("created_at", { ascending: false })
       .limit(limit);

@@ -3,26 +3,21 @@
 //==============================================================================
 // GET /api/hub/messaging/inbox/[conversationId]
 //   → { messages: ConversationMessage[] } — the full thread, oldest first.
-//     Needs the `conversations/message.readonly` PIT scope; until it's added
-//     this returns { scope_error: true } and the UI shows a banner (the reply
-//     path below is unaffected — it uses the write scope).
+//     conversationId = contact id (one thread per person).
 //
 // POST /api/hub/messaging/inbox/[conversationId]
 //   Body: { contact_id, channel: 'sms'|'email', body, subject?, sent_by?,
 //           recipient_name?, to_value? }
-//   → sends the reply through GHL (same rails as Compose) and logs it to
-//     hub_messages. No merge tags — a reply is written to one known person.
+//   → sends the reply through sendMessage() (same rails as Compose) and logs
+//     it to hub_messages. Transactional — no consent gate, no merge tags.
 //
 // Access: hub session only.
 //==============================================================================
 
 import { NextResponse } from "next/server";
-import { randomUUID } from "crypto";
 import { requireHubSession } from "@/lib/hub-session";
-import { getServiceSupabase } from "@/lib/supabase-admin";
-import { getConversationMessages } from "@/lib/ghl-conversations";
-import { sendGhlMessage } from "@/lib/ghl-messaging";
-import { textToEmailHtml } from "@/lib/messaging-render";
+import { getConversation } from "@/lib/messaging/inbox";
+import { sendMessage } from "@/lib/messaging/send";
 
 export const dynamic = "force-dynamic";
 
@@ -34,17 +29,12 @@ export async function GET(
   if (denied) return denied;
 
   const { conversationId } = await params;
-  const result = await getConversationMessages(conversationId);
-  if (!result.ok) {
-    return NextResponse.json(
-      {
-        error: result.error ?? "Failed to load the thread.",
-        scope_error: result.scopeError ?? false,
-      },
-      { status: result.scopeError ? 200 : 502 }
-    );
+  try {
+    return NextResponse.json({ messages: await getConversation(conversationId) });
+  } catch (err) {
+    console.error("GET /api/hub/messaging/inbox/[conversationId] failed:", err);
+    return NextResponse.json({ error: "Failed to load the thread." }, { status: 500 });
   }
-  return NextResponse.json({ messages: result.messages });
 }
 
 export async function POST(
@@ -54,7 +44,7 @@ export async function POST(
   const denied = await requireHubSession();
   if (denied) return denied;
 
-  await params; // conversationId not needed for the send — GHL routes by contact.
+  await params; // thread key == contact_id; the body carries it explicitly.
 
   let payload: {
     contact_id?: string;
@@ -80,48 +70,30 @@ export async function POST(
   if (!body) {
     return NextResponse.json({ error: "Reply is empty." }, { status: 400 });
   }
-  const subject = (payload.subject ?? "").trim() || "Re: Brett Lechtenberg";
-  const sentBy = (payload.sent_by ?? "").trim() || null;
-  const recipientName = (payload.recipient_name ?? "").trim() || null;
   const toValue = (payload.to_value ?? "").trim() || null;
 
   try {
-    const sendResult =
-      channel === "sms"
-        ? await sendGhlMessage({ type: "SMS", contactId, message: body })
-        : await sendGhlMessage({
-            type: "Email",
-            contactId,
-            subject,
-            html: textToEmailHtml(body),
-          });
-
-    // Audit — same append-only table as every Compose send.
-    const supabase = getServiceSupabase();
-    await supabase.from("hub_messages").insert({
-      recipient_name: recipientName,
+    const r = await sendMessage({
       channel,
-      to_value: toValue,
-      ghl_contact_id: contactId,
-      subject: channel === "email" ? subject : null,
-      body,
-      status: sendResult.ok ? "sent" : "failed",
-      ghl_message_id: sendResult.messageId ?? null,
-      error: sendResult.ok ? null : (sendResult.error ?? "Send failed."),
-      sent_by: sentBy,
-      batch_id: randomUUID(),
+      to: {
+        contact_id: contactId,
+        name: (payload.recipient_name ?? "").trim() || undefined,
+        email: channel === "email" ? toValue : null,
+        phone: channel === "sms" ? toValue : null,
+      },
+      // Replies are literal — escape braces so nothing is treated as a merge tag.
+      body: body.replace(/\{\{/g, "{ {"),
+      subject: (payload.subject ?? "").trim() || "Re: Brett Lechtenberg",
+      sentBy: (payload.sent_by ?? "").trim() || null,
     });
 
-    if (!sendResult.ok) {
+    if (r.status !== "sent") {
       return NextResponse.json(
-        {
-          error: sendResult.error ?? "Send failed.",
-          scope_error: sendResult.scopeError ?? false,
-        },
-        { status: 502 }
+        { error: r.error ?? "Send failed.", skip_reason: r.skip_reason },
+        { status: r.skip_reason === "sms_paused" ? 409 : 502 }
       );
     }
-    return NextResponse.json({ sent: true, ghl_message_id: sendResult.messageId ?? null });
+    return NextResponse.json({ sent: true, provider_message_id: r.provider_message_id ?? null });
   } catch (err) {
     console.error("POST /api/hub/messaging/inbox/[conversationId] failed:", err);
     return NextResponse.json(

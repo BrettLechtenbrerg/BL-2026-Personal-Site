@@ -46,3 +46,6 @@ supabase/.temp/
 
 # NotebookLM working files (scripts/academy-notebooklm.mjs)
 .notebooklm/
+
+# agent scratch (plans are copied into docs/crm/)
+.gg/

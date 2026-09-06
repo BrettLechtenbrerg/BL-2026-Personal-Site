@@ -1,18 +1,17 @@
 //==============================================================================
-// COMMS HUB — Delete a lead (GHL contact)
+// COMMS HUB — Delete a lead (Twenty person)
 //==============================================================================
 // DELETE /api/hub/leads/[contactId]
 //   → { deleted: true } on success.
-//   ⚠️ PERMANENTLY deletes the contact from GHL (the UI double-confirms with
-//   the lead's name before calling this). Requires `contacts.write`.
+//   ⚠️ Deletes the person from Twenty (soft-delete there; restorable from
+//   Twenty's trash). The UI double-confirms with the lead's name first.
 //
 // Access: hub session only.
 //==============================================================================
 
 import { NextResponse } from "next/server";
 import { requireHubSession } from "@/lib/hub-session";
-import { deleteContact } from "@/lib/ghl-contacts";
-import { clearLeadsCache } from "@/lib/ghl-leads";
+import { deleteLead } from "@/lib/crm/twenty";
 
 export async function DELETE(
   _request: Request,
@@ -22,15 +21,13 @@ export async function DELETE(
   if (denied) return denied;
 
   const { contactId } = await params;
-  const result = await deleteContact(contactId);
+  const result = await deleteLead(contactId);
 
   if (!result.ok) {
     return NextResponse.json(
-      { error: result.error ?? "Failed to delete the contact.", scope_error: result.scopeError ?? false },
+      { error: result.error ?? "Failed to delete the contact." },
       { status: 502 }
     );
   }
-
-  clearLeadsCache();
   return NextResponse.json({ deleted: true });
 }

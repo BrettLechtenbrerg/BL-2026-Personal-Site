@@ -29,16 +29,21 @@ session guard on every `/api/hub/*` route (`src/lib/hub-session.ts`).
 |---|---|
 | `src/lib/hub-session.ts` | HMAC session guard — every API route calls `requireHubSession()` |
 | `src/lib/supabase-admin.ts` | service-role Supabase client (no anon fallback) |
-| `src/lib/ghl-messaging.ts` | send SMS/Email via GHL Conversations (Version 2021-04-15!) |
-| `src/lib/ghl-leads.ts` | paginated contact pull + tag grouping (cursor rides per-contact — do NOT "fix") |
-| `src/lib/ghl-conversations.ts` | inbox list + thread fetch |
-| `src/lib/ghl-contacts.ts` | sms_consent_marketing reader (fail-safe gate) + createContact/deleteContact |
+| `src/lib/crm/twenty.ts` | Twenty CRM People: list (cursor-paged), find, create, delete |
+| `src/lib/messaging/send.ts` | **the** send entry point: consent gate → render → provider → one hub_messages row |
+| `src/lib/messaging/resend.ts` | Resend email adapter (Reply-To Brett's Gmail, List-Unsubscribe) |
+| `src/lib/messaging/sms.ts` | SMS stub — paused until Phase 6 (Twilio) |
+| `src/lib/messaging/consent.ts` | `contact_consent` reads/writes + HMAC unsubscribe tokens |
+| `src/lib/messaging/inbox.ts` | threads per contact from hub_messages |
+| `src/app/api/webhooks/resend/route.ts` | Svix-verified delivery events → delivered/bounced/complained; bounce/complaint revokes consent |
+| `src/app/api/unsubscribe/route.ts` | one-click unsubscribe (GET link + RFC 8058 POST) |
 | `src/lib/messaging-render.ts` | merge tags + HTML-escaped email wrapper |
 | `src/app/api/hub/auth/route.ts` | login/logout/session-check, rate-limited (8 fails/15 min/IP) |
 | `src/app/api/hub/messaging/{leads,send,log,inbox}/…` | the four data routes |
-| `src/app/api/hub/leads/…` | POST create lead + DELETE lead (need contacts.write) |
+| `src/app/api/hub/leads/…` | POST create lead + DELETE lead (Twenty) |
 | `src/app/hub/…` | login + messaging UI |
 | `supabase/migrations/20260703120000_create_hub_messages.sql` | audit table, RLS locked down |
+| `supabase/migrations/20260907090000_crm_phase1.sql` | provider-neutral columns + `contact_consent` (paste into SQL editor) |
 
 Differences from PMMA: no Students audience (no roster), single admin role,
 table named `hub_messages` (no `student_id`), lockdown RLS from day one.
@@ -50,10 +55,18 @@ table named `hub_messages` (no `student_id`), lockdown RLS from day one.
 | `HUB_USERNAME` | hub login username (pick one) |
 | `HUB_PASSWORD` | hub login password (rotating it logs everyone out) |
 | `HUB_SESSION_SECRET` | `openssl rand -hex 32` |
-| `GHL_PIT_TOKEN` | Private Integration token from Brett's PERSONAL GHL location |
-| `GHL_LOCATION_ID` | that location's ID (Settings → Business Profile) |
+| `TWENTY_API_KEY` | Twenty CRM API key (brettlechtenberg.twenty.com → Settings → MCP & APIs) |
+| `RESEND_API_KEY` | Resend send-only key (Free plan, domain `auth.brettlechtenberg.com`) |
+| `RESEND_WEBHOOK_SECRET` | signing secret from Resend → Webhooks → endpoint `/api/webhooks/resend` |
+| `HUB_REPLY_TO_EMAIL` | Reply-To on every hub email (brett@brettlechtenberg.com) → replies sync into Twenty via Gmail |
+| `UNSUBSCRIBE_HMAC_SECRET` | `openssl rand -hex 32` — signs unsubscribe links |
+| `RESEND_FROM` | optional; default `Brett Lechtenberg <brett@auth.brettlechtenberg.com>` |
 | `NEXT_PUBLIC_SUPABASE_URL` | the new BL Supabase project URL |
 | `SUPABASE_SERVICE_ROLE_KEY` | its service_role secret (server-only) |
+
+`GHL_PIT_TOKEN` / `GHL_LOCATION_ID` are no longer read by the hub (CRM Phase 1,
+Sept 2026 — see `docs/crm/`). The public site's lead forms still POST to GHL
+webhooks until Phase 2.
 
 Until these are set, the hub fails closed: login returns 503, APIs return
 503/401, the public site is unaffected.

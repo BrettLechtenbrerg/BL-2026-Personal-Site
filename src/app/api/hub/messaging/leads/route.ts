@@ -1,14 +1,14 @@
 //==============================================================================
-// COMMS HUB — Messaging leads picker (all GHL contacts)
+// COMMS HUB — Messaging leads picker (all Twenty people)
 //==============================================================================
 // GET /api/hub/messaging/leads
-//   → the audience for the Comms Hub: every contact in Brett's personal GHL
-//     location (speaking inquiries, workbook leads, Master's Edge
+//   → the audience for the Comms Hub: every person in the Twenty CRM
+//     workspace (speaking inquiries, workbook leads, Master's Edge
 //     applications), newest first. No roster exclusion — this site has no
 //     roster; the contacts ARE the audience.
 //
 //   Response: {
-//     leads: GhlLead[],                       // newest first
+//     leads: HubLead[],                       // newest first
 //     tags:  [{ tag, count }],                // for the tag filter dropdown
 //     truncated: boolean                      // pull stopped at the cap
 //   }
@@ -18,7 +18,7 @@
 
 import { NextResponse } from "next/server";
 import { requireHubSession } from "@/lib/hub-session";
-import { fetchGhlLeads } from "@/lib/ghl-leads";
+import { fetchLeads } from "@/lib/crm/twenty";
 
 export const dynamic = "force-dynamic";
 
@@ -27,10 +27,10 @@ export async function GET() {
   if (denied) return denied;
 
   try {
-    const result = await fetchGhlLeads();
+    const result = await fetchLeads();
     if (!result.ok) {
       return NextResponse.json(
-        { error: result.error ?? "Failed to load leads from GHL." },
+        { error: result.error ?? "Failed to load leads from the CRM." },
         { status: 502 }
       );
     }
