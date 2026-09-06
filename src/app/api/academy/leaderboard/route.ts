@@ -20,8 +20,13 @@ export async function GET() {
   const [{ data: users }, { data: certified }, { data: recent }] = await Promise.all([
     supabase.from("me_users").select("id, name, avatar, xp").order("xp", { ascending: false }).limit(500),
     supabase.from("me_awards").select("user_id").eq("badge_slug", "certified-masters-edge"),
-    // simplification: 30-day ledger read into memory; fine until ~100k events.
-    supabase.from("me_xp_events").select("user_id, points, created_at").gte("created_at", since30),
+    // simplification: 30-day ledger read into memory, capped at 10k rows
+    // (~300 events/day). Upgrade path: a SQL group-by RPC.
+    supabase
+      .from("me_xp_events")
+      .select("user_id, points, created_at")
+      .gte("created_at", since30)
+      .limit(10000),
   ]);
 
   const xp7: Record<string, number> = {};
