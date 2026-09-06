@@ -1,7 +1,8 @@
 //==============================================================================
 // CRON — Supabase keep-alive + auto-restore
 //==============================================================================
-// Vercel Cron hits this twice a day (see vercel.json) and runs a trivial
+// Vercel Cron (daily, vercel.json) + GitHub Actions (2×/day,
+// .github/workflows/supabase-keepalive.yml) hit this and run a trivial
 // query so the free-tier Supabase project never pauses from inactivity.
 //
 // If the ping fails AND SUPABASE_ACCESS_TOKEN + SUPABASE_PROJECT_REF are set,
