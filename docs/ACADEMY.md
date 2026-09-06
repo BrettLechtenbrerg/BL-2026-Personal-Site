@@ -71,6 +71,11 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
   One-time: `uv tool install "notebooklm-py[browser]"` + `notebooklm login`.
   Free tier ≈ 3 audio + 3 video/day. Rides Brett's Google session; may break
   when Google changes NotebookLM — never load-bearing.
+- **Unattended batch**: `bash scripts/academy-batch-ctl.sh install|status|remove`
+  installs a macOS LaunchAgent that runs `scripts/academy-batch.mjs` every
+  20 min — one module per tick, auto-deploys, pauses 60 min on quota, gives
+  up on a module after 3 real failures, unloads itself when all 43 are done.
+  Mac must be awake. Log: `.notebooklm/batch.log`.
 - **Session log**: docs/SESSION-NOTES.md — read it first next session.
 
 ## Adding a module

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  macOS LaunchAgent: runs scripts/academy-batch.mjs every 20 minutes until every
+  Academy module has NotebookLM audio + video + flashcards. Survives closed
+  terminals; does NOT run while the Mac is asleep (keep it plugged in and awake).
+
+  Install / remove:   bash scripts/academy-batch-ctl.sh install | remove | status
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.brettlechtenberg.academy-notebooklm</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/caffeinate</string>
+    <string>-i</string>
+    <string>/usr/local/bin/node</string>
+    <string>__ROOT__/scripts/academy-batch.mjs</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>__ROOT__</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>__HOME__/.local/bin:__HOME__/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>HOME</key>
+    <string>__HOME__</string>
+  </dict>
+
+  <key>StartInterval</key>
+  <integer>1200</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>__ROOT__/.notebooklm/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>__ROOT__/.notebooklm/launchd.err.log</string>
+</dict>
+</plist>
