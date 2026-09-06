@@ -14,7 +14,7 @@ jobs:
         run: |
           code=$(curl -s -o /tmp/out -w "%{http_code}" --max-time 60 \
             -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
-            https://brettlechtenberg.com/api/cron/keepalive)
+            https://www.brettlechtenberg.com/api/cron/keepalive)
           cat /tmp/out; echo
           # 500 = ping failed but restore was attempted; don't fail the job.
           [ "$code" = "200" ] || [ "$code" = "500" ]

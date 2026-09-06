@@ -37,7 +37,7 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 
 > ⚠️ The Supabase free-tier project **pauses after ~1 week of inactivity**
 > (it was paused when we built this — we restored it). A paused project takes
-> both the Academy and the Comms Hub down. `/api/cron/keepalive` is pinged 3�/day
+> both the Academy and the Comms Hub down. `/api/cron/keepalive` is pinged 3x/day
 > (Vercel cron + GitHub Actions) and auto-restores via the Management API if it finds the project
 > paused (see `docs/SESSION-NOTES.md` → Sep 6 for the runbook).
 
