@@ -213,6 +213,11 @@ export async function GET() {
     return response;
   }
   const badges = await getBadges(auth);
+  // "Last active" for the members directory — written at most once per hour.
+  const lastSeen = user.last_seen_at ? new Date(user.last_seen_at).getTime() : 0;
+  if (Date.now() - lastSeen > 60 * 60 * 1000) {
+    await db().from("me_users").update({ last_seen_at: new Date().toISOString() }).eq("id", auth);
+  }
   return NextResponse.json({
     user: {
       id: user.id,
@@ -221,6 +226,7 @@ export async function GET() {
       avatar: user.avatar,
       xp: user.xp,
       role: user.role ?? "member",
+      bio: user.bio ?? "",
     },
     badges,
   });

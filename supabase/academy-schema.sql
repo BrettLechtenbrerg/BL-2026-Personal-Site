@@ -20,6 +20,8 @@ create table if not exists me_users (
   avatar        text not null default '🥋',
   xp            integer not null default 0,
   role          text not null default 'member' check (role in ('member', 'admin')),
+  bio           text,
+  last_seen_at  timestamptz,
   created_at    timestamptz not null default now()
 );
 
@@ -120,6 +122,9 @@ alter table me_users add column if not exists role text not null default 'member
 alter table me_posts add column if not exists channel text not null default 'general';
 alter table me_posts add column if not exists title   text;
 alter table me_posts add column if not exists pinned  boolean not null default false;
+-- Sep 6 2026: members directory
+alter table me_users add column if not exists bio          text;
+alter table me_users add column if not exists last_seen_at timestamptz;
 -- Make Brett an admin (can post Announcements + pin posts):
 --   update me_users set role = 'admin' where email = 'brett@brettlechtenberg.com';
 

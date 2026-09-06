@@ -19,6 +19,8 @@ export interface MeUser {
   avatar: string;
   xp: number;
   role: "member" | "admin";
+  bio: string | null;
+  last_seen_at: string | null;
   created_at: string;
 }
 

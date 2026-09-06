@@ -17,6 +17,7 @@ export default function ProfilePage() {
   const { user, badges, loading } = useAcademyUser();
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState(AVATARS[0]);
+  const [bio, setBio] = useState("");
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,6 +26,7 @@ export default function ProfilePage() {
     if (user) {
       setName(user.name);
       setAvatar(user.avatar);
+      setBio(user.bio ?? "");
     }
   }, [user]);
 
@@ -48,7 +50,7 @@ export default function ProfilePage() {
       const res = await fetch("/api/academy/profile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, avatar }),
+        body: JSON.stringify({ name, avatar, bio }),
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(json.error || "Could not save.");
@@ -100,6 +102,18 @@ export default function ProfilePage() {
           maxLength={80}
           required
           className="mb-4 w-full rounded-lg border border-white/15 bg-black/30 px-4 py-3 text-base text-white outline-none focus:border-gold"
+        />
+
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-white/50">
+          Tagline <span className="font-normal normal-case text-white/40">(shown in the members directory)</span>
+        </label>
+        <input
+          type="text"
+          value={bio}
+          onChange={(e) => setBio(e.target.value)}
+          maxLength={140}
+          placeholder="e.g. Dojo owner, Salt Lake City · building a second location"
+          className="mb-4 w-full rounded-lg border border-white/15 bg-black/30 px-4 py-3 text-base text-white placeholder-white/40 outline-none focus:border-gold"
         />
 
         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-white/50">Avatar</p>

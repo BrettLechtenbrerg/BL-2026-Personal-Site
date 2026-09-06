@@ -8,6 +8,7 @@
 //==============================================================================
 
 import { Suspense, useCallback, useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Loader2, MessageCircle, Pin, Send } from "lucide-react";
@@ -88,6 +89,7 @@ function Community() {
   const [comments, setComments] = useState<Comment[]>([]);
   const [reactions, setReactions] = useState<Reaction[]>([]);
   const [counts, setCounts] = useState<Record<string, number>>({});
+  const [stats, setStats] = useState({ members: 0, posts: 0 });
   const [ready, setReady] = useState(false);
   const [title, setTitle] = useState("");
   const [draft, setDraft] = useState("");
@@ -111,6 +113,7 @@ function Community() {
           setComments(json.comments ?? []);
           setReactions(json.reactions ?? []);
           setCounts(json.counts ?? {});
+          setStats(json.stats ?? { members: 0, posts: 0 });
         }
         setReady(true);
       })
@@ -182,6 +185,24 @@ function Community() {
               onClick={() => goTo(c.slug)}
             />
           ))}
+
+          {/* About card (GHL-style group summary) */}
+          <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
+            <p className="font-heading font-bold">Master&apos;s Edge Academy</p>
+            <p className="mt-1 text-xs text-white/60">
+              Private group. We don&apos;t just talk about mastery — we train it, measure it, and prove it.
+            </p>
+            <div className="mt-3 grid grid-cols-2 divide-x divide-white/10 text-center">
+              <Link href="/academy/members" className="hover:text-gold">
+                <p className="font-heading text-lg font-bold">{stats.members}</p>
+                <p className="text-[11px] text-white/50">Members</p>
+              </Link>
+              <div>
+                <p className="font-heading text-lg font-bold">{stats.posts}</p>
+                <p className="text-[11px] text-white/50">Posts</p>
+              </div>
+            </div>
+          </div>
         </nav>
       </aside>
 

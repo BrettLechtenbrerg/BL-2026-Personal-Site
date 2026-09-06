@@ -15,6 +15,7 @@ export interface AcademyUser {
   avatar: string;
   xp: number;
   role?: "member" | "admin";
+  bio?: string;
 }
 
 export function useAcademyUser() {

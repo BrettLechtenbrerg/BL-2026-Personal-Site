@@ -23,6 +23,7 @@ const links = [
   { href: "/academy/community", label: "Community", icon: Users },
   { href: "/academy/events", label: "Events", icon: CalendarDays },
   { href: "/academy/leaderboard", label: "Leaderboard", icon: Trophy },
+  { href: "/academy/members", label: "Members", icon: Users },
   { href: "/academy/profile", label: "Profile", icon: UserCircle },
 ];
 

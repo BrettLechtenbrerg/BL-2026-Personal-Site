@@ -43,7 +43,8 @@ export async function GET(request: NextRequest) {
   const { data: posts } = await query;
 
   const postIds = (posts ?? []).map((p) => p.id as string);
-  const [{ data: comments }, { data: reactions }, { data: allChannels }] = await Promise.all([
+  const [{ data: comments }, { data: reactions }, { data: allChannels }, { count: memberCount }] =
+    await Promise.all([
     postIds.length
       ? supabase
           .from("me_comments")
@@ -57,6 +58,7 @@ export async function GET(request: NextRequest) {
     // simplification: counts computed in JS from one column read; fine until
     // thousands of posts — upgrade path is a SQL group-by RPC.
     supabase.from("me_posts").select("channel"),
+    supabase.from("me_users").select("id", { count: "exact", head: true }),
   ]);
   const counts: Record<string, number> = {};
   for (const row of allChannels ?? []) {
@@ -70,6 +72,7 @@ export async function GET(request: NextRequest) {
     comments: comments ?? [],
     reactions: reactions ?? [],
     counts,
+    stats: { members: memberCount ?? 0, posts: (allChannels ?? []).length },
   });
 }
 

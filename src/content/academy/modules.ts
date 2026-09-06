@@ -69,6 +69,8 @@ export interface AcademyCourse {
   /** Inclusive order range of the modules in this course. */
   fromOrder: number;
   toOrder: number;
+  /** Optional banner image under /public (e.g. "/academy/covers/business-tools.jpg"). */
+  cover?: string;
 }
 
 export const academyCourses: AcademyCourse[] = [

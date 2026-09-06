@@ -26,6 +26,7 @@ export interface CourseInfo {
   description: string;
   fromOrder: number;
   toOrder: number;
+  cover?: string;
 }
 
 interface ProgressRow {
@@ -72,7 +73,7 @@ export default function ModulesGrid({
     <div>
       <h1 className="mb-1 font-heading text-3xl font-bold">Your Courses</h1>
       <p className="mb-8 text-white/60">
-        Three courses, {modules.length} modules. Pass each quiz at 80%+ to earn its badge.
+        {courses.length} courses, {modules.length} modules. Pass each quiz at 80%+ to earn its badge.
       </p>
 
       {courses.map((course) => {
@@ -84,16 +85,26 @@ export default function ModulesGrid({
         ).length;
         return (
           <section key={course.id} className="mb-12">
-            <div className="mb-4 flex items-end justify-between gap-3">
-              <div>
-                <h2 className="flex items-center gap-2 font-heading text-2xl font-bold">
-                  <span>{course.emoji}</span> {course.title}
-                </h2>
-                <p className="mt-1 max-w-2xl text-sm text-white/60">{course.description}</p>
+            {/* Course banner — real cover art when set, brand gradient otherwise */}
+            <div
+              className="relative mb-4 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-cranberry-dark via-black to-black"
+              style={
+                course.cover
+                  ? { backgroundImage: `url(${course.cover})`, backgroundSize: "cover", backgroundPosition: "center" }
+                  : undefined
+              }
+            >
+              <div className="flex items-end justify-between gap-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-16">
+                <div>
+                  <h2 className="flex items-center gap-2 font-heading text-2xl font-bold">
+                    <span>{course.emoji}</span> {course.title}
+                  </h2>
+                  <p className="mt-1 max-w-2xl text-sm text-white/70">{course.description}</p>
+                </div>
+                <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-gold">
+                  {passedCount}/{courseModules.length}
+                </span>
               </div>
-              <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-gold">
-                {passedCount}/{courseModules.length}
-              </span>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {courseModules.map((m, i) => {

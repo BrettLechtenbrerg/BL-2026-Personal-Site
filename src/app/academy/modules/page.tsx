@@ -22,6 +22,7 @@ export default function ModulesPage() {
     description: c.description,
     fromOrder: c.fromOrder,
     toOrder: c.toOrder,
+    cover: c.cover,
   }));
   return <ModulesGrid modules={modules} courses={courses} />;
 }
