@@ -20,8 +20,8 @@ interface Member {
   certified: boolean;
 }
 
-type Window = "xp7" | "xp30" | "xp";
-const WINDOWS: { key: Window; label: string }[] = [
+type RankWindow = "xp7" | "xp30" | "xp";
+const WINDOWS: { key: RankWindow; label: string }[] = [
   { key: "xp7", label: "7 days" },
   { key: "xp30", label: "30 days" },
   { key: "xp", label: "All time" },
@@ -34,7 +34,7 @@ export default function LeaderboardPage() {
   const [members, setMembers] = useState<Member[]>([]);
   const [meId, setMeId] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
-  const [win, setWin] = useState<Window>("xp30");
+  const [win, setWin] = useState<RankWindow>("xp30");
 
   useEffect(() => {
     fetch("/api/academy/leaderboard")
