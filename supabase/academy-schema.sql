@@ -90,6 +90,18 @@ create table if not exists me_reactions (
   primary key (post_id, user_id, emoji)
 );
 
+-- Events (office hours, calls) — admin-created, member-visible ---------------
+create table if not exists me_events (
+  id            uuid primary key default gen_random_uuid(),
+  title         text not null,
+  description   text,
+  starts_at     timestamptz not null,
+  ends_at       timestamptz not null,
+  link          text,
+  recording_url text,
+  created_at    timestamptz not null default now()
+);
+
 -- Certification submissions ---------------------------------------------------
 create table if not exists me_submissions (
   id         uuid primary key default gen_random_uuid(),
@@ -118,6 +130,7 @@ create index if not exists me_posts_created_idx      on me_posts (created_at des
 create index if not exists me_comments_post_idx      on me_comments (post_id);
 create index if not exists me_submissions_user_idx   on me_submissions (user_id, kind);
 create index if not exists me_users_xp_idx           on me_users (xp desc);
+create index if not exists me_events_starts_idx      on me_events (starts_at);
 create index if not exists me_posts_channel_idx      on me_posts (channel, pinned desc, created_at desc);
 
 -- Lock down: RLS on, zero policies, browser roles revoked ---------------------
@@ -126,7 +139,7 @@ declare t text;
 begin
   foreach t in array array[
     'me_users','me_progress','me_quiz_attempts','me_awards','me_xp_events',
-    'me_posts','me_comments','me_reactions','me_submissions'
+    'me_posts','me_comments','me_reactions','me_submissions','me_events'
   ] loop
     execute format('alter table %I enable row level security', t);
     execute format('revoke all on %I from anon, authenticated', t);

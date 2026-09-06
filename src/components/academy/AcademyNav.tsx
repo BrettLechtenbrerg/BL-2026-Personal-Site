@@ -11,6 +11,7 @@ import {
   LayoutDashboard,
   GraduationCap,
   Users,
+  CalendarDays,
   Trophy,
   UserCircle,
   LogOut,
@@ -20,6 +21,7 @@ const links = [
   { href: "/academy/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/academy/modules", label: "Modules", icon: GraduationCap },
   { href: "/academy/community", label: "Community", icon: Users },
+  { href: "/academy/events", label: "Events", icon: CalendarDays },
   { href: "/academy/leaderboard", label: "Leaderboard", icon: Trophy },
   { href: "/academy/profile", label: "Profile", icon: UserCircle },
 ];
