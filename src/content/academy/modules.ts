@@ -596,6 +596,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "vendor-negotiation",
+    videoFiles: [
+      { label: "The Vendor Negotiation Prep (NotebookLM video overview)", href: "/academy/vendor-negotiation/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Vendor Negotiation Prep (NotebookLM audio overview)", href: "/academy/vendor-negotiation/deep-dive.m4a" },
+    ],
     order: 5,
     title: "The Vendor Negotiation Prep",
     tagline: "Money Mastery",

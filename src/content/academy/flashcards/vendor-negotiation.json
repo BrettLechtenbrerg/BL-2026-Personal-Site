@@ -1,0 +1,202 @@
+[
+  {
+    "front": "What is the primary outcome for business owners who do not prepare before vendor calls?",
+    "back": "They leave money on the table by overpaying for services."
+  },
+  {
+    "front": "Why does a business owner typically possess less negotiation skill than a vendor representative?",
+    "back": "Vendors negotiate for a living, while owners only negotiate a few times a year."
+  },
+  {
+    "front": "According to the text, how many minutes of prep before a renewal call can save hundreds or thousands of dollars?",
+    "back": "Fifteen minutes."
+  },
+  {
+    "front": "What three specific pieces of information define your 'position' before a negotiation?",
+    "back": "What you currently pay, what you want, and your decision deadline."
+  },
+  {
+    "front": "Term: BATNA",
+    "back": "Definition: Best Alternative To a Negotiated Agreement."
+  },
+  {
+    "front": "In the context of negotiation, what does a BATNA represent?",
+    "back": "The 'Plan B' or alternative action taken if the current conversation completely fails."
+  },
+  {
+    "front": "What is the functional difference between having a real BATNA and not having one?",
+    "back": "A real BATNA is the difference between negotiating and begging."
+  },
+  {
+    "front": "What is one example of a BATNA if a vendor renewal fails?",
+    "back": "Obtaining a quote from a competitor."
+  },
+  {
+    "front": "Besides a competitor quote, what is another potential BATNA strategy?",
+    "back": "Implementing a workaround or doing without the service entirely."
+  },
+  {
+    "front": "Concept: Leverage",
+    "back": "Definition: Strategic advantages a customer already possesses to influence a vendor's terms."
+  },
+  {
+    "front": "How does the length of a customer relationship serve as leverage?",
+    "back": "Tenure demonstrates loyalty and long-term value to the vendor."
+  },
+  {
+    "front": "How does annual spend function as leverage in vendor negotiations?",
+    "back": "High annual spend increases the vendor's financial risk if the customer leaves."
+  },
+  {
+    "front": "What form of social leverage involves past introductions made for the vendor?",
+    "back": "Referrals that the customer has sent to the vendor."
+  },
+  {
+    "front": "At what two specific times are vendors generally most flexible regarding terms?",
+    "back": "At the end of a quarter and during renewal periods."
+  },
+  {
+    "front": "When must a business owner define their walk-away point?",
+    "back": "Before the call begins, rather than during the conversation."
+  },
+  {
+    "front": "What is the risk of deciding a walk-away point mid-conversation under pressure?",
+    "back": "Owners are more likely to agree to bad deals while interacting with a friendly rep."
+  },
+  {
+    "front": "What physical action is recommended for the walk-away point to ensure it is honored?",
+    "back": "Write the number or terms down before the call."
+  },
+  {
+    "front": "True or False: Price is the only negotiable element in a vendor contract.",
+    "back": "False, as the menu of negotiable items includes many non-price terms."
+  },
+  {
+    "front": "What should a negotiator do if a vendor refuses to move on the price?",
+    "back": "Shift the conversation to what other features or terms the vendor can include."
+  },
+  {
+    "front": "Which negotiable term refers to the duration of the agreement?",
+    "back": "Contract length."
+  },
+  {
+    "front": "Which negotiable term refers to when the vendor receives funds?",
+    "back": "Payment timing."
+  },
+  {
+    "front": "Which negotiable term covers the initial costs of setting up a service?",
+    "back": "Onboarding fees."
+  },
+  {
+    "front": "Which negotiable term dictates the level of service a customer receives?",
+    "back": "Support tiers."
+  },
+  {
+    "front": "Which negotiable term involves the number of users allowed on a platform?",
+    "back": "Added seats."
+  },
+  {
+    "front": "Which negotiable term defines the requirements for ending a contract?",
+    "back": "Cancellation terms."
+  },
+  {
+    "front": "Negotiating feels _____ to many owners, which is a key reason they overpay.",
+    "back": "awkward"
+  },
+  {
+    "front": "Accepting the _____ offer is a common mistake that leads to leaving money on the table.",
+    "back": "first"
+  },
+  {
+    "front": "Before a call, a negotiator must establish their _____, or Plan B.",
+    "back": "BATNA"
+  },
+  {
+    "front": "Inventorying _____ such as tenure and spend helps level the field with vendors.",
+    "back": "leverage"
+  },
+  {
+    "front": "A key rule of preparation is to never take a _____ conversation unprepared.",
+    "back": "money"
+  },
+  {
+    "front": "What is the relationship between preparation and the 'hourly rate' of a business owner?",
+    "back": "The high savings from short prep time represent the best hourly rate in the business."
+  },
+  {
+    "front": "Why is 'doing without' a service considered a valid BATNA?",
+    "back": "It provides a clear alternative to accepting a bad deal if the value is not there."
+  },
+  {
+    "front": "How does knowing your decision deadline help in a negotiation?",
+    "back": "It clarifies the timeline and prevents rushed decisions under vendor-imposed pressure."
+  },
+  {
+    "front": "What is the 'menu' strategy in negotiation?",
+    "back": "Recognizing that there are many negotiable items beyond just the price."
+  },
+  {
+    "front": "In vendor negotiations, 'quarter-end' is a useful leverage point because vendors are often more _____.",
+    "back": "flexible"
+  },
+  {
+    "front": "Why is an owner's BATNA considered the 'difference between negotiating and begging'?",
+    "back": "Without an alternative, the owner has no power to say no to the vendor's terms."
+  },
+  {
+    "front": "If a negotiator does not know their alternatives, they are more likely to _____.",
+    "back": "overpay"
+  },
+  {
+    "front": "What role do 'referrals' play in the list of available leverage points?",
+    "back": "They represent additional value the customer has provided beyond their own payments."
+  },
+  {
+    "front": "When considering leverage, why is 'annual spend' categorized separately from 'tenure'?",
+    "back": "Annual spend measures the financial volume, while tenure measures the length of the relationship."
+  },
+  {
+    "front": "Preparation is the primary tool used to _____ the field against professional vendor negotiators.",
+    "back": "level"
+  },
+  {
+    "front": "What is the result of failing to define a walk-away point until you are mid-call?",
+    "back": "You are susceptible to making a bad deal due to pressure or rapport."
+  },
+  {
+    "front": "One major reason owners overpay is that they don't know their _____ before entering a call.",
+    "back": "alternatives"
+  },
+  {
+    "front": "The phrase 'Plan B' is synonymous with which negotiation concept?",
+    "back": "BATNA (Best Alternative To a Negotiated Agreement)."
+  },
+  {
+    "front": "What is the benefit of asking 'When must I decide?' before starting a negotiation?",
+    "back": "It establishes the time constraints and identifies who has the timing leverage."
+  },
+  {
+    "front": "Why does the text advise against mid-conversation decision-making regarding price floors?",
+    "back": "The presence of a friendly representative can cloud objective financial judgment."
+  },
+  {
+    "front": "How can 'onboarding fees' be used as a bargaining chip when the price is fixed?",
+    "back": "They are a one-time cost that vendors are often more willing to waive than monthly fees."
+  },
+  {
+    "front": "What does it mean to 'inventory leverage'?",
+    "back": "Identifying and listing every advantage you have, such as referrals or tenure, before the call."
+  },
+  {
+    "front": "What is the core message of the 'Money Mastery' lesson regarding vendor calls?",
+    "back": "Preparation is the key to preventing financial loss during vendor negotiations."
+  },
+  {
+    "front": "The ability to walk away is directly tied to the strength of your _____.",
+    "back": "BATNA"
+  },
+  {
+    "front": "What component of the 'menu' refers to the schedule of payments to the vendor?",
+    "back": "Payment timing."
+  }
+]
