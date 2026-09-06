@@ -483,6 +483,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "problem-explainer",
+    videoFiles: [
+      { label: "The Problem Explainer (NotebookLM video overview)", href: "/academy/problem-explainer/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Problem Explainer (NotebookLM audio overview)", href: "/academy/problem-explainer/deep-dive.m4a" },
+    ],
     order: 4,
     title: "The Problem Explainer",
     tagline: "Communication",
