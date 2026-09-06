@@ -37,8 +37,10 @@ DONE Sep 6: NotebookLM Layer 1 — flashcard deck component + sidecar loader +
 Sample 5-card deck installed on masters-edge-framework.
 
 Layer 2 built Sep 6: `scripts/academy-notebooklm.mjs` (wraps the notebooklm
-CLI 0.8.2, installed via uv tool). Verified up to the login gate; first real
-run needs Brett to `notebooklm login` once. Untested past that point.
+CLI 0.8.2, installed via uv tool). First real run Sep 6 on `fire-yourself`:
+40 flashcards + 41 MB podcast + 31 MB video + 10-question quiz (printed, not
+pasted) — all installed and deployed. ~12 min wall time. Brett is logged in
+(`~/.notebooklm/profiles/default/`). Quota: free tier ≈ 3 audio + 3 video/day.
 
 (Was: Layer 2 (notebooklm-py
 0.8.2 automation — verified Sep 6 it can generate+download audio/video/

@@ -128,6 +128,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "fire-yourself",
+    videoFiles: [
+      { label: "The Fire Yourself Exercise (NotebookLM video overview)", href: "/academy/fire-yourself/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Fire Yourself Exercise (NotebookLM audio overview)", href: "/academy/fire-yourself/deep-dive.m4a" },
+    ],
     order: 1,
     title: "The Fire Yourself Exercise",
     tagline: "Strategic Thinking",
