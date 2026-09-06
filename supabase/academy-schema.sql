@@ -19,6 +19,7 @@ create table if not exists me_users (
   password_hash text not null,
   avatar        text not null default '🥋',
   xp            integer not null default 0,
+  role          text not null default 'member' check (role in ('member', 'admin')),
   created_at    timestamptz not null default now()
 );
 
@@ -67,6 +68,9 @@ create table if not exists me_posts (
   user_id     uuid not null references me_users(id) on delete cascade,
   body        text not null,
   module_slug text,
+  channel     text not null default 'general',
+  title       text,
+  pinned      boolean not null default false,
   created_at  timestamptz not null default now()
 );
 
@@ -98,6 +102,15 @@ create table if not exists me_submissions (
   created_at timestamptz not null default now()
 );
 
+-- Upgrades (Sep 6 2026: channels) — no-ops on a fresh install. Must run
+-- BEFORE the indexes below, which reference the new columns. -----------------
+alter table me_users add column if not exists role text not null default 'member';
+alter table me_posts add column if not exists channel text not null default 'general';
+alter table me_posts add column if not exists title   text;
+alter table me_posts add column if not exists pinned  boolean not null default false;
+-- Make Brett an admin (can post Announcements + pin posts):
+--   update me_users set role = 'admin' where email = 'brett@brettlechtenberg.com';
+
 -- Indexes ---------------------------------------------------------------------
 create index if not exists me_quiz_attempts_user_idx on me_quiz_attempts (user_id, module_slug);
 create index if not exists me_xp_events_user_idx     on me_xp_events (user_id);
@@ -105,6 +118,7 @@ create index if not exists me_posts_created_idx      on me_posts (created_at des
 create index if not exists me_comments_post_idx      on me_comments (post_id);
 create index if not exists me_submissions_user_idx   on me_submissions (user_id, kind);
 create index if not exists me_users_xp_idx           on me_users (xp desc);
+create index if not exists me_posts_channel_idx      on me_posts (channel, pinned desc, created_at desc);
 
 -- Lock down: RLS on, zero policies, browser roles revoked ---------------------
 do $$

@@ -214,7 +214,14 @@ export async function GET() {
   }
   const badges = await getBadges(auth);
   return NextResponse.json({
-    user: { id: user.id, name: user.name, email: user.email, avatar: user.avatar, xp: user.xp },
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      avatar: user.avatar,
+      xp: user.xp,
+      role: user.role ?? "member",
+    },
     badges,
   });
 }

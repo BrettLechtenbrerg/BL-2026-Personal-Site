@@ -1,5 +1,34 @@
 # Session Notes — Academy
 
+## Sep 6, 2026 — Channels built (NOT yet deployed)
+
+GHL-style community channels: sidebar (General, Welcome Aboard, Announcements
+[admin-only], Wins, Accountability, Office Hours, Tools), post titles, pinned
+posts, `?channel=` URLs. Channel list: `src/content/academy/channels.ts`.
+Admin = `me_users.role = 'admin'` (Brett's academy account; set via SQL).
+
+Live DB: schema applied, Brett = admin, end-to-end post/pin tested Sep 6.
+
+**Supabase paused again (Sep 6) despite the Mon+Thu cron.** Fixed two ways:
+- Cron now runs twice daily (`0 9,21 * * *`).
+- Cron auto-restores: on ping failure it calls the Supabase Management API
+  (`POST /v1/projects/<ref>/restore`) using Vercel env `SUPABASE_ACCESS_TOKEN`
+  + `SUPABASE_PROJECT_REF` (set Sep 6; token = the local Supabase CLI login).
+
+Manual restore runbook (if ever needed again):
+```
+TOKEN=$(security find-generic-password -s "Supabase CLI" -w)
+curl -X POST -H "Authorization: Bearer $TOKEN" https://api.supabase.com/v1/projects/yrfsquzzbgnmkfbuapfk/restore
+# ~3 min to ACTIVE_HEALTHY. Apply SQL without the dashboard:
+#   POST .../projects/<ref>/database/query  {"query": "<sql>"}
+```
+
+Remaining GHL-parity backlog (agreed order): Events calendar → Members
+directory → course cover images + About card → leaderboard 7/30-day tabs.
+Then NotebookLM Layer 1 (flashcards + install script), Layer 2 (notebooklm-py
+0.8.2 automation — verified Sep 6 it can generate+download audio/video/
+flashcards/quiz JSON; unofficial, never load-bearing).
+
 ## NEXT SESSION — FIRST ITEM TO DISCUSS
 
 **NotebookLM automation pipeline.** Brett is very interested in the unofficial

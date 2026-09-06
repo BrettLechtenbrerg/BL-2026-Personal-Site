@@ -157,7 +157,7 @@ BL-2026-Personal-Site/
 | Course | Path | Status | Description |
 |--------|------|--------|-------------|
 | The Master's Edge Workbook | `/masters-edge/workbook` | ✅ Live | Interactive 4-week participant workbook (Clarify → Simplify → Maximize → Integration). Autosave, PDF export, email results, GHL lead capture. |
-| Master's Edge Academy | `/academy` | ✅ LIVE (Aug 29 2026) — preview mode: all modules unlocked | Full private LMS: enrollment-code signup (code EDGE2026), 4 courses / 43 modules (Business Tools, Reclaiming the Clock, Master's Edge Book, + Framework free-giveaway course with NotebookLM audio & video overviews), written lesson + quiz per module, 80% pass gate, XP + belts, badges, community, leaderboard, certification + certificate. Admin review at `/hub/academy`. Env vars set; keep-alive cron Mon+Thu. **Read `docs/ACADEMY.md` + `docs/SESSION-NOTES.md`**. |
+| Master's Edge Academy | `/academy` | ✅ LIVE (Aug 29 2026) — preview mode: all modules unlocked | Full private LMS: enrollment-code signup (code EDGE2026), 4 courses / 43 modules (Business Tools, Reclaiming the Clock, Master's Edge Book, + Framework free-giveaway course with NotebookLM audio & video overviews), written lesson + quiz per module, 80% pass gate, XP + belts, badges, community, leaderboard, certification + certificate. Admin review at `/hub/academy`. Env vars set; keep-alive cron 2×/day with auto-restore. **Read `docs/ACADEMY.md` + `docs/SESSION-NOTES.md`**. |
 
 ### Hidden Draft Pages (noindex — side-by-side review, July 3 2026)
 

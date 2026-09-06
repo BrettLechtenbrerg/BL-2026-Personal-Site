@@ -1,8 +1,11 @@
 //==============================================================================
 // ACADEMY — Community API (posts, comments, reactions) — members only
 //==============================================================================
-// GET  → latest 50 posts with authors, comments, reaction counts.
-// POST { action: "post", body }        → new post (+10 XP)
+// GET  ?channel=<slug> → latest 50 posts in that channel (pinned first; omit
+//       channel for all), plus channel post counts, authors, comments, reactions.
+// POST { action: "post", body, channel?, title? } → new post (+10 XP);
+//       adminOnly channels require me_users.role = 'admin'.
+// POST { action: "pin", postId, pinned }  → admin only
 // POST { action: "comment", postId, body } → new comment (+5 XP)
 // POST { action: "react", postId, emoji }  → toggle reaction (allowlisted emoji)
 // All bodies are length-capped and rendered as plain text client-side.
@@ -10,25 +13,37 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
-import { db, awardXp, awardBadge } from "@/lib/academy-db";
+import { db, awardXp, awardBadge, getUserById } from "@/lib/academy-db";
+import { channelBySlug, DEFAULT_CHANNEL } from "@/content/academy/channels";
 
 const MAX_BODY = 2000;
+const MAX_TITLE = 120;
 const REACTION_EMOJI = ["👊", "🔥", "💡", "👏"];
 const UUID_RE = /^[0-9a-f-]{36}$/i;
 
-export async function GET() {
+async function isAdmin(userId: string): Promise<boolean> {
+  return (await getUserById(userId))?.role === "admin";
+}
+
+export async function GET(request: NextRequest) {
   const auth = await requireAcademyUser();
   if (auth instanceof NextResponse) return auth;
 
+  const channel = request.nextUrl.searchParams.get("channel") ?? "";
   const supabase = db();
-  const { data: posts } = await supabase
+  let query = supabase
     .from("me_posts")
-    .select("id, body, module_slug, created_at, me_users!me_posts_user_id_fkey(id, name, avatar)")
+    .select(
+      "id, body, title, channel, pinned, module_slug, created_at, me_users!me_posts_user_id_fkey(id, name, avatar)"
+    )
+    .order("pinned", { ascending: false })
     .order("created_at", { ascending: false })
     .limit(50);
+  if (channelBySlug(channel)) query = query.eq("channel", channel);
+  const { data: posts } = await query;
 
   const postIds = (posts ?? []).map((p) => p.id as string);
-  const [{ data: comments }, { data: reactions }] = await Promise.all([
+  const [{ data: comments }, { data: reactions }, { data: allChannels }] = await Promise.all([
     postIds.length
       ? supabase
           .from("me_comments")
@@ -39,13 +54,22 @@ export async function GET() {
     postIds.length
       ? supabase.from("me_reactions").select("post_id, user_id, emoji").in("post_id", postIds)
       : Promise.resolve({ data: [] }),
+    // simplification: counts computed in JS from one column read; fine until
+    // thousands of posts — upgrade path is a SQL group-by RPC.
+    supabase.from("me_posts").select("channel"),
   ]);
+  const counts: Record<string, number> = {};
+  for (const row of allChannels ?? []) {
+    const c = row.channel as string;
+    counts[c] = (counts[c] ?? 0) + 1;
+  }
 
   return NextResponse.json({
     me: auth,
     posts: posts ?? [],
     comments: comments ?? [],
     reactions: reactions ?? [],
+    counts,
   });
 }
 
@@ -59,12 +83,17 @@ export async function POST(request: NextRequest) {
 
   if (action === "post") {
     const body = String(payload?.body || "").trim().slice(0, MAX_BODY);
-    if (body.length < 1) {
+    const title = String(payload?.title || "").trim().slice(0, MAX_TITLE) || null;
+    const channel = channelBySlug(String(payload?.channel || DEFAULT_CHANNEL));
+    if (body.length < 1 || !channel) {
       return NextResponse.json({ error: "Write something first." }, { status: 400 });
+    }
+    if (channel.adminOnly && !(await isAdmin(auth))) {
+      return NextResponse.json({ error: "Only Brett can post here." }, { status: 403 });
     }
     const { data: post, error } = await supabase
       .from("me_posts")
-      .insert({ user_id: auth, body })
+      .insert({ user_id: auth, body, title, channel: channel.slug })
       .select("id")
       .single();
     if (error || !post) {
@@ -80,6 +109,22 @@ export async function POST(request: NextRequest) {
     if ((count ?? 0) >= 5) await awardBadge(auth, "community-contributor");
 
     return NextResponse.json({ success: true, xpAwarded });
+  }
+
+  if (action === "pin") {
+    const postId = String(payload?.postId || "");
+    if (!UUID_RE.test(postId)) {
+      return NextResponse.json({ error: "Invalid post." }, { status: 400 });
+    }
+    if (!(await isAdmin(auth))) {
+      return NextResponse.json({ error: "Admins only." }, { status: 403 });
+    }
+    const { error } = await supabase
+      .from("me_posts")
+      .update({ pinned: Boolean(payload?.pinned) })
+      .eq("id", postId);
+    if (error) return NextResponse.json({ error: "Could not pin." }, { status: 500 });
+    return NextResponse.json({ success: true });
   }
 
   if (action === "comment") {

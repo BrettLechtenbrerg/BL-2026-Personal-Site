@@ -18,6 +18,7 @@ export interface MeUser {
   password_hash: string;
   avatar: string;
   xp: number;
+  role: "member" | "admin";
   created_at: string;
 }
 
