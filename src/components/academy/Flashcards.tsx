@@ -50,9 +50,37 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
           <Layers size={18} /> Flashcards
         </h2>
         <span className="text-xs text-white/50">
-          {pos + 1} / {cards.length}
+          Card {pos + 1} of {cards.length}
         </span>
       </div>
+
+      {/* Progress */}
+      <div
+        role="progressbar"
+        aria-valuenow={pos + 1}
+        aria-valuemin={1}
+        aria-valuemax={cards.length}
+        aria-label="Deck progress"
+        className="mb-4 h-1.5 w-full overflow-hidden rounded-full bg-black/40"
+      >
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-cranberry-light to-gold transition-all duration-300"
+          style={{ width: `${((pos + 1) / cards.length) * 100}%` }}
+        />
+      </div>
+
+      {/* Step instruction — changes with state so the next action is always obvious */}
+      <p className="mb-3 text-center text-sm font-semibold text-white/85">
+        {flipped ? (
+          <>
+            <span className="text-gold">Step 2:</span> Got it? Hit <span className="text-gold">Next card</span> →
+          </>
+        ) : (
+          <>
+            <span className="text-gold">Step 1:</span> Think of your answer, then click the card to check it
+          </>
+        )}
+      </p>
 
       {/* 3D flip: the button rotates on Y; each face hides its back so only one shows. */}
       <button
@@ -71,10 +99,10 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
         </div>
       </button>
       <p className="mt-2 text-center text-xs text-white/40">
-        {flipped ? "Tap to flip back" : "Tap the card to reveal the answer"}
+        {flipped ? "Click the card again to see the question" : "Click the card to check your answer"}
       </p>
 
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-4 flex items-center gap-2">
         <button
           type="button"
           onClick={() => go(-1)}
@@ -86,17 +114,20 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
         <button
           type="button"
           onClick={shuffle}
-          className="flex min-h-11 items-center gap-2 rounded-lg border border-white/15 px-4 text-sm hover:bg-white/10"
+          className="flex min-h-11 items-center gap-2 rounded-lg border border-white/15 px-3 text-sm hover:bg-white/10"
         >
-          <Shuffle size={14} /> Shuffle
+          <Shuffle size={14} /> <span className="hidden sm:inline">Shuffle</span>
         </button>
         <button
           type="button"
           onClick={() => go(1)}
-          aria-label="Next card"
-          className="flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/15 hover:bg-white/10"
+          className={`flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg font-heading font-bold transition-all ${
+            flipped
+              ? "bg-gold text-black shadow-[0_0_24px_-4px_var(--gold)] hover:bg-gold-light motion-safe:animate-pulse"
+              : "border border-white/15 text-white/80 hover:bg-white/10"
+          }`}
         >
-          <ChevronRight size={18} />
+          {pos + 1 === cards.length ? "Start over" : "Next card"} <ChevronRight size={18} />
         </button>
       </div>
     </div>
