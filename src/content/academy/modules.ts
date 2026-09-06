@@ -822,6 +822,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "delegation-engine",
+    audio: [
+      { label: "Deep Dive: The Delegation Engine (NotebookLM audio overview)", href: "/academy/delegation-engine/deep-dive.m4a" },
+    ],
     order: 7,
     title: "The Delegation Engine",
     tagline: "Leverage",
