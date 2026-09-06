@@ -36,7 +36,11 @@ DONE Sep 6: NotebookLM Layer 1 — flashcard deck component + sidecar loader +
 `scripts/academy-install.mjs` (CSV/JSON flashcards, audio, video, quiz→TS).
 Sample 5-card deck installed on masters-edge-framework.
 
-NEXT: Layer 2 (notebooklm-py
+Layer 2 built Sep 6: `scripts/academy-notebooklm.mjs` (wraps the notebooklm
+CLI 0.8.2, installed via uv tool). Verified up to the login gate; first real
+run needs Brett to `notebooklm login` once. Untested past that point.
+
+(Was: Layer 2 (notebooklm-py
 0.8.2 automation — verified Sep 6 it can generate+download audio/video/
 flashcards/quiz JSON; unofficial, never load-bearing).
 

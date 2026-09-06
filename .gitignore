@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Supabase CLI scratch
 supabase/.temp/
+
+# NotebookLM working files (scripts/academy-notebooklm.mjs)
+.notebooklm/

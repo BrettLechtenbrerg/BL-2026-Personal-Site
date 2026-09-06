@@ -64,6 +64,13 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 - **Installing NotebookLM artifacts** (audio, video, flashcards CSV/JSON, quiz):
   `node scripts/academy-install.mjs <slug> <file> [--label "…"] [--deploy]`.
   Quizzes are printed as TS to paste (never auto-written). See script header.
+- **Generating NotebookLM artifacts** (Layer 2, unofficial):
+  `node scripts/academy-notebooklm.mjs <slug> [--only audio,video,flashcards,quiz] [--deploy]`
+  turns the lesson into a NotebookLM notebook, generates, downloads to
+  `.notebooklm/<slug>/` (gitignored), and runs the installer for each.
+  One-time: `uv tool install "notebooklm-py[browser]"` + `notebooklm login`.
+  Free tier ≈ 3 audio + 3 video/day. Rides Brett's Google session; may break
+  when Google changes NotebookLM — never load-bearing.
 - **Session log**: docs/SESSION-NOTES.md — read it first next session.
 
 ## Adding a module
