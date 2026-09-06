@@ -43,7 +43,7 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
         if (e.key === "ArrowRight") go(1);
         else if (e.key === "ArrowLeft") go(-1);
       }}
-      className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md"
+      className="mb-6 rounded-2xl border border-cranberry/40 bg-gradient-to-br from-cranberry/15 via-white/5 to-gold/10 p-6 shadow-[0_0_40px_-10px_var(--cranberry)] backdrop-blur-md"
     >
       <div className="mb-3 flex items-center justify-between">
         <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-gold">
@@ -117,16 +117,29 @@ function CardFace({
   return (
     <div
       aria-hidden={hidden}
-      className={`absolute inset-0 flex flex-col items-center justify-center rounded-xl border p-6 text-center shadow-lg [backface-visibility:hidden] ${
+      className={`absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-xl border-2 p-6 text-center [backface-visibility:hidden] ${
         back
-          ? "border-gold/50 bg-gradient-to-br from-gold/20 to-cranberry/20 [transform:rotateY(180deg)]"
-          : "border-white/15 bg-black/30 group-hover:bg-black/40"
+          ? "border-gold bg-gradient-to-br from-gold-dark via-[#3a2a08] to-black shadow-[0_0_50px_-8px_var(--gold)] [transform:rotateY(180deg)]"
+          : "border-gold/70 bg-gradient-to-br from-cranberry-light via-cranberry to-[#3a0a12] shadow-[0_0_50px_-8px_var(--cranberry-light)] transition-shadow group-hover:shadow-[0_0_60px_-4px_var(--gold)]"
       }`}
     >
-      <span className={`mb-3 text-[10px] font-bold uppercase tracking-[0.2em] ${back ? "text-gold" : "text-white/40"}`}>
+      {/* Ember glow in the corner */}
+      <span
+        aria-hidden
+        className={`pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full blur-3xl ${
+          back ? "bg-gold/40" : "bg-gold/30"
+        }`}
+      />
+      <span
+        className={`relative mb-3 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.25em] ${
+          back ? "bg-black/40 text-gold-light" : "bg-gold text-black"
+        }`}
+      >
         {label}
       </span>
-      <span className="whitespace-pre-wrap text-base leading-relaxed text-white/90">{text}</span>
+      <span className="relative whitespace-pre-wrap font-heading text-lg font-bold leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        {text}
+      </span>
     </div>
   );
 }

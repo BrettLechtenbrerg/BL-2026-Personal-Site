@@ -131,7 +131,7 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
       {/* Audio lessons — e.g. NotebookLM deep-dive overviews */}
       {(m.audio?.length ?? 0) > 0 && (
         <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Listen</h2>
+          <h2 className="mb-3 font-heading text-lg font-bold text-gold">Podcast Overview</h2>
           <div className="space-y-4">
             {m.audio!.map((track) => (
               <div key={track.href}>
