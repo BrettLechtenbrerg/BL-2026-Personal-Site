@@ -18,7 +18,7 @@ export async function GET() {
   const since30 = new Date(Date.now() - 30 * DAY).toISOString();
   const since7 = Date.now() - 7 * DAY;
   const [{ data: users }, { data: certified }, { data: recent }] = await Promise.all([
-    supabase.from("me_users").select("id, name, avatar, xp").order("xp", { ascending: false }).limit(500),
+    supabase.from("me_users").select("id, name, avatar, photo_url, xp").order("xp", { ascending: false }).limit(500),
     supabase.from("me_awards").select("user_id").eq("badge_slug", "certified-masters-edge"),
     // simplification: 30-day ledger read into memory, capped at 10k rows
     // (~300 events/day). Upgrade path: a SQL group-by RPC.
@@ -43,6 +43,7 @@ export async function GET() {
       id: u.id,
       name: u.name,
       avatar: u.avatar,
+      photoUrl: u.photo_url,
       xp: u.xp,
       xp7: xp7[u.id as string] ?? 0,
       xp30: xp30[u.id as string] ?? 0,

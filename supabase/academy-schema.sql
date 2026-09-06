@@ -127,6 +127,12 @@ alter table me_users add column if not exists bio          text;
 alter table me_users add column if not exists last_seen_at timestamptz;
 -- Make Brett an admin (can post Announcements + pin posts):
 --   update me_users set role = 'admin' where email = 'brett@brettlechtenberg.com';
+-- Sep 6 2026: profile photos (public bucket; uploads go through the service
+-- role only — /api/academy/profile/photo validates type + size).
+alter table me_users add column if not exists photo_url text;
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('academy-avatars', 'academy-avatars', true, 2097152, '{image/jpeg,image/png,image/webp}')
+on conflict (id) do nothing;
 
 -- Indexes ---------------------------------------------------------------------
 create index if not exists me_quiz_attempts_user_idx on me_quiz_attempts (user_id, module_slug);

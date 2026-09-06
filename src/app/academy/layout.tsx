@@ -7,6 +7,7 @@
 
 import type { Metadata } from "next";
 import AcademyNav from "@/components/academy/AcademyNav";
+import ChannelSidebar from "@/components/academy/ChannelSidebar";
 
 export const metadata: Metadata = {
   title: "Master's Edge Academy | Brett Lechtenberg",
@@ -18,7 +19,10 @@ export default function AcademyLayout({ children }: { children: React.ReactNode 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-[#2a0a12] to-black text-white">
       <AcademyNav />
-      <main className="mx-auto max-w-5xl px-4 pb-24 pt-6">{children}</main>
+      <div className="mx-auto flex max-w-6xl gap-6 px-4 pb-24 pt-6">
+        <ChannelSidebar />
+        <main className="min-w-0 flex-1">{children}</main>
+      </div>
     </div>
   );
 }

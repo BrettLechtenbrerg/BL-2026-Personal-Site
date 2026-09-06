@@ -8,17 +8,18 @@
 //==============================================================================
 
 import { Suspense, useCallback, useEffect, useState } from "react";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Loader2, MessageCircle, Pin, Send } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
+import Avatar from "@/components/academy/Avatar";
 import { channels, channelBySlug, DEFAULT_CHANNEL } from "@/content/academy/channels";
 
 interface Author {
   id: string;
   name: string;
   avatar: string;
+  photo_url?: string | null;
 }
 
 interface Post {
@@ -88,8 +89,6 @@ function Community() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
   const [reactions, setReactions] = useState<Reaction[]>([]);
-  const [counts, setCounts] = useState<Record<string, number>>({});
-  const [stats, setStats] = useState({ members: 0, posts: 0 });
   const [ready, setReady] = useState(false);
   const [title, setTitle] = useState("");
   const [draft, setDraft] = useState("");
@@ -112,8 +111,6 @@ function Community() {
           setPosts(json.posts ?? []);
           setComments(json.comments ?? []);
           setReactions(json.reactions ?? []);
-          setCounts(json.counts ?? {});
-          setStats(json.stats ?? { members: 0, posts: 0 });
         }
         setReady(true);
       })
@@ -169,43 +166,8 @@ function Community() {
   const composerLocked = active?.adminOnly && !isAdmin;
 
   return (
-    <div className="mx-auto flex max-w-5xl gap-6">
-      {/* Channel sidebar — horizontal chips on mobile, column on desktop */}
-      <aside className="hidden w-56 shrink-0 md:block">
-        <nav className="sticky top-20 space-y-0.5">
-          <ChannelLink label="All posts" emoji="🏠" activeNow={!active} onClick={() => goTo("")} />
-          <div className="my-2 border-t border-white/10" />
-          {channels.map((c) => (
-            <ChannelLink
-              key={c.slug}
-              label={c.name}
-              emoji={c.emoji}
-              count={counts[c.slug]}
-              activeNow={active?.slug === c.slug}
-              onClick={() => goTo(c.slug)}
-            />
-          ))}
-
-          {/* About card (GHL-style group summary) */}
-          <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
-            <p className="font-heading font-bold">Master&apos;s Edge Academy</p>
-            <p className="mt-1 text-xs text-white/60">
-              Private group. We don&apos;t just talk about mastery — we train it, measure it, and prove it.
-            </p>
-            <div className="mt-3 grid grid-cols-2 divide-x divide-white/10 text-center">
-              <Link href="/academy/members" className="hover:text-gold">
-                <p className="font-heading text-lg font-bold">{stats.members}</p>
-                <p className="text-[11px] text-white/50">Members</p>
-              </Link>
-              <div>
-                <p className="font-heading text-lg font-bold">{stats.posts}</p>
-                <p className="text-[11px] text-white/50">Posts</p>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </aside>
-
+    <div className="mx-auto max-w-3xl">
+      {/* Desktop channel list lives in the layout (ChannelSidebar); chips are the mobile fallback */}
       <div className="min-w-0 flex-1">
         <div className="mb-3 flex gap-1.5 overflow-x-auto pb-2 md:hidden">
           <Chip label="All" activeNow={!active} onClick={() => goTo("")} />
@@ -301,7 +263,7 @@ function Community() {
                   }`}
                 >
                   <div className="mb-2 flex items-center gap-2">
-                    <span className="text-2xl">{a.avatar}</span>
+                    <Avatar emoji={a.avatar} photoUrl={a.photo_url} size={40} />
                     <div className="min-w-0">
                       <p className="text-sm font-semibold">{a.name}</p>
                       <p className="text-xs text-white/40">
@@ -382,7 +344,7 @@ function Community() {
                         const ca = author(c.me_users);
                         return (
                           <div key={c.id} className="flex gap-2 text-sm">
-                            <span className="text-lg">{ca.avatar}</span>
+                            <Avatar emoji={ca.avatar} photoUrl={ca.photo_url} size={28} />
                             <div>
                               <span className="font-semibold">{ca.name}</span>{" "}
                               <span className="text-xs text-white/40">{timeAgo(c.created_at)}</span>
@@ -423,36 +385,6 @@ function Community() {
         )}
       </div>
     </div>
-  );
-}
-
-function ChannelLink({
-  label,
-  emoji,
-  count,
-  activeNow,
-  onClick,
-}: {
-  label: string;
-  emoji: string;
-  count?: number;
-  activeNow: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      aria-current={activeNow ? "page" : undefined}
-      className={`flex min-h-11 w-full items-center gap-2.5 rounded-lg px-3 text-left text-sm transition-colors ${
-        activeNow
-          ? "bg-cranberry font-semibold text-white"
-          : "text-white/75 hover:bg-white/10 hover:text-white"
-      }`}
-    >
-      <span className="text-base">{emoji}</span>
-      <span className="flex-1 truncate">{label}</span>
-      {count ? <span className="text-xs text-white/50">{count}</span> : null}
-    </button>
   );
 }
 

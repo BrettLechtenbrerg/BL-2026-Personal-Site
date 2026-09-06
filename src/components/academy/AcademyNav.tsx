@@ -53,7 +53,7 @@ export default function AcademyNav() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-black/60 backdrop-blur-md">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-4 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3">
         <Link href={authed ? "/academy/dashboard" : "/academy"} className="flex items-center gap-2">
           <span className="text-xl">🥋</span>
           <span className="font-heading text-sm font-bold tracking-wide text-gold sm:text-base">

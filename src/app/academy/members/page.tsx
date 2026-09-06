@@ -9,12 +9,14 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, Loader2, Search, Users } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
+import Avatar from "@/components/academy/Avatar";
 import { beltFor } from "@/content/academy/badges";
 
 interface Member {
   id: string;
   name: string;
   avatar: string;
+  photoUrl: string | null;
   xp: number;
   admin: boolean;
   bio: string | null;
@@ -128,9 +130,7 @@ export default function MembersPage() {
                 isMe ? "border-gold/50 bg-gold/10" : "border-white/10 bg-white/5"
               }`}
             >
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black/40 text-2xl">
-                {m.avatar}
-              </span>
+              <Avatar emoji={m.avatar} photoUrl={m.photoUrl} size={48} />
               <div className="min-w-0 flex-1">
                 <p className="flex flex-wrap items-center gap-2 font-semibold">
                   {m.name}

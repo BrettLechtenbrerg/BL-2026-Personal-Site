@@ -227,6 +227,7 @@ export async function GET() {
       xp: user.xp,
       role: user.role ?? "member",
       bio: user.bio ?? "",
+      photoUrl: user.photo_url ?? null,
     },
     badges,
   });

@@ -15,7 +15,7 @@ export async function GET() {
   const [{ data: users }, { data: certified }] = await Promise.all([
     supabase
       .from("me_users")
-      .select("id, name, avatar, xp, role, bio, last_seen_at, created_at")
+      .select("id, name, avatar, photo_url, xp, role, bio, last_seen_at, created_at")
       .order("last_seen_at", { ascending: false, nullsFirst: false })
       .limit(500),
     supabase.from("me_awards").select("user_id").eq("badge_slug", "certified-masters-edge"),
@@ -28,6 +28,7 @@ export async function GET() {
       id: u.id,
       name: u.name,
       avatar: u.avatar,
+      photoUrl: u.photo_url,
       xp: u.xp,
       admin: u.role === "admin",
       bio: u.bio,

@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
   let query = supabase
     .from("me_posts")
     .select(
-      "id, body, title, channel, pinned, module_slug, created_at, me_users!me_posts_user_id_fkey(id, name, avatar)"
+      "id, body, title, channel, pinned, module_slug, created_at, me_users!me_posts_user_id_fkey(id, name, avatar, photo_url)"
     )
     .order("pinned", { ascending: false })
     .order("created_at", { ascending: false })
@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
     postIds.length
       ? supabase
           .from("me_comments")
-          .select("id, post_id, body, created_at, me_users!me_comments_user_id_fkey(id, name, avatar)")
+          .select("id, post_id, body, created_at, me_users!me_comments_user_id_fkey(id, name, avatar, photo_url)")
           .in("post_id", postIds)
           .order("created_at", { ascending: true })
       : Promise.resolve({ data: [] }),

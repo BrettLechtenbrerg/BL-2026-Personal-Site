@@ -8,12 +8,14 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2, Trophy } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
+import Avatar from "@/components/academy/Avatar";
 import { beltFor, beltLevels } from "@/content/academy/badges";
 
 interface Member {
   id: string;
   name: string;
   avatar: string;
+  photoUrl: string | null;
   xp: number;
   xp7: number;
   xp30: number;
@@ -122,7 +124,7 @@ export default function LeaderboardPage() {
               <span className="w-8 text-center font-heading font-bold text-white/60">
                 {MEDALS[i] ?? i + 1}
               </span>
-              <span className="text-2xl">{m.avatar}</span>
+              <Avatar emoji={m.avatar} photoUrl={m.photoUrl} size={40} />
               <div className="min-w-0 flex-1">
                 <p className="truncate font-semibold">
                   {m.name} {isMe && <span className="text-xs text-gold">(you)</span>}
