@@ -1,5 +1,37 @@
 # Session Notes — Academy
 
+## ⚡ Sep 6, 2026 — END OF SESSION STATE (read this first)
+
+**Unattended batch is RUNNING** (macOS LaunchAgent
+`com.brettlechtenberg.academy-notebooklm`): every 20 min it generates NotebookLM
+audio + video + flashcards for one module, commits, pushes, deploys. Started
+18:47 UTC at module 3/43 (`decision-journal`). ETA all 43 ≈ 14 hrs of the Mac
+being awake. It unloads itself when done.
+
+Check:   `bash scripts/academy-batch-ctl.sh status`
+Log:     `.notebooklm/batch.log` (gitignored)
+Stop:    `bash scripts/academy-batch-ctl.sh remove`
+Restart: `bash scripts/academy-batch-ctl.sh install`   (safe — skips done modules)
+
+If a session resumes while it's running: **do not** edit `modules.ts` or run
+`vercel --prod` by hand mid-tick (it commits/pushes on its own). Pull first:
+`git pull` — the batch pushes to origin/main every ~20 min.
+
+**Known ceilings (not blockers today):**
+- Vercel Hobby: function bundle ≤ 250 MB (FIXED Sep 6 — flashcards moved to
+  `src/content/academy/flashcards/`, `outputFileTracingExcludes` for
+  `public/academy`). CLI upload ≤ 100 MB per deploy — the CLI dedupes, so only
+  the new module's ~70 MB goes up each tick. If a deploy ever fails on upload
+  size, move media to Supabase Storage (installer refuses >90 MB files already).
+- Repo will grow to ~3 GB of media in `public/academy/`. GitHub accepts it
+  (per-file <100 MB). If that becomes painful, migrate to Storage + URLs.
+- NotebookLM Pro quota: 20 audio + 20 video per rolling 24 h. Batch pauses
+  60 min when it sees a quota error; nothing is lost.
+- NotebookLM auth: cookies in `~/.notebooklm/profiles/default/`. If the batch
+  log shows "Not signed in", run `notebooklm login --browser chrome` once.
+
+**Vercel GitHub auto-deploy is NOT firing** — always `npx vercel --prod --yes`.
+
 ## Sep 6, 2026 — GHL parity build (all DEPLOYED)
 
 GHL-style community channels: sidebar (General, Welcome Aboard, Announcements
@@ -39,8 +71,14 @@ Sample 5-card deck installed on masters-edge-framework.
 Layer 2 built Sep 6: `scripts/academy-notebooklm.mjs` (wraps the notebooklm
 CLI 0.8.2, installed via uv tool). First real run Sep 6 on `fire-yourself`:
 40 flashcards + 41 MB podcast + 31 MB video + 10-question quiz (printed, not
-pasted) — all installed and deployed. ~12 min wall time. Brett is logged in
-(`~/.notebooklm/profiles/default/`). Quota: free tier ≈ 3 audio + 3 video/day.
+pasted) — all installed and deployed. ~12–25 min wall time per module. Brett's
+account is **Google AI Pro (tier 2)**: 20 audio + 20 video per rolling 24 h.
+Then `scripts/academy-batch.mjs` + launchd for the remaining 41 (see top).
+
+Also Sep 6: visual podcast player (`PodcastPlayer.tsx` — two hosts, mic,
+animated bars), 3D flip flashcards with step prompts + progress bar,
+profile photo upload (Supabase Storage `academy-avatars`), channel sidebar on
+every academy page.
 
 (Was: Layer 2 (notebooklm-py
 0.8.2 automation — verified Sep 6 it can generate+download audio/video/

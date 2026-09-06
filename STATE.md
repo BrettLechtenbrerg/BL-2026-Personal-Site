@@ -1,13 +1,24 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** August 24, 2026 (Session 27)
+**Last Updated:** September 6, 2026 (Session 28)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site LIVE. **Session 27 (Aug 24):** homepage hero copy replaced
+**Status:** Site LIVE. **Session 28 (Sep 6) — Academy GHL-parity + NotebookLM
+automation.** Shipped: community channels (admin-only Announcements, pinned
+posts), events calendar, members directory w/ profile photos, channel sidebar on
+every academy page, leaderboard tabs, 3D flashcards, visual podcast player,
+NotebookLM Layer 1 (installer) + Layer 2 (`academy-notebooklm.mjs` generates
+podcast/video/flashcards from a lesson) + unattended launchd batch that is
+**still running** across all 43 modules at session end. Supabase was paused
+again → keep-alive now Vercel cron daily + GitHub Actions 2×/day with
+Management-API auto-restore. Fixed Vercel 250 MB function-bundle failure.
+**Everything is in `docs/SESSION-NOTES.md` (top section) — read that first.**
+
+**Session 27 (Aug 24):** homepage hero copy replaced
 (`1d86a4d`, verified live) — headline now **"Achieve More Without Doing
 More"**, subheadline "Build the focus, leadership, and AI advantage to
 accomplish more, lead more effectively, and perform at your best—without
