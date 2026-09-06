@@ -111,7 +111,13 @@ try {
   // then wait on each in turn.
   const started = [];
   for (const kind of flags.only) {
-    const res = nlmJson([...jobs[kind].gen, "--json"]);
+    let res;
+    try {
+      res = JSON.parse(nlm([...jobs[kind].gen, "--json"]));
+    } catch (err) {
+      console.warn(`⚠ ${kind}: could not start (${String(err.message ?? err).slice(0, 200)}) — daily quota?`);
+      continue;
+    }
     const taskId = res.task_id ?? res.artifact_id ?? res.id;
     if (!taskId) {
       console.warn(`⚠ ${kind}: could not start (${JSON.stringify(res).slice(0, 200)})`);
