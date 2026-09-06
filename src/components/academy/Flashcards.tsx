@@ -54,21 +54,24 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
         </span>
       </div>
 
+      {/* 3D flip: the button rotates on Y; each face hides its back so only one shows. */}
       <button
         type="button"
         onClick={() => setFlipped((f) => !f)}
         aria-pressed={flipped}
         aria-label={flipped ? "Showing answer. Tap to see question." : "Showing question. Tap to reveal answer."}
-        className={`flex min-h-[180px] w-full items-center justify-center rounded-xl border p-6 text-center transition-colors ${
-          flipped ? "border-gold/50 bg-gold/10" : "border-white/15 bg-black/30 hover:bg-black/40"
-        }`}
+        className="group relative block min-h-[200px] w-full [perspective:1200px]"
       >
-        <span className="whitespace-pre-wrap text-base leading-relaxed text-white/90">
-          {flipped ? card.back : card.front}
-        </span>
+        <div
+          className="relative h-full min-h-[200px] w-full transition-transform duration-500 ease-out [transform-style:preserve-3d] motion-reduce:transition-none"
+          style={{ transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)" }}
+        >
+          <CardFace label="Question" text={card.front} hidden={flipped} />
+          <CardFace label="Answer" text={card.back} hidden={!flipped} back />
+        </div>
       </button>
       <p className="mt-2 text-center text-xs text-white/40">
-        {flipped ? "Answer" : "Tap the card to reveal the answer"}
+        {flipped ? "Tap to flip back" : "Tap the card to reveal the answer"}
       </p>
 
       <div className="mt-4 flex items-center justify-between">
@@ -96,6 +99,34 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
           <ChevronRight size={18} />
         </button>
       </div>
+    </div>
+  );
+}
+
+function CardFace({
+  label,
+  text,
+  hidden,
+  back = false,
+}: {
+  label: string;
+  text: string;
+  hidden: boolean;
+  back?: boolean;
+}) {
+  return (
+    <div
+      aria-hidden={hidden}
+      className={`absolute inset-0 flex flex-col items-center justify-center rounded-xl border p-6 text-center shadow-lg [backface-visibility:hidden] ${
+        back
+          ? "border-gold/50 bg-gradient-to-br from-gold/20 to-cranberry/20 [transform:rotateY(180deg)]"
+          : "border-white/15 bg-black/30 group-hover:bg-black/40"
+      }`}
+    >
+      <span className={`mb-3 text-[10px] font-bold uppercase tracking-[0.2em] ${back ? "text-gold" : "text-white/40"}`}>
+        {label}
+      </span>
+      <span className="whitespace-pre-wrap text-base leading-relaxed text-white/90">{text}</span>
     </div>
   );
 }
