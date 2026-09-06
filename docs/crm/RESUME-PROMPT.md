@@ -1,7 +1,11 @@
 # Edge CRM (GHL replacement) — Resume Prompt
 
 **Updated:** September 6, 2026 (end of Phase 0)
-A copy lives at `~/Desktop/EDGE-CRM-RESUME-PROMPT.md`. Paste the block below into a fresh session.
+
+**How to restart:** open a new session and say
+> "I want to work on the CRM system for brettlechtenberg.com — read `~/Desktop/EDGE-CRM-RESUME-PROMPT.md` and pick up where we left off."
+
+That file is a copy of this one. All project docs live in the repo at `docs/crm/`.
 
 ---
 
