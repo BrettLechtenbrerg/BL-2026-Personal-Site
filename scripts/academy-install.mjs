@@ -11,8 +11,8 @@
 //   audio       .m4a .mp3 .wav         → public/academy/<slug>/, "Listen" block
 //   video       .mp4 .webm             → public/academy/<slug>/, "Video Overview"
 //
-// Flashcards are written to public/academy/<slug>/flashcards.json (read at
-// request time — modules.ts untouched). Audio/video insert ONE entry into the
+// Flashcards are written to src/content/academy/flashcards/<slug>.json (read
+// at request time — modules.ts untouched). Audio/video insert ONE entry into the
 // module's audio[]/videoFiles[] in src/content/academy/modules.ts.
 // --deploy runs: git add, commit, push, vercel --prod.
 //==============================================================================
@@ -52,8 +52,9 @@ const changed = [];
 if (ext === ".csv" || (ext === ".json" && looksLikeFlashcards(file))) {
   const cards = ext === ".csv" ? parseCsvCards(readFileSync(file, "utf8")) : parseJsonCards(file);
   if (cards.length === 0) die("No flashcards found in that file.");
-  mkdirSync(outDir, { recursive: true });
-  const out = path.join(outDir, "flashcards.json");
+  const deckDir = path.join(ROOT, "src/content/academy/flashcards");
+  mkdirSync(deckDir, { recursive: true });
+  const out = path.join(deckDir, `${slug}.json`);
   writeFileSync(out, JSON.stringify(cards, null, 2) + "\n");
   changed.push(out);
   console.log(`✓ ${cards.length} flashcards → ${rel(out)}`);

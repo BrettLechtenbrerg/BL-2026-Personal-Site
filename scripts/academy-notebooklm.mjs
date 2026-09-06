@@ -157,7 +157,7 @@ try {
 
   if (flags.deploy && installed.some((k) => k !== "quiz")) {
     run("npx", ["tsc", "--noEmit"]);
-    run("git", ["add", "src/content/academy/modules.ts", `public/academy/${slug}`]);
+    run("git", ["add", "src/content/academy/modules.ts", `public/academy/${slug}`, "src/content/academy/flashcards"]);
     run("git", ["commit", "-m", `Academy: NotebookLM ${installed.filter((k) => k !== "quiz").join("+")} for ${slug}`]);
     run("git", ["push", "origin", "main"]);
     run("npx", ["vercel", "--prod", "--yes"]);

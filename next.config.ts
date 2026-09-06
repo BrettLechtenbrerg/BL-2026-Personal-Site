@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Academy media (hundreds of MB of NotebookLM audio/video) is served as static
+  // files; never let it be traced into a serverless function bundle (250 MB cap).
+  outputFileTracingExcludes: { "*": ["./public/academy/**"] },
   images: {
     // Academy profile photos live in Supabase Storage (public bucket).
     remotePatterns: [

@@ -35,9 +35,9 @@ const MAX_ATTEMPTS = 3;
 const QUOTA_PAUSE_MIN = 60;
 const QUOTA_RE = /quota|rate.?limit|too many|429|daily limit|limit reached/i;
 const NEEDED = [
-  { kind: "audio", file: "deep-dive.m4a" },
-  { kind: "video", file: "video-overview.mp4" },
-  { kind: "flashcards", file: "flashcards.json" },
+  { kind: "audio", file: (slug) => path.join(ROOT, "public/academy", slug, "deep-dive.m4a") },
+  { kind: "video", file: (slug) => path.join(ROOT, "public/academy", slug, "video-overview.mp4") },
+  { kind: "flashcards", file: (slug) => path.join(ROOT, "src/content/academy/flashcards", `${slug}.json`) },
 ];
 
 mkdirSync(WORK, { recursive: true });
@@ -53,7 +53,7 @@ const state = existsSync(STATE) ? JSON.parse(readFileSync(STATE, "utf8")) : { at
 const queue = academyModules
   .map((m) => ({
     slug: m.slug,
-    missing: NEEDED.filter((n) => !existsSync(path.join(ROOT, "public/academy", m.slug, n.file))).map((n) => n.kind),
+    missing: NEEDED.filter((n) => !existsSync(n.file(m.slug))).map((n) => n.kind),
   }))
   .filter((m) => m.missing.length > 0);
 const runnable = queue.filter((m) => (state.attempts[m.slug] ?? 0) < MAX_ATTEMPTS);
@@ -104,7 +104,7 @@ const r = spawnSync(
 appendFileSync(LOG, r.stdout ?? "");
 appendFileSync(LOG, r.stderr ?? "");
 
-const stillMissing = NEEDED.filter((n) => !existsSync(path.join(ROOT, "public/academy", next.slug, n.file))).map((n) => n.kind);
+const stillMissing = NEEDED.filter((n) => !existsSync(n.file(next.slug))).map((n) => n.kind);
 if (stillMissing.length === 0) {
   delete state.attempts[next.slug];
   log(`✓ ${next.slug} complete.`);
