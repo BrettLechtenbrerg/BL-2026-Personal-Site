@@ -2,7 +2,8 @@
 // ACADEMY — Community API (posts, comments, reactions) — members only
 //==============================================================================
 // GET  ?channel=<slug> → latest 50 posts in that channel (pinned first; omit
-//       channel for all), plus channel post counts, authors, comments, reactions.
+//       channel for all) with authors, comments, reactions. Channel counts +
+//       group totals live in ./stats (used by the layout sidebar).
 // POST { action: "post", body, channel?, title? } → new post (+10 XP);
 //       adminOnly channels require me_users.role = 'admin'.
 // POST { action: "pin", postId, pinned }  → admin only
@@ -43,8 +44,7 @@ export async function GET(request: NextRequest) {
   const { data: posts } = await query;
 
   const postIds = (posts ?? []).map((p) => p.id as string);
-  const [{ data: comments }, { data: reactions }, { data: allChannels }, { count: memberCount }] =
-    await Promise.all([
+  const [{ data: comments }, { data: reactions }] = await Promise.all([
     postIds.length
       ? supabase
           .from("me_comments")
@@ -55,24 +55,13 @@ export async function GET(request: NextRequest) {
     postIds.length
       ? supabase.from("me_reactions").select("post_id, user_id, emoji").in("post_id", postIds)
       : Promise.resolve({ data: [] }),
-    // simplification: counts computed in JS from one column read; fine until
-    // thousands of posts — upgrade path is a SQL group-by RPC.
-    supabase.from("me_posts").select("channel"),
-    supabase.from("me_users").select("id", { count: "exact", head: true }),
   ]);
-  const counts: Record<string, number> = {};
-  for (const row of allChannels ?? []) {
-    const c = row.channel as string;
-    counts[c] = (counts[c] ?? 0) + 1;
-  }
 
   return NextResponse.json({
     me: auth,
     posts: posts ?? [],
     comments: comments ?? [],
     reactions: reactions ?? [],
-    counts,
-    stats: { members: memberCount ?? 0, posts: (allChannels ?? []).length },
   });
 }
 
