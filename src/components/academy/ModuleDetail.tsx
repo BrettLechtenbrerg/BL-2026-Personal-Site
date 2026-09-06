@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, BookOpen, CheckCircle2, FileText, Loader2, Sparkles, Swords } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
+import Flashcards, { type Flashcard } from "./Flashcards";
 
 export interface ModuleDetailData {
   slug: string;
@@ -23,6 +24,7 @@ export interface ModuleDetailData {
   pdfs: { label: string; href: string }[];
   audio?: { label: string; href: string }[];
   videoFiles?: { label: string; href: string }[];
+  flashcards?: Flashcard[];
   images: string[];
   keyPoints: string[];
   lesson: { heading: string; paragraphs: string[]; bullets?: string[] }[];
@@ -194,6 +196,9 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
         </div>
       </div>
 
+
+      {/* Flashcards — e.g. NotebookLM export, installed by scripts/academy-install.mjs */}
+      {(m.flashcards?.length ?? 0) > 0 && <Flashcards cards={m.flashcards!} />}
 
       {/* Key points */}
       <div className="mb-6 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">

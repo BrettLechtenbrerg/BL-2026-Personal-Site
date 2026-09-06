@@ -32,7 +32,11 @@ AcademyCourse — drop art in `/public/academy/covers/` and set the path; brand
 gradient until then), community About card, leaderboard 7/30-day/all-time tabs
 + belt distribution.
 
-NEXT: NotebookLM Layer 1 (flashcards + install script), Layer 2 (notebooklm-py
+DONE Sep 6: NotebookLM Layer 1 — flashcard deck component + sidecar loader +
+`scripts/academy-install.mjs` (CSV/JSON flashcards, audio, video, quiz→TS).
+Sample 5-card deck installed on masters-edge-framework.
+
+NEXT: Layer 2 (notebooklm-py
 0.8.2 automation — verified Sep 6 it can generate+download audio/video/
 flashcards/quiz JSON; unofficial, never load-bearing).
 

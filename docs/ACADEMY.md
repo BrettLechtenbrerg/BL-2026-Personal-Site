@@ -58,6 +58,12 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 - **Media on modules**: optional `audio` and `videoFiles` arrays render native
   players ABOVE the YouTube embed. Files live under
   `public/academy/<slug>/`; keep them under ~90MB (Supabase Storage beyond).
+- **Flashcards**: `public/academy/<slug>/flashcards.json` (`[{front, back}]`),
+  read at request time by `src/content/academy/media.ts` — modules.ts is not
+  touched. Renders a flip-card deck between the lesson and Key Points.
+- **Installing NotebookLM artifacts** (audio, video, flashcards CSV/JSON, quiz):
+  `node scripts/academy-install.mjs <slug> <file> [--label "…"] [--deploy]`.
+  Quizzes are printed as TS to paste (never auto-written). See script header.
 - **Session log**: docs/SESSION-NOTES.md — read it first next session.
 
 ## Adding a module
