@@ -23,7 +23,7 @@ case "${1:-}" in
     ;;
   remove)
     launchctl bootout "$DOMAIN/$LABEL" 2>/dev/null || true
-    rm -f "$PLIST" "$ROOT/.notebooklm/batch.lock"
+    rm -f "$PLIST"; rm -rf "$ROOT/.notebooklm/batch.lock"
     echo "Removed $LABEL."
     ;;
   status)

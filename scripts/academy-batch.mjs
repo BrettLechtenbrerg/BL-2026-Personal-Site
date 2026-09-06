@@ -15,7 +15,7 @@
 //==============================================================================
 
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync, rmSync, appendFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync, rmSync, appendFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 if (!process.execArgv.includes("--experimental-strip-types")) {
@@ -79,7 +79,13 @@ if (runnable.length === 0) {
 }
 
 // One run at a time — launchd may fire while the previous tick is still generating.
+// A lock older than the longest possible run is stale (crash / power loss) and is reclaimed.
+const LOCK_STALE_MS = 75 * 60 * 1000;
 try {
+  if (existsSync(LOCK) && Date.now() - statSync(LOCK).mtimeMs > LOCK_STALE_MS) {
+    log("Reclaiming stale lock.");
+    rmSync(LOCK, { recursive: true, force: true });
+  }
   mkdirSync(LOCK);
 } catch {
   log("Another batch run is in progress; skipping this tick.");
