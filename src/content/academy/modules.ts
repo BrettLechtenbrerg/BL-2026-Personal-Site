@@ -1500,6 +1500,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "referral-engine",
+    videoFiles: [
+      { label: "The Referral Engine (NotebookLM video overview)", href: "/academy/referral-engine/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Referral Engine (NotebookLM audio overview)", href: "/academy/referral-engine/deep-dive.m4a" },
+    ],
     order: 13,
     title: "The Referral Engine",
     tagline: "Growth",

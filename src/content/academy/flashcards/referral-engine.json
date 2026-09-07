@@ -1,0 +1,242 @@
+[
+  {
+    "front": "What systematic approach replaces the \"hope\" strategy in referral marketing?",
+    "back": "A referral engine."
+  },
+  {
+    "front": "In a referral engine, what specific tool is provided to every advocate to ensure tracking?",
+    "back": "A unique, trackable link."
+  },
+  {
+    "front": "According to the text, what is the highest-converting marketing channel?",
+    "back": "Word-of-mouth."
+  },
+  {
+    "front": "Why is \"engineering\" word-of-mouth marketing considered a respectful practice?",
+    "back": "It acknowledges and values the power of the channel."
+  },
+  {
+    "front": "What is the primary reason that \"casual tracking\" of referrals often fails?",
+    "back": "It relies on memory-based attribution."
+  },
+  {
+    "front": "What component of a referral engine captures a click and links it to a purchase made weeks later?",
+    "back": "Automated attribution."
+  },
+  {
+    "front": "To prevent sync issues and missed credits, where should referral data be stored?",
+    "back": "In the same system as customer data (one source of truth)."
+  },
+  {
+    "front": "What are the two key characteristics of how rewards should be paid to encourage repeat referrals?",
+    "back": "Promptly and visibly."
+  },
+  {
+    "front": "What negative outcome occurs when a referrer has to \"chase\" a business for their reward?",
+    "back": "They tell the story of their poor experience instead of referring others."
+  },
+  {
+    "front": "Besides cash, what are three alternative types of rewards for a referral engine?",
+    "back": "Credits, upgrades, and reciprocal referrals."
+  },
+  {
+    "front": "In the context of maintaining a referral engine, what serves as the \"fuel\"?",
+    "back": "Attention."
+  },
+  {
+    "front": "List three tactical ways to provide \"attention\" to a referral engine.",
+    "back": "Thank-yous, leaderboards, and seasonal bonuses."
+  },
+  {
+    "front": "What must be done \"up front\" to ensure rewards are delivered without friction?",
+    "back": "The rewards must be clearly defined."
+  },
+  {
+    "front": "Most businesses treat referrals as _____: they hope happy customers might mention them.",
+    "back": "Luck"
+  },
+  {
+    "front": "Memory-based attribution collapses the moment a referral does not purchase on the _____.",
+    "back": "Same-day"
+  },
+  {
+    "front": "Concept: One Source of Truth",
+    "back": "Definition: Keeping referral data and customer data in a single integrated system to avoid sync issues."
+  },
+  {
+    "front": "What is the risk of using separate spreadsheets and disconnected tools for referral tracking?",
+    "back": "Sync issues, missed credits, and annoyed advocates."
+  },
+  {
+    "front": "What three elements are required to move from \"hoping\" for referrals to \"engineering\" them?",
+    "back": "Trackable links, clear rewards, and automated attribution."
+  },
+  {
+    "front": "How does the delay between a referral click and a purchase affect attribution mechanics?",
+    "back": "The system must remember the click so the sale is credited correctly days or weeks later."
+  },
+  {
+    "front": "What is the result of paying a referrer fast and visibly?",
+    "back": "The referrer is likely to refer again."
+  },
+  {
+    "front": "How does automated attribution prevent the loss of advocate contributions?",
+    "back": "It ensures every referral is followed up on and every advocate is credited."
+  },
+  {
+    "front": "Why is it important for referral attribution to survive a delay?",
+    "back": "Because prospects often buy days or weeks after the initial referral click."
+  },
+  {
+    "front": "A referral engine needs _____ to keep the momentum going.",
+    "back": "Attention"
+  },
+  {
+    "front": "What is a \"reciprocal referral\" in the context of rewards?",
+    "back": "A reward where the business refers a customer back to the advocate."
+  },
+  {
+    "front": "What is the prerequisite for a referral engine to ensure \"nobody's contribution gets lost\"?",
+    "back": "Automated tracking."
+  },
+  {
+    "front": "True or False: Word-of-mouth is generally a low-converting channel.",
+    "back": "False (it is the highest-converting channel)."
+  },
+  {
+    "front": "What is the primary purpose of a leaderboard in a referral system?",
+    "back": "To provide fuel and attention to the referral engine."
+  },
+  {
+    "front": "What happens to the user experience when rewards have \"friction\" in their delivery?",
+    "back": "Advocates become annoyed and stop referring."
+  },
+  {
+    "front": "In referral engineering, why must every referrer have a link that is \"unique\"?",
+    "back": "To allow for accurate, individual attribution of sales."
+  },
+  {
+    "front": "What is the relationship between reward speed and referral frequency?",
+    "back": "Faster rewards lead to higher referral frequency."
+  },
+  {
+    "front": "Term: Referral Engine",
+    "back": "Definition: A systematic approach to growth that uses trackable links, defined rewards, and automated attribution."
+  },
+  {
+    "front": "Why does the text argue against using disconnected tools for referral data?",
+    "back": "They guarantee sync issues and missed credits."
+  },
+  {
+    "front": "What does a referral engine provide to ensure every referral is followed up on?",
+    "back": "Automated attribution and tracking systems."
+  },
+  {
+    "front": "Under what condition does memory-based attribution fail?",
+    "back": "When a referral purchase happens days or weeks after the initial click."
+  },
+  {
+    "front": "What is the benefit of defining rewards \"up front\"?",
+    "back": "It allows rewards to be delivered without friction."
+  },
+  {
+    "front": "What role do \"seasonal bonuses\" play in a referral system?",
+    "back": "They act as fuel by providing extra attention and incentive."
+  },
+  {
+    "front": "What is the psychological impact of a \"visible\" reward on an advocate?",
+    "back": "It reinforces the value of their contribution and encourages them to refer again."
+  },
+  {
+    "front": "A referral engine replaces _____ with a system.",
+    "back": "Hope"
+  },
+  {
+    "front": "Why is it necessary to capture and remember a referral click immediately?",
+    "back": "To ensure the correct referrer is credited when the prospect eventually buys."
+  },
+  {
+    "front": "How should businesses treat word-of-mouth according to the text?",
+    "back": "As an engine to be engineered rather than luck to be hoped for."
+  },
+  {
+    "front": "What is the core problem with \"separate spreadsheets\" in referral tracking?",
+    "back": "They lead to disconnected data and sync issues."
+  },
+  {
+    "front": "List three specific examples of \"fuel\" for a referral engine.",
+    "back": "Thank-yous, leaderboards, and seasonal bonuses."
+  },
+  {
+    "front": "Automated attribution ensures that every _____ gets credited.",
+    "back": "Advocate"
+  },
+  {
+    "front": "What is the result of a system where advocates must \"chase\" their rewards?",
+    "back": "They become annoyed and share their negative story instead of referring."
+  },
+  {
+    "front": "In a referral system, what must be trackable to ensure advocates are credited?",
+    "back": "The referral links shared by advocates."
+  },
+  {
+    "front": "How long can the typical delay be between a referral click and a sale?",
+    "back": "Days or weeks."
+  },
+  {
+    "front": "What is the specific goal of integrating referral data into the customer database?",
+    "back": "To establish a single source of truth."
+  },
+  {
+    "front": "Word-of-mouth is your _____ channel.",
+    "back": "Highest-converting"
+  },
+  {
+    "front": "What is the purpose of \"working the system\" with thank-yous and leaderboards?",
+    "back": "To provide the fuel of attention to the referral engine."
+  },
+  {
+    "front": "Identify the three main pillars of \"Engineering\" a referral system.",
+    "back": "Unique links, defined rewards, and automated tracking."
+  },
+  {
+    "front": "Why should rewards be defined before the referral occurs?",
+    "back": "To ensure delivery without friction once the referral is successful."
+  },
+  {
+    "front": "What is the direct consequence of \"missed credits\" in a referral program?",
+    "back": "Annoyed advocates."
+  },
+  {
+    "front": "In the context of the \"mechanics\" of a referral, what happens after a click is captured?",
+    "back": "It must be remembered until the prospect eventually buys."
+  },
+  {
+    "front": "How does prompt payment function as a strategy for growth?",
+    "back": "It motivates referrers to repeat their behavior and refer again."
+  },
+  {
+    "front": "What is the relationship between data integration and advocate satisfaction?",
+    "back": "Integration prevents sync issues and missed credits, keeping advocates happy."
+  },
+  {
+    "front": "True or False: Every referral requires a unique link for the engine to work correctly.",
+    "back": "True."
+  },
+  {
+    "front": "What replaces the need for a customer to manually mention a referral source?",
+    "back": "Trackable referral links and automated attribution."
+  },
+  {
+    "front": "What is the main requirement for an engine's fuel according to the text?",
+    "back": "Attention."
+  },
+  {
+    "front": "How can upgrades be used as referral rewards?",
+    "back": "By offering a higher tier of service or product in exchange for a successful referral."
+  },
+  {
+    "front": "What does the text suggest is the ultimate result of a well-engineered referral engine?",
+    "back": "Consistent, trackable growth from the highest-converting channel."
+  }
+]
