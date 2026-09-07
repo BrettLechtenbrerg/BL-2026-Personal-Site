@@ -1,0 +1,202 @@
+[
+  {
+    "front": "According to the hiring rule in the text, what should an organization hire for primarily?",
+    "back": "Values."
+  },
+  {
+    "front": "According to the hiring rule in the text, what should an organization train for?",
+    "back": "Skills."
+  },
+  {
+    "front": "Most bad hires are categorized as _____ failures rather than skill failures.",
+    "back": "Fit."
+  },
+  {
+    "front": "According to the source, why are skill failures less problematic than fit failures?",
+    "back": "Skills can be taught, while values cannot."
+  },
+  {
+    "front": "Name one of the three examples of teachable attributes mentioned in the text.",
+    "back": "Software proficiency."
+  },
+  {
+    "front": "Besides software and industry experience, what is the third teachable attribute mentioned?",
+    "back": "Process knowledge."
+  },
+  {
+    "front": "Which non-teachable trait refers to a person's adherence to moral and ethical principles?",
+    "back": "Integrity."
+  },
+  {
+    "front": "What non-teachable trait involves a candidate's inherent drive and diligence?",
+    "back": "Work ethic."
+  },
+  {
+    "front": "Which non-teachable trait describes the way a candidate conveys information and interacts with others?",
+    "back": "Communication style."
+  },
+  {
+    "front": "What non-teachable trait involves a candidate's openness to learning and self-improvement?",
+    "back": "Growth mindset."
+  },
+  {
+    "front": "How long does a 'wrong-values' hire typically cause friction before an exit?",
+    "back": "Six months."
+  },
+  {
+    "front": "What is the primary internal consequence of a 'wrong-values' hire on the existing staff?",
+    "back": "Team morale damage."
+  },
+  {
+    "front": "Unstructured interviews primarily measure how much the candidate resembles the _____.",
+    "back": "Interviewer."
+  },
+  {
+    "front": "What is the 'boring and powerful' fix for the bias found in unstructured interviews?",
+    "back": "Structured interviews."
+  },
+  {
+    "front": "In a structured interview, what must remain the same for every candidate regarding the questions?",
+    "back": "The specific questions and their order."
+  },
+  {
+    "front": "What tool should be used in every interview to ensure candidates are scored on the same criteria?",
+    "back": "A scorecard."
+  },
+  {
+    "front": "What type of interview questions reveal values more effectively than hypotheticals?",
+    "back": "Behavioral questions."
+  },
+  {
+    "front": "What is the standard opening phrase for a behavioral interview question?",
+    "back": "\"Tell me about a time you...\""
+  },
+  {
+    "front": "Behavioral questions are based on the premise that past behavior is the best predictor of _____ behavior.",
+    "back": "Future."
+  },
+  {
+    "front": "When should a candidate be scored on defined criteria?",
+    "back": "Immediately after the interview."
+  },
+  {
+    "front": "Why should interviewers score candidates before comparing notes with the rest of the team?",
+    "back": "To prevent the most confident voice from deciding the hire."
+  },
+  {
+    "front": "When defining culture, what should a team use instead of 'poster words'?",
+    "back": "Descriptions of how the team really operates."
+  },
+  {
+    "front": "What is the recommended method for checking a candidate's references?",
+    "back": "Asking real questions rather than superficial ones."
+  },
+  {
+    "front": "What should drive the final hiring decision according to the systematized process?",
+    "back": "The scorecard."
+  },
+  {
+    "front": "If the scorecard says 'no' but your gut says 'yes,' which should you listen to?",
+    "back": "The scorecard."
+  },
+  {
+    "front": "A 'gut yes' for a candidate with a weak scorecard usually indicates the candidate is _____.",
+    "back": "Charming."
+  },
+  {
+    "front": "How does the text classify 'charm' in the context of hiring?",
+    "back": "It is a skill, but usually not the one being hired for."
+  },
+  {
+    "front": "Term: Fit failure",
+    "back": "A bad hire resulting from a lack of alignment with company values."
+  },
+  {
+    "front": "Term: Structured Interview",
+    "back": "An interview using the same questions, order, and scorecard for every candidate."
+  },
+  {
+    "front": "According to the text, what is the outcome of getting the 'hire for values' rule backwards?",
+    "back": "No amount of training will fix the problem."
+  },
+  {
+    "front": "The goal of a culture-fit assessment is to predict who will actually _____.",
+    "back": "Thrive."
+  },
+  {
+    "front": "Why are 'poster words' insufficient for defining a company's values?",
+    "back": "They don't reflect how a team actually operates."
+  },
+  {
+    "front": "What does a scorecard protect against when an interviewer feels a 'gut yes'?",
+    "back": "Hiring someone based solely on charm."
+  },
+  {
+    "front": "In the context of the text, software proficiency and industry experience are examples of _____.",
+    "back": "Teachable skills."
+  },
+  {
+    "front": "What is the intended result of using the same questions and scorecard for every candidate?",
+    "back": "Eliminating gut-feel hiring."
+  },
+  {
+    "front": "Cloze: Past behavior is the best _____ of future behavior.",
+    "back": "Predictor."
+  },
+  {
+    "front": "Cloze: Hire for _____, train for skills.",
+    "back": "Values."
+  },
+  {
+    "front": "Which specific interview format targets values better than asking 'What would you do?'",
+    "back": "Behavioral questions."
+  },
+  {
+    "front": "What is the risk of holding a group discussion before individual scoring is complete?",
+    "back": "The most confident voice decides the hire."
+  },
+  {
+    "front": "According to the text, what can be taught to a new hire?",
+    "back": "Software proficiency, process knowledge, and industry experience."
+  },
+  {
+    "front": "How does the text describe the nature of integrity and work ethic?",
+    "back": "They are values that cannot be taught."
+  },
+  {
+    "front": "What specific tool ensures every candidate is judged on the same criteria?",
+    "back": "A candidate scorecard."
+  },
+  {
+    "front": "What is the main drawback of unstructured interviews?",
+    "back": "They measure candidate similarity to the interviewer rather than fit."
+  },
+  {
+    "front": "Under what condition is a 'gut yes' most likely to be a 'false positive'?",
+    "back": "When the candidate's scorecard is weak."
+  },
+  {
+    "front": "What is the purpose of checking references with 'real questions'?",
+    "back": "To verify if the candidate truly aligns with defined values."
+  },
+  {
+    "front": "What are the three components that must be kept identical in a structured interview?",
+    "back": "Questions, order, and scorecard."
+  },
+  {
+    "front": "Why is 'process knowledge' considered a teachable skill?",
+    "back": "It is a technical competency rather than an inherent value."
+  },
+  {
+    "front": "What is the financial and operational result of a 'fit failure' hire?",
+    "back": "An expensive exit and team morale damage."
+  },
+  {
+    "front": "How should a team determine which values to assess candidates against?",
+    "back": "By identifying how the team really operates in practice."
+  },
+  {
+    "front": "What does the text suggest is the only thing measured by improvised interviews?",
+    "back": "How much the candidate resembles the interviewer."
+  }
+]

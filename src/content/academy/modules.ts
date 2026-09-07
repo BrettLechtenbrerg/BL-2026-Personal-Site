@@ -1161,6 +1161,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "hiring-oracle",
+    videoFiles: [
+      { label: "The Hiring Oracle (NotebookLM video overview)", href: "/academy/hiring-oracle/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Hiring Oracle (NotebookLM audio overview)", href: "/academy/hiring-oracle/deep-dive.m4a" },
+    ],
     order: 10,
     title: "The Hiring Oracle",
     tagline: "People",
