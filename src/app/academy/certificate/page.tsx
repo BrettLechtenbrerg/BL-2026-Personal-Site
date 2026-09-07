@@ -73,7 +73,7 @@ export default function CertificatePage() {
 
       <div
         id="certificate"
-        className="relative rounded-lg border-[10px] border-[#D4AF37] bg-white px-8 py-12 text-center text-[#1A1A1A] shadow-[0_0_60px_rgba(212,175,55,0.3)] sm:px-16"
+        className="academy-brand relative rounded-lg border-[10px] border-[#D4AF37] bg-white px-8 py-12 text-center text-[#1A1A1A] shadow-[0_0_60px_rgba(212,175,55,0.3)] sm:px-16"
       >
         {/* Inner rule */}
         <div className="pointer-events-none absolute inset-3 border border-[#9B1B30]/40" />

@@ -88,7 +88,7 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
         onClick={() => setFlipped((f) => !f)}
         aria-pressed={flipped}
         aria-label={flipped ? "Showing answer. Tap to see question." : "Showing question. Tap to reveal answer."}
-        className="academy-dark group relative block min-h-[200px] w-full [perspective:1200px]"
+        className="academy-brand group relative block min-h-[200px] w-full [perspective:1200px]"
       >
         <div
           className="relative h-full min-h-[200px] w-full transition-transform duration-500 ease-out [transform-style:preserve-3d] motion-reduce:transition-none"
