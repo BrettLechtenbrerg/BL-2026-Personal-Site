@@ -2641,6 +2641,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "tools-and-stick",
+    audio: [
+      { label: "Deep Dive: Tools, Technology, and Making It Stick (NotebookLM audio overview)", href: "/academy/tools-and-stick/deep-dive.m4a" },
+    ],
     videoFiles: [
       { label: "Tools, Technology, and Making It Stick (NotebookLM video overview)", href: "/academy/tools-and-stick/video-overview.mp4" },
     ],
