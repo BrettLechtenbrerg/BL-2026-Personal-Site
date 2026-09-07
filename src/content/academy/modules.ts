@@ -2528,6 +2528,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "harmony-acceptance",
+    videoFiles: [
+      { label: "Harmony and the Acceptance Catapult (NotebookLM video overview)", href: "/academy/harmony-acceptance/video-overview.mp4" },
+    ],
     audio: [
       { label: "Deep Dive: Harmony and the Acceptance Catapult (NotebookLM audio overview)", href: "/academy/harmony-acceptance/deep-dive.m4a" },
     ],
