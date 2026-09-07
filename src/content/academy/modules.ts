@@ -2072,6 +2072,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "daily-dozen",
+    audio: [
+      { label: "Deep Dive: The Daily Dozen (NotebookLM audio overview)", href: "/academy/daily-dozen/deep-dive.m4a" },
+    ],
     videoFiles: [
       { label: "The Daily Dozen (NotebookLM video overview)", href: "/academy/daily-dozen/video-overview.mp4" },
     ],
