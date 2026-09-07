@@ -16,9 +16,16 @@ import { db, getUserById } from "./academy-db";
 const BADGE = "certified-masters-edge";
 const API = "https://api.certifier.io/v1/credentials/create-issue-send";
 const VERIFY_BASE = "https://credsverse.com/credentials/";
-/** Placeholder written while an issuance is in flight so concurrent requests
- *  (certification page + certificate page loading together) can't double-issue. */
-const PENDING = "pending";
+/** Placeholder (`pending:<epoch ms>`) written while an issuance is in flight so
+ *  concurrent requests (certification + certificate pages loading together)
+ *  can't double-issue. Claims older than STALE_MS are retried — covers a
+ *  function that died between claiming and writing the result. */
+const PENDING_PREFIX = "pending:";
+const STALE_MS = 5 * 60_000;
+
+function isStalePending(value: string): boolean {
+  return Date.now() - Number(value.slice(PENDING_PREFIX.length)) > STALE_MS;
+}
 
 function setCredentialUrl(userId: string, value: string | null) {
   return db()
@@ -38,17 +45,21 @@ export async function ensureCredential(userId: string): Promise<string | null> {
     .maybeSingle();
   if (!award) return null;
   const stored = award.credential_url as string | null;
-  if (stored) return stored === PENDING ? null : stored;
+  if (stored && !stored.startsWith(PENDING_PREFIX)) return stored;
+  if (stored && !isStalePending(stored)) return null;
 
   const token = process.env.CERTIFIER_TOKEN;
   const groupId = process.env.CERTIFIER_GROUP_ID;
   const user = await getUserById(userId);
   if (!token || !groupId || !user) return null;
 
-  // Claim the slot atomically; whoever flips null → pending does the issuing.
-  const { data: claimed } = await setCredentialUrl(userId, PENDING)
-    .is("credential_url", null)
-    .select("user_id");
+  // Compare-and-swap claim: only the request that flips the exact value we
+  // read (null or a stale pending) does the issuing.
+  const claim = setCredentialUrl(userId, PENDING_PREFIX + Date.now());
+  const { data: claimed } = await (stored
+    ? claim.eq("credential_url", stored)
+    : claim.is("credential_url", null)
+  ).select("user_id");
   if (!claimed?.length) return null;
 
   try {
