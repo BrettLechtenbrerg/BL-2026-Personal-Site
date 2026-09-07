@@ -2528,6 +2528,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "harmony-acceptance",
+    audio: [
+      { label: "Deep Dive: Harmony and the Acceptance Catapult (NotebookLM audio overview)", href: "/academy/harmony-acceptance/deep-dive.m4a" },
+    ],
     order: 22,
     title: "Harmony and the Acceptance Catapult",
     tagline: "Reclaiming the Clock",
