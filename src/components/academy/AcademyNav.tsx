@@ -17,6 +17,7 @@ import {
   UserCircle,
   LogOut,
 } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "/academy/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -60,6 +61,7 @@ export default function AcademyNav() {
             MASTER&apos;S EDGE ACADEMY
           </span>
         </Link>
+        <div className="flex items-center gap-2">
         {authed && (
           <nav className="flex items-center gap-1">
             {links.map(({ href, label, icon: Icon }) => {
@@ -89,6 +91,8 @@ export default function AcademyNav() {
             </button>
           </nav>
         )}
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

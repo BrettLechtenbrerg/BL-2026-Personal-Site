@@ -60,7 +60,7 @@ export default function PodcastPlayer({ label, src }: { label: string; src: stri
   const pct = duration ? (time / duration) * 100 : 0;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-cranberry/40 bg-gradient-to-br from-[#2a0a12] via-black to-[#1a1206] p-6 shadow-[0_0_40px_-10px_var(--cranberry)]">
+    <div className="academy-dark relative overflow-hidden rounded-2xl border border-cranberry/40 bg-gradient-to-br from-[#2a0a12] via-black to-[#1a1206] p-6 shadow-[0_0_40px_-10px_var(--cranberry)]">
       {/* Ambient glow */}
       <span aria-hidden className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-cranberry/30 blur-3xl" />
       <span aria-hidden className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-gold/20 blur-3xl" />

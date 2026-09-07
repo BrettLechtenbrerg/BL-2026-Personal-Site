@@ -206,14 +206,12 @@ export default function QuizPage() {
         </div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          {!result.passed && (
-            <button
-              onClick={load}
-              className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-cranberry font-heading font-bold text-white hover:bg-cranberry-dark"
-            >
-              <RotateCcw size={18} /> Retake Quiz
-            </button>
-          )}
+          <button
+            onClick={load}
+            className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-cranberry font-heading font-bold text-white hover:bg-cranberry-dark"
+          >
+            <RotateCcw size={18} /> Retake Quiz
+          </button>
           <Link
             href={result.passed ? "/academy/modules" : `/academy/modules/${slug}`}
             className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-white/10 font-heading font-bold text-white hover:bg-white/20"

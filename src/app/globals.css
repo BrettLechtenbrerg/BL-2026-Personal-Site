@@ -17,6 +17,33 @@
   --background: #FFFFFF;
   --foreground: #1A1A1A;
   --muted: #4A4A4A;
+
+  /* Academy shell mid-tone (gradient centre) */
+  --academy-mid: #2a0a12;
+}
+
+/* Academy light mode — the Academy is authored dark (text-white, bg-white/10 …)
+   so we flip the neutral axis + darken gold for contrast instead of touching
+   every class. `@theme inline` makes utilities read these vars at use-site. */
+.academy-light {
+  --white: #1A1A1A;
+  --black: #FFFFFF;
+  --gold: #8A6D1E;
+  --gold-light: #B8982E;
+  --gold-dark: #6E5618;
+  --academy-mid: #F7ECEF;
+}
+/* Solid brand buttons keep white text on cranberry in either mode */
+.academy-light .bg-cranberry {
+  color: #FFFFFF;
+}
+/* Always-dark islands (branded cards/players) inside light mode */
+.academy-light .academy-dark {
+  --white: #FFFFFF;
+  --black: #1A1A1A;
+  --gold: #D4AF37;
+  --gold-light: #E8C84A;
+  --gold-dark: #B8982E;
 }
 
 @theme inline {

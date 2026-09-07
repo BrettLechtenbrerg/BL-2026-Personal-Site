@@ -17,7 +17,18 @@ export const metadata: Metadata = {
 
 export default function AcademyLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-[#2a0a12] to-black text-white">
+    <div
+      id="academy-root"
+      suppressHydrationWarning
+      className="min-h-screen bg-gradient-to-br from-black via-(--academy-mid) to-black text-white"
+    >
+      {/* Apply saved light/dark preference before first paint (see ThemeToggle). */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "try{var t=localStorage.getItem('academy-theme');if(t==='light'||(!t&&matchMedia('(prefers-color-scheme: light)').matches))document.currentScript.parentElement.classList.add('academy-light')}catch(e){}",
+        }}
+      />
       <AcademyNav />
       <div className="mx-auto flex max-w-6xl gap-6 px-4 pb-24 pt-6">
         <ChannelSidebar />
