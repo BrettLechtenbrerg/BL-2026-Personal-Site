@@ -82,6 +82,7 @@ export const academyCourses: AcademyCourse[] = [
       "Fifteen practical tools for running and scaling your business — from firing yourself out of low-value work to competitor intelligence.",
     fromOrder: 1,
     toOrder: 15,
+    cover: "/academy/covers/business-tools.jpg",
   },
   {
     id: "reclaiming-the-clock",
@@ -91,6 +92,7 @@ export const academyCourses: AcademyCourse[] = [
       "Brett's best-selling time system: the Time Maze, your 5%, impact zones, the Daily Dozen, and the laws that make hours multiply.",
     fromOrder: 16,
     toOrder: 23,
+    cover: "/academy/covers/reclaiming-the-clock.jpg",
   },
   {
     id: "masters-edge-book",
@@ -100,6 +102,7 @@ export const academyCourses: AcademyCourse[] = [
       "Nineteen chapters of martial-arts wisdom meets performance science — parable by parable, from the Sword in the Shrine to the Six Pillars.",
     fromOrder: 24,
     toOrder: 42,
+    cover: "/books/masters-edge-shelf.jpg",
   },
   {
     id: "framework",
@@ -109,6 +112,7 @@ export const academyCourses: AcademyCourse[] = [
       "The free giveaway course: the complete framework with the stories removed — the map of the room. One deep module, one serious 22-question exam.",
     fromOrder: 43,
     toOrder: 43,
+    cover: "/academy/covers/framework.jpg",
   },
 ];
 
