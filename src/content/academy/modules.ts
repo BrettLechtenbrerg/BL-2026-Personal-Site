@@ -3190,6 +3190,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "burned-dojo",
+    videoFiles: [
+      { label: "The Burned Dojo: Optimism (NotebookLM video overview)", href: "/academy/burned-dojo/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Burned Dojo: Optimism (NotebookLM audio overview)", href: "/academy/burned-dojo/deep-dive.m4a" },
+    ],
     order: 28,
     title: "The Burned Dojo: Optimism",
     tagline: "The Master's Edge Book",
