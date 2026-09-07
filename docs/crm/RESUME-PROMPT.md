@@ -1,6 +1,6 @@
 # Edge CRM (GHL replacement) — Resume Prompt
 
-**Updated:** September 6, 2026 (end of Phase 0)
+**Updated:** September 6, 2026 (Phase 1 shipped)
 
 **How to restart:** open a new session and say
 > "I want to work on the CRM system for brettlechtenberg.com — read `~/Desktop/EDGE-CRM-RESUME-PROMPT.md` and pick up where we left off."
@@ -30,21 +30,25 @@ FIRST COMMANDS:
 The Academy NotebookLM LaunchAgent may still be running (auto commits + deploys
 every 20 min). If running: pull before editing; don't deploy by hand mid-tick.
 
-STATE: Phase 0 DONE. No CRM code written yet.
+STATE: Phase 1 SHIPPED (commit 42ac491 + phone fix). /hub sends email via Resend,
+  leads from Twenty, log + inbox from hub_messages. GHL fully out of the hub.
   ✅ Twenty Cloud workspace: brettlechtenberg.twenty.com (has AI-generated sample
      fields + a "New opportunity follow-up" workflow — reshape via API later)
   ✅ Vercel env (production, sensitive): TWENTY_API_KEY, RESEND_API_KEY
   ✅ Twenty MCP wired in Claude Code (user scope, OAuth) — Claude can read/write the CRM
   ✅ Resend: existing Free account, auth.brettlechtenberg.com verified
-  ✅ Phase 1 plan approved (docs/crm/04-PHASE1-PLAN.md)
+  ✅ Phase 1 built + verified live (docs/crm/04-PHASE1-PLAN.md)
+  ✅ Migration 20260907090000_crm_phase1.sql applied in Supabase (bl-comms-hub)
+  ✅ Vercel env also has UNSUBSCRIBE_HMAC_SECRET, HUB_USERNAME/PASSWORD reset
+  ⏳ RESEND_WEBHOOK_SECRET not set yet — delivery stamps inactive until Brett
+     creates the webhook in Resend → /api/webhooks/resend
   ⏳ Cal.com account — not created yet (needed in Phase 3)
   ⏸ SMS/Twilio — paused by Brett until Phase 6
 
-NEXT: BUILD Phase 1 per docs/crm/04-PHASE1-PLAN.md (approved Sept 6).
-  Work items 1-9 in order; site forms stay on GHL; delete ghl-*.ts only after
-  the manual test passes. Env already set: TWENTY_API_KEY, RESEND_API_KEY,
-  HUB_REPLY_TO_EMAIL. Still needed from Brett: RESEND_WEBHOOK_SECRET (create
-  webhook in Resend dashboard pointing at /api/webhooks/resend).
+NEXT: Phase 2 — lead intake + spam gate (docs/crm/03-BL-PILOT-PLAN.md).
+  Single /api/lead with form allow-list, port PMMA botDefense.ts, Turnstile,
+  rate limit, quarantine; repoint the 5 site forms; lead → Twenty person +
+  opportunity. Draft plan into .gg/plans/ for Brett's review FIRST.
 ```
 
 ---

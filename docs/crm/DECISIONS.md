@@ -16,3 +16,5 @@ Append-only. One line per decision. Newest at the bottom.
 | 2026-09-06 | Twenty MCP via **OAuth** in Claude Code (user scope) | No key in config files. |
 | 2026-09-06 | Secrets only in Vercel env (sensitive): `TWENTY_API_KEY`, `RESEND_API_KEY` | Never in git or chat. |
 | 2026-09-06 | Phase 1 approved; replies via Reply-To `brett@brettlechtenberg.com` + Twenty Gmail sync, no Resend inbound yet | Zero DNS/risk on Free plan; Resend receiving revisited at Phase 5 with Pro domain. |
+| 2026-09-06 | **Phase 1 SHIPPED** — hub runs with zero GHL calls; first email sent via Resend, logged, threaded | Verified live: Twenty leads picker, Add lead (US phone normalized), send → inbox in seconds, Log + Inbox tabs. Hub creds reset (`brett`). |
+| 2026-09-06 | Gmail "be careful" banner on `auth.` sender is expected, Brett-only | Same display name as his Workspace account; goes away with `mail.` domain on Resend Pro at cutover. |
