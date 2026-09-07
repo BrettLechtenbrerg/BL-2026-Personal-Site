@@ -2298,6 +2298,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "rules-of-freedom",
+    audio: [
+      { label: "Deep Dive: The Ten Rules of Freedom (NotebookLM audio overview)", href: "/academy/rules-of-freedom/deep-dive.m4a" },
+    ],
     order: 20,
     title: "The Ten Rules of Freedom",
     tagline: "Reclaiming the Clock",
