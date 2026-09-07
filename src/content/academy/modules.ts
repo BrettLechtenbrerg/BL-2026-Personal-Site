@@ -1959,6 +1959,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "mapping-values",
+    audio: [
+      { label: "Deep Dive: Mapping Your Values (NotebookLM audio overview)", href: "/academy/mapping-values/deep-dive.m4a" },
+    ],
     videoFiles: [
       { label: "Mapping Your Values (NotebookLM video overview)", href: "/academy/mapping-values/video-overview.mp4" },
     ],
