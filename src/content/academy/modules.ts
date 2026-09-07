@@ -3525,6 +3525,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "one-mountain",
+    videoFiles: [
+      { label: "The One Mountain: G.R.I.T. (NotebookLM video overview)", href: "/academy/one-mountain/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The One Mountain: G.R.I.T. (NotebookLM audio overview)", href: "/academy/one-mountain/deep-dive.m4a" },
+    ],
     order: 31,
     title: "The One Mountain: G.R.I.T.",
     tagline: "The Master's Edge Book",
