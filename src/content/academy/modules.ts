@@ -2415,6 +2415,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "laws-of-maximization",
+    videoFiles: [
+      { label: "The Laws of Maximization (NotebookLM video overview)", href: "/academy/laws-of-maximization/video-overview.mp4" },
+    ],
     audio: [
       { label: "Deep Dive: The Laws of Maximization (NotebookLM audio overview)", href: "/academy/laws-of-maximization/deep-dive.m4a" },
     ],
