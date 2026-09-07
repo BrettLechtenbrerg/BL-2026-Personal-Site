@@ -1,6 +1,6 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-**Updated:** September 6, 2026 (end of Session 28)
+**Updated:** September 7, 2026 (end of Session 29)
 
 A copy of this file is also at `~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`.
 Paste the block below into a fresh session.
@@ -15,7 +15,7 @@ Live: https://www.brettlechtenberg.com   Deploy: `npx vercel --prod --yes`
       (Vercel's GitHub auto-deploy is NOT firing — always deploy via CLI)
 
 READ FIRST, in order:
-  1. docs/SESSION-NOTES.md  — top section "END OF SESSION STATE"
+  1. docs/SESSION-NOTES.md  — top two sections (Session 29, then "END OF SESSION STATE")
   2. docs/ACADEMY.md        — how the Academy is built
   3. CLAUDE.md              — project rules + page inventory
 
