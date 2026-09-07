@@ -2974,6 +2974,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "masters-garden",
+    videoFiles: [
+      { label: "The Master's Garden: Personal Responsibility (NotebookLM video overview)", href: "/academy/masters-garden/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Master's Garden: Personal Responsibility (NotebookLM audio overview)", href: "/academy/masters-garden/deep-dive.m4a" },
+    ],
     order: 26,
     title: "The Master's Garden: Personal Responsibility",
     tagline: "The Master's Edge Book",
