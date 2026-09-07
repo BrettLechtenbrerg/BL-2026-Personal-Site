@@ -3411,6 +3411,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "swordsmiths-fire",
+    videoFiles: [
+      { label: "The Swordsmith's Fire: Tenacity (NotebookLM video overview)", href: "/academy/swordsmiths-fire/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Swordsmith's Fire: Tenacity (NotebookLM audio overview)", href: "/academy/swordsmiths-fire/deep-dive.m4a" },
+    ],
     order: 30,
     title: "The Swordsmith's Fire: Tenacity",
     tagline: "The Master's Edge Book",
