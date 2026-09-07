@@ -1,5 +1,20 @@
 # Session Notes — Academy
 
+## Sep 7, 2026 — Session 29 (batch still running, 22/43 at 13:25 UTC)
+
+DONE, deployed, Brett spot-checked and approved:
+- Course cover art: `public/academy/covers/*.jpg` (3 generated) + book shelf
+  photo reused; `cover` set on all 4 `academyCourses`.
+- Light/dark toggle in `AcademyNav` (`ThemeToggle.tsx`). Adds `.academy-light`
+  on `#academy-root`; `globals.css` flips `--white/--black/--gold` inside that
+  scope. `.academy-brand` opts a surface out (podcast player, flashcards,
+  certificate). Saved in localStorage `academy-theme`; inline script in
+  `academy/layout.tsx` applies it before paint.
+- Quiz results: "Retake Quiz" now shown on pass too.
+
+Decided: keep hand-written quizzes; do NOT replace with NotebookLM quiz output.
+Remaining open: sizzle-reel homepage placement (STATE.md).
+
 ## ⚡ Sep 6, 2026 — END OF SESSION STATE (read this first)
 
 **Unattended batch is RUNNING** (macOS LaunchAgent
