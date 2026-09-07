@@ -1613,6 +1613,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "ceo-dashboard",
+    videoFiles: [
+      { label: "The CEO Dashboard (NotebookLM video overview)", href: "/academy/ceo-dashboard/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The CEO Dashboard (NotebookLM audio overview)", href: "/academy/ceo-dashboard/deep-dive.m4a" },
+    ],
     order: 14,
     title: "The CEO Dashboard",
     tagline: "Visibility",

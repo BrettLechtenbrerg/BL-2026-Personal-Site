@@ -1,0 +1,102 @@
+[
+  {
+    "front": "What is the primary function of a CEO Dashboard?",
+    "back": "To provide a single-screen view of business health that updates automatically."
+  },
+  {
+    "front": "How does the text describe checking business health by logging into various tools or asking staff?",
+    "back": "It is likened to driving a car by occasionally glancing out the window."
+  },
+  {
+    "front": "Identify three common but inefficient ways business owners check their company's health.",
+    "back": "Logging into multiple tools, asking the team for updates, or guessing based on the bank balance."
+  },
+  {
+    "front": "What are the four primary 'views' included in a CEO Dashboard?",
+    "back": "Revenue, Customers, Marketing, and Operations."
+  },
+  {
+    "front": "Which metrics are tracked within the Revenue view of a dashboard?",
+    "back": "Recurring revenue, growth rate, average revenue per customer, and forecast."
+  },
+  {
+    "front": "The Customer view tracks the active count, churn rate, health, and _____.",
+    "back": "who is at risk."
+  },
+  {
+    "front": "Which four metrics are categorized under the Marketing view?",
+    "back": "Lead volume, cost per lead, conversion rate, and channel ROI."
+  },
+  {
+    "front": "What are the specific components of the Operations view?",
+    "back": "Tasks, service levels, and team workload."
+  },
+  {
+    "front": "What central question does the Revenue view answer for an owner?",
+    "back": "Are we growing?"
+  },
+  {
+    "front": "What central question does the Customer view answer for an owner?",
+    "back": "Are customers happy?"
+  },
+  {
+    "front": "What central question does the Marketing view answer for an owner?",
+    "back": "Is marketing paying for itself?"
+  },
+  {
+    "front": "What central question does the Operations view answer for an owner?",
+    "back": "Is the machine running smoothly?"
+  },
+  {
+    "front": "Why is a standalone number, such as revenue, considered almost meaningless without a trend?",
+    "back": "Because it lacks context regarding whether performance is improving or declining."
+  },
+  {
+    "front": "Cloze: When evaluating business metrics, direction beats _____.",
+    "back": "position."
+  },
+  {
+    "front": "What is the consequence of failing to automate dashboard data feeds?",
+    "back": "The dashboard typically 'dies' or stops being used within a month."
+  },
+  {
+    "front": "What is 'metric hoarding' in the context of dashboard design?",
+    "back": "The tendency to collect dozens of charts for quarterly admiration rather than a few actionable numbers."
+  },
+  {
+    "front": "What is the specific criteria for determining if a metric belongs on a dashboard?",
+    "back": "The metric should only be included if a change in its value would change a business decision."
+  },
+  {
+    "front": "How frequently should the key metrics on a dashboard ideally be checked?",
+    "back": "Weekly."
+  },
+  {
+    "front": "Which dashboard view would specifically highlight a customer likely to cancel their service?",
+    "back": "The Customer view (specifically 'who's at risk')."
+  },
+  {
+    "front": "How does the text compare a $40k revenue figure on a $30k trend versus a $60k trend?",
+    "back": "It is great news on a $30k trend but alarming on a $60k trend."
+  },
+  {
+    "front": "The Operations view monitors 'service levels' to ensure that the business _____.",
+    "back": "machine is running smoothly."
+  },
+  {
+    "front": "What does 'channel ROI' measure in the context of the Marketing view?",
+    "back": "The return on investment for specific marketing channels."
+  },
+  {
+    "front": "According to the text, what replaces the need for a CEO to 'click around' in five different tools?",
+    "back": "An automatically updated CEO Dashboard."
+  },
+  {
+    "front": "Term: Actionable Metric",
+    "back": "Definition: A number that, when changed, results in a specific business decision or action."
+  },
+  {
+    "front": "Why is it important to watch 'direction' rather than 'snapshots' in business health?",
+    "back": "Direction reveals the health of the trend, whereas a snapshot is just a single point in time."
+  }
+]
