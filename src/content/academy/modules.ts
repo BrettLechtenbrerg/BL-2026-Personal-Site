@@ -1274,6 +1274,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "brand-book",
+    videoFiles: [
+      { label: "The Brand Book Creator (NotebookLM video overview)", href: "/academy/brand-book/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Brand Book Creator (NotebookLM audio overview)", href: "/academy/brand-book/deep-dive.m4a" },
+    ],
     order: 11,
     title: "The Brand Book Creator",
     tagline: "Identity",
