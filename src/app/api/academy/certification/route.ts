@@ -15,6 +15,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
 import { db, getProgress, latestSubmission, maybeCertify } from "@/lib/academy-db";
+import { ensureCredential } from "@/lib/certifier";
 import { orderedModules, finalExam, PASS_PERCENT } from "@/content/academy/modules";
 
 async function certificationUnlocked(userId: string): Promise<boolean> {
@@ -44,7 +45,8 @@ export async function GET(request: NextRequest) {
     latestSubmission(auth, "exam"),
   ]);
   const certified = await maybeCertify(auth);
-  return NextResponse.json({ unlocked, project, exam, certified });
+  const credentialUrl = certified ? await ensureCredential(auth) : null;
+  return NextResponse.json({ unlocked, project, exam, certified, credentialUrl });
 }
 
 export async function POST(request: NextRequest) {

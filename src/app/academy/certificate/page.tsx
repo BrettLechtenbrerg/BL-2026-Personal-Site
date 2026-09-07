@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Loader2, Printer } from "lucide-react";
+import { BadgeCheck, Loader2, Printer } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
 
 export default function CertificatePage() {
@@ -14,6 +14,7 @@ export default function CertificatePage() {
   const { user, loading } = useAcademyUser();
   const [certified, setCertified] = useState<boolean | null>(null);
   const [approvedDate, setApprovedDate] = useState<string | null>(null);
+  const [credentialUrl, setCredentialUrl] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("/api/academy/certification")
@@ -25,6 +26,7 @@ export default function CertificatePage() {
         }
         setCertified(true);
         setApprovedDate(json.project?.created_at ?? null);
+        setCredentialUrl(json.credentialUrl ?? null);
       })
       .catch(() => router.replace("/academy/certification"));
   }, [router]);
@@ -116,6 +118,17 @@ export default function CertificatePage() {
           </div>
         </div>
       </div>
+
+      {credentialUrl && (
+        <a
+          href={credentialUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="no-print mt-6 flex min-h-12 items-center justify-center gap-2 rounded-lg border border-gold/40 bg-gold/10 px-5 font-heading font-bold text-gold hover:bg-gold/20"
+        >
+          <BadgeCheck size={20} /> View verified credential &amp; share to LinkedIn
+        </a>
+      )}
     </div>
   );
 }

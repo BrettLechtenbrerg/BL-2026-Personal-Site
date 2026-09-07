@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireHubSession } from "@/lib/hub-session";
 import { db, maybeCertify } from "@/lib/academy-db";
+import { ensureCredential } from "@/lib/certifier";
 import { orderedModules } from "@/content/academy/modules";
 
 const UUID_RE = /^[0-9a-f-]{36}$/i;
@@ -66,5 +67,6 @@ export async function POST(request: NextRequest) {
   }
 
   const certified = await maybeCertify(submission.user_id as string);
+  if (certified) await ensureCredential(submission.user_id as string);
   return NextResponse.json({ success: true, certified });
 }
