@@ -2298,6 +2298,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "rules-of-freedom",
+    videoFiles: [
+      { label: "The Ten Rules of Freedom (NotebookLM video overview)", href: "/academy/rules-of-freedom/video-overview.mp4" },
+    ],
     audio: [
       { label: "Deep Dive: The Ten Rules of Freedom (NotebookLM audio overview)", href: "/academy/rules-of-freedom/deep-dive.m4a" },
     ],
