@@ -40,8 +40,9 @@ hand-written (Brett decided; do not swap in NotebookLM quiz output).
 Also Sep 7: Certifier verifiable credentials live (src/lib/certifier.ts; design
 template attached in app.certifier.io). Free tier = 250 credentials/yr, 1 used.
 
-Batch watch: module `sword-in-shrine` is failing ("No module with slug" — slug
-mismatch vs modules.ts). Check batch.log; fix the slug in the batch queue.
+Fixed Sep 7: book modules 24-42 were indented 2 spaces in modules.ts, so
+academy-install.mjs's slug anchor missed them ("No module with slug"). Re-indented;
+sword-in-shrine media installed by hand from .notebooklm/. Batch resumes at 25.
 ```
 
 ---
