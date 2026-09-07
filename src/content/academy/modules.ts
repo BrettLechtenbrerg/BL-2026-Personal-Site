@@ -2864,6 +2864,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "acceptance-catapult",
+    videoFiles: [
+      { label: "The Acceptance Catapult (NotebookLM video overview)", href: "/academy/acceptance-catapult/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Acceptance Catapult (NotebookLM audio overview)", href: "/academy/acceptance-catapult/deep-dive.m4a" },
+    ],
     order: 25,
     title: "The Acceptance Catapult",
     tagline: "The Master's Edge Book",
