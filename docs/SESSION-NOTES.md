@@ -11,6 +11,17 @@ DONE, deployed, Brett spot-checked and approved:
   certificate). Saved in localStorage `academy-theme`; inline script in
   `academy/layout.tsx` applies it before paint.
 - Quiz results: "Retake Quiz" now shown on pass too.
+- **Verifiable certification via Certifier (free tier, 250/yr).** `src/lib/certifier.ts`
+  `ensureCredential()` issues once per user (CAS claim on `me_awards.credential_url`,
+  5-min stale retry) from `/api/academy/certification` GET and hub approval POST.
+  Certificate page shows "View verified credential" button. Env: `CERTIFIER_TOKEN`,
+  `CERTIFIER_GROUP_ID` (Vercel prod + `.env.local`). Migration
+  `20260907140000_me_awards_credential.sql` applied by Brett.
+  Certifier design template "Masters Edge Black Belt" attached to credential
+  template "Master's Edge Certified"; background source saved at
+  `public/academy/certificate/certifier-background.jpg`. QR add-on skipped (paid).
+  Test credential issued to Brett (1/250 used):
+  https://credsverse.com/credentials/0e1ac72c-9dc7-416a-8068-dcdbf3f3aa64
 
 Decided: keep hand-written quizzes; do NOT replace with NotebookLM quiz output.
 Remaining open: sizzle-reel homepage placement (STATE.md).

@@ -37,6 +37,11 @@ If it is paused, docs/SESSION-NOTES.md has the one-line restore command.
 Open idea not started: sizzle-reel homepage placement (see STATE.md).
 Done Sep 7: course cover art, light/dark toggle, Retake-on-pass. Quizzes stay
 hand-written (Brett decided; do not swap in NotebookLM quiz output).
+Also Sep 7: Certifier verifiable credentials live (src/lib/certifier.ts; design
+template attached in app.certifier.io). Free tier = 250 credentials/yr, 1 used.
+
+Batch watch: module `sword-in-shrine` is failing ("No module with slug" — slug
+mismatch vs modules.ts). Check batch.log; fix the slug in the batch queue.
 ```
 
 ---
