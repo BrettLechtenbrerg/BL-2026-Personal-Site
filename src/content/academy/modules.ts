@@ -2411,6 +2411,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "laws-of-maximization",
+    audio: [
+      { label: "Deep Dive: The Laws of Maximization (NotebookLM audio overview)", href: "/academy/laws-of-maximization/deep-dive.m4a" },
+    ],
     order: 21,
     title: "The Laws of Maximization",
     tagline: "Reclaiming the Clock",

@@ -1,0 +1,202 @@
+[
+  {
+    "front": "What is the core premise of Parkinson's Law?",
+    "back": "Any task expands in complexity based on how much time you give it."
+  },
+  {
+    "front": "According to Parkinson's Law, what happens to a task when more time is allocated to it?",
+    "back": "It becomes bigger and more complex rather than easier."
+  },
+  {
+    "front": "What is the specific counter to Parkinson's Law mentioned in the text?",
+    "back": "A challenging, self-imposed time limit."
+  },
+  {
+    "front": "How must a self-imposed time limit be treated to effectively counter Parkinson's Law?",
+    "back": "It must be honored like any self-promise."
+  },
+  {
+    "front": "Term: Least-slack rule.",
+    "back": "A sequencing method where the shortest task is performed first."
+  },
+  {
+    "front": "The \"snowball effect\" of the least-slack rule is supported by what specific field?",
+    "back": "Real operations math."
+  },
+  {
+    "front": "In what order should tasks be sequenced according to the least-slack rule?",
+    "back": "Shortest task first (e.g., five minutes, then ten, then fifteen)."
+  },
+  {
+    "front": "Define the concept of \"embedding\" as used in the Laws of Maximization.",
+    "back": "Nesting short series tasks inside of long-running tasks."
+  },
+  {
+    "front": "In the example of embedding, what is the \"long-running\" task that allows other tasks to roll?",
+    "back": "Starting the laundry."
+  },
+  {
+    "front": "Name one short task that can be \"embedded\" while laundry is rolling.",
+    "back": "Making a short call or cleaning the floors."
+  },
+  {
+    "front": "Complete the principle: \"Do things right the first time — or _____.\"",
+    "back": "Make time to do them again."
+  },
+  {
+    "front": "What is the primary instruction of the \"never touch things twice\" philosophy?",
+    "back": "Do a task to completion without half-doing it or returning to it later."
+  },
+  {
+    "front": "What negative effect occurs when a task is only \"half-done\" initially?",
+    "back": "You end up \"ping-ponging\" back to the task later."
+  },
+  {
+    "front": "Concept: Batching.",
+    "back": "Grouping similar tasks together and completing them all at once."
+  },
+  {
+    "front": "According to the batching law, how often should email be handled?",
+    "back": "Only two or three times a day."
+  },
+  {
+    "front": "Why does the text argue that email does not belong in an \"impact zone\"?",
+    "back": "It is almost never part of your $5\\%$ of high-impact work."
+  },
+  {
+    "front": "List three specific activities that should be handled \"all at once\" through batching.",
+    "back": "Email, filing, and returning calls."
+  },
+  {
+    "front": "What is the rule for physical movement between locations, such as using stairs?",
+    "back": "Never walk anywhere empty-handed."
+  },
+  {
+    "front": "What is the result of ensuring every trip has a purpose in both directions?",
+    "back": "Twice the throughput."
+  },
+  {
+    "front": "How much time should be spent on daily planning at the start of the day?",
+    "back": "Fifteen minutes."
+  },
+  {
+    "front": "How much time is allocated to \"closing\" the day in the post-it note philosophy?",
+    "back": "Fifteen minutes."
+  },
+  {
+    "front": "How often should a thirty-minute planning session occur?",
+    "back": "Once a week."
+  },
+  {
+    "front": "What is the physical constraint used in the post-it note philosophy to vet a day's plan?",
+    "back": "The plan must fit on a post-it note in normal handwriting."
+  },
+  {
+    "front": "If a daily plan does not fit on a post-it note, what is the predicted outcome?",
+    "back": "The plan is not going to happen."
+  },
+  {
+    "front": "In the post-it note philosophy, the note represents a full day when working in your _____.",
+    "back": "$5\\%$ (impact zone)."
+  },
+  {
+    "front": "What is the primary objective of the $30\\%$ rule?",
+    "back": "To end lateness forever."
+  },
+  {
+    "front": "How is a time estimate calculated using the $30\\%$ rule?",
+    "back": "By padding every estimate by $30\\%$."
+  },
+  {
+    "front": "According to the $30\\%$ rule, when is the only time a nine-minute task takes exactly nine minutes?",
+    "back": "When every light cooperates and every shoe is pre-tied."
+  },
+  {
+    "front": "What are the three benefits of arriving early by using the $30\\%$ rule?",
+    "back": "Arriving calm, early, and trusted."
+  },
+  {
+    "front": "At what percentage capacity should a day be scheduled to stop surprises from becoming emergencies?",
+    "back": "$70\\%$ capacity."
+  },
+  {
+    "front": "Parkinson's Law suggests that to prevent tasks from expanding, you should give them _____ time.",
+    "back": "Less."
+  },
+  {
+    "front": "Which law states that tasks expand to fill the time you give them?",
+    "back": "Parkinson's Law."
+  },
+  {
+    "front": "The instruction to \"sequence with the least-slack rule\" means starting with the _____ task first.",
+    "back": "Shortest."
+  },
+  {
+    "front": "What type of tasks \"nest\" inside each other according to the law of embedding?",
+    "back": "Series tasks."
+  },
+  {
+    "front": "Under the rule \"Never touch things twice,\" tasks should be done to _____.",
+    "back": "Completion."
+  },
+  {
+    "front": "The $30\\%$ rule is used to pad every _____.",
+    "back": "Time estimate."
+  },
+  {
+    "front": "How does scheduling at $70\\%$ capacity affect surprises?",
+    "back": "They stop being emergencies."
+  },
+  {
+    "front": "What is the intended outcome of the \"least-slack rule\" in terms of momentum?",
+    "back": "The snowball effect."
+  },
+  {
+    "front": "Why is \"normal handwriting\" specified in the post-it note philosophy?",
+    "back": "To prevent over-packing the day with tiny, unrealistic lists."
+  },
+  {
+    "front": "When should you return calls according to the laws of batching?",
+    "back": "All at once."
+  },
+  {
+    "front": "The post-it note philosophy suggests that fifteen minutes of planning should _____ the day.",
+    "back": "Start."
+  },
+  {
+    "front": "What is the result of \"half-doing\" a task and ping-ponging back to it later?",
+    "back": "Touching things twice (inefficiency)."
+  },
+  {
+    "front": "How does the text define \"Protect Completion\"?",
+    "back": "Doing things right the first time or making time to do them again."
+  },
+  {
+    "front": "In the $30\\%$ rule example, what is the estimated duration of the school run?",
+    "back": "Nine minutes."
+  },
+  {
+    "front": "The least-slack rule uses task durations like five, ten, and fifteen minutes to build a _____.",
+    "back": "Snowball effect."
+  },
+  {
+    "front": "What does the text call the high-value work area where the $5\\%$ of impact occurs?",
+    "back": "The impact zone."
+  },
+  {
+    "front": "Embedding involves starting a _____ task and performing short calls or cleaning while it runs.",
+    "back": "Long-running."
+  },
+  {
+    "front": "According to the post-it note philosophy, how many minutes are spent planning weekly?",
+    "back": "Thirty minutes."
+  },
+  {
+    "front": "What is the counter-intuitive advice Parkinson's Law gives regarding time allocation?",
+    "back": "Give a task less time to prevent it from expanding in complexity."
+  },
+  {
+    "front": "What is the goal of the \"fifteen tactical laws\" mentioned in the source?",
+    "back": "Squeezing more from every hour (Reclaiming the Clock)."
+  }
+]
