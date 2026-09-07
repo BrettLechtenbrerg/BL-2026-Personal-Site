@@ -2756,6 +2756,12 @@ export const academyModules: AcademyModule[] = [
 
   {
     slug: "sword-in-shrine",
+    videoFiles: [
+      { label: "Video Overview (NotebookLM)", href: "/academy/sword-in-shrine/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive (NotebookLM audio overview)", href: "/academy/sword-in-shrine/deep-dive.m4a" },
+    ],
     order: 24,
     title: "The Sword in the Shrine: The Master's Edge",
     tagline: "The Master's Edge Book",
