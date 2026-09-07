@@ -2072,6 +2072,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "daily-dozen",
+    videoFiles: [
+      { label: "The Daily Dozen (NotebookLM video overview)", href: "/academy/daily-dozen/video-overview.mp4" },
+    ],
     order: 18,
     title: "The Daily Dozen",
     tagline: "Reclaiming the Clock",
