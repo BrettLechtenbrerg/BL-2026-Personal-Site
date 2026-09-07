@@ -1,6 +1,11 @@
 # Session Notes — Academy
 
-## Sep 7, 2026 — Session 29 (batch still running, 22/43 at 13:25 UTC)
+## Sep 7, 2026 — Session 29 (batch still running, 25/43 at 17:05 UTC; ETA ~6 hrs)
+
+Session closed cleanly: everything committed + pushed, Vercel env complete,
+batch LaunchAgent left loaded. Fixed mid-session: book modules 24-42 were
+indented 2 spaces so `academy-install.mjs` couldn't find them — re-indented,
+`sword-in-shrine` media installed by hand from `.notebooklm/`.
 
 DONE, deployed, Brett spot-checked and approved:
 - Course cover art: `public/academy/covers/*.jpg` (3 generated) + book shelf

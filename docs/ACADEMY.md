@@ -20,7 +20,8 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 
 1. **Env vars** — ✅ all set in Vercel production (Aug 29 2026):
    `ACADEMY_ACCESS_CODE` (enrollment code **EDGE2026**), `ACADEMY_SESSION_SECRET`,
-   `CRON_SECRET`, plus the pre-existing Supabase vars. If any is removed,
+   `CRON_SECRET`, `CERTIFIER_TOKEN`, `CERTIFIER_GROUP_ID` (Sep 7 2026; also in
+   `.env.local`), plus the pre-existing Supabase vars. If any is removed,
    production fails closed: signup/sessions return 503. To rotate the code:
    `npx vercel env rm ACADEMY_ACCESS_CODE production` then re-add + redeploy.
 2. **Schema** — ✅ already applied to the `bl-comms-hub` Supabase project
@@ -98,6 +99,14 @@ browser (verified: no `correctIndex` in client bundles).
   **final exam** (auto-scored, 80%+ = approved).
 - Both approved → `certified-masters-edge` badge (Black Belt) + printable
   certificate at `/academy/certificate`.
+- **Third-party-verifiable credential** (Certifier, free tier 250/yr):
+  `src/lib/certifier.ts` `ensureCredential()` issues once per user and stores
+  the public URL in `me_awards.credential_url`; certificate page shows a
+  "View verified credential" button (LinkedIn share on Certifier's page).
+  Design template "Masters Edge Black Belt" lives in app.certifier.io; source
+  art `public/academy/certificate/certifier-background.jpg`. If Certifier is
+  down or env unset, badge + printable certificate still work; the button is
+  hidden and the next page visit retries issuing.
 - Review queue: `/hub/academy` (hub login) — approve or request revision with
   feedback; feedback shows on the member's certification page.
 
