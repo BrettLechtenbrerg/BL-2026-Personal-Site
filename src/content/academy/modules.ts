@@ -3298,6 +3298,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "bamboo-warrior",
+    videoFiles: [
+      { label: "The Bamboo Warrior: Resilience (NotebookLM video overview)", href: "/academy/bamboo-warrior/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Bamboo Warrior: Resilience (NotebookLM audio overview)", href: "/academy/bamboo-warrior/deep-dive.m4a" },
+    ],
     order: 29,
     title: "The Bamboo Warrior: Resilience",
     tagline: "The Master's Edge Book",
