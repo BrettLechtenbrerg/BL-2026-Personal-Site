@@ -2641,6 +2641,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "tools-and-stick",
+    videoFiles: [
+      { label: "Tools, Technology, and Making It Stick (NotebookLM video overview)", href: "/academy/tools-and-stick/video-overview.mp4" },
+    ],
     order: 23,
     title: "Tools, Technology, and Making It Stick",
     tagline: "Reclaiming the Clock",
