@@ -16,6 +16,17 @@ import { db, getUserById } from "./academy-db";
 const BADGE = "certified-masters-edge";
 const API = "https://api.certifier.io/v1/credentials/create-issue-send";
 const VERIFY_BASE = "https://credsverse.com/credentials/";
+/** Placeholder written while an issuance is in flight so concurrent requests
+ *  (certification page + certificate page loading together) can't double-issue. */
+const PENDING = "pending";
+
+function setCredentialUrl(userId: string, value: string | null) {
+  return db()
+    .from("me_awards")
+    .update({ credential_url: value })
+    .eq("user_id", userId)
+    .eq("badge_slug", BADGE);
+}
 
 /** Public verification URL for the member's credential, issuing it if needed. */
 export async function ensureCredential(userId: string): Promise<string | null> {
@@ -26,12 +37,19 @@ export async function ensureCredential(userId: string): Promise<string | null> {
     .eq("badge_slug", BADGE)
     .maybeSingle();
   if (!award) return null;
-  if (award.credential_url) return award.credential_url as string;
+  const stored = award.credential_url as string | null;
+  if (stored) return stored === PENDING ? null : stored;
 
   const token = process.env.CERTIFIER_TOKEN;
   const groupId = process.env.CERTIFIER_GROUP_ID;
   const user = await getUserById(userId);
   if (!token || !groupId || !user) return null;
+
+  // Claim the slot atomically; whoever flips null → pending does the issuing.
+  const { data: claimed } = await setCredentialUrl(userId, PENDING)
+    .is("credential_url", null)
+    .select("user_id");
+  if (!claimed?.length) return null;
 
   try {
     const res = await fetch(API, {
@@ -48,20 +66,21 @@ export async function ensureCredential(userId: string): Promise<string | null> {
     });
     if (!res.ok) {
       console.error("Certifier issue failed", res.status, await res.text());
+      await setCredentialUrl(userId, null);
       return null;
     }
     const { publicId } = (await res.json()) as { publicId?: string };
-    if (!publicId) return null;
+    if (!publicId) {
+      await setCredentialUrl(userId, null);
+      return null;
+    }
 
     const url = VERIFY_BASE + publicId;
-    await db()
-      .from("me_awards")
-      .update({ credential_url: url })
-      .eq("user_id", userId)
-      .eq("badge_slug", BADGE);
+    await setCredentialUrl(userId, url);
     return url;
   } catch (err) {
     console.error("Certifier issue error", err);
+    await setCredentialUrl(userId, null);
     return null;
   }
 }
