@@ -1048,6 +1048,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "difficult-conversations",
+    audio: [
+      { label: "Deep Dive: The Difficult Conversations Coach (NotebookLM audio overview)", href: "/academy/difficult-conversations/deep-dive.m4a" },
+    ],
     order: 9,
     title: "The Difficult Conversations Coach",
     tagline: "Leadership",

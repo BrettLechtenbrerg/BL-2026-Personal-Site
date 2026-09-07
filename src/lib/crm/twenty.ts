@@ -114,6 +114,18 @@ function toLead(p: TwentyPerson): HubLead | null {
 
 const q = (s: string) => `"${s.replace(/["\\]/g, "")}"`;
 
+/**
+ * Twenty stores phones split: national number + calling code + ISO country.
+ * simplification: US/Canada only (+1) — all of Brett's contacts today. Accepts
+ * "8017183851", "(801) 718-3851", "+1 801 718 3851", "18017183851".
+ */
+function normalizeUsPhone(raw: string): { national: string; callingCode: "+1"; countryCode: "US" } | null {
+  const digits = raw.replace(/\D/g, "");
+  const national = digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits;
+  if (national.length !== 10) return null;
+  return { national, callingCode: "+1", countryCode: "US" };
+}
+
 //------------------------------------------------------------------------------
 // Read
 //------------------------------------------------------------------------------
@@ -177,7 +189,8 @@ export async function fetchLeads(): Promise<HubLeadsResult> {
 export async function findLead(args: { email?: string; phone?: string }): Promise<HubLead | null> {
   const clauses: string[] = [];
   if (args.email) clauses.push(`emails.primaryEmail[eq]:${q(args.email.toLowerCase())}`);
-  if (args.phone) clauses.push(`phones.primaryPhoneNumber[eq]:${q(args.phone)}`);
+  const phone = args.phone ? normalizeUsPhone(args.phone)?.national : undefined;
+  if (phone) clauses.push(`phones.primaryPhoneNumber[eq]:${q(phone)}`);
   if (clauses.length === 0) return null;
   const filter = clauses.length === 1 ? clauses[0] : `or(${clauses.join(",")})`;
   const res = await twentyFetch(`/people?limit=1&depth=0&filter=${encodeURIComponent(filter)}`);
@@ -212,8 +225,14 @@ export async function createLead(args: {
   };
   if (args.email) body.emails = { primaryEmail: args.email.toLowerCase(), additionalEmails: [] };
   if (args.phone) {
-    // Store E.164 as given; Twenty splits calling code itself when it can.
-    body.phones = { primaryPhoneNumber: args.phone, additionalPhones: [] };
+    const p = normalizeUsPhone(args.phone);
+    if (!p) return { ok: false, error: "Phone must be a 10-digit US number (or +1XXXXXXXXXX)." };
+    body.phones = {
+      primaryPhoneNumber: p.national,
+      primaryPhoneCallingCode: p.callingCode,
+      primaryPhoneCountryCode: p.countryCode,
+      additionalPhones: [],
+    };
   }
 
   const res = await twentyFetch("/people", { method: "POST", body: JSON.stringify(body) });
