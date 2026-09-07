@@ -3082,6 +3082,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "two-beliefs",
+    videoFiles: [
+      { label: "The Two Beliefs: Fixed vs Growth Mindset (NotebookLM video overview)", href: "/academy/two-beliefs/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Two Beliefs: Fixed vs Growth Mindset (NotebookLM audio overview)", href: "/academy/two-beliefs/deep-dive.m4a" },
+    ],
     order: 27,
     title: "The Two Beliefs: Fixed vs Growth Mindset",
     tagline: "The Master's Edge Book",
