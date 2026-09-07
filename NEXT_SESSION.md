@@ -34,9 +34,9 @@ mid-tick. If a module shows "GAVE UP", read .notebooklm/batch.log for why.
 Supabase project ref: yrfsquzzbgnmkfbuapfk (Comms Hub + Academy share it).
 If it is paused, docs/SESSION-NOTES.md has the one-line restore command.
 
-Open ideas not started: course cover art (drop images in public/academy/covers/
-and set `cover` on each course), pasting NotebookLM quiz output into modules,
-sizzle-reel homepage placement (see STATE.md).
+Open idea not started: sizzle-reel homepage placement (see STATE.md).
+Done Sep 7: course cover art, light/dark toggle, Retake-on-pass. Quizzes stay
+hand-written (Brett decided; do not swap in NotebookLM quiz output).
 ```
 
 ---
