@@ -40,8 +40,7 @@ STATE: Phase 1 SHIPPED (commit 42ac491 + phone fix). /hub sends email via Resend
   ✅ Phase 1 built + verified live (docs/crm/04-PHASE1-PLAN.md)
   ✅ Migration 20260907090000_crm_phase1.sql applied in Supabase (bl-comms-hub)
   ✅ Vercel env also has UNSUBSCRIBE_HMAC_SECRET, HUB_USERNAME/PASSWORD reset
-  ⏳ RESEND_WEBHOOK_SECRET not set yet — delivery stamps inactive until Brett
-     creates the webhook in Resend → /api/webhooks/resend
+  ✅ Resend webhook live (all email events) → /api/webhooks/resend, secret in Vercel
   ⏳ Cal.com account — not created yet (needed in Phase 3)
   ⏸ SMS/Twilio — paused by Brett until Phase 6
 
