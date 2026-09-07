@@ -1725,6 +1725,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "competitor-intelligence",
+    videoFiles: [
+      { label: "The Competitor Intelligence System (NotebookLM video overview)", href: "/academy/competitor-intelligence/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Competitor Intelligence System (NotebookLM audio overview)", href: "/academy/competitor-intelligence/deep-dive.m4a" },
+    ],
     order: 15,
     title: "The Competitor Intelligence System",
     tagline: "Market Awareness",
