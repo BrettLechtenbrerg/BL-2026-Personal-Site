@@ -1048,6 +1048,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "difficult-conversations",
+    videoFiles: [
+      { label: "The Difficult Conversations Coach (NotebookLM video overview)", href: "/academy/difficult-conversations/video-overview.mp4" },
+    ],
     audio: [
       { label: "Deep Dive: The Difficult Conversations Coach (NotebookLM audio overview)", href: "/academy/difficult-conversations/deep-dive.m4a" },
     ],
