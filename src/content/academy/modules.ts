@@ -3638,6 +3638,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "calm-river",
+    videoFiles: [
+      { label: "The Calm River: Reappraisal Over Anxiety (NotebookLM video overview)", href: "/academy/calm-river/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Calm River: Reappraisal Over Anxiety (NotebookLM audio overview)", href: "/academy/calm-river/deep-dive.m4a" },
+    ],
     order: 32,
     title: "The Calm River: Reappraisal Over Anxiety",
     tagline: "The Master's Edge Book",
