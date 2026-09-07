@@ -2185,6 +2185,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "five-percent",
+    videoFiles: [
+      { label: "Your 5% and Impact Zones (NotebookLM video overview)", href: "/academy/five-percent/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: Your 5% and Impact Zones (NotebookLM audio overview)", href: "/academy/five-percent/deep-dive.m4a" },
+    ],
     order: 19,
     title: "Your 5% and Impact Zones",
     tagline: "Reclaiming the Clock",
