@@ -1,6 +1,6 @@
 # Edge CRM (GHL replacement) — Resume Prompt
 
-**Updated:** September 6, 2026 (Phase 1 shipped)
+**Updated:** September 6, 2026 (Phase 1 shipped · Phase 2 plan drafted, awaiting approval)
 
 **How to restart:** open a new session and say
 > "I want to work on the CRM system for brettlechtenberg.com — read `~/Desktop/EDGE-CRM-RESUME-PROMPT.md` and pick up where we left off."
@@ -44,10 +44,15 @@ STATE: Phase 1 SHIPPED (commit 42ac491 + phone fix). /hub sends email via Resend
   ⏳ Cal.com account — not created yet (needed in Phase 3)
   ⏸ SMS/Twilio — paused by Brett until Phase 6
 
-NEXT: Phase 2 — lead intake + spam gate (docs/crm/03-BL-PILOT-PLAN.md).
-  Single /api/lead with form allow-list, port PMMA botDefense.ts, Turnstile,
-  rate limit, quarantine; repoint the 5 site forms; lead → Twenty person +
-  opportunity. Draft plan into .gg/plans/ for Brett's review FIRST.
+NEXT: Get Brett's answers to the 4 Phase 2 decisions, then BUILD Phase 2.
+  Plan: docs/crm/05-PHASE2-PLAN.md (drafted, NOT yet approved). Decisions open:
+    1. Stages NEW→REVIEW→CONTACTED→BOOKED→MISSED→ENROLLED→LOST — OK or rename?
+    2. One pipeline for all 5 forms (my pick) vs separate?
+    3. Form submit = email-marketing consent w/ copy under button — OK?
+    4. Delete /api/workbook-lead + /api/team-lead outright (my pick) vs alias?
+    5. Dual-send to GHL until Phase 3 (my pick) vs clean cut?
+  Brett understands: GHL stays live; BL forms just stop feeding it. Cancel = Phase 5.
+  Brett's Phase 2 to-do: create free Cloudflare Turnstile site (~5 min) when asked.
 ```
 
 ---
