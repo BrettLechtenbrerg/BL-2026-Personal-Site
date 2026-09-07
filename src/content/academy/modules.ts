@@ -1846,6 +1846,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "time-maze",
+    videoFiles: [
+      { label: "The Time Maze (NotebookLM video overview)", href: "/academy/time-maze/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Time Maze (NotebookLM audio overview)", href: "/academy/time-maze/deep-dive.m4a" },
+    ],
     order: 16,
     title: "The Time Maze",
     tagline: "Reclaiming the Clock",
