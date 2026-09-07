@@ -1959,6 +1959,9 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "mapping-values",
+    videoFiles: [
+      { label: "Mapping Your Values (NotebookLM video overview)", href: "/academy/mapping-values/video-overview.mp4" },
+    ],
     order: 17,
     title: "Mapping Your Values",
     tagline: "Reclaiming the Clock",
