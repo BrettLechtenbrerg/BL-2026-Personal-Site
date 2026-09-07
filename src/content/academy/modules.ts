@@ -1387,6 +1387,12 @@ export const academyModules: AcademyModule[] = [
   //----------------------------------------------------------------------------
   {
     slug: "pl-creation",
+    videoFiles: [
+      { label: "The P&L Creation System (NotebookLM video overview)", href: "/academy/pl-creation/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The P&L Creation System (NotebookLM audio overview)", href: "/academy/pl-creation/deep-dive.m4a" },
+    ],
     order: 12,
     title: "The P&L Creation System",
     tagline: "Money Mastery",

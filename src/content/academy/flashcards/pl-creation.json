@@ -1,0 +1,94 @@
+[
+  {
+    "front": "According to the 'Money Mastery' system, what is the strategic purpose of a P&L?",
+    "back": "It serves as a roadmap and a decision-making tool rather than just tax paperwork."
+  },
+  {
+    "front": "What is the recommended duration for a small business financial model?",
+    "back": "A 3-year financial model."
+  },
+  {
+    "front": "What four elements must be included in a realistic 3-year financial model?",
+    "back": "Realistic revenue assumptions, honest expense categories, break-even clarity, and what-if scenarios."
+  },
+  {
+    "front": "Why is a P&L considered a 'decision-making tool' when done correctly?",
+    "back": "It projects revenue, categorizes costs, reveals true margins, and tests if the business model works at scale."
+  },
+  {
+    "front": "What is the 'discipline that matters most' when creating revenue projections?",
+    "back": "Writing down the specific assumptions behind every revenue number."
+  },
+  {
+    "front": "A projection without _____ is considered a 'wish.'",
+    "back": "written assumptions"
+  },
+  {
+    "front": "List the four specific variables that should be documented in revenue assumptions.",
+    "back": "Number of customers, price, growth rate, and the reasoning behind those beliefs."
+  },
+  {
+    "front": "What is the formula for calculating Gross Profit?",
+    "back": "$Gross\\ Profit = Revenue - Direct\\ Costs\\ (COGS)$."
+  },
+  {
+    "front": "What does the Gross Profit line specifically reveal about a business?",
+    "back": "It tells the owner whether the core offering itself makes money."
+  },
+  {
+    "front": "What is the formula for calculating Operating Profit?",
+    "back": "$Operating\\ Profit = Gross\\ Profit - Overhead$."
+  },
+  {
+    "front": "List three examples of overhead costs subtracted to find Operating Profit.",
+    "back": "Rent, salaries, and software."
+  },
+  {
+    "front": "What does the Operating Profit line specifically reveal about a business?",
+    "back": "It indicates whether the business as a whole makes money after fixed costs."
+  },
+  {
+    "front": "Term: Net Profit",
+    "back": "Definition: The final amount of money remaining after all expenses and obligations have been subtracted."
+  },
+  {
+    "front": "What is a common mistake made by owners who only monitor the 'top line' (revenue)?",
+    "back": "They may grow revenue while their profit margins quietly collapse."
+  },
+  {
+    "front": "Why is 'profit on paper' not the same as 'cash in the bank'?",
+    "back": "Because of timing differences between when revenue is recorded and when customers actually pay."
+  },
+  {
+    "front": "According to the source, what kills more small businesses than a lack of profit?",
+    "back": "Cash-flow timing issues."
+  },
+  {
+    "front": "What scenario demonstrates a cash-flow timing failure despite being profitable?",
+    "back": "A business failing to meet payroll because rent is due in 5 days while customers pay in 60 days."
+  },
+  {
+    "front": "What three scenarios should a business owner model for their financial plan?",
+    "back": "Best case, worst case, and most likely."
+  },
+  {
+    "front": "Term: Break-even",
+    "back": "Definition: The specific level of revenue that covers all of a business's costs."
+  },
+  {
+    "front": "In financial planning, why is 'optimism' described as a 'terrible financial plan'?",
+    "back": "Because a business must ensure it can survive the worst-case scenario to remain viable."
+  },
+  {
+    "front": "What is the primary difference between Gross Profit and Operating Profit?",
+    "back": "Gross Profit only subtracts direct costs (COGS), while Operating Profit also subtracts overhead like rent and salaries."
+  },
+  {
+    "front": "How does a P&L reveal if a business model 'works at scale'?",
+    "back": "By using honest cost categorization and margin analysis to see if the model remains profitable as it grows."
+  },
+  {
+    "front": "When is the best time to fix a margin problem in a business?",
+    "back": "While the problem is still 'cheap' to fix, identified by watching all three profit lines."
+  }
+]
