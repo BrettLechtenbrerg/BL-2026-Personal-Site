@@ -3979,6 +3979,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "garden-of-words",
+    videoFiles: [
+      { label: "The Garden of Words: Compassionate Communication (NotebookLM video overview)", href: "/academy/garden-of-words/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Garden of Words: Compassionate Communication (NotebookLM audio overview)", href: "/academy/garden-of-words/deep-dive.m4a" },
+    ],
     order: 35,
     title: "The Garden of Words: Compassionate Communication",
     tagline: "The Master's Edge Book",
