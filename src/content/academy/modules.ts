@@ -3752,6 +3752,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "warriors-ledger",
+    videoFiles: [
+      { label: "The Warrior's Ledger: Confidence (NotebookLM video overview)", href: "/academy/warriors-ledger/video-overview.mp4" },
+    ],
     order: 33,
     title: "The Warrior's Ledger: Confidence",
     tagline: "The Master's Edge Book",
