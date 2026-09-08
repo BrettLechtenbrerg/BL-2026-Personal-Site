@@ -97,7 +97,14 @@ export async function POST(request: NextRequest) {
 
     if (action === "signup") {
       const verdict = checkBotSignals(request, body);
-      if (!verdict.ok) return rejectBot(verdict);
+      if (!verdict.ok) {
+        // Contact forms fake a 200 here; for signup that would bounce a real
+        // human into a session-less dashboard, so say it plainly instead.
+        if (verdict.status === 200) {
+          return NextResponse.json({ error: "Signup didn't go through. Please try again." }, { status: 400 });
+        }
+        return rejectBot(verdict);
+      }
 
       const name = String(body?.name || "").trim().slice(0, 80);
       const avatar = String(body?.avatar || "🥋").slice(0, 8);

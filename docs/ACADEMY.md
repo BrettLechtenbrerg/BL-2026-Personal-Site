@@ -71,7 +71,8 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
   `checkout.session.completed` + `checkout.session.async_payment_succeeded`.
   Its signing secret is `STRIPE_WEBHOOK_SECRET`. Local: `stripe listen
   --forward-to localhost:3000/api/stripe/webhook` prints a `whsec_` for
-  `.env.local`.
+  `.env.local`, and set `NEXT_PUBLIC_SITE_URL=http://localhost:3000` there
+  so Checkout's success/cancel URLs come back to your dev server.
 - **Gift a course (100% off, still “buys” it)**: Dashboard → Product catalog
   → Coupons → New: 100% off, duration *Once*, “Apply to specific products” =
   that one course → save → “Add promotion code”, e.g. `GIFT-CLOCK-7F3K`,
