@@ -4094,6 +4094,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "stone-steps",
+    videoFiles: [
+      { label: "The Stone Steps: Goal Setting (NotebookLM video overview)", href: "/academy/stone-steps/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Stone Steps: Goal Setting (NotebookLM audio overview)", href: "/academy/stone-steps/deep-dive.m4a" },
+    ],
     order: 36,
     title: "The Stone Steps: Goal Setting",
     tagline: "The Master's Edge Book",
