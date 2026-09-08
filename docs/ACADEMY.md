@@ -48,7 +48,7 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
   **Reclaiming the Clock**, **The Master's Edge Book** are each a one-time
   Stripe purchase. Ownership lives in `me_course_access` (one row per member
   × course; `source` = free/stripe/legacy/admin). Everyone enrolled before
-  Sep 9 2026 was grandfathered into all 4 (`legacy`).
+  Sep 8 2026 22:00 UTC was grandfathered into all 4 (`legacy`).
 - **Enforced server-side**: `src/lib/academy-access.ts` `getOwnedCourses()`
   feeds `unlockedSlugs()` (progress + quiz APIs) AND the module page, which
   renders a Locked panel instead of the lesson. Fails closed (DB error → only

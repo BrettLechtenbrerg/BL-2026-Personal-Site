@@ -18,9 +18,15 @@ timing + rate limit). Full runbook: `docs/ACADEMY.md` → **Paywall**.
 - Stripe CLI installed via brew (`stripe login` pairs to Brett's account).
 - Known limit: media files under `public/academy/<slug>/` remain public by URL.
 
-**Open when this session ended** (see the end of the session for status):
-Stripe env values (secret key, 3 price ids, webhook secret) in Vercel prod +
-`.env.local`; webhook endpoint registered; live smoke test.
+**Open when this session ended** — Stripe pairing never approved, so:
+committed locally, NOT pushed/deployed (prod Unlock buttons would 503).
+Next session: `stripe login` (browser approve) → create 3 Products/Prices
+→ set `STRIPE_SECRET_KEY` + 3 `STRIPE_PRICE_*` + `STRIPE_WEBHOOK_SECRET` in
+Vercel prod + `.env.local` → register webhook → run the plan's verification
+list → push → `npx vercel --prod --yes` → live smoke test.
+Verified locally already: open signup, new member owns only Framework, locked
+module page renders the Locked panel with zero lesson text, quiz API 403,
+checkout 503 without keys, `next build` green.
 
 ## Sep 7, 2026 — Session 29 (batch still running, 25/43 at 17:05 UTC; ETA ~6 hrs)
 
