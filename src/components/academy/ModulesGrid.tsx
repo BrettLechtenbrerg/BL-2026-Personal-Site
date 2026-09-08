@@ -61,6 +61,13 @@ export default function ModulesGrid({
       .catch(() => setReady(true));
   }, []);
 
+  // Course anchors (#framework etc.) only exist after the grid renders, so the
+  // browser's native hash scroll misses them. Re-scroll once ready.
+  useEffect(() => {
+    if (!ready || !window.location.hash) return;
+    document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
+  }, [ready]);
+
   if (loading || !ready) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
@@ -84,7 +91,7 @@ export default function ModulesGrid({
           progress.some((p) => p.module_slug === m.slug && p.passed)
         ).length;
         return (
-          <section key={course.id} className="mb-12">
+          <section key={course.id} id={course.id} className="mb-12 scroll-mt-20">
             {/* Course banner — real cover art when set, brand gradient otherwise */}
             <div
               className="relative mb-4 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-cranberry-dark via-black to-black"

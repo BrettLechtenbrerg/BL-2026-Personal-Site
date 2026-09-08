@@ -73,7 +73,18 @@ export interface AcademyCourse {
   cover?: string;
 }
 
+// Display order: free Framework course first (Brett, Sep 8), then paid tracks.
 export const academyCourses: AcademyCourse[] = [
+  {
+    id: "framework",
+    title: "The Master's Edge Framework",
+    emoji: "🎁",
+    description:
+      "The free giveaway course: the complete framework with the stories removed — the map of the room. One deep module, one serious 22-question exam.",
+    fromOrder: 43,
+    toOrder: 43,
+    cover: "/academy/covers/framework.jpg",
+  },
   {
     id: "business-tools",
     title: "Master's Edge Business Tools",
@@ -103,16 +114,6 @@ export const academyCourses: AcademyCourse[] = [
     fromOrder: 24,
     toOrder: 42,
     cover: "/books/masters-edge-shelf.jpg",
-  },
-  {
-    id: "framework",
-    title: "The Master's Edge Framework",
-    emoji: "🎁",
-    description:
-      "The free giveaway course: the complete framework with the stories removed — the map of the room. One deep module, one serious 22-question exam.",
-    fromOrder: 43,
-    toOrder: 43,
-    cover: "/academy/covers/framework.jpg",
   },
 ];
 
