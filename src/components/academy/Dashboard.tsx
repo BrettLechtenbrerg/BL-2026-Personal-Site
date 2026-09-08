@@ -28,6 +28,7 @@ export default function Dashboard({
   const [xp, setXp] = useState(0);
   const [streak, setStreak] = useState(0);
   const [certUnlocked, setCertUnlocked] = useState(false);
+  const [unlocked, setUnlocked] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ export default function Dashboard({
           setXp(json.xp ?? 0);
           setStreak(json.streak ?? 0);
           setCertUnlocked(json.certificationUnlocked ?? false);
+          setUnlocked(json.unlocked ?? []);
         }
         setReady(true);
       })
@@ -58,9 +60,12 @@ export default function Dashboard({
     progress.some((p) => p.module_slug === m.slug && p.passed)
   ).length;
   const pct = Math.round((passedCount / modules.length) * 100);
-  const nextModule = modules.find(
+  const unpassed = modules.filter(
     (m) => !progress.some((p) => p.module_slug === m.slug && p.passed)
   );
+  // Prefer a module the member can actually open; fall back to the first
+  // un-passed one (its page shows the Unlock panel for that course).
+  const nextModule = unpassed.find((m) => unlocked.includes(m.slug)) ?? unpassed[0];
   const certified = badges.includes("certified-masters-edge");
   const belt = beltFor(xp, certified);
   const upcoming = certified ? null : nextBelt(xp);

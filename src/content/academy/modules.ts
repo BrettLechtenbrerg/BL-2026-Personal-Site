@@ -79,7 +79,7 @@ export interface AcademyCourse {
   priceEnv?: string;
 }
 
-// Display order: free Framework course first (Brett, Sep 8), then paid tracks.
+// Display order: Framework (entry course, $99) first, then the deeper tracks.
 export const academyCourses: AcademyCourse[] = [
   {
     id: "framework",
