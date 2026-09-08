@@ -4652,6 +4652,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "unseen-belt",
+    videoFiles: [
+      { label: "The Unseen Belt: Strong Ethical Character (NotebookLM video overview)", href: "/academy/unseen-belt/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Unseen Belt: Strong Ethical Character (NotebookLM audio overview)", href: "/academy/unseen-belt/deep-dive.m4a" },
+    ],
     order: 41,
     title: "The Unseen Belt: Strong Ethical Character",
     tagline: "The Master's Edge Book",
