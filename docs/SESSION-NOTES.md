@@ -1,5 +1,27 @@
 # Session Notes — Academy
 
+## Sep 8, 2026 — Session 30: per-course paywall (Stripe + gift codes)
+
+Built per `~/.gg/plans/academy-per-course-paywall.md`. Framework free for
+every member; Business Tools / Clock / Book are one-time Stripe purchases;
+Brett gifts with a 100%-off promotion code (recipient still checks out).
+Enrollment code EDGE2026 retired — signup is open (bot-protection honeypot +
+timing + rate limit). Full runbook: `docs/ACADEMY.md` → **Paywall**.
+
+- DB: `me_course_access` table applied live via Management API; the 1
+  existing member grandfathered (`legacy`) into all 4 courses.
+- Code: `src/lib/academy-access.ts` (owned set, fail-closed), `src/lib/stripe.ts`
+  (client, idempotent `fulfillCheckout`, price labels from Stripe),
+  `api/academy/checkout`, `api/stripe/webhook`, `academy/checkout/success`,
+  module page gates server-side (Locked panel, lesson never sent),
+  `ModulesGrid` banner shows Unlock button / Free badge. `stripe@22.6.1` pinned.
+- Stripe CLI installed via brew (`stripe login` pairs to Brett's account).
+- Known limit: media files under `public/academy/<slug>/` remain public by URL.
+
+**Open when this session ended** (see the end of the session for status):
+Stripe env values (secret key, 3 price ids, webhook secret) in Vercel prod +
+`.env.local`; webhook endpoint registered; live smoke test.
+
 ## Sep 7, 2026 — Session 29 (batch still running, 25/43 at 17:05 UTC; ETA ~6 hrs)
 
 Session closed cleanly: everything committed + pushed, Vercel env complete,

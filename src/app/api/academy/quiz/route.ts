@@ -10,16 +10,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
 import { db, getProgress, awardXp, awardBadge } from "@/lib/academy-db";
+import { getOwnedCourses } from "@/lib/academy-access";
 import { getModule, unlockedSlugs, PASS_PERCENT } from "@/content/academy/modules";
 
 async function checkUnlocked(
   userId: string,
   slug: string
 ): Promise<{ unlocked: boolean; row?: { passed: boolean; quiz_score: number | null } }> {
-  const progress = await getProgress(userId);
+  const [progress, owned] = await Promise.all([getProgress(userId), getOwnedCourses(userId)]);
   const passed = new Set(progress.filter((p) => p.passed).map((p) => p.module_slug));
   return {
-    unlocked: unlockedSlugs(passed).has(slug),
+    unlocked: unlockedSlugs(passed, owned).has(slug),
     row: progress.find((p) => p.module_slug === slug),
   };
 }

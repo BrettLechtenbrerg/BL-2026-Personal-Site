@@ -71,6 +71,12 @@ export interface AcademyCourse {
   toOrder: number;
   /** Optional banner image under /public (e.g. "/academy/covers/business-tools.jpg"). */
   cover?: string;
+  /**
+   * Paid course: name of the env var holding its Stripe Price id
+   * (price_… — test vs live swap in Vercel, no code change). Absent = free
+   * to every member. Price shown in the UI comes from Stripe, not from here.
+   */
+  priceEnv?: string;
 }
 
 // Display order: free Framework course first (Brett, Sep 8), then paid tracks.
@@ -94,6 +100,7 @@ export const academyCourses: AcademyCourse[] = [
     fromOrder: 1,
     toOrder: 15,
     cover: "/academy/covers/business-tools.jpg",
+    priceEnv: "STRIPE_PRICE_BUSINESS_TOOLS",
   },
   {
     id: "reclaiming-the-clock",
@@ -104,6 +111,7 @@ export const academyCourses: AcademyCourse[] = [
     fromOrder: 16,
     toOrder: 23,
     cover: "/academy/covers/reclaiming-the-clock.jpg",
+    priceEnv: "STRIPE_PRICE_CLOCK",
   },
   {
     id: "masters-edge-book",
@@ -114,8 +122,18 @@ export const academyCourses: AcademyCourse[] = [
     fromOrder: 24,
     toOrder: 42,
     cover: "/books/masters-edge-shelf.jpg",
+    priceEnv: "STRIPE_PRICE_BOOK",
   },
 ];
+
+export function getCourse(id: string): AcademyCourse | undefined {
+  return academyCourses.find((c) => c.id === id);
+}
+
+/** The course a module belongs to (by order range). */
+export function courseForModule(m: AcademyModule): AcademyCourse | undefined {
+  return academyCourses.find((c) => m.order >= c.fromOrder && m.order <= c.toOrder);
+}
 
 // PLACEHOLDER videos — Brett's existing media appearances, so modules play a
 // real video today. Swap each for the actual unlisted lesson video when filmed.
@@ -5342,23 +5360,24 @@ export function getModule(slug: string): AcademyModule | undefined {
 }
 
 /**
- * PREVIEW MODE (Brett's request while he decides the final layout):
- * every module is unlocked. To restore linear unlocking — module N+1 opens
- * once module N is passed, per course — swap in the commented block below.
+ * Slugs the member may open. Gated by course ownership (`owned` = course ids
+ * from me_course_access + free courses). Within an owned course, PREVIEW
+ * MODE is on (Brett's request): every module is open. To restore linear
+ * unlocking — module N+1 opens once module N is passed — swap in the
+ * commented block below.
  */
-export function unlockedSlugs(passed: Set<string>): Set<string> {
+export function unlockedSlugs(passed: Set<string>, owned: Set<string>): Set<string> {
   void passed; // unused while preview mode is on
-  return new Set(orderedModules().map((m) => m.slug));
-  /* Linear per-course unlock — restore when the layout is final:
   const unlocked = new Set<string>();
   for (const course of academyCourses) {
+    if (!owned.has(course.id)) continue;
     for (const m of orderedModules().filter(
       (x) => x.order >= course.fromOrder && x.order <= course.toOrder
     )) {
       unlocked.add(m.slug);
-      if (!passed.has(m.slug)) break; // rest of THIS course stays locked
+      // Linear per-course unlock — restore when the layout is final:
+      // if (!passed.has(m.slug)) break;
     }
   }
   return unlocked;
-  */
 }

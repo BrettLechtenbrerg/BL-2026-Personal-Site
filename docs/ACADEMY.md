@@ -18,12 +18,12 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 
 ## Launch checklist
 
-1. **Env vars** — ✅ all set in Vercel production (Aug 29 2026):
-   `ACADEMY_ACCESS_CODE` (enrollment code **EDGE2026**), `ACADEMY_SESSION_SECRET`,
+1. **Env vars** — ✅ set in Vercel production: `ACADEMY_SESSION_SECRET`,
    `CRON_SECRET`, `CERTIFIER_TOKEN`, `CERTIFIER_GROUP_ID` (Sep 7 2026; also in
-   `.env.local`), plus the pre-existing Supabase vars. If any is removed,
-   production fails closed: signup/sessions return 503. To rotate the code:
-   `npx vercel env rm ACADEMY_ACCESS_CODE production` then re-add + redeploy.
+   `.env.local`), plus the pre-existing Supabase vars, plus the Stripe vars
+   in **Paywall** below. If any is removed, production fails closed:
+   sessions return 503, checkout 503. (`ACADEMY_ACCESS_CODE` / code
+   **EDGE2026** was retired Sep 8 2026 — signup is open now.)
 2. **Schema** — ✅ already applied to the `bl-comms-hub` Supabase project
    (all `me_` tables). To re-apply or apply elsewhere, paste
    `supabase/academy-schema.sql` into the Supabase SQL editor (idempotent).
@@ -33,8 +33,8 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
    (`https://www.youtube.com/embed/<id>`) as they get filmed. Every module
    also has a full written lesson, so reading-first members are covered
    even before the real videos exist.
-4. Push to `main` → Vercel deploys. Share `brettlechtenberg.com/academy` +
-   the enrollment code directly with members.
+4. Push to `main` → Vercel deploys. Share `brettlechtenberg.com/academy`
+   directly with members (no code needed).
 
 > ⚠️ The Supabase free-tier project **pauses after ~1 week of inactivity**
 > (it was paused when we built this — we restored it). A paused project takes
@@ -42,19 +42,61 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 > (Vercel cron + GitHub Actions) and auto-restores via the Management API if it finds the project
 > paused (see `docs/SESSION-NOTES.md` → Sep 6 for the runbook).
 
+## Paywall (Sep 8, 2026)
+
+- **Framework** (module 43) is free to every member. **Business Tools**,
+  **Reclaiming the Clock**, **The Master's Edge Book** are each a one-time
+  Stripe purchase. Ownership lives in `me_course_access` (one row per member
+  × course; `source` = free/stripe/legacy/admin). Everyone enrolled before
+  Sep 9 2026 was grandfathered into all 4 (`legacy`).
+- **Enforced server-side**: `src/lib/academy-access.ts` `getOwnedCourses()`
+  feeds `unlockedSlugs()` (progress + quiz APIs) AND the module page, which
+  renders a Locked panel instead of the lesson. Fails closed (DB error → only
+  free courses).
+- **Not gated**: media under `public/academy/<slug>/` (mp4/m4a/pdf) is
+  public by URL. Lesson text, flashcards, and quizzes are gated. Upgrade path:
+  move media to a private Supabase Storage bucket + signed URLs from the
+  module page.
+- **Flow**: banner “Unlock course · $X” → `POST /api/academy/checkout` →
+  Stripe Checkout (promo-code field on) → `/academy/checkout/success`
+  fulfils immediately, `/api/stripe/webhook` fulfils again (idempotent) for
+  the case where the buyer never returns. Price shown = the Stripe Price
+  amount (dashboard is the source of truth; no redeploy to change a price).
+- **Env** (Vercel prod + `.env.local`): `STRIPE_SECRET_KEY`,
+  `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_BUSINESS_TOOLS`, `STRIPE_PRICE_CLOCK`,
+  `STRIPE_PRICE_BOOK` (`price_…` ids; `priceEnv` on each `AcademyCourse`).
+  Test vs live = swap the env values.
+- **Webhook endpoint** (Dashboard → Developers → Webhooks, test AND live):
+  `https://www.brettlechtenberg.com/api/stripe/webhook`, events
+  `checkout.session.completed` + `checkout.session.async_payment_succeeded`.
+  Its signing secret is `STRIPE_WEBHOOK_SECRET`. Local: `stripe listen
+  --forward-to localhost:3000/api/stripe/webhook` prints a `whsec_` for
+  `.env.local`.
+- **Gift a course (100% off, still “buys” it)**: Dashboard → Product catalog
+  → Coupons → New: 100% off, duration *Once*, “Apply to specific products” =
+  that one course → save → “Add promotion code”, e.g. `GIFT-CLOCK-7F3K`,
+  max redemptions 1. Send the code. Recipient enrolls free, clicks Unlock,
+  enters the code at checkout, pays $0 → access granted (session completes
+  as `no_payment_required`).
+- **Grant by hand** (no Stripe): SQL editor →
+  `insert into me_course_access (user_id, course_id, source) values ('<uuid>', 'reclaiming-the-clock', 'admin') on conflict do nothing;`
+- Certification still needs all 43 modules passed, so free-only members
+  can't certify.
+
 ## How auth works
 
-- One shared **enrollment code** gates signup; each member then has their own
-  email + password (bcrypt-hashed) and avatar.
+- **Open signup** (honeypot + timing + origin + per-IP rate limit from
+  `src/lib/bot-protection.ts`); each member has their own email + password
+  (bcrypt-hashed) and avatar.
 - Sessions: HMAC-signed HttpOnly cookie (`src/lib/academy-session.ts`,
   modeled on `hub-session.ts`). Every `/api/academy/*` route verifies it.
-- Dev fallbacks (localhost only): code `masters-edge-dev`, dev session secret.
+- Dev fallback (localhost only): dev session secret.
 - Admin review reuses the existing hub login — no second admin account.
 
 ## Current mode (Aug 29, 2026)
 
-- **Preview mode is ON**: all modules unlocked while Brett decides the final
-  layout. Restore linear per-course unlocking via the commented block in
+- **Preview mode is ON within owned courses**: every module of a course you
+  own is open. Restore linear per-course unlocking via the commented line in
   `unlockedSlugs()` (src/content/academy/modules.ts).
 - **Media on modules**: optional `audio` and `videoFiles` arrays render native
   players ABOVE the YouTube embed. Files live under
@@ -123,6 +165,8 @@ Badges in `src/content/academy/badges.ts`. Ledger table `me_xp_events`;
 |---|---|
 | Schema (idempotent) | `supabase/academy-schema.sql` |
 | Session + guard | `src/lib/academy-session.ts` |
+| Course ownership (paywall) | `src/lib/academy-access.ts`, `src/lib/stripe.ts` |
+| Checkout / webhook / return | `src/app/api/academy/checkout`, `src/app/api/stripe/webhook`, `src/app/academy/checkout/success` |
 | DB helpers (XP, badges, certify) | `src/lib/academy-db.ts` |
 | Content (modules, quizzes, exam) | `src/content/academy/modules.ts` |
 | Badges + belts | `src/content/academy/badges.ts` |

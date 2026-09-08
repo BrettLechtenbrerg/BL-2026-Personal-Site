@@ -134,6 +134,26 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values ('academy-avatars', 'academy-avatars', true, 2097152, '{image/jpeg,image/png,image/webp}')
 on conflict (id) do nothing;
 
+-- Sep 8 2026: per-course paywall. One row per (member, course) they own.
+-- source: 'free' (Framework), 'stripe' (paid/promo Checkout), 'legacy'
+-- (enrolled before the paywall), 'admin' (granted by hand).
+-- PK makes fulfilment idempotent; unique session id stops double-crediting.
+create table if not exists me_course_access (
+  user_id           uuid not null references me_users(id) on delete cascade,
+  course_id         text not null,
+  source            text not null check (source in ('free', 'stripe', 'legacy', 'admin')),
+  stripe_session_id text unique,
+  created_at        timestamptz not null default now(),
+  primary key (user_id, course_id)
+);
+-- Grandfather everyone enrolled before the paywall (no-op on re-run).
+insert into me_course_access (user_id, course_id, source)
+select u.id, c.course_id, 'legacy'
+from me_users u
+cross join (values ('framework'), ('business-tools'), ('reclaiming-the-clock'), ('masters-edge-book')) as c(course_id)
+where u.created_at < '2026-09-08T22:00Z'
+on conflict do nothing;
+
 -- Indexes ---------------------------------------------------------------------
 create index if not exists me_quiz_attempts_user_idx on me_quiz_attempts (user_id, module_slug);
 create index if not exists me_xp_events_user_idx     on me_xp_events (user_id);
@@ -150,7 +170,8 @@ declare t text;
 begin
   foreach t in array array[
     'me_users','me_progress','me_quiz_attempts','me_awards','me_xp_events',
-    'me_posts','me_comments','me_reactions','me_submissions','me_events'
+    'me_posts','me_comments','me_reactions','me_submissions','me_events',
+    'me_course_access'
   ] loop
     execute format('alter table %I enable row level security', t);
     execute format('revoke all on %I from anon, authenticated', t);

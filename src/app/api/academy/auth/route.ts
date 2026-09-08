@@ -1,13 +1,15 @@
 //==============================================================================
 // ACADEMY — Auth API (signup / login / session / logout)
 //==============================================================================
-// POST   { action: "signup", code, name, email, password, avatar } → create
-//        member (enrollment code gates signup) + set session cookie.
+// POST   { action: "signup", name, email, password, avatar, + bot fields } →
+//        create member + set session cookie. Open signup (Sep 8 2026): every
+//        member gets the free Framework course; paid courses go through
+//        /api/academy/checkout. Honeypot/timing/origin/rate-limit via
+//        src/lib/bot-protection.ts.
 // POST   { action: "login", email, password } → verify + set session cookie.
 // GET    → current member profile ({ user }) or 401.
 // DELETE → log out (clears the cookie).
 //
-// Enrollment code comes from env ACADEMY_ACCESS_CODE (required in production).
 // Passwords are bcrypt-hashed; sessions are HMAC-signed HTTP-only cookies.
 // Rate limiting mirrors /api/hub/auth: per-IP failed attempts, in-memory.
 //==============================================================================
@@ -20,12 +22,12 @@ import {
   createAcademySessionValue,
   requireAcademyUser,
   academyCookieOptions,
-  timingSafeStringEqual,
 } from "@/lib/academy-session";
 import { db, getUserById, getBadges, awardBadge, awardXp } from "@/lib/academy-db";
+import { checkBotSignals, rejectBot } from "@/lib/bot-protection";
 
 //------------------------------------------------------------------------------
-// Rate limit — per-IP FAILED attempts (login + bad enrollment codes).
+// Rate limit — per-IP FAILED login attempts.
 // In-memory per serverless instance; a soft brake, same posture as hub auth.
 //------------------------------------------------------------------------------
 const FAIL_WINDOW_MS = 15 * 60 * 1000;
@@ -61,14 +63,6 @@ async function failAuth(ip: string, message: string, status = 401): Promise<Next
   return NextResponse.json({ error: message }, { status });
 }
 
-const IS_PROD = process.env.NODE_ENV === "production";
-
-function enrollmentCode(): string | null {
-  const code = process.env.ACADEMY_ACCESS_CODE;
-  if (code && code.length > 0) return code;
-  return IS_PROD ? null : "masters-edge-dev";
-}
-
 const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/;
 
 function sessionResponse(userId: string, payload: object): NextResponse | null {
@@ -102,17 +96,8 @@ export async function POST(request: NextRequest) {
     }
 
     if (action === "signup") {
-      const code = enrollmentCode();
-      if (!code) {
-        return NextResponse.json(
-          { error: "Academy enrollment is not configured on this deploy (ACADEMY_ACCESS_CODE missing)." },
-          { status: 503 }
-        );
-      }
-      const givenCode = String(body?.code || "");
-      if (givenCode === "" || !timingSafeStringEqual(givenCode, code)) {
-        return failAuth(ip, "That enrollment code isn't valid. Check with Brett and try again.");
-      }
+      const verdict = checkBotSignals(request, body);
+      if (!verdict.ok) return rejectBot(verdict);
 
       const name = String(body?.name || "").trim().slice(0, 80);
       const avatar = String(body?.avatar || "🥋").slice(0, 8);

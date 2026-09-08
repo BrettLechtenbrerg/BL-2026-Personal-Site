@@ -1,13 +1,15 @@
 "use client";
 
 //==============================================================================
-// Academy — login / signup screen (enrollment code gates signup)
+// Academy — login / signup screen. Signup is open: every member gets the
+// free Framework course; the other courses are unlocked per course (Stripe).
 //==============================================================================
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Eye, EyeOff, Loader2, KeyRound } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { useBotProtection } from "@/lib/useBotProtection";
 
 const AVATARS = ["🥋", "🦅", "🐯", "🐉", "🦁", "⚡", "🔥", "🏔️", "🌟", "🥷", "🛡️", "⚔️"];
 
@@ -15,7 +17,6 @@ export default function AcademyLoginPage() {
   const router = useRouter();
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [checking, setChecking] = useState(true);
-  const [code, setCode] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,6 +24,7 @@ export default function AcademyLoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { honeypotProps, withBotFields } = useBotProtection();
 
   // Already signed in? Straight to the dashboard.
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function AcademyLoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
           mode === "signup"
-            ? { action: "signup", code, name, email, password, avatar }
+            ? withBotFields({ action: "signup", name, email, password, avatar })
             : { action: "login", email, password }
         ),
       });
@@ -87,7 +89,9 @@ export default function AcademyLoginPage() {
             Master&apos;s Edge <span className="text-gold">Academy</span>
           </h1>
           <p className="mt-1 text-sm text-white/60">
-            {mode === "login" ? "Welcome back. Step onto the mat." : "Enroll with your access code."}
+            {mode === "login"
+              ? "Welcome back. Step onto the mat."
+              : "Free to join — the Framework course is yours the moment you enroll."}
           </p>
         </div>
 
@@ -113,18 +117,7 @@ export default function AcademyLoginPage() {
         <form onSubmit={submit} className="space-y-4">
           {mode === "signup" && (
             <>
-              <div className="relative">
-                <KeyRound size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-gold" />
-                <input
-                  type="text"
-                  value={code}
-                  onChange={(e) => setCode(e.target.value)}
-                  placeholder="Enrollment code"
-                  autoComplete="off"
-                  required
-                  className={`${inputClass} pl-9`}
-                />
-              </div>
+              <input {...honeypotProps} />
               <input
                 type="text"
                 value={name}

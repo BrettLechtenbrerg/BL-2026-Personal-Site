@@ -1,7 +1,7 @@
 //==============================================================================
 // ACADEMY — Progress API
 //==============================================================================
-// GET  → member's per-module progress + unlocked slugs + badges + XP.
+// GET  → member's per-module progress + unlocked slugs + owned courses + badges + XP.
 // POST { module } → mark that module's lesson complete (+50 XP, once).
 // Session-gated; unlock order enforced server-side (fail closed).
 //==============================================================================
@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
 import { db, getProgress, getBadges, getUserById, awardXp, awardBadge } from "@/lib/academy-db";
+import { getOwnedCourses } from "@/lib/academy-access";
 import { getModule, orderedModules, unlockedSlugs } from "@/content/academy/modules";
 
 /** Consecutive-day visit streak ending today/yesterday, from daily_visit refs (YYYY-MM-DD). */
@@ -41,10 +42,11 @@ export async function GET() {
   const streak = await visitStreak(auth);
   if (streak >= 7) await awardBadge(auth, "seven-day-streak");
 
-  const [progress, badges, user] = await Promise.all([
+  const [progress, badges, user, owned] = await Promise.all([
     getProgress(auth),
     getBadges(auth),
     getUserById(auth),
+    getOwnedCourses(auth),
   ]);
   const passed = new Set(progress.filter((p) => p.passed).map((p) => p.module_slug));
   const allPassed = orderedModules().every((m) => passed.has(m.slug));
@@ -54,7 +56,8 @@ export async function GET() {
     badges,
     xp: user?.xp ?? 0,
     streak,
-    unlocked: Array.from(unlockedSlugs(passed)),
+    owned: Array.from(owned),
+    unlocked: Array.from(unlockedSlugs(passed, owned)),
     certificationUnlocked: allPassed,
   });
 }
@@ -70,9 +73,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Unknown module." }, { status: 400 });
   }
 
-  const progress = await getProgress(auth);
+  const [progress, owned] = await Promise.all([getProgress(auth), getOwnedCourses(auth)]);
   const passed = new Set(progress.filter((p) => p.passed).map((p) => p.module_slug));
-  if (!unlockedSlugs(passed).has(slug)) {
+  if (!unlockedSlugs(passed, owned).has(slug)) {
     return NextResponse.json({ error: "That module is still locked." }, { status: 403 });
   }
 

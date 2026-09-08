@@ -4,9 +4,11 @@
 //==============================================================================
 
 import { orderedModules, academyCourses } from "@/content/academy/modules";
+import { coursePriceLabels } from "@/lib/stripe";
 import ModulesGrid from "@/components/academy/ModulesGrid";
 
-export default function ModulesPage() {
+export default async function ModulesPage() {
+  const priceLabels = await coursePriceLabels();
   const modules = orderedModules().map((m) => ({
     slug: m.slug,
     order: m.order,
@@ -23,6 +25,8 @@ export default function ModulesPage() {
     fromOrder: c.fromOrder,
     toOrder: c.toOrder,
     cover: c.cover,
+    paid: Boolean(c.priceEnv),
+    priceLabel: priceLabels[c.id],
   }));
   return <ModulesGrid modules={modules} courses={courses} />;
 }

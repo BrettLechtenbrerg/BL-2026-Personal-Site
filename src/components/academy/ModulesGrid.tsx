@@ -9,6 +9,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Lock, CheckCircle2, PlayCircle, Loader2 } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
+import UnlockCourseButton from "./UnlockCourseButton";
 
 export interface ModuleCard {
   slug: string;
@@ -27,6 +28,10 @@ export interface CourseInfo {
   fromOrder: number;
   toOrder: number;
   cover?: string;
+  /** Separate Stripe purchase (false = free to every member). */
+  paid: boolean;
+  /** e.g. "$97" — from Stripe; undefined when unavailable. */
+  priceLabel?: string;
 }
 
 interface ProgressRow {
@@ -46,6 +51,7 @@ export default function ModulesGrid({
   const { loading } = useAcademyUser();
   const [progress, setProgress] = useState<ProgressRow[]>([]);
   const [unlocked, setUnlocked] = useState<string[]>([]);
+  const [owned, setOwned] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -55,6 +61,7 @@ export default function ModulesGrid({
         if (json) {
           setProgress(json.progress ?? []);
           setUnlocked(json.unlocked ?? []);
+          setOwned(json.owned ?? []);
         }
         setReady(true);
       })
@@ -91,6 +98,7 @@ export default function ModulesGrid({
         const passedCount = courseModules.filter((m) =>
           progress.some((p) => p.module_slug === m.slug && p.passed)
         ).length;
+        const isOwned = owned.includes(course.id);
         return (
           <section key={course.id} id={course.id} className="mb-12 scroll-mt-20">
             {/* Course banner — real cover art when set, brand gradient otherwise */}
@@ -109,9 +117,18 @@ export default function ModulesGrid({
                   </h2>
                   <p className="mt-1 max-w-2xl text-sm text-white/70">{course.description}</p>
                 </div>
-                <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-gold">
-                  {passedCount}/{courseModules.length}
-                </span>
+                {isOwned ? (
+                  <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-gold">
+                    {course.paid ? "" : "Free · "}
+                    {passedCount}/{courseModules.length}
+                  </span>
+                ) : (
+                  <UnlockCourseButton
+                    courseId={course.id}
+                    priceLabel={course.priceLabel}
+                    className="shrink-0"
+                  />
+                )}
               </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
