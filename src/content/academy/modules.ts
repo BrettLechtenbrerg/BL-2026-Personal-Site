@@ -4899,7 +4899,7 @@ export const academyModules: AcademyModule[] = [
     slug: "masters-edge-framework",
     order: 43,
     title: "The Master's Edge Framework",
-    tagline: "Free Course",
+    tagline: "The Framework",
     audio: [
       {
         label: "Deep Dive: The Master's Edge for Peak Performance (NotebookLM audio overview)",
