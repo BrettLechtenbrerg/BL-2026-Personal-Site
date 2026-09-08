@@ -26,6 +26,11 @@ account owns all 4. Pricing changed mid-session: Framework is $99 too (not
 free); every course has an unlimited 100%-off gift code (see ACADEMY.md).
 Stripe secret key lives only in Vercel prod + `.env.local`
 (`scripts/add-stripe-key.sh` to rotate).
+- NotebookLM batch (Session 28–29) finished all 43 modules at 16:16 UTC today
+  and unloaded its LaunchAgent; its final push 403'd but the commit (`ccb3ab2`)
+  went up with Session 30's pushes. Nothing left running.
+- `scripts/academy-onepager.py` → `~/Desktop/Academy-Course-Access-Guide.pdf`
+  (Brett's sell/gift one-pager; regenerate when codes or prices change).
 
 ## Sep 7, 2026 — Session 29 (batch still running, 25/43 at 17:05 UTC; ETA ~6 hrs)
 

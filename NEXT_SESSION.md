@@ -1,6 +1,6 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-**Updated:** September 7, 2026 (end of Session 29)
+**Updated:** September 8, 2026 (end of Session 30)
 
 A copy of this file is also at `~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`.
 Paste the block below into a fresh session.
@@ -12,37 +12,48 @@ Resume work on brettlechtenberg.com (Master's Edge Academy LMS).
 
 Repo: /Users/brettlechtenberg/dev/BL-2026-Personal-Site  (ONLY this path)
 Live: https://www.brettlechtenberg.com   Deploy: `npx vercel --prod --yes`
-      (Vercel's GitHub auto-deploy is NOT firing — always deploy via CLI)
+      (Vercel's GitHub auto-deploy is NOT firing — always deploy via CLI;
+       the CLI often times out waiting, that's fine — check `npx vercel ls --prod`)
 
 READ FIRST, in order:
-  1. docs/SESSION-NOTES.md  — top two sections (Session 29, then "END OF SESSION STATE")
-  2. docs/ACADEMY.md        — how the Academy is built
+  1. docs/SESSION-NOTES.md  — top section (Session 30) + "END OF SESSION STATE"
+  2. docs/ACADEMY.md        — how the Academy is built; "Paywall" section
   3. CLAUDE.md              — project rules + page inventory
 
 FIRST COMMANDS:
   git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site pull
-  bash /Users/brettlechtenberg/dev/BL-2026-Personal-Site/scripts/academy-batch-ctl.sh status
+  git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site status
 
-An unattended macOS LaunchAgent was left running at the end of Session 28. It
-generates NotebookLM podcast + video + flashcards for one Academy module every
-20 min and commits/pushes/deploys on its own until all 43 modules are done,
-then unloads itself. The status command above tells you whether it is still
-running, finished, or stuck. If it is still running: `git pull` before editing
-anything, and do NOT edit src/content/academy/modules.ts or deploy by hand
-mid-tick. If a module shows "GAVE UP", read .notebooklm/batch.log for why.
+STATE AT END OF SESSION 30 (Sep 8, 2026) — everything committed, pushed, deployed:
+- Academy per-course PAYWALL is LIVE and smoke-tested in production.
+  Signup is free/open (enrollment code EDGE2026 is RETIRED). Each course is a
+  one-time Stripe purchase: Framework $99, Business Tools $499, Reclaiming the
+  Clock $499, Master's Edge Book $999 — or free with that course's gift code:
+  FRAMEWORK-3CTT · TOOLS-V384 · CLOCK-2JJU · BOOK-SXBP (unlimited redemptions).
+  Ownership = me_course_access table. Brett's account owns all 4 (legacy).
+- Stripe: account "Brettlechtenberg" (acct_16xJo3Kq6AqfCeIO), LIVE mode.
+  Products/prices/coupons/webhook all created there. Secret key is in Vercel
+  prod + .env.local only (rotate with scripts/add-stripe-key.sh). Stripe CLI is
+  paired to that account (`stripe login` if it expired).
+- Code map: src/lib/academy-access.ts (ownership), src/lib/stripe.ts,
+  api/academy/checkout, api/stripe/webhook, academy/checkout/success,
+  modules/[slug]/page.tsx (server-side Locked panel), ModulesGrid (Unlock button).
+- NotebookLM batch FINISHED all 43 modules Sep 8 16:16 UTC; LaunchAgent unloaded.
+  Nothing is running in the background.
+- Brett's operator one-pager: ~/Desktop/Academy-Course-Access-Guide.pdf
+  (regenerate: python3 scripts/academy-onepager.py ~/Desktop/Academy-Course-Access-Guide.pdf)
+
+KNOWN LIMITS / IDEAS (not started):
+- Media files under public/academy/<slug>/ are public by URL (lesson text,
+  flashcards, quizzes ARE gated). Upgrade: private Supabase Storage + signed URLs.
+- Gift codes are unlimited-use; make single-use ones in Stripe → Coupons when needed.
+- Preview mode still ON inside owned courses (all modules open); linear
+  unlock is one commented line in unlockedSlugs() (src/content/academy/modules.ts).
+- Sizzle-reel homepage placement (see STATE.md). Quizzes stay hand-written.
 
 Supabase project ref: yrfsquzzbgnmkfbuapfk (Comms Hub + Academy share it).
-If it is paused, docs/SESSION-NOTES.md has the one-line restore command.
-
-Open idea not started: sizzle-reel homepage placement (see STATE.md).
-Done Sep 7: course cover art, light/dark toggle, Retake-on-pass. Quizzes stay
-hand-written (Brett decided; do not swap in NotebookLM quiz output).
-Also Sep 7: Certifier verifiable credentials live (src/lib/certifier.ts; design
-template attached in app.certifier.io). Free tier = 250 credentials/yr, 1 used.
-
-Fixed Sep 7: book modules 24-42 were indented 2 spaces in modules.ts, so
-academy-install.mjs's slug anchor missed them ("No module with slug"). Re-indented;
-sword-in-shrine media installed by hand from .notebooklm/. Batch resumes at 25.
+If paused, docs/SESSION-NOTES.md has the one-line restore command.
+Management API token is in macOS Keychain: security find-generic-password -s "Supabase CLI" -w
 ```
 
 ---
@@ -54,7 +65,9 @@ sword-in-shrine media installed by hand from .notebooklm/. Batch resumes at 25.
 - **GitHub:** https://github.com/BrettLechtenbrerg/BL-2026-Personal-Site
   (gh account `BrettLechtenbrerg`)
 - **Academy admin:** `brett@brettlechtenberg.com` (`me_users.role = 'admin'`);
-  member enrollment code `EDGE2026`; admin review at `/hub/academy`.
+  signup is open (no code); admin review at `/hub/academy`.
+- **Stripe:** dashboard.stripe.com → account **Brettlechtenberg** (not
+  "Personal Mastery M…"). Webhook endpoint `we_1UDY6lKq6AqfCeIObUIYlrqP`.
 - **NotebookLM:** Google AI Pro account, logged in via `notebooklm` CLI
   (`~/.notebooklm/profiles/default/`). Re-auth: `notebooklm login --browser chrome`.
 - **Supabase keep-alive:** Vercel cron daily + GitHub Actions 2×/day
