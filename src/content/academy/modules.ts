@@ -3866,6 +3866,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "twin-tigers",
+    audio: [
+      { label: "Deep Dive: The Twin Tigers: Lead With Your Strengths (NotebookLM audio overview)", href: "/academy/twin-tigers/deep-dive.m4a" },
+    ],
     videoFiles: [
       { label: "The Twin Tigers: Lead With Your Strengths (NotebookLM video overview)", href: "/academy/twin-tigers/video-overview.mp4" },
     ],
