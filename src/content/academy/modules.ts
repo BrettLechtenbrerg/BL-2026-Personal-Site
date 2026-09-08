@@ -3752,6 +3752,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "warriors-ledger",
+    audio: [
+      { label: "Deep Dive: The Warrior's Ledger: Confidence (NotebookLM audio overview)", href: "/academy/warriors-ledger/deep-dive.m4a" },
+    ],
     videoFiles: [
       { label: "The Warrior's Ledger: Confidence (NotebookLM video overview)", href: "/academy/warriors-ledger/video-overview.mp4" },
     ],
