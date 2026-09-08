@@ -4542,6 +4542,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "masters-state",
+    videoFiles: [
+      { label: "The Master's State: Engineering Flow (NotebookLM video overview)", href: "/academy/masters-state/video-overview.mp4" },
+    ],
     order: 40,
     title: "The Master's State: Engineering Flow",
     tagline: "The Master's Edge Book",
