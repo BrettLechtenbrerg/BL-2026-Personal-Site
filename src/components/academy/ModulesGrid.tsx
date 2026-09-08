@@ -63,10 +63,11 @@ export default function ModulesGrid({
 
   // Course anchors (#framework etc.) only exist after the grid renders, so the
   // browser's native hash scroll misses them. Re-scroll once ready.
+  const rendered = ready && !loading;
   useEffect(() => {
-    if (!ready || !window.location.hash) return;
+    if (!rendered || !window.location.hash) return;
     document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
-  }, [ready]);
+  }, [rendered]);
 
   if (loading || !ready) {
     return (
