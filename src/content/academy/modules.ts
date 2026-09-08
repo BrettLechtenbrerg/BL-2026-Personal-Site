@@ -3866,6 +3866,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "twin-tigers",
+    videoFiles: [
+      { label: "The Twin Tigers: Lead With Your Strengths (NotebookLM video overview)", href: "/academy/twin-tigers/video-overview.mp4" },
+    ],
     order: 34,
     title: "The Twin Tigers: Lead With Your Strengths",
     tagline: "The Master's Edge Book",
