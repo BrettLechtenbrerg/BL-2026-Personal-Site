@@ -4761,6 +4761,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "six-pillars",
+    videoFiles: [
+      { label: "The Six Pillars: Building Systems That Teach (NotebookLM video overview)", href: "/academy/six-pillars/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Six Pillars: Building Systems That Teach (NotebookLM audio overview)", href: "/academy/six-pillars/deep-dive.m4a" },
+    ],
     order: 42,
     title: "The Six Pillars: Building Systems That Teach",
     tagline: "The Master's Edge Book",
