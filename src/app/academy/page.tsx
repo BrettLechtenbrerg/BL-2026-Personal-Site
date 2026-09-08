@@ -1,8 +1,8 @@
 "use client";
 
 //==============================================================================
-// Academy — login / signup screen. Signup is open: every member gets the
-// free Framework course; the other courses are unlocked per course (Stripe).
+// Academy — login / signup screen. Signup is open and free; each course is
+// unlocked separately (Stripe Checkout, or a gift code entered there).
 //==============================================================================
 
 import { useEffect, useState } from "react";
@@ -91,7 +91,7 @@ export default function AcademyLoginPage() {
           <p className="mt-1 text-sm text-white/60">
             {mode === "login"
               ? "Welcome back. Step onto the mat."
-              : "Free to join — the Framework course is yours the moment you enroll."}
+              : "Free to join. Unlock courses with a purchase or your gift code."}
           </p>
         </div>
 

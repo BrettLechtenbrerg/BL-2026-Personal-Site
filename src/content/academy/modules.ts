@@ -86,10 +86,11 @@ export const academyCourses: AcademyCourse[] = [
     title: "The Master's Edge Framework",
     emoji: "🎁",
     description:
-      "The free giveaway course: the complete framework with the stories removed — the map of the room. One deep module, one serious 22-question exam.",
+      "The complete framework with the stories removed — the map of the room. One deep module, one serious 22-question exam.",
     fromOrder: 43,
     toOrder: 43,
     cover: "/academy/covers/framework.jpg",
+    priceEnv: "STRIPE_PRICE_FRAMEWORK",
   },
   {
     id: "business-tools",

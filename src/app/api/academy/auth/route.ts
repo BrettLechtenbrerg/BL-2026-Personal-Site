@@ -2,9 +2,8 @@
 // ACADEMY — Auth API (signup / login / session / logout)
 //==============================================================================
 // POST   { action: "signup", name, email, password, avatar, + bot fields } →
-//        create member + set session cookie. Open signup (Sep 8 2026): every
-//        member gets the free Framework course; paid courses go through
-//        /api/academy/checkout. Honeypot/timing/origin/rate-limit via
+//        create member + set session cookie. Open signup (Sep 8 2026);
+//        courses are unlocked per course via /api/academy/checkout. Honeypot/timing/origin/rate-limit via
 //        src/lib/bot-protection.ts.
 // POST   { action: "login", email, password } → verify + set session cookie.
 // GET    → current member profile ({ user }) or 401.

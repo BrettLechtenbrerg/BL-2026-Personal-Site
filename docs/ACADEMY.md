@@ -44,9 +44,9 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 
 ## Paywall (Sep 8, 2026)
 
-- **Framework** (module 43) is free to every member. **Business Tools**,
-  **Reclaiming the Clock**, **The Master's Edge Book** are each a one-time
-  Stripe purchase. Ownership lives in `me_course_access` (one row per member
+- Signup is free; every course is a one-time Stripe purchase — **Framework
+  $99**, **Business Tools $499**, **Reclaiming the Clock $499**, **The
+  Master's Edge Book $999** — or free with that course's gift code. Ownership lives in `me_course_access` (one row per member
   × course; `source` = free/stripe/legacy/admin). Everyone enrolled before
   Sep 8 2026 22:00 UTC was grandfathered into all 4 (`legacy`).
 - **Enforced server-side**: `src/lib/academy-access.ts` `getOwnedCourses()`
@@ -63,8 +63,8 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
   the case where the buyer never returns. Price shown = the Stripe Price
   amount (dashboard is the source of truth; no redeploy to change a price).
 - **Env** (Vercel prod + `.env.local`): `STRIPE_SECRET_KEY`,
-  `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_BUSINESS_TOOLS`, `STRIPE_PRICE_CLOCK`,
-  `STRIPE_PRICE_BOOK` (`price_…` ids; `priceEnv` on each `AcademyCourse`).
+  `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_FRAMEWORK`, `STRIPE_PRICE_BUSINESS_TOOLS`,
+  `STRIPE_PRICE_CLOCK`, `STRIPE_PRICE_BOOK` (`price_…` ids; `priceEnv` on each `AcademyCourse`).
   Test vs live = swap the env values.
 - **Webhook endpoint** (Dashboard → Developers → Webhooks, test AND live):
   `https://www.brettlechtenberg.com/api/stripe/webhook`, events
@@ -73,16 +73,16 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
   --forward-to localhost:3000/api/stripe/webhook` prints a `whsec_` for
   `.env.local`, and set `NEXT_PUBLIC_SITE_URL=http://localhost:3000` there
   so Checkout's success/cancel URLs come back to your dev server.
-- **Gift a course (100% off, still “buys” it)**: Dashboard → Product catalog
-  → Coupons → New: 100% off, duration *Once*, “Apply to specific products” =
-  that one course → save → “Add promotion code”, e.g. `GIFT-CLOCK-7F3K`,
-  max redemptions 1. Send the code. Recipient enrolls free, clicks Unlock,
+- **Gift codes (100% off, still “buys” it)** — created Sep 8 2026, live,
+  unlimited redemptions (cap or deactivate in Dashboard → Coupons):
+  `FRAMEWORK-3CTT` · `TOOLS-V384` · `CLOCK-2JJU` · `BOOK-SXBP`.
+  Each is locked to its own product. Recipient enrolls free, clicks Unlock,
   enters the code at checkout, pays $0 → access granted (session completes
-  as `no_payment_required`).
+  as `no_payment_required`). For a single-person code: Dashboard → Coupons
+  → that course's “… — gift” coupon → “Add promotion code”, max redemptions 1.
 - **Grant by hand** (no Stripe): SQL editor →
   `insert into me_course_access (user_id, course_id, source) values ('<uuid>', 'reclaiming-the-clock', 'admin') on conflict do nothing;`
-- Certification still needs all 43 modules passed, so free-only members
-  can't certify.
+- Certification still needs all 43 modules passed (all 4 courses).
 
 ## How auth works
 
