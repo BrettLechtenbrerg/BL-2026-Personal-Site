@@ -4433,6 +4433,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "trust-trinity",
+    videoFiles: [
+      { label: "The Trust Trinity (NotebookLM video overview)", href: "/academy/trust-trinity/video-overview.mp4" },
+    ],
     audio: [
       { label: "Deep Dive: The Trust Trinity (NotebookLM audio overview)", href: "/academy/trust-trinity/deep-dive.m4a" },
     ],
