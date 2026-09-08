@@ -4542,6 +4542,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "masters-state",
+    audio: [
+      { label: "Deep Dive: The Master's State: Engineering Flow (NotebookLM audio overview)", href: "/academy/masters-state/deep-dive.m4a" },
+    ],
     videoFiles: [
       { label: "The Master's State: Engineering Flow (NotebookLM video overview)", href: "/academy/masters-state/video-overview.mp4" },
     ],
