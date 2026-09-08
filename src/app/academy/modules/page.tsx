@@ -7,6 +7,10 @@ import { orderedModules, academyCourses } from "@/content/academy/modules";
 import { coursePriceLabels } from "@/lib/stripe";
 import ModulesGrid from "@/components/academy/ModulesGrid";
 
+// Prices come from Stripe at request time (cached per server process) —
+// never baked into a build-time static page.
+export const dynamic = "force-dynamic";
+
 export default async function ModulesPage() {
   const priceLabels = await coursePriceLabels();
   const modules = orderedModules().map((m) => ({
