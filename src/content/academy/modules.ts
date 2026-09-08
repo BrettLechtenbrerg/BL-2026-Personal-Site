@@ -4320,6 +4320,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "lantern-bearer",
+    audio: [
+      { label: "Deep Dive: The Lantern Bearer: Help First (NotebookLM audio overview)", href: "/academy/lantern-bearer/deep-dive.m4a" },
+    ],
     videoFiles: [
       { label: "The Lantern Bearer: Help First (NotebookLM video overview)", href: "/academy/lantern-bearer/video-overview.mp4" },
     ],
