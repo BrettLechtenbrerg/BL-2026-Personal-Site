@@ -4207,6 +4207,12 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "consistent-warrior",
+    videoFiles: [
+      { label: "The Consistent Warrior: Consistency (NotebookLM video overview)", href: "/academy/consistent-warrior/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: The Consistent Warrior: Consistency (NotebookLM audio overview)", href: "/academy/consistent-warrior/deep-dive.m4a" },
+    ],
     order: 37,
     title: "The Consistent Warrior: Consistency",
     tagline: "The Master's Edge Book",
