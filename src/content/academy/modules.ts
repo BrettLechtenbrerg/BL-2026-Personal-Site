@@ -4320,6 +4320,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "lantern-bearer",
+    videoFiles: [
+      { label: "The Lantern Bearer: Help First (NotebookLM video overview)", href: "/academy/lantern-bearer/video-overview.mp4" },
+    ],
     order: 38,
     title: "The Lantern Bearer: Help First",
     tagline: "The Master's Edge Book",
