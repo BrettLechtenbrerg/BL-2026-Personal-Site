@@ -4433,6 +4433,9 @@ export const academyModules: AcademyModule[] = [
   },
   {
     slug: "trust-trinity",
+    audio: [
+      { label: "Deep Dive: The Trust Trinity (NotebookLM audio overview)", href: "/academy/trust-trinity/deep-dive.m4a" },
+    ],
     order: 39,
     title: "The Trust Trinity",
     tagline: "The Master's Edge Book",
