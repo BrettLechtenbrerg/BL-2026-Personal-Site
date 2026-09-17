@@ -20,3 +20,6 @@ Append-only. One line per decision. Newest at the bottom.
 | 2026-09-06 | Gmail "be careful" banner on `auth.` sender is expected, Brett-only | Same display name as his Workspace account; goes away with `mail.` domain on Resend Pro at cutover. |
 | 2026-09-06 | Phase 2 plan drafted (docs/crm/05-PHASE2-PLAN.md); 4 decisions explained, **awaiting Brett's answers** | Root cause of spam found: 3 forms POST browser→GHL webhook directly, no gate. |
 | 2026-09-06 | Phase 2 will **dual-send** (Twenty + existing GHL webhooks) until Phase 3 rebuilds follow-ups | Brett's call pending; my pick = dual-send so no follow-up emails silently stop. GHL not cancelled until Phase 5. |
+| 2026-09-17 | **Lightfield evaluated; recommendation = don't adopt** (docs/crm/06-LIGHTFIELD-ASSESSMENT.md). Brett to confirm. | Legit ($47M a16z Series A) but built for B2B outbound sales teams; automations start at $999/mo, no SMS, no booking. Stay on Edge CRM. |
+| 2026-09-17 | Steal one idea from Lightfield: every interaction auto-lands in the record with time preserved | Three Phase 3 items: verify Twenty Gmail/Calendar sync, `stage_history` table, Fathom summary → Twenty note. No recording/enrichment/prospecting agents. |
+| 2026-09-17 | **Fathom** is the meeting recorder (Brett already uses it) — never build recording/transcription | Ingest its summaries via `/api/fathom` in Phase 3. |

@@ -1,6 +1,6 @@
 # Edge CRM (GHL replacement) — Resume Prompt
 
-**Updated:** September 6, 2026 (Phase 1 shipped · Phase 2 plan drafted, awaiting approval)
+**Updated:** September 17, 2026 (Phase 1 shipped · Phase 2 plan drafted, awaiting approval · Lightfield assessed, recommend not adopting)
 
 **How to restart:** open a new session and say
 > "I want to work on the CRM system for brettlechtenberg.com — read `~/Desktop/EDGE-CRM-RESUME-PROMPT.md` and pick up where we left off."
@@ -21,6 +21,7 @@ READ FIRST, in order:
   3. docs/crm/02-ARCHITECTURE.md    — diagram + how the pieces fit
   4. docs/COMMS_HUB.md              — the existing /hub we're re-wiring off GHL
   5. CLAUDE.md                      — project rules
+  (docs/crm/06-LIGHTFIELD-ASSESSMENT.md — Sept 17 competitor check; 3 items folded into Phase 3)
 
 FIRST COMMANDS:
   git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site pull --ff-only
@@ -53,6 +54,11 @@ NEXT: Get Brett's answers to the 4 Phase 2 decisions, then BUILD Phase 2.
     5. Dual-send to GHL until Phase 3 (my pick) vs clean cut?
   Brett understands: GHL stays live; BL forms just stop feeding it. Cancel = Phase 5.
   Brett's Phase 2 to-do: create free Cloudflare Turnstile site (~5 min) when asked.
+
+SEPT 17 SESSION (notes only, nothing built): assessed Lightfield (lightfield.app) —
+  legit, recommended NOT adopting (Brett to confirm). Added to Phase 3: verify Twenty
+  Gmail/Calendar sync, `stage_history` table, Fathom summary → Twenty note.
+  Brett ALREADY USES FATHOM as his meeting recorder — never build recording.
 ```
 
 ---

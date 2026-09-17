@@ -80,6 +80,10 @@ Run brettlechtenberg.com with **zero GHL** — same SMS/email power you have in 
 - `/api/cal` webhook (booked / rescheduled / cancelled / no-show).
 - Replace GHL booking widget (`utils.ts`) with `@calcom/embed-react`.
 - Twenty stage-change webhook → `/api/twenty` → start matching workflow.
+- **Added Sept 17 (from `06-LIGHTFIELD-ASSESSMENT.md`) — "the record updates itself":**
+  - Verify Twenty Gmail + Google Calendar sync are connected for Brett's account (Gmail was Phase 1); enable whichever isn't (settings, no code).
+  - `stage_history` table (opportunity_id, from_stage, to_stage, reason, actor, created_at); write from hub, `/api/twenty`, and `/api/cal` no-show so Claude can answer "why did leads stall" via MCP.
+  - **Fathom** is Brett's existing meeting recorder — do NOT build recording. `/api/fathom` receives the call summary (Fathom webhook/integration) → Twenty note on the matching person/opportunity, matched by attendee email.
 
 ### Phase 4 — Talk to it (Claude, ~1 day)
 - Twenty MCP added to Claude Code/Desktop config (OAuth).
