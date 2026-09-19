@@ -493,9 +493,10 @@ async function replaceModule(L, dir, state, fingerprint) {
   if (typeof L.course === "object" && L.course.new) {
     const n = L.course.new;
     const cStart = src.indexOf("export const academyCourses");
-    const idIdx = src.indexOf(`\n    id: ${q(n.id)},\n`, cStart);
+    const arrEnd = cStart === -1 ? -1 : src.indexOf("\n];", cStart);
+    const idIdx = cStart === -1 ? -1 : src.indexOf(`\n    id: ${q(n.id)},\n`, cStart);
     const cEnd = idIdx === -1 ? -1 : src.indexOf("\n  },", idIdx);
-    if (idIdx !== -1 && cEnd !== -1) {
+    if (idIdx !== -1 && cEnd !== -1 && idIdx < arrEnd && cEnd < arrEnd) {
       let entry = src.slice(idIdx, cEnd);
       entry = entry.replace(/\n    title: "[^\n]*",/, `\n    title: ${q(n.title)},`)
                    .replace(/\n    emoji: "[^\n]*",/, `\n    emoji: ${q(n.emoji)},`)
