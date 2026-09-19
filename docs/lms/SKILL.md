@@ -17,8 +17,11 @@ source of truth for the skill; `install.sh`-style copy: `cp docs/lms/SKILL.md ~/
 3. `~/dev/forge/brand-voice/brett-personal/WRITING_RULES.md` — Brett's voice (lessons are Brett teaching, first person where it fits, second person to the learner)
 4. Two existing modules in `src/content/academy/modules.ts` for the house style (e.g. `fire-yourself`, `time-maze`)
 
-If resuming: read the project's `PROJECT-STATUS.md`, `.state.json` and `FEEDBACK.md` first, and run
-`ls -lO "<folder>" | grep -c dataless` to catch iCloud-evicted files before reading them.
+If resuming: read the project's `PROJECT-STATUS.md`, `.state.json` and `FEEDBACK.md` first.
+
+Before reading any Desktop source, run `ls -lO "<folder>" | grep -c dataless`. A non-zero count means
+iCloud evicted the files: `brctl download "<file>"` each one, poll until the count is 0, then read.
+(`init` refuses dataless sources for this reason.)
 
 ## Targets
 

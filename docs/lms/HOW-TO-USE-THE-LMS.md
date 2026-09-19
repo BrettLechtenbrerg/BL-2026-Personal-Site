@@ -18,7 +18,7 @@ More in `docs/lms/PROMPTS.md` (six templates).
 2. The agent writes `lesson.json` and validates it (word count, 10 questions, answers in the lesson, no TODOs).
 3. **Gate.** You get a short summary: module number, sections, quiz count, badge, what it will produce,
    whether a Stripe price will be created. Nothing has cost anything yet. Reply **go**, **go, no video**, or edits.
-4. It produces media (NotebookLM: ~3 audio + 3 video per day on the free tier; narration: ~3 min per 1,000 words),
+4. It produces media (NotebookLM: ~3 audio + 3 video per day on the free tier; narration: ~3 min of rendering per 1,000 words, giving ~8 min of audio),
    commits, deploys, checks the live URL.
 5. Report (<120 words) with the URL and the resume line.
 

@@ -774,6 +774,7 @@ function changedPaths(slug) {
 //==============================================================================
 async function status(target) {
   const P = await resolveProject(target);
+  updateStatusDoc(P.dir); // keep PROJECT-STATUS.md in step with .state.json
   const s = loadState(P.dir);
   const mark = (v) => (v?.done ? "✅ done" : v?.failed ? `❌ ${v.failed}` : "⬜ pending");
   console.log(`${s.title ?? P.slug} (${P.slug})\nproject: ${P.dir}\n`);
@@ -911,6 +912,9 @@ function updateStatusDoc(dir, extra = {}) {
   if (!existsSync(p)) return;
   const s = loadState(dir);
   const mark = (v) => (v?.done ? "✅" : v?.failed ? `❌ ${v.failed}` : v?.skipped ? "⏭ skipped" : "⬜");
+  const paidNew = s.add?.newCourse?.priceUsd > 0;
+  const priceCell = s.price ? mark(s.price) + (s.price.priceId ? ` ${s.price.priceId}` : "")
+    : paidNew ? `⬜ $${s.add.newCourse.priceUsd} for "${s.add.newCourse.title}" (created after the gate)` : "— (not a new paid course)";
   const lines = [
     "<!-- pipeline:start — rewritten by academy-lesson.mjs; edit outside this block -->",
     `Updated: ${new Date().toISOString().slice(0, 16).replace("T", " ")}`,
@@ -918,7 +922,7 @@ function updateStatusDoc(dir, extra = {}) {
     `| Step | State |`,
     `|---|---|`,
     `| add (modules.ts + badges.ts) | ${mark(s.add)}${s.add?.done ? ` module ${s.add.order} in ${s.add.courseId}` : ""} |`,
-    `| price (Stripe) | ${s.price ? mark(s.price) + (s.price.priceId ? ` ${s.price.priceId}` : "") : "— (not a new paid course)"} |`,
+    `| price (Stripe) | ${priceCell} |`,
     ...PIECES.map((k) => `| produce: ${k} | ${mark(s.produce?.[k])} |`),
     `| ship (commit + deploy) | ${mark(s.ship)}${s.ship?.url ? ` ${s.ship.url}` : ""} |`,
     "",
@@ -928,6 +932,11 @@ function updateStatusDoc(dir, extra = {}) {
   let doc = readFileSync(p, "utf8");
   const re = /<!-- pipeline:start[\s\S]*?<!-- pipeline:end -->/;
   doc = re.test(doc) ? doc.replace(re, lines) : doc.trimEnd() + "\n\n## Pipeline\n\n" + lines + "\n";
+  // Keep the header true once the pipeline has run (slug/course may differ from the init guess).
+  const status = s.ship?.done ? `live — ${s.ship.url}` : s.add?.done ? `added locally as module ${s.add.order} — awaiting go / produce / ship` : null;
+  if (status) doc = doc.replace(/^Status: \*\*.*\*\*$/m, `Status: **${status}**`);
+  doc = doc.replace(/^Last updated: .*$/m, `Last updated: ${today()}`);
+  if (s.slug) doc = doc.replace(/^Slug: `[^`]*`\. Course: (<fill in>|[^.]*)\./m, `Slug: \`${s.slug}\`. Course: ${s.add?.courseId ?? "<fill in>"}.`);
   writeFileSync(p, doc);
 }
 
