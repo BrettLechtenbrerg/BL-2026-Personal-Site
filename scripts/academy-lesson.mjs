@@ -1,24 +1,27 @@
 #!/usr/bin/env node
 //==============================================================================
-// Academy Lesson Forge — one lesson.json → a live Master's Edge Academy module.
+// Academy Lesson Forge — one lesson.json → a live Academy module (any brand).
 //
 //   node scripts/academy-lesson.mjs <command> …
 //
 //   init "<Lesson Title>" [--source <file|folder>]…   scaffold ~/Desktop/LMS - <Title>/
 //   validate <lesson.json>                             schema + authoring rules; prints the gate summary
-//   add      <lesson.json> [--allow-dirty]             write modules.ts + badges.ts (+ new course), copy PDFs, tsc
+//   add      <lesson.json> [--allow-dirty]             write modules.ts + badge-meta.ts (+ new course), copy PDFs, tsc
 //   price    <course-id> --usd 99 [--dry-run]          Stripe Product + Price → Vercel env + .env.local
 //   produce  <slug> [--only audio,video,flashcards,quiz,narration] [--force]
-//   narrate  <slug>                                    lesson → Kokoro (am_michael) → "Read Aloud" audio[]
-//   ship     <slug> [--no-deploy]                      tsc, next build, commit, push, vercel --prod, URL check
+//   narrate  <slug>                                    lesson → Kokoro (profile voice) → "Read Aloud" audio[]
+//   ship     <slug> [--no-deploy]                      tsc, next build, commit, push, deploy (cli | git-push), URL check
 //   status   <slug | lesson.json>                      what is done / pending / failed
 //   run      <lesson.json> [--go | --no-review] [--only …] [--allow-dirty]
 //            validate → add → [gate] → price? → produce → ship
 //
 // Every command is idempotent; progress lives in <project>/.state.json so a
 // dead run resumes where it stopped. The project folder is the Desktop folder
-// that holds lesson.json (see docs/lms/SKILL.md). Only the CONFIG block below
-// is site-specific — clone it for PMMA / TSAI later.
+// that holds lesson.json (see ~/dev/academy-forge/docs/lms/SKILL.md).
+//
+// BRAND: nothing here is site-specific. CONFIG is derived from the site's
+// generated `content/academy.config.ts` (Academy Forge profile) — site url,
+// srcDir, cookie, narration voice, commerce and deploy mode all come from it.
 //==============================================================================
 
 import { spawnSync } from "node:child_process";
@@ -36,39 +39,57 @@ if (!process.execArgv.includes("--experimental-strip-types")) {
 }
 
 //------------------------------------------------------------------------------
-// CONFIG — the only site-specific block. Copy + edit for another site.
+// CONFIG — derived from the generated academy.config.ts (never edit here)
 //------------------------------------------------------------------------------
 const ROOT = path.resolve(import.meta.dirname, "..");
 const HOME = os.homedir();
+
+function loadSiteConfig() {
+  for (const dir of ["src", ""]) {
+    const f = path.join(ROOT, dir, "content", "academy.config.ts");
+    if (!existsSync(f)) continue;
+    const m = readFileSync(f, "utf8").match(/academyConfig: AcademyConfig = (\{[\s\S]*\});\s*$/);
+    if (!m) die(`${f} is not a generated Academy Forge config`);
+    return JSON.parse(m[1]);
+  }
+  die("content/academy.config.ts not found — run `bash ~/dev/academy-forge/install.sh <brand>` first");
+}
+const SITE = loadSiteConfig();
+const SRC = path.join(ROOT, SITE.site.srcDir || "");
+const FORGE_DIR = path.join(HOME, "dev/academy-forge");
+
 const CONFIG = {
-  site: "bl",
-  siteUrl: "https://brettlechtenberg.com",
+  site: SITE.slug,
+  siteUrl: SITE.site.url.replace(/\/$/, ""),
   modulePath: (slug) => `/academy/modules/${slug}`,
   repoRoot: ROOT,
-  modulesTs: path.join(ROOT, "src/content/academy/modules.ts"),
-  badgesTs: path.join(ROOT, "src/content/academy/badges.ts"),
-  flashcardsDir: path.join(ROOT, "src/content/academy/flashcards"),
+  modulesTs: path.join(SRC, "content/academy/modules.ts"),
+  badgesTs: path.join(SRC, "content/academy/badge-meta.ts"), // site-owned badge names (engine badges.ts imports it)
+  flashcardsDir: path.join(SRC, "content/academy/flashcards"),
   publicAcademy: path.join(ROOT, "public/academy"),
   envFile: path.join(ROOT, ".env.local"),
   notebooklmScript: path.join(ROOT, "scripts/academy-notebooklm.mjs"),
   installScript: path.join(ROOT, "scripts/academy-install.mjs"),
   narrateScript: path.join(HOME, "dev/audiobook-studio/narrate.sh"),
-  narrationVoice: "am_michael",
+  narrationVoice: SITE.narration?.voice ?? "am_michael",
   narrationLabel: (title) => `Read Aloud: ${title} (narrated lesson)`,
   narrationFile: "read-aloud.m4a",
-  gitBranch: "main",
+  gitBranch: SITE.site.gitBranch ?? "main",
+  // "cli" → vercel --prod after push · "git-push" → push only, Vercel auto-deploys (PMMA rule: never bare vercel)
+  deployMode: SITE.site.deploy ?? "cli",
   deployCmd: ["npx", "vercel", "--prod", "--yes"],
+  stripeEnabled: SITE.commerce?.stripe === true,
   projectsDir: path.join(HOME, "Desktop"),
   projectPrefix: "LMS - ",
   backupsDir: path.join(HOME, "Backups"),
   stripePriceEnvPrefix: "STRIPE_PRICE_",
-  stripeProductPrefix: "Master's Edge Academy — ",
+  stripeProductPrefix: SITE.commerce?.stripeProductPrefix ?? `${SITE.academy?.name ?? "Academy"} — `,
   maxPdfMb: 25,
   words: { min: 900, max: 2500 },
 };
 const PIECES = ["audio", "video", "flashcards", "quiz", "narration"];
 const NLM_PIECES = ["audio", "video", "flashcards", "quiz"];
-const TEMPLATES_DIR = path.join(ROOT, "docs/lms/templates");
+const TEMPLATES_DIR = [path.join(FORGE_DIR, "docs/lms/templates"), path.join(ROOT, "docs/lms/templates")].find(existsSync) ?? path.join(FORGE_DIR, "docs/lms/templates");
 const STOP = new Set("about above after again their there these those which while would could should other where being through before because between under until".split(" "));
 
 //------------------------------------------------------------------------------
@@ -164,13 +185,13 @@ async function checkLesson(L, dir) {
   const modulesSrc = readFileSync(CONFIG.modulesTs, "utf8");
   const { academyModules, academyCourses } = await loadModules();
 
-  // badges.ts keeps a client-side mirror of course title/emoji (courseMeta); it must match.
+  // badge-meta.ts keeps a client-side mirror of course title/emoji (courseMeta); it must match.
   {
-    const { courseBadge } = await import(CONFIG.badgesTs + `?t=${Date.now()}`);
+    const { courseMeta } = await import(CONFIG.badgesTs + `?t=${Date.now()}`);
     for (const c of academyCourses) {
-      const b = courseBadge(c.id);
-      if (b.name !== `${c.title} — Certified` || b.emoji !== c.emoji)
-        warnings.push(`badges.ts courseMeta for "${c.id}" (${b.emoji} ${b.name}) does not match modules.ts (${c.emoji} ${c.title} — Certified) — fix the courseMeta entry.`);
+      const b = courseMeta[c.id];
+      if (!b || b.title !== c.title || b.emoji !== c.emoji)
+        warnings.push(`badge-meta.ts courseMeta for "${c.id}" (${b?.emoji ?? "?"} ${b?.title ?? "missing"}) does not match modules.ts (${c.emoji} ${c.title}) — fix the courseMeta entry.`);
     }
   }
 
@@ -293,7 +314,7 @@ async function checkLesson(L, dir) {
 
   // badge slug clash
   if (!errors.length && str(L.slug) && readFileSync(CONFIG.badgesTs, "utf8").includes(`"${L.slug}":`) && !L._existing) {
-    warnings.push(`badges.ts already has an entry for "${L.slug}" — add will keep the existing one.`);
+    warnings.push(`badge-meta.ts already has an entry for "${L.slug}" — add will keep the existing one.`);
   }
 
   return { errors, warnings, stats: { words, sections: L.lesson?.length ?? 0, quiz: L.quiz?.length ?? 0, courseTitle, pdfs: pdfs.length, modulesSrcHasSlug: modulesSrc.includes(`slug: "${L.slug}"`) } };
@@ -309,7 +330,7 @@ function gateSummary(L, stats, courses, added = null) {
   const total = added ? maxOrder : maxOrder + 1;
   const produce = L.produce ?? PIECES;
   const nlm = produce.filter((p) => NLM_PIECES.includes(p));
-  const badge = L.badge ? `${L.badge.emoji} ${L.badge.name}` : `🎖️ ${L.title} Master (default)`;
+  const badge = L.badge ? `${L.badge.emoji} ${L.badge.name}` : `🎖️ ${L.title} (default)`;
   const needs = [];
   if (isNew && course.priceUsd > 0) needs.push(`Stripe price $${course.priceUsd} for "${course.title}" will be created`);
   if (isNew && course.priceUsd === 0) needs.push(`new FREE course "${course.title}"`);
@@ -419,7 +440,7 @@ async function add(file) {
   if (L.badge && !badges.includes(`"${L.slug}":`)) {
     const bStart = badges.indexOf("const moduleBadgeMeta");
     const bEnd = badges.indexOf("\n};", bStart);
-    if (bStart === -1 || bEnd === -1) die("add: moduleBadgeMeta not found in badges.ts");
+    if (bStart === -1 || bEnd === -1) die("add: moduleBadgeMeta not found in badge-meta.ts");
     badges = badges.slice(0, bEnd) + `\n  ${q(L.slug)}: { name: ${q(L.badge.name)}, emoji: ${q(L.badge.emoji)} },` + badges.slice(bEnd);
   }
   // New course → courseMeta in badges.ts (client-side title/emoji for course certificates).
@@ -442,7 +463,7 @@ async function add(file) {
   if (tsc.status !== 0) {
     writeFileSync(CONFIG.modulesTs, origModules);
     writeFileSync(CONFIG.badgesTs, origBadges);
-    die(`add: tsc failed — modules.ts/badges.ts restored.\n${(tsc.stdout + tsc.stderr).slice(0, 2000)}`);
+    die(`add: tsc failed — modules.ts/badge-meta.ts restored.\n${(tsc.stdout + tsc.stderr).slice(0, 2000)}`);
   }
   // Sanity: the module loads and lands in the right course.
   const { academyModules, courseForModule } = await loadModules();
@@ -468,7 +489,7 @@ async function add(file) {
 function upsertCourseMeta(badges, n) {
   const start = badges.indexOf("const courseMeta");
   const end = start === -1 ? -1 : badges.indexOf("\n};", start);
-  if (start === -1 || end === -1) die("add: courseMeta not found in badges.ts");
+  if (start === -1 || end === -1) die("add: courseMeta not found in badge-meta.ts");
   const line = `  ${q(n.id)}: { title: ${q(n.title)}, emoji: ${q(n.emoji)} },`;
   const re = new RegExp(`^  ${q(n.id).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}: \\{[^\\n]*\\},?$`, "m");
   const block = badges.slice(start, end);
@@ -552,7 +573,7 @@ async function replaceModule(L, dir, state, fingerprint) {
   if (!reloaded || reloaded.order !== order) {
     writeFileSync(CONFIG.modulesTs, origModules);
     writeFileSync(CONFIG.badgesTs, origBadges);
-    die(`add: replacing the module failed — modules.ts/badges.ts restored.\n${((tsc.stdout ?? "") + (tsc.stderr ?? "")).slice(0, 1500)}`);
+    die(`add: replacing the module failed — modules.ts/badge-meta.ts restored.\n${((tsc.stdout ?? "") + (tsc.stderr ?? "")).slice(0, 1500)}`);
   }
   const result = { ...prev, pdfs: copied, fingerprint, replacedAt: new Date().toISOString() };
   saveState(dir, { title: L.title, add: result });
@@ -632,6 +653,11 @@ async function price(courseId, { projectDir = null } = {}) {
   if (!courseId || !/^[a-z0-9-]+$/.test(courseId)) die("Usage: price <course-id> --usd 99 [--dry-run]");
   const usd = flags.usd;
   if (!(Number.isFinite(usd) && usd > 0)) die("price: --usd <amount> is required (e.g. --usd 99). Free courses need no price.");
+  if (!CONFIG.stripeEnabled) die(
+    `price: commerce is OFF for the "${CONFIG.site}" academy (brands/${CONFIG.site}/academy.json → commerce.stripe=false).\n` +
+    `  This academy has no Stripe account; the engine never borrows another brand's key.\n` +
+    `  Manual path: ship the course free (priceUsd 0) or, once this brand has its own Stripe account,\n` +
+    `  set commerce.stripe=true in the profile, re-run install.sh, add STRIPE_SECRET_KEY to .env.local and re-run price.`);
   const courses = await courseTable();
   const course = courses.find((c) => c.id === courseId);
   if (!course) die(`price: course "${courseId}" is not in modules.ts — run add first`);
@@ -808,7 +834,7 @@ function narrationMarkdown(L) {
   return out.join("\n");
 }
 //==============================================================================
-// ship — tsc, next build, commit, push, vercel --prod, URL check
+// ship — tsc, next build, commit, push, deploy (per profile), URL check
 //==============================================================================
 async function ship(target) {
   const P = await resolveProject(target);
@@ -831,7 +857,8 @@ async function ship(target) {
 
   const paths = changedPaths(P.slug);
   if (flags.dryRun) {
-    console.log(`ship --dry-run — would commit:\n  ${paths.join("\n  ") || "(nothing)"}\n  git commit -m ${q(commitMessage(mod, course, state))}\n  git push origin ${CONFIG.gitBranch}\n  ${CONFIG.deployCmd.join(" ")}\n  check ${url}`);
+    const deployLine = CONFIG.deployMode === "git-push" ? "(auto-deploy on push — no vercel CLI)" : CONFIG.deployCmd.join(" ");
+    console.log(`ship --dry-run — would commit:\n  ${paths.join("\n  ") || "(nothing)"}\n  git commit -m ${q(commitMessage(mod, course, state))}\n  git push origin ${CONFIG.gitBranch}\n  ${deployLine}\n  check ${url}`);
     return { dryRun: true, url };
   }
 
@@ -847,15 +874,23 @@ async function ship(target) {
 
   let deployed = false;
   if (!flags.noDeploy) {
-    run$(CONFIG.deployCmd[0], CONFIG.deployCmd.slice(1));
-    deployed = true;
-    console.log("✓ deployed");
+    if (CONFIG.deployMode === "git-push") {
+      // Brands like PMMA deploy only from git (scoped Vercel account). Never run bare `vercel` here.
+      if (!committed) console.log("  (git-push deploy: nothing new pushed, Vercel keeps the current build)");
+      else console.log("✓ pushed — Vercel auto-deploy in progress (git-push mode; polling the live URL up to 5 min)");
+      deployed = true;
+    } else {
+      run$(CONFIG.deployCmd[0], CONFIG.deployCmd.slice(1));
+      deployed = true;
+      console.log("✓ deployed");
+    }
   }
 
   // Live check: the module route must exist (200 for members, 307/302 → login otherwise). 404 = not live.
   let httpCode = null;
   if (deployed) {
-    for (let attempt = 0; attempt < 6; attempt++) {
+    const attempts = CONFIG.deployMode === "git-push" ? 30 : 6;
+    for (let attempt = 0; attempt < attempts; attempt++) {
       const c = spawnSync("curl", ["-s", "-o", "/dev/null", "-w", "%{http_code}", url], { encoding: "utf8" }).stdout.trim();
       httpCode = Number(c);
       if ([200, 302, 307].includes(httpCode)) break;

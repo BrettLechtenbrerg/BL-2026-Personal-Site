@@ -11,9 +11,9 @@
 //   audio       .m4a .mp3 .wav         → public/academy/<slug>/, "Listen" block
 //   video       .mp4 .webm             → public/academy/<slug>/, "Video Overview"
 //
-// Flashcards are written to src/content/academy/flashcards/<slug>.json (read
+// Flashcards are written to <srcDir>/content/academy/flashcards/<slug>.json (read
 // at request time — modules.ts untouched). Audio/video insert ONE entry into the
-// module's audio[]/videoFiles[] in src/content/academy/modules.ts.
+// module's audio[]/videoFiles[] in <srcDir>/content/academy/modules.ts.
 // --deploy runs: git add, commit, push, vercel --prod.
 //==============================================================================
 
@@ -22,7 +22,10 @@ import { execFileSync } from "node:child_process";
 import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const MODULES_TS = path.join(ROOT, "src/content/academy/modules.ts");
+// srcDir ("src" or "") comes from the generated Academy Forge config.
+const SRC = ["src", ""].map((d) => path.join(ROOT, d)).find((d) => existsSync(path.join(d, "content", "academy.config.ts"))) ?? path.join(ROOT, "src");
+const SRC_REL = path.relative(ROOT, SRC);
+const MODULES_TS = path.join(SRC, "content/academy/modules.ts");
 const MAX_REPO_MEDIA_MB = 90; // above this, Vercel/Git get unhappy — use Supabase Storage
 
 const args = process.argv.slice(2);
@@ -52,7 +55,7 @@ const changed = [];
 if (ext === ".csv" || (ext === ".json" && looksLikeFlashcards(file))) {
   const cards = ext === ".csv" ? parseCsvCards(readFileSync(file, "utf8")) : parseJsonCards(file);
   if (cards.length === 0) die("No flashcards found in that file.");
-  const deckDir = path.join(ROOT, "src/content/academy/flashcards");
+  const deckDir = path.join(SRC, "content/academy/flashcards");
   mkdirSync(deckDir, { recursive: true });
   const out = path.join(deckDir, `${slug}.json`);
   writeFileSync(out, JSON.stringify(cards, null, 2) + "\n");
@@ -144,7 +147,7 @@ function printQuizAsTs(f) {
   const qs = j.questions ?? j.quiz ?? [];
   if (!Array.isArray(qs) || !qs.length) die("No quiz questions found in that file.");
   const q = (s) => JSON.stringify(String(s ?? "").trim());
-  console.log(`// Paste into the "${slug}" module's quiz: [ … ] in src/content/academy/modules.ts\n`);
+  console.log(`// Paste into the "${slug}" module's quiz: [ … ] in ${path.join(SRC_REL, "content/academy/modules.ts")}\n`);
   for (const item of qs) {
     const opts = item.answerOptions ?? item.options ?? [];
     const correct = Math.max(0, opts.findIndex((o) => o.isCorrect));

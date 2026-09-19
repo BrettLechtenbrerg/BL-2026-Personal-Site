@@ -32,6 +32,10 @@ if (!process.execArgv.includes("--experimental-strip-types")) {
 }
 
 const ROOT = path.resolve(import.meta.dirname, "..");
+// srcDir ("src" or "") comes from the generated Academy Forge config.
+const SRC = ["src", ""].map((d) => path.join(ROOT, d)).find((d) => existsSync(path.join(d, "content", "academy.config.ts"))) ?? path.join(ROOT, "src");
+const SRC_REL = path.relative(ROOT, SRC);
+
 const WORK = path.join(ROOT, ".notebooklm");
 const ALL = ["audio", "video", "flashcards", "quiz"];
 
@@ -59,7 +63,7 @@ if (spawnSync("notebooklm", ["auth", "check"], { stdio: "ignore" }).status !== 0
 }
 
 // --- lesson → markdown -------------------------------------------------------
-const { academyModules } = await import(path.join(ROOT, "src/content/academy/modules.ts"));
+const { academyModules } = await import(path.join(SRC, "content/academy/modules.ts"));
 const mod = academyModules.find((m) => m.slug === slug);
 if (!mod) die(`No module with slug "${slug}".`);
 
@@ -157,7 +161,7 @@ try {
 
   if (flags.deploy && installed.some((k) => k !== "quiz")) {
     run("npx", ["tsc", "--noEmit"]);
-    run("git", ["add", "src/content/academy/modules.ts", `public/academy/${slug}`, "src/content/academy/flashcards"]);
+    run("git", ["add", path.join(SRC_REL, "content/academy/modules.ts"), `public/academy/${slug}`, path.join(SRC_REL, "content/academy/flashcards")]);
     run("git", ["commit", "-m", `Academy: NotebookLM ${installed.filter((k) => k !== "quiz").join("+")} for ${slug}`]);
     run("git", ["push", "origin", "main"]);
     run("npx", ["vercel", "--prod", "--yes"]);

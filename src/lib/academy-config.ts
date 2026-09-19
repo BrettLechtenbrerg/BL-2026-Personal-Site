@@ -27,6 +27,9 @@ export interface AcademyConfig {
     url: string;
     /** Source folder relative to the repo root: "src" or "" (app/ at root). */
     srcDir: string;
+    /** How the Lesson Forge ships: "cli" = vercel --prod · "git-push" = push only, Vercel auto-deploys. */
+    deploy: "cli" | "git-push";
+    gitBranch: string;
   };
   academy: {
     /** Full display name, e.g. "Master's Edge Academy". */

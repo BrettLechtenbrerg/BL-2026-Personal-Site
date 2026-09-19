@@ -12,7 +12,9 @@ export const academyConfig: AcademyConfig = {
   "slug": "bl",
   "site": {
     "url": "https://www.brettlechtenberg.com",
-    "srcDir": "src"
+    "srcDir": "src",
+    "deploy": "cli",
+    "gitBranch": "main"
   },
   "academy": {
     "name": "Master's Edge Academy",
