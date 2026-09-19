@@ -1,37 +1,66 @@
 "use client";
 
 //==============================================================================
-// Academy — printable certificate (only for certified members)
+// Academy — your certificates
+//==============================================================================
+// Two tiers, one page:
+//   • Course certificates — system-generated the moment every module in a
+//     course is passed (one per course, printable).
+//   • Master's Edge certificate — the Certifier-backed credential, only after
+//     the entire package (all courses + capstone + exam).
+// Members with nothing yet are pointed to the courses page.
 //==============================================================================
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { BadgeCheck, Loader2, Printer } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, BadgeCheck, Loader2 } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
+import CertificateCard from "@/components/academy/CertificateCard";
+
+interface CourseCert {
+  courseId: string;
+  title: string;
+  emoji: string;
+  awardedAt: string;
+}
 
 export default function CertificatePage() {
-  const router = useRouter();
   const { user, loading } = useAcademyUser();
-  const [certified, setCertified] = useState<boolean | null>(null);
+  const [courseCerts, setCourseCerts] = useState<CourseCert[] | null>(null);
+  const [certified, setCertified] = useState(false);
   const [approvedDate, setApprovedDate] = useState<string | null>(null);
   const [credentialUrl, setCredentialUrl] = useState<string | null>(null);
+  const [printTarget, setPrintTarget] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/academy/certification")
-      .then((res) => (res.ok ? res.json() : null))
-      .then((json) => {
-        if (!json?.certified) {
-          router.replace("/academy/certification");
-          return;
+    Promise.all([
+      fetch("/api/academy/progress").then((r) => (r.ok ? r.json() : null)),
+      fetch("/api/academy/certification").then((r) => (r.ok ? r.json() : null)),
+    ])
+      .then(([progress, cert]) => {
+        setCourseCerts(progress?.courseCertificates ?? []);
+        if (cert?.certified) {
+          setCertified(true);
+          setApprovedDate(cert.project?.created_at ?? null);
+          setCredentialUrl(cert.credentialUrl ?? null);
         }
-        setCertified(true);
-        setApprovedDate(json.project?.created_at ?? null);
-        setCredentialUrl(json.credentialUrl ?? null);
       })
-      .catch(() => router.replace("/academy/certification"));
-  }, [router]);
+      .catch(() => setCourseCerts([]));
+  }, []);
 
-  if (loading || !certified || !user) {
+  // Print one certificate: mark it, print, clear on afterprint.
+  useEffect(() => {
+    if (!printTarget) return;
+    const done = () => setPrintTarget(null);
+    window.addEventListener("afterprint", done);
+    const t = setTimeout(() => window.print(), 50);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener("afterprint", done);
+    };
+  }, [printTarget]);
+
+  if (loading || !user || courseCerts === null) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <Loader2 className="animate-spin text-gold" size={32} />
@@ -39,11 +68,7 @@ export default function CertificatePage() {
     );
   }
 
-  const dateStr = new Date(approvedDate ?? Date.now()).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const nothingYet = courseCerts.length === 0 && !certified;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -56,78 +81,85 @@ export default function CertificatePage() {
           body {
             background: white !important;
           }
-          #certificate {
+          .print-certificate[data-print="hide"] {
+            display: none;
+          }
+          .print-certificate > div[id] {
             border-width: 8px !important;
             box-shadow: none !important;
           }
         }
       `}</style>
 
-      <div className="no-print mb-6 flex items-center justify-between">
-        <h1 className="font-heading text-2xl font-bold">Your Certificate</h1>
-        <button
-          onClick={() => window.print()}
-          className="flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark"
-        >
-          <Printer size={18} /> Print / Save PDF
-        </button>
+      <div className="no-print mb-6">
+        <h1 className="font-heading text-2xl font-bold">Your Certificates</h1>
+        <p className="mt-1 text-sm text-white/60">
+          Finish every module in a course to earn its certificate. Complete every course, the capstone
+          and the final exam to earn the Certified Master&apos;s Edge credential.
+        </p>
       </div>
 
-      <div
-        id="certificate"
-        className="academy-brand relative rounded-lg border-[10px] border-[#D4AF37] bg-white px-8 py-12 text-center text-[#1A1A1A] shadow-[0_0_60px_rgba(212,175,55,0.3)] sm:px-16"
-      >
-        {/* Inner rule */}
-        <div className="pointer-events-none absolute inset-3 border border-[#9B1B30]/40" />
-
-        <p className="font-heading text-xs font-semibold uppercase tracking-[0.3em] text-[#9B1B30]">
-          Master&apos;s Edge Academy
-        </p>
-        <h2 className="mt-4 font-heading text-4xl font-black text-[#1A1A1A]">
-          Certificate of Mastery
-        </h2>
-        <p className="mt-6 text-sm uppercase tracking-widest text-[#4A4A4A]">
-          This certifies that
-        </p>
-        <p className="mt-2 font-heading text-3xl font-bold text-[#9B1B30]">{user.name}</p>
-        <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-[#4A4A4A]">
-          has completed all training modules, submitted an approved capstone project, and passed the
-          final examination of the Master&apos;s Edge Business Program — earning the rank of
-        </p>
-        <p className="mt-4 font-heading text-2xl font-black tracking-wide text-[#1A1A1A]">
-          ⬛ BLACK BELT — CERTIFIED MASTER&apos;S EDGE
-        </p>
-
-        {/* Gold seal */}
-        <div className="mx-auto mt-8 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#E8C84A] via-[#D4AF37] to-[#B8982E] shadow-lg">
-          <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-[#B8982E] text-3xl">
-            🥋
-          </div>
+      {nothingYet && (
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-md">
+          <p className="text-4xl">📜</p>
+          <h2 className="mt-3 font-heading text-xl font-bold">No certificates yet</h2>
+          <p className="mt-2 text-sm text-white/60">
+            Your first one arrives the moment you pass the last module of any course.
+          </p>
+          <Link
+            href="/academy/modules"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark"
+          >
+            Go to courses <ArrowRight size={18} />
+          </Link>
         </div>
+      )}
 
-        <div className="mt-8 flex items-end justify-between px-4 text-left">
-          <div>
-            <p className="border-t border-[#1A1A1A] pt-1 font-heading text-sm font-bold">
-              Brett Lechtenberg
-            </p>
-            <p className="text-xs text-[#4A4A4A]">Founder, Master&apos;s Edge · 8th-Degree Black Belt</p>
-          </div>
-          <div className="text-right">
-            <p className="border-t border-[#1A1A1A] pt-1 font-heading text-sm font-bold">{dateStr}</p>
-            <p className="text-xs text-[#4A4A4A]">Date of Certification</p>
-          </div>
+      {certified && (
+        <div className="mb-10">
+          <CertificateCard
+            id="cert-masters-edge"
+            tier="masters-edge"
+            memberName={user.name}
+            dateIso={approvedDate ?? new Date().toISOString()}
+            printState={printTarget === null || printTarget === "cert-masters-edge" ? "show" : "hide"}
+            onPrint={() => setPrintTarget("cert-masters-edge")}
+          />
+          {credentialUrl && (
+            <a
+              href={credentialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="no-print mt-4 flex min-h-12 items-center justify-center gap-2 rounded-lg border border-gold/40 bg-gold/10 px-5 font-heading font-bold text-gold hover:bg-gold/20"
+            >
+              <BadgeCheck size={20} /> View verified credential &amp; share to LinkedIn
+            </a>
+          )}
         </div>
-      </div>
+      )}
 
-      {credentialUrl && (
-        <a
-          href={credentialUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="no-print mt-6 flex min-h-12 items-center justify-center gap-2 rounded-lg border border-gold/40 bg-gold/10 px-5 font-heading font-bold text-gold hover:bg-gold/20"
-        >
-          <BadgeCheck size={20} /> View verified credential &amp; share to LinkedIn
-        </a>
+      {courseCerts.length > 0 && (
+        <div className="space-y-10">
+          {certified && (
+            <h2 className="no-print font-heading text-lg font-bold text-gold">Course certificates</h2>
+          )}
+          {courseCerts.map((c) => {
+            const id = `cert-${c.courseId}`;
+            return (
+              <CertificateCard
+                key={c.courseId}
+                id={id}
+                tier="course"
+                memberName={user.name}
+                title={c.title}
+                emoji={c.emoji}
+                dateIso={c.awardedAt}
+                printState={printTarget === null || printTarget === id ? "show" : "hide"}
+                onPrint={() => setPrintTarget(id)}
+              />
+            );
+          })}
+        </div>
       )}
     </div>
   );

@@ -66,11 +66,22 @@ export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {
   };
 }
 
-/** Look up any badge (special or module) by slug. */
+/** Course-completion badge: course-<id>. Doubles as the course certificate record in me_awards. */
+export function courseBadge(courseId: string, courseTitle?: string, emoji?: string): Badge {
+  return {
+    slug: `course-${courseId}`,
+    name: `${courseTitle ?? courseId} — Certified`,
+    emoji: emoji ?? "📜",
+    description: `Completed every module in ${courseTitle ?? courseId}`,
+  };
+}
+
+/** Look up any badge (special, module or course) by slug. */
 export function badgeBySlug(slug: string): Badge {
   const special = specialBadges.find((b) => b.slug === slug);
   if (special) return special;
   if (slug.startsWith("module-")) return moduleBadge(slug.slice("module-".length));
+  if (slug.startsWith("course-")) return courseBadge(slug.slice("course-".length));
   return { slug, name: slug, emoji: "🎖️", description: "" };
 }
 

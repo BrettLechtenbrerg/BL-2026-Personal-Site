@@ -147,6 +147,23 @@ export function courseForModule(m: AcademyModule): AcademyCourse | undefined {
   return academyCourses.find((c) => m.order >= c.fromOrder && m.order <= c.toOrder);
 }
 
+/** Modules inside one course, in order. */
+export function modulesForCourse(course: AcademyCourse): AcademyModule[] {
+  return orderedModules().filter((m) => m.order >= course.fromOrder && m.order <= course.toOrder);
+}
+
+/**
+ * Courses the member has fully passed. A course certificate is earned per
+ * course; the Master's Edge credential (Certifier) needs every course plus the
+ * capstone + exam — see /api/academy/certification.
+ */
+export function completedCourses(passed: Set<string>): AcademyCourse[] {
+  return academyCourses.filter((c) => {
+    const mods = modulesForCourse(c);
+    return mods.length > 0 && mods.every((m) => passed.has(m.slug));
+  });
+}
+
 // PLACEHOLDER videos — Brett's existing media appearances, so modules play a
 // real video today. Swap each for the actual unlisted lesson video when filmed.
 const PLACEHOLDER_VIDEOS = [

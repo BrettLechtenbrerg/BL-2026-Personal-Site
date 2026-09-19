@@ -9,7 +9,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
-import { db, getProgress, awardXp, awardBadge } from "@/lib/academy-db";
+import { db, getProgress, awardXp, awardBadge, awardCourseCertificates, getBadges } from "@/lib/academy-db";
 import { getOwnedCourses } from "@/lib/academy-access";
 import { getModule, unlockedSlugs, PASS_PERCENT } from "@/content/academy/modules";
 
@@ -114,6 +114,11 @@ export async function POST(request: NextRequest) {
       xpAwarded += await awardXp(auth, "perfect_score", slug);
       if (await awardBadge(auth, "perfect-score")) newBadges.push("perfect-score");
     }
+    // Last module of a course → course certificate (course-<id>).
+    const passedNow = new Set(
+      (await getProgress(auth)).filter((p) => p.passed).map((p) => p.module_slug)
+    );
+    newBadges.push(...(await awardCourseCertificates(auth, passedNow, await getBadges(auth))));
   } else if (!existing?.passed && percent > (existing?.quiz_score ?? -1)) {
     // Record the best failing score; never downgrade a score or touch passed.
     await supabase.from("me_progress").upsert(

@@ -8,9 +8,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Award, Flame, Loader2 } from "lucide-react";
+import { ArrowRight, Award, Flame, Loader2, ScrollText } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
-import { badgeBySlug, beltFor, nextBelt } from "@/content/academy/badges";
+import { badgeBySlug, courseBadge, beltFor, nextBelt } from "@/content/academy/badges";
 
 interface ProgressRow {
   module_slug: string;
@@ -29,6 +29,7 @@ export default function Dashboard({
   const [streak, setStreak] = useState(0);
   const [certUnlocked, setCertUnlocked] = useState(false);
   const [unlocked, setUnlocked] = useState<string[]>([]);
+  const [courseCerts, setCourseCerts] = useState<{ courseId: string; title: string; emoji: string; awardedAt: string }[]>([]);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -42,6 +43,7 @@ export default function Dashboard({
           setStreak(json.streak ?? 0);
           setCertUnlocked(json.certificationUnlocked ?? false);
           setUnlocked(json.unlocked ?? []);
+          setCourseCerts(json.courseCertificates ?? []);
         }
         setReady(true);
       })
@@ -194,6 +196,40 @@ export default function Dashboard({
         )}
       </motion.div>
 
+      {/* Course certificates — one per fully-passed course */}
+      <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-gold">
+            <ScrollText size={18} /> Certificates
+          </h2>
+          {courseCerts.length > 0 && (
+            <Link href="/academy/certificate" className="text-sm text-gold hover:underline">
+              View &amp; print
+            </Link>
+          )}
+        </div>
+        {courseCerts.length === 0 ? (
+          <p className="text-sm text-white/50">
+            Pass every module in a course to earn its certificate. Complete every course, the capstone and
+            the final exam for the Certified Master&apos;s Edge credential.
+          </p>
+        ) : (
+          <ul className="space-y-2">
+            {courseCerts.map((c) => (
+              <li key={c.courseId} className="flex items-center justify-between rounded-lg border border-gold/20 bg-gold/5 px-4 py-2 text-sm">
+                <span>
+                  <span className="mr-2 text-lg">{c.emoji}</span>
+                  {c.title} — Certified
+                </span>
+                <span className="text-xs text-white/50">
+                  {new Date(c.awardedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       {/* Badges */}
       <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
         <h2 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-gold">
@@ -204,7 +240,9 @@ export default function Dashboard({
         ) : (
           <div className="flex flex-wrap gap-3">
             {badges.map((slug) => {
-              const b = badgeBySlug(slug);
+              // Course badges get their real title/emoji from the certificates list.
+              const cert = slug.startsWith("course-") ? courseCerts.find((c) => `course-${c.courseId}` === slug) : null;
+              const b = cert ? courseBadge(cert.courseId, cert.title, cert.emoji) : badgeBySlug(slug);
               return (
                 <div
                   key={slug}

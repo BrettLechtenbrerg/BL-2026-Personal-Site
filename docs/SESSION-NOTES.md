@@ -1,5 +1,28 @@
 # Session Notes — Academy
 
+## Sep 19, 2026 — Session 31b: course certificates (two tiers)
+
+Decision (Brett): **certificates per course; Certifier only for the entire package.**
+
+- `completedCourses(passed)` / `modulesForCourse()` in `modules.ts`; `courseBadge()` in `badges.ts`.
+- Course certificate = badge `course-<id>` in `me_awards` (no migration; `awarded_at` is the
+  certificate date). `awardCourseCertificates()` is idempotent and runs on every quiz pass
+  (`quiz/route.ts`) **and** on `GET /api/academy/progress`, which back-fills members who
+  finished a course before this existed. `getCourseCertificates()` joins to course metadata and
+  drops dangling ids.
+- `/api/academy/progress` now returns `courseCertificates: [{courseId,title,emoji,awardedAt}]`.
+- `/academy/certificate` is now a list: course certificates (system-generated, "Certificate of
+  Completion", printable one at a time) + the Master's Edge "Certificate of Mastery" with the
+  Certifier link when `certified`. Shared `CertificateCard.tsx`. No longer redirects members
+  who lack full certification.
+- Dashboard: new "Certificates" card (list + View & print); course badge chips show the course title.
+- Master's Edge credential rule unchanged: every module in every course (bar rises as courses are
+  added) + capstone + exam → `ensureCredential()`.
+- Verified locally against production Supabase with a throwaway member (deleted after):
+  seeding 8 Reclaiming-the-Clock passes → one `course-reclaiming-the-clock` award, idempotent on
+  re-read, full certification still locked; both pages 200 as that member. Local sessions need
+  `ACADEMY_SESSION_SECRET` (empty in `.env.local`; pass one on the command line for local tests).
+
 ## Sep 19, 2026 — Session 31: Academy Lesson Forge (one phrase → live module)
 
 Built per `~/.gg/plans/academy-lesson-forge.md`. Mirrors the Forge UX: skill +

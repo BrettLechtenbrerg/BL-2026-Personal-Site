@@ -1,16 +1,19 @@
 //==============================================================================
 // ACADEMY — Progress API
 //==============================================================================
-// GET  → member's per-module progress + unlocked slugs + owned courses + badges + XP.
+// GET  → member's per-module progress + unlocked slugs + owned courses + badges + XP
+//        + courseCertificates (back-fills any earned-but-unawarded course cert).
 // POST { module } → mark that module's lesson complete (+50 XP, once).
 // Session-gated; unlock order enforced server-side (fail closed).
 //==============================================================================
 
 import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
-import { db, getProgress, getBadges, getUserById, awardXp, awardBadge } from "@/lib/academy-db";
+import {
+  db, getProgress, getBadges, getUserById, awardXp, awardBadge, awardCourseCertificates, getCourseCertificates,
+} from "@/lib/academy-db";
 import { getOwnedCourses } from "@/lib/academy-access";
-import { getModule, orderedModules, unlockedSlugs } from "@/content/academy/modules";
+import { getModule, orderedModules, unlockedSlugs, academyCourses } from "@/content/academy/modules";
 
 /** Consecutive-day visit streak ending today/yesterday, from daily_visit refs (YYYY-MM-DD). */
 async function visitStreak(userId: string): Promise<number> {
@@ -51,14 +54,20 @@ export async function GET() {
   const passed = new Set(progress.filter((p) => p.passed).map((p) => p.module_slug));
   const allPassed = orderedModules().every((m) => passed.has(m.slug));
 
+  // Course certificates: award anything earned but missing (members who finished
+  // a course before certificates existed), then list them.
+  const fresh = await awardCourseCertificates(auth, passed, badges);
+  const courseCertificates = await getCourseCertificates(auth, academyCourses);
+
   return NextResponse.json({
     progress,
-    badges,
+    badges: [...badges, ...fresh],
     xp: user?.xp ?? 0,
     streak,
     owned: Array.from(owned),
     unlocked: Array.from(unlockedSlugs(passed, owned)),
     certificationUnlocked: allPassed,
+    courseCertificates,
   });
 }
 

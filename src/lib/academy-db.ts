@@ -7,6 +7,7 @@
 //==============================================================================
 
 import { getServiceSupabase } from "./supabase-admin";
+import { completedCourses, type AcademyCourse } from "@/content/academy/modules";
 
 //------------------------------------------------------------------------------
 // Row types
@@ -139,6 +140,61 @@ export async function getBadges(userId: string): Promise<string[]> {
     .select("badge_slug")
     .eq("user_id", userId);
   return (data ?? []).map((r) => r.badge_slug as string);
+}
+
+//------------------------------------------------------------------------------
+// Course certificates — one per fully-passed course, stored as the badge
+// `course-<id>` in me_awards (awarded_at = certificate date). System-generated
+// and printable at /academy/certificate. The full Master's Edge credential
+// (Certifier) is separate and only for the entire package.
+//------------------------------------------------------------------------------
+export interface CourseCertificate {
+  courseId: string;
+  title: string;
+  emoji: string;
+  awardedAt: string;
+}
+
+/**
+ * Award any course certificates the member has earned but not yet received.
+ * Idempotent (PK user_id + badge_slug) — safe to call on every quiz pass and
+ * on progress reads, which also back-fills members who finished a course
+ * before this existed. Returns the slugs newly awarded.
+ */
+export async function awardCourseCertificates(
+  userId: string,
+  passed: Set<string>,
+  already: Iterable<string>
+): Promise<string[]> {
+  const have = new Set(already);
+  const fresh: string[] = [];
+  for (const course of completedCourses(passed)) {
+    const slug = `course-${course.id}`;
+    if (have.has(slug)) continue;
+    if (await awardBadge(userId, slug)) fresh.push(slug);
+  }
+  return fresh;
+}
+
+/** Certificates already earned, newest first, joined to course metadata. */
+export async function getCourseCertificates(
+  userId: string,
+  courses: AcademyCourse[]
+): Promise<CourseCertificate[]> {
+  const { data } = await db()
+    .from("me_awards")
+    .select("badge_slug, awarded_at")
+    .eq("user_id", userId)
+    .like("badge_slug", "course-%")
+    .order("awarded_at", { ascending: false });
+  const out: CourseCertificate[] = [];
+  for (const row of data ?? []) {
+    const id = String(row.badge_slug).slice("course-".length);
+    const course = courses.find((c) => c.id === id);
+    if (!course) continue; // course removed/renamed — don't show a dangling certificate
+    out.push({ courseId: id, title: course.title, emoji: course.emoji, awardedAt: String(row.awarded_at) });
+  }
+  return out;
 }
 
 export async function latestSubmission(
