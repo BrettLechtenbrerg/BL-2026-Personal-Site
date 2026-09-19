@@ -2,11 +2,16 @@
 
 Six fill-in prompts. Paste one as the first message of a new thread. The agent uses the
 `academy` skill; anything you leave out gets a sensible default (placeholder video, all
-five media pieces, a proposed badge, review gate on).
+five media pieces, a proposed badge, review gate on) — **except placement**.
+
+**Placement is always confirmed.** A *course* is its own entry in the Courses dropdown, its own
+section on the courses page, and its own price (e.g. *Rockstar Teams* — a book in progress with
+many lessons to come). A *lesson* is one module inside a course. If your sentence doesn't say
+which, the agent asks one question with its recommendation before it writes anything.
 
 ---
 
-## 1. Add a lesson to an existing course
+## 1. Add a lesson to an EXISTING course (existing dropdown entry)
 
 ```
 Add lesson **<Lesson Title>** from `~/Desktop/<file or folder>` to the **<business-tools | reclaiming-the-clock | masters-edge-book | framework>** course on the BL.com LMS.
@@ -15,7 +20,7 @@ Add lesson **<Lesson Title>** from `~/Desktop/<file or folder>` to the **<busine
 Optional extras, any order: `YouTube: <embed url>` · `badge: <emoji> <name>` · `no video` ·
 `only narration` · `no review`.
 
-## 2. New PAID course
+## 2. New PAID course (new dropdown entry + Stripe price)
 
 ```
 Create a new paid course **<Course Title>** for **$<N>** on the BL.com LMS from the folder on my Desktop called `<folder>` — <k> lessons, one per file. First lesson: **<Lesson Title>**.
@@ -24,7 +29,7 @@ Create a new paid course **<Course Title>** for **$<N>** on the BL.com LMS from 
 The Stripe price is created once, after you approve the first lesson's gate. Later lessons use
 prompt 1 with the new course id.
 
-## 3. New FREE course
+## 3. New FREE course (new dropdown entry, no price)
 
 ```
 Create a new free course **<Course Title>** on the BL.com LMS from `~/Desktop/<file or folder>`. First lesson: **<Lesson Title>**.

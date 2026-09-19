@@ -40,7 +40,7 @@ top of `academy-lesson.mjs`. Porting = copy the academy feature into the other r
 |---|---|---|
 | Lesson title | yes | — |
 | Source material | yes | A file or folder. Look only in `~/Desktop` (maxdepth 3). docx/pptx → `pandoc -t gfm`; pdf → `python3 -c "import fitz"` (PyMuPDF; `pdftotext` is not installed). **Source is read-only.** |
-| Target course | yes | `framework` · `business-tools` · `reclaiming-the-clock` · `masters-edge-book` · or **new** |
+| **Placement** — existing course or NEW course? | **yes — always confirm** | See "The placement question" below. Never default. |
 | Price (new course only) | yes if new | `free` (priceUsd 0) or `$N` — a Stripe price is created only after the gate |
 | YouTube URL | no | `null` → rotating placeholder video; ask for the embed link later |
 | PDFs to attach | no | every PDF in the source folder, labelled from its filename |
@@ -50,7 +50,23 @@ top of `academy-lesson.mjs`. Porting = copy the academy feature into the other r
 
 **Clarifying questions:** ask once, as ONE numbered list, only for slots you genuinely cannot fill,
 each with your default. Never ask about things the sentence already settled. If Brett gives only a
-title and a file, the defaults above are the answer — go.
+title and a file, the defaults above are the answer — except placement, which is always confirmed.
+
+### The placement question (always asked unless the sentence already answers it)
+
+A course = one entry in the Academy nav's **Courses** dropdown, one section on the courses page, one
+Stripe price. A lesson = one module inside a course. Before scaffolding, settle which this is:
+
+> **Where does "<Title>" go?**
+> 1. Into an existing course — `framework` · `business-tools` · `reclaiming-the-clock` · `masters-edge-book` · `rockstar-teams`
+> 2. A **new course** with its own dropdown entry (a book-in-progress, a standalone program) — then: title, emoji, one-line blurb, `$N` or free
+>
+> My read: <your recommendation + one-line reason>.
+
+The sentence answers it when it names a course id ("to the Business Tools course") or says "new course".
+A book, manual or multi-lesson program is almost always its own course; a single chapter, tool or
+talk usually joins an existing one — say which you think and why, but let Brett decide. The scaffold
+writes `course: "CHOOSE"` and `validate` refuses to pass until this is filled in, so it cannot be skipped.
 
 ## Workflow
 

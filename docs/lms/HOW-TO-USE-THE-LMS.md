@@ -12,6 +12,10 @@ Audiobook Studio voice (`am_michael`), commits, deploys, and hands you the URL.
 
 More in `docs/lms/PROMPTS.md` (six templates).
 
+**Say where it goes.** "…to the **Business Tools** course" puts a lesson inside an existing course.
+"Create a new course **Rockstar Teams**…" makes a new entry in the Courses dropdown with its own
+price. If you don't say, the agent asks — with its recommendation — before writing anything.
+
 ## What happens
 
 1. A project folder appears: `~/Desktop/LMS - <Title>/` (your source copied into `source/`, never edited).

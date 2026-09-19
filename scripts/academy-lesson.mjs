@@ -117,7 +117,9 @@ async function init(title) {
   const slugGuess = slugify(title);
   const files = {
     "lesson.json": JSON.stringify({
-      slug: slugGuess, title, tagline: "", description: "", course: "business-tools", videoUrl: null, pdfs: [],
+      slug: slugGuess, title, tagline: "", description: "",
+      // Deliberate placeholder: validate fails until the placement decision is made explicitly.
+      course: "CHOOSE", videoUrl: null, pdfs: [],
       keyPoints: ["", "", "", "", ""],
       lesson: [{ heading: "", paragraphs: ["", ""] }],
       quiz: [], badge: { name: "", emoji: "" }, produce: PIECES,
@@ -172,7 +174,8 @@ async function checkLesson(L, dir) {
   let courseTitle = null;
   if (typeof L.course === "string") {
     const c = academyCourses.find((c) => c.id === L.course);
-    if (!c) errors.push(`course: "${L.course}" does not exist. Use one of ${academyCourses.map((c) => c.id).join(", ")} — or {"new": {…}}.`);
+    if (L.course === "CHOOSE") errors.push(`course: placement not decided. Ask Brett: does this lesson belong in an EXISTING course (${academyCourses.map((c) => c.id).join(", ")}) or is it a NEW course with its own nav-dropdown entry ({"new": {id, title, emoji, description, priceUsd}})?`);
+    else if (!c) errors.push(`course: "${L.course}" does not exist. Use one of ${academyCourses.map((c) => c.id).join(", ")} — or {"new": {…}} for a new course (its own dropdown entry).`);
     else courseTitle = c.title;
   } else if (L.course && typeof L.course === "object" && L.course.new) {
     const n = L.course.new;
