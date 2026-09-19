@@ -136,8 +136,8 @@ export async function POST(request: NextRequest) {
     passPercent: PASS_PERCENT,
     xpAwarded,
     newBadges,
-    // Course certificates carry their course title/emoji so the toast reads well
-    // (the client badge lookup has no course metadata by design — bundle size).
+    // Course certificates with their title/emoji from modules.ts (the source of
+    // truth); the client falls back to badges.ts courseMeta if this is absent.
     newCertificates: newBadges
       .filter((b) => b.startsWith("course-"))
       .map((b) => {
