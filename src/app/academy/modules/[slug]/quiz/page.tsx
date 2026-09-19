@@ -25,6 +25,8 @@ interface QuizResult {
   passPercent: number;
   xpAwarded: number;
   newBadges: string[];
+  /** Course certificates earned by this pass, with course title/emoji (server-resolved). */
+  newCertificates?: { slug: string; name: string; emoji: string }[];
   results: { correct: boolean; yourAnswer: number; explanation: string }[];
 }
 
@@ -160,7 +162,8 @@ export default function QuizPage() {
               : `You need ${result.passPercent}% to pass. Review below and go again.`}
           </p>
           {result.newBadges.map((slug) => {
-            const badge = badgeBySlug(slug);
+            const badge = result.newCertificates?.find((c) => c.slug === slug) ?? badgeBySlug(slug);
+            const isCert = slug.startsWith("course-");
             return (
               <motion.div
                 key={slug}
@@ -169,7 +172,8 @@ export default function QuizPage() {
                 transition={{ delay: 0.5 }}
                 className="mx-auto mt-4 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 font-heading font-bold text-black"
               >
-                <span className="text-xl">{badge.emoji}</span> Badge earned: {badge.name}
+                <span className="text-xl">{badge.emoji}</span>{" "}
+                {isCert ? "Certificate earned:" : "Badge earned:"} {badge.name}
               </motion.div>
             );
           })}

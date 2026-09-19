@@ -66,13 +66,28 @@ export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {
   };
 }
 
+/**
+ * Course title/emoji for client-side badge chips. Mirrors `academyCourses` in
+ * modules.ts (kept here so this file stays import-free and light for the
+ * browser). `academy-lesson.mjs add` appends new courses.
+ */
+const courseMeta: Record<string, { title: string; emoji: string }> = {
+  "framework": { title: "The Master's Edge Framework", emoji: "🎁" },
+  "business-tools": { title: "Master's Edge Business Tools", emoji: "🛠️" },
+  "reclaiming-the-clock": { title: "Reclaiming the Clock", emoji: "⏰" },
+  "masters-edge-book": { title: "The Master's Edge Book", emoji: "⚔️" },
+  "rockstar-teams": { title: "Rockstar Teams", emoji: "🎸" },
+};
+
 /** Course-completion badge: course-<id>. Doubles as the course certificate record in me_awards. */
 export function courseBadge(courseId: string, courseTitle?: string, emoji?: string): Badge {
+  const meta = courseMeta[courseId];
+  const title = courseTitle ?? meta?.title ?? courseId;
   return {
     slug: `course-${courseId}`,
-    name: `${courseTitle ?? courseId} — Certified`,
-    emoji: emoji ?? "📜",
-    description: `Completed every module in ${courseTitle ?? courseId}`,
+    name: `${title} — Certified`,
+    emoji: emoji ?? meta?.emoji ?? "📜",
+    description: `Completed every module in ${title}`,
   };
 }
 

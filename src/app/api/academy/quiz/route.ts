@@ -11,7 +11,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
 import { db, getProgress, awardXp, awardBadge, awardCourseCertificates, getBadges } from "@/lib/academy-db";
 import { getOwnedCourses } from "@/lib/academy-access";
-import { getModule, unlockedSlugs, PASS_PERCENT } from "@/content/academy/modules";
+import { getModule, getCourse, unlockedSlugs, PASS_PERCENT } from "@/content/academy/modules";
+import { courseBadge } from "@/content/academy/badges";
 
 async function checkUnlocked(
   userId: string,
@@ -135,6 +136,14 @@ export async function POST(request: NextRequest) {
     passPercent: PASS_PERCENT,
     xpAwarded,
     newBadges,
+    // Course certificates carry their course title/emoji so the toast reads well
+    // (the client badge lookup has no course metadata by design — bundle size).
+    newCertificates: newBadges
+      .filter((b) => b.startsWith("course-"))
+      .map((b) => {
+        const c = getCourse(b.slice("course-".length));
+        return courseBadge(b.slice("course-".length), c?.title, c?.emoji);
+      }),
     results,
   });
 }

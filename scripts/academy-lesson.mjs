@@ -164,6 +164,16 @@ async function checkLesson(L, dir) {
   const modulesSrc = readFileSync(CONFIG.modulesTs, "utf8");
   const { academyModules, academyCourses } = await loadModules();
 
+  // badges.ts keeps a client-side mirror of course title/emoji (courseMeta); it must match.
+  {
+    const { courseBadge } = await import(CONFIG.badgesTs + `?t=${Date.now()}`);
+    for (const c of academyCourses) {
+      const b = courseBadge(c.id);
+      if (b.name !== `${c.title} — Certified` || b.emoji !== c.emoji)
+        warnings.push(`badges.ts courseMeta for "${c.id}" (${b.emoji} ${b.name}) does not match modules.ts (${c.emoji} ${c.title} — Certified) — fix the courseMeta entry.`);
+    }
+  }
+
   if (!str(L.slug) || !SLUG.test(L.slug)) errors.push(`slug: must be lowercase letters, digits and dashes (got ${JSON.stringify(L.slug)})`);
   else if (academyModules.some((m) => m.slug === L.slug) && !L._existing) errors.push(`slug "${L.slug}" is already used by an existing module — pick another.`);
   if (!str(L.title)) errors.push("title: required");
@@ -412,6 +422,8 @@ async function add(file) {
     if (bStart === -1 || bEnd === -1) die("add: moduleBadgeMeta not found in badges.ts");
     badges = badges.slice(0, bEnd) + `\n  ${q(L.slug)}: { name: ${q(L.badge.name)}, emoji: ${q(L.badge.emoji)} },` + badges.slice(bEnd);
   }
+  // New course → courseMeta in badges.ts (client-side title/emoji for course certificates).
+  if (isNew) badges = upsertCourseMeta(badges, L.course.new);
 
   // 5. PDFs → public/academy/<slug>/.
   const pdfDir = path.join(CONFIG.publicAcademy, L.slug);
@@ -450,6 +462,19 @@ async function add(file) {
   for (const c of copied) console.log(`✓ pdf → ${c}`);
   console.log("✓ tsc clean");
   return result;
+}
+
+/** Insert or update `courseMeta["<id>"]` in badges.ts (mirror of academyCourses title/emoji). */
+function upsertCourseMeta(badges, n) {
+  const start = badges.indexOf("const courseMeta");
+  const end = start === -1 ? -1 : badges.indexOf("\n};", start);
+  if (start === -1 || end === -1) die("add: courseMeta not found in badges.ts");
+  const line = `  ${q(n.id)}: { title: ${q(n.title)}, emoji: ${q(n.emoji)} },`;
+  const re = new RegExp(`^  ${q(n.id).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}: \\{[^\\n]*\\},?$`, "m");
+  const block = badges.slice(start, end);
+  return re.test(block)
+    ? badges.slice(0, start) + block.replace(re, line) + badges.slice(end)
+    : badges.slice(0, end) + "\n" + line + badges.slice(end);
 }
 
 /**
@@ -515,6 +540,7 @@ async function replaceModule(L, dir, state, fingerprint) {
     if (re.test(badges)) badges = badges.replace(re, line);
     else { const bEnd = badges.indexOf("\n};", badges.indexOf("const moduleBadgeMeta")); badges = badges.slice(0, bEnd) + "\n" + line + badges.slice(bEnd); }
   }
+  if (typeof L.course === "object" && L.course.new) badges = upsertCourseMeta(badges, L.course.new);
   const pdfDir = path.join(CONFIG.publicAcademy, L.slug);
   const copied = [];
   for (const p of L.pdfs ?? []) { mkdirSync(pdfDir, { recursive: true }); const dest = path.join(pdfDir, pdfName(p.file)); copyFileSync(path.resolve(dir, p.file), dest); copied.push(rel(dest)); }
