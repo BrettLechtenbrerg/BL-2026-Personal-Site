@@ -155,7 +155,7 @@ async function init(title) {
     writeFileSync(p, body);
     console.log(`✓ ${name}`);
   }
-  saveState(dir, { slug: slugGuess, title, created: today() });
+  saveState(dir, { slug: slugGuess, title, created: today(), academy: CONFIG.site, siteUrl: CONFIG.siteUrl });
   console.log(`\nProject: ${dir}\nNext: fill lesson.json, then  node scripts/academy-lesson.mjs validate "${path.join(dir, "lesson.json")}"`);
 }
 
@@ -932,7 +932,7 @@ async function status(target) {
   updateStatusDoc(P.dir); // keep PROJECT-STATUS.md in step with .state.json
   const s = loadState(P.dir);
   const mark = (v) => (v?.done ? "✅ done" : v?.failed ? `❌ ${v.failed}` : "⬜ pending");
-  console.log(`${s.title ?? P.slug} (${P.slug})\nproject: ${P.dir}\n`);
+  console.log(`${s.title ?? P.slug} (${P.slug})\nacademy: ${CONFIG.site} · ${CONFIG.siteUrl} · deploy=${CONFIG.deployMode} · stripe=${CONFIG.stripeEnabled ? "on" : "off"}\nproject: ${P.dir}\n`);
   console.log(`add       ${mark(s.add)}${s.add?.done ? ` — module ${s.add.order} in ${s.add.courseId}` : ""}`);
   console.log(`price     ${s.price ? mark(s.price) + (s.price.priceId ? ` — ${s.price.envName}` : "") : "— n/a"}`);
   const want = P.lesson?.produce ?? PIECES;
@@ -1105,7 +1105,11 @@ function updateStatusDoc(dir) {
 function stateFile(dir) { return path.join(dir, ".state.json"); }
 function loadState(dir) { const p = stateFile(dir); return existsSync(p) ? JSON.parse(readFileSync(p, "utf8")) : {}; }
 function saveState(dir, patch) {
-  const s = { ...loadState(dir), ...patch, updated: new Date().toISOString() };
+  const prev = loadState(dir);
+  // A project belongs to one academy for life — refuse to run it against another brand's site.
+  if (prev.academy && prev.academy !== CONFIG.site)
+    die(`this project belongs to the "${prev.academy}" academy but you are in the "${CONFIG.site}" site repo (${ROOT}). cd to the right repo.`);
+  const s = { ...prev, academy: prev.academy ?? CONFIG.site, ...patch, updated: new Date().toISOString() };
   writeFileSync(stateFile(dir), JSON.stringify(s, null, 2) + "\n");
   return s;
 }
