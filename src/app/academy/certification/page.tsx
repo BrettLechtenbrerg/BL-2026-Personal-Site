@@ -10,6 +10,11 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Check, CheckCircle2, Clock, FileEdit, Loader2, Lock, X } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
+import { academyConfig } from "@/content/academy.config";
+
+const TOP = academyConfig.ranks.top;
+const COPY = academyConfig.academy.copy;
+const OWNER = academyConfig.academy.ownerFirstName;
 
 interface Submission {
   status: "pending" | "approved" | "revise";
@@ -37,16 +42,16 @@ interface ExamResult {
 }
 
 function StatusPill({ sub }: { sub: Submission | null }) {
-  if (!sub) return <span className="text-xs text-white/40">Not started</span>;
+  if (!sub) return <span className="text-xs text-academy-fg/40">Not started</span>;
   if (sub.status === "approved")
     return (
-      <span className="flex items-center gap-1 text-xs font-semibold text-gold">
+      <span className="flex items-center gap-1 text-xs font-semibold text-academy-accent">
         <CheckCircle2 size={14} /> Approved
       </span>
     );
   if (sub.status === "pending")
     return (
-      <span className="flex items-center gap-1 text-xs font-semibold text-white/60">
+      <span className="flex items-center gap-1 text-xs font-semibold text-academy-fg/60">
         <Clock size={14} /> Awaiting review
       </span>
     );
@@ -146,7 +151,7 @@ export default function CertificationPage() {
   if (loading || !state) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <Loader2 className="animate-spin text-gold" size={32} />
+        <Loader2 className="animate-spin text-academy-accent" size={32} />
       </div>
     );
   }
@@ -154,14 +159,14 @@ export default function CertificationPage() {
   if (!state.unlocked) {
     return (
       <div className="mx-auto max-w-xl pt-10 text-center">
-        <Lock size={40} className="mx-auto mb-4 text-white/40" />
+        <Lock size={40} className="mx-auto mb-4 text-academy-fg/40" />
         <h1 className="font-heading text-2xl font-bold">Certification is locked</h1>
-        <p className="mt-2 text-white/60">Pass every training module to unlock your Black Belt test.</p>
+        <p className="mt-2 text-academy-fg/60">{TOP.unlockHint}</p>
         <Link
           href="/academy/modules"
-          className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark"
+          className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-5 py-2 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark"
         >
-          Back to Training <ArrowRight size={18} />
+          {COPY.backCta} <ArrowRight size={18} />
         </Link>
       </div>
     );
@@ -179,13 +184,13 @@ export default function CertificationPage() {
       <div className="mx-auto max-w-2xl pt-6">
         <div className="mb-6 flex items-center justify-between">
           <h1 className="font-heading text-xl font-bold">Final Exam</h1>
-          <span className="text-sm text-white/50">
+          <span className="text-sm text-academy-fg/50">
             {current + 1} / {examQuestions.length}
           </span>
         </div>
-        <div className="mb-8 h-1.5 overflow-hidden rounded-full bg-white/10">
+        <div className="mb-8 h-1.5 overflow-hidden rounded-full bg-academy-fg/10">
           <motion.div
-            className="h-full bg-gradient-to-r from-cranberry to-gold"
+            className="h-full bg-gradient-to-r from-academy-primary to-academy-accent"
             animate={{ width: `${(current / examQuestions.length) * 100}%` }}
           />
         </div>
@@ -206,11 +211,11 @@ export default function CertificationPage() {
                   disabled={submitting}
                   className={`flex min-h-12 w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-base transition-all ${
                     answers[current] === i
-                      ? "border-gold bg-gold/20"
-                      : "border-white/15 bg-white/5 hover:border-cranberry-light hover:bg-white/10"
+                      ? "border-academy-accent bg-academy-accent/20"
+                      : "border-academy-fg/15 bg-academy-fg/5 hover:border-academy-primary-light hover:bg-academy-fg/10"
                   }`}
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-white/30 text-xs font-bold text-white/60">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-academy-fg/30 text-xs font-bold text-academy-fg/60">
                     {i + 1}
                   </span>
                   {opt}
@@ -229,10 +234,10 @@ export default function CertificationPage() {
   return (
     <div className="mx-auto max-w-2xl">
       <h1 className="mb-1 font-heading text-3xl font-bold">
-        Black Belt <span className="text-gold">Certification</span>
+        {TOP.title} <span className="text-academy-accent">Certification</span>
       </h1>
-      <p className="mb-8 text-white/60">
-        Two steps: submit your capstone project, then pass the final exam. Brett personally reviews
+      <p className="mb-8 text-academy-fg/60">
+        Two steps: submit your capstone project, then pass the final exam. {OWNER} personally reviews
         every project.
       </p>
 
@@ -240,15 +245,15 @@ export default function CertificationPage() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="mb-6 rounded-2xl border border-gold/50 bg-gold/10 p-6 text-center"
+          className="mb-6 rounded-2xl border border-academy-accent/50 bg-academy-accent/10 p-6 text-center"
         >
           <div className="mb-2 text-5xl">🏆</div>
-          <h2 className="font-heading text-2xl font-bold text-gold">
-            Certified Master&apos;s Edge — Black Belt
+          <h2 className="font-heading text-2xl font-bold text-academy-accent">
+            {TOP.certifiedHeading}
           </h2>
           <Link
             href="/academy/certificate"
-            className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-lg bg-gold px-5 py-2 font-heading font-bold text-black hover:bg-gold-dark"
+            className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-lg bg-academy-accent px-5 py-2 font-heading font-bold text-academy-bg hover:bg-academy-accent-dark"
           >
             View Your Certificate <ArrowRight size={18} />
           </Link>
@@ -256,7 +261,7 @@ export default function CertificationPage() {
       )}
 
       {error && (
-        <p className="mb-4 rounded-lg border border-cranberry/40 bg-cranberry/15 px-3 py-2 text-sm text-red-300">
+        <p className="mb-4 rounded-lg border border-academy-primary/40 bg-academy-primary/15 px-3 py-2 text-sm text-red-300">
           {error}
         </p>
       )}
@@ -264,7 +269,7 @@ export default function CertificationPage() {
       {examResult && (
         <div
           className={`mb-6 rounded-2xl border p-6 text-center ${
-            examResult.passed ? "border-gold/50 bg-gold/10" : "border-white/15 bg-white/5"
+            examResult.passed ? "border-academy-accent/50 bg-academy-accent/10" : "border-academy-fg/15 bg-academy-fg/5"
           }`}
         >
           <h2 className="font-heading text-2xl font-bold">
@@ -274,11 +279,11 @@ export default function CertificationPage() {
             {examResult.results.map((r, i) => (
               <div key={i} className="flex items-start gap-2 text-sm">
                 {r.correct ? (
-                  <Check size={16} className="mt-0.5 shrink-0 text-gold" />
+                  <Check size={16} className="mt-0.5 shrink-0 text-academy-accent" />
                 ) : (
                   <X size={16} className="mt-0.5 shrink-0 text-red-400" />
                 )}
-                <p className="text-white/70">{r.explanation}</p>
+                <p className="text-academy-fg/70">{r.explanation}</p>
               </div>
             ))}
           </div>
@@ -286,19 +291,17 @@ export default function CertificationPage() {
       )}
 
       {/* Step 1: project */}
-      <div className="mb-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+      <div className="mb-4 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="font-heading text-lg font-bold text-gold">Step 1 · Capstone Project</h2>
+          <h2 className="font-heading text-lg font-bold text-academy-accent">Step 1 · Capstone Project</h2>
           <StatusPill sub={state.project} />
         </div>
-        <p className="mb-4 text-sm leading-relaxed text-white/70">
-          Apply all three tools to your own business: fire yourself from one role, design and run
-          your ideal week for two weeks, and journal one significant decision. Describe what you
-          did, what changed, and what you measured. Link supporting material if you have it.
+        <p className="mb-4 text-sm leading-relaxed text-academy-fg/70">
+          {TOP.projectBrief}
         </p>
         {state.project?.feedback && state.project.status !== "approved" && (
-          <p className="mb-4 rounded-lg border border-gold/30 bg-gold/10 px-3 py-2 text-sm text-white/80">
-            <strong className="text-gold">Brett&apos;s feedback:</strong> {state.project.feedback}
+          <p className="mb-4 rounded-lg border border-academy-accent/30 bg-academy-accent/10 px-3 py-2 text-sm text-academy-fg/80">
+            <strong className="text-academy-accent">{OWNER}&apos;s feedback:</strong> {state.project.feedback}
           </p>
         )}
         {canSubmitProject && (
@@ -311,7 +314,7 @@ export default function CertificationPage() {
               required
               minLength={50}
               placeholder="What did you implement, what changed, and what did you measure? (min 50 characters)"
-              className="w-full resize-y rounded-lg border border-white/15 bg-black/30 px-4 py-3 text-base text-white placeholder-white/40 outline-none focus:border-gold"
+              className="w-full resize-y rounded-lg border border-academy-fg/15 bg-academy-bg/30 px-4 py-3 text-base text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent"
             />
             <input
               type="url"
@@ -319,12 +322,12 @@ export default function CertificationPage() {
               onChange={(e) => setProjectLink(e.target.value)}
               maxLength={500}
               placeholder="Optional link (doc, video, spreadsheet…)"
-              className="w-full rounded-lg border border-white/15 bg-black/30 px-4 py-3 text-base text-white placeholder-white/40 outline-none focus:border-gold"
+              className="w-full rounded-lg border border-academy-fg/15 bg-academy-bg/30 px-4 py-3 text-base text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent"
             />
             <button
               type="submit"
               disabled={submitting}
-              className="flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark disabled:opacity-60"
+              className="flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-5 py-2 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark disabled:opacity-60"
             >
               {submitting && <Loader2 size={16} className="animate-spin" />}
               {state.project ? "Resubmit Project" : "Submit Project"}
@@ -334,18 +337,18 @@ export default function CertificationPage() {
       </div>
 
       {/* Step 2: exam */}
-      <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+      <div className="rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="font-heading text-lg font-bold text-gold">Step 2 · Final Exam</h2>
+          <h2 className="font-heading text-lg font-bold text-academy-accent">Step 2 · Final Exam</h2>
           <StatusPill sub={state.exam} />
         </div>
-        <p className="mb-4 text-sm leading-relaxed text-white/70">
+        <p className="mb-4 text-sm leading-relaxed text-academy-fg/70">
           Five questions spanning all modules. Score 80%+ to pass. You can retake it.
         </p>
         {state.exam?.status !== "approved" && (
           <button
             onClick={startExam}
-            className="flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark"
+            className="flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-5 py-2 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark"
           >
             {state.exam ? "Retake Final Exam" : "Start Final Exam"} <ArrowRight size={18} />
           </button>

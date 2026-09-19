@@ -7,6 +7,7 @@
 import { NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
 import { db } from "@/lib/academy-db";
+import { TOP_BADGE_SLUG } from "@/content/academy/badges";
 
 const DAY = 24 * 60 * 60 * 1000;
 
@@ -19,7 +20,7 @@ export async function GET() {
   const since7 = Date.now() - 7 * DAY;
   const [{ data: users }, { data: certified }, { data: recent }] = await Promise.all([
     supabase.from("me_users").select("id, name, avatar, photo_url, xp").order("xp", { ascending: false }).limit(500),
-    supabase.from("me_awards").select("user_id").eq("badge_slug", "certified-masters-edge"),
+    supabase.from("me_awards").select("user_id").eq("badge_slug", TOP_BADGE_SLUG),
     // simplification: 30-day ledger read into memory, capped at 10k rows
     // (~300 events/day). Upgrade path: a SQL group-by RPC.
     supabase

@@ -1,6 +1,13 @@
 //==============================================================================
-// Master's Edge Academy — badges + belt levels (safe to import client-side)
+// Academy — badges + rank levels (safe to import client-side)
 //==============================================================================
+// Rank names, the top credential and its badge come from academy.config so
+// each brand (belts / levels / milestones) shares this one file. The
+// `belt*` export names are kept for compatibility — "belt" = "rank".
+//==============================================================================
+
+import { academyConfig } from "@/content/academy.config";
+import { moduleBadgeMeta, courseMeta } from "@/content/academy/badge-meta";
 
 export interface Badge {
   slug: string;
@@ -15,46 +22,16 @@ export const specialBadges: Badge[] = [
   { slug: "perfect-score", name: "Perfect Score", emoji: "💯", description: "Scored 100% on a quiz" },
   { slug: "seven-day-streak", name: "7-Day Streak", emoji: "🔥", description: "Visited 7 days in a row" },
   { slug: "community-contributor", name: "Community Contributor", emoji: "🤝", description: "Posted 5 times in the community" },
-  { slug: "certified-masters-edge", name: "Certified Master's Edge", emoji: "🏆", description: "Completed the full certification" },
+  {
+    slug: academyConfig.ranks.top.badgeSlug,
+    name: academyConfig.ranks.top.badgeName,
+    emoji: academyConfig.ranks.top.badgeEmoji,
+    description: academyConfig.ranks.top.badgeDescription,
+  },
 ];
 
-const moduleBadgeMeta: Record<string, { name: string; emoji: string }> = {
-  "fire-yourself": { name: "Role Evolver", emoji: "🔥" },
-  "ideal-week": { name: "Time Architect", emoji: "📅" },
-  "decision-journal": { name: "Clear Thinker", emoji: "🧭" },
-  // Reclaiming the Clock track
-  "time-maze": { name: "Maze Solver", emoji: "🌀" },
-  "mapping-values": { name: "Values Mapper", emoji: "🗺️" },
-  "daily-dozen": { name: "Morning Champion", emoji: "🌅" },
-  "five-percent": { name: "5% Master", emoji: "💎" },
-  "rules-of-freedom": { name: "Freedom Keeper", emoji: "🕊️" },
-  "laws-of-maximization": { name: "Maximizer", emoji: "⚡" },
-  "harmony-acceptance": { name: "Harmony Holder", emoji: "☸️" },
-  "tools-and-stick": { name: "Clock Reclaimer", emoji: "⏰" },
-  // The Master's Edge Book track
-  "sword-in-shrine": { name: "Edge Keeper", emoji: "⚔️" },
-  "acceptance-catapult": { name: "Catapult Rider", emoji: "🎯" },
-  "masters-garden": { name: "Garden Tender", emoji: "🌱" },
-  "two-beliefs": { name: "Growth Chooser", emoji: "🧠" },
-  "burned-dojo": { name: "Rebuilder", emoji: "🌅" },
-  "bamboo-warrior": { name: "Bamboo Bender", emoji: "🎍" },
-  "swordsmiths-fire": { name: "Forged in Fire", emoji: "🔨" },
-  "one-mountain": { name: "Mountain Climber", emoji: "⛰️" },
-  "calm-river": { name: "Calm River", emoji: "🌊" },
-  "warriors-ledger": { name: "Ledger Keeper", emoji: "📖" },
-  "twin-tigers": { name: "Tiger Tamer", emoji: "🐯" },
-  "garden-of-words": { name: "Word Gardener", emoji: "🌸" },
-  "stone-steps": { name: "Step Cutter", emoji: "🪨" },
-  "consistent-warrior": { name: "Consistent Warrior", emoji: "🔁" },
-  "lantern-bearer": { name: "Lantern Bearer", emoji: "🏮" },
-  "trust-trinity": { name: "Trust Builder", emoji: "🤝" },
-  "masters-state": { name: "Flow Engineer", emoji: "🌀" },
-  "unseen-belt": { name: "Unseen Belt", emoji: "🥋" },
-  "six-pillars": { name: "Pillar Builder", emoji: "🏛️" },
-  // Free giveaway course
-  "masters-edge-framework": { name: "Framework Holder", emoji: "🎁" },
-  "rockstar-team": { name: "Team Builder", emoji: "🎸" },
-};
+/** me_awards.badge_slug of the top credential (was hard-coded 'certified-masters-edge'). */
+export const TOP_BADGE_SLUG = academyConfig.ranks.top.badgeSlug;
 
 export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {
   const meta = moduleBadgeMeta[moduleSlug];
@@ -66,18 +43,6 @@ export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {
   };
 }
 
-/**
- * Course title/emoji for client-side badge chips. Mirrors `academyCourses` in
- * modules.ts (kept here so this file stays import-free and light for the
- * browser). `academy-lesson.mjs add` appends new courses.
- */
-const courseMeta: Record<string, { title: string; emoji: string }> = {
-  "framework": { title: "The Master's Edge Framework", emoji: "🎁" },
-  "business-tools": { title: "Master's Edge Business Tools", emoji: "🛠️" },
-  "reclaiming-the-clock": { title: "Reclaiming the Clock", emoji: "⏰" },
-  "masters-edge-book": { title: "The Master's Edge Book", emoji: "⚔️" },
-  "rockstar-teams": { title: "Rockstar Teams", emoji: "🎸" },
-};
 
 /** Course-completion badge: course-<id>. Doubles as the course certificate record in me_awards. */
 export function courseBadge(courseId: string, courseTitle?: string, emoji?: string): Badge {
@@ -101,28 +66,28 @@ export function badgeBySlug(slug: string): Badge {
 }
 
 //------------------------------------------------------------------------------
-// Belt levels (martial-arts themed XP ranks)
+// Rank levels (belts / levels / milestones — driven by academy.config)
 //------------------------------------------------------------------------------
 export interface BeltLevel {
   name: string;
   minXp: number;
-  /** Tailwind-safe hex for the belt swatch. */
+  /** Tailwind-safe hex for the rank swatch. */
   color: string;
 }
 
-export const beltLevels: BeltLevel[] = [
-  { name: "White Belt", minXp: 0, color: "#F5F5F5" },
-  { name: "Yellow Belt", minXp: 100, color: "#FACC15" },
-  { name: "Orange Belt", minXp: 250, color: "#FB923C" },
-  { name: "Green Belt", minXp: 450, color: "#22C55E" },
-  { name: "Blue Belt", minXp: 700, color: "#3B82F6" },
-  { name: "Purple Belt", minXp: 1000, color: "#A855F7" },
-  { name: "Brown Belt", minXp: 1400, color: "#92400E" },
-  { name: "Red Belt", minXp: 1900, color: "#DC2626" },
-  // Black Belt is awarded by certification approval, not XP alone —
-  // beltFor() caps at Red unless `certified` is true.
-  { name: "Black Belt", minXp: Infinity, color: "#1A1A1A" },
-];
+/** Ordered low → high. The last rank is awarded by certification approval, not
+ *  XP alone — beltFor() caps at the second-to-last unless `certified` is true. */
+export const beltLevels: BeltLevel[] = academyConfig.ranks.levels.map((l) => ({
+  name: l.name,
+  minXp: l.minXp ?? Infinity,
+  color: l.color,
+}));
+
+/** Compact rank label (e.g. "Yellow" for "Yellow Belt"). */
+export function shortRankName(name: string): string {
+  const suffix = academyConfig.ranks.shortSuffix;
+  return suffix && name.endsWith(suffix) ? name.slice(0, -suffix.length) : name;
+}
 
 export function beltFor(xp: number, certified = false): BeltLevel {
   if (certified) return beltLevels[beltLevels.length - 1];
@@ -133,7 +98,7 @@ export function beltFor(xp: number, certified = false): BeltLevel {
   return belt;
 }
 
-/** Next belt after the current one (null at the top). */
+/** Next rank after the current one (null at the top). */
 export function nextBelt(xp: number): BeltLevel | null {
   for (const b of beltLevels) {
     if (Number.isFinite(b.minXp) && xp < b.minXp) return b;

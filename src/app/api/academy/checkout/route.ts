@@ -2,7 +2,7 @@
 // ACADEMY — Checkout API: start a Stripe Checkout Session for one course
 //==============================================================================
 // POST { course } → { url }. Session-gated. Rejects free/unknown courses and
-// courses the member already owns (409). Promo codes (incl. Brett's 100%-off
+// courses the member already owns (409). Promo codes (incl. the owner's 100%-off
 // gift codes) are entered on the Stripe page (allow_promotion_codes).
 // Fulfilment: /api/stripe/webhook + /academy/checkout/success, both via
 // fulfillCheckout() which trusts only the session's metadata set here.
@@ -12,14 +12,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
 import { getUserById } from "@/lib/academy-db";
 import { getOwnedCourses } from "@/lib/academy-access";
-import { coursePriceId, stripe } from "@/lib/stripe";
+import { coursePriceId, stripe, STRIPE_ENABLED } from "@/lib/stripe";
 import { getCourse } from "@/content/academy/modules";
+import { academyConfig } from "@/content/academy.config";
 
 function siteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.brettlechtenberg.com";
+  return process.env.NEXT_PUBLIC_SITE_URL ?? academyConfig.site.url;
 }
 
 export async function POST(request: NextRequest) {
+  if (!STRIPE_ENABLED) return NextResponse.json({ error: "Purchases are not enabled for this academy." }, { status: 404 });
   const auth = await requireAcademyUser();
   if (auth instanceof NextResponse) return auth;
 

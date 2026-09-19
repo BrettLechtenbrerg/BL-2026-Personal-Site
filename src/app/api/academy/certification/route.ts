@@ -9,7 +9,7 @@
 // POST { action: "exam", answers }       → score server-side; ≥80% auto-
 //                  approves the exam submission, <80% records 'revise'.
 // Certified = latest project approved AND latest exam approved → badge
-// 'certified-masters-edge' (Black Belt).
+// the top badge (academyConfig.ranks.top.badgeSlug).
 //==============================================================================
 
 import { NextRequest, NextResponse } from "next/server";

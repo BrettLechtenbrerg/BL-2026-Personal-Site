@@ -1,5 +1,5 @@
 //==============================================================================
-// Master's Edge Academy — per-course access (server only)
+// Academy — per-course access (server only)
 //==============================================================================
 // A member owns a course when it is free (no `priceEnv`) or when a row exists
 // in me_course_access (Stripe purchase / promo code, legacy grandfathering,

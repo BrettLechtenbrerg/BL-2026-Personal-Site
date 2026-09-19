@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../styles/academy.css";
 
 /* Brett Lechtenberg Brand Colors */
 :root {
@@ -17,35 +18,6 @@
   --background: #FFFFFF;
   --foreground: #1A1A1A;
   --muted: #4A4A4A;
-
-  /* Academy shell mid-tone (gradient centre) */
-  --academy-mid: #2a0a12;
-}
-
-/* Academy light mode — the Academy is authored dark (text-white, bg-white/10 …)
-   so we flip the neutral axis + darken gold for contrast instead of touching
-   every class. `@theme inline` makes utilities read these vars at use-site. */
-.academy-light {
-  --white: #1A1A1A;
-  --black: #FFFFFF;
-  --gold: #8A6D1E;
-  --gold-light: #B8982E;
-  --gold-dark: #6E5618;
-  --academy-mid: #F7ECEF;
-}
-/* Solid brand buttons + selection keep white text on cranberry in either mode */
-.academy-light .bg-cranberry,
-.academy-light ::selection {
-  color: #FFFFFF;
-}
-/* Surfaces that keep the brand palette regardless of theme
-   (dark branded cards/players, the printable certificate) */
-.academy-light .academy-brand {
-  --white: #FFFFFF;
-  --black: #1A1A1A;
-  --gold: #D4AF37;
-  --gold-light: #E8C84A;
-  --gold-dark: #B8982E;
 }
 
 @theme inline {
@@ -379,35 +351,4 @@ body {
 .prose-blog img {
   border-radius: 12px;
   margin: 1.5em 0;
-}
-
-/* Academy podcast player — sound bars bounce between a floor and their own --bar height */
-@keyframes podcast-bar {
-  0%,
-  100% {
-    height: 20%;
-  }
-  50% {
-    height: var(--bar, 100%);
-  }
-}
-
-/* Academy Read Aloud player — a loose page flips over the spine while narrating */
-@keyframes page-turn {
-  0% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-  45% {
-    transform: scaleX(0.05);
-    opacity: 0.9;
-  }
-  55% {
-    transform: scaleX(-0.05);
-    opacity: 0.9;
-  }
-  100% {
-    transform: scaleX(-1);
-    opacity: 0;
-  }
 }

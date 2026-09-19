@@ -1,8 +1,9 @@
 //==============================================================================
 // Certifier — third-party verifiable credential for certified members
 //==============================================================================
-// Issues one "Master's Edge Certified" credential per member and stores the
-// public verification URL on the Black Belt badge row (me_awards.credential_url).
+// Issues one credential per certified member and stores the public
+// verification URL on the top badge row (me_awards.credential_url).
+// Disabled per brand via academyConfig.ranks.certifierEnabled.
 // Server only. Idempotent: returns the stored URL if one exists; issues once
 // otherwise. A failed/unconfigured issuance returns null and is retried on the
 // next call — the member still gets the badge + printable certificate.
@@ -12,8 +13,10 @@
 //==============================================================================
 
 import { db, getUserById } from "./academy-db";
+import { TOP_BADGE_SLUG } from "@/content/academy/badges";
+import { academyConfig } from "@/content/academy.config";
 
-const BADGE = "certified-masters-edge";
+const BADGE = TOP_BADGE_SLUG;
 const API = "https://api.certifier.io/v1/credentials/create-issue-send";
 const VERIFY_BASE = "https://credsverse.com/credentials/";
 /** Placeholder (`pending:<epoch ms>`) written while an issuance is in flight so
@@ -37,6 +40,7 @@ function setCredentialUrl(userId: string, value: string | null) {
 
 /** Public verification URL for the member's credential, issuing it if needed. */
 export async function ensureCredential(userId: string): Promise<string | null> {
+  if (!academyConfig.ranks.certifierEnabled) return null;
   const { data: award } = await db()
     .from("me_awards")
     .select("credential_url")

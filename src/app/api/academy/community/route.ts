@@ -14,6 +14,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
+import { academyConfig } from "@/content/academy.config";
 import { db, awardXp, awardBadge, getUserById } from "@/lib/academy-db";
 import { channelBySlug, DEFAULT_CHANNEL } from "@/content/academy/channels";
 
@@ -81,7 +82,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Write something first." }, { status: 400 });
     }
     if (channel.adminOnly && !(await isAdmin(auth))) {
-      return NextResponse.json({ error: "Only Brett can post here." }, { status: 403 });
+      return NextResponse.json({ error: `Only ${academyConfig.academy.ownerFirstName} can post here.` }, { status: 403 });
     }
     const { data: post, error } = await supabase
       .from("me_posts")

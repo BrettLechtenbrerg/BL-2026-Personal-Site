@@ -19,6 +19,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { academyConfig } from "@/content/academy.config";
 
 const links = [
   { href: "/academy/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -77,12 +78,12 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-black/60 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-academy-fg/10 bg-academy-bg/60 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3">
         <Link href={authed ? "/academy/dashboard" : "/academy"} className="flex items-center gap-2">
-          <span className="text-xl">🥋</span>
-          <span className="font-heading text-sm font-bold tracking-wide text-gold sm:text-base">
-            MASTER&apos;S EDGE ACADEMY
+          <span className="text-xl">{academyConfig.academy.icon}</span>
+          <span className="font-heading text-sm font-bold tracking-wide text-academy-accent sm:text-base">
+            {academyConfig.academy.name.toUpperCase()}
           </span>
         </Link>
         <div className="flex items-center gap-2">
@@ -92,8 +93,8 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
                 const active = pathname?.startsWith(href);
                 const className = `flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-sm transition-colors sm:px-3 ${
                   active
-                    ? "bg-cranberry text-white"
-                    : "text-white/70 hover:bg-white/10 hover:text-white"
+                    ? "bg-academy-primary text-academy-fg"
+                    : "text-academy-fg/70 hover:bg-academy-fg/10 hover:text-academy-fg"
                 }`;
                 if (href === "/academy/modules") {
                   return (
@@ -117,12 +118,12 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
                         <div
                           role="menu"
                           onClick={() => setCoursesOpen(false)}
-                          className="absolute left-0 top-full z-50 mt-1 w-72 overflow-hidden rounded-xl border border-white/10 bg-black/95 py-1 shadow-xl backdrop-blur-md"
+                          className="absolute left-0 top-full z-50 mt-1 w-72 overflow-hidden rounded-xl border border-academy-fg/10 bg-academy-bg/95 py-1 shadow-xl backdrop-blur-md"
                         >
                           <Link
                             role="menuitem"
                             href="/academy/modules"
-                            className="block px-4 py-2.5 text-sm font-semibold text-gold hover:bg-white/10"
+                            className="block px-4 py-2.5 text-sm font-semibold text-academy-accent hover:bg-academy-fg/10"
                           >
                             All courses
                           </Link>
@@ -131,7 +132,7 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
                               key={c.id}
                               role="menuitem"
                               href={`/academy/modules#${c.id}`}
-                              className="flex items-center gap-2 px-4 py-2.5 text-sm text-white/80 hover:bg-white/10 hover:text-white"
+                              className="flex items-center gap-2 px-4 py-2.5 text-sm text-academy-fg/80 hover:bg-academy-fg/10 hover:text-academy-fg"
                             >
                               <span>{c.emoji}</span>
                               <span>{c.title}</span>
@@ -152,7 +153,7 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
               <button
                 onClick={logout}
                 title="Log out"
-                className="flex min-h-11 min-w-11 items-center justify-center rounded-lg px-2 py-2 text-white/50 transition-colors hover:bg-white/10 hover:text-white"
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-lg px-2 py-2 text-academy-fg/50 transition-colors hover:bg-academy-fg/10 hover:text-academy-fg"
               >
                 <LogOut size={18} />
               </button>

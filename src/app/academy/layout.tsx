@@ -1,18 +1,19 @@
 //==============================================================================
-// Master's Edge Academy — hidden shell (noindex + member nav)
+// Academy — hidden shell (noindex + member nav). Brand-agnostic; names come from academy.config.
 //==============================================================================
 // Hidden per docs/COURSE_PATTERN.md: noindex here, NOT in sitemap.ts, NOT in
-// Header.tsx. Members reach it via a direct link from Brett.
+// the site header. Members reach it via a direct link from the owner.
 //==============================================================================
 
 import type { Metadata } from "next";
 import AcademyNav from "@/components/academy/AcademyNav";
 import { academyCourses } from "@/content/academy/modules";
 import ChannelSidebar from "@/components/academy/ChannelSidebar";
+import { academyConfig } from "@/content/academy.config";
 
 export const metadata: Metadata = {
-  title: "Master's Edge Academy | Brett Lechtenberg",
-  description: "Private learning academy for Master's Edge members.",
+  title: `${academyConfig.academy.name} | ${academyConfig.academy.kicker}`,
+  description: academyConfig.academy.description,
   robots: { index: false, follow: false },
 };
 
@@ -21,7 +22,7 @@ export default function AcademyLayout({ children }: { children: React.ReactNode 
     <div
       id="academy-root"
       suppressHydrationWarning
-      className="min-h-screen bg-gradient-to-br from-black via-(--academy-mid) to-black text-white"
+      className="min-h-screen bg-gradient-to-br from-academy-bg via-[var(--academy-mid)] to-academy-bg text-academy-fg"
     >
       {/* Apply saved light/dark preference before first paint (see ThemeToggle). */}
       <script

@@ -38,10 +38,10 @@ export default function ThemeToggle() {
       aria-label="Light mode"
       title={light ? "Switch to dark mode" : "Switch to light mode"}
       onClick={toggle}
-      className="relative flex h-7 w-12 shrink-0 items-center rounded-full border border-white/20 bg-white/10 transition-colors hover:bg-white/20"
+      className="relative flex h-7 w-12 shrink-0 items-center rounded-full border border-academy-fg/20 bg-academy-fg/10 transition-colors hover:bg-academy-fg/20"
     >
       <span
-        className={`absolute flex h-5 w-5 items-center justify-center rounded-full bg-gold text-black transition-transform ${
+        className={`absolute flex h-5 w-5 items-center justify-center rounded-full bg-academy-accent text-academy-bg transition-transform ${
           light ? "translate-x-6" : "translate-x-1"
         }`}
       >

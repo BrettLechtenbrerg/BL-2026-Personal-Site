@@ -46,7 +46,7 @@ export default function UnlockCourseButton({
         type="button"
         onClick={checkout}
         disabled={busy}
-        className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-gold px-5 font-heading font-bold text-black hover:bg-gold/90 disabled:opacity-60"
+        className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-academy-accent px-5 font-heading font-bold text-academy-bg hover:bg-academy-accent/90 disabled:opacity-60"
       >
         {busy ? <Loader2 className="animate-spin" size={18} /> : <Lock size={18} />}
         Unlock course{priceLabel ? ` · ${priceLabel}` : ""}

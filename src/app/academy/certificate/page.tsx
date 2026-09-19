@@ -6,7 +6,7 @@
 // Two tiers, one page:
 //   • Course certificates — system-generated the moment every module in a
 //     course is passed (one per course, printable).
-//   • Master's Edge certificate — the Certifier-backed credential, only after
+//   • Top-rank certificate — the Certifier-backed credential, only after
 //     the entire package (all courses + capstone + exam).
 // Members with nothing yet are pointed to the courses page.
 //==============================================================================
@@ -16,6 +16,7 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Loader2 } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
 import CertificateCard from "@/components/academy/CertificateCard";
+import { academyConfig } from "@/content/academy.config";
 
 interface CourseCert {
   courseId: string;
@@ -63,7 +64,7 @@ export default function CertificatePage() {
   if (loading || !user || courseCerts === null) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <Loader2 className="animate-spin text-gold" size={32} />
+        <Loader2 className="animate-spin text-academy-accent" size={32} />
       </div>
     );
   }
@@ -93,22 +94,22 @@ export default function CertificatePage() {
 
       <div className="no-print mb-6">
         <h1 className="font-heading text-2xl font-bold">Your Certificates</h1>
-        <p className="mt-1 text-sm text-white/60">
+        <p className="mt-1 text-sm text-academy-fg/60">
           Finish every module in a course to earn its certificate. Complete every course, the capstone
-          and the final exam to earn the Certified Master&apos;s Edge credential.
+          and the final exam to earn {academyConfig.ranks.top.credentialPhrase}.
         </p>
       </div>
 
       {nothingYet && (
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-md">
+        <div className="rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-8 text-center backdrop-blur-md">
           <p className="text-4xl">📜</p>
           <h2 className="mt-3 font-heading text-xl font-bold">No certificates yet</h2>
-          <p className="mt-2 text-sm text-white/60">
+          <p className="mt-2 text-sm text-academy-fg/60">
             Your first one arrives the moment you pass the last module of any course.
           </p>
           <Link
             href="/academy/modules"
-            className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark"
+            className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-5 py-2 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark"
           >
             Go to courses <ArrowRight size={18} />
           </Link>
@@ -130,7 +131,7 @@ export default function CertificatePage() {
               href={credentialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="no-print mt-4 flex min-h-12 items-center justify-center gap-2 rounded-lg border border-gold/40 bg-gold/10 px-5 font-heading font-bold text-gold hover:bg-gold/20"
+              className="no-print mt-4 flex min-h-12 items-center justify-center gap-2 rounded-lg border border-academy-accent/40 bg-academy-accent/10 px-5 font-heading font-bold text-academy-accent hover:bg-academy-accent/20"
             >
               <BadgeCheck size={20} /> View verified credential &amp; share to LinkedIn
             </a>
@@ -141,7 +142,7 @@ export default function CertificatePage() {
       {courseCerts.length > 0 && (
         <div className="space-y-10">
           {certified && (
-            <h2 className="no-print font-heading text-lg font-bold text-gold">Course certificates</h2>
+            <h2 className="no-print font-heading text-lg font-bold text-academy-accent">Course certificates</h2>
           )}
           {courseCerts.map((c) => {
             const id = `cert-${c.courseId}`;

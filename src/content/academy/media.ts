@@ -1,7 +1,7 @@
 //==============================================================================
 // Academy — per-module media sidecars installed by scripts/academy-install.mjs.
 // Server-only. Flashcards live in
-//   src/content/academy/flashcards/<slug>.json   [{ front, back }]
+//   <srcDir>/content/academy/flashcards/<slug>.json   [{ front, back }]
 // so a 5,000-line modules.ts never has to be machine-edited for study decks.
 // NOT under /public: Next traces fs reads into the serverless bundle, and
 // /public/academy holds hundreds of MB of audio/video (Vercel cap: 250 MB).
@@ -10,8 +10,9 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { Flashcard } from "@/components/academy/Flashcards";
+import { academyConfig } from "@/content/academy.config";
 
-const DECKS = path.join(process.cwd(), "src", "content", "academy", "flashcards");
+const DECKS = path.join(process.cwd(), ...academyConfig.site.srcDir.split("/").filter(Boolean), "content", "academy", "flashcards");
 const SLUG_RE = /^[a-z0-9-]+$/;
 
 export async function loadFlashcards(slug: string): Promise<Flashcard[] | undefined> {

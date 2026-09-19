@@ -6,6 +6,7 @@
 import { NextResponse } from "next/server";
 import { requireAcademyUser } from "@/lib/academy-session";
 import { db } from "@/lib/academy-db";
+import { TOP_BADGE_SLUG } from "@/content/academy/badges";
 
 export async function GET() {
   const auth = await requireAcademyUser();
@@ -18,7 +19,7 @@ export async function GET() {
       .select("id, name, avatar, photo_url, xp, role, bio, last_seen_at, created_at")
       .order("last_seen_at", { ascending: false, nullsFirst: false })
       .limit(500),
-    supabase.from("me_awards").select("user_id").eq("badge_slug", "certified-masters-edge"),
+    supabase.from("me_awards").select("user_id").eq("badge_slug", TOP_BADGE_SLUG),
   ]);
 
   const certifiedIds = new Set((certified ?? []).map((r) => r.user_id as string));

@@ -1,9 +1,8 @@
 --==============================================================================
--- MASTER'S EDGE ACADEMY — Supabase schema (me_ prefix)
+-- ACADEMY ENGINE — Supabase schema (me_ prefix). Shared by every brand; one project per brand.
 --==============================================================================
--- ONE-TIME APPLY: paste this whole file into the Supabase SQL editor
--- (Dashboard → SQL Editor → New query → Run). Safe to re-run: everything is
--- IF NOT EXISTS.
+-- APPLY: install.sh runs this through the Supabase Management API (or paste
+-- it into the SQL editor). Idempotent — everything is IF NOT EXISTS.
 --
 -- SECURITY MODEL: RLS is ENABLED on every table with ZERO policies, and
 -- anon/authenticated grants are revoked — ONLY the service-role key (used by
@@ -126,7 +125,7 @@ alter table me_posts add column if not exists pinned  boolean not null default f
 alter table me_users add column if not exists bio          text;
 alter table me_users add column if not exists last_seen_at timestamptz;
 -- Make Brett an admin (can post Announcements + pin posts):
---   update me_users set role = 'admin' where email = 'brett@brettlechtenberg.com';
+--   update me_users set role = 'admin' where email = '<owner email>';
 -- Sep 6 2026: profile photos (public bucket; uploads go through the service
 -- role only — /api/academy/profile/photo validates type + size).
 alter table me_users add column if not exists photo_url text;
@@ -146,13 +145,12 @@ create table if not exists me_course_access (
   created_at        timestamptz not null default now(),
   primary key (user_id, course_id)
 );
--- Grandfather everyone enrolled before the paywall (no-op on re-run).
-insert into me_course_access (user_id, course_id, source)
-select u.id, c.course_id, 'legacy'
-from me_users u
-cross join (values ('framework'), ('business-tools'), ('reclaiming-the-clock'), ('masters-edge-book')) as c(course_id)
-where u.created_at < '2026-09-08T22:00Z'
-on conflict do nothing;
+-- (Site-specific backfills — e.g. BL.com's Sep 2026 legacy grandfathering —
+--  live in the site's own supabase/migrations, never in the engine schema.)
+
+-- Sep 7 2026: third-party verifiable credential (Certifier) on the top badge.
+-- credential_url is the public verification page; null = not issued yet.
+alter table me_awards add column if not exists credential_url text;
 
 -- Indexes ---------------------------------------------------------------------
 create index if not exists me_quiz_attempts_user_idx on me_quiz_attempts (user_id, module_slug);

@@ -11,6 +11,7 @@ import { useParams, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check, Loader2, RotateCcw, X } from "lucide-react";
 import { badgeBySlug } from "@/content/academy/badges";
+import { academyConfig } from "@/content/academy.config";
 
 interface Question {
   question: string;
@@ -123,8 +124,8 @@ export default function QuizPage() {
   if (!ready || submitting) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3">
-        <Loader2 className="animate-spin text-gold" size={32} />
-        {submitting && <p className="text-white/60">Scoring your answers…</p>}
+        <Loader2 className="animate-spin text-academy-accent" size={32} />
+        {submitting && <p className="text-academy-fg/60">Scoring your answers…</p>}
       </div>
     );
   }
@@ -139,7 +140,7 @@ export default function QuizPage() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className={`mb-6 rounded-2xl border p-8 text-center backdrop-blur-md ${
-            result.passed ? "border-gold/50 bg-gold/10" : "border-white/15 bg-white/5"
+            result.passed ? "border-academy-accent/50 bg-academy-accent/10" : "border-academy-fg/15 bg-academy-fg/5"
           }`}
         >
           <motion.div
@@ -153,7 +154,7 @@ export default function QuizPage() {
           <h1 className="font-heading text-3xl font-bold">
             {result.percent}% — {result.passed ? "Passed!" : "Not yet."}
           </h1>
-          <p className="mt-2 text-white/70">
+          <p className="mt-2 text-academy-fg/70">
             {result.score}/{result.total} correct.{" "}
             {result.passed
               ? result.xpAwarded > 0
@@ -170,7 +171,7 @@ export default function QuizPage() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="mx-auto mt-4 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 font-heading font-bold text-black"
+                className="mx-auto mt-4 inline-flex items-center gap-2 rounded-full bg-academy-accent px-5 py-2 font-heading font-bold text-academy-bg"
               >
                 <span className="text-xl">{badge.emoji}</span>{" "}
                 {isCert ? "Certificate earned:" : "Badge earned:"} {badge.name}
@@ -187,21 +188,21 @@ export default function QuizPage() {
               <div
                 key={i}
                 className={`rounded-xl border p-4 ${
-                  r.correct ? "border-gold/30 bg-gold/5" : "border-cranberry/40 bg-cranberry/10"
+                  r.correct ? "border-academy-accent/30 bg-academy-accent/5" : "border-academy-primary/40 bg-academy-primary/10"
                 }`}
               >
                 <div className="flex items-start gap-2">
                   {r.correct ? (
-                    <Check size={18} className="mt-0.5 shrink-0 text-gold" />
+                    <Check size={18} className="mt-0.5 shrink-0 text-academy-accent" />
                   ) : (
                     <X size={18} className="mt-0.5 shrink-0 text-red-400" />
                   )}
                   <div>
-                    <p className="text-sm font-semibold text-white">{q.question}</p>
-                    <p className="mt-1 text-xs text-white/60">
+                    <p className="text-sm font-semibold text-academy-fg">{q.question}</p>
+                    <p className="mt-1 text-xs text-academy-fg/60">
                       Your answer: {q.options[r.yourAnswer]}
                     </p>
-                    <p className="mt-1 text-xs leading-relaxed text-white/70">{r.explanation}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-academy-fg/70">{r.explanation}</p>
                   </div>
                 </div>
               </div>
@@ -212,17 +213,17 @@ export default function QuizPage() {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <button
             onClick={load}
-            className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-cranberry font-heading font-bold text-white hover:bg-cranberry-dark"
+            className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-academy-primary font-heading font-bold text-academy-fg hover:bg-academy-primary-dark"
           >
             <RotateCcw size={18} /> Retake Quiz
           </button>
           <Link
             href={result.passed ? "/academy/modules" : `/academy/modules/${slug}`}
-            className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-white/10 font-heading font-bold text-white hover:bg-white/20"
+            className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-academy-fg/10 font-heading font-bold text-academy-fg hover:bg-academy-fg/20"
           >
             {result.passed ? (
               <>
-                Continue Training <ArrowRight size={18} />
+                {academyConfig.academy.copy.continueCta} <ArrowRight size={18} />
               </>
             ) : (
               "Review the Lesson"
@@ -242,25 +243,25 @@ export default function QuizPage() {
       <div className="mb-6 flex items-center justify-between">
         <Link
           href={`/academy/modules/${slug}`}
-          className="inline-flex min-h-11 items-center gap-1.5 text-sm text-white/60 hover:text-white"
+          className="inline-flex min-h-11 items-center gap-1.5 text-sm text-academy-fg/60 hover:text-academy-fg"
         >
           <ArrowLeft size={16} /> {title}
         </Link>
-        <span className="text-sm text-white/50">
+        <span className="text-sm text-academy-fg/50">
           {current + 1} / {questions.length}
         </span>
       </div>
 
       {/* Progress bar */}
-      <div className="mb-8 h-1.5 overflow-hidden rounded-full bg-white/10">
+      <div className="mb-8 h-1.5 overflow-hidden rounded-full bg-academy-fg/10">
         <motion.div
-          className="h-full bg-gradient-to-r from-cranberry to-gold"
+          className="h-full bg-gradient-to-r from-academy-primary to-academy-accent"
           animate={{ width: `${(current / questions.length) * 100}%` }}
         />
       </div>
 
       {error && (
-        <p className="mb-4 rounded-lg border border-cranberry/40 bg-cranberry/15 px-3 py-2 text-sm text-red-300">
+        <p className="mb-4 rounded-lg border border-academy-primary/40 bg-academy-primary/15 px-3 py-2 text-sm text-red-300">
           {error}
         </p>
       )}
@@ -283,13 +284,13 @@ export default function QuizPage() {
                   onClick={() => choose(i)}
                   className={`flex min-h-12 w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-base transition-all ${
                     selected
-                      ? "border-gold bg-gold/20 text-white"
-                      : "border-white/15 bg-white/5 text-white/85 hover:border-cranberry-light hover:bg-white/10"
+                      ? "border-academy-accent bg-academy-accent/20 text-academy-fg"
+                      : "border-academy-fg/15 bg-academy-fg/5 text-academy-fg/85 hover:border-academy-primary-light hover:bg-academy-fg/10"
                   }`}
                 >
                   <span
                     className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md border text-xs font-bold ${
-                      selected ? "border-gold bg-gold text-black" : "border-white/30 text-white/60"
+                      selected ? "border-academy-accent bg-academy-accent text-academy-bg" : "border-academy-fg/30 text-academy-fg/60"
                     }`}
                   >
                     {i + 1}
@@ -299,7 +300,7 @@ export default function QuizPage() {
               );
             })}
           </div>
-          <p className="mt-4 text-xs text-white/40">Tip: press 1–{q.options.length} on your keyboard.</p>
+          <p className="mt-4 text-xs text-academy-fg/40">Tip: press 1–{q.options.length} on your keyboard.</p>
         </motion.div>
       </AnimatePresence>
     </div>

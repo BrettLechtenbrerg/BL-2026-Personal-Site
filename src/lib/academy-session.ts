@@ -1,5 +1,5 @@
 //==============================================================================
-// Master's Edge Academy — per-user signed session (HTTP-only cookie)
+// Academy — per-user signed session (HTTP-only cookie)
 //==============================================================================
 // Modeled on src/lib/hub-session.ts, but carries a user id instead of a fixed
 // admin role. Every /api/academy/* route MUST call requireAcademyUser() first.
@@ -15,8 +15,9 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "crypto";
+import { academyConfig } from "@/content/academy.config";
 
-export const ACADEMY_SESSION_COOKIE = "bl_academy_session";
+export const ACADEMY_SESSION_COOKIE = academyConfig.session.cookie;
 
 const VERSION = "v1";
 
@@ -35,7 +36,7 @@ function getSecret(): string | null {
         "[academy-session] ACADEMY_SESSION_SECRET missing/short — using the dev-only fallback. Set a real one in .env.local (openssl rand -hex 32)."
       );
     }
-    return "bl-academy-dev-only-secret-not-for-production";
+    return `${academyConfig.slug}-academy-dev-only-secret-not-for-production`;
   }
   if (!warnedMissingSecret) {
     warnedMissingSecret = true;

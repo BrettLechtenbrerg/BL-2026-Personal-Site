@@ -5,14 +5,15 @@
 // verified against STRIPE_WEBHOOK_SECRET over the RAW body (never parse it
 // first). Fulfilment is idempotent, so Stripe retries and replays are safe.
 // Register in the Stripe Dashboard → Webhooks:
-//   https://www.brettlechtenberg.com/api/stripe/webhook
+//   <site url>/api/stripe/webhook
 //   events: checkout.session.completed, checkout.session.async_payment_succeeded
 //==============================================================================
 
 import { NextRequest, NextResponse } from "next/server";
-import { fulfillCheckout, stripe } from "@/lib/stripe";
+import { fulfillCheckout, stripe, STRIPE_ENABLED } from "@/lib/stripe";
 
 export async function POST(request: NextRequest) {
+  if (!STRIPE_ENABLED) return NextResponse.json({ error: "Not found." }, { status: 404 });
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   const signature = request.headers.get("stripe-signature");
   if (!secret || !signature) {

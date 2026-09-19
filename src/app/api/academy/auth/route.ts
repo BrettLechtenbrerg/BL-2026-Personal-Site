@@ -24,6 +24,7 @@ import {
 } from "@/lib/academy-session";
 import { db, getUserById, getBadges, awardBadge, awardXp } from "@/lib/academy-db";
 import { checkBotSignals, rejectBot } from "@/lib/bot-protection";
+import { academyConfig } from "@/content/academy.config";
 
 //------------------------------------------------------------------------------
 // Rate limit — per-IP FAILED login attempts.
@@ -106,7 +107,7 @@ export async function POST(request: NextRequest) {
       }
 
       const name = String(body?.name || "").trim().slice(0, 80);
-      const avatar = String(body?.avatar || "🥋").slice(0, 8);
+      const avatar = String(body?.avatar || academyConfig.academy.avatars[0]).slice(0, 8);
       if (name.length < 2) {
         return NextResponse.json({ error: "Please enter your name." }, { status: 400 });
       }

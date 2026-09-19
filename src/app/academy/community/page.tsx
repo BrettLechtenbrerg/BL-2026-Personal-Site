@@ -14,6 +14,7 @@ import { Loader2, MessageCircle, Pin, Send } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
 import Avatar from "@/components/academy/Avatar";
 import { channels, channelBySlug, DEFAULT_CHANNEL } from "@/content/academy/channels";
+import { academyConfig } from "@/content/academy.config";
 
 interface Author {
   id: string;
@@ -49,8 +50,8 @@ interface Reaction {
 const REACTION_EMOJI = ["👊", "🔥", "💡", "👏"];
 
 function author(a: Author | Author[] | null): Author {
-  if (Array.isArray(a)) return a[0] ?? { id: "", name: "Member", avatar: "🥋" };
-  return a ?? { id: "", name: "Member", avatar: "🥋" };
+  if (Array.isArray(a)) return a[0] ?? { id: "", name: "Member", avatar: academyConfig.academy.avatars[0] };
+  return a ?? { id: "", name: "Member", avatar: academyConfig.academy.avatars[0] };
 }
 
 function timeAgo(iso: string): string {
@@ -73,7 +74,7 @@ export default function CommunityPage() {
 function Spinner() {
   return (
     <div className="flex min-h-[50vh] items-center justify-center">
-      <Loader2 className="animate-spin text-gold" size={32} />
+      <Loader2 className="animate-spin text-academy-accent" size={32} />
     </div>
   );
 }
@@ -184,19 +185,19 @@ function Community() {
         <h1 className="mb-1 font-heading text-3xl font-bold">
           {active ? `${active.emoji} ${active.name}` : "Community"}
         </h1>
-        <p className="mb-6 text-white/60">
+        <p className="mb-6 text-academy-fg/60">
           {active?.description ?? "Wins, questions, accountability. Members only."}
         </p>
 
         {/* Composer */}
         {composerLocked ? (
-          <p className="mb-8 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/60">
-            📣 Only Brett posts here. You can react and comment on any announcement.
+          <p className="mb-8 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-4 text-sm text-academy-fg/60">
+            📣 Only {academyConfig.academy.ownerFirstName} posts here. You can react and comment on any announcement.
           </p>
         ) : (
           <form
             onSubmit={submitPost}
-            className="mb-8 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md"
+            className="mb-8 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-4 backdrop-blur-md"
           >
             <div className="mb-2 flex gap-2">
               <input
@@ -205,16 +206,16 @@ function Community() {
                 onChange={(e) => setTitle(e.target.value)}
                 maxLength={120}
                 placeholder="Title (optional)"
-                className="min-h-11 flex-1 rounded-lg border border-white/10 bg-black/30 px-4 text-base font-semibold text-white placeholder-white/40 outline-none focus:border-gold"
+                className="min-h-11 flex-1 rounded-lg border border-academy-fg/10 bg-academy-bg/30 px-4 text-base font-semibold text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent"
               />
               <select
                 value={postTo}
                 onChange={(e) => setPostTo(e.target.value)}
                 aria-label="Post to channel"
-                className="min-h-11 rounded-lg border border-white/10 bg-black/30 px-3 text-sm text-white outline-none focus:border-gold"
+                className="min-h-11 rounded-lg border border-academy-fg/10 bg-academy-bg/30 px-3 text-sm text-academy-fg outline-none focus:border-academy-accent"
               >
                 {postableChannels.map((c) => (
-                  <option key={c.slug} value={c.slug} className="bg-black">
+                  <option key={c.slug} value={c.slug} className="bg-academy-bg">
                     {c.emoji} {c.name}
                   </option>
                 ))}
@@ -226,16 +227,16 @@ function Community() {
               maxLength={2000}
               rows={3}
               placeholder="What's on your mind?"
-              className="w-full resize-none rounded-lg border border-white/10 bg-black/30 px-4 py-3 text-base text-white placeholder-white/40 outline-none focus:border-gold"
+              className="w-full resize-none rounded-lg border border-academy-fg/10 bg-academy-bg/30 px-4 py-3 text-base text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent"
             />
             <div className="mt-2 flex items-center justify-between">
-              <span className="text-xs text-white/40">{draft.length}/2000</span>
+              <span className="text-xs text-academy-fg/40">{draft.length}/2000</span>
               <button
                 type="submit"
                 disabled={busy || !draft.trim()}
-                className="flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark disabled:opacity-50"
+                className="flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-5 py-2 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark disabled:opacity-50"
               >
-                <Send size={16} /> Post <span className="text-xs font-normal text-white/70">+10 XP</span>
+                <Send size={16} /> Post <span className="text-xs font-normal text-academy-fg/70">+10 XP</span>
               </button>
             </div>
             {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
@@ -244,7 +245,7 @@ function Community() {
 
         {/* Feed */}
         {posts.length === 0 ? (
-          <p className="text-center text-white/50">No posts yet. Be the first to step up. 👊</p>
+          <p className="text-center text-academy-fg/50">No posts yet. Be the first to step up. 👊</p>
         ) : (
           <div className="space-y-4">
             {posts.map((post, i) => {
@@ -258,22 +259,22 @@ function Community() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: Math.min(i * 0.04, 0.4) }}
-                  className={`rounded-2xl border bg-white/5 p-5 backdrop-blur-md ${
-                    post.pinned ? "border-gold/50" : "border-white/10"
+                  className={`rounded-2xl border bg-academy-fg/5 p-5 backdrop-blur-md ${
+                    post.pinned ? "border-academy-accent/50" : "border-academy-fg/10"
                   }`}
                 >
                   <div className="mb-2 flex items-center gap-2">
                     <Avatar emoji={a.avatar} photoUrl={a.photo_url} size={40} />
                     <div className="min-w-0">
                       <p className="text-sm font-semibold">{a.name}</p>
-                      <p className="text-xs text-white/40">
+                      <p className="text-xs text-academy-fg/40">
                         {timeAgo(post.created_at)}
                         {ch && !active && (
                           <>
                             {" · "}
                             <button
                               onClick={() => goTo(ch.slug)}
-                              className="text-gold/80 hover:text-gold"
+                              className="text-academy-accent/80 hover:text-academy-accent"
                             >
                               {ch.emoji} {ch.name}
                             </button>
@@ -282,7 +283,7 @@ function Community() {
                       </p>
                     </div>
                     {post.pinned && (
-                      <span className="ml-auto flex items-center gap-1 rounded-full bg-gold/20 px-2 py-0.5 text-xs text-gold">
+                      <span className="ml-auto flex items-center gap-1 rounded-full bg-academy-accent/20 px-2 py-0.5 text-xs text-academy-accent">
                         <Pin size={12} /> Pinned
                       </span>
                     )}
@@ -290,7 +291,7 @@ function Community() {
                       <button
                         onClick={() => act({ action: "pin", postId: post.id, pinned: !post.pinned })}
                         disabled={busy}
-                        className={`${post.pinned ? "" : "ml-auto"} rounded-full p-2 text-white/40 hover:bg-white/10 hover:text-gold`}
+                        className={`${post.pinned ? "" : "ml-auto"} rounded-full p-2 text-academy-fg/40 hover:bg-academy-fg/10 hover:text-academy-accent`}
                         aria-label={post.pinned ? "Unpin post" : "Pin post"}
                         title={post.pinned ? "Unpin" : "Pin to top"}
                       >
@@ -301,7 +302,7 @@ function Community() {
                   {post.title && (
                     <h2 className="mb-1 font-heading text-lg font-bold">{post.title}</h2>
                   )}
-                  <p className="whitespace-pre-wrap text-[15px] leading-relaxed text-white/85">
+                  <p className="whitespace-pre-wrap text-[15px] leading-relaxed text-academy-fg/85">
                     {post.body}
                   </p>
 
@@ -319,8 +320,8 @@ function Community() {
                           disabled={busy}
                           className={`flex min-h-9 items-center gap-1 rounded-full border px-2.5 py-1 text-sm transition-colors ${
                             mine
-                              ? "border-gold/60 bg-gold/20"
-                              : "border-white/10 bg-white/5 hover:bg-white/10"
+                              ? "border-academy-accent/60 bg-academy-accent/20"
+                              : "border-academy-fg/10 bg-academy-fg/5 hover:bg-academy-fg/10"
                           }`}
                         >
                           {emoji} {count > 0 && <span className="text-xs">{count}</span>}
@@ -331,7 +332,7 @@ function Community() {
                       onClick={() =>
                         setOpenComments((o) => ({ ...o, [post.id]: !o[post.id] }))
                       }
-                      className="ml-auto flex min-h-9 items-center gap-1.5 rounded-full px-2.5 py-1 text-sm text-white/60 hover:text-white"
+                      className="ml-auto flex min-h-9 items-center gap-1.5 rounded-full px-2.5 py-1 text-sm text-academy-fg/60 hover:text-academy-fg"
                     >
                       <MessageCircle size={16} /> {postComments.length}
                     </button>
@@ -339,7 +340,7 @@ function Community() {
 
                   {/* Comments */}
                   {openComments[post.id] && (
-                    <div className="mt-3 space-y-2 border-t border-white/10 pt-3">
+                    <div className="mt-3 space-y-2 border-t border-academy-fg/10 pt-3">
                       {postComments.map((c) => {
                         const ca = author(c.me_users);
                         return (
@@ -347,8 +348,8 @@ function Community() {
                             <Avatar emoji={ca.avatar} photoUrl={ca.photo_url} size={28} />
                             <div>
                               <span className="font-semibold">{ca.name}</span>{" "}
-                              <span className="text-xs text-white/40">{timeAgo(c.created_at)}</span>
-                              <p className="whitespace-pre-wrap text-white/80">{c.body}</p>
+                              <span className="text-xs text-academy-fg/40">{timeAgo(c.created_at)}</span>
+                              <p className="whitespace-pre-wrap text-academy-fg/80">{c.body}</p>
                             </div>
                           </div>
                         );
@@ -365,12 +366,12 @@ function Community() {
                           }}
                           maxLength={2000}
                           placeholder="Reply… (+5 XP)"
-                          className="min-h-11 flex-1 rounded-lg border border-white/10 bg-black/30 px-3 text-base text-white placeholder-white/40 outline-none focus:border-gold"
+                          className="min-h-11 flex-1 rounded-lg border border-academy-fg/10 bg-academy-bg/30 px-3 text-base text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent"
                         />
                         <button
                           onClick={() => submitComment(post.id)}
                           disabled={busy}
-                          className="flex min-h-11 min-w-11 items-center justify-center rounded-lg bg-cranberry text-white hover:bg-cranberry-dark disabled:opacity-50"
+                          className="flex min-h-11 min-w-11 items-center justify-center rounded-lg bg-academy-primary text-academy-fg hover:bg-academy-primary-dark disabled:opacity-50"
                           aria-label="Send reply"
                         >
                           <Send size={16} />
@@ -403,8 +404,8 @@ function Chip({
       aria-current={activeNow ? "page" : undefined}
       className={`min-h-9 shrink-0 whitespace-nowrap rounded-full border px-3 text-sm ${
         activeNow
-          ? "border-cranberry bg-cranberry text-white"
-          : "border-white/10 bg-white/5 text-white/75"
+          ? "border-academy-primary bg-academy-primary text-academy-fg"
+          : "border-academy-fg/10 bg-academy-fg/5 text-academy-fg/75"
       }`}
     >
       {label}

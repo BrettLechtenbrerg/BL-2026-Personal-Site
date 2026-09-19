@@ -90,7 +90,7 @@ export default function EventsPage() {
   if (loading || !ready || !user) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <Loader2 className="animate-spin text-gold" size={32} />
+        <Loader2 className="animate-spin text-academy-accent" size={32} />
       </div>
     );
   }
@@ -113,9 +113,9 @@ export default function EventsPage() {
       <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="flex items-center gap-2 font-heading text-3xl font-bold">
-            <CalendarDays className="text-gold" /> Events
+            <CalendarDays className="text-academy-accent" /> Events
           </h1>
-          <p className="text-white/60">
+          <p className="text-academy-fg/60">
             Office hours and live calls. Times shown in your timezone (
             {Intl.DateTimeFormat().resolvedOptions().timeZone}).
           </p>
@@ -123,7 +123,7 @@ export default function EventsPage() {
         {isAdmin && (
           <button
             onClick={() => setShowForm((s) => !s)}
-            className="flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-4 font-heading font-bold text-white hover:bg-cranberry-dark"
+            className="flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-4 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark"
           >
             <Plus size={16} /> Event
           </button>
@@ -142,7 +142,7 @@ export default function EventsPage() {
 
       <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
         {/* Calendar */}
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
+        <section className="rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-4 backdrop-blur-md">
           <div className="mb-3 flex items-center justify-between">
             <h2 className="font-heading text-lg font-bold">
               {month.toLocaleDateString(undefined, { month: "long", year: "numeric" })}
@@ -151,28 +151,28 @@ export default function EventsPage() {
               <button
                 onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1))}
                 aria-label="Previous month"
-                className="flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-white/10"
+                className="flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-academy-fg/10"
               >
                 <ChevronLeft size={18} />
               </button>
               <button
                 onClick={() => setMonth(new Date(today.getFullYear(), today.getMonth(), 1))}
-                className="min-h-9 rounded-lg px-3 text-sm hover:bg-white/10"
+                className="min-h-9 rounded-lg px-3 text-sm hover:bg-academy-fg/10"
               >
                 Today
               </button>
               <button
                 onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1))}
                 aria-label="Next month"
-                className="flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-white/10"
+                className="flex min-h-9 min-w-9 items-center justify-center rounded-lg hover:bg-academy-fg/10"
               >
                 <ChevronRight size={18} />
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-7 gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 text-xs">
+          <div className="grid grid-cols-7 gap-px overflow-hidden rounded-lg border border-academy-fg/10 bg-academy-fg/10 text-xs">
             {DAYS.map((d) => (
-              <div key={d} className="bg-black/40 py-1.5 text-center font-semibold text-white/50">
+              <div key={d} className="bg-academy-bg/40 py-1.5 text-center font-semibold text-academy-fg/50">
                 {d}
               </div>
             ))}
@@ -182,11 +182,11 @@ export default function EventsPage() {
               return (
                 <div
                   key={d.toISOString()}
-                  className={`min-h-[64px] bg-black/30 p-1 sm:min-h-[80px] ${inMonth ? "" : "opacity-30"} ${
-                    isToday ? "ring-1 ring-inset ring-gold" : ""
+                  className={`min-h-[64px] bg-academy-bg/30 p-1 sm:min-h-[80px] ${inMonth ? "" : "opacity-30"} ${
+                    isToday ? "ring-1 ring-inset ring-academy-accent" : ""
                   }`}
                 >
-                  <span className={`text-[11px] ${isToday ? "font-bold text-gold" : "text-white/50"}`}>
+                  <span className={`text-[11px] ${isToday ? "font-bold text-academy-accent" : "text-academy-fg/50"}`}>
                     {d.getDate()}
                   </span>
                   {dayEvents.map((e) => (
@@ -194,7 +194,7 @@ export default function EventsPage() {
                       key={e.id}
                       href={`#event-${e.id}`}
                       title={e.title}
-                      className="mt-0.5 block truncate rounded bg-cranberry/80 px-1 py-0.5 text-[11px] text-white hover:bg-cranberry"
+                      className="mt-0.5 block truncate rounded bg-academy-primary/80 px-1 py-0.5 text-[11px] text-academy-fg hover:bg-academy-primary"
                     >
                       {fmtTime(e.starts_at)} {e.title}
                     </a>
@@ -209,7 +209,7 @@ export default function EventsPage() {
         <aside className="space-y-3">
           <h2 className="font-heading text-lg font-bold">Upcoming</h2>
           {upcoming.length === 0 && (
-            <p className="text-sm text-white/50">Nothing scheduled yet. Check back soon.</p>
+            <p className="text-sm text-academy-fg/50">Nothing scheduled yet. Check back soon.</p>
           )}
           {upcoming.map((e) => (
             <EventCard key={e.id} event={e} isAdmin={isAdmin} busy={busy} call={call} />
@@ -221,7 +221,7 @@ export default function EventsPage() {
       {past.length > 0 && (
         <section className="mt-10">
           <h2 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold">
-            <Video size={18} className="text-gold" /> Past calls & recordings
+            <Video size={18} className="text-academy-accent" /> Past calls & recordings
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {past.map((e) => (
@@ -252,18 +252,18 @@ function EventCard({
   return (
     <article
       id={`event-${e.id}`}
-      className="scroll-mt-24 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md"
+      className="scroll-mt-24 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-4 backdrop-blur-md"
     >
       <div className="flex gap-3">
-        <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-lg bg-black/40">
-          <span className="font-heading text-lg font-bold leading-none text-gold">{start.getDate()}</span>
-          <span className="text-[10px] uppercase text-white/50">
+        <div className="flex h-12 w-12 shrink-0 flex-col items-center justify-center rounded-lg bg-academy-bg/40">
+          <span className="font-heading text-lg font-bold leading-none text-academy-accent">{start.getDate()}</span>
+          <span className="text-[10px] uppercase text-academy-fg/50">
             {start.toLocaleDateString(undefined, { month: "short" })}
           </span>
         </div>
         <div className="min-w-0 flex-1">
           <h3 className="font-semibold leading-tight">{e.title}</h3>
-          <p className="text-xs text-white/50">
+          <p className="text-xs text-academy-fg/50">
             {fmtDate(e.starts_at)} · {fmtTime(e.starts_at)}–{fmtTime(e.ends_at)}
           </p>
         </div>
@@ -274,14 +274,14 @@ function EventCard({
             }}
             disabled={busy}
             aria-label="Delete event"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white/40 hover:bg-white/10 hover:text-red-400"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-academy-fg/40 hover:bg-academy-fg/10 hover:text-red-400"
           >
             <Trash2 size={16} />
           </button>
         )}
       </div>
       {e.description && (
-        <p className="mt-2 whitespace-pre-wrap text-sm text-white/75">{e.description}</p>
+        <p className="mt-2 whitespace-pre-wrap text-sm text-academy-fg/75">{e.description}</p>
       )}
       <div className="mt-3 flex flex-wrap gap-2 text-sm">
         {!past && e.link && (
@@ -289,7 +289,7 @@ function EventCard({
             href={e.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-9 items-center rounded-lg bg-cranberry px-3 font-semibold text-white hover:bg-cranberry-dark"
+            className="flex min-h-9 items-center rounded-lg bg-academy-primary px-3 font-semibold text-academy-fg hover:bg-academy-primary-dark"
           >
             Join call
           </a>
@@ -299,7 +299,7 @@ function EventCard({
             href={gcalUrl(e)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-9 items-center rounded-lg border border-white/15 px-3 text-white/80 hover:bg-white/10"
+            className="flex min-h-9 items-center rounded-lg border border-academy-fg/15 px-3 text-academy-fg/80 hover:bg-academy-fg/10"
           >
             Add to calendar
           </a>
@@ -309,7 +309,7 @@ function EventCard({
             href={e.recording_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-9 items-center gap-1.5 rounded-lg bg-cranberry px-3 font-semibold text-white hover:bg-cranberry-dark"
+            className="flex min-h-9 items-center gap-1.5 rounded-lg bg-academy-primary px-3 font-semibold text-academy-fg hover:bg-academy-primary-dark"
           >
             <Video size={14} /> Watch recording
           </a>
@@ -328,12 +328,12 @@ function EventCard({
             value={rec}
             onChange={(ev) => setRec(ev.target.value)}
             placeholder="Recording URL"
-            className="min-h-9 flex-1 rounded-lg border border-white/10 bg-black/30 px-3 text-sm text-white placeholder-white/40 outline-none focus:border-gold"
+            className="min-h-9 flex-1 rounded-lg border border-academy-fg/10 bg-academy-bg/30 px-3 text-sm text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent"
           />
           <button
             type="submit"
             disabled={busy}
-            className="min-h-9 rounded-lg border border-white/15 px-3 text-sm hover:bg-white/10 disabled:opacity-50"
+            className="min-h-9 rounded-lg border border-academy-fg/15 px-3 text-sm hover:bg-academy-fg/10 disabled:opacity-50"
           >
             Save
           </button>
@@ -357,7 +357,7 @@ function EventForm({
   const [link, setLink] = useState("");
 
   const field =
-    "min-h-11 w-full rounded-lg border border-white/10 bg-black/30 px-3 text-base text-white placeholder-white/40 outline-none focus:border-gold";
+    "min-h-11 w-full rounded-lg border border-academy-fg/10 bg-academy-bg/30 px-3 text-base text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent";
 
   return (
     <form
@@ -372,7 +372,7 @@ function EventForm({
           link,
         });
       }}
-      className="mb-6 grid gap-3 rounded-2xl border border-gold/30 bg-white/5 p-4 sm:grid-cols-2"
+      className="mb-6 grid gap-3 rounded-2xl border border-academy-accent/30 bg-academy-fg/5 p-4 sm:grid-cols-2"
     >
       <input
         value={title}
@@ -382,7 +382,7 @@ function EventForm({
         placeholder="Title"
         className={`${field} sm:col-span-2`}
       />
-      <label className="text-sm text-white/60">
+      <label className="text-sm text-academy-fg/60">
         Starts
         <input
           type="datetime-local"
@@ -392,7 +392,7 @@ function EventForm({
           className={`${field} mt-1`}
         />
       </label>
-      <label className="text-sm text-white/60">
+      <label className="text-sm text-academy-fg/60">
         Ends
         <input
           type="datetime-local"
@@ -420,7 +420,7 @@ function EventForm({
       <button
         type="submit"
         disabled={busy || !title || !startsAt || !endsAt}
-        className="min-h-11 rounded-lg bg-cranberry font-heading font-bold text-white hover:bg-cranberry-dark disabled:opacity-50 sm:col-span-2"
+        className="min-h-11 rounded-lg bg-academy-primary font-heading font-bold text-academy-fg hover:bg-academy-primary-dark disabled:opacity-50 sm:col-span-2"
       >
         Create event
       </button>

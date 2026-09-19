@@ -79,7 +79,7 @@ export default function ModulesGrid({
   if (loading || !ready) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <Loader2 className="animate-spin text-gold" size={32} />
+        <Loader2 className="animate-spin text-academy-accent" size={32} />
       </div>
     );
   }
@@ -87,7 +87,7 @@ export default function ModulesGrid({
   return (
     <div>
       <h1 className="mb-1 font-heading text-3xl font-bold">Your Courses</h1>
-      <p className="mb-8 text-white/60">
+      <p className="mb-8 text-academy-fg/60">
         {courses.length} courses, {modules.length} modules. Pass each quiz at 80%+ to earn its badge.
       </p>
 
@@ -103,22 +103,22 @@ export default function ModulesGrid({
           <section key={course.id} id={course.id} className="mb-12 scroll-mt-20">
             {/* Course banner — real cover art when set, brand gradient otherwise */}
             <div
-              className="relative mb-4 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-cranberry-dark via-black to-black"
+              className="relative mb-4 overflow-hidden rounded-2xl border border-academy-fg/10 bg-gradient-to-br from-academy-primary-dark via-academy-bg to-academy-bg"
               style={
                 course.cover
                   ? { backgroundImage: `url(${course.cover})`, backgroundSize: "cover", backgroundPosition: "center" }
                   : undefined
               }
             >
-              <div className="flex items-end justify-between gap-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-5 pt-16">
+              <div className="flex items-end justify-between gap-3 bg-gradient-to-t from-academy-bg/90 via-academy-bg/50 to-transparent p-5 pt-16">
                 <div>
                   <h2 className="flex items-center gap-2 font-heading text-2xl font-bold">
                     <span>{course.emoji}</span> {course.title}
                   </h2>
-                  <p className="mt-1 max-w-2xl text-sm text-white/70">{course.description}</p>
+                  <p className="mt-1 max-w-2xl text-sm text-academy-fg/70">{course.description}</p>
                 </div>
                 {isOwned ? (
-                  <span className="shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-gold">
+                  <span className="shrink-0 rounded-full bg-academy-fg/10 px-3 py-1 text-xs font-semibold text-academy-accent">
                     {course.paid ? "" : "Free · "}
                     {passedCount}/{courseModules.length}
                   </span>
@@ -144,27 +144,27 @@ export default function ModulesGrid({
                     transition={{ delay: Math.min(i * 0.04, 0.4) }}
                     className={`relative h-full rounded-2xl border p-6 backdrop-blur-md transition-all ${
                       isPassed
-                        ? "border-gold/40 bg-gold/10"
+                        ? "border-academy-accent/40 bg-academy-accent/10"
                         : isUnlocked
-                          ? "border-white/15 bg-white/5 hover:border-cranberry-light hover:shadow-[0_0_30px_rgba(155,27,48,0.3)]"
-                          : "border-white/10 bg-white/[0.02] opacity-60"
+                          ? "border-academy-fg/15 bg-academy-fg/5 hover:border-academy-primary-light hover:shadow-[0_0_30px_rgb(var(--academy-primary-rgb)/0.3)]"
+                          : "border-academy-fg/10 bg-academy-fg/[0.02] opacity-60"
                     }`}
                   >
                     <div className="mb-3 flex items-center justify-between">
-                      <span className="rounded-full bg-cranberry/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold">
+                      <span className="rounded-full bg-academy-primary/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-academy-accent">
                         Module {m.order} · {m.tagline}
                       </span>
                       {isPassed ? (
-                        <CheckCircle2 className="text-gold" size={22} />
+                        <CheckCircle2 className="text-academy-accent" size={22} />
                       ) : isUnlocked ? (
-                        <PlayCircle className="text-cranberry-light" size={22} />
+                        <PlayCircle className="text-academy-primary-light" size={22} />
                       ) : (
-                        <Lock className="text-white/40" size={20} />
+                        <Lock className="text-academy-fg/40" size={20} />
                       )}
                     </div>
-                    <h2 className="mb-2 font-heading text-xl font-bold text-white">{m.title}</h2>
-                    <p className="text-sm leading-relaxed text-white/60">{m.description}</p>
-                    <div className="mt-4 text-xs text-white/50">
+                    <h2 className="mb-2 font-heading text-xl font-bold text-academy-fg">{m.title}</h2>
+                    <p className="text-sm leading-relaxed text-academy-fg/60">{m.description}</p>
+                    <div className="mt-4 text-xs text-academy-fg/50">
                       {isPassed
                         ? `Passed · ${row?.quiz_score ?? "—"}%`
                         : row?.quiz_score != null

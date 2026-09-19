@@ -35,16 +35,16 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
       <div className="mx-auto max-w-2xl pt-6">
         <Link
           href={`/academy/modules#${course.id}`}
-          className="mb-6 inline-flex min-h-11 items-center gap-1.5 text-sm text-white/60 hover:text-white"
+          className="mb-6 inline-flex min-h-11 items-center gap-1.5 text-sm text-academy-fg/60 hover:text-academy-fg"
         >
           <ArrowLeft size={16} /> Back to courses
         </Link>
-        <div className="rounded-2xl border border-white/15 bg-white/5 p-8 text-center backdrop-blur-md">
+        <div className="rounded-2xl border border-academy-fg/15 bg-academy-fg/5 p-8 text-center backdrop-blur-md">
           <div className="mb-3 text-5xl">{course.emoji}</div>
           <h1 className="font-heading text-2xl font-bold">
             Module {m.order} is part of {course.title}
           </h1>
-          <p className="mt-2 text-white/70">
+          <p className="mt-2 text-academy-fg/70">
             Unlock the whole course to open this lesson, its quiz, and every other module in it.
             Have a gift code? Enter it at checkout.
           </p>

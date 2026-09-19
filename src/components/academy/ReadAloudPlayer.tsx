@@ -11,6 +11,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { BookOpenText, Headphones, Pause, Play, RotateCcw, RotateCw } from "lucide-react";
+import { academyConfig } from "@/content/academy.config";
 
 function fmt(sec: number): string {
   if (!Number.isFinite(sec)) return "0:00";
@@ -101,7 +102,7 @@ export default function ReadAloudPlayer({
           </div>
           <p className="font-heading text-lg font-bold leading-tight text-[#2b2118] sm:text-xl">{title}</p>
           <p className="mt-1 text-xs text-[#6b5638]">
-            Narrated by Brett · {chapters.length} chapters · {fmt(duration)}
+            Narrated by {academyConfig.narration.narrator} · {chapters.length} chapters · {fmt(duration)}
           </p>
 
           {/* Reading ribbon (scrubber) */}
@@ -125,13 +126,13 @@ export default function ReadAloudPlayer({
                 aria-label="Seek"
                 className="absolute inset-0 h-3 w-full cursor-pointer appearance-none rounded-sm bg-[#e6d7b4]"
                 style={{
-                  background: `linear-gradient(to right, #9B1B30 ${pct}%, #e6d7b4 ${pct}%)`,
+                  background: `linear-gradient(to right, var(--academy-primary) ${pct}%, #e6d7b4 ${pct}%)`,
                 }}
               />
               {/* ribbon tail */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -bottom-2 h-5 w-3 bg-[#9B1B30] [clip-path:polygon(0_0,100%_0,100%_100%,50%_70%,0_100%)]"
+                className="pointer-events-none absolute -bottom-2 h-5 w-3 bg-[var(--academy-primary)] [clip-path:polygon(0_0,100%_0,100%_100%,50%_70%,0_100%)]"
                 style={{ left: `calc(${pct}% - 6px)` }}
               />
             </div>
@@ -151,7 +152,7 @@ export default function ReadAloudPlayer({
               type="button"
               onClick={toggle}
               aria-label={playing ? "Pause" : "Listen"}
-              className="flex h-14 items-center gap-2 rounded-full bg-[#9B1B30] px-6 font-heading font-bold text-white shadow-[0_8px_24px_-8px_#9B1B30] transition-transform hover:scale-[1.03] hover:bg-[#7A1526]"
+              className="flex h-14 items-center gap-2 rounded-full bg-[var(--academy-primary)] px-6 font-heading font-bold text-academy-fg shadow-[0_8px_24px_-8px_var(--academy-primary)] transition-transform hover:scale-[1.03] hover:bg-[var(--academy-primary-dark)]"
             >
               {playing ? <Pause size={22} fill="currentColor" /> : <Play size={22} fill="currentColor" />}
               {playing ? "Pause" : time > 0 ? "Resume" : "Listen to the lesson"}
@@ -199,7 +200,7 @@ function OpenBook({ turning }: { turning: boolean }) {
   return (
     <svg width="150" height="110" viewBox="0 0 150 110" fill="none" aria-hidden className="drop-shadow-[0_10px_18px_rgba(60,40,10,0.35)]">
       {/* cover */}
-      <path d="M8 20c20-6 40-6 67 4 27-10 47-10 67-4v74c-20-6-40-6-67 4-27-10-47-10-67-4z" fill="#7A1526" />
+      <path d="M8 20c20-6 40-6 67 4 27-10 47-10 67-4v74c-20-6-40-6-67 4-27-10-47-10-67-4z" fill="var(--academy-primary-dark)" />
       {/* pages */}
       <path d="M14 26c18-5 36-5 61 4v66c-25-9-43-9-61-4z" fill="#fbf6ea" />
       <path d="M136 26c-18-5-36-5-61 4v66c25-9 43-9 61-4z" fill="#f3ebd8" />
@@ -223,7 +224,7 @@ function OpenBook({ turning }: { turning: boolean }) {
         className={turning ? "motion-safe:animate-[page-turn_1.6s_ease-in-out_infinite]" : "opacity-0"}
       />
       {/* ribbon */}
-      <path d="M75 20v52l-4 6 8 0-4-6" fill="#D4AF37" />
+      <path d="M75 20v52l-4 6 8 0-4-6" fill="var(--academy-accent-base)" />
     </svg>
   );
 }

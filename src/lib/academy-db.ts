@@ -1,13 +1,14 @@
 //==============================================================================
-// Master's Edge Academy — typed Supabase helpers (service role, server only)
+// Academy — typed Supabase helpers (service role, server only)
 //==============================================================================
 // All me_ tables are RLS-locked with zero policies — only these server-side
 // helpers (via the service-role key) can reach them. Never import from client
 // components.
 //==============================================================================
 
-import { getServiceSupabase } from "./supabase-admin";
+import { getAcademySupabase } from "./academy-supabase";
 import { completedCourses, type AcademyCourse } from "@/content/academy/modules";
+import { TOP_BADGE_SLUG } from "@/content/academy/badges";
 
 //------------------------------------------------------------------------------
 // Row types
@@ -77,7 +78,7 @@ export const XP_POINTS: Record<XpKind, number> = {
 //------------------------------------------------------------------------------
 
 export function db() {
-  return getServiceSupabase();
+  return getAcademySupabase();
 }
 
 export async function getUserById(userId: string): Promise<MeUser | null> {
@@ -145,7 +146,7 @@ export async function getBadges(userId: string): Promise<string[]> {
 //------------------------------------------------------------------------------
 // Course certificates — one per fully-passed course, stored as the badge
 // `course-<id>` in me_awards (awarded_at = certificate date). System-generated
-// and printable at /academy/certificate. The full Master's Edge credential
+// and printable at /academy/certificate. The full top-rank credential
 // (Certifier) is separate and only for the entire package.
 //------------------------------------------------------------------------------
 export interface CourseCertificate {
@@ -213,7 +214,7 @@ export async function latestSubmission(
 }
 
 /**
- * Award the Black Belt badge when both the latest project and latest exam
+ * Award the top-rank badge when both the latest project and latest exam
  * submissions are approved. Idempotent. Returns whether the member is certified.
  */
 export async function maybeCertify(userId: string): Promise<boolean> {
@@ -222,6 +223,6 @@ export async function maybeCertify(userId: string): Promise<boolean> {
     latestSubmission(userId, "exam"),
   ]);
   const certified = project?.status === "approved" && exam?.status === "approved";
-  if (certified) await awardBadge(userId, "certified-masters-edge");
+  if (certified) await awardBadge(userId, TOP_BADGE_SLUG);
   return certified;
 }

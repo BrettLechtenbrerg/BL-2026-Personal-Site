@@ -9,9 +9,10 @@ import { useRouter } from "next/navigation";
 import { Award, Camera, Loader2, LogOut, Save, Trash2 } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
 import Avatar from "@/components/academy/Avatar";
-import { badgeBySlug, beltFor } from "@/content/academy/badges";
+import { badgeBySlug, beltFor, TOP_BADGE_SLUG } from "@/content/academy/badges";
+import { academyConfig } from "@/content/academy.config";
 
-const AVATARS = ["🥋", "🦅", "🐯", "🐉", "🦁", "⚡", "🔥", "🏔️", "🌟", "🥷", "🛡️", "⚔️"];
+const AVATARS = academyConfig.academy.avatars;
 const PHOTO_PX = 256;
 
 /** Centre-crop to a square and downsize in the browser so uploads stay tiny. */
@@ -82,12 +83,12 @@ export default function ProfilePage() {
   if (loading || !user) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
-        <Loader2 className="animate-spin text-gold" size={32} />
+        <Loader2 className="animate-spin text-academy-accent" size={32} />
       </div>
     );
   }
 
-  const certified = badges.includes("certified-masters-edge");
+  const certified = badges.includes(TOP_BADGE_SLUG);
   const belt = beltFor(user.xp, certified);
 
   const save = async (e: React.FormEvent) => {
@@ -121,7 +122,7 @@ export default function ProfilePage() {
     <div className="mx-auto max-w-xl">
       <h1 className="mb-6 font-heading text-3xl font-bold">Your Profile</h1>
 
-      <div className="mb-4 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+      <div className="mb-4 flex items-center gap-4 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md">
         <div className="relative shrink-0">
           <Avatar emoji={avatar} photoUrl={photoUrl} size={80} />
           <button
@@ -129,7 +130,7 @@ export default function ProfilePage() {
             onClick={() => fileInput.current?.click()}
             disabled={photoBusy}
             aria-label={photoUrl ? "Change photo" : "Add photo"}
-            className="absolute -bottom-1 -right-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-black bg-cranberry text-white hover:bg-cranberry-dark disabled:opacity-50"
+            className="absolute -bottom-1 -right-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-academy-bg bg-academy-primary text-academy-fg hover:bg-academy-primary-dark disabled:opacity-50"
           >
             {photoBusy ? <Loader2 size={16} className="animate-spin" /> : <Camera size={16} />}
           </button>
@@ -143,16 +144,16 @@ export default function ProfilePage() {
         </div>
         <div className="min-w-0">
           <p className="font-heading text-xl font-bold">{name || user.name}</p>
-          <p className="text-sm text-white/60">{user.email}</p>
-          <p className="mt-1 flex items-center gap-1.5 text-sm text-gold">
+          <p className="text-sm text-academy-fg/60">{user.email}</p>
+          <p className="mt-1 flex items-center gap-1.5 text-sm text-academy-accent">
             <span
               className="inline-block h-2 w-6 rounded-full"
               style={{ backgroundColor: belt.color }}
             />
             {belt.name} · {user.xp.toLocaleString()} XP
           </p>
-          <p className="mt-2 flex flex-wrap gap-3 text-xs text-white/50">
-            <button type="button" onClick={() => fileInput.current?.click()} disabled={photoBusy} className="hover:text-gold">
+          <p className="mt-2 flex flex-wrap gap-3 text-xs text-academy-fg/50">
+            <button type="button" onClick={() => fileInput.current?.click()} disabled={photoBusy} className="hover:text-academy-accent">
               {photoUrl ? "Change photo" : "Add a photo"}
             </button>
             {photoUrl && (
@@ -166,9 +167,9 @@ export default function ProfilePage() {
 
       <form
         onSubmit={save}
-        className="mb-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md"
+        className="mb-4 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md"
       >
-        <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-white/50">
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-academy-fg/50">
           Name
         </label>
         <input
@@ -178,11 +179,11 @@ export default function ProfilePage() {
           minLength={2}
           maxLength={80}
           required
-          className="mb-4 w-full rounded-lg border border-white/15 bg-black/30 px-4 py-3 text-base text-white outline-none focus:border-gold"
+          className="mb-4 w-full rounded-lg border border-academy-fg/15 bg-academy-bg/30 px-4 py-3 text-base text-academy-fg outline-none focus:border-academy-accent"
         />
 
-        <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-white/50">
-          Tagline <span className="font-normal normal-case text-white/40">(shown in the members directory)</span>
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wide text-academy-fg/50">
+          Tagline <span className="font-normal normal-case text-academy-fg/40">(shown in the members directory)</span>
         </label>
         <input
           type="text"
@@ -190,10 +191,10 @@ export default function ProfilePage() {
           onChange={(e) => setBio(e.target.value)}
           maxLength={140}
           placeholder="e.g. Dojo owner, Salt Lake City · building a second location"
-          className="mb-4 w-full rounded-lg border border-white/15 bg-black/30 px-4 py-3 text-base text-white placeholder-white/40 outline-none focus:border-gold"
+          className="mb-4 w-full rounded-lg border border-academy-fg/15 bg-academy-bg/30 px-4 py-3 text-base text-academy-fg placeholder-academy-fg/40 outline-none focus:border-academy-accent"
         />
 
-        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-white/50">Avatar</p>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-academy-fg/50">Avatar</p>
         <div className="mb-4 grid grid-cols-6 gap-2">
           {AVATARS.map((a) => (
             <button
@@ -201,7 +202,7 @@ export default function ProfilePage() {
               type="button"
               onClick={() => setAvatar(a)}
               className={`flex h-11 w-11 items-center justify-center rounded-lg text-xl transition-all ${
-                avatar === a ? "bg-gold/20 ring-2 ring-gold" : "bg-white/5 hover:bg-white/10"
+                avatar === a ? "bg-academy-accent/20 ring-2 ring-academy-accent" : "bg-academy-fg/5 hover:bg-academy-fg/10"
               }`}
               aria-label={`Avatar ${a}`}
             >
@@ -215,19 +216,19 @@ export default function ProfilePage() {
         <button
           type="submit"
           disabled={saving}
-          className="flex min-h-11 items-center gap-2 rounded-lg bg-cranberry px-5 py-2 font-heading font-bold text-white hover:bg-cranberry-dark disabled:opacity-60"
+          className="flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-5 py-2 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark disabled:opacity-60"
         >
           <Save size={16} /> {saved ? "Saved ✓" : saving ? "Saving…" : "Save Changes"}
         </button>
       </form>
 
       {/* Badge case */}
-      <div className="mb-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-        <h2 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-gold">
+      <div className="mb-4 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md">
+        <h2 className="mb-3 flex items-center gap-2 font-heading text-lg font-bold text-academy-accent">
           <Award size={18} /> Badge Case
         </h2>
         {badges.length === 0 ? (
-          <p className="text-sm text-white/50">Your first badge is waiting in Module 1.</p>
+          <p className="text-sm text-academy-fg/50">Your first badge is waiting in Module 1.</p>
         ) : (
           <div className="flex flex-wrap gap-3">
             {badges.map((slug) => {
@@ -236,7 +237,7 @@ export default function ProfilePage() {
                 <div
                   key={slug}
                   title={b.description}
-                  className="flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-2 text-sm"
+                  className="flex items-center gap-2 rounded-full border border-academy-accent/30 bg-academy-accent/10 px-4 py-2 text-sm"
                 >
                   <span className="text-lg">{b.emoji}</span> {b.name}
                 </div>
@@ -248,7 +249,7 @@ export default function ProfilePage() {
 
       <button
         onClick={logout}
-        className="flex min-h-11 items-center gap-2 rounded-lg border border-white/15 px-5 py-2 text-white/70 hover:bg-white/10 hover:text-white"
+        className="flex min-h-11 items-center gap-2 rounded-lg border border-academy-fg/15 px-5 py-2 text-academy-fg/70 hover:bg-academy-fg/10 hover:text-academy-fg"
       >
         <LogOut size={16} /> Log Out
       </button>

@@ -11,6 +11,7 @@ import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { channels } from "@/content/academy/channels";
+import { academyConfig } from "@/content/academy.config";
 
 interface Stats {
   counts: Record<string, number>;
@@ -53,7 +54,7 @@ function Sidebar() {
     <aside className="hidden w-56 shrink-0 md:block">
       <nav className="sticky top-20 space-y-0.5">
         <ChannelLink href="/academy/community" label="All posts" emoji="🏠" activeNow={activeSlug === ""} />
-        <div className="my-2 border-t border-white/10" />
+        <div className="my-2 border-t border-academy-fg/10" />
         {channels.map((c) => (
           <ChannelLink
             key={c.slug}
@@ -65,19 +66,19 @@ function Sidebar() {
           />
         ))}
 
-        <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
-          <p className="font-heading font-bold">Master&apos;s Edge Academy</p>
-          <p className="mt-1 text-xs text-white/60">
-            Private group. We don&apos;t just talk about mastery — we train it, measure it, and prove it.
+        <div className="mt-4 rounded-xl border border-academy-fg/10 bg-academy-fg/5 p-4">
+          <p className="font-heading font-bold">{academyConfig.academy.name}</p>
+          <p className="mt-1 text-xs text-academy-fg/60">
+            {academyConfig.academy.copy.sidebarBlurb}
           </p>
-          <div className="mt-3 grid grid-cols-2 divide-x divide-white/10 text-center">
-            <Link href="/academy/members" className="hover:text-gold">
+          <div className="mt-3 grid grid-cols-2 divide-x divide-academy-fg/10 text-center">
+            <Link href="/academy/members" className="hover:text-academy-accent">
               <p className="font-heading text-lg font-bold">{stats.members}</p>
-              <p className="text-[11px] text-white/50">Members</p>
+              <p className="text-[11px] text-academy-fg/50">Members</p>
             </Link>
             <div>
               <p className="font-heading text-lg font-bold">{stats.posts}</p>
-              <p className="text-[11px] text-white/50">Posts</p>
+              <p className="text-[11px] text-academy-fg/50">Posts</p>
             </div>
           </div>
         </div>
@@ -104,12 +105,12 @@ function ChannelLink({
       href={href}
       aria-current={activeNow ? "page" : undefined}
       className={`flex min-h-11 w-full items-center gap-2.5 rounded-lg px-3 text-sm transition-colors ${
-        activeNow ? "bg-cranberry font-semibold text-white" : "text-white/75 hover:bg-white/10 hover:text-white"
+        activeNow ? "bg-academy-primary font-semibold text-academy-fg" : "text-academy-fg/75 hover:bg-academy-fg/10 hover:text-academy-fg"
       }`}
     >
       <span className="text-base">{emoji}</span>
       <span className="flex-1 truncate">{label}</span>
-      {count ? <span className="text-xs text-white/50">{count}</span> : null}
+      {count ? <span className="text-xs text-academy-fg/50">{count}</span> : null}
     </Link>
   );
 }

@@ -8,6 +8,10 @@
 import Stripe from "stripe";
 import { getCourse, academyCourses, type AcademyCourse } from "@/content/academy/modules";
 import { grantCourse } from "./academy-access";
+import { academyConfig } from "@/content/academy.config";
+
+/** Commerce is per brand. When off, every Stripe path is inert (free academy). */
+export const STRIPE_ENABLED = academyConfig.commerce.stripe;
 
 let client: Stripe | null = null;
 
@@ -19,6 +23,7 @@ export function stripe(): Stripe {
 
 /** Stripe Price id for a paid course, or null when free / env unset. */
 export function coursePriceId(course: AcademyCourse): string | null {
+  if (!STRIPE_ENABLED) return null;
   return course.priceEnv ? (process.env[course.priceEnv] ?? null) : null;
 }
 
@@ -59,6 +64,7 @@ let priceLabels: Promise<Record<string, string>> | null = null;
 export function coursePriceLabels(): Promise<Record<string, string>> {
   return (priceLabels ??= (async () => {
     const labels: Record<string, string> = {};
+    if (!STRIPE_ENABLED) return labels;
     for (const course of academyCourses) {
       const priceId = coursePriceId(course);
       if (!priceId) continue;

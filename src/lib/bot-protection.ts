@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { academyConfig } from "@/content/academy.config";
 
 // ---------------------------------------------------------------------------
 // Shared bot/spam protection for lead-capture API routes.
@@ -34,9 +35,10 @@ const RATE_LIMIT_WINDOW_MS = 1000 * 60 * 10; // per 10 minutes per IP
 const ipHits = new Map<string, number[]>();
 
 // Hosts allowed to POST to our APIs. Add preview/staging hosts as needed.
+const SITE_HOST = new URL(academyConfig.site.url).host;
 const ALLOWED_HOSTS = [
-  "brettlechtenberg.com",
-  "www.brettlechtenberg.com",
+  SITE_HOST,
+  SITE_HOST.replace(/^www\./, ""),
   "localhost:3000",
   "localhost",
 ];
