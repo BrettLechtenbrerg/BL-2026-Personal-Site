@@ -1,6 +1,6 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-**Updated:** September 8, 2026 (end of Session 30)
+**Updated:** September 19, 2026 (end of Session 31)
 
 A copy of this file is also at `~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`.
 Paste the block below into a fresh session.
@@ -15,14 +15,24 @@ Live: https://www.brettlechtenberg.com   Deploy: `npx vercel --prod --yes`
       (Vercel's GitHub auto-deploy is NOT firing — always deploy via CLI;
        the CLI often times out waiting, that's fine — check `npx vercel ls --prod`)
 
+ADD A LESSON (the usual job now — one line, the `academy` skill does the rest):
+  Add lesson **<Title>** from ~/Desktop/<file> to the **Business Tools** course on the BL.com LMS.
+  Cheat sheet: ~/Desktop/LMS-HOW-TO.md · prompts: docs/lms/PROMPTS.md · resume: Academy: resume ~/Desktop/LMS - <Title>/
+
 READ FIRST, in order:
-  1. docs/SESSION-NOTES.md  — top section (Session 30) + "END OF SESSION STATE"
+  1. docs/SESSION-NOTES.md  — top section (Session 31: Lesson Forge; Session 30: paywall)
   2. docs/ACADEMY.md        — how the Academy is built; "Paywall" section
   3. CLAUDE.md              — project rules + page inventory
 
 FIRST COMMANDS:
   git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site pull
   git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site status
+
+STATE AT END OF SESSION 31 (Sep 19, 2026):
+- Academy Lesson Forge built: scripts/academy-lesson.mjs (init/validate/add/price/
+  produce/narrate/ship/status/run), lesson.json schema, docs/lms/*, skill
+  ~/.gg/skills/academy.md, narration via ~/dev/audiobook-studio/narrate.sh
+  (Kokoro am_michael). Parked ideas: docs/lms/PARKED.md.
 
 STATE AT END OF SESSION 30 (Sep 8, 2026) — everything committed, pushed, deployed:
 - Academy per-course PAYWALL is LIVE and smoke-tested in production.

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "academy-lesson.schema.json",
+  "title": "Master's Edge Academy lesson package (lesson.json)",
+  "description": "Single source of truth for one Academy module, authored by the `academy` skill and consumed by scripts/academy-lesson.mjs. Rules beyond plain JSON Schema (word counts, quiz/lesson overlap, unused slug) are enforced by `academy-lesson.mjs validate`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slug", "title", "tagline", "description", "course", "keyPoints", "lesson", "quiz"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 60 },
+    "title": { "type": "string", "minLength": 3, "maxLength": 80 },
+    "tagline": { "type": "string", "minLength": 3, "maxLength": 60, "description": "2–4 words, the strand this lesson belongs to (e.g. 'Strategic Thinking')." },
+    "description": { "type": "string", "minLength": 80, "maxLength": 400 },
+    "course": {
+      "description": "Existing course id, or a new course to create.",
+      "oneOf": [
+        { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["new"],
+          "properties": {
+            "new": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "title", "emoji", "description", "priceUsd"],
+              "properties": {
+                "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+                "title": { "type": "string", "minLength": 3, "maxLength": 80 },
+                "emoji": { "type": "string", "minLength": 1, "maxLength": 8 },
+                "description": { "type": "string", "minLength": 40, "maxLength": 300 },
+                "priceUsd": { "type": "number", "minimum": 0, "description": "0 = free course (no Stripe price)." },
+                "cover": { "type": ["string", "null"], "description": "Optional path under /public." }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "videoUrl": { "type": ["string", "null"], "description": "YouTube/Vimeo EMBED url. null → rotating placeholder video." },
+    "pdfs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "file"],
+        "properties": {
+          "label": { "type": "string", "minLength": 3 },
+          "file": { "type": "string", "description": "Path relative to lesson.json (usually source/…pdf)." }
+        }
+      }
+    },
+    "keyPoints": { "type": "array", "minItems": 5, "maxItems": 5, "items": { "type": "string", "minLength": 20 } },
+    "lesson": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["heading", "paragraphs"],
+        "properties": {
+          "heading": { "type": "string", "minLength": 3 },
+          "paragraphs": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 40 } },
+          "bullets": { "type": "array", "items": { "type": "string", "minLength": 3 } }
+        }
+      }
+    },
+    "quiz": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["question", "options", "correctIndex", "explanation"],
+        "properties": {
+          "question": { "type": "string", "minLength": 10 },
+          "options": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "string", "minLength": 1 } },
+          "correctIndex": { "type": "integer", "minimum": 0, "maximum": 3 },
+          "explanation": { "type": "string", "minLength": 20 }
+        }
+      }
+    },
+    "badge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "emoji"],
+      "properties": {
+        "name": { "type": "string", "minLength": 3, "maxLength": 30 },
+        "emoji": { "type": "string", "minLength": 1, "maxLength": 8 }
+      }
+    },
+    "produce": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "enum": ["audio", "video", "flashcards", "quiz", "narration"] },
+      "description": "Pieces to generate after the gate. Omit = all five."
+    }
+  }
+}

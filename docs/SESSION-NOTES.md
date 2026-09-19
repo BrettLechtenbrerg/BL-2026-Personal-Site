@@ -1,5 +1,44 @@
 # Session Notes — Academy
 
+## Sep 19, 2026 — Session 31: Academy Lesson Forge (one phrase → live module)
+
+Built per `~/.gg/plans/academy-lesson-forge.md`. Mirrors the Forge UX: skill +
+prompt kit + Desktop project folder + resume prompt + <120-word report.
+
+- `scripts/academy-lesson.mjs` — `init · validate · add · price · produce ·
+  narrate · ship · status · run`. State in `<project>/.state.json`; every step
+  idempotent/resumable. `add` allocates `order = course.toOrder + 1`, renumbers
+  later modules (+ `PLACEHOLDER_VIDEO(n)`, `// Module n` comments, course
+  `fromOrder/toOrder`), inserts the module after its predecessor, adds the badge,
+  copies PDFs, runs `tsc` and reloads the file to prove the module landed in
+  the right course; restores both files on any failure. `--new-course` is
+  inferred from `lesson.json` (`course: {new: …}`), appends an `AcademyCourse`
+  with `priceEnv: STRIPE_PRICE_<ID>` when paid.
+- `scripts/academy-lesson-schema.json` — the `lesson.json` contract. Validator
+  rules: 5 key points, 4–6 sections, 900–2,500 words, exactly 10 quiz questions
+  (4 distinct options, explanation), answer-in-lesson keyword heuristic (warn),
+  no `[VERIFY]/TODO/XXX/TBD`, PDFs exist < 25 MB, slug unused.
+- `price` creates a LIVE Stripe Product + one-time Price with the SDK, `vercel
+  env add … production --force`, appends to `.env.local`. Only with `--usd N`
+  and (via `run`) only after the gate; `--dry-run` prints the plan.
+- `produce` wraps `academy-notebooklm.mjs` (quota failures recorded, not fatal),
+  then narration: `~/dev/audiobook-studio/narrate.sh` (md → epub → audiblez
+  Kokoro `am_michael` → AAC .m4a; pre-pass expands `$20–25/hr`, `90%`, `e.g.`)
+  → `academy-install.mjs` as `audio[]` "Read Aloud: <title> (narrated lesson)".
+  Measured: 1,012 words → 3 min render → 8:01 of audio (~126 wpm).
+- `ship`: tsc → `next build` → commit → push → `vercel --prod --yes` → curl the
+  module URL (200/302/307 ok; 404 fails). `run` = validate → add → gate (stops
+  without `--go`) → price? → produce → ship → report.
+- Docs: `docs/lms/{SKILL,PROMPTS,HOW-TO-USE-THE-LMS,PARKED}.md`, templates;
+  skill installed at `~/.gg/skills/academy.md`; `~/Desktop/LMS-HOW-TO.md`.
+- Dry run: throwaway module added/narrated/built (`ship --dry-run`), diff
+  inspected (only `order:`/`PLACEHOLDER_VIDEO(`/`fromOrder`/`toOrder`/`// Module`
+  lines + the new block), then discarded — never committed.
+- Preflight gap: `pdftotext` not installed; PyMuPDF (`fitz`) is — used for PDF sources.
+- Not verified locally: the member-view page render (needs a session + course
+  ownership). Slug resolves (307 → login, 404 for unknown) and the m4a serves
+  as `audio/mp4`. Verify on the live site as a member after the first real lesson.
+
 ## Sep 8, 2026 — Session 30: per-course paywall (Stripe + gift codes)
 
 Built per `~/.gg/plans/academy-per-course-paywall.md`. Framework free for

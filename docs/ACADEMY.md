@@ -124,12 +124,28 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 
 ## Adding a module
 
-1. Append an entry to `src/content/academy/modules.ts` (slug, title, order,
-   video embed URL, `lesson` sections — the written material for readers —
-   and quiz questions with `correctIndex` + `explanation`).
-2. Drop PDFs/images into `public/academy/<slug>/` and list them in the entry.
-3. Optionally add a badge name/emoji for it in `badges.ts` → `moduleBadgeMeta`.
-Pages, linear unlock, quiz, XP, and the module badge all pick it up automatically.
+**Use the Lesson Forge — don't hand-edit `modules.ts` for a new lesson.** One
+sentence to the `academy` skill ("Add lesson X from ~/Desktop/… to the Business
+Tools course") produces `~/Desktop/LMS - X/lesson.json`, validates it, inserts
+the module (order allocation + renumbering + course ranges + badge + PDFs,
+proven by `tsc`), gates for Brett's "go", then generates NotebookLM audio /
+video / flashcards, a Kokoro-narrated "Read Aloud" track, commits, deploys and
+checks the live URL. Runbook: `docs/lms/HOW-TO-USE-THE-LMS.md`; prompts:
+`docs/lms/PROMPTS.md`; skill source: `docs/lms/SKILL.md`; parked ideas:
+`docs/lms/PARKED.md`.
+
+```bash
+node scripts/academy-lesson.mjs init "Lesson Title" --source ~/Desktop/notes.docx
+node scripts/academy-lesson.mjs validate "~/Desktop/LMS - Lesson Title/lesson.json"
+node scripts/academy-lesson.mjs run      "~/Desktop/LMS - Lesson Title/lesson.json"        # → gate
+node scripts/academy-lesson.mjs run      "~/Desktop/LMS - Lesson Title/lesson.json" --go   # → produce + ship
+node scripts/academy-lesson.mjs status   <slug>
+```
+
+Manual route (still valid for small fixes to existing modules): edit the entry in
+`src/content/academy/modules.ts`, drop files into `public/academy/<slug>/`,
+optional badge in `badges.ts` → `moduleBadgeMeta`. Pages, quiz, XP and the
+badge pick it up automatically.
 
 **Never import `modules.ts` from a `"use client"` file** — it contains quiz
 answers. Server components/API routes strip answers before data reaches the
@@ -170,6 +186,7 @@ Badges in `src/content/academy/badges.ts`. Ledger table `me_xp_events`;
 | Checkout / webhook / return | `src/app/api/academy/checkout`, `src/app/api/stripe/webhook`, `src/app/academy/checkout/success` |
 | DB helpers (XP, badges, certify) | `src/lib/academy-db.ts` |
 | Content (modules, quizzes, exam) | `src/content/academy/modules.ts` |
+| Lesson Forge (new lessons end-to-end) | `scripts/academy-lesson.mjs`, `scripts/academy-lesson-schema.json`, `docs/lms/*`, `~/dev/audiobook-studio/narrate.sh` |
 | Badges + belts | `src/content/academy/badges.ts` |
 | Member APIs | `src/app/api/academy/*` |
 | Admin API + page | `src/app/api/hub/academy/route.ts`, `src/app/hub/academy/page.tsx` |

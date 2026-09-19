@@ -1,0 +1,70 @@
+# Academy Lesson Forge — prompt kit
+
+Six fill-in prompts. Paste one as the first message of a new thread. The agent uses the
+`academy` skill; anything you leave out gets a sensible default (placeholder video, all
+five media pieces, a proposed badge, review gate on).
+
+---
+
+## 1. Add a lesson to an existing course
+
+```
+Add lesson **<Lesson Title>** from `~/Desktop/<file or folder>` to the **<business-tools | reclaiming-the-clock | masters-edge-book | framework>** course on the BL.com LMS.
+```
+
+Optional extras, any order: `YouTube: <embed url>` · `badge: <emoji> <name>` · `no video` ·
+`only narration` · `no review`.
+
+## 2. New PAID course
+
+```
+Create a new paid course **<Course Title>** for **$<N>** on the BL.com LMS from the folder on my Desktop called `<folder>` — <k> lessons, one per file. First lesson: **<Lesson Title>**.
+```
+
+The Stripe price is created once, after you approve the first lesson's gate. Later lessons use
+prompt 1 with the new course id.
+
+## 3. New FREE course
+
+```
+Create a new free course **<Course Title>** on the BL.com LMS from `~/Desktop/<file or folder>`. First lesson: **<Lesson Title>**.
+```
+
+## 4. Resume
+
+```
+Academy: resume ~/Desktop/LMS - <Lesson Title>/
+```
+
+(The project's own `RESUME-PROMPT.md` has the long form.)
+
+## 5. Apply feedback
+
+```
+Academy: apply FEEDBACK.md in ~/Desktop/LMS - <Lesson Title>/ and re-ship.
+```
+
+Write your notes in that project's `FEEDBACK.md` first. The agent edits `lesson.json`,
+re-validates, shows you the gate summary, then re-runs only what changed.
+
+## 6. Re-produce one piece
+
+```
+Academy: re-produce <audio | video | flashcards | quiz | narration> for <slug> (force).
+```
+
+Use when NotebookLM quota ran out yesterday, or you want the narration re-read after a copy change.
+
+---
+
+### What you get back
+
+A gate summary before anything costs quota or money:
+
+```
+LESSON READY FOR REVIEW — The Trust Trinity → Business Tools (module 16; 16–43 renumbered to 17–44)
+…
+Reply "go" (or "go, no video" / edits).
+```
+
+Then, after "go", a <120-word report with the live URL and the resume line.
