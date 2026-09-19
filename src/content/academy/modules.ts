@@ -125,6 +125,17 @@ export const academyCourses: AcademyCourse[] = [
     cover: "/books/masters-edge-shelf.jpg",
     priceEnv: "STRIPE_PRICE_BOOK",
   },
+  {
+    id: "rockstar-teams",
+    title: "Rockstar Teams",
+    emoji: "🎸",
+    description:
+      "Hire right, build the culture, train the team, keep the team, and let go well — Brett's system for a business that runs on a team of conscientious, caring people.",
+    fromOrder: 44,
+    toOrder: 44,
+    cover: "/academy/covers/rockstar-teams.jpg",
+    priceEnv: "STRIPE_PRICE_ROCKSTAR_TEAMS",
+  },
 ];
 
 export function getCourse(id: string): AcademyCourse | undefined {
@@ -5280,6 +5291,238 @@ export const academyModules: AcademyModule[] = [
         correctIndex: 2,
         explanation:
           "Transform, not inform. Behavior is the only scoreboard — the framework opens with this philosophy and closes with it.",
+      },
+    ],
+  },
+  //----------------------------------------------------------------------------
+  // Module 44 — How to Build a Rockstar Team
+  //----------------------------------------------------------------------------
+  {
+    slug: "rockstar-team",
+    videoFiles: [
+      { label: "How to Build a Rockstar Team (NotebookLM video overview)", href: "/academy/rockstar-team/video-overview.mp4" },
+    ],
+    audio: [
+      { label: "Deep Dive: How to Build a Rockstar Team (NotebookLM audio overview)", href: "/academy/rockstar-team/deep-dive.m4a" },
+      { label: "Read Aloud: How to Build a Rockstar Team (narrated lesson)", href: "/academy/rockstar-team/read-aloud.m4a" },
+    ],
+    order: 44,
+    title: "How to Build a Rockstar Team",
+    tagline: "Team Systems",
+    description:
+      "Fifteen strategies and forty-plus specific actions Brett used to build a long-term, dedicated team — from treating staff like rock stars to communicating the vision — plus the modern way to correct a mistake and why your millennial hires are an asset, not a problem.",
+    videoUrl: PLACEHOLDER_VIDEO(44),
+    pdfs: [
+      { label: "How To Build A Rockstar Team — workbook (PDF)", href: "/academy/rockstar-team/how-to-build-a-rockstar-team.pdf" },
+    ],
+    images: [],
+    keyPoints: [
+      "Your clients will be treated exactly the way you treat your staff — so the team comes first.",
+      "Fifteen strategies, one theme: appreciation you can see — call them a team, build their reputation, reward them, thank them specifically.",
+      "Give the team ownership and control: projects, boundaries, a forum for their opinions, and room to make their own mistakes.",
+      "Feedback is daily, not annual — pre-shift pep talk, post-shift feedback, and the goal communicated every single day.",
+      "Correct mistakes with Praise – Ask permission – Praise, and hire people who had to jump through hoops to get the job.",
+    ],
+    lesson: [
+      {
+        heading: "Why the Team Decides Everything",
+        paragraphs: [
+          "One of the greatest things you can do as a business owner is create amazing opportunities for the people who work for you. After twenty-three years running my own businesses — through some of the worst economic conditions this country has seen, and through some serious personal and business mistakes of my own — I can tell you without hesitation which key let me survive and thrive when others did not. It was the team.",
+          "Three things to burn into your memory before we go any further. First: your clients and customers will be treated exactly the way you treat your staff. Not the way you tell your staff to treat them — the way you treat your staff. Second: everyone wants to feel that the work they do is appreciated. Every person, every day. Third: the longevity of your business will largely be determined by the quality of your team. Not your marketing, not your location. Your team.",
+          "So this lesson is not a pep talk about culture. It is a checklist — fifteen strategies and more than forty specific actions I have used in my own businesses to develop a long-term, dedicated team of conscientious and caring people. Take it literally. Do the actions.",
+        ],
+      },
+      {
+        heading: "Treat Them Like Rock Stars",
+        paragraphs: [
+          "Start with language. Refer to your staff as a TEAM — in meetings, on the schedule, in front of clients. Words set expectations, and people rise or fall to the label you give them. Then treat them like rock stars, because they will treat your members exactly the way they are being treated.",
+          "Build a reputation for your team members. Tell members and other business owners how great they are. Post about them on Facebook. Hype them up in front of your clients: 'You're in good hands — Sarah is the best instructor I've ever trained.' A team member with a public reputation to live up to will live up to it.",
+          "Give rockstar rewards, and make them frequent and unexpected. Buy lunch. Take them to dinner. Hand out a surprise bonus or a gift. Offer a late arrival or an early departure on a slow day. Recognize birthdays and special occasions. Bring them their favorite coffee. None of these cost much; all of them say 'I noticed you.' Add an Employee of the Month program with real teeth: lunch with the manager, recognition on social media, and a fifty-dollar gift card.",
+          "Finally, thank them — and be specific. 'Great job' is noise. 'Great job keeping the lobby calm when the 4:30 class ran over' is praise the person can repeat to themselves for a week. Specific praise tells them exactly which behavior to do again.",
+        ],
+        bullets: [
+          "Refer to the staff as a TEAM.",
+          "Build their reputation: tell members, post on Facebook, hype them in front of clients.",
+          "Reward: lunch, dinner, surprise bonus, late arrival / early departure, birthdays, favorite coffee.",
+          "Employee of the Month: lunch with the manager, social-media recognition, $50 gift card.",
+          "Thank them with specifics: 'Great job with X. Keep up the good work with Y.'",
+        ],
+      },
+      {
+        heading: "Connect, Then Give Ownership",
+        paragraphs: [
+          "Rewards alone build a transactional team. Connection builds a loyal one. Connect on a personal level and make people feel like family: ask questions that show you care, remember the important events in their lives, follow up on the good and the bad things that happen to them, and offer support when it is needed. Spend time with the team outside work. My rule: hire people you would want to hang out with, then actually hang out — a team activity once a month, or at the very least once a quarter.",
+          "Now give them ownership. Let them create. Give them projects. Challenge them to participate in the marketing, the training, the events. Establish their boundaries so they know how far they can run, ask their opinion, and give them an appropriate forum to express themselves — a private Facebook group for the team works well. People protect what they own.",
+          "Give them control where it is appropriate, and do it deliberately. Set them up for success first. Communicate your experience so they are not starting from zero. Then allow them to make their own mistakes, and move forward together with the lessons learned. A team that is never allowed to fail is a team that never learns to lead.",
+        ],
+        bullets: [
+          "Ask questions that show you care; remember and follow up on life events.",
+          "Hire people you want to hang out with; team activity monthly or at least quarterly.",
+          "Ownership: let them create, give projects, invite them into marketing and training.",
+          "Set boundaries, ask opinions, give a forum (a private team Facebook group).",
+          "Control: set them up for success, share your experience, let them make mistakes, move forward.",
+        ],
+      },
+      {
+        heading: "Feedback Every Day, Vision Every Day",
+        paragraphs: [
+          "The annual review is where good teams go to die. Feedback has to be daily. Engage every day. Know what motivates each person on your team — it is not the same thing for everyone. Run a pre-shift pep talk so every person knows exactly what they are supposed to do today, and give post-shift feedback so they know how it went while it is still fresh.",
+          "Invest in their progress and make the investment visible. Train with them — not just at them. Notice their improvements out loud. Review expectations and communicate the goal every single day. In my schools this is the rule: raises are based on skill-set acquisition, not on time served or seniority. Everyone should be able to see their own progress and know exactly how to earn the next raise.",
+          "And communicate the vision. Be specific about the destination and the route your business is taking. Allow each team member to find their own place inside that vision — the person who cares about kids, the person who cares about competition, the person who cares about the business side. Then be congruent: your words and your actions have to match, or the vision is just a poster on the wall. People need to understand what you DO compared to what you are ABOUT. We do martial arts; we are about empowering individuals in a nurturing, family-friendly environment. Your team should be able to say both sentences without thinking.",
+          "One more piece of culture that makes all of this stick: three to five simple rules of the business, posted and repeated. Mine include 'Treat others the way they would like to be treated,' 'Nobody has the right to abuse you,' 'No drama allowed,' 'Never be late,' 'Be one hundred percent responsible for your actions — no blaming,' and 'Communicate what you want or need, because we are not mind readers.' Keep the list short enough to remember and firm enough to enforce.",
+        ],
+        bullets: [
+          "Pre-shift pep talk, post-shift feedback, engage every day.",
+          "Train with them, notice improvements, communicate the goal daily.",
+          "Raises based on skill-set acquisition, not time or seniority.",
+          "Vision: specific destination and route; congruent words and actions; what you DO vs. what you are ABOUT.",
+          "Three to five simple rules of the business, posted and enforced.",
+        ],
+      },
+      {
+        heading: "Millennials: Good for Business",
+        paragraphs: [
+          "Many business owners I talk with complain that they cannot find good help, and then make disparaging remarks about millennials: they are entitled and want more money than they are worth; they quit for the next shiny thing; they are too social and have no work ethic; they only care about themselves. I have had as many as eight millennials on my payroll at one time, I love having them, and here is my honest observation — it may sting a little.",
+          "Yes, they have a sense of entitlement — because we taught them to. We told them they could change the world, and then when they showed up in our business we talked to them almost exclusively about raising the bottom line. Teach them the correlation between the two, and they will change your world. Yes, they quit for the next shiny thing — because they want a cause and want to be part of something bigger, and that is a gift. Train them on the WHY of your business and you become the shiny thing. Yes, they are extremely social. So what? Ask them to put the phone away while they work on something that grows the business and themselves, and they will. Better yet, give them duties and time to show how awesome your business is on social media, and watch loyalty from your current customers grow. And no, they do not only care about themselves — there are selfish children in the world and just as many selfish adults.",
+          "Most of the time the problem is not the millennial. The problem is that we picked the wrong person for the position, and then compounded it because we did not know how to train and communicate with that new hire. Millennials are so far ahead of where we were at their age that it is mind-boggling. Shame on us for not staying ahead of the curve.",
+        ],
+      },
+      {
+        heading: "Hire Right, Correct Right, Start This Week",
+        paragraphs: [
+          "Four hiring rules that apply to every generation. Make sure the people you hire actually had to jump through some hoops to apply — effort at the door predicts effort on the floor. Make sure the whole team knows why you do what you do and why it makes a difference; a Vision Blueprint is a great tool for this. Treat your team like people, not numbers. And make sure every team member understands exactly how to achieve their next pay raise.",
+          "When someone makes a mistake, correct it properly. Some owners still cling to the old Praise – Correct – Praise sandwich. I would invite you to consider a more up-to-date model that gets far better results: Praise – Ask permission – Praise. 'Nice try on the intro class. Unfortunately, I see the closing part didn't really work out. May I show you how to make that work better next time?' Then, after they've got it: 'Good job — now you have it.' Asking permission turns a correction into coaching the person chose to receive.",
+          "And never, ever train by trial by fire. A great staff training program is part of the culture that draws the right people to you; throwing a new hire onto the floor to sink or swim is how you lose the good ones. Here is your assignment for this week: pick five of the forty actions in this lesson, put them on your calendar with a name and a date, and do them. If you implement even half of this manual you will be far ahead of most of your competitors.",
+        ],
+        bullets: [
+          "Hire people who had to jump through hoops to apply.",
+          "Everyone knows the WHY (Vision Blueprint); treat people like people; the path to the next raise is explicit.",
+          "Correct with Praise – Ask permission – Praise, not Praise – Correct – Praise.",
+          "Never trial by fire — a real staff training program.",
+          "This week: five actions, named and dated, on the calendar.",
+        ],
+      },
+    ],
+    quiz: [
+      {
+        question: "According to the lesson, how will your clients and customers be treated?",
+        options: [
+          "The way you treat your staff",
+          "The way your competitors treat theirs",
+          "The way your marketing promises",
+          "The way your best client expects",
+        ],
+        correctIndex: 0,
+        explanation:
+          "The first key point: clients will be treated exactly the way you treat your staff — not the way you tell staff to treat them. That is why the team comes first.",
+      },
+      {
+        question: "What does Brett say largely determines the longevity of your business?",
+        options: [
+          "Your location and lease terms",
+          "Your marketing budget",
+          "The quality of your team",
+          "Your pricing model",
+        ],
+        correctIndex: 2,
+        explanation:
+          "Third key point in the lesson: the longevity of your business will largely be determined by the quality of your team — not marketing, not location.",
+      },
+      {
+        question: "Which of these is the recommended way to thank a team member?",
+        options: [
+          "A general 'great job' to the whole team at the end of the month",
+          "A raise instead of words",
+          "Praise only in private so others don't feel left out",
+          "Specific praise naming the exact behavior: 'Great job with X'",
+        ],
+        correctIndex: 3,
+        explanation:
+          "'Great job' is noise. Specific praise — 'Great job keeping the lobby calm when the 4:30 class ran over' — tells the person exactly which behavior to repeat.",
+      },
+      {
+        question: "An owner wants a team activity but is short on time. What is the minimum frequency the lesson sets?",
+        options: [
+          "Once a week",
+          "Once a month, or at least once per quarter",
+          "Once a year at the holiday party",
+          "Only when the business hits a goal",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Spend time with your team outside work: hire people you want to hang out with, and hold a team activity once a month or at the very least once per quarter.",
+      },
+      {
+        question: "What does 'give them control where appropriate' look like in practice?",
+        options: [
+          "Hand over the task and step back completely",
+          "Let them decide only after they have been with you a year",
+          "Give control on paper but approve every decision yourself",
+          "Set them up for success, share your experience, let them make their own mistakes, and move forward with the lessons",
+        ],
+        correctIndex: 3,
+        explanation:
+          "Control is given deliberately: set them up for success first, communicate your experience, allow them to make their own mistakes, then move forward together with the lessons learned.",
+      },
+      {
+        question: "In the lesson, what should pay raises be based on?",
+        options: [
+          "Time with the company",
+          "Seniority over other team members",
+          "Skill-set acquisition",
+          "Annual review scores",
+        ],
+        correctIndex: 2,
+        explanation:
+          "Raises are based on skill-set acquisition, not on time served or seniority — and every team member should know exactly how to earn the next one.",
+      },
+      {
+        question: "Brett draws a line between what you DO and what you are ABOUT. Which pair matches his example?",
+        options: [
+          "DO: sell memberships — ABOUT: revenue growth",
+          "DO: martial arts — ABOUT: empowering individuals in a nurturing, family-friendly environment",
+          "DO: teach classes — ABOUT: winning tournaments",
+          "DO: run a school — ABOUT: being the biggest in town",
+        ],
+        correctIndex: 1,
+        explanation:
+          "People need to understand what you DO compared to what you are ABOUT: we do martial arts; we are about empowering individuals in a nurturing, family-friendly environment.",
+      },
+      {
+        question: "A millennial team member quits for 'the next shiny thing.' What is Brett's explanation and fix?",
+        options: [
+          "They lack work ethic; hire older staff instead",
+          "They want more money; raise their pay above market",
+          "They want a cause and to be part of something bigger; train them on the WHY of your business so you become the shiny thing",
+          "They are too social; ban phones during shifts",
+        ],
+        correctIndex: 2,
+        explanation:
+          "Millennials want a cause and want to be part of something bigger — that is a gift. Train them on the WHY of your business and you become the shiny thing.",
+      },
+      {
+        question: "Which correction model does the lesson recommend over the old Praise – Correct – Praise sandwich?",
+        options: [
+          "Correct – Praise – Correct",
+          "Praise – Ask permission – Praise",
+          "Ask – Correct – Follow up",
+          "Private correction with no praise",
+        ],
+        correctIndex: 1,
+        explanation:
+          "Praise – Ask permission – Praise: 'Nice try on X. Unfortunately X didn't work out. May I show you how to make it work better next time? Good job — now you have it.' Asking permission turns a correction into coaching the person chose to receive.",
+      },
+      {
+        question: "Which hiring practice does the lesson recommend?",
+        options: [
+          "Make sure applicants had to jump through some hoops to apply",
+          "Hire fast and let trial by fire sort out who stays",
+          "Hire only people with prior industry experience",
+          "Skip the interview if the resume is strong",
+        ],
+        correctIndex: 0,
+        explanation:
+          "Make sure the people you hire actually had to jump through some hoops to apply — effort at the door predicts effort on the floor. And never train by trial by fire.",
       },
     ],
   },

@@ -53,6 +53,7 @@ const moduleBadgeMeta: Record<string, { name: string; emoji: string }> = {
   "six-pillars": { name: "Pillar Builder", emoji: "🏛️" },
   // Free giveaway course
   "masters-edge-framework": { name: "Framework Holder", emoji: "🎁" },
+  "rockstar-team": { name: "Team Builder", emoji: "🎸" },
 };
 
 export function moduleBadge(moduleSlug: string, moduleTitle?: string): Badge {
