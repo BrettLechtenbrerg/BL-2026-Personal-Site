@@ -1,6 +1,26 @@
 # Academy Lesson Forge — prompt kit
 
-Six fill-in prompts. Paste one as the first message of a new thread. The agent uses the
+## The one-line prompt (same shape as the Forge)
+
+```
+Take <file or folder on my Desktop> and add it as a <lesson in the COURSE course | new course COURSE for $N> in the BL.com academy.
+```
+
+Examples:
+
+- `Take "Creating a culture.docx" from my Desktop and add it as a lesson in the rockstar-teams course in the BL.com academy.`
+- `Take the folder "The 7 Deadly Sins of Business" from my Desktop and create a new course "7 Deadly Sins" for $79 in the BL.com academy.`
+- `Take "Time Blocking.pdf" from my Desktop and add it to the reclaiming-the-clock course in the BL.com academy — no review.`
+
+That one sentence runs the whole Rockstar Team sequence: written lesson + key points + 10-question
+quiz + badge → gate for your "go" → NotebookLM podcast, video overview, flashcards → Read Aloud
+narration in your voice → PDFs → Stripe price (new paid course) → commit, deploy, live URL.
+Academies today: **BL.com** (brettlechtenberg.com/academy). PMMA and TSAI are parked until their
+sites get the Academy feature (see `docs/lms/PARKED.md` #5).
+
+---
+
+Six fill-in variants follow. Paste one as the first message of a new thread. The agent uses the
 `academy` skill; anything you leave out gets a sensible default (placeholder video, all
 five media pieces, a proposed badge, review gate on) — **except placement**.
 

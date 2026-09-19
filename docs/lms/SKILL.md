@@ -34,6 +34,15 @@ iCloud evicted the files: `brctl download "<file>"` each one, poll until the cou
 Decision (2026-09-19, not to be re-litigated): everything site-specific lives in the CONFIG block at the
 top of `academy-lesson.mjs`. Porting = copy the academy feature into the other repo, edit CONFIG, add a row here.
 
+## The one-line prompt this skill answers
+
+```
+Take <file or folder on my Desktop> and add it as a <lesson in the COURSE course | new course COURSE for $N> in the <BL.com> academy.
+```
+
+Any wording that carries the same three facts (source, placement, academy) counts — "add lesson X
+from Y to course Z", "create a new course from this folder", etc. Parse it into the brief below.
+
 ## The brief — fill these from Brett's sentence
 
 | Slot | Required | Default / rule |

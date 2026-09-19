@@ -4,11 +4,17 @@
 from your material, makes the NotebookLM audio/video/flashcards, narrates the lesson in your
 Audiobook Studio voice (`am_michael`), commits, deploys, and hands you the URL.
 
-## Say it like this
+## The one-line prompt
 
-- `Add lesson **The Trust Trinity** from ~/Desktop/Trust Trinity notes.docx to the **Business Tools** course on the BL.com LMS.`
-- `Create a new paid course **Rockstar Teams** for **$99** from the Desktop folder "Rockstar Teams" — three lessons.`
-- `Academy: resume ~/Desktop/LMS - The Trust Trinity/`
+```
+Take <file or folder on my Desktop> and add it as a <lesson in the COURSE course | new course COURSE for $N> in the BL.com academy.
+```
+
+- `Take "Creating a culture.docx" from my Desktop and add it as a lesson in the rockstar-teams course in the BL.com academy.`
+- `Take the folder "Rockstar Teams" from my Desktop and create a new course "Rockstar Teams" for $99 in the BL.com academy.`
+- `Academy: resume ~/Desktop/LMS - Creating a Culture/`
+
+Course ids today: `framework` · `business-tools` · `reclaiming-the-clock` · `masters-edge-book` · `rockstar-teams`.
 
 More in `docs/lms/PROMPTS.md` (six templates).
 
