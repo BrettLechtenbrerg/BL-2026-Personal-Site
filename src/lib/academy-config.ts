@@ -42,6 +42,8 @@ export interface AcademyConfig {
     description: string;
     /** Emoji used as the academy mark in nav + login. */
     icon: string;
+    /** Optional image under /public (e.g. "/brand/brandmark.png") shown instead of `icon`. */
+    logo?: string;
     /** Owner's first name for "Only Brett posts here", "Brett's feedback". */
     ownerFirstName: string;
     /** Who the lessons are written for (drives the Lesson Forge voice brief). */
@@ -53,6 +55,9 @@ export interface AcademyConfig {
       signupWelcome: string;
       loginCta: string;
       signupCta: string;
+      /** Mode-toggle tab labels (default "Log In" / "Sign Up"). */
+      loginTab?: string;
+      signupTab?: string;
       dashboardMotto: string;
       continueCta: string;
       backCta: string;
@@ -116,6 +121,10 @@ export interface AcademyConfig {
     modules: string;
     course: string;
     courses: string;
+  };
+  supabase: {
+    /** Project ref (for keep-alive auto-restore). Secrets stay in env. */
+    project: string;
   };
   signup: {
     /** Env var holding a shared program/access code required at signup (GC). null = open signup. */

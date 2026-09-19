@@ -19,6 +19,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import Image from "next/image";
 import { academyConfig } from "@/content/academy.config";
 import { cap } from "@/lib/academy-config";
 
@@ -82,7 +83,11 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
     <header className="sticky top-0 z-40 border-b border-academy-fg/10 bg-academy-bg/60 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3">
         <Link href={authed ? "/academy/dashboard" : "/academy"} className="flex items-center gap-2">
-          <span className="text-xl">{academyConfig.academy.icon}</span>
+          {academyConfig.academy.logo ? (
+            <Image src={academyConfig.academy.logo} alt="" width={28} height={28} className="h-7 w-7" />
+          ) : (
+            <span className="text-xl">{academyConfig.academy.icon}</span>
+          )}
           <span className="font-heading text-sm font-bold tracking-wide text-academy-accent sm:text-base">
             {academyConfig.academy.name.toUpperCase()}
           </span>

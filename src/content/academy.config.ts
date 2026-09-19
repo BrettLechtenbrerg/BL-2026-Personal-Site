@@ -131,6 +131,9 @@ export const academyConfig: AcademyConfig = {
   "session": {
     "cookie": "bl_academy_session"
   },
+  "supabase": {
+    "project": "yrfsquzzbgnmkfbuapfk"
+  },
   "vocab": {
     "module": "module",
     "modules": "modules",

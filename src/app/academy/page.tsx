@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { useBotProtection } from "@/lib/useBotProtection";
+import Image from "next/image";
 import { academyConfig } from "@/content/academy.config";
 import { splitAcademyName } from "@/lib/academy-config";
 
@@ -90,7 +91,11 @@ export default function AcademyLoginPage() {
         className="rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-8 shadow-[0_0_60px_rgb(var(--academy-primary-rgb)/0.25)] backdrop-blur-md"
       >
         <div className="mb-6 text-center">
-          <div className="mb-2 text-4xl">{academyConfig.academy.icon}</div>
+          {academyConfig.academy.logo ? (
+            <Image src={academyConfig.academy.logo} alt={academyConfig.academy.kicker} width={56} height={56} className="mx-auto mb-3 h-14 w-14" />
+          ) : (
+            <div className="mb-2 text-4xl">{academyConfig.academy.icon}</div>
+          )}
           <h1 className="font-heading text-2xl font-bold text-academy-fg">
             {NAME_LEAD} <span className="text-academy-accent">{NAME_ACCENT}</span>
           </h1>
@@ -115,7 +120,7 @@ export default function AcademyLoginPage() {
                 mode === m ? "bg-academy-primary text-academy-fg" : "text-academy-fg/60 hover:text-academy-fg"
               }`}
             >
-              {m === "login" ? "Log In" : "Enroll"}
+              {m === "login" ? (COPY.loginTab ?? "Log In") : (COPY.signupTab ?? "Enroll")}
             </button>
           ))}
         </div>
