@@ -254,6 +254,11 @@ async function checkLesson(L, dir) {
         }
       }
     });
+    // Answer-position bias: a learner notices when "B" is right seven times.
+    const counts = [0, 0, 0, 0];
+    for (const qq of L.quiz) if (Number.isInteger(qq?.correctIndex) && qq.correctIndex >= 0 && qq.correctIndex <= 3) counts[qq.correctIndex]++;
+    const top = Math.max(...counts);
+    if (top > 4) warnings.push(`quiz: correctIndex ${counts.indexOf(top)} is the answer ${top} times out of 10 — reorder options so answers are spread across 0–3.`);
   }
 
   // leftovers

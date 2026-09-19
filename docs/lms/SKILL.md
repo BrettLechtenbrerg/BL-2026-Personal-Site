@@ -81,7 +81,8 @@ Schema: `scripts/academy-lesson-schema.json`. The validator enforces these; writ
   Section 1 = the problem/why; last section = the action plan. Every quiz answer must be stated in the lesson.
 - **`quiz`:** exactly 10 questions, 4 distinct options, `correctIndex`, one-to-two-sentence `explanation`
   that teaches (not "correct"). Mix recall and scenario ("An owner does X — what does the lesson say?").
-  Spread across sections. No trick questions, no "all of the above".
+  Spread across sections. **Spread `correctIndex` across 0–3** (no more than 4 of 10 on the same index — the
+  validator warns). No trick questions, no "all of the above".
 - **`badge`:** name ≤30 chars + emoji.
 - Nothing left as `[VERIFY]`, `TODO`, `XXX`, `TBD`.
 - Slug: lowercase-dashes, ≤60 chars, unused (validator checks).
