@@ -391,3 +391,23 @@ body {
     height: var(--bar, 100%);
   }
 }
+
+/* Academy Read Aloud player — a loose page flips over the spine while narrating */
+@keyframes page-turn {
+  0% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  45% {
+    transform: scaleX(0.05);
+    opacity: 0.9;
+  }
+  55% {
+    transform: scaleX(-0.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scaleX(-1);
+    opacity: 0;
+  }
+}
