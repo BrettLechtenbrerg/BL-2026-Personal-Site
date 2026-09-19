@@ -626,7 +626,7 @@ async function price(courseId, { projectDir = null } = {}) {
   ];
   if (flags.dryRun) { console.log(`price --dry-run (nothing created):\n  ${plan.join("\n  ")}`); return { dryRun: true, envName }; }
 
-  const key = [REDACTED];
+  const key = process.env.STRIPE_SECRET_KEY || env.STRIPE_SECRET_KEY || "";
   if (!key) {
     console.log([
       `✗ STRIPE_SECRET_KEY is not in .env.local — create the price by hand:`,
