@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
   ArrowLeft, BookOpen, CheckCircle2, Download, ExternalLink, Loader2, Sparkles, Swords,
+  PlayCircle,
 } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
 import Flashcards, { type Flashcard } from "./Flashcards";
@@ -150,10 +151,13 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
         </div>
       )}
 
-      {/* Video (YouTube embed) — hidden when the brand has no placeholder video yet */}
-      {m.videoUrl && (
-        <div className="mb-6 overflow-hidden rounded-2xl border border-academy-fg/10 bg-academy-bg/40">
-          <div className="relative aspect-video">
+      {/* Video (YouTube embed). The slot is ALWAYS rendered so every lesson has
+          the same shape across brands: a real embed when videoUrl is set,
+          otherwise a branded "coming soon" frame (drop the embed url into
+          modules.ts → videoUrl when the lesson video is filmed). */}
+      <div className="mb-6 overflow-hidden rounded-2xl border border-academy-fg/10 bg-academy-bg/40">
+        <div className="relative aspect-video">
+          {m.videoUrl ? (
             <iframe
               src={m.videoUrl}
               title={m.title}
@@ -161,9 +165,19 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
               allowFullScreen
               className="absolute inset-0 h-full w-full"
             />
-          </div>
+          ) : (
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-academy-primary/30 via-academy-bg/60 to-academy-bg text-center">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-academy-accent/60 bg-academy-bg/60">
+                <PlayCircle size={40} className="text-academy-accent" />
+              </span>
+              <p className="font-heading text-lg font-bold text-academy-fg">Lesson video coming soon</p>
+              <p className="max-w-sm px-4 text-sm text-academy-fg/60">
+                The written lesson, podcast, flashcards and quiz below are ready now.
+              </p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Written lesson — for members who learn best by reading */}
       <div className="mb-6 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md">
