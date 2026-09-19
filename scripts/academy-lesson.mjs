@@ -21,7 +21,7 @@
 // is site-specific — clone it for PMMA / TSAI later.
 //==============================================================================
 
-import { spawnSync, execFileSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import {
   readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync, statSync, readdirSync, cpSync, appendFileSync,
 } from "node:fs";
@@ -1008,7 +1008,7 @@ function backup(dir, slug) {
 }
 
 /** Rewrite the pipeline block in PROJECT-STATUS.md from .state.json. */
-function updateStatusDoc(dir, extra = {}) {
+function updateStatusDoc(dir) {
   const p = path.join(dir, "PROJECT-STATUS.md");
   if (!existsSync(p)) return;
   const s = loadState(dir);
