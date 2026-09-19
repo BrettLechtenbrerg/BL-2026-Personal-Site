@@ -130,5 +130,17 @@ export const academyConfig: AcademyConfig = {
   },
   "session": {
     "cookie": "bl_academy_session"
+  },
+  "vocab": {
+    "module": "module",
+    "modules": "modules",
+    "course": "course",
+    "courses": "courses"
+  },
+  "signup": {
+    "accessCodeEnv": null,
+    "accessCodeLabel": "Program code",
+    "accessCodePlaceholder": "Enter your program code",
+    "accessCodeMismatch": "That code doesn't match. Check with your program contact."
   }
 };

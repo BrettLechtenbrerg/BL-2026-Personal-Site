@@ -16,8 +16,14 @@ Live: https://www.brettlechtenberg.com   Deploy: `npx vercel --prod --yes`
        the CLI often times out waiting, that's fine — check `npx vercel ls --prod`)
 
 ADD A LESSON (the usual job now — one line, the `academy` skill does the rest):
-  Add lesson **<Title>** from ~/Desktop/<file> to the **Business Tools** course on the BL.com LMS.
-  Cheat sheet: ~/Desktop/LMS-HOW-TO.md · prompts: docs/lms/PROMPTS.md · resume: Academy: resume ~/Desktop/LMS - <Title>/
+  Take ~/Desktop/<file> and add it as a lesson in the business-tools course in the BL.com academy.
+  Cheat sheet: ~/Desktop/LMS-HOW-TO.md · prompts: ~/dev/academy-forge/docs/lms/PROMPTS.md · resume: Academy: resume ~/Desktop/LMS - <Title>/
+
+ACADEMY ENGINE (Sep 19 2026): the Academy is now the shared **Academy Forge** engine
+  (~/dev/academy-forge — one engine, four brands: BL.com · PMMA · TSAI · GIFT CONNECT).
+  BL is consumer #1. Engine files under src/app/academy, src/components/academy, src/lib/academy-*
+  are OVERWRITTEN by `bash ~/dev/academy-forge/install.sh bl` — fix engine bugs in the Forge, then reinstall.
+  Brand values: src/content/academy.config.ts (generated from brands/bl/academy.json). Tag `pre-academy-forge` = before.
 
 READ FIRST, in order:
   1. docs/SESSION-NOTES.md  — top section (Session 31: Lesson Forge; Session 30: paywall)

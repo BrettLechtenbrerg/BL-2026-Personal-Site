@@ -12,6 +12,7 @@ import { ArrowRight, Award, Flame, Loader2, ScrollText } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
 import { badgeBySlug, courseBadge, beltFor, nextBelt, TOP_BADGE_SLUG } from "@/content/academy/badges";
 import { academyConfig } from "@/content/academy.config";
+import { cap } from "@/lib/academy-config";
 
 interface ProgressRow {
   module_slug: string;
@@ -160,7 +161,7 @@ export default function Dashboard({
           <>
             <p className="text-xs font-semibold uppercase tracking-wide text-academy-accent">Up next</p>
             <h2 className="mt-1 font-heading text-xl font-bold">
-              Module {nextModule.order}: {nextModule.title}
+              {cap(academyConfig.vocab.module)} {nextModule.order}: {nextModule.title}
             </h2>
             <Link
               href={`/academy/modules/${nextModule.slug}`}
@@ -172,7 +173,7 @@ export default function Dashboard({
         ) : (
           <>
             <p className="text-xs font-semibold uppercase tracking-wide text-academy-accent">
-              All modules passed
+              All {academyConfig.vocab.modules} passed
             </p>
             <h2 className="mt-1 font-heading text-xl font-bold">
               {certified ? academyConfig.ranks.top.certifiedLine : "Certification awaits."}
@@ -211,7 +212,7 @@ export default function Dashboard({
         </div>
         {courseCerts.length === 0 ? (
           <p className="text-sm text-academy-fg/50">
-            Pass every module in a course to earn its certificate. Complete every course, the capstone and
+            Pass every {academyConfig.vocab.module} in a {academyConfig.vocab.course} to earn its certificate. Complete every {academyConfig.vocab.course}, the capstone and
             the final exam for {academyConfig.ranks.top.credentialPhrase}.
           </p>
         ) : (

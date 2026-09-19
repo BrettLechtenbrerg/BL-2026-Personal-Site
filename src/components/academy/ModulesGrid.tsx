@@ -10,6 +10,8 @@ import { motion } from "framer-motion";
 import { Lock, CheckCircle2, PlayCircle, Loader2 } from "lucide-react";
 import { useAcademyUser } from "./useAcademyUser";
 import UnlockCourseButton from "./UnlockCourseButton";
+import { academyConfig } from "@/content/academy.config";
+import { cap } from "@/lib/academy-config";
 
 export interface ModuleCard {
   slug: string;
@@ -86,7 +88,7 @@ export default function ModulesGrid({
 
   return (
     <div>
-      <h1 className="mb-1 font-heading text-3xl font-bold">Your Courses</h1>
+      <h1 className="mb-1 font-heading text-3xl font-bold">Your {cap(academyConfig.vocab.courses)}</h1>
       <p className="mb-8 text-academy-fg/60">
         {courses.length} courses, {modules.length} modules. Pass each quiz at 80%+ to earn its badge.
       </p>
@@ -152,7 +154,7 @@ export default function ModulesGrid({
                   >
                     <div className="mb-3 flex items-center justify-between">
                       <span className="rounded-full bg-academy-primary/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-academy-accent">
-                        Module {m.order} · {m.tagline}
+                        {cap(academyConfig.vocab.module)} {m.order} · {m.tagline}
                       </span>
                       {isPassed ? (
                         <CheckCircle2 className="text-academy-accent" size={22} />

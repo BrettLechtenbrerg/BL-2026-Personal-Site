@@ -11,6 +11,7 @@ import { useAcademyUser } from "@/components/academy/useAcademyUser";
 import Avatar from "@/components/academy/Avatar";
 import { badgeBySlug, beltFor, TOP_BADGE_SLUG } from "@/content/academy/badges";
 import { academyConfig } from "@/content/academy.config";
+import { cap } from "@/lib/academy-config";
 
 const AVATARS = academyConfig.academy.avatars;
 const PHOTO_PX = 256;
@@ -228,7 +229,7 @@ export default function ProfilePage() {
           <Award size={18} /> Badge Case
         </h2>
         {badges.length === 0 ? (
-          <p className="text-sm text-academy-fg/50">Your first badge is waiting in Module 1.</p>
+          <p className="text-sm text-academy-fg/50">Your first badge is waiting in {cap(academyConfig.vocab.module)} 1.</p>
         ) : (
           <div className="flex flex-wrap gap-3">
             {badges.map((slug) => {

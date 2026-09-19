@@ -25,6 +25,8 @@ export default function AcademyLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState(AVATARS[0]);
+  const [accessCode, setAccessCode] = useState("");
+  const needsCode = Boolean(academyConfig.signup.accessCodeEnv);
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -56,7 +58,7 @@ export default function AcademyLoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
           mode === "signup"
-            ? withBotFields({ action: "signup", name, email, password, avatar })
+            ? withBotFields({ action: "signup", name, email, password, avatar, ...(needsCode ? { accessCode } : {}) })
             : { action: "login", email, password }
         ),
       });
@@ -133,6 +135,19 @@ export default function AcademyLoginPage() {
                 maxLength={80}
                 className={inputClass}
               />
+              {needsCode && (
+                <input
+                  type="text"
+                  value={accessCode}
+                  onChange={(e) => setAccessCode(e.target.value)}
+                  placeholder={academyConfig.signup.accessCodePlaceholder}
+                  aria-label={academyConfig.signup.accessCodeLabel}
+                  autoComplete="off"
+                  required
+                  maxLength={64}
+                  className={inputClass}
+                />
+              )}
             </>
           )}
 

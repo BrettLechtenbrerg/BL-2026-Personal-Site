@@ -343,7 +343,7 @@ export default function CertificationPage() {
           <StatusPill sub={state.exam} />
         </div>
         <p className="mb-4 text-sm leading-relaxed text-academy-fg/70">
-          Five questions spanning all modules. Score 80%+ to pass. You can retake it.
+          Five questions spanning all {academyConfig.vocab.modules}. Score 80%+ to pass. You can retake it.
         </p>
         {state.exam?.status !== "approved" && (
           <button

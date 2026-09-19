@@ -95,7 +95,7 @@ export default function CertificatePage() {
       <div className="no-print mb-6">
         <h1 className="font-heading text-2xl font-bold">Your Certificates</h1>
         <p className="mt-1 text-sm text-academy-fg/60">
-          Finish every module in a course to earn its certificate. Complete every course, the capstone
+          Finish every {academyConfig.vocab.module} in a {academyConfig.vocab.course} to earn its certificate. Complete every {academyConfig.vocab.course}, the capstone
           and the final exam to earn {academyConfig.ranks.top.credentialPhrase}.
         </p>
       </div>
@@ -111,7 +111,7 @@ export default function CertificatePage() {
             href="/academy/modules"
             className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-academy-primary px-5 py-2 font-heading font-bold text-academy-fg hover:bg-academy-primary-dark"
           >
-            Go to courses <ArrowRight size={18} />
+            Go to {academyConfig.vocab.courses} <ArrowRight size={18} />
           </Link>
         </div>
       )}

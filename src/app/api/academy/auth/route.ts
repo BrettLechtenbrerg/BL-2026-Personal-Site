@@ -15,6 +15,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { timingSafeEqual } from "node:crypto";
 import {
   ACADEMY_SESSION_COOKIE,
   ACADEMY_TTL_MS,
@@ -53,6 +54,13 @@ function recentFailures(ip: string): number[] {
 }
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/** Constant-time string compare (lengths differ → false, no early exit on content). */
+function safeEqual(a: string, b: string): boolean {
+  const ab = Buffer.from(a);
+  const bb = Buffer.from(b);
+  return ab.length === bb.length && timingSafeEqual(ab, bb);
+}
 
 async function failAuth(ip: string, message: string, status = 401): Promise<NextResponse> {
   const recent = recentFailures(ip);
@@ -104,6 +112,19 @@ export async function POST(request: NextRequest) {
           return NextResponse.json({ error: "Signup didn't go through. Please try again." }, { status: 400 });
         }
         return rejectBot(verdict);
+      }
+
+      // Optional shared program code (brands with closed enrolment, e.g. GIFT CONNECT).
+      const codeEnv = academyConfig.signup.accessCodeEnv;
+      if (codeEnv) {
+        const expectedCode = process.env[codeEnv]?.trim();
+        if (!expectedCode) {
+          return NextResponse.json({ error: `Signup is not configured (${codeEnv} missing).` }, { status: 503 });
+        }
+        const accessCode = String(body?.accessCode || "").trim();
+        if (!accessCode || !safeEqual(accessCode.toLowerCase(), expectedCode.toLowerCase())) {
+          return failAuth(ip, academyConfig.signup.accessCodeMismatch, 403);
+        }
       }
 
       const name = String(body?.name || "").trim().slice(0, 80);

@@ -44,6 +44,8 @@ export interface AcademyConfig {
     icon: string;
     /** Owner's first name for "Only Brett posts here", "Brett's feedback". */
     ownerFirstName: string;
+    /** Who the lessons are written for (drives the Lesson Forge voice brief). */
+    audience?: string;
     /** Avatar picker choices; the first is the signup default. */
     avatars: string[];
     copy: {
@@ -108,6 +110,26 @@ export interface AcademyConfig {
     /** HTTP-only cookie name. Unique per brand so two academies on one browser never collide. */
     cookie: string;
   };
+  /** Nouns for the learning units. BL: module/course. GC: habit/program. Capitalised where sentences start. */
+  vocab: {
+    module: string;
+    modules: string;
+    course: string;
+    courses: string;
+  };
+  signup: {
+    /** Env var holding a shared program/access code required at signup (GC). null = open signup. */
+    accessCodeEnv: string | null;
+    /** Label + placeholder + mismatch message for the code field. */
+    accessCodeLabel: string;
+    accessCodePlaceholder: string;
+    accessCodeMismatch: string;
+  };
+}
+
+/** Capitalise the first letter. */
+export function cap(s: string): string {
+  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 /** Split `name` into [lead, accent] using `nameAccent` as the suffix. */

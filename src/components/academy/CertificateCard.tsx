@@ -78,7 +78,7 @@ export default function CertificateCard({
         ) : (
           <>
             <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-[var(--academy-ink-muted)]">
-              has completed every module and passed every assessment in the course
+              has completed every {A.vocab.module} and passed every assessment in the {A.vocab.course}
             </p>
             <p className="mt-4 font-heading text-2xl font-black tracking-wide text-[var(--academy-ink)]">
               {emoji ?? "📜"} {title}

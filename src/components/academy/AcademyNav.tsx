@@ -20,10 +20,11 @@ import {
 } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { academyConfig } from "@/content/academy.config";
+import { cap } from "@/lib/academy-config";
 
 const links = [
   { href: "/academy/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/academy/modules", label: "Modules", icon: GraduationCap },
+  { href: "/academy/modules", label: cap(academyConfig.vocab.modules), icon: GraduationCap },
   { href: "/academy/community", label: "Community", icon: Users },
   { href: "/academy/events", label: "Events", icon: CalendarDays },
   { href: "/academy/leaderboard", label: "Leaderboard", icon: Trophy },
@@ -125,7 +126,7 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
                             href="/academy/modules"
                             className="block px-4 py-2.5 text-sm font-semibold text-academy-accent hover:bg-academy-fg/10"
                           >
-                            All courses
+                            All {academyConfig.vocab.courses}
                           </Link>
                           {courses.map((c) => (
                             <Link

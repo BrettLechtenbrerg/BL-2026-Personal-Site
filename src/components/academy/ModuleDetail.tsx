@@ -18,6 +18,7 @@ import Flashcards, { type Flashcard } from "./Flashcards";
 import PodcastPlayer from "./PodcastPlayer";
 import ReadAloudPlayer from "./ReadAloudPlayer";
 import { academyConfig } from "@/content/academy.config";
+import { cap } from "@/lib/academy-config";
 
 /** Narrated-lesson tracks (installed by academy-lesson.mjs narrate) vs. podcast-style overviews. */
 const isReadAloud = (t: { label: string; href: string }) =>
@@ -108,11 +109,11 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
         href="/academy/modules"
         className="mb-4 inline-flex min-h-11 items-center gap-1.5 text-sm text-academy-fg/60 hover:text-academy-fg"
       >
-        <ArrowLeft size={16} /> All modules
+        <ArrowLeft size={16} /> All {academyConfig.vocab.modules}
       </Link>
 
       <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-academy-accent">
-        Module {m.order} · {m.tagline}
+        {cap(academyConfig.vocab.module)} {m.order} · {m.tagline}
       </span>
       <h1 className="mb-2 font-heading text-3xl font-bold">{m.title}</h1>
       <p className="mb-6 leading-relaxed text-academy-fg/70">{m.description}</p>
