@@ -26,6 +26,7 @@ import {
   readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync, statSync, readdirSync, cpSync, appendFileSync,
 } from "node:fs";
 import os from "node:os";
+import { createHash } from "node:crypto";
 import path from "node:path";
 
 // modules.ts is plain TS with no imports — Node 22 loads it with type stripping.
@@ -318,9 +319,14 @@ function gateSummary(L, stats, courses, added = null) {
 async function add(file) {
   const { lesson: L, dir } = await validate(file, { quiet: true });
   const state = loadState(dir);
+  const fingerprint = lessonFingerprint(file);
   if (state.add?.done && !flags.force) {
-    console.log(`✓ add already done (module ${state.add.order}) — use --force to redo`);
-    return state.add;
+    if (state.add.fingerprint === fingerprint) {
+      console.log(`✓ add already done (module ${state.add.order}) — use --force to redo`);
+      return state.add;
+    }
+    // lesson.json changed since it was inserted: replace the module in place.
+    return await replaceModule(L, dir, state, fingerprint);
   }
   if (!flags.allowDirty) {
     const dirty = git(["status", "--porcelain", "--untracked-files=no", "--", rel(CONFIG.modulesTs), rel(CONFIG.badgesTs)]).trim();
@@ -432,13 +438,79 @@ async function add(file) {
     die(`add: module did not land in course "${courseId}" after insert — restored.`);
   }
 
-  const result = { done: true, order, shifted, courseId, newCourse: isNew ? L.course.new : null, pdfs: copied, at: new Date().toISOString() };
+  const result = { done: true, order, shifted, courseId, newCourse: isNew ? L.course.new : null, pdfs: copied, fingerprint, at: new Date().toISOString() };
   saveState(dir, { slug: L.slug, title: L.title, add: result });
   updateStatusDoc(dir);
   backup(dir, L.slug);
   console.log(`✓ ${L.title} added as module ${order} in ${courseId}${shifted ? ` (${shifted} later modules renumbered)` : ""}${isNew ? " — new course appended" : ""}`);
   if (L.badge) console.log(`✓ badge ${L.badge.emoji} ${L.badge.name}`);
   for (const c of copied) console.log(`✓ pdf → ${c}`);
+  console.log("✓ tsc clean");
+  return result;
+}
+
+/**
+ * Re-apply an edited lesson.json to a module that `add` already inserted:
+ * swap the module block (same slug, same order), refresh the badge, re-copy
+ * PDFs. Media entries (audio[]/videoFiles[]) that installers added are kept.
+ */
+async function replaceModule(L, dir, state, fingerprint) {
+  const prev = state.add;
+  if (L.slug !== state.slug) die(`add: slug changed (${state.slug} → ${L.slug}) — slugs are member-data keys; keep the slug or start a new project.`);
+  const origModules = readFileSync(CONFIG.modulesTs, "utf8");
+  const origBadges = readFileSync(CONFIG.badgesTs, "utf8");
+  const { academyModules } = await loadModules();
+  const existing = academyModules.find((m) => m.slug === L.slug);
+  if (!existing) die(`add: "${L.slug}" is recorded as added but is not in modules.ts — delete .state.json and re-run add.`);
+  const order = existing.order;
+
+  const startMarker = `\n  // Module ${order} — `;
+  const start = origModules.indexOf(startMarker);
+  const blockStart = start === -1 ? -1 : origModules.lastIndexOf("\n  //---", start);
+  const slugLine = origModules.indexOf(`\n    slug: ${q(L.slug)},`, blockStart);
+  const end = slugLine === -1 ? -1 : origModules.indexOf("\n  },\n", slugLine);
+  if (blockStart === -1 || slugLine === -1 || end === -1 || slugLine - blockStart > 400) die("add: could not locate the module block to replace — aborting (nothing written).");
+
+  // Keep media entries the installers wrote (audio[], videoFiles[]) so a copy edit does not drop narration/NotebookLM.
+  const keep = [];
+  for (const key of ["videoFiles", "audio"]) {
+    const arr = existing[key];
+    if (Array.isArray(arr) && arr.length) {
+      keep.push(`    ${key}: [`);
+      for (const e of arr) keep.push(`      { ${Object.entries(e).map(([k, v]) => `${k}: ${q(v)}`).join(", ")} },`);
+      keep.push("    ],");
+    }
+  }
+  let block = moduleToTs(L, order);
+  // Same spot academy-install.mjs uses: straight after the slug line.
+  if (keep.length) block = block.replace(`\n    slug: ${q(L.slug)},\n`, `\n    slug: ${q(L.slug)},\n${keep.join("\n")}\n`);
+  const src = origModules.slice(0, blockStart) + "\n" + block + origModules.slice(end + "\n  },".length);
+
+  let badges = origBadges;
+  if (L.badge) {
+    const re = new RegExp(`^  ${q(L.slug).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}: \\{[^\\n]*\\},?$`, "m");
+    const line = `  ${q(L.slug)}: { name: ${q(L.badge.name)}, emoji: ${q(L.badge.emoji)} },`;
+    if (re.test(badges)) badges = badges.replace(re, line);
+    else { const bEnd = badges.indexOf("\n};", badges.indexOf("const moduleBadgeMeta")); badges = badges.slice(0, bEnd) + "\n" + line + badges.slice(bEnd); }
+  }
+  const pdfDir = path.join(CONFIG.publicAcademy, L.slug);
+  const copied = [];
+  for (const p of L.pdfs ?? []) { mkdirSync(pdfDir, { recursive: true }); const dest = path.join(pdfDir, pdfName(p.file)); copyFileSync(path.resolve(dir, p.file), dest); copied.push(rel(dest)); }
+
+  writeFileSync(CONFIG.modulesTs, src);
+  writeFileSync(CONFIG.badgesTs, badges);
+  const tsc = spawnSync("npx", ["tsc", "--noEmit"], { cwd: ROOT, encoding: "utf8" });
+  const reloaded = tsc.status === 0 ? (await loadModules()).academyModules.find((m) => m.slug === L.slug) : null;
+  if (!reloaded || reloaded.order !== order) {
+    writeFileSync(CONFIG.modulesTs, origModules);
+    writeFileSync(CONFIG.badgesTs, origBadges);
+    die(`add: replacing the module failed — modules.ts/badges.ts restored.\n${((tsc.stdout ?? "") + (tsc.stderr ?? "")).slice(0, 1500)}`);
+  }
+  const result = { ...prev, pdfs: copied, fingerprint, replacedAt: new Date().toISOString() };
+  saveState(dir, { title: L.title, add: result });
+  updateStatusDoc(dir);
+  backup(dir, L.slug);
+  console.log(`✓ ${L.title} updated in place (module ${order}) — lesson.json changed since the last add${keep.length ? "; media entries kept" : ""}`);
   console.log("✓ tsc clean");
   return result;
 }
@@ -797,14 +869,17 @@ async function run(file) {
   const { lesson: L, dir, stats } = await validate(file, { quiet: true });
   const addRes = await add(file);
   const st = loadState(dir);
-  const approved = flags.go || flags.noReview || st.approved;
+  // A stored approval only counts for the lesson.json it was given for; edits re-open the gate.
+  const fingerprint = lessonFingerprint(file);
+  const approved = flags.go || flags.noReview || st.approvedFor === fingerprint;
   if (!approved) {
     console.log("\n" + gateSummary(L, stats, await courseTable(), addRes));
+    if (st.approvedFor) console.log("\n(lesson.json changed since the last go — review again)");
     console.log(`\n(local edits only — nothing deployed or spent)\nContinue:  node scripts/academy-lesson.mjs run "${path.resolve(file)}" --go [--only …]`);
     updateStatusDoc(dir);
     return;
   }
-  saveState(dir, { approved: true });
+  saveState(dir, { approvedFor: fingerprint });
 
   if (typeof L.course === "object" && L.course.new.priceUsd > 0 && !st.price?.done) {
     flags.usd = L.course.new.priceUsd;
@@ -813,6 +888,10 @@ async function run(file) {
   await produce(file);
   const shipped = await ship(file);
   console.log("\n" + report(dir, L, shipped));
+}
+
+function lessonFingerprint(file) {
+  return createHash("sha256").update(readFileSync(file)).digest("hex").slice(0, 16);
 }
 
 /** Forge-style closing report (<120 words). */

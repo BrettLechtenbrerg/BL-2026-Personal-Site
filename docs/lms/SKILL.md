@@ -94,7 +94,9 @@ Schema: `scripts/academy-lesson-schema.json`. The validator enforces these; writ
 
 - **Never hand-edit `modules.ts` for a new lesson** — `add` does it (order allocation, renumbering of
   later modules, course ranges, badge, PDFs) and proves it with `tsc`. Edits after the fact go in
-  `lesson.json` → re-run (`add --force` only when Brett asks to replace).
+  `lesson.json` → re-run `run`/`add`: it detects the changed file, swaps the module block in place
+  (same slug, same order, narration/NotebookLM entries kept) and **re-opens the gate**. Never change
+  the slug of an added lesson (member progress is keyed on it).
 - **Nothing costs quota or money before the gate.** `price` runs only after "go" and only with the `$N` Brett typed.
 - **Source material is read-only.** Copy into `source/`, never modify.
 - **Certification** requires every module — each new lesson raises the bar for everyone. Say so in the gate and the report.
