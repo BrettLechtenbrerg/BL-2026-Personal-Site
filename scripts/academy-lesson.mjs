@@ -176,7 +176,7 @@ async function checkLesson(L, dir) {
   } else if (L.course && typeof L.course === "object" && L.course.new) {
     const n = L.course.new;
     if (!str(n.id) || !SLUG.test(n.id)) errors.push("course.new.id: lowercase-dashes id required");
-    else if (academyCourses.some((c) => c.id === n.id)) errors.push(`course.new.id "${n.id}" already exists — use course: "${n.id}" instead.`);
+    else if (academyCourses.some((c) => c.id === n.id) && !L._existing) errors.push(`course.new.id "${n.id}" already exists — use course: "${n.id}" instead.`);
     if (!str(n.title)) errors.push("course.new.title: required");
     if (!str(n.emoji)) errors.push("course.new.emoji: required");
     if (!str(n.description) || n.description.length < 40) errors.push("course.new.description: required, at least 40 characters");
