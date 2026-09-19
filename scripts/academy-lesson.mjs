@@ -487,7 +487,25 @@ async function replaceModule(L, dir, state, fingerprint) {
   let block = moduleToTs(L, order);
   // Same spot academy-install.mjs uses: straight after the slug line.
   if (keep.length) block = block.replace(`\n    slug: ${q(L.slug)},\n`, `\n    slug: ${q(L.slug)},\n${keep.join("\n")}\n`);
-  const src = origModules.slice(0, blockStart) + "\n" + block + origModules.slice(end + "\n  },".length);
+  let src = origModules.slice(0, blockStart) + "\n" + block + origModules.slice(end + "\n  },".length);
+
+  // New-course lessons own their course entry too: keep its cover/title/description in step.
+  if (typeof L.course === "object" && L.course.new) {
+    const n = L.course.new;
+    const cStart = src.indexOf("export const academyCourses");
+    const idIdx = src.indexOf(`\n    id: ${q(n.id)},\n`, cStart);
+    const cEnd = idIdx === -1 ? -1 : src.indexOf("\n  },", idIdx);
+    if (idIdx !== -1 && cEnd !== -1) {
+      let entry = src.slice(idIdx, cEnd);
+      entry = entry.replace(/\n    title: "[^\n]*",/, `\n    title: ${q(n.title)},`)
+                   .replace(/\n    emoji: "[^\n]*",/, `\n    emoji: ${q(n.emoji)},`)
+                   .replace(/\n    description:\n      "[^\n]*",/, `\n    description:\n      ${q(n.description)},`);
+      if (n.cover && /\n    cover: "[^\n]*",/.test(entry)) entry = entry.replace(/\n    cover: "[^\n]*",/, `\n    cover: ${q(n.cover)},`);
+      else if (n.cover) entry = entry.replace(/(\n    toOrder: \d+,)/, `$1\n    cover: ${q(n.cover)},`);
+      else entry = entry.replace(/\n    cover: "[^\n]*",/, "");
+      src = src.slice(0, idIdx) + entry + src.slice(cEnd);
+    }
+  }
 
   let badges = origBadges;
   if (L.badge) {
