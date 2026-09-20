@@ -16,11 +16,18 @@
   --academy-primary: #9B1B30;
   --academy-primary-dark: #7A1526;
   --academy-primary-light: #C4324A;
-  --academy-primary-rgb: 155 27 48;
   --academy-accent: #D4AF37;
   --academy-accent-dark: #B8982E;
   --academy-accent-light: #E8C84A;
+  /* rgb triplets — Tailwind 3 needs these for opacity modifiers (text-academy-fg/60) */
+  --academy-primary-rgb: 155 27 48;
+  --academy-primary-dark-rgb: 122 21 38;
+  --academy-primary-light-rgb: 196 50 74;
   --academy-accent-rgb: 212 175 55;
+  --academy-accent-dark-rgb: 184 152 46;
+  --academy-accent-light-rgb: 232 200 74;
+  --academy-fg-rgb: 255 255 255;
+  --academy-bg-rgb: 26 26 26;
   /* Theme-independent accent (certificate seal, progress ring) */
   --academy-accent-base: #D4AF37;
   --academy-accent-dark-base: #B8982E;
@@ -41,6 +48,11 @@
   --academy-accent-light: #B8982E;
   --academy-accent-dark: #6E5618;
   --academy-mid: #F7ECEF;
+  --academy-fg-rgb: 26 26 26;
+  --academy-bg-rgb: 255 255 255;
+  --academy-accent-rgb: 138 109 30;
+  --academy-accent-light-rgb: 184 152 46;
+  --academy-accent-dark-rgb: 110 86 24;
 }
 /* Solid primary buttons + selection keep light text on the primary in either mode */
 .academy-light .bg-academy-primary,
@@ -53,6 +65,11 @@
   --academy-accent: #D4AF37;
   --academy-accent-light: #E8C84A;
   --academy-accent-dark: #B8982E;
+  --academy-fg-rgb: 255 255 255;
+  --academy-bg-rgb: 26 26 26;
+  --academy-accent-rgb: 212 175 55;
+  --academy-accent-light-rgb: 232 200 74;
+  --academy-accent-dark-rgb: 184 152 46;
 }
 
 /* Tailwind 4: expose the vars as academy-* colour utilities */
