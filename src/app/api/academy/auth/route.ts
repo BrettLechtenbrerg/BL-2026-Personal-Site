@@ -13,7 +13,7 @@
 // Rate limiting mirrors /api/hub/auth: per-IP failed attempts, in-memory.
 //==============================================================================
 
-import { NextRequest, NextResponse } from "next/server";
+import { after, NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { timingSafeEqual } from "node:crypto";
 import {
@@ -26,6 +26,7 @@ import {
 import { db, getUserById, getBadges, awardBadge, awardXp } from "@/lib/academy-db";
 import { checkBotSignals, rejectBot } from "@/lib/bot-protection";
 import { academyConfig } from "@/content/academy.config";
+import { sendEnrollmentEmails } from "@/lib/academy-email";
 
 //------------------------------------------------------------------------------
 // Rate limit — per-IP FAILED login attempts.
@@ -175,6 +176,8 @@ export async function POST(request: NextRequest) {
           { status: 503 }
         );
       }
+      // Next keeps this work alive after the response; email never blocks sign-in.
+      after(() => sendEnrollmentEmails(email, name));
       return response;
     }
 
