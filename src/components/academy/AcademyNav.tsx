@@ -81,7 +81,7 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-academy-fg/10 bg-academy-bg/60 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-4 py-3">
+      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 py-3 xl:flex xl:justify-between">
         <Link href={authed ? "/academy/dashboard" : "/academy"} className="flex items-center gap-2">
           {academyConfig.academy.logo ? (
             <Image src={academyConfig.academy.logo} alt="" width={28} height={28} className="h-7 w-7" />
@@ -92,9 +92,9 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
             {academyConfig.academy.name.toUpperCase()}
           </span>
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="contents xl:flex xl:items-center xl:gap-2">
           {authed && (
-            <nav className="flex items-center gap-1">
+            <nav aria-label="Academy" className="order-3 col-span-2 flex flex-wrap items-center gap-1 xl:order-none">
               {links.map(({ href, label, icon: Icon }) => {
                 const active = pathname?.startsWith(href);
                 const className = `flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-sm transition-colors sm:px-3 ${
@@ -124,7 +124,7 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
                         <div
                           role="menu"
                           onClick={() => setCoursesOpen(false)}
-                          className="absolute left-0 top-full z-50 mt-1 w-72 overflow-hidden rounded-xl border border-academy-fg/10 bg-academy-bg/95 py-1 shadow-xl backdrop-blur-md"
+                          className="absolute left-0 top-full z-50 mt-1 w-72 max-w-[calc(100vw-6rem)] overflow-hidden rounded-xl border border-academy-fg/10 bg-academy-bg/95 py-1 shadow-xl backdrop-blur-md"
                         >
                           <Link
                             role="menuitem"
@@ -165,7 +165,9 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
               </button>
             </nav>
           )}
-          <ThemeToggle />
+          <div className="justify-self-end">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </header>

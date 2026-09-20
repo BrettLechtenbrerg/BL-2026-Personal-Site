@@ -93,7 +93,7 @@ export default function Dashboard({
           className="flex flex-col items-center rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md"
         >
           <svg width="128" height="128" viewBox="0 0 128 128" role="img" aria-label={`${pct}% complete`}>
-            <circle cx="64" cy="64" r={R} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="10" />
+            <circle cx="64" cy="64" r={R} fill="none" stroke="var(--academy-fg)" strokeOpacity="0.1" strokeWidth="10" />
             <motion.circle
               cx="64"
               cy="64"
@@ -108,7 +108,7 @@ export default function Dashboard({
               transition={{ duration: 1, ease: "easeOut" }}
               transform="rotate(-90 64 64)"
             />
-            <text x="64" y="70" textAnchor="middle" fill="white" fontSize="24" fontWeight="bold">
+            <text x="64" y="70" textAnchor="middle" fill="var(--academy-fg)" fontSize="24" fontWeight="bold">
               {pct}%
             </text>
           </svg>
