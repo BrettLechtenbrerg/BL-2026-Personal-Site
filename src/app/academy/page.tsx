@@ -28,6 +28,15 @@ export default function AcademyLoginPage() {
   const [avatar, setAvatar] = useState(AVATARS[0]);
   const [accessCode, setAccessCode] = useState("");
   const needsCode = Boolean(academyConfig.signup.accessCodeEnv);
+  // Magic link ("forgot password"): idle → sending → sent
+  const [linkState, setLinkState] = useState<"idle" | "sending" | "sent">("idle");
+  const [notice, setNotice] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    const why = new URLSearchParams(window.location.search).get("link");
+    if (why === "expired") return "That sign-in link has expired or was already used. Request a fresh one below.";
+    if (why === "unavailable") return "Sign-in links are temporarily unavailable. Please use your password.";
+    return null;
+  });
   const [showPassword, setShowPassword] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -69,6 +78,28 @@ export default function AcademyLoginPage() {
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitting(false);
+    }
+  };
+
+  const sendLink = async () => {
+    setError(null);
+    if (!email.trim()) {
+      setError("Enter your email above, then we'll send you a sign-in link.");
+      return;
+    }
+    setLinkState("sending");
+    try {
+      const res = await fetch("/api/academy/magic-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(json.error || "Couldn't send the link.");
+      setLinkState("sent");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Couldn't send the link.");
+      setLinkState("idle");
     }
   };
 
@@ -213,6 +244,12 @@ export default function AcademyLoginPage() {
             </div>
           )}
 
+          {notice && (
+            <p className="rounded-lg border border-academy-accent/40 bg-academy-accent/10 px-3 py-2 text-sm text-academy-fg/80">
+              {notice}
+            </p>
+          )}
+
           {error && (
             <p className="rounded-lg border border-academy-primary/40 bg-academy-primary/15 px-3 py-2 text-sm text-red-300">
               {error}
@@ -227,6 +264,28 @@ export default function AcademyLoginPage() {
             {submitting && <Loader2 size={18} className="animate-spin" />}
             {mode === "login" ? COPY.loginCta : COPY.signupCta}
           </button>
+
+          {mode === "login" && (
+            <p className="text-center text-sm text-academy-fg/60">
+              {linkState === "sent" ? (
+                <span className="text-academy-fg/80">
+                  If that email has an account, a one-time sign-in link is on its way. Check your inbox (and spam).
+                </span>
+              ) : (
+                <>
+                  Forgot your password?{" "}
+                  <button
+                    type="button"
+                    onClick={sendLink}
+                    disabled={linkState === "sending"}
+                    className="font-semibold text-academy-accent underline-offset-4 hover:underline disabled:opacity-60"
+                  >
+                    {linkState === "sending" ? "Sending…" : "Email me a sign-in link"}
+                  </button>
+                </>
+              )}
+            </p>
+          )}
         </form>
       </motion.div>
     </div>

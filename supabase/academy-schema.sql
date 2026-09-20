@@ -178,3 +178,20 @@ begin
     execute format('grant all on %I to service_role', t);
   end loop;
 end $$;
+
+-- Sep 20 2026: magic-link sign-in ("forgot password" / passwordless).
+-- One row per emailed link; token stored as sha256, single use, 15-min TTL.
+create table if not exists me_login_tokens (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references me_users(id) on delete cascade,
+  token_hash text not null unique,
+  expires_at timestamptz not null,
+  used_at timestamptz,
+  created_at timestamptz not null default now()
+);
+create index if not exists me_login_tokens_user_idx on me_login_tokens (user_id, created_at desc);
+do $$ begin
+  execute 'alter table me_login_tokens enable row level security';
+  execute 'revoke all on me_login_tokens from anon, authenticated';
+  execute 'grant all on me_login_tokens to service_role';
+end $$;

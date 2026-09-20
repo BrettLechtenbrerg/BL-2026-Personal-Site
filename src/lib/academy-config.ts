@@ -126,6 +126,12 @@ export interface AcademyConfig {
     /** Project ref (for keep-alive auto-restore). Secrets stay in env. */
     project: string;
   };
+  email: {
+    /** "Name <address>" the academy sends from. Domain must be verified in Resend. Overridden by ACADEMY_EMAIL_FROM env. */
+    from: string;
+    /** Reply-To for member replies. */
+    replyTo: string;
+  };
   signup: {
     /** Env var holding a shared program/access code required at signup (GC). null = open signup. */
     accessCodeEnv: string | null;

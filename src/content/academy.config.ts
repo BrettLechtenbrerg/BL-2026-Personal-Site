@@ -134,6 +134,10 @@ export const academyConfig: AcademyConfig = {
   "supabase": {
     "project": "yrfsquzzbgnmkfbuapfk"
   },
+  "email": {
+    "from": "Master's Edge Academy <academy@auth.brettlechtenberg.com>",
+    "replyTo": "brett@brettlechtenberg.com"
+  },
   "vocab": {
     "module": "module",
     "modules": "modules",
