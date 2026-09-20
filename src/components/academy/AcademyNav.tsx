@@ -94,7 +94,7 @@ export default function AcademyNav({ courses }: { courses: NavCourse[] }) {
         </Link>
         <div className="contents xl:flex xl:items-center xl:gap-2">
           {authed && (
-            <nav aria-label="Academy" className="order-3 col-span-2 flex flex-wrap items-center gap-1 xl:order-none">
+            <nav aria-label="Academy" className="order-3 col-span-2 flex flex-wrap items-center gap-1 xl:order-none xl:flex-nowrap">
               {links.map(({ href, label, icon: Icon }) => {
                 const active = pathname?.startsWith(href);
                 const className = `flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-sm transition-colors sm:px-3 ${
