@@ -1,5 +1,15 @@
 # Session Notes — Academy
 
+## Sep 23, 2026 — engine parity with TSAI / PMMA / GIFT CONNECT
+
+- Full `bash ~/dev/academy-forge/install.sh bl` at academy-forge `1fa568f`, then `c723893`.
+- Public `/academy` is pixel-identical to before on the live site, desktop and mobile.
+- New: a "Learn your way" intro above every module title (lists the formats the module has, the 80% pass mark, the module badge and the course certificate).
+- New: nav keyboard/focus fixes, login aria-labels, and the partner Programs feature (empty catalog, so nothing shows).
+- The batch runner is now the shared engine version: per-brand LaunchAgent `com.brettlechtenberg.academy-batch.bl`, one NotebookLM job at a time across all academies, and only NotebookLM's own rate-limit errors trigger the 60-min pause.
+- The old BL-only agent `com.brettlechtenberg.academy-notebooklm` is retired (not loaded).
+- Releases: `d122d3f`, `168a67b`, `96ac43f`. Status: `~/Desktop/Academies/01-MASTER-STATUS.md`.
+
 ## Sep 19, 2026 — Session 31b: course certificates (two tiers)
 
 Decision (Brett): **certificates per course; Certifier only for the entire package.**
