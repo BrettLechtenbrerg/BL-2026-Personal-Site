@@ -13,6 +13,7 @@ import { useBotProtection } from "@/lib/useBotProtection";
 import Image from "next/image";
 import { academyConfig } from "@/content/academy.config";
 import { splitAcademyName } from "@/lib/academy-config";
+import { partnerReturnPath } from "@/lib/academy-partner-programs";
 
 const AVATARS = academyConfig.academy.avatars;
 const COPY = academyConfig.academy.copy;
@@ -42,12 +43,12 @@ export default function AcademyLoginPage() {
   const [error, setError] = useState<string | null>(null);
   const { honeypotProps, withBotFields } = useBotProtection();
 
-  // Already signed in? Straight to the dashboard.
+  // Already signed in? Return only to a validated partner path, otherwise the dashboard.
   useEffect(() => {
     let cancelled = false;
     fetch("/api/academy/auth")
       .then((res) => {
-        if (!cancelled && res.ok) router.replace("/academy/dashboard");
+        if (!cancelled && res.ok) router.replace(partnerReturnPath(window.location.search));
         else if (!cancelled) setChecking(false);
       })
       .catch(() => {
@@ -74,7 +75,7 @@ export default function AcademyLoginPage() {
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(json.error || "Something went wrong.");
-      router.replace("/academy/dashboard");
+      router.replace(partnerReturnPath(window.location.search));
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
       setSubmitting(false);
@@ -165,6 +166,7 @@ export default function AcademyLoginPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Your name"
+                aria-label="Your name"
                 autoComplete="name"
                 required
                 minLength={2}
@@ -192,6 +194,7 @@ export default function AcademyLoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
+            aria-label="Email"
             autoComplete="email"
             required
             className={inputClass}
@@ -203,6 +206,7 @@ export default function AcademyLoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder={mode === "signup" ? "Create a password (8+ characters)" : "Password"}
+              aria-label="Password"
               autoComplete={mode === "signup" ? "new-password" : "current-password"}
               required
               minLength={mode === "signup" ? 8 : 1}

@@ -6,6 +6,9 @@
 import { orderedModules, academyCourses } from "@/content/academy/modules";
 import { coursePriceLabels } from "@/lib/stripe";
 import ModulesGrid from "@/components/academy/ModulesGrid";
+import PartnerPrograms from "@/components/academy/PartnerPrograms";
+import { partnerPrograms } from "@/content/academy/partner-programs";
+import { partnerSummaries } from "@/lib/academy-partner-programs";
 
 // Prices come from Stripe at request time (cached per server process) —
 // never baked into a build-time static page.
@@ -32,5 +35,5 @@ export default async function ModulesPage() {
     paid: Boolean(c.priceEnv),
     priceLabel: priceLabels[c.id],
   }));
-  return <ModulesGrid modules={modules} courses={courses} />;
+  return <><ModulesGrid modules={modules} courses={courses} /><PartnerPrograms programs={partnerSummaries(partnerPrograms)} /></>;
 }

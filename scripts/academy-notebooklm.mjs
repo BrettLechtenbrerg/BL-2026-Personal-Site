@@ -19,7 +19,9 @@
 //==============================================================================
 
 import { execFileSync, spawnSync } from "node:child_process";
-import { mkdirSync, writeFileSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
+import { register } from "node:module";
+import os from "node:os";
 import path from "node:path";
 
 // modules.ts is plain TS with no imports — Node 22 can load it once type
@@ -30,11 +32,34 @@ if (!process.execArgv.includes("--experimental-strip-types")) {
   });
   process.exit(r.status ?? 1);
 }
+// A site may split modules into per-lesson files imported without an extension
+// (GIFT CONNECT: `import { read } from "./habits/read"`). Retry with ".ts" / "/index.ts".
+register("data:text/javascript," + encodeURIComponent(`export async function resolve(s, c, next) {
+  try { return await next(s, c); } catch (err) {
+    if (!/^\\.{1,2}\\//.test(s) || /\\.[cm]?[jt]sx?$/.test(s)) throw err;
+    for (const ext of [".ts", "/index.ts"]) { try { return await next(s + ext, c); } catch {} }
+    throw err;
+  }
+}`));
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 // srcDir ("src" or "") comes from the generated Academy Forge config.
 const SRC = ["src", ""].map((d) => path.join(ROOT, d)).find((d) => existsSync(path.join(d, "content", "academy.config.ts"))) ?? path.join(ROOT, "src");
 const SRC_REL = path.relative(ROOT, SRC);
+
+// Brand framing for the NotebookLM prompts: academy name + audience from the generated
+// config; optional `notebooklm` block ({ guidance, flashcards }) from the Forge profile.
+// Unreadable config → {} → the original Master's Edge prompts (never block production).
+const SITE = (() => {
+  try {
+    const m = readFileSync(path.join(SRC, "content", "academy.config.ts"), "utf8").match(/academyConfig: AcademyConfig = (\{[\s\S]*\});\s*$/);
+    return m ? JSON.parse(m[1]) : {};
+  } catch { return {}; }
+})();
+const NLM = (() => {
+  const f = path.join(os.homedir(), "dev/academy-forge/brands", String(SITE.slug ?? ""), "academy.json");
+  try { return JSON.parse(readFileSync(f, "utf8")).notebooklm ?? {}; } catch { return {}; }
+})();
 
 const WORK = path.join(ROOT, ".notebooklm");
 const ALL = ["audio", "video", "flashcards", "quiz"];
@@ -100,7 +125,7 @@ try {
       label: `${mod.title} (NotebookLM video overview)`,
     },
     flashcards: {
-      gen: ["generate", "flashcards", "--quantity", "standard", "--retry", "3", ...nb],
+      gen: ["generate", "flashcards", "--quantity", NLM.flashcards ?? "standard", "--retry", "3", ...nb],
       dl: ["download", "flashcards", path.join(outDir, "flashcards.json"), "--format", "json", "--force", ...nb],
       file: "flashcards.json",
     },
@@ -124,7 +149,7 @@ try {
     }
     const taskId = res.task_id ?? res.artifact_id ?? res.id;
     if (!taskId) {
-      console.warn(`⚠ ${kind}: could not start (${JSON.stringify(res).slice(0, 200)})`);
+      console.warn(`⚠ ${kind}: could not start (${JSON.stringify(res).slice(0, 200)}) — NotebookLM rate limit? Retry in about an hour.`);
       continue;
     }
     started.push({ kind, taskId });
@@ -161,13 +186,15 @@ try {
 
   if (flags.deploy && installed.some((k) => k !== "quiz")) {
     run("npx", ["tsc", "--noEmit"]);
-    run("git", ["add", path.join(SRC_REL, "content/academy/modules.ts"), `public/academy/${slug}`, path.join(SRC_REL, "content/academy/flashcards")]);
+    // content/academy covers modules.ts, split per-lesson files (GC habits/*.ts) and flashcards/.
+    run("git", ["add", "--", path.join(SRC_REL, "content/academy"), `public/academy/${slug}`]);
     run("git", ["commit", "-m", `Academy: NotebookLM ${installed.filter((k) => k !== "quiz").join("+")} for ${slug}`]);
-    run("git", ["push", "origin", "main"]);
-    run("npx", ["vercel", "--prod", "--yes"]);
-    console.log("✓ deployed");
+    run("git", ["push", "origin", SITE.site?.gitBranch ?? "main"]);
+    // Deploy the way the brand's profile says. git-push brands (PMMA, GC) auto-deploy — never bare vercel.
+    if ((SITE.site?.deploy ?? "cli") === "git-push") console.log("✓ pushed — Vercel auto-deploys (git-push brand)");
+    else { run("npx", ["vercel", "--prod", "--yes"]); console.log("✓ deployed"); }
   } else if (installed.length) {
-    console.log("Next: review with `git diff`, then commit + `npx vercel --prod --yes` (or re-run with --deploy).");
+    console.log("Next: review with `git diff`, then commit and publish the way this brand deploys (or re-run with --deploy).");
   }
 } finally {
   if (flags.keep) {
@@ -196,12 +223,23 @@ function lessonToMarkdown(m) {
   return lines.join("\n");
 }
 
+// "GIFT CONNECT" + "Parent Academy"; skip the kicker when the name already has it
+// ("Total Success AI" + "Total Success AI Academy").
+function academyTitle(a) {
+  return a.kicker && !a.name.includes(a.kicker) ? `${a.kicker} ${a.name}` : a.name;
+}
+
+// BL (and any brand without a profile audience) keeps the original Master's Edge wording.
 function audioPrompt(m) {
-  return `This is a lesson from Brett Lechtenberg's Master's Edge Academy for business owners and leaders. Two hosts discuss "${m.title}" as a practical deep dive: what it is, why it matters, how to apply it this week. Stay strictly within the source. Refer to the author as Brett.`;
+  const a = SITE.academy;
+  if (SITE.slug === "bl" || !a?.audience) return `This is a lesson from Brett Lechtenberg's Master's Edge Academy for business owners and leaders. Two hosts discuss "${m.title}" as a practical deep dive: what it is, why it matters, how to apply it this week. Stay strictly within the source. Refer to the author as Brett.`;
+  return `This is a lesson from the ${academyTitle(a)} for ${a.audience}. Two hosts discuss "${m.title}" as a practical deep dive: what it is, why it matters, how to apply it this week. Stay strictly within the source.${NLM.guidance ? ` ${NLM.guidance}` : ""}`;
 }
 
 function videoPrompt(m) {
-  return `Explainer video for business owners on "${m.title}" from Brett Lechtenberg's Master's Edge Academy. Cover every section of the source in order, end with the key points. Stay strictly within the source.`;
+  const a = SITE.academy;
+  if (SITE.slug === "bl" || !a?.audience) return `Explainer video for business owners on "${m.title}" from Brett Lechtenberg's Master's Edge Academy. Cover every section of the source in order, end with the key points. Stay strictly within the source.`;
+  return `Explainer video for ${a.audience} on "${m.title}" from the ${academyTitle(a)}. Cover every section of the source in order, end with the key points. Stay strictly within the source.${NLM.guidance ? ` ${NLM.guidance}` : ""}`;
 }
 
 function nlm(argv) {

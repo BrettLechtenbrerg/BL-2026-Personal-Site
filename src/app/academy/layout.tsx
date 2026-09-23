@@ -10,6 +10,8 @@ import AcademyNav from "@/components/academy/AcademyNav";
 import { academyCourses } from "@/content/academy/modules";
 import ChannelSidebar from "@/components/academy/ChannelSidebar";
 import { academyConfig } from "@/content/academy.config";
+import { partnerPrograms } from "@/content/academy/partner-programs";
+import { partnerSummaries } from "@/lib/academy-partner-programs";
 
 export const metadata: Metadata = {
   title: `${academyConfig.academy.name} | ${academyConfig.academy.kicker}`,
@@ -33,6 +35,7 @@ export default function AcademyLayout({ children }: { children: React.ReactNode 
       />
       <AcademyNav
         courses={academyCourses.map(({ id, title, emoji }) => ({ id, title, emoji }))}
+        programs={partnerSummaries(partnerPrograms)}
       />
       <div className="mx-auto flex max-w-6xl gap-6 px-4 pb-24 pt-6">
         <ChannelSidebar />

@@ -30,13 +30,24 @@ import {
 } from "node:fs";
 import os from "node:os";
 import { createHash } from "node:crypto";
+import { register } from "node:module";
 import path from "node:path";
 
-// modules.ts is plain TS with no imports — Node 22 loads it with type stripping.
+// modules.ts is plain TS — Node 22 loads it with type stripping.
 if (!process.execArgv.includes("--experimental-strip-types")) {
   const r = spawnSync(process.execPath, ["--experimental-strip-types", "--no-warnings", ...process.argv.slice(1)], { stdio: "inherit" });
   process.exit(r.status ?? 1);
 }
+// A site may split modules into per-lesson files imported without an extension
+// (GIFT CONNECT: `import { read } from "./habits/read"`). Next resolves those; bare
+// Node does not, so retry relative specifiers with ".ts" / "/index.ts".
+register("data:text/javascript," + encodeURIComponent(`export async function resolve(s, c, next) {
+  try { return await next(s, c); } catch (err) {
+    if (!/^\\.{1,2}\\//.test(s) || /\\.[cm]?[jt]sx?$/.test(s)) throw err;
+    for (const ext of [".ts", "/index.ts"]) { try { return await next(s + ext, c); } catch {} }
+    throw err;
+  }
+}`));
 
 //------------------------------------------------------------------------------
 // CONFIG — derived from the generated academy.config.ts (never edit here)
@@ -340,7 +351,7 @@ function gateSummary(L, stats, courses, added = null) {
     `Key points (5): ${L.keyPoints.map((k) => k.split(/[.:—]/)[0].trim()).join(" · ")}`,
     `Sections (${stats.sections}, ${stats.words} words): ${L.lesson.map((s) => s.heading).join(" · ")}`,
     `Quiz: ${stats.quiz} q   Badge: ${badge}   PDFs: ${stats.pdfs}`,
-    `Will produce: ${nlm.length ? `NotebookLM ${nlm.join(" + ")} (uses today's quota)` : "no NotebookLM pieces"}${produce.includes("narration") ? `, narration (${CONFIG.narrationVoice}, ~${Math.max(1, Math.round(stats.words / 330))} min render, ~${Math.max(1, Math.round(stats.words / 126))} min of audio)` : ""}`,
+    `Will produce: ${nlm.length ? `NotebookLM ${nlm.join(" + ")} (uses NotebookLM generation quota)` : "no NotebookLM pieces"}${produce.includes("narration") ? `, narration (${CONFIG.narrationVoice}, ~${Math.max(1, Math.round(stats.words / 330))} min render, ~${Math.max(1, Math.round(stats.words / 126))} min of audio)` : ""}`,
     `Needs from you: ${needs.length ? needs.join("; ") : "none"}`,
     `Note: certification will require ${total} modules.`,
     `Reply "go" (or "go, no video" / edits).`,
@@ -756,7 +767,7 @@ async function produce(target) {
         st[k] = { done: true, file: rel(artefact[k]), at: new Date().toISOString() };
         if (k === "quiz") { copyFileSync(artefact[k], path.join(P.dir, "quiz-draft.json")); st[k].note = "quiz-draft.json in the project folder — NotebookLM's take, never auto-applied"; }
       } else {
-        st[k] = { failed: r.status !== 0 ? "notebooklm script failed (not signed in? run: notebooklm login)" : "not generated — daily quota or NotebookLM error; resume later", at: new Date().toISOString() };
+        st[k] = { failed: r.status !== 0 ? "notebooklm script failed (not signed in? run: notebooklm login)" : "not generated — NotebookLM rate limit or generation error; retry in about an hour, one lesson at a time (see scripts/academy-batch.mjs)", at: new Date().toISOString() };
       }
       console.log(st[k].done ? `✓ ${k} → ${st[k].file}` : `⚠ ${k}: ${st[k].failed}`);
     }
@@ -790,7 +801,7 @@ async function narrate(target, { quiet = false } = {}) {
   if (!mod) throw new Error(`narrate: "${P.slug}" is not in modules.ts yet — run add first`);
   const href = `/academy/${P.slug}/${CONFIG.narrationFile}`;
   const dest = path.join(CONFIG.publicAcademy, P.slug, CONFIG.narrationFile);
-  const modulesSrc = readFileSync(CONFIG.modulesTs, "utf8");
+  const modulesSrc = readFileSync(moduleFileFor(P.slug), "utf8");
   if (!flags.force && existsSync(dest) && modulesSrc.includes(JSON.stringify(href))) {
     if (!quiet) console.log(`✓ narration already installed (${href}) — use --force to redo`);
     return { done: true, file: rel(dest), at: new Date().toISOString() };
@@ -917,7 +928,7 @@ function commitMessage(mod, course, state) {
 /** Repo paths this lesson touches that have uncommitted changes. */
 function changedPaths(slug) {
   const candidates = [
-    rel(CONFIG.modulesTs), rel(CONFIG.badgesTs),
+    rel(CONFIG.modulesTs), rel(CONFIG.badgesTs), rel(moduleFileFor(slug)),
     path.join(rel(CONFIG.publicAcademy), slug), path.join(rel(CONFIG.flashcardsDir), `${slug}.json`),
   ].filter((p) => existsSync(path.join(ROOT, p)));
   const out = git(["status", "--porcelain", "--", ...candidates]).split("\n").filter(Boolean);
@@ -1015,6 +1026,15 @@ async function loadModules() {
   return import(CONFIG.modulesTs + `?t=${Date.now()}`);
 }
 async function courseTable() { return (await loadModules()).academyCourses; }
+
+/** The .ts file that defines a module: modules.ts, or a split per-lesson file under content/academy/. */
+function moduleFileFor(slug) {
+  const anchor = new RegExp(`^\\s*slug: "${slug}",$`, "m");
+  const files = [CONFIG.modulesTs];
+  const walk = (d) => { for (const e of readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) walk(p); else if (e.name.endsWith(".ts") && p !== CONFIG.modulesTs) files.push(p); } };
+  walk(path.dirname(CONFIG.modulesTs));
+  return files.find((f) => anchor.test(readFileSync(f, "utf8"))) ?? CONFIG.modulesTs;
+}
 
 function template(name, vars) {
   const p = path.join(TEMPLATES_DIR, name);

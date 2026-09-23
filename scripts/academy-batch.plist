@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  macOS LaunchAgent: runs scripts/academy-batch.mjs every 20 minutes until every
-  Academy module has NotebookLM audio + video + flashcards. Survives closed
-  terminals; does NOT run while the Mac is asleep (keep it plugged in and awake).
+  Academy Forge — macOS LaunchAgent template. academy-batch-ctl.sh fills the
+  __PLACEHOLDERS__ and installs it. Runs scripts/academy-batch.mjs every 20 min
+  until every module has NotebookLM audio + video + flashcards, then unloads
+  itself. Survives closed terminals; does NOT run while the Mac is asleep.
 
-  Install / remove:   bash scripts/academy-batch-ctl.sh install | remove | status
+  bash scripts/academy-batch-ctl.sh install [--deploy] | remove | status
 -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>Label</key>
-  <string>com.brettlechtenberg.academy-notebooklm</string>
+  <string>__LABEL__</string>
 
   <key>ProgramArguments</key>
   <array>
     <string>/usr/bin/caffeinate</string>
     <string>-i</string>
-    <string>/usr/local/bin/node</string>
+    <string>__NODE__</string>
     <string>__ROOT__/scripts/academy-batch.mjs</string>
+    __DEPLOY_ARG__
   </array>
 
   <key>WorkingDirectory</key>
@@ -25,7 +28,7 @@
   <key>EnvironmentVariables</key>
   <dict>
     <key>PATH</key>
-    <string>__HOME__/.local/bin:__HOME__/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <string>__HOME__/.local/bin:__HOME__/.npm-global/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
     <key>HOME</key>
     <string>__HOME__</string>
   </dict>

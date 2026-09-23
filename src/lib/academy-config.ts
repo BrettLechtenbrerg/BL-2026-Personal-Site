@@ -121,6 +121,12 @@ export interface AcademyConfig {
     modules: string;
     course: string;
     courses: string;
+    /**
+     * Optional label for the modules link in the top navigation. Use when the nav should
+     * read differently from the prose plural, which also builds sentences like
+     * "All habits passed". Falls back to `cap(modules)`.
+     */
+    modulesNav?: string;
   };
   supabase: {
     /** Project ref (for keep-alive auto-restore). Secrets stay in env. */
