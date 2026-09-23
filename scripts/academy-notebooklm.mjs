@@ -144,7 +144,7 @@ try {
     try {
       res = JSON.parse(nlm([...jobs[kind].gen, "--json"]));
     } catch (err) {
-      console.warn(`⚠ ${kind}: could not start (${String(err.message ?? err).slice(0, 200)}) — daily quota?`);
+      console.warn(`⚠ ${kind}: could not start (${String(err.message ?? err).slice(0, 200)}) — NotebookLM rate limit? Retry in about an hour, one lesson at a time.`);
       continue;
     }
     const taskId = res.task_id ?? res.artifact_id ?? res.id;
