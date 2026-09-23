@@ -17,15 +17,19 @@
 // failure. A module is given up after 3 real failures so one bad lesson can't block
 // the queue. Per-site state/log: .notebooklm/batch-state.json, .notebooklm/batch.log
 //==============================================================================
-import { spawnSync } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync, rmSync, appendFileSync, statSync } from "node:fs";
 import { register } from "node:module";
 import os from "node:os";
 import path from "node:path";
 
 if (!process.execArgv.includes("--experimental-strip-types")) {
-  const r = spawnSync(process.execPath, ["--experimental-strip-types", "--no-warnings", ...process.argv.slice(1)], { stdio: "inherit" });
-  process.exit(r.status ?? 1);
+  // Re-run with type stripping. Forward stop signals so launchd/`ctl remove` reach the real run
+  // (which then stops NotebookLM and releases the shared lock).
+  const inner = spawn(process.execPath, ["--experimental-strip-types", "--no-warnings", ...process.argv.slice(1)], { stdio: "inherit" });
+  for (const sig of ["SIGTERM", "SIGINT", "SIGHUP"]) process.on(sig, () => inner.kill(sig));
+  inner.on("close", (code) => process.exit(code ?? 1));
+  await new Promise(() => {}); // never continue into the body in the wrapper
 }
 // Split per-lesson module files (GIFT CONNECT: `import { read } from "./habits/read"`).
 register("data:text/javascript," + encodeURIComponent(`export async function resolve(s, c, next) {
@@ -51,10 +55,13 @@ const SHARED = path.join(os.homedir(), ".academy-forge"); // one NotebookLM acco
 const LOCK = path.join(SHARED, "notebooklm-batch.lock");
 const PAUSE = path.join(SHARED, "notebooklm-pause.json");
 const LAUNCHD_LABEL = `com.brettlechtenberg.academy-batch.${SITE.slug}`;
+const LAUNCHD_PLIST = path.join(os.homedir(), "Library/LaunchAgents", `${LAUNCHD_LABEL}.plist`);
 const MAX_ATTEMPTS = 3;
 const PAUSE_MIN = 60;
 const LOCK_STALE_MS = 75 * 60 * 1000; // longer than the longest possible run
-const RATE_RE = /RateLimitError|rate.?limit|quota|too many|429|daily limit|limit reached/i;
+// Match only what NotebookLM itself prints, never our own hint text ("… rate limit? Retry …"),
+// or every failure to start would be mistaken for a rate limit and retried forever.
+const RATE_RE = /RateLimitError|RESOURCE_EXHAUSTED|Too Many Requests|\bHTTP 429\b/;
 const DEPLOY = process.argv.includes("--deploy");
 const NEEDED = [
   { kind: "audio", file: (slug) => path.join(ROOT, "public/academy", slug, "deep-dive.m4a") },
@@ -97,7 +104,9 @@ if (pausedUntil > Date.now()) {
 
 if (runnable.length === 0) {
   log(givenUp.length ? `Queue empty; ${givenUp.length} module(s) gave up — see --status.` : "All modules complete.");
-  log("Unloading LaunchAgent.");
+  log("Removing LaunchAgent.");
+  // Delete the plist first (so it can't come back at next login), then unload — bootout ends this job.
+  rmSync(LAUNCHD_PLIST, { force: true });
   spawnSync("launchctl", ["bootout", `gui/${process.getuid()}/${LAUNCHD_LABEL}`], { stdio: "ignore" });
   process.exit(0);
 }
@@ -118,13 +127,25 @@ process.on("exit", () => rmSync(LOCK, { recursive: true, force: true }));
 
 const next = runnable[0];
 log(`Starting ${next.slug} (${next.missing.join(", ")}) — ${runnable.length} module(s) remaining.`);
-const r = spawnSync(
+// Async child so SIGTERM (launchd stop, `ctl remove`) is handled: stop the child, release the lock.
+const child = spawn(
   process.execPath,
   [path.join(ROOT, "scripts/academy-notebooklm.mjs"), next.slug, "--only", next.missing.join(","), ...(DEPLOY ? ["--deploy"] : [])],
-  { stdio: ["ignore", "pipe", "pipe"], cwd: ROOT, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 },
+  { stdio: ["ignore", "pipe", "pipe"], cwd: ROOT },
 );
-appendFileSync(LOG, r.stdout ?? "");
-appendFileSync(LOG, r.stderr ?? "");
+for (const sig of ["SIGTERM", "SIGINT", "SIGHUP"]) {
+  process.on(sig, () => {
+    child.kill("SIGTERM");
+    log(`Stopped (${sig}) during ${next.slug}; lock released, nothing counted.`);
+    process.exit(1);
+  });
+}
+let out = "";
+child.stdout.on("data", (d) => { out += d; appendFileSync(LOG, d); });
+child.stderr.on("data", (d) => { out += d; appendFileSync(LOG, d); });
+const r = await new Promise((resolve) => child.on("close", (status) => resolve({ status })));
+r.stdout = out;
+r.stderr = "";
 
 const stillMissing = NEEDED.filter((n) => !existsSync(n.file(next.slug))).map((n) => n.kind);
 if (stillMissing.length === 0) {

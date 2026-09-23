@@ -10,7 +10,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { courseForModule, getModule } from "@/content/academy/modules";
+import { courseForModule, getModule, PASS_PERCENT } from "@/content/academy/modules";
 import { loadFlashcards } from "@/content/academy/media";
 import { getAcademyUserId } from "@/lib/academy-session";
 import { getOwnedCourses } from "@/lib/academy-access";
@@ -74,6 +74,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
         keyPoints: m.keyPoints,
         lesson: m.lesson,
         questionCount: m.quiz.length,
+        passPercent: PASS_PERCENT,
       }}
     />
   );

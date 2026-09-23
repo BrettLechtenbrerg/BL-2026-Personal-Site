@@ -40,7 +40,13 @@ export interface ModuleDetailData {
   keyPoints: string[];
   lesson: { heading: string; paragraphs: string[]; bullets?: string[] }[];
   questionCount: number;
+  /** Quiz pass mark (modules.ts PASS_PERCENT) — quoted in the "learn your way" intro. */
+  passPercent: number;
 }
+
+/** "a", "a or b", "a, b or c" */
+const orList = (items: string[]) =>
+  items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} or ${items[items.length - 1]}`;
 
 export default function ModuleDetail({ module: m }: { module: ModuleDetailData }) {
   const router = useRouter();
@@ -95,6 +101,15 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
 
   const narration = (m.audio ?? []).filter(isReadAloud);
   const podcasts = (m.audio ?? []).filter((t) => !isReadAloud(t));
+  // Only the formats this lesson actually has (the written lesson always exists).
+  const ways = [
+    (m.videoFiles?.length || m.videoUrl) && "watch the video",
+    podcasts.length > 0 && "listen to the podcast",
+    narration.length > 0 && "listen to the lesson read aloud",
+    "read the lesson",
+    (m.flashcards?.length ?? 0) > 0 && "practise with the flashcards",
+  ].filter((w): w is string => Boolean(w));
+  const { module: unit, course } = academyConfig.vocab;
 
   if (loading || !ready) {
     return (
@@ -112,6 +127,22 @@ export default function ModuleDetail({ module: m }: { module: ModuleDetailData }
       >
         <ArrowLeft size={16} /> All {academyConfig.vocab.modules}
       </Link>
+
+      {/* Learn your way — how to use this page, before the title */}
+      <aside
+        aria-label={`How to learn this ${unit}`}
+        className="mb-5 flex gap-3 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-4 backdrop-blur-md"
+      >
+        <Sparkles size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-academy-accent" />
+        <p className="text-sm leading-relaxed text-academy-fg/80">
+          <strong className="font-semibold text-academy-fg">Learn your way.</strong>{" "}
+          {ways.length > 1
+            ? `There’s more than one way to learn this ${unit}: ${orList(ways)}. Use whichever suits you best, or mix them.`
+            : `Read the ${unit} below at your own pace.`}{" "}
+          When you’re ready, take the quiz at the end: score {m.passPercent}% or higher to pass and earn this{" "}
+          {unit}’s badge. Pass every {unit} in this {course} to earn your certificate of completion.
+        </p>
+      </aside>
 
       <span className="mb-2 block text-xs font-semibold uppercase tracking-wide text-academy-accent">
         {cap(academyConfig.vocab.module)} {m.order} · {m.tagline}
