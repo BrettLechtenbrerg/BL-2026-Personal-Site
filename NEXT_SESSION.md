@@ -69,8 +69,9 @@ ASK BRETT FIRST THING (he asked for this reminder, Sep 27 2026):
     C "Brett really knows how to increase flow states and peak performance. I have been
       around a ton of business coaches and high-level performers, and Brett is a top-tier
       trainer, teacher, and coach."   <- scripts/one-sheet/agency-one-sheet.html
-  Titles also vary: "3-Time Olympian" (speaking, website one-sheet) vs "Olympic Silver
-  Medalist & 3x Olympian" (testimonials, home, program) vs "Olympic Silver Medalist &
+  Titles also vary: "3-Time Olympian" (speaking, website one-sheet); "Olympic Silver
+  Medalist & 3x Olympian" (testimonials); "Olympic Silver Medalist, 3x Olympian" (home);
+  "3x Olympian, Olympic Silver Medalist" (program); "Olympic Silver Medalist &
   3-Time Olympian" (agency one-sheet). After editing either one-sheet HTML, re-render it
   and run scripts/one-sheet/sync-branding-assets.sh. Do NOT change the quote without his answer.
 
