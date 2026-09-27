@@ -25,7 +25,7 @@ export function LiveClip({
   poster,
   label,
   aspect = "vertical",
-  caption = "▶ Watch Brett live — with sound",
+  caption = "▶ Watch Brett live (with sound)",
   className,
 }: LiveClipProps) {
   const videoRef = useRef<HTMLVideoElement>(null);

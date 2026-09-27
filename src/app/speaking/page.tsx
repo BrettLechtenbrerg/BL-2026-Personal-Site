@@ -106,7 +106,7 @@ const lanes: Lane[] = [
         duration: "60 to 90 min keynote or full-day workshop",
         flagship: true,
         paragraphs: [
-          "Most performance advice hands you someone else's toolkit and hopes it fits. The Master's Edge does the opposite: it teaches your people to build their own — using First Principles to clarify what actually matters, Frontloading to simplify the path, and Flow to maximize execution.",
+          "Most performance advice hands you someone else's toolkit and hopes it fits. The Master's Edge does the opposite: it teaches your people to build their own, using First Principles to clarify what actually matters, Frontloading to simplify the path, and Flow to maximize execution.",
           "Drawn from Brett's book of the same name, coming October 2026, this is the keynote that reframes high performance as something you build from the inside out, not something you white-knuckle from the outside in.",
         ],
         bestFor:
@@ -124,7 +124,7 @@ const lanes: Lane[] = [
           "The Little-Known Mindset Shifts That Upgrade Your Business and Your Life",
         duration: "60 to 90 min keynote or workshop",
         paragraphs: [
-          "Confidence isn't a personality trait — it's a trainable skill. In this high-energy keynote, Brett draws on 40 years of martial arts mastery and decades of coaching to show audiences how identity drives behavior, and how two words — \u201cI AM\u201d and \u201cI CAN\u201d — rewire what people believe is possible.",
+          "Confidence isn't a personality trait. It's a trainable skill. In this high-energy keynote, Brett draws on 40 years of martial arts mastery and decades of coaching to show audiences how identity drives behavior, and how two words (\u201cI AM\u201d and \u201cI CAN\u201d) rewire what people believe is possible.",
           "This is Brett's signature motivational experience: part science, part story, and closed with a moment audiences carry with them long after the event.",
         ],
         bestFor:
@@ -132,7 +132,7 @@ const lanes: Lane[] = [
         leavesWith: [
           "The I AM / I CAN identity principle for converting self-talk into self-direction.",
           "Practical tools for dismantling limiting beliefs at the root instead of managing them at the surface.",
-          "A shared, memorable close that turns an audience of individuals into a room of believers.",
+          "A shared, memorable close that turns a room full of strangers into a room of believers.",
         ],
       },
       {
@@ -142,13 +142,13 @@ const lanes: Lane[] = [
           "Mastering Habits, Productivity & the Truth About Leveraging Time · Based on Brett's book",
         duration: "60 to 90 min keynote or half-day workshop",
         paragraphs: [
-          "Time management isn't a calendar problem — it's a clarity problem. Based on Brett's book Reclaiming The Clock, this talk applies First Principles thinking to the modern workday: instead of squeezing more into a broken design, your people learn to rebuild their days from scratch around their highest-leverage work.",
-          "No gimmicks, no app-of-the-month. Because hacks are for hacks — and your time deserves a system.",
+          "Time management isn't a calendar problem. It's a clarity problem. Based on Brett's book Reclaiming The Clock, this talk applies First Principles thinking to the modern workday: instead of squeezing more into a broken design, your people learn to rebuild their days from scratch around the work that matters most.",
+          "No gimmicks, no app-of-the-month. Because hacks are for hacks, and your time deserves a system.",
         ],
         bestFor:
           "Corporate training days, productivity-focused events, and teams drowning in busyness that isn't producing results.",
         leavesWith: [
-          "A first-principles audit that separates high-leverage work from inherited habit.",
+          "A first-principles audit that separates the work that moves the needle from inherited habit.",
           "Habit and energy-rhythm strategies for protecting deep, focused work every day.",
           "A personal time architecture they design in the room and implement Monday morning.",
         ],
@@ -160,13 +160,13 @@ const lanes: Lane[] = [
           "The Research-Backed Science of Peak States, Faster Learning & Effortless Performance",
         duration: "60 to 90 min keynote",
         paragraphs: [
-          "Flow — the state where focus sharpens, time bends, and performance feels effortless — is not luck. It's a trainable, repeatable condition with known triggers and known blockers. Brett's thesis on using flow states to accelerate human learning and skill acquisition was reviewed by the Flow Research Collective and described as making \u201ca compelling, empirical case.\u201d",
-          "In this keynote, he translates that research into a practical playbook: how individuals and teams can strategically and intentionally engineer the conditions where their best work happens on purpose.",
+          "Flow, the state where focus sharpens, time bends, and performance feels effortless, is not luck. It's a trainable, repeatable condition with known triggers and known blockers. Brett's thesis on using flow states to accelerate human learning and skill acquisition was reviewed by the Flow Research Collective and described as making \u201ca compelling, empirical case.\u201d",
+          "In this keynote, he translates that research into a practical playbook: how people and teams can strategically and intentionally engineer the conditions where their best work happens on purpose.",
         ],
         bestFor:
-          "Performance-driven organizations, L&D and training teams, athletic and high-pressure professions, and innovation cultures.",
+          "Performance-driven organizations, learning and development teams, athletic and high-pressure professions, and innovation cultures.",
         leavesWith: [
-          "The flow cycle and its triggers — and how to build them into daily work instead of hoping for them.",
+          "The flow cycle and its triggers, and how to build them into daily work instead of hoping for them.",
           "The most common flow blockers in modern workplaces and how to remove them.",
           "A team-level framework for designing training and work environments where flow is the norm, not the exception.",
         ],
@@ -188,8 +188,8 @@ const lanes: Lane[] = [
           "The Science & Art of Developing an Empowered Team of Motivated Professionals",
         duration: "Half-day or full-day training (keynote version available)",
         paragraphs: [
-          "The best teams in the world aren't the most talented — they're the most connected. This keynote and training experience gives leaders the research-backed mechanics of high-trust culture: psychological safety, shared purpose, honest communication, and the conditions that let a group of individuals become a crew.",
-          "Delivered as a keynote or a hands-on training block, this is Brett's most requested corporate program — because culture is the one advantage competitors can't copy.",
+          "The best teams in the world aren't the most talented. They're the most connected. This keynote and training experience gives leaders the research-backed mechanics of high-trust culture: psychological safety, shared purpose, honest communication, and the conditions that turn a group of people into a crew.",
+          "Delivered as a keynote or a hands-on training block, this is Brett's most requested corporate program, because culture is the one advantage competitors can't copy.",
         ],
         proof: "Brett's most requested corporate program.",
         bestFor:
@@ -207,14 +207,14 @@ const lanes: Lane[] = [
           "What 40 Years of Martial Arts Mastery Teaches Leaders About Excellence, Patience & Longevity",
         duration: "45 to 60 min keynote",
         paragraphs: [
-          "Every leader wants the summit; few want the climb. In this reflective, story-driven talk, Brett — a certified 8th-degree black belt — shares what four decades on the mat reveal about real mastery: why shortcuts collapse, why fundamentals compound, and why the leaders who endure are the ones who fall in love with the path itself.",
-          "This is the talk for rooms that want depth over tactics — a meditation on excellence with the credibility of someone who has lived it.",
+          "Every leader wants the summit; few want the climb. In this reflective, story-driven talk, Brett, a certified 8th-degree black belt, shares what four decades on the mat reveal about real mastery: why shortcuts collapse, why fundamentals compound, and why the leaders who endure are the ones who fall in love with the path itself.",
+          "This is the talk for rooms that want depth over tactics: a meditation on excellence with the credibility of someone who has lived it.",
         ],
         bestFor:
           "Leadership retreats, executive off-sites, milestone events, and audiences hungry for wisdom rather than checklists.",
         leavesWith: [
           "The mastery mindset: how deliberate, patient practice outperforms intensity and shortcuts over time.",
-          "A leadership lens for developing people the way masters develop students — fundamentals first.",
+          "A leadership lens for developing people the way masters develop students: fundamentals first.",
           "Renewed conviction that the long road is the fast road.",
         ],
       },
@@ -235,7 +235,7 @@ const lanes: Lane[] = [
           "The Leadership Question That Decides Whether AI Transforms Your Organization or Quietly Damages It",
         duration: "15 to 25 min keynote, expandable to 45 to 60 min",
         paragraphs: [
-          "AI can automate the task. It cannot own the outcome. That responsibility still belongs to a human — and the organizations that thrive in the AI era will be the ones whose leaders understand exactly where the machine's job ends and human judgment begins.",
+          "AI can automate the task. It cannot own the outcome. That responsibility still belongs to a human, and the organizations that thrive in the AI era will be the ones whose leaders understand exactly where the machine's job ends and human judgment begins.",
           "In this keynote, Brett cuts through both the hype and the fear, giving leaders a first-principles decision framework for what to automate, what to keep human, and how to lead people through the transition with trust intact.",
         ],
         bestFor:
@@ -253,13 +253,13 @@ const lanes: Lane[] = [
         duration:
           "Half-day or full-day workshop; 90-minute starter version available",
         paragraphs: [
-          "Most AI training is a demo reel. This is a build session. Every participant arrives with one real challenge from their actual work — and leaves with a working AI solution they built in the room, plus the first-principles skill to build the next one on their own.",
-          "No hype, no jargon, no \u201c10 prompt hacks\u201d — because a prompt trick is a hack, and a system built on first principles is a tool. This workshop delivers tools.",
+          "Most AI training is a demo reel. This is a build session. Everyone arrives with one real challenge from their actual work and leaves with a working AI tool they built in the room, plus the first-principles skill to build the next one on their own.",
+          "No hype, no jargon, no \u201c10 prompt hacks,\u201d because a prompt trick is a hack, and a system built on first principles is a tool. This workshop delivers tools.",
         ],
         bestFor:
           "Corporate teams, chambers of commerce, small business groups, credit unions, and any organization that wants capability, not just awareness.",
         leavesWith: [
-          "A working AI solution to a real problem from their own role — finished before the session ends.",
+          "A working AI tool for a real problem from their own role, finished before the session ends.",
           "A repeatable first-principles process for identifying and building the next automation.",
           "The confidence to use AI on Monday morning, not \u201csomeday.\u201d",
         ],
@@ -272,7 +272,7 @@ const lanes: Lane[] = [
     problem:
       "The problem this lane solves: \u201cOur reps struggle to close, and the old-school sales training we've tried feels manipulative.\u201d",
     intro:
-      "Brett's sales philosophy fits on one line: \u201cI'm not selling, I'm serving.\u201d This lane replaces pressure tactics with ethical influence — a transformation-over-transaction approach where reps learn to guide honest decisions, protect the relationship, and close more because of it. It's sales training your people won't need a shower after.",
+      "Brett's sales philosophy fits on one line: \u201cI'm not selling, I'm serving.\u201d This lane replaces pressure tactics with ethical influence: a transformation-over-transaction approach where reps learn to guide honest decisions, protect the relationship, and close more because of it. It's sales training your people won't need a shower after.",
     talks: [
       {
         id: "honest-close",
@@ -281,7 +281,7 @@ const lanes: Lane[] = [
           "The Three Beliefs Behind Every Yes and the Ethical Framework That Earns Them",
         duration: "60 to 90 min keynote or half-day training",
         paragraphs: [
-          "Every sale rests on three beliefs: the solution exists, we can find it together, and it's worth it. When reps struggle, it's almost never a script problem — it's a belief problem, usually the third one. This keynote and training experience diagnoses where belief breaks down and rebuilds the close as an act of service: honest questions, real clarity, and an invitation the client is glad they accepted.",
+          "Every sale rests on three beliefs: the solution exists, we can find it together, and it's worth it. When reps struggle, it's almost never a script problem. It's a belief problem, usually the third one. This keynote and training experience diagnoses where belief breaks down and rebuilds the close as an act of service: honest questions, real clarity, and an invitation the client is glad they accepted.",
           "Built for teams navigating commission-based selling, new sales roles, or a market that's grown allergic to pressure.",
         ],
         proof:
@@ -289,7 +289,7 @@ const lanes: Lane[] = [
         bestFor:
           "Sales teams and kickoffs, financial services and credit unions, business development groups, and any organization where relationships are the product.",
         leavesWith: [
-          "The Three Beliefs framework for diagnosing exactly where a sale — or a salesperson — gets stuck.",
+          "The Three Beliefs framework for diagnosing exactly where a sale (or a salesperson) gets stuck.",
           "An ethical closing sequence that increases conversions while strengthening trust.",
           "State-management tools (including a 90-second reset) for staying confident and present through rejection.",
         ],
@@ -301,8 +301,8 @@ const lanes: Lane[] = [
           "Maximize Resilience & Problem-Solving to Position Your Business in a Class by Itself",
         duration: "60 to 90 min keynote",
         paragraphs: [
-          "When you compete on price, everyone loses — especially you. This talk shows business owners and sales organizations how to escape the comparison trap entirely: using First Principles thinking to identify what only you can offer, and building a market position where the question is never \u201cwhy you?\u201d but \u201chow soon can we start?\u201d",
-          "Differentiation isn't a tagline. It's a discipline — and it starts from the inside out.",
+          "When you compete on price, everyone loses, especially you. This talk shows business owners and sales organizations how to escape the comparison trap entirely: using First Principles thinking to identify what only you can offer, and building a market position where the question is never \u201cwhy you?\u201d but \u201chow soon can we start?\u201d",
+          "Differentiation isn't a tagline. It's a discipline, and it starts from the inside out.",
         ],
         bestFor:
           "Entrepreneur groups, chambers of commerce, franchise conventions, and competitive industries where everyone sounds the same.",
