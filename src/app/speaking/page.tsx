@@ -38,15 +38,36 @@ const outcomes = [
 ];
 
 // Size sequence L,m,m,L,m,m,L,L tiles the 4-col bento into 5 full rows — no holes.
+// Added Sep 27 2026 (Website-Fixes spec 2.2). Quotes are verbatim; Sam
+// Beard credit line per CLAUDE.md Credential Standards.
+const extraTestimonials = [
+  {
+    quote:
+      "In my lifetime I have had the opportunity to meet extraordinary people from around the world and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
+    name: "Sam Beard",
+    initials: "SB",
+    role: "Creator of 6 Presidential Programs for 8 U.S. Presidents, Founder, National Development Council",
+  },
+  {
+    quote:
+      "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.",
+    name: "Bill Schuffenhauer",
+    initials: "BS",
+    role: "3-Time Olympian",
+  },
+];
+
 const galleryImages = [
   { src: "/speaking-gallery/america-first-training.jpg", alt: "Brett with the America First Credit Union team — Super Ethical Sales & Team Building, August 2026", size: "large" },
   { src: "/speaking-gallery/murray-chamber-training.webp", alt: "Murray Chamber of Commerce Training", size: "medium" },
-  { src: "/speaking-gallery/speaking-2.png", alt: "Brett engaging with audience", size: "medium" },
-  { src: "/speaking-gallery/speaking-1.png", alt: "Brett delivering keynote presentation", size: "large" },
-  { src: "/speaking-gallery/speaking-3.png", alt: "Interactive workshop session", size: "medium" },
+  // caption placeholders: Brett to supply event name + year (Sep 27 2026);
+  // alt stays descriptive for screen readers.
+  { src: "/speaking-gallery/speaking-2.png", alt: "Brett engaging with audience", caption: "[EVENT NAME], [YEAR]", size: "medium" },
+  { src: "/speaking-gallery/speaking-1.png", alt: "Brett delivering keynote presentation", caption: "[EVENT NAME], [YEAR]", size: "large" },
+  { src: "/speaking-gallery/speaking-3.png", alt: "Interactive workshop session", caption: "[EVENT NAME], [YEAR]", size: "medium" },
   { src: "/speaking-gallery/murray-chamber-2.jpeg", alt: "Team training at Murray Chamber", size: "medium" },
   { src: "/speaking-gallery/referral-community.png", alt: "Referral Community Event", size: "large" },
-  { src: "/speaking-gallery/speaking-4.jpg", alt: "Brett on stage", size: "large" },
+  { src: "/speaking-gallery/speaking-4.jpg", alt: "Brett on stage", caption: "[EVENT NAME], [YEAR]", size: "large" },
 ];
 
 type Talk = {
@@ -170,6 +191,7 @@ const lanes: Lane[] = [
           "The best teams in the world aren't the most talented — they're the most connected. This keynote and training experience gives leaders the research-backed mechanics of high-trust culture: psychological safety, shared purpose, honest communication, and the conditions that let a group of individuals become a crew.",
           "Delivered as a keynote or a hands-on training block, this is Brett's most requested corporate program — because culture is the one advantage competitors can't copy.",
         ],
+        proof: "Brett's most requested corporate program.",
         bestFor:
           "Leadership teams, company retreats, departments navigating change, and organizations serious about retention and engagement.",
         leavesWith: [
@@ -531,7 +553,7 @@ export default function SpeakingPage() {
         </section>
 
         {/* ===== 2. TRUST BAR ===== */}
-        <LogoScroller />
+        <LogoScroller hideMartialArts />
         {/* Supporting text for SEO/accessibility (carousel logos are images) */}
         <div className="bg-gray-50 py-6">
           <p className="text-center text-sm text-warm-gray/80 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -630,23 +652,25 @@ export default function SpeakingPage() {
                   your room.
                 </p>
 
-                {/* Juan Diego testimonial — same venue as the footage */}
+                {/* [America First] Initial text feedback from Lindsey Powers, day
+                    after the Aug 4, 2026 Super Ethical Sales & Team Building
+                    session. Swap in the formal letter of recommendation when it
+                    arrives. */}
                 <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
                   <Quote className="w-6 h-6 text-gold mb-3" />
                   <p className="text-white/90 italic leading-relaxed mb-4">
-                    &ldquo;The impact of this two-phase event on our team has been
-                    nothing short of extraordinary. The lessons learned have not
-                    only improved our performance on the field but have also
-                    instilled a renewed sense of confidence and camaraderie.&rdquo;
+                    &ldquo;Thank you again, Brett!! I heard some more great comments
+                    from our team that they really enjoyed your training!&rdquo;
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      DL
+                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold to-cranberry flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                      LP
                     </div>
                     <div>
-                      <p className="font-bold text-white text-sm">Danny Larson</p>
+                      <p className="font-bold text-white text-sm">Lindsey Powers</p>
                       <p className="text-gold text-xs">
-                        Head Football Coach, Juan Diego High School
+                        America First Credit Union · Super Ethical Sales &amp;
+                        Team Building, August 2026
                       </p>
                     </div>
                   </div>
@@ -722,6 +746,17 @@ export default function SpeakingPage() {
                   by the Flow Research Collective and forged through 30 years of
                   business ownership and four decades on the martial arts mat.
                 </p>
+                <figure className="relative border-l-4 border-gold bg-gradient-to-r from-gold/10 to-transparent rounded-r-2xl pl-6 pr-4 py-5">
+                  <Quote className="w-6 h-6 text-gold mb-2" />
+                  <blockquote className="text-xl sm:text-2xl italic text-black font-heading leading-snug">
+                    &ldquo;Excellent. The paper makes a compelling, empirical case
+                    for the utilization of flow for accelerated learning and skill
+                    acquisition.&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-3 text-sm font-semibold text-cranberry">
+                    &mdash; Flow Research Collective, on Brett&apos;s flow research
+                  </figcaption>
+                </figure>
                 <p>
                   Brett doesn&apos;t do off-the-shelf content, and he doesn&apos;t do
                   shortcuts. As he puts it: &ldquo;Hacks are for hacks.&rdquo;
@@ -853,7 +888,7 @@ export default function SpeakingPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                       <p className="text-white font-medium text-sm md:text-base drop-shadow-lg">
-                        {image.alt}
+                        {image.caption ?? image.alt}
                       </p>
                     </div>
                     <div className="absolute top-3 right-3 w-8 h-8 bg-gradient-to-br from-gold to-cranberry rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
@@ -901,10 +936,7 @@ export default function SpeakingPage() {
                 </div>
               </motion.div>
 
-              {/* [America First] Initial text feedback from Lindsey Powers, day
-                  after the Aug 4, 2026 Super Ethical Sales & Team Building
-                  session. Swap in the formal letter of recommendation when it
-                  arrives. */}
+              {/* Juan Diego testimonial (moved from under the reel, Sep 27 2026) */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -918,23 +950,54 @@ export default function SpeakingPage() {
                     <Quote className="w-5 h-5 text-white" />
                   </div>
                   <p className="text-lg italic text-black mb-4 pt-4">
-                    &ldquo;Thank you again, Brett!! I heard some more great comments
-                    from our team that they really enjoyed your training!&rdquo;
+                    &ldquo;The impact of this two-phase event on our team has been
+                    nothing short of extraordinary. The lessons learned have not
+                    only improved our performance on the field but have also
+                    instilled a renewed sense of confidence and camaraderie.&rdquo;
                   </p>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold to-cranberry flex items-center justify-center text-white font-bold">
-                      LP
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold">
+                      DL
                     </div>
                     <div>
-                      <p className="font-bold text-black">Lindsey Powers</p>
+                      <p className="font-bold text-black">Danny Larson</p>
                       <p className="text-sm text-cranberry">
-                        America First Credit Union · Super Ethical Sales &
-                        Team Building, August 2026
+                        Head Football Coach, Juan Diego High School
                       </p>
                     </div>
                   </div>
                 </div>
               </motion.div>
+
+              {extraTestimonials.map((t, index) => (
+                <motion.div
+                  key={t.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.15 * index }}
+                  className="relative group"
+                >
+                  <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
+                  <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full transition-transform duration-500 group-hover:-translate-y-1">
+                    <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-full flex items-center justify-center">
+                      <Quote className="w-5 h-5 text-white" />
+                    </div>
+                    <p className="text-lg italic text-black mb-4 pt-4">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold flex-shrink-0">
+                        {t.initials}
+                      </div>
+                      <div>
+                        <p className="font-bold text-black">{t.name}</p>
+                        <p className="text-sm text-cranberry">{t.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
