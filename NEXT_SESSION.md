@@ -1,6 +1,6 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-**Updated:** September 19, 2026 (end of Session 31)
+**Updated:** September 27, 2026 (end of Session 32: website copy + one-sheets)
 
 A copy of this file is also at `~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`.
 Paste the block below into a fresh session.
@@ -8,12 +8,14 @@ Paste the block below into a fresh session.
 ---
 
 ```
-Resume work on brettlechtenberg.com (Master's Edge Academy LMS).
+Resume work on brettlechtenberg.com (website, speaker one-sheets, and the Master's Edge Academy LMS).
 
 Repo: /Users/brettlechtenberg/dev/BL-2026-Personal-Site  (ONLY this path)
-Live: https://www.brettlechtenberg.com   Deploy: `npx vercel --prod --yes`
-      (Vercel's GitHub auto-deploy is NOT firing — always deploy via CLI;
-       the CLI often times out waiting, that's fine — check `npx vercel ls --prod`)
+Live: https://www.brettlechtenberg.com   Deploy: `git push origin main`
+      (Vercel GitHub auto-deploy fired on every push Sep 27 2026, ~5-9 min per build;
+       check `vercel ls --yes`. Fallback only if nothing builds: `npx vercel --prod --yes`)
+      PUSH NOTE: the Mac's active gh account is PMMARocks, which gets 403 on this repo.
+       Run `gh auth switch -u BrettLechtenbrerg` before pushing (or push with that token).
 
 ADD A LESSON (the usual job now — one line, the `academy` skill does the rest):
   Take ~/Desktop/<file> and add it as a lesson in the business-tools course in the BL.com academy.
@@ -33,6 +35,36 @@ READ FIRST, in order:
 FIRST COMMANDS:
   git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site pull
   git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site status
+
+STATE AT END OF SESSION 32 (Sep 27, 2026) — everything committed, pushed, deployed, verified live:
+- Did ALL of ~/Desktop/Website-Fixes-For-Coding-Agent.md (tasks 1-5) and
+  ~/Desktop/Speaker-Sheet-Changes-For-Coding-Agent.md. Brett's writing rules = section 2
+  of the website file; the terminology rules are now in CLAUDE.md "Credential Standards".
+- /speaking: new wording, testimonials (Lindsey Powers under the reel; Danny Larson,
+  Sam Beard, Bill Schuffenhauer in grid), Flow Research Collective pull quote, gallery
+  captions with real event names, logo strip in Brett's client order (USA Martial Arts hidden).
+- /media-kit: 10 talks, new bios/intros, reel under the one-sheet, Stage and Event Photos,
+  Master's Edge cover. Talk subtitles now MATCH /speaking; A Category of One uses
+  "Position Yourself So Far Ahead That Comparison Becomes Irrelevant" everywhere.
+- /books: Powerful AI Strategies for Business Owners added (cover public/books/powerful-ai-strategies.jpg,
+  Amazon dp/B0HH6YZYQV). The Master's Edge = "Coming October 2026".
+- /masters-edge: Layer 1 The Science (Three Pillars: First Principles, Frontloading, Flow),
+  Layer 2 The Methodology (Mind, Skills, Systems: Mindset Mastery, Skillset Enhancement,
+  Systems Design), Layer 3 The Transformation. Workbook pairs them per week.
+- Site-wide copy sweep: no em dashes, banned words, acronyms or AI-sounding phrasing
+  (two bee sub-agents + manual passes).
+- One-sheets rebuilt from scripts/one-sheet/*.html (website + agency), synced to all three
+  branding folders. render.cjs now prints a page-fit check and accepts CHROMIUM_PATH.
+
+OPEN QUESTIONS FOR BRETT (nothing blocked; don't guess):
+- /books lists 8 titles but the site says "seven books, five bestsellers": which isn't counted?
+- Pull-up banner (scripts/one-sheet/pullup-banner.html) still says "8 U.S. Presidents";
+  one-sheets and website now say "8 United States Presidents". Re-render banner if Brett wants.
+- Bill Schuffenhauer's quote differs: agency one-sheet "knows how to increase flow states and
+  peak performance" vs website/website one-sheet "knows flow, peak performance, and goals".
+  Ask Brett which is verbatim; do NOT edit testimonials without his answer.
+- Agency one-sheet page 2 bottom sits ~0.3in into the margin (was like this before Sep 27;
+  nothing is cut off). Tighten only if Brett asks.
 
 STATE AT END OF SESSION 31 (Sep 19, 2026):
 - Academy Lesson Forge built: scripts/academy-lesson.mjs (init/validate/add/price/

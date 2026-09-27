@@ -14,7 +14,7 @@ const featuredTestimonials = [
     quote:
       "In my lifetime I have had the opportunity to meet extraordinary people from around the world and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
     name: "Sam Beard",
-    title: "Creator 6 Presidential Programs for 8 U.S. Presidents",
+    title: "Creator of 6 Presidential Programs for 8 United States Presidents",
     gradient: "from-gold to-gold-dark",
     image: "/testimonials/sam-beard.jpg",
   },

@@ -2,6 +2,30 @@
 
 ---
 
+## Session 32 - September 27, 2026 - WEBSITE COPY + SPEAKER ONE-SHEETS
+
+**Focus:** Brett's two Desktop spec files: `Website-Fixes-For-Coding-Agent.md`
+and `Speaker-Sheet-Changes-For-Coding-Agent.md`. All done, deployed, verified live.
+
+- /speaking: 21 wording swaps, testimonial moves/additions, Flow Research
+  Collective pull quote, proof line on Winning Team Culture, gallery event
+  captions, logo strip in client order (LogoScroller `hideMartialArts`).
+- /media-kit: 10 talks (subtitles aligned with /speaking), new bios and intros,
+  reel moved under the one-sheet, Stage and Event Photos, Master's Edge cover.
+- /books: Powerful AI Strategies for Business Owners added; Master's Edge
+  "Coming October 2026".
+- /masters-edge + workbook: three-layer terminology (Science = three pillars,
+  Methodology = Mind/Skills/Systems, Layer 3 = The Transformation).
+- Site-wide copy audit (~36 files): em dashes, banned words, acronyms,
+  AI-sounding phrases; "validated" -> "reviewed"; Sam Beard credit spelled out.
+- One-sheets: website + agency editions re-rendered from `scripts/one-sheet/`,
+  synced to all three branding folders; website PDF live at
+  /brett-lechtenberg-speaker-one-sheet.pdf. render.cjs gained a page-fit check
+  and CHROMIUM_PATH override (global Playwright had been upgraded).
+- Open questions for Brett: see the top of NEXT_SESSION.md.
+
+---
+
 ## Session 27 - August 24, 2026 - NEW HOMEPAGE HERO HEADLINE LIVE
 
 **Focus:** Brett's new homepage hero copy, deployed and verified.

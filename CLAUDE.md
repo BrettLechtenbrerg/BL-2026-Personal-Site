@@ -30,7 +30,7 @@ cd ~/dev/BL-2026-Personal-Site
 npm install           # Install dependencies
 npm run dev           # Start dev server (localhost:3000)
 npm run build         # Build for production
-git push origin main  # Vercel auto-deploys on push
+git push origin main  # Vercel auto-deploys on push (confirmed working Sep 27 2026; builds take ~5-9 min)
 ```
 
 This project is on Brett's personal Vercel team (`bretts-projects-3e254e58`),
@@ -219,8 +219,11 @@ BL-2026-Personal-Site/
   celebrated Aug 4, 2026; compute current figure from founding date)
 - **Martial Arts Rank:** 8th-Degree Black Belt
 - **Martial Arts Experience:** 40+ years
-- **Books:** 7 books, 5 bestsellers (2 more launching ~Q4 2026 — update to 9
-  ONLY after they are actually live; never pre-count)
+- **Books:** 7 books, 5 bestsellers. Powerful AI Strategies for Business Owners
+  (with Manny Torres) published Aug 2026 and is on /books; The Master's Edge is
+  "coming October 2026" (never a specific day). OPEN QUESTION for Brett (Sep 27
+  2026): /books lists 8 titles but the site says seven books; which title is
+  not counted? Update the count ONLY when Brett answers; never pre-count.
 - **Speaking:** 250+ talks, trainings & seminars (verified by Brett Aug 8 2026;
   counts chamber events, corporate trainings, martial arts seminars — the
   broad label is what makes the number honest, so never shorten to
@@ -229,12 +232,25 @@ BL-2026-Personal-Site/
   short- and long-term consulting/coaching clients over the career — NOT
   concurrent clients, and NOT "corporate" clients)
 - **People Trained:** Thousands (no specific numbers)
-- **Sam Beard credit line:** "Creator of 6 Presidential Programs for 8 U.S.
-  Presidents · Founder, National Development Council" — do NOT cite the
+- **Sam Beard credit line:** "Creator of 6 Presidential Programs for 8 United
+  States Presidents · Founder, National Development Council" (spelled out, no
+  "U.S.", per Brett's Sep 27 2026 one-sheet spec) — do NOT cite the
   Jefferson Awards (he co-founded it, but the org no longer exists; NDC is
   still active). Sam is writing the foreword to Brett's Human First AI book —
   add that credit when the book launches.
-- **Research:** Flow state researcher validated by Flow Research Collective
+- **Research:** Flow state researcher; his work was REVIEWED by the Flow Research
+  Collective (never "validated by")
+- **Three layers (The Master's Edge, Sep 27 2026):** Layer 1 The Science = the
+  three PILLARS: First Principles (Clarify), Frontloading (Simplify), Flow
+  (Maximize). Layer 2 The Methodology = Mindset Mastery, Skillset Enhancement,
+  Systems Design ("Mind, Skills, Systems"; never call these pillars). Layer 3 =
+  The Transformation. "Pillars" always means First Principles / Frontloading / Flow.
+- **Client / logo order (everywhere):** America First Credit Union, Packsize,
+  Purple, Thumbtack, MemberSolutions, American Express, Delta, then chambers
+  (Murray, Park City, Heber Valley); USA Martial Arts last and hidden on /speaking.
+- **Writing rules:** Brett's rules are in ~/Desktop/Website-Fixes-For-Coding-Agent.md
+  section 2 (no em dashes, banned-word list, spell out acronyms except AI/CEO,
+  no narration exclamation points, plain "smart friend over coffee" voice).
 - **Methodology:** The Master's Edge (always capitalized with "The")
 - **AI Company:** Total Success AI (co-founded with Manny Torres)
 - **Location:** Sandy, Utah
@@ -243,7 +259,10 @@ BL-2026-Personal-Site/
   ever published. Never put Brett's home address on any material.
 - **Branding assets (print kit):** source of truth is `scripts/one-sheet/`
   (HTML + render.cjs — website one-sheet, agency one-sheet, business card,
-  pull-up banner). After ANY re-render, ALWAYS run
+  pull-up banner). Render: `NODE_PATH="$(npm root -g)" node
+  scripts/one-sheet/render.cjs <in.html> <out.pdf>` (see the file header for the
+  CHROMIUM_PATH workaround if Playwright complains; check its "Page fit" line:
+  contentBottom must not exceed pageBottom). After ANY re-render, ALWAYS run
   `bash scripts/one-sheet/sync-branding-assets.sh` — it pushes the PDFs to all
   three "Brett Lechtenberg Branding Assets Aug 2026" folders (Masters Edge Book
   folder, Brett's Personal File folder, 8 TB drive) simultaneously. Never edit
@@ -295,7 +314,8 @@ git add .
 git commit -m "Description of changes"
 git push origin main
 
-# 3. Deploy directly via Vercel CLI
+# 3. Vercel auto-deploys from main (worked on every push Sep 27 2026).
+#    Check with `vercel ls --yes`; only if nothing builds, deploy via CLI:
 vercel --prod --yes
 ```
 

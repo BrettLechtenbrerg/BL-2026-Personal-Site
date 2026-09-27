@@ -45,7 +45,7 @@ const extraTestimonials = [
       "In my lifetime I have had the opportunity to meet extraordinary people from around the world and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
     name: "Sam Beard",
     initials: "SB",
-    role: "Creator of 6 Presidential Programs for 8 U.S. Presidents, Founder, National Development Council",
+    role: "Creator of 6 Presidential Programs for 8 United States Presidents, Founder, National Development Council",
   },
   {
     quote:

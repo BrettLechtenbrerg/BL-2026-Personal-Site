@@ -1,5 +1,9 @@
 # 🔄 RESTART PROMPT - Brett Lechtenberg Personal Website
 
+> **OUTDATED (April 2026 snapshot).** The current resume prompt is
+> `NEXT_SESSION.md` in this folder (copy on the Desktop:
+> `~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`). Kept for history only.
+
 ## 📍 Current Status: ✅ LIVE (Production Ready)
 
 Brett Lechtenberg's personal website is **live in production** with all 9 pages complete and bold colorful design throughout.

@@ -1,13 +1,17 @@
 # BL 2026 Personal Site - Project State
 
-**Last Updated:** September 8, 2026 (Session 30)
+**Last Updated:** September 27, 2026 (Session 32)
 **Current Phase:** ✅ LIVE - Site launched at brettlechtenberg.com
 
 ---
 
 ## Current Focus
 
-**Status:** Site LIVE. **Session 30 (Sep 8) — Academy per-course PAYWALL live**
+**Status:** Site LIVE. **Session 32 (Sep 27) — website copy tightened + both
+speaker one-sheets rebuilt** (all of Brett's two Desktop spec files done; details
+and open questions at the top of `NEXT_SESSION.md`).
+
+Prior: **Session 30 (Sep 8) — Academy per-course PAYWALL live**
 (Stripe Checkout + gift codes, open signup, enrollment code retired; NotebookLM
 batch finished all 43 modules). Read `docs/SESSION-NOTES.md` top section.
 Prior: **Session 28 (Sep 6) — Academy GHL-parity + NotebookLM
