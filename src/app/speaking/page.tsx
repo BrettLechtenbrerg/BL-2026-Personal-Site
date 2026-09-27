@@ -296,7 +296,7 @@ const lanes: Lane[] = [
         id: "category-of-one",
         title: "A Category of One",
         subtitle:
-          "Maximize Resilience & Problem-Solving to Position Your Business in a Class by Itself",
+          "Position Yourself So Far Ahead That Comparison Becomes Irrelevant",
         duration: "60 to 90 min keynote",
         paragraphs: [
           "When you compete on price, everyone loses, especially you. This talk shows business owners and sales organizations how to escape the comparison trap entirely: using First Principles thinking to identify what only you can offer, and building a market position where the question is never \u201cwhy you?\u201d but \u201chow soon can we start?\u201d",

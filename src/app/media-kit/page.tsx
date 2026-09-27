@@ -25,13 +25,13 @@ const talkLanes = [
       },
       {
         title: "The Limitless Mindset",
-        subtitle: "Breaking Through the Mental Barriers Between You and Your Best Performance",
+        subtitle: "The Little-Known Mindset Shifts That Upgrade Your Business and Your Life",
         duration: "60 to 90 min keynote or workshop",
         bestFor: "Company kickoffs, leadership retreats, conference keynotes",
       },
       {
         title: "Reclaiming The Clock",
-        subtitle: "Mastering Habits, Productivity, and the Truth About Time",
+        subtitle: "Mastering Habits, Productivity & the Truth About Leveraging Time",
         duration: "60 to 90 min keynote or half-day workshop",
         bestFor: "Business owners, entrepreneurs, chamber events",
       },
@@ -48,7 +48,7 @@ const talkLanes = [
     talks: [
       {
         title: "Winning Team Culture",
-        subtitle: "The Science of Building an Empowered Team of Motivated Professionals",
+        subtitle: "The Science & Art of Developing an Empowered Team of Motivated Professionals",
         duration: "Half-day or full-day training",
         bestFor: "Corporate retreats, management training, sports organizations",
       },
