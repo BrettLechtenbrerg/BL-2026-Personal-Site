@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import Script from "next/script";
 import {
@@ -123,14 +123,39 @@ const weekNumber: Record<Exclude<Section, "welcome">, number> = {
 // ==============================
 // PRESENTATIONAL FIELD COMPONENTS (module-level so inputs keep focus)
 // ==============================
+// Wording review mode (Sep 27 2026): /masters-edge/workbook?compare=1 shows the
+// proposed First Principles / Frontloading / Flow wording under the current
+// Mindset / Skillset / Systems Design text. Normal visitors see current only.
+function useCompareMode() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => new URLSearchParams(window.location.search).get("compare") === "1",
+    () => false,
+  );
+}
+
+function Proposed({ show, children }: { show: boolean; children: React.ReactNode }) {
+  if (!show) return null;
+  return (
+    <div className="my-3 rounded-lg border-2 border-dashed border-gold bg-gold/10 px-4 py-3">
+      <p className="text-xs font-bold uppercase tracking-wider text-gold-dark mb-1">
+        Proposed wording (replaces the text above)
+      </p>
+      <div className="text-black leading-relaxed">{children}</div>
+    </div>
+  );
+}
+
 function Field({
   label,
+  proposedLabel,
   value,
   onChange,
   placeholder,
   rows = 2,
 }: {
   label: string;
+  proposedLabel?: string;
   value: string;
   onChange: (v: string) => void;
   placeholder?: string;
@@ -139,6 +164,11 @@ function Field({
   return (
     <div>
       <label className="text-sm font-semibold text-cranberry">{label}</label>
+      {proposedLabel && (
+        <p className="text-sm font-semibold text-gold-dark border-l-4 border-dashed border-gold pl-2 mt-1">
+          Proposed: {proposedLabel}
+        </p>
+      )}
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
@@ -209,6 +239,7 @@ function HabitTracker({
 // ==============================
 export default function MastersEdgeWorkbook() {
   const [data, setData] = useState<WorkbookData>(defaultData);
+  const compare = useCompareMode();
   const [currentSection, setCurrentSection] = useState<Section>("welcome");
   const [saveStatus, setSaveStatus] = useState("");
   const [showHelp, setShowHelp] = useState(false);
@@ -673,6 +704,7 @@ export default function MastersEdgeWorkbook() {
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
               Pillar this week: Mindset
             </p>
+            <Proposed show={compare}>Pillar this week: First Principles (Clarify)</Proposed>
             <p className="text-black mb-2">
               <strong>Your habit, &ldquo;Strip &amp; Aim&rdquo;:</strong> Each
               morning, before email, take your biggest challenge and ask,
@@ -747,6 +779,7 @@ export default function MastersEdgeWorkbook() {
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
               Pillar this week: Skillset
             </p>
+            <Proposed show={compare}>Pillar this week: Frontloading (Simplify)</Proposed>
             <p className="text-black mb-2">
               <strong>Your habit, &ldquo;Load Tomorrow Tonight&rdquo;:</strong>{" "}Each evening, queue the first move on your One Target, prep the
               materials, draft the key points of the hard conversation before it
@@ -816,6 +849,7 @@ export default function MastersEdgeWorkbook() {
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
               Pillar this week: Systems Design
             </p>
+            <Proposed show={compare}>Pillar this week: Flow (Maximize)</Proposed>
             <p className="text-black mb-2">
               <strong>Your habit, &ldquo;Engineer One Block&rdquo;:</strong>{" "}Each day, build one 90-minute flow block (clear target, calibrated
               challenge, phone out of the room), followed by a genuine recovery
@@ -886,6 +920,15 @@ export default function MastersEdgeWorkbook() {
               a great environment with no clarity just drifts efficiently in the
               wrong direction.
             </IdeaBlock>
+            <Proposed show={compare}>
+              The black belt is a white belt who never quit. More precisely,
+              it&rsquo;s the person in whom clarity, preparation, and flow finally
+              move as one. No single pillar makes a master. The integration does.
+              Because the layers stack, the weakest pillar caps the whole system:
+              clarity with no preparation is just a good idea; preparation with no
+              flow burns out; flow with no clarity just drifts efficiently in the
+              wrong direction.
+            </Proposed>
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
               Pillar this week: Integration
             </p>
@@ -896,21 +939,31 @@ export default function MastersEdgeWorkbook() {
               sabotaging it? Anchor it with a consistent ritual and a 30-day
               consistency commitment.
             </p>
+            <Proposed show={compare}>
+              <strong>Your habit, &ldquo;The Three-Pillar Review&rdquo;:</strong>{" "}Once a week, audit all three. First Principles: am I clear on my
+              real target? Frontloading: what am I preparing ahead of the next
+              hard moment? Flow: is my environment setting up my best work or
+              sabotaging it? Anchor it with a consistent ritual and a 30-day
+              consistency commitment.
+            </Proposed>
 
             <div className="mt-6">
               <ExerciseCard>
                 <Field
                   label="Mindset score (1 to 10), and why:"
+                  proposedLabel={compare ? "First Principles (clarity) score (1 to 10), and why:" : undefined}
                   value={data.w4_mindset_score}
                   onChange={(v) => set("w4_mindset_score", v)}
                 />
                 <Field
                   label="Skillset score (1 to 10), and why:"
+                  proposedLabel={compare ? "Frontloading (preparation) score (1 to 10), and why:" : undefined}
                   value={data.w4_skillset_score}
                   onChange={(v) => set("w4_skillset_score", v)}
                 />
                 <Field
                   label="Systems Design score (1 to 10), and why:"
+                  proposedLabel={compare ? "Flow score (1 to 10), and why:" : undefined}
                   value={data.w4_support_score}
                   onChange={(v) => set("w4_support_score", v)}
                 />
