@@ -29,7 +29,7 @@ import { useState } from "react";
 
 // ── From live /speaking (v1): outcomes grid + action gallery ──────────────
 const outcomes = [
-  { icon: Sparkles, title: "Transformative Impact", description: "Lasting impact, practical tools, and genuine inspiration", gradient: "from-cranberry to-cranberry-dark" },
+  { icon: Sparkles, title: "Lasting Impact", description: "Practical tools your people keep using after the event ends", gradient: "from-cranberry to-cranberry-dark" },
   { icon: Target, title: "Tailored Customization", description: "High-level customization that resonates with your specific audience", gradient: "from-gold to-gold-dark" },
   { icon: Lightbulb, title: "Actionable Insights", description: "Strategies they can implement immediately", gradient: "from-cranberry to-cranberry-dark" },
   { icon: Zap, title: "Grounded Presence", description: "Calm, confident delivery that holds a room without hype", gradient: "from-gold to-gold-dark" },

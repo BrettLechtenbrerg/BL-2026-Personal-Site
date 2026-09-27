@@ -473,7 +473,7 @@ export default function MastersEdgeProgramPage() {
                 This program is designed to move you from scattered and reactive to clear, structured, and high-performing.
               </p>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                Every week builds on the last. By Week 12, you will not just have new tools. You will have a new operating system.
+                Every week builds on the last. By Week 12, you&apos;ll have more than a set of new tools. You&apos;ll have a new way of running your week.
               </p>
             </motion.div>
 
@@ -682,7 +682,7 @@ export default function MastersEdgeProgramPage() {
                 className="space-y-6"
               >
                 <p className="text-lg text-warm-gray leading-relaxed">
-                  Brett Lechtenberg has spent decades helping people and organizations elevate the way they think, lead, and perform.
+                  Brett Lechtenberg has spent decades helping people and organizations think, lead, and perform at a higher level.
                 </p>
                 <p className="text-lg text-warm-gray leading-relaxed">
                   With more than 30 years of coaching, training, and leadership experience, Brett has worked with business owners, teams, and organizations across a wide range of industries. His work blends real-world leadership development, flow state research, personal discipline, and high-performance strategy into a practical system that creates lasting change.

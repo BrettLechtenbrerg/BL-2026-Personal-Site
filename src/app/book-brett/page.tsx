@@ -175,8 +175,8 @@ export default function BookBrettPage() {
               transition={{ delay: 0.2 }}
               className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
             >
-              Whether it&apos;s a keynote, workshop, or full-day training, Brett delivers
-              transformational content that leaves your audience with real tools, not just inspiration.
+              Keynote, workshop, or full-day training, your audience leaves with
+              real tools they can use on Monday, not a pep talk that fades by Friday.
             </motion.p>
           </div>
         </section>

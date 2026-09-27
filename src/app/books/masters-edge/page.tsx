@@ -156,7 +156,7 @@ export default function MastersEdgeBookPage() {
                 What&apos;s Inside the <span className="text-cranberry">Book</span>
               </h2>
               <p className="text-lg text-warm-gray max-w-2xl mx-auto">
-                One methodology, three disciplines. It&apos;s the same framework Brett
+                One methodology, three pillars. It&apos;s the same framework Brett
                 teaches from corporate keynotes to the 12-week Master&apos;s
                 Edge program.
               </p>

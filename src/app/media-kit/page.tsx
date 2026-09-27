@@ -115,7 +115,7 @@ const eventPhotos = [
 
 const shortBio = `Brett Lechtenberg is a peak performance coach, author of seven books including five bestsellers, and the creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings real-world business experience, original flow state research, and proven leadership principles to every audience he serves.`;
 
-const longBio = `Brett Lechtenberg is a peak performance coach, bestselling author, and the creator of The Master's Edge, a transformational methodology that helps leaders unlock their full potential through three pillars: First Principles to clarify, Frontloading to simplify, and Flow to maximize.
+const longBio = `Brett Lechtenberg is a peak performance coach, bestselling author, and the creator of The Master's Edge, a methodology built on three pillars: First Principles to clarify, Frontloading to simplify, and Flow to maximize.
 
 For over three decades, Brett has run Personal Mastery Martial Arts in Sandy, Utah, a living laboratory where every strategy was tested before it was ever taught. That real-world experience, combined with his formal research on flow states reviewed by the Flow Research Collective, gives Brett a perspective that resonates with audiences from corporate boardrooms to championship sports teams.
 
@@ -131,7 +131,7 @@ Brett Lechtenberg has spent over 30 years running his own business, testing ever
 
 His original research on flow states has been reviewed by the Flow Research Collective, and his client list includes America First Credit Union, Packsize, American Express, and Delta.
 
-But what makes Brett different isn't just his credentials. It's his ability to take complex concepts and make them immediately actionable. Your audience won't just be inspired today. They'll leave with real tools they can use tomorrow.
+What sets Brett apart is how he takes big ideas and makes them usable. Your audience will leave today with real tools they can use tomorrow.
 
 Please give a warm welcome to Brett Lechtenberg!`;
 

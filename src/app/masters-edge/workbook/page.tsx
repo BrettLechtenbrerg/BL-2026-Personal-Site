@@ -375,8 +375,8 @@ export default function MastersEdgeWorkbook() {
     body += `  Mindset score (1 to 10): ${data.w4_mindset_score || "(not filled)"}\n`;
     body += `  Skillset score (1 to 10): ${data.w4_skillset_score || "(not filled)"}\n`;
     body += `  Systems Design score (1 to 10): ${data.w4_support_score || "(not filled)"}\n`;
-    body += `  Weakest pillar + my 30-day move: ${data.w4_weakest_move || "(not filled)"}\n`;
-    body += `  7-Day "Three-Pillar Review" Tracker:\n${trackerText(4)}\n`;
+    body += `  Weakest area + my 30-day move: ${data.w4_weakest_move || "(not filled)"}\n`;
+    body += `  7-Day "Three-Part Review" Tracker:\n${trackerText(4)}\n`;
 
     body += `\n---\nNext step: book a strategy conversation with Brett at BrettLechtenberg.com\n`;
 
@@ -578,12 +578,12 @@ export default function MastersEdgeWorkbook() {
 
             <div className="max-w-2xl mx-auto rounded-2xl bg-white border border-black/5 shadow-sm p-6 mb-10 text-left">
               <h3 className="font-heading font-bold text-cranberry mb-3">
-                One System, Three Layers
+                One System, Three Pillars
               </h3>
               <p className="text-black leading-relaxed mb-2">
-                Over four weeks we install three foundations one at a time, then
-                stand them all up together. Each layer rests on the one below
-                it. Skip a layer and the system breaks.
+                Over four weeks we install three pillars one at a time, then
+                stand them all up together. Each one rests on the one before
+                it. Skip one and the system breaks.
               </p>
               <ul className="text-black leading-relaxed list-disc pl-5 space-y-1">
                 <li>
@@ -671,7 +671,7 @@ export default function MastersEdgeWorkbook() {
               cut.
             </IdeaBlock>
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
-              Pillar this week: Mindset
+              This week: First Principles and Mindset
             </p>
             <p className="text-black mb-2">
               <strong>Your habit, &ldquo;Strip &amp; Aim&rdquo;:</strong> Each
@@ -745,7 +745,7 @@ export default function MastersEdgeWorkbook() {
               stop improvising and start executing.
             </IdeaBlock>
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
-              Pillar this week: Skillset
+              This week: Frontloading and Skillset
             </p>
             <p className="text-black mb-2">
               <strong>Your habit, &ldquo;Load Tomorrow Tonight&rdquo;:</strong>{" "}Each evening, queue the first move on your One Target, prep the
@@ -814,7 +814,7 @@ export default function MastersEdgeWorkbook() {
               release → flow → recovery. Manage energy, not time.
             </IdeaBlock>
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
-              Pillar this week: Systems Design
+              This week: Flow and Systems Design
             </p>
             <p className="text-black mb-2">
               <strong>Your habit, &ldquo;Engineer One Block&rdquo;:</strong>{" "}Each day, build one 90-minute flow block (clear target, calibrated
@@ -879,20 +879,20 @@ export default function MastersEdgeWorkbook() {
             <IdeaBlock>
               The black belt is a white belt who never quit. More precisely,
               it&rsquo;s the person in whom mindset, skill, and environment
-              finally move as one. No single pillar makes a master. The
-              integration does. Because the layers stack, the weakest pillar caps
+              finally move as one. No single piece makes a master. The
+              integration does. Because the pieces stack, the weakest one caps
               the whole system: a strong mindset with no skillset is just
               positive thinking; great skills with no systems design burn out;
               a great environment with no clarity just drifts efficiently in the
               wrong direction.
             </IdeaBlock>
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
-              Pillar this week: Integration
+              This week: Integration
             </p>
             <p className="text-black mb-2">
-              <strong>Your habit, &ldquo;The Three-Pillar Review&rdquo;:</strong>{" "}Once a week, audit all three. Mindset: am I focused, resilient, and
+              <strong>Your habit, &ldquo;The Three-Part Review&rdquo;:</strong>{" "}Once a week, audit all three. Mindset: am I focused, resilient, and
               confident on my real target? Skillset: which one capability am I
-              sharpening? Support: is my environment serving the work or
+              sharpening? Systems: is my environment serving the work or
               sabotaging it? Anchor it with a consistent ritual and a 30-day
               consistency commitment.
             </p>
@@ -915,7 +915,7 @@ export default function MastersEdgeWorkbook() {
                   onChange={(v) => set("w4_support_score", v)}
                 />
                 <Field
-                  label="My weakest pillar and my one 30-day move:"
+                  label="My weakest area and my one 30-day move:"
                   value={data.w4_weakest_move}
                   onChange={(v) => set("w4_weakest_move", v)}
                   rows={3}
@@ -925,7 +925,7 @@ export default function MastersEdgeWorkbook() {
 
             <HabitTracker
               week={4}
-              title="&ldquo;The Three-Pillar Review&rdquo;: weekly audit, daily reps"
+              title="&ldquo;The Three-Part Review&rdquo;: weekly audit, daily reps"
               data={dd}
               onToggle={set}
               onNote={set}

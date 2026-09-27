@@ -176,7 +176,7 @@ export default function MastersEdgePage() {
           </div>
         </section>
 
-        {/* Three Foundations - Dark section */}
+        {/* Three Layers - Dark section */}
         <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
 
@@ -191,15 +191,15 @@ export default function MastersEdgePage() {
                 Three Layers. <span className="text-gold">One System.</span>
               </h2>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                The Master&apos;s Edge operates on three integrated layers. Each builds
-                on the one below it. Skip a layer and the system breaks.
+                The Master&apos;s Edge has three layers. Each one builds on the
+                one below it. Skip a layer and the system breaks.
               </p>
             </motion.div>
 
             {/* Layer 1: The Science */}
             <div className="mb-20">
               <h3 className="text-xl font-bold text-cranberry-light mb-8 text-center">
-                Layer 1: The Science (Three Foundations)
+                Layer 1: The Science (Three Pillars)
               </h3>
               <div className="grid md:grid-cols-3 gap-8">
                 {foundations.map((foundation, index) => (
@@ -232,7 +232,7 @@ export default function MastersEdgePage() {
             {/* Layer 2: The Methodology */}
             <div className="mb-16">
               <h3 className="text-xl font-bold text-cranberry-light mb-8 text-center">
-                Layer 2: The Methodology (Three Pillars)
+                Layer 2: The Methodology (Mind, Skills, Systems)
               </h3>
               <div className="grid md:grid-cols-3 gap-8">
                 {pillars.map((pillar, index) => (
@@ -272,7 +272,7 @@ export default function MastersEdgePage() {
               <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity duration-300" />
               <div className="relative text-center bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl p-12 border border-white/20 group-hover:border-white/40 transition-all duration-300">
                 <h3 className="text-xl font-bold text-white mb-4">
-                  Layer 3: The Transformation Promise
+                  Layer 3: The Transformation
                 </h3>
                 <p className="text-4xl lg:text-5xl font-bold">
                   <span className="text-cranberry">CLARIFY.</span>{" "}
