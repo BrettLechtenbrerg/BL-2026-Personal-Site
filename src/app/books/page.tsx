@@ -25,8 +25,7 @@ const books = [
     gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/10",
   },
   {
-    // Published Aug 2026 (KDP, ISBN 9798193944539). Link is an Amazon ISBN
-    // search until Brett supplies the product page URL.
+    // Published Aug 2026 (KDP, ISBN 9798193944539).
     title: "Powerful AI Strategies for Business Owners",
     status: "New, August 2026 (with Manny Torres)",
     description:
@@ -35,7 +34,7 @@ const books = [
     image: "/books/powerful-ai-strategies.jpg",
     imageScale: "scale-[0.85]",
     gradient: "bg-gradient-to-tr from-gold/10 via-white to-cranberry/8",
-    amazonUrl: "https://www.amazon.com/s?k=9798193944539",
+    amazonUrl: "https://www.amazon.com/Powerful-Strategies-Business-Owners-Real-World/dp/B0HH6YZYQV",
   },
   {
     title: "Reclaiming The Clock",
