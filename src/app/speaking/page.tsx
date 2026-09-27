@@ -37,7 +37,6 @@ const outcomes = [
   { icon: Smile, title: "Engaging Humor", description: "Substance combined with fun", gradient: "from-gold to-gold-dark" },
 ];
 
-// Size sequence L,m,m,L,m,m,L,L tiles the 4-col bento into 5 full rows — no holes.
 // Added Sep 27 2026 (Website-Fixes spec 2.2). Quotes are verbatim; Sam
 // Beard credit line per CLAUDE.md Credential Standards.
 const extraTestimonials = [
@@ -57,6 +56,7 @@ const extraTestimonials = [
   },
 ];
 
+// Size sequence L,m,m,L,m,m,L,L tiles the 4-col bento into 5 full rows — no holes.
 const galleryImages = [
   { src: "/speaking-gallery/america-first-training.jpg", alt: "Brett with the America First Credit Union team, Super Ethical Sales & Team Building, August 2026", size: "large" },
   { src: "/speaking-gallery/murray-chamber-training.webp", alt: "Murray Chamber of Commerce Training", size: "medium" },
