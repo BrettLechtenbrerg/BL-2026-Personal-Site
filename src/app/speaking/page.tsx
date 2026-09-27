@@ -32,7 +32,7 @@ const outcomes = [
   { icon: Sparkles, title: "Transformative Impact", description: "Lasting impact, practical tools, and genuine inspiration", gradient: "from-cranberry to-cranberry-dark" },
   { icon: Target, title: "Tailored Customization", description: "High-level customization that resonates with your specific audience", gradient: "from-gold to-gold-dark" },
   { icon: Lightbulb, title: "Actionable Insights", description: "Strategies they can implement immediately", gradient: "from-cranberry to-cranberry-dark" },
-  { icon: Zap, title: "Dynamic Energy", description: "High energy ensuring a memorable experience", gradient: "from-gold to-gold-dark" },
+  { icon: Zap, title: "Grounded Presence", description: "Calm, confident delivery that holds a room without hype", gradient: "from-gold to-gold-dark" },
   { icon: Users, title: "Evidence-Based", description: "Science-backed strategies from original research", gradient: "from-cranberry to-cranberry-dark" },
   { icon: Smile, title: "Engaging Humor", description: "Substance combined with fun", gradient: "from-gold to-gold-dark" },
 ];
@@ -76,24 +76,24 @@ const lanes: Lane[] = [
     problem:
       "The problem this lane solves: \u201cOur people are stretched thin, distracted, and running on willpower.\u201d",
     intro:
-      "Willpower is not a strategy. In this lane, Brett replaces the fragmented, outside-in grind with an integrated, inside-out operating system — positive mindset, personal motivation, and the strategic, intentional use of flow states — so performance stops being a fight and starts being a design.",
+      "Willpower is not a strategy. In this lane, Brett replaces the fragmented, outside-in grind with an integrated, inside-out operating system built on positive mindset, personal motivation, and the intentional use of flow states, so performance stops being a fight and starts being a design.",
     talks: [
       {
         id: "masters-edge",
         title: "The Master's Edge",
         subtitle: "The Science of Inside-Out Transformation · Flagship Keynote",
-        duration: "60–90 min keynote or full-day workshop",
+        duration: "60 to 90 min keynote or full-day workshop",
         flagship: true,
         paragraphs: [
           "Most performance advice hands you someone else's toolkit and hopes it fits. The Master's Edge does the opposite: it teaches your people to build their own — using First Principles to clarify what actually matters, Frontloading to simplify the path, and Flow to maximize execution.",
-          "Drawn from Brett's forthcoming book of the same name, this is the keynote that reframes high performance as something you architect from the inside out — not something you white-knuckle from the outside in.",
+          "Drawn from Brett's book of the same name, coming October 2026, this is the keynote that reframes high performance as something you build from the inside out, not something you white-knuckle from the outside in.",
         ],
         bestFor:
           "Conferences, leadership summits, corporate kickoffs, and any audience ready to trade hustle culture for mastery.",
         leavesWith: [
           "A three-pillar framework (First Principles, Frontloading, Flow) they can apply to any goal, role, or challenge.",
           "The Clarify → Simplify → Maximize sequence for cutting through overwhelm and acting on what matters.",
-          "A working understanding of flow states — and how to trigger them deliberately instead of waiting for them.",
+          "A working understanding of flow states and how to trigger them deliberately instead of waiting for them.",
         ],
       },
       {
@@ -101,7 +101,7 @@ const lanes: Lane[] = [
         title: "The Limitless Mindset",
         subtitle:
           "The Little-Known Mindset Shifts That Upgrade Your Business and Your Life",
-        duration: "60–90 min keynote or workshop",
+        duration: "60 to 90 min keynote or workshop",
         paragraphs: [
           "Confidence isn't a personality trait — it's a trainable skill. In this high-energy keynote, Brett draws on 40 years of martial arts mastery and decades of coaching to show audiences how identity drives behavior, and how two words — \u201cI AM\u201d and \u201cI CAN\u201d — rewire what people believe is possible.",
           "This is Brett's signature motivational experience: part science, part story, and closed with a moment audiences carry with them long after the event.",
@@ -119,7 +119,7 @@ const lanes: Lane[] = [
         title: "Reclaiming The Clock",
         subtitle:
           "Mastering Habits, Productivity & the Truth About Leveraging Time · Based on Brett's book",
-        duration: "60–90 min keynote or half-day workshop",
+        duration: "60 to 90 min keynote or half-day workshop",
         paragraphs: [
           "Time management isn't a calendar problem — it's a clarity problem. Based on Brett's book Reclaiming The Clock, this talk applies First Principles thinking to the modern workday: instead of squeezing more into a broken design, your people learn to rebuild their days from scratch around their highest-leverage work.",
           "No gimmicks, no app-of-the-month. Because hacks are for hacks — and your time deserves a system.",
@@ -137,7 +137,7 @@ const lanes: Lane[] = [
         title: "Flow by Design",
         subtitle:
           "The Research-Backed Science of Peak States, Faster Learning & Effortless Performance",
-        duration: "60–90 min keynote",
+        duration: "60 to 90 min keynote",
         paragraphs: [
           "Flow — the state where focus sharpens, time bends, and performance feels effortless — is not luck. It's a trainable, repeatable condition with known triggers and known blockers. Brett's thesis on using flow states to accelerate human learning and skill acquisition was reviewed by the Flow Research Collective and described as making \u201ca compelling, empirical case.\u201d",
           "In this keynote, he translates that research into a practical playbook: how individuals and teams can strategically and intentionally engineer the conditions where their best work happens on purpose.",
@@ -158,7 +158,7 @@ const lanes: Lane[] = [
     problem:
       "The problem this lane solves: \u201cOur teams don't trust each other, and our leaders can't get everyone pulling in the same direction.\u201d",
     intro:
-      "Culture isn't a poster on the wall — it's the operating system your people run on. In this lane, Brett combines the research (Google's Project Aristotle, psychological safety, team cohesion science) with 30 years of building real teams to show leaders how trust, clarity, and shared identity produce what pressure and policy never will: a team that reaches flow together.",
+      "Culture isn't a poster on the wall. It's the operating system your people run on. In this lane, Brett combines the research (Google's Project Aristotle, psychological safety, team cohesion science) with 30 years of building real teams to show leaders how trust, clarity, and shared identity produce what pressure and policy never will: a team that reaches flow together.",
     talks: [
       {
         id: "winning-team-culture",
@@ -183,7 +183,7 @@ const lanes: Lane[] = [
         title: "The Road Less Traveled (Mastery Edition)",
         subtitle:
           "What 40 Years of Martial Arts Mastery Teaches Leaders About Excellence, Patience & Longevity",
-        duration: "45–60 min keynote",
+        duration: "45 to 60 min keynote",
         paragraphs: [
           "Every leader wants the summit; few want the climb. In this reflective, story-driven talk, Brett — a certified 8th-degree black belt — shares what four decades on the mat reveal about real mastery: why shortcuts collapse, why fundamentals compound, and why the leaders who endure are the ones who fall in love with the path itself.",
           "This is the talk for rooms that want depth over tactics — a meditation on excellence with the credibility of someone who has lived it.",
@@ -204,14 +204,14 @@ const lanes: Lane[] = [
     problem:
       "The problem this lane solves: \u201cAI is moving fast, and we don't know what it means for our people.\u201d",
     intro:
-      "Brett's position on artificial intelligence is refreshingly human: automate the tasks, amplify the people. As co-founder of Total Success AI and a working practitioner — not a futurist with slides — he helps organizations adopt AI from first principles: clarify the real problem, simplify the workflow, and free your people to do the deep, creative, relational work only humans can do.",
+      "Brett's position on artificial intelligence is refreshingly human: automate the tasks, amplify the people. As co-founder of Total Success AI and a working practitioner, not a futurist with slides, he helps organizations adopt AI from first principles: clarify the real problem, simplify the workflow, and free your people to do the deep, creative, relational work only humans can do.",
     talks: [
       {
         id: "who-owns-the-outcome",
         title: "Who Owns the Outcome?",
         subtitle:
-          "The Leadership Question That Decides Whether AI Transforms Your Organization — or Quietly Damages It",
-        duration: "15–25 min keynote, expandable to 45–60 min",
+          "The Leadership Question That Decides Whether AI Transforms Your Organization or Quietly Damages It",
+        duration: "15 to 25 min keynote, expandable to 45 to 60 min",
         paragraphs: [
           "AI can automate the task. It cannot own the outcome. That responsibility still belongs to a human — and the organizations that thrive in the AI era will be the ones whose leaders understand exactly where the machine's job ends and human judgment begins.",
           "In this keynote, Brett cuts through both the hype and the fear, giving leaders a first-principles decision framework for what to automate, what to keep human, and how to lead people through the transition with trust intact.",
@@ -248,7 +248,7 @@ const lanes: Lane[] = [
     number: "04",
     name: "Sales & Ethical Influence",
     problem:
-      "The problem this lane solves: \u201cOur reps struggle to close — and the old-school sales training we've tried feels manipulative.\u201d",
+      "The problem this lane solves: \u201cOur reps struggle to close, and the old-school sales training we've tried feels manipulative.\u201d",
     intro:
       "Brett's sales philosophy fits on one line: \u201cI'm not selling, I'm serving.\u201d This lane replaces pressure tactics with ethical influence — a transformation-over-transaction approach where reps learn to guide honest decisions, protect the relationship, and close more because of it. It's sales training your people won't need a shower after.",
     talks: [
@@ -256,8 +256,8 @@ const lanes: Lane[] = [
         id: "honest-close",
         title: "The Honest Close",
         subtitle:
-          "The Three Beliefs Behind Every Yes — and the Ethical Framework That Earns Them",
-        duration: "60–90 min keynote or half-day training",
+          "The Three Beliefs Behind Every Yes and the Ethical Framework That Earns Them",
+        duration: "60 to 90 min keynote or half-day training",
         paragraphs: [
           "Every sale rests on three beliefs: the solution exists, we can find it together, and it's worth it. When reps struggle, it's almost never a script problem — it's a belief problem, usually the third one. This keynote and training experience diagnoses where belief breaks down and rebuilds the close as an act of service: honest questions, real clarity, and an invitation the client is glad they accepted.",
           "Built for teams navigating commission-based selling, new sales roles, or a market that's grown allergic to pressure.",
@@ -277,7 +277,7 @@ const lanes: Lane[] = [
         title: "A Category of One",
         subtitle:
           "Maximize Resilience & Problem-Solving to Position Your Business in a Class by Itself",
-        duration: "60–90 min keynote",
+        duration: "60 to 90 min keynote",
         paragraphs: [
           "When you compete on price, everyone loses — especially you. This talk shows business owners and sales organizations how to escape the comparison trap entirely: using First Principles thinking to identify what only you can offer, and building a market position where the question is never \u201cwhy you?\u201d but \u201chow soon can we start?\u201d",
           "Differentiation isn't a tagline. It's a discipline — and it starts from the inside out.",
@@ -491,8 +491,8 @@ export default function SpeakingPage() {
               Your Audience Leaves{" "}
               <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
                 Changed
-              </span>{" "}
-              — Not Just Entertained
+              </span>
+              , Not Just Entertained
             </motion.h1>
 
             <motion.p
@@ -503,8 +503,8 @@ export default function SpeakingPage() {
             >
               Science-backed keynotes and training built on one promise:
               transformation over transaction. Every talk is grounded in the
-              Master&apos;s Edge methodology — Frontloading, First Principles, and
-              the strategic use of Flow — so your people don&apos;t just hear new
+              Master&apos;s Edge methodology of First Principles, Frontloading, and
+              the strategic use of Flow, so your people don&apos;t just hear new
               ideas. They leave with clarity, motivation, and tools they use
               Monday morning.
             </motion.p>
@@ -535,8 +535,8 @@ export default function SpeakingPage() {
         {/* Supporting text for SEO/accessibility (carousel logos are images) */}
         <div className="bg-gray-50 py-6">
           <p className="text-center text-sm text-warm-gray/80 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            From Fortune 500 teams like American Express and Delta to America
-            First Credit Union and chambers of commerce across Utah, Brett
+            From America First Credit Union, Packsize, and Purple to American
+            Express, Delta, and chambers of commerce across Utah, Brett
             delivers transformation that outlasts the event.
           </p>
           {/* Verified stats (Session 22, Aug 8 2026 — figures confirmed by Brett;
@@ -600,7 +600,7 @@ export default function SpeakingPage() {
                   poster="/videos/sizzle-reel-poster.jpg"
                   label="Brett Lechtenberg 2026 speaker sizzle reel"
                   aspect="wide"
-                  caption="▶ Watch the 2:56 sizzle reel — with sound"
+                  caption="▶ Watch the 2:56 sizzle reel (with sound)"
                 />
               </motion.div>
 
@@ -624,9 +624,10 @@ export default function SpeakingPage() {
                   </span>
                 </h2>
                 <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  Brett&apos;s official sizzle reel — live keynotes, corporate
-                  trainings, an 8th-degree black belt test, and the rooms he
-                  works, all in under three minutes.
+                  Three minutes, no pitch. Live keynotes, corporate trainings,
+                  and the business owners, executives, and teams Brett works
+                  with. Watch it and you&apos;ll know whether he&apos;s right for
+                  your room.
                 </p>
 
                 {/* Juan Diego testimonial — same venue as the footage */}
@@ -716,8 +717,8 @@ export default function SpeakingPage() {
               <div className="space-y-5 text-lg text-warm-gray leading-relaxed text-left">
                 <p>
                   Every Brett Lechtenberg keynote and training is built on the
-                  same foundation: the Master&apos;s Edge — a science-backed system
-                  for inside-out transformation validated by a thesis reviewed
+                  same foundation: the Master&apos;s Edge, a science-backed system
+                  for inside-out transformation, grounded in a thesis reviewed
                   by the Flow Research Collective and forged through 30 years of
                   business ownership and four decades on the martial arts mat.
                 </p>
@@ -725,13 +726,12 @@ export default function SpeakingPage() {
                   Brett doesn&apos;t do off-the-shelf content, and he doesn&apos;t do
                   shortcuts. As he puts it: &ldquo;Hacks are for hacks.&rdquo;
                   What he delivers instead is a custom-fit experience built from
-                  three scientific pillars — First Principles to CLARIFY,
-                  Frontloading to SIMPLIFY, and Flow to MAXIMIZE — tailored to
-                  your room, your industry, and your outcomes.
+                  three pillars, First Principles to Clarify, Frontloading to
+                  Simplify, and Flow to Maximize, then tailored to your room, your industry, and your outcomes.
                 </p>
                 <p>
                   Choose the lane that matches the problem you&apos;re solving. The
-                  transformation is guaranteed to be his.
+                  delivery is his. The transformation is yours.
                 </p>
               </div>
             </motion.div>
@@ -823,7 +823,7 @@ export default function SpeakingPage() {
                 </span>
               </h2>
               <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                From corporate boardrooms to championship teams — delivering
+                From corporate boardrooms to championship teams, Brett delivers
                 transformation everywhere.
               </p>
             </motion.div>
@@ -966,8 +966,8 @@ export default function SpeakingPage() {
                 </h2>
                 <p className="text-lg text-gray-300 leading-relaxed mb-8">
                   Planning an event is hard enough. Booking Brett is easy. The
-                  full media kit — speaker one-sheet, headshots, ready-to-read
-                  introductions, and A/V requirements — is one click away, ready
+                  full media kit (speaker one-sheet, headshots, ready-to-read
+                  introductions, and AV requirements) is one click away, ready
                   to share with your committee.
                 </p>
                 <Button href="/media-kit" variant="secondary" size="lg">
@@ -1032,7 +1032,7 @@ export default function SpeakingPage() {
                 No pitch. No pressure. Just a genuine discussion about your
                 event, your audience, and the transformation you want them to
                 walk away with. If Brett&apos;s the right fit, you&apos;ll know. If he&apos;s
-                not, he&apos;ll tell you — and point you toward someone who is.
+                not, he&apos;ll tell you and point you toward someone who is.
               </p>
               <Button href="/book-brett" size="lg" variant="secondary">
                 Book Brett for Your Event
