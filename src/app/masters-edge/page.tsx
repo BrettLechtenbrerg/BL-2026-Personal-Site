@@ -258,8 +258,8 @@ export default function MastersEdgePage() {
               </div>
             </div>
 
-            {/* Layer 2: The Methodology */}
-            <div className="mb-16">
+            {/* Layer 2: The Methodology. id lets /masters-edge?compare=1#layer-2 jump here. */}
+            <div id="layer-2" className="mb-16 scroll-mt-28">
               <h3 className="text-xl font-bold text-cranberry-light mb-8 text-center">
                 Layer 2: The Methodology (Three Pillars)
               </h3>

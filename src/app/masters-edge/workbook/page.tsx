@@ -553,6 +553,29 @@ export default function MastersEdgeWorkbook() {
         className="max-w-4xl mx-auto px-3 sm:px-4 py-6 sm:py-8"
         id="workbookContent"
       >
+        {compare && !isPrinting && (
+          <div className="mb-6 rounded-xl border-2 border-dashed border-gold bg-gold/10 p-4 text-center">
+            <p className="font-semibold text-black mb-3">
+              Wording review: the proposed wording is in gold dashed boxes inside
+              each week. Pick a week:
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {(["week1", "week2", "week3", "week4"] as const).map((sec, i) => (
+                <button
+                  key={sec}
+                  onClick={() => goTo(sec)}
+                  className={`rounded-lg px-4 py-2 text-sm font-bold transition-colors ${
+                    currentSection === sec
+                      ? "bg-cranberry text-white"
+                      : "bg-white text-cranberry border border-cranberry/30 hover:bg-cranberry/5"
+                  }`}
+                >
+                  Week {i + 1}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         {/* ===================== WELCOME ===================== */}
         {(isPrinting || currentSection === "welcome") && (
           <motion.div
