@@ -56,13 +56,28 @@ STATE AT END OF SESSION 32 (Sep 27, 2026) — everything committed, pushed, depl
 - One-sheets rebuilt from scripts/one-sheet/*.html (website + agency), synced to all three
   branding folders. render.cjs now prints a page-fit check and accepts CHROMIUM_PATH.
 
+ASK BRETT FIRST THING (he asked for this reminder, Sep 27 2026):
+- DOUBLE-CHECK BILL SCHUFFENHAUER'S QUOTE. Three versions are live; ask Brett which
+  is word-for-word what Bill said (and which title to use), then make all 6 places match:
+    A "Brett really knows flow, peak performance, and goals. I have been around a ton of
+      business coaches and high-level performers, and Brett is a top-tier trainer,
+      teacher, and coach."   <- src/app/speaking/page.tsx, src/app/masters-edge-program/page.tsx,
+      src/components/sections/Testimonials.tsx (home), scripts/one-sheet/one-sheet.html
+    B "Brett knows flow, peak performance and goals. I have been around a ton of business
+      coaches and high level performers and Brett is a top tier trainer, teacher and coach."
+      <- src/app/testimonials/page.tsx
+    C "Brett really knows how to increase flow states and peak performance. I have been
+      around a ton of business coaches and high-level performers, and Brett is a top-tier
+      trainer, teacher, and coach."   <- scripts/one-sheet/agency-one-sheet.html
+  Titles also vary: "3-Time Olympian" (speaking, website one-sheet) vs "Olympic Silver
+  Medalist & 3x Olympian" (testimonials, home, program) vs "Olympic Silver Medalist &
+  3-Time Olympian" (agency one-sheet). After editing either one-sheet HTML, re-render it
+  and run scripts/one-sheet/sync-branding-assets.sh. Do NOT change the quote without his answer.
+
 OPEN QUESTIONS FOR BRETT (nothing blocked; don't guess):
 - /books lists 8 titles but the site says "seven books, five bestsellers": which isn't counted?
 - Pull-up banner (scripts/one-sheet/pullup-banner.html) still says "8 U.S. Presidents";
   one-sheets and website now say "8 United States Presidents". Re-render banner if Brett wants.
-- Bill Schuffenhauer's quote differs: agency one-sheet "knows how to increase flow states and
-  peak performance" vs website/website one-sheet "knows flow, peak performance, and goals".
-  Ask Brett which is verbatim; do NOT edit testimonials without his answer.
 - Agency one-sheet page 2 bottom sits ~0.3in into the margin (was like this before Sep 27;
   nothing is cut off). Tighten only if Brett asks.
 

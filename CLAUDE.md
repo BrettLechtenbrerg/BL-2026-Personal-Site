@@ -238,6 +238,10 @@ BL-2026-Personal-Site/
   Jefferson Awards (he co-founded it, but the org no longer exists; NDC is
   still active). Sam is writing the foreword to Brett's Human First AI book —
   add that credit when the book launches.
+- **Bill Schuffenhauer quote: UNCONFIRMED (Sep 27 2026).** Three wordings and
+  three titles are live across 6 files. Brett asked to double-check which is
+  verbatim. Full list of versions and locations: top of NEXT_SESSION.md. Do not
+  edit or reuse his quote until Brett confirms; then make all 6 places match.
 - **Research:** Flow state researcher; his work was REVIEWED by the Flow Research
   Collective (never "validated by")
 - **Three layers (The Master's Edge, Sep 27 2026):** Layer 1 The Science = the
