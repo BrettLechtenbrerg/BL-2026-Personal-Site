@@ -5,23 +5,33 @@ import Image from "next/image";
 // heightClass tunes each logo's rendered height so every mark carries the
 // same visual weight as Delta/America First (squares need to run taller,
 // ultra-wide wordmarks shorter). Default is h-[50px].
+// Order is the official client order (Website-Fixes spec, Sep 27 2026):
+// business clients first, then chambers, USA Martial Arts always last.
 const logos = [
-  { name: "American Express", src: "/logos/american-express.png", width: 200, heightClass: "h-[64px]" },
-  { name: "Delta", src: "/logos/delta.png", width: 175 },
   { name: "America First Credit Union", src: "/logos/america-first.png", width: 175 },
   { name: "Packsize", src: "/logos/packsize.png", width: 188, heightClass: "h-[32px]" },
-  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 200, hasBackground: true, heightClass: "h-[62px]" },
   { name: "Purple", src: "/logos/purple.jpg", width: 150, hasBackground: true, heightClass: "h-[62px]" },
   { name: "Thumbtack", src: "/logos/thumbtack.png", width: 188 },
+  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", width: 200, hasBackground: true, heightClass: "h-[62px]" },
+  { name: "American Express", src: "/logos/american-express.png", width: 200, heightClass: "h-[64px]" },
+  { name: "Delta", src: "/logos/delta.png", width: 175 },
   { name: "Murray Chamber", src: "/logos/murray-chamber.png", width: 150, heightClass: "h-[56px]" },
-  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 163, heightClass: "h-[56px]" },
   { name: "Park City Chamber", src: "/logos/park-city-chamber.png", width: 163, heightClass: "h-[38px]" },
+  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", width: 163, heightClass: "h-[56px]" },
   { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png", width: 150, heightClass: "h-[64px]" },
 ];
 
-export function LogoScroller() {
+interface LogoScrollerProps {
+  /** Business pages (e.g. /speaking) omit the martial arts logo. */
+  hideMartialArts?: boolean;
+}
+
+export function LogoScroller({ hideMartialArts = false }: LogoScrollerProps = {}) {
+  const shown = hideMartialArts
+    ? logos.filter((logo) => logo.name !== "USA Martial Arts")
+    : logos;
   // Double the logos for seamless infinite scroll
-  const doubledLogos = [...logos, ...logos];
+  const doubledLogos = [...shown, ...shown];
 
   return (
     <section className="relative py-16 overflow-hidden">
