@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Advisory Services",
   description:
-    "AI implementation done right. Free your team to do what only humans can. Training, integration, and full-service AI solutions through Total Success AI.",
+    "AI implementation done right. Free your team to do what only humans can. Training, integration, and full-service AI implementation through Total Success AI.",
   keywords: [
     "AI consulting",
     "AI advisory",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Advisory Services | Brett Lechtenberg",
     description:
-      "AI done right starts with people. Training, integration, and full-service AI solutions.",
+      "AI done right starts with people. Training, integration, and full-service AI implementation.",
     url: "https://www.brettlechtenberg.com/ai-advisory",
     images: [
       {

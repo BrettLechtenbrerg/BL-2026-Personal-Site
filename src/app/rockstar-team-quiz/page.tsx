@@ -6,7 +6,7 @@ import RockstarTeamQuiz from "@/components/RockstarTeamQuiz";
 export const metadata: Metadata = {
   title: "Rockstar Team Quiz | Brett Lechtenberg",
   description:
-    "6 quick questions to diagnose the #1 gap between you and a rockstar team — and get the complete 'How To Build A Rockstar Team' book free.",
+    "6 quick questions to diagnose the #1 gap between you and a rockstar team, and get the complete 'How To Build A Rockstar Team' book free.",
   alternates: {
     canonical: "https://www.brettlechtenberg.com/rockstar-team-quiz",
   },
@@ -30,13 +30,13 @@ export default function RockstarTeamQuizPage() {
               Free 2-Minute Diagnostic
             </span>
             <h1 className="mt-4 text-4xl md:text-5xl font-bold">
-              Build a <span className="text-gold">Rockstar Team</span> — Not a
+              Build a <span className="text-gold">Rockstar Team</span>, Not a
               Revolving Door
             </h1>
             <p className="mt-4 text-lg text-white/80">
               After 30 years of building teams through the toughest economies,
               Brett distilled team-building into 15 strategies. This quiz finds
-              the ONE gap costing you the most — then hands you the full book
+              the ONE gap costing you the most, then hands you the full book
               that fixes it, free.
             </p>
           </div>

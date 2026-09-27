@@ -22,7 +22,7 @@ export function QuizPromo() {
             <div className="relative grid grid-cols-2 gap-3">
               <Image
                 src="/images/quiz/gap-recognition.webp"
-                alt="Team celebrating a win — recognition"
+                alt="Team celebrating a win: recognition"
                 width={480}
                 height={320}
                 className="rounded-2xl border border-black/5 object-cover h-full shadow-lg"
@@ -51,8 +51,8 @@ export function QuizPromo() {
               ?
             </h2>
             <p className="text-lg text-warm-gray leading-relaxed mb-6">
-              6 quick questions. Get your biggest team-building gap diagnosed —
-              and the complete <em>How To Build A Rockstar Team</em> book that
+              6 quick questions. Get your biggest team-building gap diagnosed,
+              and get the complete <em>How To Build A Rockstar Team</em> book that
               fixes it, free.
             </p>
             <ul className="flex flex-wrap gap-2 mb-8">

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Brett Lechtenberg",
   description:
-    "8th-degree black belt, 30+ years in business, published author, and validated flow state researcher. Discover the person behind The Master's Edge methodology.",
+    "8th-degree black belt, 30+ years in business, author of seven books (five bestsellers), and flow state researcher. Discover the person behind The Master's Edge methodology.",
   keywords: [
     "Brett Lechtenberg",
     "about Brett Lechtenberg",

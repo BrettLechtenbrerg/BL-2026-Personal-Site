@@ -21,7 +21,7 @@ export function JsonLd() {
     ],
     jobTitle: "Peak Performance Coach",
     description:
-      "Brett Lechtenberg is a peak performance coach, keynote speaker, best-selling author, 8th-degree black belt Grandmaster, and founder of Personal Mastery Martial Arts (Sandy, Utah) and Total Success AI. He helps leaders unlock peak performance through The Master's Edge by Brett Lechtenberg — a proven coaching methodology built on 30+ years of real-world experience and validated flow state research.",
+      "Brett Lechtenberg is a peak performance coach, keynote speaker, best-selling author, 8th-degree black belt Grandmaster, and founder of Personal Mastery Martial Arts (Sandy, Utah) and Total Success AI. He helps leaders unlock peak performance through The Master's Edge by Brett Lechtenberg, a proven coaching methodology built on 30+ years of real-world experience and flow state research reviewed by the Flow Research Collective.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Sandy",
@@ -85,7 +85,7 @@ export function JsonLd() {
     url: "https://www.brettlechtenberg.com/masters-edge",
     provider: { "@id": "https://www.brettlechtenberg.com/#brett" },
     description:
-      "The Master's Edge by Brett Lechtenberg is a science-backed peak performance coaching methodology for leaders and business owners: Mindset Mastery, Skillset Enhancement, and Systems Design, built on 30+ years of experience and validated flow state research. Clarify, Simplify, Maximize.",
+      "The Master's Edge by Brett Lechtenberg is a science-backed peak performance coaching methodology for leaders and business owners, built on three pillars: First Principles (Clarify), Frontloading (Simplify), and Flow (Maximize). It draws on 30+ years of experience and flow state research reviewed by the Flow Research Collective.",
     areaServed: { "@type": "Country", name: "United States" },
   };
 
@@ -95,7 +95,7 @@ export function JsonLd() {
     name: "Brett Lechtenberg",
     url: "https://www.brettlechtenberg.com",
     description:
-      "Official website of Brett Lechtenberg - Peak Performance Coach, Speaker & Author",
+      "Official website of Brett Lechtenberg, Peak Performance Coach, Speaker & Author",
     publisher: {
       "@type": "Person",
       name: "Brett Lechtenberg",

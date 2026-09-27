@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "The Master's Edge — New Book Coming Q4 2026",
+  title: "The Master's Edge | New Book Coming October 2026",
   description:
-    "The Master's Edge: Ancient Discipline, Modern Leadership. Brett Lechtenberg's definitive guide to mindset, skillset, and systems design — coming Q4 2026.",
+    "The Master's Edge: Ancient Discipline, Modern Leadership. Brett Lechtenberg's definitive guide to First Principles, Frontloading, and Flow, coming October 2026.",
   keywords: [
     "The Master's Edge book",
     "Brett Lechtenberg new book",
     "peak performance book",
     "leadership book 2026",
-    "mindset skillset systems design",
+    "first principles frontloading flow",
     "flow state book",
     "martial arts leadership",
   ],
   openGraph: {
-    title: "The Master's Edge — New Book Coming Q4 2026",
+    title: "The Master's Edge | New Book Coming October 2026",
     description:
-      "Ancient Discipline, Modern Leadership. Brett Lechtenberg's definitive guide to mindset, skillset, and systems design.",
+      "Ancient Discipline, Modern Leadership. Brett Lechtenberg's definitive guide to First Principles, Frontloading, and Flow.",
     url: "https://www.brettlechtenberg.com/books/masters-edge",
     images: [
       {
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    title: "The Master's Edge — New Book Coming Q4 2026",
+    title: "The Master's Edge | New Book Coming October 2026",
     description:
-      "Ancient Discipline, Modern Leadership. Coming Q4 2026.",
+      "Ancient Discipline, Modern Leadership. Coming October 2026.",
   },
   alternates: {
     canonical: "https://www.brettlechtenberg.com/books/masters-edge",

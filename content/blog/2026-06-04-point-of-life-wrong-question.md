@@ -2,18 +2,18 @@
 title: "What Is the Point of Life? (Why You're Asking the Wrong Question)"
 date: "2026-06-04"
 slug: "point-of-life-wrong-question"
-description: "After 30 years of mentoring transformations, here's why \"what is the point of life?\" is the wrong question — and the better one almost no one asks."
+description: "After 30 years of mentoring transformations, here's why \"what is the point of life?\" is the wrong question, and the better one almost no one asks."
 keyword: "what is the point of life"
 hero_image: "/blog-images/point-of-life-wrong-question-hero.png"
 faqs:
   - question: "Why is 'what is the point of life?' the wrong question?"
-    answer: "Because it's built to keep you still. It's abstract, massive, and has no edges — there's no action you can take after asking it. The better question is 'what's the next right step?' That one moves you. Meaning is built by living, not by thinking."
+    answer: "Because it's built to keep you still. It's abstract, massive, and has no edges. There's no action you can take after asking it. The better question is 'what's the next right step?' That one moves you. Meaning is built by living, not by thinking."
   - question: "How do I know what my next right step is?"
-    answer: "You already do. People who feel stuck almost always know the specific thing they've been avoiding — a conversation, a change, a risk. The big existential question is often a way of delaying the small honest one. Ask yourself: what's the one thing I've been putting off that I know I need to do?"
+    answer: "You already do. People who feel stuck almost always know the specific thing they've been avoiding: a conversation, a change, a risk. The big existential question is often a way of delaying the small honest one. Ask yourself: what's the one thing I've been putting off that I know I need to do?"
   - question: "What if I take the next step and it's the wrong one?"
     answer: "Then you've learned something you couldn't have learned standing still. Clarity comes from movement, not the other way around. A step in the wrong direction still teaches you which direction is right. Sitting at the trailhead teaches you nothing."
   - question: "How long does it take to find purpose?"
-    answer: "Purpose isn't a destination you arrive at — it's a residue that builds up from living honestly. The people I've watched transform didn't 'find' purpose; they built it one step at a time, often without realizing it was happening. Six months of small honest action will move you further than six years of thinking."
+    answer: "Purpose isn't a destination you arrive at. It's a residue that builds up from living honestly. The people I've watched transform didn't 'find' purpose; they built it one step at a time, often without realizing it was happening. Six months of small honest action will move you further than six years of thinking."
   - question: "What if I'm too far gone or too old to start over?"
     answer: "In 30 years of mentorship, I've never met someone who was too far gone. I've met people in their 60s and 70s who started over and became someone new. The path doesn't care how late you start. It only cares that you start."
 ---
@@ -24,7 +24,7 @@ First, you're not broken. People who ask that question are usually the ones with
 
 Second, you're asking the wrong question.
 
-I know that sounds harsh. Stay with me. In thirty years of mentoring people through transformations of every shape — quiet professionals, lost teenagers, burned-out parents, executives who had everything and felt nothing — I've watched what actually happens when someone moves from "what's the point?" to a life they're proud of. It never starts with finding the answer. It starts with asking a different question.
+I know that sounds harsh. Stay with me. In thirty years of mentoring people through transformations of every shape (quiet professionals, lost teenagers, burned-out parents, executives who had everything and felt nothing), I've watched what actually happens when someone moves from "what's the point?" to a life they're proud of. It never starts with finding the answer. It starts with asking a different question.
 
 ## The Question Everyone Asks (And Why It Gets You Stuck)
 
@@ -48,7 +48,7 @@ For some people, the next right step is a conversation they've been putting off.
 
 Here's why it works.
 
-The big question — "what is the point of life?" — asks you to figure out the whole map before you take a step. The next right step asks you to take one step so the map can reveal itself. And it does. Every single time.
+The big question, "what is the point of life?", asks you to figure out the whole map before you take a step. The next right step asks you to take one step so the map can reveal itself. And it does. Every single time.
 
 Meaning is what happens when you stop standing at the trailhead.
 
@@ -60,7 +60,7 @@ You already know what your next right step is. You've known for a while.
 
 That's why the question feels so heavy. You aren't actually confused about life. You're delaying a specific thing. A specific conversation. A specific change. A specific risk. And as long as you keep asking the giant question, you don't have to face the small one.
 
-I've sat across from thousands of people in my school and in mentorship. I've heard "I don't know what to do with my life" thousands of times. And almost every single time, when I gently asked the right follow-up question — "what's the one thing you've been avoiding?" — they could answer immediately. They knew. They always knew.
+I've sat across from thousands of people in my school and in mentorship. I've heard "I don't know what to do with my life" thousands of times. And almost every single time, when I gently asked the right follow-up question ("what's the one thing you've been avoiding?"), they could answer immediately. They knew. They always knew.
 
 The work isn't figuring out the point of life. The work is becoming the kind of person who acts on what they already know.
 

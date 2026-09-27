@@ -32,17 +32,17 @@ const tiers = [
     title: "Do It For You",
     subtitle: "Full Service",
     description:
-      "We handle the full AI implementation — from strategy to custom tool development to managed services.",
-    bestFor: "Organizations wanting turnkey AI solutions",
+      "We handle the full AI implementation, from strategy to custom tool development to managed services.",
+    bestFor: "Organizations that want AI handled from start to finish",
     gradient: "from-cranberry to-cranberry-dark",
   },
 ];
 
 const impactAreas = [
   { icon: Rocket, title: "Future-Proofing", description: "Anticipate market trends and position your business ahead of change", gradient: "from-cranberry to-cranberry-dark" },
-  { icon: Brain, title: "Prompt Engineering", description: "Learn to communicate with AI tools effectively — saving massive time and money", gradient: "from-gold to-gold-dark" },
+  { icon: Brain, title: "Prompt Engineering", description: "Learn to communicate with AI tools effectively, saving massive time and money", gradient: "from-gold to-gold-dark" },
   { icon: Zap, title: "Business Automation", description: "Automate repetitive tasks so your team can focus on high-value work", gradient: "from-cranberry to-cranberry-dark" },
-  { icon: Sparkles, title: "Content Creation", description: "Generate, optimize, and repurpose content at scale", gradient: "from-gold to-gold-dark" },
+  { icon: Sparkles, title: "Content Creation", description: "Generate, improve, and repurpose content at scale", gradient: "from-gold to-gold-dark" },
 ];
 
 const threeStepProcess = [
@@ -51,7 +51,7 @@ const threeStepProcess = [
     gradient: "from-blue-500 to-blue-700",
     points: [
       "We analyze your workflows and show you how AI can save time, cut costs, and boost revenue.",
-      "Get clarity on what AI tools will give you the biggest ROI.",
+      "Get clarity on which AI tools will give you the biggest return on your investment.",
     ],
   },
   {
@@ -66,7 +66,7 @@ const threeStepProcess = [
     title: "Effortless Integration",
     gradient: "from-gold to-gold-dark",
     points: [
-      "We implement AI solutions for you or guide you every step of the way.",
+      "We implement AI for you or guide you every step of the way.",
       "Achieve smooth adoption without the overwhelm or guesswork.",
     ],
   },
@@ -76,7 +76,7 @@ const whatWeBring = [
   {
     icon: TrendingUp,
     title: "Stay Ahead of The Curve",
-    description: "AI training and future-proofing strategies can help you stay ahead of the curve, adapt quickly to market changes, seize emerging opportunities, and maintain a strong competitive edge. Falling behind can mean lost revenue, reduced market share, and diminished relevance in an ever-evolving business landscape.",
+    description: "AI training and future-proofing strategies help you stay ahead of the curve. You adapt faster when the market shifts, spot new opportunities sooner, and keep a real competitive edge.",
     gradient: "from-blue-500 to-cranberry",
   },
   {
@@ -88,7 +88,7 @@ const whatWeBring = [
   {
     icon: BarChart3,
     title: "Deeper Insights and Better Decision-Making",
-    description: "AI algorithms can analyze large amounts of data in real time and provide actionable insights, uncover patterns, and predict trends. This capacity allows businesses (and individuals) to make more informed decisions, stay ahead of market shifts, and optimize strategies for better outcomes.",
+    description: "AI algorithms can analyze large amounts of data in real time and provide actionable insights, uncover patterns, and predict trends. That helps business owners and their teams make better-informed decisions, stay ahead of market shifts, and sharpen their strategies.",
     gradient: "from-gold to-blue-500",
   },
 ];
@@ -131,7 +131,7 @@ export default function AIAdvisoryPage() {
               className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-5 py-2 mb-6"
             >
               <Bot className="w-4 h-4 text-blue-400" />
-              <span className="text-blue-300 font-semibold text-sm">AI Advisory — Powered by Total Success AI</span>
+              <span className="text-blue-300 font-semibold text-sm">AI Advisory · Powered by Total Success AI</span>
             </motion.div>
 
             <motion.h1
@@ -161,7 +161,7 @@ export default function AIAdvisoryPage() {
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
               <Button href={links.booking} external size="lg">
-                Explore AI Solutions
+                Talk With Brett About AI
               </Button>
             </motion.div>
           </div>
@@ -185,8 +185,8 @@ export default function AIAdvisoryPage() {
                 <p className="text-lg text-warm-gray leading-relaxed">
                   Most AI consultants lead with the technology. We lead with the problem.
                   Using the same first-principles approach that powers The Master&apos;s
-                  Edge, we start by understanding what your business actually needs —
-                  then build AI solutions that serve your people, not the other way around.
+                  Edge, we start by understanding what your business actually needs.
+                  Then we build AI tools that serve your people, not the other way around.
                 </p>
               </div>
             </motion.div>
@@ -222,7 +222,7 @@ export default function AIAdvisoryPage() {
                 Our Proven <span className="bg-gradient-to-r from-blue-400 via-cranberry to-gold bg-clip-text text-transparent">3-Step Process</span>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Our advisory services empower businesses to innovate, scale, and thrive in an AI-driven world.
+                Three steps that take you from &ldquo;where do we start?&rdquo; to AI that&apos;s working in your business.
               </p>
             </motion.div>
 
@@ -448,8 +448,8 @@ export default function AIAdvisoryPage() {
               </h2>
               <p className="text-lg text-gray-400 mb-8">
                 Brett&apos;s AI advisory services are delivered through Total Success AI,
-                co-founded with Manny Torres. For deeper AI consulting, implementation,
-                and custom solutions.
+                co-founded with Manny Torres. Visit Total Success AI for deeper AI consulting,
+                implementation, and custom tools.
               </p>
               <Button href={links.ai} external variant="secondary" size="lg">
                 Visit Total Success AI

@@ -176,7 +176,7 @@ export default function BookBrettPage() {
               className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
             >
               Whether it&apos;s a keynote, workshop, or full-day training, Brett delivers
-              transformational content that leaves your audience with real tools — not just inspiration.
+              transformational content that leaves your audience with real tools, not just inspiration.
             </motion.p>
           </div>
         </section>
@@ -199,7 +199,7 @@ export default function BookBrettPage() {
                       <div className="w-20 h-20 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle className="w-10 h-10 text-white" />
                       </div>
-                      <h2 className="text-2xl font-bold text-black mb-4">Request Received!</h2>
+                      <h2 className="text-2xl font-bold text-black mb-4">Request Received</h2>
                       <p className="text-warm-gray max-w-md mx-auto">
                         Thank you for your interest in having Brett speak at your event.
                         You&apos;ll receive a response within 48 hours.
@@ -285,7 +285,7 @@ export default function BookBrettPage() {
                             value={formData.role}
                             onChange={handleChange}
                             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                            placeholder="Event Planner, HR Director, etc."
+                            placeholder="Event Planner, People Director, etc."
                           />
                         </div>
 
@@ -352,7 +352,7 @@ export default function BookBrettPage() {
                               >
                                 <option value="">Select size</option>
                                 {audienceSizes.map(size => (
-                                  <option key={size} value={size}>{size}</option>
+                                  <option key={size} value={size}>{size.replace("-", " to ")}</option>
                                 ))}
                               </select>
                             </div>
@@ -402,9 +402,9 @@ export default function BookBrettPage() {
                               >
                                 <option value="">Select range</option>
                                 <option value="Under $5,000">Under $5,000</option>
-                                <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                                <option value="$10,000 - $15,000">$10,000 - $15,000</option>
-                                <option value="$15,000 - $25,000">$15,000 - $25,000</option>
+                                <option value="$5,000 - $10,000">$5,000 to $10,000</option>
+                                <option value="$10,000 - $15,000">$10,000 to $15,000</option>
+                                <option value="$15,000 - $25,000">$15,000 to $25,000</option>
                                 <option value="$25,000+">$25,000+</option>
                                 <option value="Not sure yet">Not sure yet</option>
                               </select>
@@ -500,7 +500,7 @@ export default function BookBrettPage() {
                     <h3 className="text-xl font-bold">See Brett in Action</h3>
                   </div>
                   <p className="text-gray-400 text-sm mb-6">
-                    The official 2:56 sizzle reel — keynotes, trainings, and
+                    The official 2:56 sizzle reel: keynotes, trainings, and
                     live audiences.
                   </p>
                   <LiveClip
@@ -508,7 +508,7 @@ export default function BookBrettPage() {
                     poster="/videos/sizzle-reel-poster.jpg"
                     label="Brett Lechtenberg 2026 speaker sizzle reel"
                     aspect="wide"
-                    caption="▶ Watch — with sound"
+                    caption="▶ Watch with sound"
                   />
                 </motion.div>
 

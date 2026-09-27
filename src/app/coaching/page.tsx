@@ -24,7 +24,7 @@ const phases = [
     title: "SIMPLIFY",
     subtitle: "Frontloaded Toolkit",
     description:
-      "We build the specific tools, frameworks, and systems you need — before the next high-stakes moment demands them. Your custom toolkit addresses Mindset, Skillset, and Systems Design.",
+      "We build the specific tools, frameworks, and systems you need before the next high-stakes moment demands them. Every tool is built for you. There are no templates.",
     icon: Sparkles,
     gradient: "from-gold to-gold-dark",
     color: "text-gold",
@@ -102,8 +102,8 @@ export default function CoachingPage() {
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto"
             >
               The Master&apos;s Edge coaching program builds a custom toolkit around
-              your specific goals, challenges, and situation — grounded in the
-              science of peak performance and validated by decades of real-world results.
+              your specific goals, challenges, and situation. It&apos;s grounded in the
+              science of peak performance and tested over decades of real-world results.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
@@ -157,7 +157,7 @@ export default function CoachingPage() {
               <div className="bg-gradient-to-br from-black via-gray-900 to-black rounded-2xl p-8 text-center">
                 <p className="text-xl text-white font-semibold">
                   You don&apos;t need another course, another book, or another podcast. You
-                  need a system that changes how you operate — <span className="text-gold">from the inside out.</span>
+                  need a system that changes how you operate, <span className="text-gold">from the inside out.</span>
                 </p>
               </div>
             </motion.div>
@@ -308,11 +308,11 @@ export default function CoachingPage() {
                 },
                 {
                   q: "How is this different from other coaching programs?",
-                  a: "Two things. First, every tool we build is custom — there are no templates. Second, the methodology is grounded in original flow state research validated by the Flow Research Collective.",
+                  a: "Two things. First, every tool we build is custom. There are no templates. Second, the methodology is grounded in original flow state research reviewed by the Flow Research Collective.",
                 },
                 {
                   q: "How long does it take to see results?",
-                  a: "Most clients experience a shift in clarity and mindset within the first few sessions. Tangible business results typically emerge within 60-90 days.",
+                  a: "Most clients experience a shift in clarity and mindset within the first few sessions. Tangible business results typically emerge within 60 to 90 days.",
                 },
               ].map((faq, index) => (
                 <motion.div

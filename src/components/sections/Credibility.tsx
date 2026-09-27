@@ -96,7 +96,7 @@ export function Credibility() {
               become. As the creator of{" "}
               <span className="text-white font-semibold">The Master&apos;s Edge</span>, an
               8th-degree black belt with over 40 years in martial arts, and a flow
-              state researcher validated by the{" "}
+              state researcher whose work was reviewed by the{" "}
               <span className="text-gold font-semibold">Flow Research Collective</span>, Brett
               brings a depth of real-world experience that most coaches simply
               can&apos;t match.

@@ -7,27 +7,27 @@ import { Button } from "@/components/ui/Button";
 const pillars = [
   {
     icon: Brain,
-    title: "Mindset Mastery",
+    title: "First Principles",
     description:
-      "Build the focus, resilience, and confidence to perform at your peak — especially when conditions aren't ideal.",
+      "Clarify. Strip away assumptions and see the real problem. Most people spend years solving the wrong problems because they never question the inherited beliefs underneath them.",
     gradient: "from-cranberry to-cranberry-dark",
     iconBg: "bg-cranberry",
     shadow: "shadow-cranberry/30",
   },
   {
     icon: Wrench,
-    title: "Skillset Enhancement",
+    title: "Frontloading",
     description:
-      "Develop practical, high-leverage capabilities tailored to your situation: leadership, communication, productivity, strategic thinking.",
+      "Simplify. Be prepared, not surprised. Load the knowledge, tools, and mental frameworks you need before you face the challenge, not during and not after.",
     gradient: "from-gold to-gold-dark",
     iconBg: "bg-gold",
     shadow: "shadow-gold/30",
   },
   {
     icon: Building2,
-    title: "Systems Design",
+    title: "Flow",
     description:
-      "Design the environment, systems, habits, and relationships that sustain peak performance over time.",
+      "Maximize. Build the conditions for peak performance. Flow isn't random luck. It's a reproducible state with specific, measurable conditions.",
     gradient: "from-cranberry to-cranberry-dark",
     iconBg: "bg-cranberry",
     shadow: "shadow-cranberry/30",
@@ -80,9 +80,9 @@ export function Solution() {
             </span>
           </h2>
           <p className="text-lg text-warm-gray max-w-3xl mx-auto leading-relaxed">
-            The Master&apos;s Edge is Brett&apos;s proprietary coaching methodology — built
-            on 30+ years of real-world business experience, validated flow state
-            research, and the same progressive mastery framework that creates black
+            The Master&apos;s Edge is Brett&apos;s proprietary coaching methodology, built
+            on 30+ years of real-world business experience, flow state research
+            reviewed by the Flow Research Collective, and the same progressive mastery framework that creates black
             belts.
           </p>
         </motion.div>

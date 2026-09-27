@@ -22,7 +22,7 @@ const foundations = [
     title: "Frontloading",
     drives: "SIMPLIFY",
     description:
-      "Be prepared, not surprised. Loading the knowledge, tools, and mental frameworks you need before you face the challenge — not during, not after.",
+      "Be prepared, not surprised. Loading the knowledge, tools, and mental frameworks you need before you face the challenge. Not during, not after.",
     gradient: "from-gold to-gold-dark",
   },
   {
@@ -30,7 +30,7 @@ const foundations = [
     title: "Flow",
     drives: "MAXIMIZE",
     description:
-      "Engineer the conditions for peak performance. Flow is not random luck — it's a reproducible state with specific, measurable conditions.",
+      "Engineer the conditions for peak performance. Flow is not random luck. It's a reproducible state with specific, measurable conditions.",
     gradient: "from-cranberry to-cranberry-dark",
   },
 ];
@@ -48,7 +48,7 @@ const pillars = [
     title: "Skillset Enhancement",
     subtitle: "Tools • Techniques • Practice",
     description:
-      "Once the mindset is right, we build the practical capabilities. Specific, high-leverage tools matched to your situation.",
+      "Once the mindset is right, we build the practical capabilities. Specific, high-impact tools matched to your situation.",
   },
   {
     icon: Building2,
@@ -122,9 +122,10 @@ export default function MastersEdgePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto"
             >
-              A science-backed, custom-built coaching system for unlocking peak
-              performance in business leaders, teams, and individuals. Built on 30+
-              years of real-world experience and validated flow state research.
+              A science-backed coaching system, custom-built to help business
+              leaders, teams, and people like you reach peak performance. Built on
+              30+ years of real-world experience and flow state research reviewed
+              by the Flow Research Collective.
             </motion.p>
 
             <motion.div
@@ -167,7 +168,7 @@ export default function MastersEdgePage() {
                   This is not a pre-packaged program. There are no templates borrowed
                   from someone else&apos;s success story. The Master&apos;s Edge is a
                   diagnostic, science-backed process that identifies the specific gaps
-                  between where you are and where you&apos;re capable of being — then
+                  between where you are and where you&apos;re capable of being, then
                   builds a custom toolkit to close them.
                 </p>
               </div>
@@ -198,7 +199,7 @@ export default function MastersEdgePage() {
             {/* Layer 1: The Science */}
             <div className="mb-20">
               <h3 className="text-xl font-bold text-cranberry-light mb-8 text-center">
-                Layer 1: The Science — Three Foundations
+                Layer 1: The Science (Three Foundations)
               </h3>
               <div className="grid md:grid-cols-3 gap-8">
                 {foundations.map((foundation, index) => (
@@ -231,7 +232,7 @@ export default function MastersEdgePage() {
             {/* Layer 2: The Methodology */}
             <div className="mb-16">
               <h3 className="text-xl font-bold text-cranberry-light mb-8 text-center">
-                Layer 2: The Methodology — Three Pillars
+                Layer 2: The Methodology (Three Pillars)
               </h3>
               <div className="grid md:grid-cols-3 gap-8">
                 {pillars.map((pillar, index) => (
@@ -310,11 +311,11 @@ export default function MastersEdgePage() {
                 Brett conducted a formal research thesis testing whether deliberate
                 manipulation of flow states could accelerate how fast people learn
                 complex skills and how long they retain them. The research was reviewed
-                and validated by the{" "}
+                by the{" "}
                 <span className="text-gold font-semibold">
                   Flow Research Collective
-                </span>{" "}
-                — Steven Kotler&apos;s peak performance research organization.
+                </span>
+                , Steven Kotler&apos;s peak performance research organization.
               </p>
               <blockquote className="relative border-l-4 border-gold pl-6 py-6 bg-gradient-to-r from-gold/10 to-transparent rounded-r-xl">
                 <div className="absolute -left-3 top-6 w-6 h-6 bg-gold rounded-full" />

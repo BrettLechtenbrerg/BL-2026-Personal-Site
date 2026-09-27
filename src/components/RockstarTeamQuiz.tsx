@@ -64,7 +64,7 @@ const QUESTIONS: Question[] = [
     gap: "gap-recognition",
     prompt: "When your team members do great work, what usually happens?",
     options: [
-      "They get specific, public praise — and real rewards",
+      "They get specific, public praise and real rewards",
       "I thank them, but it\u2019s generic and inconsistent",
       "Honestly, good work mostly goes unnoticed",
       "They only hear from me when something goes wrong",
@@ -73,9 +73,9 @@ const QUESTIONS: Question[] = [
   {
     gap: "gap-connection",
     prompt:
-      "How well do you know your team as people — not just as employees?",
+      "How well do you know your team as people, not just as employees?",
     options: [
-      "Deeply — birthdays, families, what\u2019s going on in their lives",
+      "Deeply: birthdays, families, what\u2019s going on in their lives",
       "I know the basics, but we rarely go deeper",
       "We keep it strictly business",
       "I barely know them beyond their job title",
@@ -87,7 +87,7 @@ const QUESTIONS: Question[] = [
     options: [
       "They run projects, create, and have a real voice",
       "I delegate tasks, but every decision still comes back to me",
-      "They do exactly what I say — nothing more",
+      "They do exactly what I say, nothing more",
       "I end up redoing their work anyway, so why bother",
     ],
   },
@@ -95,7 +95,7 @@ const QUESTIONS: Question[] = [
     gap: "gap-feedback",
     prompt: "How does your team find out how they\u2019re doing?",
     options: [
-      "Daily — clear expectations, real feedback, real training",
+      "Daily: clear expectations, real feedback, real training",
       "Occasional check-ins, when I remember",
       "An annual review\u2026 when it happens",
       "They find out when something blows up",
@@ -104,9 +104,9 @@ const QUESTIONS: Question[] = [
   {
     gap: "gap-vision",
     prompt:
-      "Does your team know WHY your business exists — beyond making money?",
+      "Does your team know WHY your business exists, beyond making money?",
     options: [
-      "Yes — they can say it, and they see their place in it",
+      "Yes, they can say it, and they see their place in it",
       "I\u2019ve mentioned it, but it doesn\u2019t drive the daily work",
       "The vision lives only in my head",
       "Vision? We\u2019re just trying to survive the week",
@@ -115,12 +115,12 @@ const QUESTIONS: Question[] = [
   {
     gap: "gap-hiring",
     prompt:
-      "What does it take to get hired — and get a raise — on your team?",
+      "What does it take to get hired (and get a raise) on your team?",
     options: [
       "A real process to get in, and a clear path to a raise",
       "Some screening, but raises are ad hoc",
       "If they show up and seem OK, they\u2019re hired",
-      "I hire whoever applies — I need warm bodies",
+      "I hire whoever applies. I need warm bodies",
     ],
   },
 ];
@@ -129,18 +129,18 @@ const RESULTS: Record<GapId, GapResult> = {
   "gap-recognition": {
     name: "The Recognition Gap",
     headline:
-      "Your team doesn\u2019t feel like rockstars — so they don\u2019t play like rockstars",
-    cost: "Your clients will be treated exactly the way you treat your staff. Team members who never hear specific praise quietly disengage — and your customers feel it before you do.",
-    chapter: "Strategies 1\u20138 — Treat Them Like Rockstars",
+      "Your team doesn\u2019t feel like rockstars, so they don\u2019t play like rockstars",
+    cost: "Your clients will be treated exactly the way you treat your staff. Team members who never hear specific praise quietly disengage, and your customers feel it before you do.",
+    chapter: "Strategies 1 to 8: Treat Them Like Rockstars",
     image: "/images/quiz/gap-recognition.webp",
     imageAlt: "A team celebrating a team member like a rockstar on stage",
     icon: <Star size={14} aria-hidden />,
   },
   "gap-connection": {
     name: "The Connection Gap",
-    headline: "People don\u2019t leave companies — they leave strangers",
-    cost: "Everyone wants to feel that their work — and their life — matters to the person they work for. Without a genuine personal connection, your best people are one better offer away from gone.",
-    chapter: "Strategies 9\u201310 — Make Them Feel Like Family",
+    headline: "People don\u2019t leave companies. They leave strangers",
+    cost: "Everyone wants to feel that their work (and their life) matters to the person they work for. Without a genuine personal connection, your best people are one better offer away from gone.",
+    chapter: "Strategies 9 to 10: Make Them Feel Like Family",
     image: "/images/quiz/gap-connection.webp",
     imageAlt: "A business owner and team member connecting over coffee",
     icon: <HeartHandshake size={14} aria-hidden />,
@@ -148,8 +148,8 @@ const RESULTS: Record<GapId, GapResult> = {
   "gap-ownership": {
     name: "The Ownership Gap",
     headline: "A team with no ownership will never own the results",
-    cost: "When every decision runs through you, you become the bottleneck — and your team learns to wait instead of think. Give them projects, boundaries, and a voice, and they\u2019ll surprise you.",
-    chapter: "Strategies 11\u201312 — Give Them Ownership & Control",
+    cost: "When every decision runs through you, you become the bottleneck, and your team learns to wait instead of think. Give them projects, boundaries, and a voice, and they\u2019ll surprise you.",
+    chapter: "Strategies 11 to 12: Give Them Ownership & Control",
     image: "/images/quiz/gap-ownership.webp",
     imageAlt: "A leader handing a golden key of ownership to a team member",
     icon: <KeyRound size={14} aria-hidden />,
@@ -157,8 +157,8 @@ const RESULTS: Record<GapId, GapResult> = {
   "gap-feedback": {
     name: "The Feedback Gap",
     headline: "Your team can\u2019t win a game with no scoreboard",
-    cost: "No pre-shift direction, no post-shift feedback, no investment in their progress — and then we wonder why people underperform. Daily engagement is what separates rockstar teams from warm bodies.",
-    chapter: "Strategies 13\u201314 — Feedback & Investing in Progress",
+    cost: "No pre-shift direction, no post-shift feedback, no investment in their progress, and then we wonder why people underperform. Daily engagement is what separates rockstar teams from warm bodies.",
+    chapter: "Strategies 13 to 14: Feedback & Investing in Progress",
     image: "/images/quiz/gap-feedback.webp",
     imageAlt: "A leader giving an energizing team huddle pep talk",
     icon: <MessageSquare size={14} aria-hidden />,
@@ -167,8 +167,8 @@ const RESULTS: Record<GapId, GapResult> = {
     name: "The Vision Gap",
     headline:
       "Your team can\u2019t follow a vision that lives only in your head",
-    cost: "People — especially your youngest team members — want a cause, not just a paycheck. Teach them the WHY of your business and you become the shiny thing they\u2019d otherwise chase elsewhere.",
-    chapter: "Strategy 15 — Communicate the Vision",
+    cost: "People, especially your youngest team members, want a cause, not just a paycheck. Teach them the WHY of your business and you become the shiny thing they\u2019d otherwise chase elsewhere.",
+    chapter: "Strategy 15: Communicate the Vision",
     image: "/images/quiz/gap-vision.webp",
     imageAlt: "A leader pointing a team toward a north-star vision",
     icon: <Compass size={14} aria-hidden />,
@@ -176,8 +176,8 @@ const RESULTS: Record<GapId, GapResult> = {
   "gap-hiring": {
     name: "The Hiring Gap",
     headline: "Every gamble hire costs you months and thousands",
-    cost: "If getting hired takes no effort and the path to a raise is a mystery, you\u2019ll keep attracting people who treat the job the same way. Make them jump through some hoops — the right ones stay.",
-    chapter: "Bonus — Hiring a Great Team (Including Millennials)",
+    cost: "If getting hired takes no effort and the path to a raise is a mystery, you\u2019ll keep attracting people who treat the job the same way. Make them jump through some hoops. The right ones stay.",
+    chapter: "Bonus: Hiring a Great Team (Including Millennials)",
     image: "/images/quiz/gap-hiring.webp",
     imageAlt: "One glowing candidate crossing stepping stones to a golden door",
     icon: <UserPlus size={14} aria-hidden />,
@@ -295,7 +295,7 @@ export default function RockstarTeamQuiz() {
             What&apos;s the #1 gap between you and a rockstar team?
           </h2>
           <p className="mt-3 text-warm-gray">
-            6 quick questions. Get your biggest team-building gap diagnosed —
+            6 quick questions. Get your biggest team-building gap diagnosed,
             and the full book that fixes it, free.
           </p>
         </div>
@@ -430,7 +430,7 @@ export default function RockstarTeamQuiz() {
                       </p>
                       <p className="mt-1 text-sm text-warm-gray">
                         We&apos;ve emailed you the complete{" "}
-                        <em>How To Build A Rockstar Team</em> — free. Your
+                        <em>How To Build A Rockstar Team</em>, free. Your
                         battle plan is &ldquo;{result.chapter}&rdquo;. Start
                         there.
                       </p>
@@ -479,7 +479,7 @@ export default function RockstarTeamQuiz() {
                     </h3>
                     <p className="text-center text-sm text-warm-gray">
                       You&apos;ll get the complete{" "}
-                      <em>How To Build A Rockstar Team</em> — not a sample.
+                      <em>How To Build A Rockstar Team</em>, not a sample.
                     </p>
 
                     {/* Honeypot — hidden from humans */}

@@ -11,11 +11,11 @@ faq:
   - question: "What's a good example of a personal mission statement?"
     answer: "Real examples don't sound like LinkedIn banners. They sound like something you'd say to a close friend at 11pm when you're being honest. Examples from people I've worked with: 'To raise my kids with presence instead of pressure, and to rebuild the version of me who existed before they did.' Or: 'To stop confusing being busy with being useful, and to spend the second half of my career building things that outlast me.' Notice they name a person, not a position. They admit something. They point at who's becoming, not what's being achieved."
   - question: "How long should a personal mission statement be?"
-    answer: "One to two sentences. If it takes a paragraph, you haven't found the core yet — keep cutting. The constraint matters. A mission statement you can't say out loud from memory isn't doing its job. It's supposed to pull you back to yourself when you're tired, tempted, or drifting. That only works if you know it by heart. Length isn't the goal. Truth is."
+    answer: "One to two sentences. If it takes a paragraph, you haven't found the core yet. Keep cutting. The constraint matters. A mission statement you can't say out loud from memory isn't doing its job. It's supposed to pull you back to yourself when you're tired, tempted, or drifting. That only works if you know it by heart. Length isn't the goal. Truth is."
   - question: "How do I write my own personal mission statement?"
-    answer: "Answer three questions honestly. First: who do you want to be when the people you love are watching? Not what you want to do — who you want to be. Second: what pain are you uniquely qualified to ease? You've lived through something, watched something up close, know something most people don't. Third: what would have to be true for you to be proud of the person you became? Project out twenty years. Now write one sentence that contains all three answers. Don't try to make it pretty. Make it true."
+    answer: "Answer three questions honestly. First: who do you want to be when the people you love are watching? Not what you want to do. Who you want to be. Second: what pain are you uniquely qualified to ease? You've lived through something, watched something up close, know something most people don't. Third: what would have to be true for you to be proud of the person you became? Project out twenty years. Now write one sentence that contains all three answers. Don't try to make it pretty. Make it true."
   - question: "How often should I update my mission statement?"
-    answer: "Read it every January. Read it after every hard season — a loss, a job change, a kid leaving home, a wake-up call. Ask one question: does this still describe the person I'm trying to become? If yes, keep it. If no, rewrite it. People treat mission statements like tattoos, writing one in college and assuming it should still fit at 45. It shouldn't. You're not the same person. Your mission shouldn't be either."
+    answer: "Read it every January. Read it after every hard season: a loss, a job change, a kid leaving home, a wake-up call. Ask one question: does this still describe the person I'm trying to become? If yes, keep it. If no, rewrite it. People treat mission statements like tattoos, writing one in college and assuming it should still fit at 45. It shouldn't. You're not the same person. Your mission shouldn't be either."
 ---
 
 Most personal mission statements I read sound like they were written by a committee.
@@ -65,7 +65,7 @@ A real mission statement is built to remind *you*. When you're tired. When you'r
 
 If you wouldn't say it out loud to your spouse, your kid, or someone who watched you go through your worst year, it isn't yours yet. Keep writing.
 
-## How to write your own — three questions that cut through the noise
+## How to write your own: three questions that cut through the noise
 
 Forget the worksheets. Sit somewhere quiet and answer these honestly.
 

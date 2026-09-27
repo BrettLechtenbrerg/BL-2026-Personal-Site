@@ -301,7 +301,7 @@ export default function ApplyPage() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black"
-                      placeholder="CEO, Founder, VP Sales, etc."
+                      placeholder="CEO, Founder, Vice President of Sales, etc."
                     />
                   </div>
                 </div>

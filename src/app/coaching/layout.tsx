@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Executive & Business Coaching",
   description:
-    "Break through business plateaus with The Master's Edge coaching program. Custom toolkit built around your specific goals, challenges, and situation — grounded in flow state science.",
+    "Break through business plateaus with The Master's Edge coaching program. Custom toolkit built around your specific goals, challenges, and situation, grounded in flow state science.",
   keywords: [
     "executive coaching",
     "business coaching",

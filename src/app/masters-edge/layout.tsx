@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "The Master's Edge Methodology",
   description:
-    "A science-backed, custom-built coaching system for unlocking peak performance. Built on 30+ years of experience and validated flow state research. CLARIFY. SIMPLIFY. MAXIMIZE.",
+    "A science-backed coaching system, custom-built to help you reach peak performance. Built on 30+ years of experience and flow state research reviewed by the Flow Research Collective. CLARIFY. SIMPLIFY. MAXIMIZE.",
   keywords: [
     "The Master's Edge",
     "peak performance methodology",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Master's Edge | Brett Lechtenberg",
     description:
-      "A science-backed coaching system for unlocking peak performance. CLARIFY. SIMPLIFY. MAXIMIZE.",
+      "A science-backed coaching system for peak performance. CLARIFY. SIMPLIFY. MAXIMIZE.",
     url: "https://www.brettlechtenberg.com/masters-edge",
     images: [
       {

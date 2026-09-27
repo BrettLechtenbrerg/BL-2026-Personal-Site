@@ -82,7 +82,7 @@ export function Hero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl"
             >
-              Build the focus, leadership, and AI advantage to accomplish more, lead more effectively, and perform at your best&mdash;without adding more hours or overwhelm.
+              Build the focus, leadership, and AI advantage to accomplish more, lead more effectively, and perform at your best, without adding more hours or overwhelm.
             </motion.p>
 
             {/* CTAs - 2 buttons */}

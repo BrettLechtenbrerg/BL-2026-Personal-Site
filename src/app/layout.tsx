@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     template: "%s | Brett Lechtenberg",
   },
   description:
-    "Discover who you're meant to become. Brett Lechtenberg helps leaders unlock peak performance through The Master's Edge — a proven methodology built on 30+ years of real-world experience and validated flow state research.",
+    "Discover who you're meant to become. Brett Lechtenberg helps leaders unlock peak performance through The Master's Edge, a proven methodology built on 30+ years of real-world experience and flow state research reviewed by the Flow Research Collective.",
   keywords: [
     "peak performance coach",
     "executive coaching",
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     siteName: "Brett Lechtenberg",
     title: "Brett Lechtenberg | Peak Performance Coach, Speaker & Author",
     description:
-      "Discover who you're meant to become. Unlock peak performance through The Master's Edge methodology — 30+ years of real-world experience helping leaders achieve extraordinary results.",
+      "Discover who you're meant to become. Unlock peak performance through The Master's Edge methodology: 30+ years of real-world experience helping leaders achieve extraordinary results.",
     images: [
       {
         url: "/brett-hero.webp",

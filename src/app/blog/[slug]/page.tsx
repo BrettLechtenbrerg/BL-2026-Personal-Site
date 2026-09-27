@@ -224,7 +224,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <p className="text-warm-gray leading-relaxed">
                   Peak performance coach, speaker, and author. Four decades on the
                   mat. Brett works with leaders, athletes, and entrepreneurs who
-                  refuse to coast — turning discipline into outcomes.
+                  refuse to coast, turning discipline into outcomes.
                 </p>
               </div>
             </div>
@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 Want to work together?
               </h2>
               <p className="text-white/90 text-lg mb-6 max-w-xl mx-auto">
-                Coaching, speaking, advisory — book a conversation and let&apos;s
+                Coaching, speaking, advisory. Book a conversation and let&apos;s
                 see where I can move the needle.
               </p>
               <a

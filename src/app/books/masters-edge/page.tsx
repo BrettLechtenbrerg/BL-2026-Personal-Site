@@ -12,21 +12,21 @@ import Image from "next/image";
 const pillars = [
   {
     icon: Brain,
-    title: "Mindset",
+    title: "First Principles (Clarify)",
     description:
-      "The internal operating system of mastery — confidence, focus, and the flow-state research that turns pressure into presence.",
+      "Strip away assumptions and see the real problem. Most people spend years solving the wrong problems because they never question the beliefs underneath them.",
   },
   {
     icon: Swords,
-    title: "Skillset",
+    title: "Frontloading (Simplify)",
     description:
-      "Deliberate practice principles drawn from 30+ years of martial arts mastery, translated for leaders, sellers, and builders.",
+      "Be prepared, not surprised. Load the knowledge, tools, and mental frameworks you need before the challenge shows up, not during and not after.",
   },
   {
     icon: Workflow,
-    title: "Systems Design",
+    title: "Flow (Maximize)",
     description:
-      "The structures that make excellence repeatable — so results stop depending on willpower and start compounding.",
+      "Flow isn't random luck. It's a repeatable state with specific conditions you can set up on purpose, so pressure turns into presence.",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function MastersEdgeBookPage() {
                 >
                   <Sparkles className="w-4 h-4 text-gold" />
                   <span className="text-gold font-semibold text-sm">
-                    New Book — Coming Q4 2026
+                    New Book: Coming October 2026
                   </span>
                 </motion.div>
 
@@ -93,9 +93,9 @@ export default function MastersEdgeBookPage() {
                   className="text-xl text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
                 >
                   The definitive guide to Brett&apos;s peak performance
-                  methodology — mindset, skillset, and systems design, built on
-                  30+ years of real-world testing and original flow state
-                  research validated by the Flow Research Collective.
+                  methodology: First Principles, Frontloading, and Flow. It&apos;s
+                  built on 30+ years of real-world testing and original flow
+                  state research reviewed by the Flow Research Collective.
                 </motion.p>
 
                 <motion.div
@@ -156,7 +156,7 @@ export default function MastersEdgeBookPage() {
                 What&apos;s Inside the <span className="text-cranberry">Book</span>
               </h2>
               <p className="text-lg text-warm-gray max-w-2xl mx-auto">
-                One methodology, three disciplines — the same framework Brett
+                One methodology, three disciplines. It&apos;s the same framework Brett
                 teaches from corporate keynotes to the 12-week Master&apos;s
                 Edge program.
               </p>
@@ -208,11 +208,11 @@ export default function MastersEdgeBookPage() {
                 <BookOpen className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">
-                Arriving <span className="text-gold">4th Quarter 2026</span>
+                Arriving <span className="text-gold">October 2026</span>
               </h2>
               <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
                 The Master&apos;s Edge is in its final stages. Want the
-                methodology before the book lands — or want Brett to bring it
+                methodology before the book lands, or want Brett to bring it
                 to your team in person?
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

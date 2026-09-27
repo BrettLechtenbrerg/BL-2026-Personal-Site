@@ -43,18 +43,18 @@ const GALLERY: GalleryResult[] = [
     gap: "gap-recognition",
     name: "The Recognition Gap",
     headline:
-      "Your team doesn\u2019t feel like rockstars — so they don\u2019t play like rockstars",
-    cost: "Your clients will be treated exactly the way you treat your staff. Team members who never hear specific praise quietly disengage — and your customers feel it before you do.",
-    chapter: "Strategies 1\u20138 — Treat Them Like Rockstars",
+      "Your team doesn\u2019t feel like rockstars, so they don\u2019t play like rockstars",
+    cost: "Your clients will be treated exactly the way you treat your staff. Team members who never hear specific praise quietly disengage, and your customers feel it before you do.",
+    chapter: "Strategies 1 to 8: Treat Them Like Rockstars",
     image: "/images/quiz/gap-recognition.webp",
     icon: <Star size={14} aria-hidden />,
   },
   {
     gap: "gap-connection",
     name: "The Connection Gap",
-    headline: "People don\u2019t leave companies — they leave strangers",
-    cost: "Everyone wants to feel that their work — and their life — matters to the person they work for. Without a genuine personal connection, your best people are one better offer away from gone.",
-    chapter: "Strategies 9\u201310 — Make Them Feel Like Family",
+    headline: "People don\u2019t leave companies. They leave strangers",
+    cost: "Everyone wants to feel that their work (and their life) matters to the person they work for. Without a genuine personal connection, your best people are one better offer away from gone.",
+    chapter: "Strategies 9 to 10: Make Them Feel Like Family",
     image: "/images/quiz/gap-connection.webp",
     icon: <HeartHandshake size={14} aria-hidden />,
   },
@@ -62,8 +62,8 @@ const GALLERY: GalleryResult[] = [
     gap: "gap-ownership",
     name: "The Ownership Gap",
     headline: "A team with no ownership will never own the results",
-    cost: "When every decision runs through you, you become the bottleneck — and your team learns to wait instead of think. Give them projects, boundaries, and a voice, and they\u2019ll surprise you.",
-    chapter: "Strategies 11\u201312 — Give Them Ownership & Control",
+    cost: "When every decision runs through you, you become the bottleneck, and your team learns to wait instead of think. Give them projects, boundaries, and a voice, and they\u2019ll surprise you.",
+    chapter: "Strategies 11 to 12: Give Them Ownership & Control",
     image: "/images/quiz/gap-ownership.webp",
     icon: <KeyRound size={14} aria-hidden />,
   },
@@ -71,8 +71,8 @@ const GALLERY: GalleryResult[] = [
     gap: "gap-feedback",
     name: "The Feedback Gap",
     headline: "Your team can\u2019t win a game with no scoreboard",
-    cost: "No pre-shift direction, no post-shift feedback, no investment in their progress — and then we wonder why people underperform. Daily engagement is what separates rockstar teams from warm bodies.",
-    chapter: "Strategies 13\u201314 — Feedback & Investing in Progress",
+    cost: "No pre-shift direction, no post-shift feedback, no investment in their progress, and then we wonder why people underperform. Daily engagement is what separates rockstar teams from warm bodies.",
+    chapter: "Strategies 13 to 14: Feedback & Investing in Progress",
     image: "/images/quiz/gap-feedback.webp",
     icon: <MessageSquare size={14} aria-hidden />,
   },
@@ -81,8 +81,8 @@ const GALLERY: GalleryResult[] = [
     name: "The Vision Gap",
     headline:
       "Your team can\u2019t follow a vision that lives only in your head",
-    cost: "People — especially your youngest team members — want a cause, not just a paycheck. Teach them the WHY of your business and you become the shiny thing they\u2019d otherwise chase elsewhere.",
-    chapter: "Strategy 15 — Communicate the Vision",
+    cost: "People, especially your youngest team members, want a cause, not just a paycheck. Teach them the WHY of your business and you become the shiny thing they\u2019d otherwise chase elsewhere.",
+    chapter: "Strategy 15: Communicate the Vision",
     image: "/images/quiz/gap-vision.webp",
     icon: <Compass size={14} aria-hidden />,
   },
@@ -90,8 +90,8 @@ const GALLERY: GalleryResult[] = [
     gap: "gap-hiring",
     name: "The Hiring Gap",
     headline: "Every gamble hire costs you months and thousands",
-    cost: "If getting hired takes no effort and the path to a raise is a mystery, you\u2019ll keep attracting people who treat the job the same way. Make them jump through some hoops — the right ones stay.",
-    chapter: "Bonus — Hiring a Great Team (Including Millennials)",
+    cost: "If getting hired takes no effort and the path to a raise is a mystery, you\u2019ll keep attracting people who treat the job the same way. Make them jump through some hoops. The right ones stay.",
+    chapter: "Bonus: Hiring a Great Team (Including Millennials)",
     image: "/images/quiz/gap-hiring.webp",
     icon: <UserPlus size={14} aria-hidden />,
   },
@@ -165,10 +165,10 @@ export default function QuizResultsGalleryPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-black">
-            Rockstar Team Quiz — Result Variations
+            Rockstar Team Quiz: Result Variations
           </h1>
           <p className="mt-3 text-warm-gray max-w-2xl mx-auto">
-            All 6 personalized result screens side by side — one per team gap.
+            All 6 personalized result screens side by side, one per team gap.
             Buttons here are non-functional mockups; take the real quiz at{" "}
             <span className="font-semibold">/rockstar-team-quiz</span> to see
             the animated reveal.
@@ -290,7 +290,7 @@ function FlowDiagram() {
           Book Lead Magnet: The Rockstar Team Diagnostic
         </h2>
         <p className="mt-2 text-warm-gray max-w-xl mx-auto">
-          A quiz funnel that diagnoses a visitor&apos;s #1 team-building gap —
+          A quiz funnel that diagnoses a visitor&apos;s #1 team-building gap,
           then delivers the full{" "}
           <em>How To Build A Rockstar Team</em> book as the fix.
         </p>
@@ -310,7 +310,7 @@ function FlowDiagram() {
           <FlowNode
             icon={<ListOrdered size={16} />}
             title="6 scored questions"
-            sub="One per team gap — each answer scores 0–3 (~2 minutes)"
+            sub="One per team gap. Each answer scores 0 to 3 (~2 minutes)"
             accent={ACCENT}
           />
           <DownArrow />

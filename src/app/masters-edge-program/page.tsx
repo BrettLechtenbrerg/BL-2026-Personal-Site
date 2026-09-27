@@ -35,7 +35,7 @@ const phases = [
   {
     phase: 1,
     title: "CLARIFY",
-    weeks: "Weeks 1–4",
+    weeks: "Weeks 1 to 4",
     tagline: "",
     accent: "cranberry",
     icon: Target,
@@ -49,7 +49,7 @@ const phases = [
   {
     phase: 2,
     title: "SIMPLIFY",
-    weeks: "Weeks 5–8",
+    weeks: "Weeks 5 to 8",
     tagline: "",
     accent: "gold",
     icon: Filter,
@@ -63,7 +63,7 @@ const phases = [
   {
     phase: 3,
     title: "MAXIMIZE",
-    weeks: "Weeks 9–12",
+    weeks: "Weeks 9 to 12",
     tagline: "",
     accent: "gradient",
     icon: Rocket,
@@ -355,7 +355,7 @@ export default function MastersEdgeProgramPage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button href="/masters-edge-program/apply" size="lg">
-                Apply Now — Limited to 12 Members
+                Apply Now (Limited to 12 Members)
               </Button>
               <Button href="#program" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
                 See What&apos;s Inside
@@ -441,7 +441,7 @@ export default function MastersEdgeProgramPage() {
                   <strong className="text-black">But you know there is another level you have not fully stepped into yet.</strong>
                 </p>
                 <p>
-                  Too many days still feel reactive instead of intentional. The same problems keep showing up. The business depends on you more than it should. And the version of yourself you know is possible — the one who leads with clarity, operates from flow, and performs at a higher level — keeps getting pushed further down the road.
+                  Too many days still feel reactive instead of intentional. The same problems keep showing up. The business depends on you more than it should. And the version of yourself you know is possible, the one who leads with clarity, operates from flow, and performs at a higher level, keeps getting pushed further down the road.
                 </p>
                 <p>
                   That gap is not about working harder. It is about building a different way to operate.
@@ -688,7 +688,7 @@ export default function MastersEdgeProgramPage() {
                   With more than 30 years of coaching, training, and leadership experience, Brett has worked with business owners, teams, and organizations across a wide range of industries. His work blends real-world leadership development, flow state research, personal discipline, and high-performance strategy into a practical system that creates lasting change.
                 </p>
                 <p className="text-lg text-warm-gray leading-relaxed">
-                  He has delivered 250+ talks, trainings, and seminars, coached 100+ businesses, written 7 books, and spent more than 40 years immersed in martial arts and human performance.
+                  He has delivered 250+ talks, trainings, and seminars, coached 100+ businesses, written seven books (five of them bestsellers), and spent more than 40 years immersed in martial arts and human performance.
                 </p>
                 <p className="text-xl font-semibold text-black">
                   Brett only teaches what he has tested himself. That is the difference.
@@ -793,7 +793,7 @@ export default function MastersEdgeProgramPage() {
                 Investment
               </h2>
               <p className="text-gray-400">
-                Founding Cohort Pricing — Available for a Limited Time
+                Founding Cohort Pricing: Available for a Limited Time
               </p>
             </motion.div>
 

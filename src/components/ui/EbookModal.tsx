@@ -122,7 +122,7 @@ export function EbookModal({ isOpen, onClose }: EbookModalProps) {
                       <CheckCircle className="w-8 h-8 text-green-600" />
                     </div>
                     <h3 className="text-xl font-bold text-black mb-2">
-                      Check Your Email!
+                      Check Your Email
                     </h3>
                     <p className="text-warm-gray">
                       Your free eBook is on its way to your inbox.

@@ -21,7 +21,7 @@ const timeline = [
   {
     year: "1990s",
     title: "Founds Personal Mastery Martial Arts",
-    description: "Opened Personal Mastery Martial Arts & Family Success Center in Sandy, Utah — a living laboratory for testing peak performance principles.",
+    description: "Opened Personal Mastery Martial Arts & Family Success Center in Sandy, Utah, a living laboratory for testing peak performance principles.",
     icon: Building,
     gradient: "from-gold to-gold-dark",
     image: "/timeline/pmma-logo.webp",
@@ -37,7 +37,7 @@ const timeline = [
   {
     year: "2010s",
     title: "Flow State Research",
-    description: "Completed formal research thesis on flow states and accelerated learning. Validated by the Flow Research Collective (Steven Kotler's organization).",
+    description: "Completed formal research thesis on flow states and accelerated learning. Reviewed by the Flow Research Collective (Steven Kotler's organization).",
     icon: Brain,
     gradient: "from-gold to-gold-dark",
     image: "/timeline/thesis.webp",
@@ -65,35 +65,35 @@ const credentials = [
     icon: Building,
     title: "30+ Years as a Business Owner",
     description:
-      "Brett founded Personal Mastery Martial Arts & Family Success Center in Sandy, Utah and has run it for over three decades. It's been his laboratory — the place where every strategy was tested before it was ever taught.",
+      "Brett founded Personal Mastery Martial Arts & Family Success Center in Sandy, Utah and has run it for over three decades. It's been his laboratory, the place where every strategy was tested before it was ever taught.",
     gradient: "from-cranberry to-cranberry-dark",
   },
   {
     icon: Award,
     title: "8th-Degree Black Belt, 40+ Years in Martial Arts",
     description:
-      "More than a rank — it's a way of thinking. The same progressive mastery, discipline, and flow state awareness that creates black belts is the foundation of The Master's Edge.",
+      "More than a rank, it's a way of thinking. The same progressive mastery, discipline, and flow state awareness that creates black belts is the foundation of The Master's Edge.",
     gradient: "from-gold to-gold-dark",
   },
   {
     icon: Brain,
     title: "Flow State Researcher",
     description:
-      "Brett completed a formal research thesis on utilizing flow states to enhance human learning. The research was reviewed and validated by the Flow Research Collective — Steven Kotler's peak performance organization.",
+      "Brett completed a formal research thesis on using flow states to speed up human learning. The research was reviewed by the Flow Research Collective, Steven Kotler's peak performance organization.",
     gradient: "from-cranberry to-cranberry-dark",
   },
   {
     icon: BookOpen,
     title: "Author of 7 Books (5 Bestsellers)",
     description:
-      "From time management to family safety to personal empowerment, Brett's books reflect the breadth of his expertise. His seventh book — The Master's Edge — is forthcoming.",
+      "From time management to family safety to personal empowerment, Brett's books reflect the breadth of his expertise. His newest is Powerful AI Strategies for Business Owners (August 2026), and The Master's Edge is coming October 2026.",
     gradient: "from-gold to-gold-dark",
   },
   {
     icon: Bot,
     title: "Co-Founder of Total Success AI",
     description:
-      "Brett brings the same Master's Edge methodology to AI adoption — helping businesses implement technology in a way that puts people first.",
+      "Brett brings the same Master's Edge methodology to AI adoption, helping businesses implement technology in a way that puts people first.",
     gradient: "from-cranberry to-cranberry-dark",
   },
 ];
@@ -158,7 +158,7 @@ export default function AboutPage() {
               className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
             >
               Brett Lechtenberg has spent three decades helping people discover who
-              they&apos;re meant to become — through martial arts, coaching, speaking,
+              they&apos;re meant to become through martial arts, coaching, speaking,
               writing, and mentorship.
             </motion.p>
           </div>
@@ -232,7 +232,7 @@ export default function AboutPage() {
                 The <span className="bg-gradient-to-r from-cranberry to-gold bg-clip-text text-transparent">Journey</span>
               </h2>
               <p className="text-warm-gray max-w-2xl mx-auto">
-                Four decades of learning, teaching, and transformation — distilled into a methodology that works.
+                Four decades of learning, teaching, and transformation, distilled into a methodology that works.
               </p>
             </motion.div>
 
@@ -382,7 +382,7 @@ export default function AboutPage() {
                 <li className="flex items-center gap-2"><span className="text-gold">•</span> 3x graduate of International Training Commission Executive Protection School</li>
                 <li className="flex items-center gap-2"><span className="text-cranberry">•</span> BA in Business Operations, Western Washington University</li>
                 <li className="flex items-center gap-2"><span className="text-gold">•</span> Featured on Good Things Utah, Channel 4, Channel 13</li>
-                <li className="flex items-center gap-2"><span className="text-cranberry">•</span> Trusted by American Express, Delta Airlines, Citigroup, America First Credit Union</li>
+                <li className="flex items-center gap-2"><span className="text-cranberry">•</span> Trusted by America First Credit Union, American Express, Delta Airlines, Citigroup</li>
               </ul>
             </motion.div>
           </div>
@@ -407,7 +407,7 @@ export default function AboutPage() {
                   potential. I&apos;ve only met people who haven&apos;t discovered it yet.
                 </p>
                 <p>
-                  The best teachers don&apos;t create followers — they create leaders
+                  The best teachers don&apos;t create followers. They create leaders
                   who no longer need them. That&apos;s always been my goal. Not to
                   impress you with what I know, but to unlock what&apos;s already inside you.
                 </p>
@@ -457,7 +457,7 @@ export default function AboutPage() {
                 <p className="text-lg text-gray-400">
                   Brett lives in Sandy, Utah with his family. When he&apos;s not coaching,
                   training, or speaking, you&apos;ll find him at Personal Mastery Martial
-                  Arts — still on the mat, still learning, still practicing what he teaches.
+                  Arts, still on the mat, still learning, still practicing what he teaches.
                 </p>
               </div>
             </motion.div>

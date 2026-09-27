@@ -20,7 +20,7 @@ const promises = [
     icon: Shield,
     title: "Customized to You",
     description:
-      "Every engagement starts from scratch. There are no pre-packaged solutions waiting to be sold.",
+      "Every engagement starts from scratch. There's no prepackaged program waiting to be sold.",
     gradient: "from-gold to-gold-dark",
   },
   {

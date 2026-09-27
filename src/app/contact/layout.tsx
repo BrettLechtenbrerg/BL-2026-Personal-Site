@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Brett Lechtenberg",
   description:
-    "Book a conversation with Brett Lechtenberg. No pitch, no pressure — just a genuine discussion about where you are and where you want to be.",
+    "Book a conversation with Brett Lechtenberg. No pitch, no pressure. Just a genuine discussion about where you are and where you want to be.",
   keywords: [
     "contact Brett Lechtenberg",
     "book a call",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact | Brett Lechtenberg",
     description:
-      "Book a conversation. No pitch, no pressure — just a genuine discussion about your goals.",
+      "Book a conversation. No pitch, no pressure. Just a genuine discussion about your goals.",
     url: "https://www.brettlechtenberg.com/contact",
     images: [
       {

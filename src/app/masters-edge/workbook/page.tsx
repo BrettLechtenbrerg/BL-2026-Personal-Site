@@ -342,46 +342,46 @@ export default function MastersEdgeWorkbook() {
       for (let day = 1; day <= 7; day++) {
         const done = dd[`track_${w}_${day}_done`] ? "[x]" : "[ ]";
         const note = dd[`track_${w}_${day}_note`] || "";
-        out += `    Day ${day} ${done} ${note ? `— ${note}` : ""}\n`;
+        out += `    Day ${day} ${done} ${note ? `: ${note}` : ""}\n`;
       }
       return out;
     };
 
-    let body = `THE MASTER'S EDGE — Four Weeks to Peak Performance\n`;
+    let body = `THE MASTER'S EDGE: Four Weeks to Peak Performance\n`;
     body += `Clarify · Simplify · Maximize\n\n`;
     body += `Name: ${data.participantName}\n\n`;
 
-    body += `=== WEEK 1 — CLARIFY (First Principles · Mindset) ===\n`;
+    body += `=== WEEK 1: CLARIFY (First Principles · Mindset) ===\n`;
     body += `  The problem I thought I had: ${data.w1_thought_problem || "(not filled)"}\n`;
     body += `  The assumption underneath it: ${data.w1_assumption || "(not filled)"}\n`;
     body += `  The REAL problem, in one sentence: ${data.w1_real_problem || "(not filled)"}\n`;
     body += `  My One Target this week: ${data.w1_one_target || "(not filled)"}\n`;
     body += `  7-Day "Strip & Aim" Tracker:\n${trackerText(1)}\n`;
 
-    body += `=== WEEK 2 — SIMPLIFY (Frontloading · Skillset) ===\n`;
+    body += `=== WEEK 2: SIMPLIFY (Frontloading · Skillset) ===\n`;
     body += `  The recurring moment I'll prepare for: ${data.w2_recurring_moment || "(not filled)"}\n`;
     body += `  What I'll load in advance: ${data.w2_load_advance || "(not filled)"}\n`;
     body += `  What I can cut or simplify: ${data.w2_cut_simplify || "(not filled)"}\n`;
     body += `  7-Day "Load Tomorrow Tonight" Tracker:\n${trackerText(2)}\n`;
 
-    body += `=== WEEK 3 — MAXIMIZE (Flow · Systems Design) ===\n`;
+    body += `=== WEEK 3: MAXIMIZE (Flow · Systems Design) ===\n`;
     body += `  Tomorrow's 90-minute target: ${data.w3_block_target || "(not filled)"}\n`;
     body += `  When the block happens: ${data.w3_block_when || "(not filled)"}\n`;
     body += `  What I'll remove (distractions): ${data.w3_remove || "(not filled)"}\n`;
     body += `  My recovery ritual after: ${data.w3_recovery_ritual || "(not filled)"}\n`;
     body += `  7-Day "Engineer One Block" Tracker:\n${trackerText(3)}\n`;
 
-    body += `=== WEEK 4 — THE MASTER'S EDGE (Integration) ===\n`;
-    body += `  Mindset score (1-10): ${data.w4_mindset_score || "(not filled)"}\n`;
-    body += `  Skillset score (1-10): ${data.w4_skillset_score || "(not filled)"}\n`;
-    body += `  Systems Design score (1-10): ${data.w4_support_score || "(not filled)"}\n`;
+    body += `=== WEEK 4: THE MASTER'S EDGE (Integration) ===\n`;
+    body += `  Mindset score (1 to 10): ${data.w4_mindset_score || "(not filled)"}\n`;
+    body += `  Skillset score (1 to 10): ${data.w4_skillset_score || "(not filled)"}\n`;
+    body += `  Systems Design score (1 to 10): ${data.w4_support_score || "(not filled)"}\n`;
     body += `  Weakest pillar + my 30-day move: ${data.w4_weakest_move || "(not filled)"}\n`;
     body += `  7-Day "Three-Pillar Review" Tracker:\n${trackerText(4)}\n`;
 
     body += `\n---\nNext step: book a strategy conversation with Brett at BrettLechtenberg.com\n`;
 
     const subject = encodeURIComponent(
-      `The Master's Edge Workbook — ${data.participantName || "My Results"}`
+      `The Master's Edge Workbook: ${data.participantName || "My Results"}`
     );
     window.location.href = `mailto:${data.participantEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
   };
@@ -583,20 +583,20 @@ export default function MastersEdgeWorkbook() {
               <p className="text-black leading-relaxed mb-2">
                 Over four weeks we install three foundations one at a time, then
                 stand them all up together. Each layer rests on the one below
-                it — skip a layer and the system breaks.
+                it. Skip a layer and the system breaks.
               </p>
               <ul className="text-black leading-relaxed list-disc pl-5 space-y-1">
                 <li>
                   <strong>First Principles Thinking</strong> drives{" "}
-                  <strong>CLARIFY</strong> — strip away assumptions, see the real
+                  <strong>CLARIFY</strong>: strip away assumptions, see the real
                   problem.
                 </li>
                 <li>
-                  <strong>Frontloading</strong> drives <strong>SIMPLIFY</strong>{" "}
-                  — load the tools and frameworks before the challenge arrives.
+                  <strong>Frontloading</strong> drives <strong>SIMPLIFY</strong>:
+                  load the tools and frameworks before the challenge arrives.
                 </li>
                 <li>
-                  <strong>Flow</strong> drives <strong>MAXIMIZE</strong> —
+                  <strong>Flow</strong> drives <strong>MAXIMIZE</strong>:
                   engineer the reproducible conditions for peak performance.
                 </li>
               </ul>
@@ -661,24 +661,24 @@ export default function MastersEdgeWorkbook() {
               quoteSource="Richard Feynman, &ldquo;Cargo Cult Science&rdquo; (Caltech, 1974)"
             />
             <IdeaBlock>
-              A black belt&rsquo;s power doesn&rsquo;t come from the arm — it
+              A black belt&rsquo;s power doesn&rsquo;t come from the arm. It
               comes from the hip and the floor. First principles is that same
               move applied to your life and business: most people inherited
               beliefs about pricing, marketing, and &ldquo;how it&rsquo;s
               done&rdquo; that they&rsquo;ve never once questioned. Strip away the
               assumptions and see the real problem. You cannot aim at a target
-              you haven&rsquo;t defined down to the truth — clarity is the first
+              you haven&rsquo;t defined down to the truth. Clarity is the first
               cut.
             </IdeaBlock>
             <p className="text-warm-gray mb-1 text-sm font-semibold uppercase tracking-wide">
               Pillar this week: Mindset
             </p>
             <p className="text-black mb-2">
-              <strong>Your habit — &ldquo;Strip &amp; Aim&rdquo;:</strong> Each
+              <strong>Your habit, &ldquo;Strip &amp; Aim&rdquo;:</strong> Each
               morning, before email, take your biggest challenge and ask,
               &ldquo;What do I actually know to be true, and what am I just
               assuming?&rdquo; Keep cutting until you reach the real problem.
-              Then name the single One Target it points to — and defend your
+              Then name the single One Target it points to, and defend your
               first 90 minutes for that target alone.
             </p>
 
@@ -709,7 +709,7 @@ export default function MastersEdgeWorkbook() {
 
             <HabitTracker
               week={1}
-              title="&ldquo;Strip &amp; Aim&rdquo; — each morning before email"
+              title="&ldquo;Strip &amp; Aim&rdquo;: each morning before email"
               data={dd}
               onToggle={set}
               onNote={set}
@@ -736,11 +736,11 @@ export default function MastersEdgeWorkbook() {
               quoteSource="Sun Tzu, The Art of War"
             />
             <IdeaBlock>
-              We never learn a self-defense response in the moment of the attack
-              — we drill it a thousand times before, so the body executes under
+              We never learn a self-defense response in the moment of the attack.
+              We drill it a thousand times before, so the body executes under
               stress. A black belt looks calm because the work was already done.
               Be prepared, not surprised: load the knowledge, tools, and mental
-              frameworks before you face the challenge — not during it, not
+              frameworks before you face the challenge, not during it, not
               after. When the work is front-loaded, the moment gets simple: you
               stop improvising and start executing.
             </IdeaBlock>
@@ -748,10 +748,10 @@ export default function MastersEdgeWorkbook() {
               Pillar this week: Skillset
             </p>
             <p className="text-black mb-2">
-              <strong>Your habit — &ldquo;Load Tomorrow Tonight&rdquo;:</strong>{" "}Each evening, queue the first move on your One Target, prep the
+              <strong>Your habit, &ldquo;Load Tomorrow Tonight&rdquo;:</strong>{" "}Each evening, queue the first move on your One Target, prep the
               materials, draft the key points of the hard conversation before it
               happens. Each week, run one deliberate-practice rep on a core
-              skill — and simplify by subtraction.
+              skill, and simplify by subtraction.
             </p>
 
             <div className="mt-6">
@@ -778,7 +778,7 @@ export default function MastersEdgeWorkbook() {
 
             <HabitTracker
               week={2}
-              title="&ldquo;Load Tomorrow Tonight&rdquo; — each evening"
+              title="&ldquo;Load Tomorrow Tonight&rdquo;: each evening"
               data={dd}
               onToggle={set}
               onNote={set}
@@ -805,10 +805,10 @@ export default function MastersEdgeWorkbook() {
               quoteSource="Bruce Lee, The Pierre Berton Show (1971)"
             />
             <IdeaBlock>
-              No fighter peaks by accident — and none grind at 100% around the
+              No fighter peaks by accident, and none grind at 100% around the
               clock either. Flow on the mat is engineered: the right opponent for
               the right stretch, the breath, the ritual, the recovery between
-              rounds. Flow isn&rsquo;t luck — it&rsquo;s a reproducible state with
+              rounds. Flow isn&rsquo;t luck. It&rsquo;s a reproducible state with
               specific conditions: a clear goal, fast feedback, a challenge just
               past your skill, and no distraction. The cycle runs struggle →
               release → flow → recovery. Manage energy, not time.
@@ -817,8 +817,8 @@ export default function MastersEdgeWorkbook() {
               Pillar this week: Systems Design
             </p>
             <p className="text-black mb-2">
-              <strong>Your habit — &ldquo;Engineer One Block&rdquo;:</strong>{" "}Each day, build one 90-minute flow block — clear target, calibrated
-              challenge, phone out of the room — followed by a genuine recovery
+              <strong>Your habit, &ldquo;Engineer One Block&rdquo;:</strong>{" "}Each day, build one 90-minute flow block (clear target, calibrated
+              challenge, phone out of the room), followed by a genuine recovery
               ritual. Before anything high-stakes, run four rounds of box
               breathing: inhale 4, hold 4, exhale 4, hold 4.
             </p>
@@ -850,14 +850,14 @@ export default function MastersEdgeWorkbook() {
 
             <HabitTracker
               week={3}
-              title="&ldquo;Engineer One Block&rdquo; — one 90-minute block per day"
+              title="&ldquo;Engineer One Block&rdquo;: one 90-minute block per day"
               data={dd}
               onToggle={set}
               onNote={set}
             />
 
             <div className="mt-6 rounded-xl bg-cranberry/[0.04] p-4 text-center text-cranberry font-semibold">
-              Edge Check: You don&rsquo;t rise to your goals — you fall to your
+              Edge Check: You don&rsquo;t rise to your goals. You fall to your
               systems. Maximize by engineering the conditions.
             </div>
           </motion.div>
@@ -877,7 +877,7 @@ export default function MastersEdgeWorkbook() {
               quoteSource="Will Durant, The Story of Philosophy (1926), distilling Aristotle"
             />
             <IdeaBlock>
-              The black belt is a white belt who never quit — but more precisely,
+              The black belt is a white belt who never quit. More precisely,
               it&rsquo;s the person in whom mindset, skill, and environment
               finally move as one. No single pillar makes a master. The
               integration does. Because the layers stack, the weakest pillar caps
@@ -890,7 +890,7 @@ export default function MastersEdgeWorkbook() {
               Pillar this week: Integration
             </p>
             <p className="text-black mb-2">
-              <strong>Your habit — &ldquo;The Three-Pillar Review&rdquo;:</strong>{" "}Once a week, audit all three. Mindset: am I focused, resilient, and
+              <strong>Your habit, &ldquo;The Three-Pillar Review&rdquo;:</strong>{" "}Once a week, audit all three. Mindset: am I focused, resilient, and
               confident on my real target? Skillset: which one capability am I
               sharpening? Support: is my environment serving the work or
               sabotaging it? Anchor it with a consistent ritual and a 30-day
@@ -900,17 +900,17 @@ export default function MastersEdgeWorkbook() {
             <div className="mt-6">
               <ExerciseCard>
                 <Field
-                  label="Mindset score (1–10) — and why:"
+                  label="Mindset score (1 to 10), and why:"
                   value={data.w4_mindset_score}
                   onChange={(v) => set("w4_mindset_score", v)}
                 />
                 <Field
-                  label="Skillset score (1–10) — and why:"
+                  label="Skillset score (1 to 10), and why:"
                   value={data.w4_skillset_score}
                   onChange={(v) => set("w4_skillset_score", v)}
                 />
                 <Field
-                  label="Systems Design score (1–10) — and why:"
+                  label="Systems Design score (1 to 10), and why:"
                   value={data.w4_support_score}
                   onChange={(v) => set("w4_support_score", v)}
                 />
@@ -925,7 +925,7 @@ export default function MastersEdgeWorkbook() {
 
             <HabitTracker
               week={4}
-              title="&ldquo;The Three-Pillar Review&rdquo; — weekly audit, daily reps"
+              title="&ldquo;The Three-Pillar Review&rdquo;: weekly audit, daily reps"
               data={dd}
               onToggle={set}
               onNote={set}
@@ -936,7 +936,7 @@ export default function MastersEdgeWorkbook() {
                 The edge isn&rsquo;t one breakthrough.
               </p>
               <p className="text-black">
-                It&rsquo;s Clarify, Simplify, Maximize — run as a system,
+                It&rsquo;s Clarify, Simplify, Maximize, run as a system,
                 repeated until it&rsquo;s simply who you are.
               </p>
             </div>
@@ -1006,8 +1006,8 @@ export default function MastersEdgeWorkbook() {
             <ul className="space-y-3 text-base text-black">
               <li className="flex gap-2">
                 <CheckCircle2 size={18} className="text-cranberry shrink-0 mt-0.5" />
-                Your answers <strong>save automatically</strong> on this device —
-                come back anytime and pick up where you left off.
+                Your answers <strong>save automatically</strong> on this device.
+                Come back anytime and pick up where you left off.
               </li>
               <li className="flex gap-2">
                 <FileDown size={18} className="text-cranberry shrink-0 mt-0.5" />

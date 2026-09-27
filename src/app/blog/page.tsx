@@ -9,7 +9,7 @@ import { getAllPosts } from '@/lib/blog';
 export const metadata: Metadata = {
   title: 'Blog · Brett Lechtenberg',
   description:
-    'Practical writing on peak performance, leadership, and the disciplines that drive real results. From Brett Lechtenberg — coach, speaker, author.',
+    'Practical writing on peak performance, leadership, and the disciplines that drive real results. From Brett Lechtenberg: coach, speaker, author.',
   alternates: { canonical: 'https://www.brettlechtenberg.com/blog' },
   openGraph: {
     title: 'Blog · Brett Lechtenberg',
@@ -48,7 +48,7 @@ export default function BlogIndexPage() {
               Writing on performance, discipline, and the work itself.
             </h1>
             <p className="text-xl text-white/85 max-w-2xl">
-              Bold, practical, performance-driven. No fluff — just what works
+              Bold, practical, performance-driven. No fluff, just what works
               from four decades on the mat, on the stage, and in the field.
             </p>
           </div>
@@ -112,7 +112,7 @@ export default function BlogIndexPage() {
               Want to work together?
             </h2>
             <p className="text-white/90 text-lg mb-8">
-              Coaching, speaking, advisory — book a conversation and let&apos;s see
+              Coaching, speaking, advisory. Book a conversation and let&apos;s see
               where I can move the needle for you or your team.
             </p>
             <a

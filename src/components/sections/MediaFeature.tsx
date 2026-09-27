@@ -82,7 +82,7 @@ export function MediaFeature() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">Good Things Utah</p>
-                  <p className="text-gray-400 text-sm">ABC4 Utah - Peak Performance Interview</p>
+                  <p className="text-gray-400 text-sm">ABC4 Utah: Peak Performance Interview</p>
                 </div>
               </div>
             </div>

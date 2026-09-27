@@ -61,8 +61,8 @@ export default function Home() {
               counting on you, and by most measures you&apos;re successful. But something
               doesn&apos;t match. The results don&apos;t reflect the effort. The days feel
               reactive instead of intentional. And the version of yourself you know is
-              possible — the one who leads with clarity, operates in flow, and builds
-              something truly extraordinary — keeps getting pushed to &quot;someday.&quot;
+              possible, the one who leads with clarity, operates in flow, and builds
+              something truly extraordinary, keeps getting pushed to &quot;someday.&quot;
             </p>
             <p className="text-lg text-black font-semibold mt-6">
               That gap isn&apos;t about working harder. It&apos;s about operating differently.

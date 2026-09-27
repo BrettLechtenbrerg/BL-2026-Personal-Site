@@ -33,9 +33,9 @@ const pathways = [
     title: "AI Advisory",
     headline: "Free Your People to Do What Only Humans Can",
     description:
-      "Through Total Success AI, Brett helps businesses turn AI into a leverage point — automating repetitive tasks so your team can focus on relationships, creativity, and high-value work.",
+      "Through Total Success AI, Brett helps businesses hand the repetitive tasks to AI, so your team can focus on relationships, creativity, and high-value work.",
     href: "/ai-advisory",
-    cta: "Explore AI Solutions",
+    cta: "Explore AI Advisory",
     gradient: "from-cranberry to-cranberry-dark",
     iconColor: "text-cranberry-light",
   },
