@@ -7,7 +7,6 @@ import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Brain, Wrench, Building2, Sparkles, Target, Zap } from "lucide-react";
 import Image from "next/image";
-import { useSyncExternalStore } from "react";
 
 const foundations = [
   {
@@ -15,7 +14,7 @@ const foundations = [
     title: "First Principles Thinking",
     drives: "CLARIFY",
     description:
-      "Strip away assumptions. See the real problem. Most people spend years solving the wrong problems because they never question the inherited beliefs underneath them.",
+      "Strip away assumptions and see the real problem. Most people spend years solving the wrong problem because they never question the beliefs they inherited. We question them until the real target is obvious.",
     gradient: "from-cranberry to-cranberry-dark",
   },
   {
@@ -23,7 +22,7 @@ const foundations = [
     title: "Frontloading",
     drives: "SIMPLIFY",
     description:
-      "Be prepared, not surprised. Loading the knowledge, tools, and mental frameworks you need before you face the challenge. Not during, not after.",
+      "Be prepared, not surprised. We load the knowledge, tools, and mental frameworks you need before the hard moment arrives, so it finds you ready instead of scrambling.",
     gradient: "from-gold to-gold-dark",
   },
   {
@@ -31,7 +30,7 @@ const foundations = [
     title: "Flow",
     drives: "MAXIMIZE",
     description:
-      "Engineer the conditions for peak performance. Flow is not random luck. It's a reproducible state with specific, measurable conditions.",
+      "Flow isn't random luck. It's a repeatable state with specific, measurable conditions. We set up the environment, routines, and triggers that let your best work show up on purpose.",
     gradient: "from-cranberry to-cranberry-dark",
   },
 ];
@@ -42,53 +41,25 @@ const pillars = [
     title: "Mindset Mastery",
     subtitle: "Focus • Resilience • Confidence",
     description:
-      "Before you can change what you do, you have to change how you think. Building the internal architecture for peak performance under pressure.",
-    // Proposed replacement (Sep 27 2026), shown only at /masters-edge?compare=1
-    // until Brett picks a version.
-    proposed: {
-      title: "First Principles",
-      subtitle: "Clarify • Question • Focus",
-      description:
-        "Before you change what you do, get clear on what actually matters. We question the assumptions you inherited until the real target is obvious.",
-    },
+      "Before you can change what you do, you have to change how you think. We build the focus, resilience, and confidence that hold up under pressure.",
   },
   {
     icon: Wrench,
     title: "Skillset Enhancement",
     subtitle: "Tools • Techniques • Practice",
     description:
-      "Once the mindset is right, we build the practical capabilities. Specific, high-impact tools matched to your situation.",
-    proposed: {
-      title: "Frontloading",
-      subtitle: "Simplify • Prepare • Practice",
-      description:
-        "Once the target is clear, we build the tools you need ahead of time, so the hard moment finds you ready instead of scrambling.",
-    },
+      "Once your mindset is right, we build the practical skills. Specific, high-impact tools matched to your situation, not a generic template.",
   },
   {
     icon: Building2,
     title: "Systems Design",
     subtitle: "Systems • Habits • Environment",
     description:
-      "The piece most programs miss. We design the environment, systems, and routines that make peak performance sustainable.",
-    proposed: {
-      title: "Flow",
-      subtitle: "Maximize • Habits • Environment",
-      description:
-        "The piece most programs miss. We set up the environment, routines, and triggers that let your best work show up on purpose, again and again.",
-    },
+      "The piece most programs miss. We design the environment, systems, and routines that keep peak performance going long after the session ends.",
   },
 ];
 
 export default function MastersEdgePage() {
-  // Wording review mode: /masters-edge?compare=1 shows current and proposed
-  // Layer 2 copy in the same boxes. Public visitors see the current copy only.
-  const compare = useSyncExternalStore(
-    () => () => {},
-    () => new URLSearchParams(window.location.search).get("compare") === "1",
-    () => false,
-  );
-
   return (
     <>
       <Header />
@@ -258,8 +229,8 @@ export default function MastersEdgePage() {
               </div>
             </div>
 
-            {/* Layer 2: The Methodology. id lets /masters-edge?compare=1#layer-2 jump here. */}
-            <div id="layer-2" className="mb-16 scroll-mt-28">
+            {/* Layer 2: The Methodology */}
+            <div className="mb-16">
               <h3 className="text-xl font-bold text-cranberry-light mb-8 text-center">
                 Layer 2: The Methodology (Three Pillars)
               </h3>
@@ -278,11 +249,6 @@ export default function MastersEdgePage() {
                       <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center mb-6 flex-shrink-0">
                         <pillar.icon className="w-7 h-7 text-white" />
                       </div>
-                      {compare && (
-                        <p className="text-xs font-bold uppercase tracking-wider text-white/50 mb-2">
-                          Current
-                        </p>
-                      )}
                       <h4 className="text-xl font-bold text-white mb-1 flex-shrink-0">
                         {pillar.title}
                       </h4>
@@ -290,20 +256,6 @@ export default function MastersEdgePage() {
                         {pillar.subtitle}
                       </p>
                       <p className="text-gray-400 flex-grow">{pillar.description}</p>
-                      {compare && (
-                        <div className="mt-6 pt-6 border-t border-dashed border-gold/50">
-                          <p className="text-xs font-bold uppercase tracking-wider text-gold mb-2">
-                            Proposed
-                          </p>
-                          <h4 className="text-xl font-bold text-white mb-1">
-                            {pillar.proposed.title}
-                          </h4>
-                          <p className="text-gold text-sm font-medium mb-3">
-                            {pillar.proposed.subtitle}
-                          </p>
-                          <p className="text-gray-300">{pillar.proposed.description}</p>
-                        </div>
-                      )}
                     </div>
                   </motion.div>
                 ))}
