@@ -60,14 +60,12 @@ const extraTestimonials = [
 const galleryImages = [
   { src: "/speaking-gallery/america-first-training.jpg", alt: "Brett with the America First Credit Union team, Super Ethical Sales & Team Building, August 2026", size: "large" },
   { src: "/speaking-gallery/murray-chamber-training.webp", alt: "Women in Business Empowerment Training, Murray Chamber of Commerce, May 2026", size: "medium" },
-  // caption placeholders: Brett to supply event name + year (Sep 27 2026);
-  // alt stays descriptive for screen readers.
-  { src: "/speaking-gallery/speaking-2.png", alt: "Brett engaging with audience", caption: "[EVENT NAME], [YEAR]", size: "medium" },
-  { src: "/speaking-gallery/speaking-1.png", alt: "Brett delivering keynote presentation", caption: "[EVENT NAME], [YEAR]", size: "large" },
-  { src: "/speaking-gallery/speaking-3.png", alt: "Interactive workshop session", caption: "[EVENT NAME], [YEAR]", size: "medium" },
+  { src: "/speaking-gallery/speaking-2.png", alt: "Financial Literacy Event, Heber Valley Chamber, Utah Valley University", size: "medium" },
+  { src: "/speaking-gallery/speaking-1.png", alt: "Digital Marketing Training, Park City Chamber", size: "large" },
+  { src: "/speaking-gallery/speaking-3.png", alt: "Team Building Training, Blair Education Center, Park City Hospital", size: "medium" },
   { src: "/speaking-gallery/murray-chamber-2.jpeg", alt: "Team training at Murray Chamber", size: "medium" },
   { src: "/speaking-gallery/referral-community.png", alt: "Referral Community Event", size: "large" },
-  { src: "/speaking-gallery/speaking-4.jpg", alt: "Brett on stage", caption: "[EVENT NAME], [YEAR]", size: "large" },
+  { src: "/speaking-gallery/speaking-4.jpg", alt: "AI for Business Owners, Park City Chamber, Blair Education Center", size: "large" },
 ];
 
 type Talk = {
@@ -888,7 +886,7 @@ export default function SpeakingPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                       <p className="text-white font-medium text-sm md:text-base drop-shadow-lg">
-                        {image.caption ?? image.alt}
+                        {image.alt}
                       </p>
                     </div>
                     <div className="absolute top-3 right-3 w-8 h-8 bg-gradient-to-br from-gold to-cranberry rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
