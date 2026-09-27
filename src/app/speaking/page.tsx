@@ -58,7 +58,7 @@ const extraTestimonials = [
 ];
 
 const galleryImages = [
-  { src: "/speaking-gallery/america-first-training.jpg", alt: "Brett with the America First Credit Union team — Super Ethical Sales & Team Building, August 2026", size: "large" },
+  { src: "/speaking-gallery/america-first-training.jpg", alt: "Brett with the America First Credit Union team, Super Ethical Sales & Team Building, August 2026", size: "large" },
   { src: "/speaking-gallery/murray-chamber-training.webp", alt: "Murray Chamber of Commerce Training", size: "medium" },
   // caption placeholders: Brett to supply event name + year (Sep 27 2026);
   // alt stays descriptive for screen readers.
