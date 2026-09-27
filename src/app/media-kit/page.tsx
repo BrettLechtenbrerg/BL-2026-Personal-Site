@@ -110,7 +110,7 @@ const avRequirements = [
 // the /speaking gallery. More photos coming: add entries here.
 const eventPhotos = [
   { src: "/speaking-gallery/america-first-training.jpg", label: "America First Credit Union", description: "Brett with the America First Credit Union team, Super Ethical Sales & Team Building, August 2026" },
-  { src: "/speaking-gallery/murray-chamber-training.webp", label: "Murray Chamber of Commerce", description: "Murray Chamber of Commerce Training" },
+  { src: "/speaking-gallery/murray-chamber-training.webp", label: "Murray Chamber of Commerce", description: "Women in Business Empowerment Training, Murray Chamber of Commerce, May 2026" },
 ];
 
 const shortBio = `Brett Lechtenberg is a peak performance coach, author of seven books including five bestsellers, and the creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings real-world business experience, original flow state research, and proven leadership principles to every audience he serves.`;
