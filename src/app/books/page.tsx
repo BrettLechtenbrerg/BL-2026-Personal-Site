@@ -15,7 +15,7 @@ import { useState, useEffect } from "react";
 const books = [
   {
     title: "The Master's Edge",
-    status: "Coming Q4 2026",
+    status: "Coming October 2026",
     description:
       "The definitive guide to Brett's proprietary peak performance methodology. Built on 30+ years of experience and original flow state research.",
     bestseller: false,
@@ -23,6 +23,19 @@ const books = [
     image: "/books/masters-edge-devices.jpg",
     pageUrl: "/books/masters-edge",
     gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/10",
+  },
+  {
+    // Published Aug 2026 (KDP, ISBN 9798193944539). Link is an Amazon ISBN
+    // search until Brett supplies the product page URL.
+    title: "Powerful AI Strategies for Business Owners",
+    status: "New, August 2026 (with Manny Torres)",
+    description:
+      "A real-world guide to saving time, serving customers, and growing your business with AI. People-first, no hype, tested in real businesses.",
+    bestseller: false,
+    image: "/books/powerful-ai-strategies.jpg",
+    imageScale: "scale-[0.85]",
+    gradient: "bg-gradient-to-tr from-gold/10 via-white to-cranberry/8",
+    amazonUrl: "https://www.amazon.com/s?k=9798193944539",
   },
   {
     title: "Reclaiming The Clock",
@@ -98,12 +111,12 @@ const books = [
 ];
 
 const usaTodayImages = [
-  { src: "/usa-today/butler-elementary.png", alt: "Brett's Anti-Bullying Program featured at Butler Elementary - USA Today" },
+  { src: "/usa-today/butler-elementary.png", alt: "Brett's Anti-Bullying Program featured at Butler Elementary, USA Today" },
   { src: "/usa-today/phoenix-antibullying.png", alt: "USA Today coverage of Anti-Bullying program in Phoenix" },
   { src: "/usa-today/screenshot-2015.png", alt: "USA Today feature article 2015" },
   { src: "/usa-today/screenshot-2019.png", alt: "USA Today feature article 2019" },
   { src: "/usa-today/lp-bully.png", alt: "Anti-Bully Program featured in USA Today" },
-  { src: "/usa-today/draper.jpg", alt: "Brett's program in Draper - USA Today" },
+  { src: "/usa-today/draper.jpg", alt: "Brett's program in Draper, USA Today" },
 ];
 
 export default function BooksPage() {
@@ -190,7 +203,7 @@ export default function BooksPage() {
               className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
             >
               Seven books, five bestsellers, and a growing library of media
-              appearances — all built on one principle:{" "}
+              appearances, all built on one principle:{" "}
               <span className="text-white font-semibold">teach what you&apos;ve tested.</span>
             </motion.p>
           </div>
@@ -602,7 +615,7 @@ export default function BooksPage() {
               </h2>
               <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
                 Brett&apos;s essential guide to building, leading, and retaining
-                a team of motivated professionals — delivered to your inbox.
+                a team of motivated professionals, delivered to your inbox.
               </p>
               <button
                 onClick={() => setIsEbookModalOpen(true)}

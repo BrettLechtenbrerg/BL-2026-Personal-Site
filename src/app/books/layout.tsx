@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Books by Brett Lechtenberg",
   description:
-    "Seven published books on peak performance, martial arts mastery, and business success. Including The Master's Edge and foundational works on mindset and skill development.",
+    "Seven books, five bestsellers, on time management, family safety, and AI for business owners. Plus The Master's Edge, coming October 2026.",
   keywords: [
     "Brett Lechtenberg books",
     "The Master's Edge book",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Books by Brett Lechtenberg",
     description:
-      "Seven published books on peak performance, martial arts mastery, and business success.",
+      "Seven books, five bestsellers, on time management, family safety, and AI for business owners.",
     url: "https://www.brettlechtenberg.com/books",
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Books by Brett Lechtenberg",
     description:
-      "Seven books on peak performance and business success.",
+      "Seven books, five bestsellers. The Master's Edge is coming October 2026.",
   },
   alternates: {
     canonical: "https://www.brettlechtenberg.com/books",
