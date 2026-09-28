@@ -2,7 +2,8 @@
 
 **Updated:** September 27, 2026 (end of Session 32: website copy + one-sheets)
 
-A copy of this file is also at `~/Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`.
+A copy of this file is also at `~/Desktop/Resume Prompts/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
+(filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
 Paste the block below into a fresh session.
 
 ---
@@ -37,8 +38,9 @@ FIRST COMMANDS:
   git -C /Users/brettlechtenberg/dev/BL-2026-Personal-Site status
 
 STATE AT END OF SESSION 32 (Sep 27, 2026) — everything committed, pushed, deployed, verified live:
-- Did ALL of ~/Desktop/Website-Fixes-For-Coding-Agent.md (tasks 1-5) and
-  ~/Desktop/Speaker-Sheet-Changes-For-Coding-Agent.md. Brett's writing rules = section 2
+- Did ALL of Website-Fixes-For-Coding-Agent.md (tasks 1-5) and
+  Speaker-Sheet-Changes-For-Coding-Agent.md (both now in ~/Desktop/Brett's Personal File Website -
+  Resume - Coaching Programs 2026/Website and Speaker One-Sheet - Sept 2026/). Brett's writing rules = section 2
   of the website file; the terminology rules are now in CLAUDE.md "Credential Standards".
 - /speaking: new wording, testimonials (Lindsey Powers under the reel; Danny Larson,
   Sam Beard, Bill Schuffenhauer in grid), Flow Research Collective pull quote, gallery
