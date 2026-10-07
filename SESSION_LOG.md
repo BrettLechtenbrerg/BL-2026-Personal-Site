@@ -64,7 +64,7 @@ site-wide. Swipe-transition variant built for Brett+Rupert side-by-side.
 - Push note: default `gh` account is now BoardChairIs1; pushed via
   `gh auth switch -u BrettLechtenbrerg` + credential override, switched back.
 
-### Reel project (see `~/Desktop/Brett's Sizzle Reel/RESUME_PROMPT.md`)
+### Reel project (see `~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/RESUME_PROMPT.md`)
 - v3.1 FINAL in `00 CURRENT - APPROVED (v3.1 FINAL, 23 Aug 2026)/`;
   22 Aug v3 archived to `zz OLD MATERIAL/v3 ARCHIVE - SUPERSEDED BY v3.1`.
 - 🔒 LOCKED: jitter-free Ken Burns = zoompan at 8K then lanczos → 1080p
@@ -95,7 +95,7 @@ v2 site-wide.
 - Push note: default `gh` account is PMMARocks-1 (no write access); pushed
   with a one-off credential override using the `BrettLechtenbrerg` token.
 
-### Reel project (see `~/Desktop/Brett's Sizzle Reel/RESUME_PROMPT.md`)
+### Reel project (see `~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/RESUME_PROMPT.md`)
 - v3 FINAL locked in `00 CURRENT - APPROVED (v3 VO FINAL, 22 Aug 2026)/`;
   v2 moved to `zz OLD MATERIAL - DO NOT USE/v2 ARCHIVE - SUPERSEDED BY v3`.
 - Build: `_work/build_master_v3_vo.sh` (+ `_work/make_logo_scatter.py`);
@@ -151,7 +151,7 @@ speaker clips with the official reel across the site.
   Brett confirmed live on the site.
 
 ### Source of truth for the reel
-- Locked master: `~/Desktop/Brett's Sizzle Reel/v2 FINAL - LOCKED/
+- Locked master: `~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/v2 FINAL - LOCKED/
   Brett_Lechtenberg_Sizzle_Master_v2_FINAL.mp4` (read-only). v1 archived in
   `v1 ARCHIVE - LOCKED (superseded by v2, 17 Aug 2026)/`.
 - Web encode also at `~/Desktop/Brett_Lechtenberg_Sizzle_Reel_2026_WEB.mp4`.

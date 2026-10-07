@@ -13,8 +13,8 @@ REPO="$(cd "$SRC/../.." && pwd)"
 FOLDER="Brett Lechtenberg Branding Assets Aug 2026"
 
 DESTS=(
-  "/Users/brettlechtenberg/Desktop/The Masters Edge Book/$FOLDER"
-  "/Users/brettlechtenberg/Desktop/Brett's Personal File Website - Resume - Coaching Programs 2026/$FOLDER"
+  "/Users/brettlechtenberg/Desktop/BL - Brett Lechtenberg/Projects/Books/The Masters Edge Book/$FOLDER"
+  "/Users/brettlechtenberg/Desktop/BL - Brett Lechtenberg/$FOLDER"
   "/Volumes/Brett's 8 TB/$FOLDER"
 )
 

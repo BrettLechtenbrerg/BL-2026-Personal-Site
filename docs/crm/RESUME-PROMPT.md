@@ -69,4 +69,4 @@ SEPT 17 SESSION (notes only, nothing built): assessed Lightfield (lightfield.app
 - **Resend:** shared with Speaker's Edge (`speakers-edge-next` ADR 0003). 100 emails/day cap on Free.
 - **GHL still live** on BL until Phase 5 cutover; env vars `GHL_*` untouched so far.
 - **Other sites:** PMMA and TSAI are NOT in scope until the BL pilot passes its definition of done.
-- **Source of truth is `docs/crm/` in this repo.** The only Desktop copies are this resume prompt (`~/Desktop/EDGE-CRM-RESUME-PROMPT.md` and `~/Desktop/Resume Prompts/`); the analysis/architecture/plan docs live here only.
+- **Source of truth is `docs/crm/` in this repo.** The only Desktop copies are this resume prompt (`~/Desktop/EDGE-CRM-RESUME-PROMPT.md` and `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/`); the analysis/architecture/plan docs live here only.

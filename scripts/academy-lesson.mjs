@@ -4,7 +4,7 @@
 //
 //   node scripts/academy-lesson.mjs <command> …
 //
-//   init "<Lesson Title>" [--source <file|folder>]…   scaffold ~/Desktop/LMS - <Title>/
+//   init "<Lesson Title>" [--source <file|folder>]…   scaffold <brand bucket>/Projects/LMS - <Title>/ on the Desktop
 //   validate <lesson.json>                             schema + authoring rules; prints the gate summary
 //   add      <lesson.json> [--allow-dirty]             write modules.ts + badge-meta.ts (+ new course), copy PDFs, tsc
 //   price    <course-id> --usd 99 [--dry-run]          Stripe Product + Price → Vercel env + .env.local
@@ -16,8 +16,10 @@
 //            validate → add → [gate] → price? → produce → ship
 //
 // Every command is idempotent; progress lives in <project>/.state.json so a
-// dead run resumes where it stopped. The project folder is the Desktop folder
-// that holds lesson.json (see ~/dev/academy-forge/docs/lms/SKILL.md).
+// dead run resumes where it stopped. The project folder is the "LMS - …" folder
+// that holds lesson.json — in the brand's Desktop bucket (e.g. "BL - Brett
+// Lechtenberg/Projects/"), or loose on the Desktop for older projects
+// (see ~/dev/academy-forge/docs/lms/SKILL.md).
 //
 // BRAND: nothing here is site-specific. CONFIG is derived from the site's
 // generated `content/academy.config.ts` (Academy Forge profile) — site url,
@@ -66,6 +68,35 @@ function loadSiteConfig() {
   die("content/academy.config.ts not found — run `bash ~/dev/academy-forge/install.sh <brand>` first");
 }
 const SITE = loadSiteConfig();
+
+// Brett's Desktop is organized into business buckets ("BL - …", "TSAI - …", "PMMA - …",
+// "GC - …", "MACC - …"), each with a Projects/ folder. New lesson projects go in the
+// brand's bucket; lookups search every bucket and the bare Desktop (older projects).
+const DESKTOP = path.join(os.homedir(), "Desktop");
+const BUCKET_PREFIX = { bl: "BL - ", tsai: "TSAI - ", pmma: "PMMA - ", "gift-connect": "GC - " };
+function bucketDirs() {
+  if (!existsSync(DESKTOP)) return [];
+  return readdirSync(DESKTOP, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && /^(BL|TSAI|PMMA|GC|MACC) - /.test(d.name))
+    .map((d) => path.join(DESKTOP, d.name));
+}
+function brandProjectsDir(slug) {
+  const prefix = BUCKET_PREFIX[slug];
+  const bucket = prefix && bucketDirs().find((d) => path.basename(d).startsWith(prefix));
+  return bucket ? path.join(bucket, "Projects") : DESKTOP;
+}
+/** Every folder that may hold "LMS - …" projects: the Desktop, each bucket's Projects/ and one level below it. */
+function projectSearchDirs() {
+  const dirs = [DESKTOP];
+  for (const bucket of bucketDirs()) {
+    const projects = path.join(bucket, "Projects");
+    if (!existsSync(projects)) continue;
+    dirs.push(projects);
+    for (const d of readdirSync(projects, { withFileTypes: true }))
+      if (d.isDirectory() && !d.name.startsWith(CONFIG.projectPrefix)) dirs.push(path.join(projects, d.name));
+  }
+  return dirs;
+}
 const SRC = path.join(ROOT, SITE.site.srcDir || "");
 const FORGE_DIR = path.join(HOME, "dev/academy-forge");
 
@@ -90,7 +121,7 @@ const CONFIG = {
   deployMode: SITE.site.deploy ?? "cli",
   deployCmd: ["npx", "vercel", "--prod", "--yes"],
   stripeEnabled: SITE.commerce?.stripe === true,
-  projectsDir: path.join(HOME, "Desktop"),
+  projectsDir: brandProjectsDir(SITE.slug),
   projectPrefix: "LMS - ",
   backupsDir: path.join(HOME, "Backups"),
   stripePriceEnvPrefix: "STRIPE_PRICE_",
@@ -1044,7 +1075,7 @@ function template(name, vars) {
 
 /**
  * Find the project for a slug or a lesson.json path.
- * Looks in the Desktop "LMS - …" folders for a lesson.json (or .state.json) with that slug;
+ * Looks in the "LMS - …" folders (Desktop buckets, then the bare Desktop) for a lesson.json (or .state.json) with that slug;
  * falls back to no project folder (state is then kept in .notebooklm/<slug>/).
  */
 async function resolveProject(target) {
@@ -1054,10 +1085,10 @@ async function resolveProject(target) {
     return { slug: lesson.slug, dir, lesson };
   }
   if (!/^[a-z0-9-]+$/.test(target)) die(`Bad slug "${target}"`);
-  if (existsSync(CONFIG.projectsDir)) {
-    for (const name of readdirSync(CONFIG.projectsDir)) {
+  for (const parent of projectSearchDirs()) {
+    for (const name of readdirSync(parent)) {
       if (!name.startsWith(CONFIG.projectPrefix)) continue;
-      const dir = path.join(CONFIG.projectsDir, name);
+      const dir = path.join(parent, name);
       const lj = path.join(dir, "lesson.json");
       try {
         const lesson = existsSync(lj) ? JSON.parse(readFileSync(lj, "utf8")) : null;

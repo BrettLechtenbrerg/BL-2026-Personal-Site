@@ -2,7 +2,7 @@
 
 **Updated:** September 27, 2026 (end of Session 32: website copy + one-sheets)
 
-A copy of this file is also at `~/Desktop/Resume Prompts/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
+A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
 (filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
 Paste the block below into a fresh session.
 

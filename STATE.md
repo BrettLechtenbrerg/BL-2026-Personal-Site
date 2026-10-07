@@ -55,7 +55,7 @@ re-rendered + branding kit re-synced to all 3 locations. Commits
 **Session 23 (Aug 17):** official 2026 sizzle reel
 (2:43) replaced the Juan Diego clips on /speaking, /media-kit, /book-brett
 (`LiveClip` got `aspect="wide"` + `caption` props). Reel master locked at
-`~/Desktop/Brett's Sizzle Reel/v2 FINAL - LOCKED/`; web encode in
+`~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/v2 FINAL - LOCKED/`; web encode in
 `public/videos/sizzle-reel-2026.mp4`. Awaiting Brett's feedback — then
 consider homepage placement (+ optional 30s v2 teaser).
 

@@ -8,7 +8,7 @@
 - New: nav keyboard/focus fixes, login aria-labels, and the partner Programs feature (empty catalog, so nothing shows).
 - The batch runner is now the shared engine version: per-brand LaunchAgent `com.brettlechtenberg.academy-batch.bl`, one NotebookLM job at a time across all academies, and only NotebookLM's own rate-limit errors trigger the 60-min pause.
 - The old BL-only agent `com.brettlechtenberg.academy-notebooklm` is retired (not loaded).
-- Releases: `d122d3f`, `168a67b`, `96ac43f`. Status: `~/Desktop/Academies/01-MASTER-STATUS.md`.
+- Releases: `d122d3f`, `168a67b`, `96ac43f`. Status: `~/Desktop/TSAI - Total Success AI/Shop - Shared Tools/Academies/01-MASTER-STATUS.md`.
 
 ## Sep 19, 2026 — Session 31b: course certificates (two tiers)
 
