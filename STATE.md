@@ -35,8 +35,8 @@ adding more hours or overwhelm." (`src/components/sections/Hero.tsx`).
 notes: Times New Roman cards, 4-quote testimonials w/ Matt Gibbons + John
 Nottingham, de-jittered stills) replaced v3 — same 2:56, `f39bc85`, verified
 live. Swipe-cut variant awaiting Brett+Rupert side-by-side (reel folder,
-`01 PENDING RUPERT/`). Reel project state: `~/Desktop/Brett's Sizzle
-Reel/RESUME_PROMPT.md` (v3.1 FINAL locked). Still open from Session 23:
+`01 PENDING RUPERT/`). Reel project state: `~/Desktop/BL - Brett Lechtenberg/Projects/
+Brett's Sizzle Reel/RESUME_PROMPT.md` (v3.1 FINAL locked). Still open from Session 23:
 homepage reel placement + optional 30s teaser.
 
 **Session 25 (Aug 22):** sizzle reel v3 (Rupert Hitzig
