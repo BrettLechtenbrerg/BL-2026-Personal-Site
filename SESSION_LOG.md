@@ -2,6 +2,14 @@
 
 ---
 
+## Session 33 - October 9, 2026 - TSAI LOGO TYPO FIX
+
+**Focus:** one image. `public/timeline/tsai-logo.webp` (shown on /about and /ai-advisory) read "TOTAL SUCCSS AI";
+replaced with the corrected logo (`0def7f4`), pushed, auto-deployed, verified live by downloading the file.
+Part of a cross-site fix: `~/Desktop/TSAI - Total Success AI/Projects/TSAI Logo Fix - Oct 2026/RESUME-PROMPT.md`.
+
+---
+
 ## Session 32 - September 27, 2026 - WEBSITE COPY + SPEAKER ONE-SHEETS
 
 **Focus:** Brett's two Desktop spec files: `Website-Fixes-For-Coding-Agent.md`

@@ -1,6 +1,7 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
 **Updated:** September 27, 2026 (end of Session 32: website copy + one-sheets)
+**Since then:** Oct 9, 2026, Session 33: TSAI logo image fixed on /about and /ai-advisory (`0def7f4`, live). Nothing else changed; the state below still holds.
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
 (filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
