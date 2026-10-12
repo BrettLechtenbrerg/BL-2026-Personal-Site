@@ -284,7 +284,7 @@ export default function MediaKitPage() {
                   poster="/videos/sizzle-reel-poster.jpg"
                   label="Brett Lechtenberg 2026 speaker sizzle reel"
                   aspect="wide"
-                  caption="▶ Watch the 2:56 sizzle reel (with sound)"
+                  caption="▶ Watch the 3:25 sizzle reel (with sound)"
                 />
               </motion.div>
 
@@ -300,7 +300,7 @@ export default function MediaKitPage() {
                 <p className="text-gray-300 leading-relaxed mb-6">
                   Brett&apos;s official 2026 sizzle reel: live keynotes,
                   corporate trainings, and audience reaction in under three
-                  minutes.
+                  and a half minutes.
                 </p>
                 <a
                   href="/videos/sizzle-reel-2026.mp4"

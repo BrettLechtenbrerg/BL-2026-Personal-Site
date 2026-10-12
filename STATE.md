@@ -31,6 +31,9 @@ More"**, subheadline "Build the focus, leadership, and AI advantage to
 accomplish more, lead more effectively, and perform at your best—without
 adding more hours or overwhelm." (`src/components/sections/Hero.tsx`).
 
+**Session 34 (Oct 11):** sizzle reel v5 (3:25, new hybrid opening + KO music) replaced v3.1 on /speaking,
+/media-kit, /book-brett; captions 2:56 -> 3:25. Reel state: the reel folder's `RESUME_PROMPT.md`.
+
 **Session 26 (Aug 23):** sizzle reel v3.1 (Rupert's
 notes: Times New Roman cards, 4-quote testimonials w/ Matt Gibbons + John
 Nottingham, de-jittered stills) replaced v3 — same 2:56, `f39bc85`, verified

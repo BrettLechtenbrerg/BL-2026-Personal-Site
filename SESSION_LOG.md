@@ -2,6 +2,16 @@
 
 ---
 
+## Session 34 - October 11, 2026 - SIZZLE REEL v5
+
+**Focus:** Brett asked to put the new v5 reel on the site ("a big improvement"). `public/videos/sizzle-reel-2026.mp4`
+replaced with the v5 web encode (3:25, 17.7 MB, ~1 Mbps like v3.1's): new 28s hybrid opening (Juan Diego cold open,
+pain words, "Most… / Brett…", the concrete break) + the v3.2 reel with KO music. Captions on /speaking, /media-kit,
+/book-brett: 2:56 -> 3:25; /media-kit "under three minutes" -> "under three and a half minutes". Poster unchanged.
+Reel project: `~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/` (`10 REVIEW - v5 (11 Oct 2026)/`).
+
+---
+
 ## Session 33 - October 9, 2026 - TSAI LOGO TYPO FIX
 
 **Focus:** one image. `public/timeline/tsai-logo.webp` (shown on /about and /ai-advisory) read "TOTAL SUCCSS AI";
