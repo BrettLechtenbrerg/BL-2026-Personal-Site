@@ -134,6 +134,10 @@ export const academyConfig: AcademyConfig = {
   "supabase": {
     "project": "yrfsquzzbgnmkfbuapfk"
   },
+  "surveys": {
+    "teamName": "the Master's Edge team",
+    "teamLabel": "Master's Edge team"
+  },
   "email": {
     "from": "Master's Edge Academy <academy@auth.brettlechtenberg.com>",
     "replyTo": "brett@brettlechtenberg.com"
