@@ -9,6 +9,8 @@ Oct 16, 2026: Academy Forge engine upgrade (`0e93315`, live via vercel --prod): 
 and the light/dark fix. Member surveys are installed but OFF (`src/content/academy/surveys.ts` empty) until Brett
 approves `~/Desktop/BL - Brett Lechtenberg/Projects/Academy Upgrade - Oct 2026/Survey questions - DRAFT for approval.md`;
 before turning them on, paste `supabase/academy-schema.sql` in BL's Supabase SQL editor (no access token here).
+Later on Oct 16 (`0c5b17b`, live): surveys turned ON with PROPOSED questions so Brett can try them (database done; Brett is
+on the survey team). Wording edits go in `src/content/academy/surveys.ts`.
 Restore tag `pre-engine-upgrade-2026-10-16`. Engine notes: `~/dev/academy-forge/RESUME-PROMPT.md`.
 Nothing else changed; the state below still holds.
 
