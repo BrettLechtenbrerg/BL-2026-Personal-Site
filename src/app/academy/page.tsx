@@ -181,6 +181,11 @@ export default function AcademyLoginPage() {
                   placeholder={academyConfig.signup.accessCodePlaceholder}
                   aria-label={academyConfig.signup.accessCodeLabel}
                   autoComplete="off"
+                  autoCapitalize="characters"
+                  autoCorrect="off"
+                  spellCheck={false}
+                  data-1p-ignore
+                  data-lpignore="true"
                   required
                   maxLength={64}
                   className={inputClass}

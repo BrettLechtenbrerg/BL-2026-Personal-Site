@@ -49,7 +49,9 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
         <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-academy-accent">
           <Layers size={18} /> Flashcards
         </h2>
-        <span className="text-xs text-academy-fg/50">
+        {/* key={...} on changing text: a fresh element lets Google Translate (Español switch)
+            translate the new words; text updated in place would stay on the old translation. */}
+        <span key={pos} className="text-xs text-academy-fg/50">
           Card {pos + 1} of {cards.length}
         </span>
       </div>
@@ -70,7 +72,7 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
       </div>
 
       {/* Step instruction — changes with state so the next action is always obvious */}
-      <p className="mb-3 text-center text-sm font-semibold text-academy-fg/85">
+      <p key={`step-${flipped}`} className="mb-3 text-center text-sm font-semibold text-academy-fg/85">
         {flipped ? (
           <>
             <span className="text-academy-accent">Step 2:</span> Got it? Hit <span className="text-academy-accent">Next card</span> →
@@ -84,6 +86,7 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
 
       {/* 3D flip: the button rotates on Y; each face hides its back so only one shows. */}
       <button
+        key={order[pos]}
         type="button"
         onClick={() => setFlipped((f) => !f)}
         aria-pressed={flipped}
@@ -98,7 +101,7 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
           <CardFace label="Answer" text={card.back} hidden={!flipped} back />
         </div>
       </button>
-      <p className="mt-2 text-center text-xs text-academy-fg/40">
+      <p key={`hint-${flipped}`} className="mt-2 text-center text-xs text-academy-fg/40">
         {flipped ? "Click the card again to see the question" : "Click the card to check your answer"}
       </p>
 
@@ -127,7 +130,7 @@ export default function Flashcards({ cards }: { cards: Flashcard[] }) {
               : "border border-academy-fg/15 text-academy-fg/80 hover:bg-academy-fg/10"
           }`}
         >
-          {pos + 1 === cards.length ? "Start over" : "Next card"} <ChevronRight size={18} />
+          <span key={String(pos + 1 === cards.length)}>{pos + 1 === cards.length ? "Start over" : "Next card"}</span> <ChevronRight size={18} />
         </button>
       </div>
     </div>

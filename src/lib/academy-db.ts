@@ -21,6 +21,8 @@ export interface MeUser {
   avatar: string;
   xp: number;
   role: "member" | "admin";
+  /** May read every member's survey answers (survey team; absent until the schema update runs). */
+  survey_reviewer?: boolean;
   bio: string | null;
   photo_url: string | null;
   last_seen_at: string | null;

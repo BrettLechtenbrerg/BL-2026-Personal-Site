@@ -44,6 +44,26 @@ export interface AcademyConfig {
     icon: string;
     /** Optional image under /public (e.g. "/brand/brandmark.png") shown instead of `icon`. */
     logo?: string;
+    /**
+     * Theme before a member uses the light/dark switch. "system" (default) follows the
+     * device setting; "light" or "dark" ignores it. A member's own switch choice always wins.
+     */
+    defaultTheme?: "light" | "dark" | "system";
+    /**
+     * localStorage key for the member's light/dark choice (default "academy-theme").
+     * Bump it (e.g. "academy-theme-v2") to clear every saved choice once.
+     */
+    themeStorageKey?: string;
+    /** Show the "Back to main site" button in the header and at the foot of every page (default true). */
+    backToMainSite?: boolean;
+    /**
+     * Languages offered by the header switch (default ["en"] = no switch). Adding "es" shows an
+     * English / Español button that turns on Google's machine translation (nothing is sent to
+     * Google until a visitor picks Español).
+     */
+    languages?: ("en" | "es")[];
+    /** Hand-set Spanish academy name for the header when Español is on (Google's may be too long). */
+    nameEs?: string;
     /** Owner's first name for "Only Brett posts here", "Brett's feedback". */
     ownerFirstName: string;
     /** Who the lessons are written for (drives the Lesson Forge voice brief). */
@@ -127,6 +147,19 @@ export interface AcademyConfig {
      * "All habits passed". Falls back to `cap(modules)`.
      */
     modulesNav?: string;
+    /** What a learner is called in survey pages (default "member" / "members"; GC: "parent"). */
+    member?: string;
+    members?: string;
+  };
+  /**
+   * Member surveys (on when the site's content/academy/surveys.ts defines any). Who the
+   * answers are shared with, in the brand's words.
+   */
+  surveys?: {
+    /** In sentences: "Only you and {teamName} can see them." Default "the program team". */
+    teamName?: string;
+    /** Short label: "(GIFT CONNECT team)", "{teamLabel} only." Default "program team". */
+    teamLabel?: string;
   };
   supabase: {
     /** Project ref (for keep-alive auto-restore). Secrets stay in env. */

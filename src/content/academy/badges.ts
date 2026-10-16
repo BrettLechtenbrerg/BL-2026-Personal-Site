@@ -18,7 +18,7 @@ export interface Badge {
 
 /** Special badges. Module-completion badges are generated: module-<slug>. */
 export const specialBadges: Badge[] = [
-  { slug: "first-steps", name: "First Steps", emoji: "👣", description: "Enrolled in the Academy" },
+  { slug: "first-steps", name: "First Steps", emoji: "👣", description: `Enrolled in ${academyConfig.academy.name}` },
   { slug: "perfect-score", name: "Perfect Score", emoji: "💯", description: "Scored 100% on a quiz" },
   { slug: "seven-day-streak", name: "7-Day Streak", emoji: "🔥", description: "Visited 7 days in a row" },
   { slug: "community-contributor", name: "Community Contributor", emoji: "🤝", description: "Posted 5 times in the community" },

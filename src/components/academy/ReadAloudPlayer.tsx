@@ -108,10 +108,13 @@ export default function ReadAloudPlayer({
           {/* Reading ribbon (scrubber) */}
           <div className="mt-4">
             <div className="mb-1 flex items-center justify-between text-[11px] text-[#6b5638]">
-              <span className="truncate">
+              {/* key / translate="no": keeps the Español switch (Google Translate) in step with changing text. */}
+              <span key={chapterIdx} className="truncate">
                 {chapters.length ? `Chapter ${chapterIdx + 1}: ${chapters[chapterIdx]}` : "Reading"}
               </span>
-              <span className="ml-3 shrink-0 tabular-nums">{remaining > 0 ? `${fmt(remaining)} left` : fmt(duration)}</span>
+              <span className="ml-3 shrink-0 tabular-nums">
+                {remaining > 0 ? <><span translate="no">{fmt(remaining)}</span> left</> : <span translate="no">{fmt(duration)}</span>}
+              </span>
             </div>
             <div className="relative h-3">
               <input
@@ -155,7 +158,10 @@ export default function ReadAloudPlayer({
               className="flex h-14 items-center gap-2 rounded-full bg-[var(--academy-primary)] px-6 font-heading font-bold text-academy-fg shadow-[0_8px_24px_-8px_var(--academy-primary)] transition-transform hover:scale-[1.03] hover:bg-[var(--academy-primary-dark)]"
             >
               {playing ? <Pause size={22} fill="currentColor" /> : <Play size={22} fill="currentColor" />}
-              {playing ? "Pause" : time > 0 ? "Resume" : "Listen to the lesson"}
+              {(() => {
+                const label = playing ? "Pause" : time > 0 ? "Resume" : "Listen to the lesson";
+                return <span key={label}>{label}</span>;
+              })()}
             </button>
             <button
               type="button"

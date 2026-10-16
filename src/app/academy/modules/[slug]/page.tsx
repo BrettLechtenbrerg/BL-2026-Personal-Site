@@ -17,6 +17,7 @@ import { getOwnedCourses } from "@/lib/academy-access";
 import { coursePriceLabels } from "@/lib/stripe";
 import ModuleDetail from "@/components/academy/ModuleDetail";
 import UnlockCourseButton from "@/components/academy/UnlockCourseButton";
+import { ModuleExtras } from "@/components/academy/SiteExtras";
 import { academyConfig } from "@/content/academy.config";
 import { cap } from "@/lib/academy-config";
 
@@ -58,6 +59,7 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
 
   const flashcards = await loadFlashcards(slug);
   return (
+    <>
     <ModuleDetail
       module={{
         slug: m.slug,
@@ -77,5 +79,8 @@ export default async function ModulePage({ params }: { params: Promise<{ slug: s
         passPercent: PASS_PERCENT,
       }}
     />
+    {/* Site-owned slot (components/academy/SiteExtras.tsx): extra material under an unlocked lesson. */}
+    <ModuleExtras slug={m.slug} />
+    </>
   );
 }

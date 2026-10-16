@@ -35,7 +35,7 @@ export async function sendAcademyEmail(mail: AcademyEmail): Promise<{ ok: boolea
 export function magicLinkEmail(to: string, url: string, firstName: string): AcademyEmail {
   const name = academyConfig.academy.name;
   const subject = `Your ${name} sign-in link`;
-  const text = `Hi ${firstName},\n\nHere is your one-time sign-in link for ${name}:\n${url}\n\nIt works once and expires in 15 minutes. If you didn't ask for it, you can ignore this email.\n\n— ${academyConfig.academy.kicker}`;
+  const text = `Hi ${firstName},\n\nHere is your one-time sign-in link for ${name}:\n${url}\n\nIt works once and expires in 15 minutes. Forgot your password? After you sign in, go to Profile, then Change password, to set a new one. If you didn't ask for this link, you can ignore this email.\n\n— ${academyConfig.academy.kicker}`;
   const html = `<!doctype html><html><body style="margin:0;padding:32px 16px;background:#f5f5f5;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr><td align="center">
 <table role="presentation" width="100%" style="max-width:520px;background:#ffffff;border-radius:16px;padding:32px" cellspacing="0" cellpadding="0"><tr><td>
@@ -43,8 +43,26 @@ export function magicLinkEmail(to: string, url: string, firstName: string): Acad
 <h1 style="margin:0 0 16px;font-size:22px">${escapeHtml(name)}</h1>
 <p style="margin:0 0 20px;font-size:16px;line-height:1.5">Hi ${escapeHtml(firstName)}, here is your one-time sign-in link.</p>
 <p style="margin:0 0 24px"><a href="${url}" style="display:inline-block;background:#1a1a1a;color:#ffffff;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:10px">Sign in to ${escapeHtml(name)}</a></p>
-<p style="margin:0 0 8px;font-size:14px;color:#4a4a4a">It works once and expires in 15 minutes. If you didn't ask for it, ignore this email.</p>
+<p style="margin:0 0 8px;font-size:14px;color:#4a4a4a">It works once and expires in 15 minutes. Forgot your password? After you sign in, go to <strong>Profile</strong>, then <strong>Change password</strong>, to set a new one.</p>
+<p style="margin:0 0 8px;font-size:14px;color:#4a4a4a">If you didn't ask for this link, ignore this email.</p>
 <p style="margin:16px 0 0;font-size:12px;color:#6b7280;word-break:break-all">Or paste this into your browser:<br>${url}</p>
+</td></tr></table></td></tr></table></body></html>`;
+  return { to, subject, html, text };
+}
+
+/** Sent after a password change so a member notices one they didn't make. */
+export function passwordChangedEmail(to: string, firstName: string): AcademyEmail {
+  const name = academyConfig.academy.name;
+  const subject = `Your ${name} password was changed`;
+  const help = academyConfig.email.replyTo ? ` reply to this email or write to ${academyConfig.email.replyTo}` : " reply to this email";
+  const text = `Hi ${firstName},\n\nThe password for your ${name} account was just changed.\n\nIf you did this, there's nothing else to do. If you didn't, use "Forgot your password?" on the login page to get back in and set a new one, and${help}.\n\n— ${academyConfig.academy.kicker}`;
+  const html = `<!doctype html><html><body style="margin:0;padding:32px 16px;background:#f5f5f5;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#1a1a1a">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr><td align="center">
+<table role="presentation" width="100%" style="max-width:520px;background:#ffffff;border-radius:16px;padding:32px" cellspacing="0" cellpadding="0"><tr><td>
+<p style="margin:0 0 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b7280">${escapeHtml(academyConfig.academy.kicker)}</p>
+<h1 style="margin:0 0 16px;font-size:22px">${escapeHtml(name)}</h1>
+<p style="margin:0 0 16px;font-size:16px;line-height:1.5">Hi ${escapeHtml(firstName)}, the password for your account was just changed.</p>
+<p style="margin:0;font-size:14px;line-height:1.5;color:#4a4a4a">If you did this, there's nothing else to do. If you didn't, use <strong>Forgot your password?</strong> on the login page to get back in and set a new one, and${escapeHtml(help)}.</p>
 </td></tr></table></td></tr></table></body></html>`;
   return { to, subject, html, text };
 }
@@ -80,10 +98,10 @@ export async function sendEnrollmentEmails(to: string, memberName: string): Prom
   const notice: AcademyEmail = {
     to: email.replyTo,
     subject: `New enrollment in ${academy.name}`,
-    text: `${memberName} just enrolled in ${academy.name}.\n\nName: ${memberName}\nEmail: ${to}\n\nView academy members (sign-in required): ${membersUrl}\n\nThis confirms account creation, not payment or email verification. The member's welcome email is sent separately.`,
+    text: `${memberName} just enrolled in ${academy.name}.\n\nName: ${memberName}\nEmail: ${to}\n\nView members (sign-in required): ${membersUrl}\n\nThis confirms account creation, not payment or email verification. The member's welcome email is sent separately.`,
     html: `<html lang="en"><body style="font-family:Arial,sans-serif;color:#1a1a1a"><h1>New enrollment in ${escapeHtml(academy.name)}</h1>
 <p>${escapeHtml(memberName)} just enrolled.</p><p><strong>Name:</strong> ${escapeHtml(memberName)}<br><strong>Email:</strong> ${escapeHtml(to)}</p>
-<p><a href="${escapeHtml(membersUrl)}">View academy members (sign-in required)</a></p>
+<p><a href="${escapeHtml(membersUrl)}">View members (sign-in required)</a></p>
 <p>This confirms account creation, not payment or email verification. The member's welcome email is sent separately.</p></body></html>`,
   };
   await Promise.all(([ ["welcome", welcome], ["business-notice", notice] ] as const).map(async ([kind, mail]) => {

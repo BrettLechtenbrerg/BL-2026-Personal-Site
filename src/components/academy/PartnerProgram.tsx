@@ -45,17 +45,17 @@ export default function PartnerProgram({ program }: { program: Program }) {
     const list = buckets.get(key);
     if (list) list.push(v); else buckets.set(key, [v]);
   }
-  const rank = (name: string) => name === "Introduction" ? 0 : name === OTHER ? 2 : 1;
+  const order = program.categoryOrder ?? [];
+  const rank = (name: string) => name === "Introduction" ? -1 : order.includes(name) ? order.indexOf(name) : name === OTHER ? 1000 : 999;
   const groups: [string, typeof matches][] = filtering
     ? [["", matches]]
     : [...buckets.entries()].sort(([a], [b]) => rank(a) - rank(b) || a.localeCompare(b));
 
   return (
     <div className="[overflow-wrap:anywhere]" style={ring}>
-      <Link href="/academy/modules" className="inline-flex min-h-11 items-center text-academy-accent underline underline-offset-4">All programs</Link>
       {/* Matches the Six Loving Habits course banner: cover art, bottom-anchored scrim,
           title and credit bottom-left, count pill bottom-right, same radius and border. */}
-      <header className="relative mt-3 overflow-hidden rounded-2xl border border-academy-fg/10 bg-gradient-to-br from-academy-primary-dark via-academy-bg to-academy-bg">
+      <header className="relative overflow-hidden rounded-2xl border border-academy-fg/10 bg-gradient-to-br from-academy-primary-dark via-academy-bg to-academy-bg">
         {program.image && <Image src={program.image.src} alt="" width={program.image.width} height={program.image.height} sizes="100vw" priority className="absolute inset-0 h-full w-full object-cover" />}
         {/* Tall top padding exists to reveal the cover art above the scrim; without an
             image it would be dead space, so it only applies when there is one. */}
@@ -75,6 +75,12 @@ export default function PartnerProgram({ program }: { program: Program }) {
         {program.ribbon && <span className="relative block bg-academy-bg"><Image src={program.ribbon.src} alt="" width={program.ribbon.width} height={program.ribbon.height} className="h-10 w-full object-cover" /></span>}
       </header>
       <p className="my-6 max-w-3xl">{program.description} Choose what connects with your family. There are no quizzes or completion requirements in this video library.</p>
+      {program.feature && (
+        <Link href={program.feature.href} className="mb-8 flex max-w-3xl flex-col gap-1 rounded-2xl border-2 p-5 hover:bg-academy-fg/5" style={{ borderColor: brand }}>
+          <span className="font-heading text-xl font-bold text-academy-accent underline underline-offset-4">{program.feature.label}</span>
+          <span className="text-academy-fg/85">{program.feature.text}</span>
+        </Link>
+      )}
 
       <section aria-labelledby="selected-video-heading" className="rounded-2xl border border-academy-fg/30 p-4 sm:p-6">
         <h2 id="selected-video-heading" ref={playerHeading} tabIndex={-1} className="scroll-mt-48 font-heading text-2xl font-bold">{selected.title}</h2>
@@ -180,9 +186,9 @@ export default function PartnerProgram({ program }: { program: Program }) {
       </section>
       <section aria-labelledby="partner-app-heading" className="mt-10 border-t border-academy-fg/30 pt-8">
         <h2 id="partner-app-heading" className="font-heading text-2xl font-bold">Take the conversation with you</h2>
-        <p className="mt-3 max-w-3xl">{program.appDescription}</p>
+        {program.appDescription && <p className="mt-3 max-w-3xl">{program.appDescription}</p>}
         <div className="mt-3 flex flex-wrap gap-x-6">
-          {program.appUrl && <a href={program.appUrl} className="inline-flex min-h-11 items-center text-academy-accent underline underline-offset-4">View the iPhone app</a>}
+          {program.appUrl && <a href={program.appUrl} className="inline-flex min-h-11 items-center text-academy-accent underline underline-offset-4">{program.appLabel ?? "View the iPhone app"}</a>}
           <a href={program.website} className="inline-flex min-h-11 items-center text-academy-accent underline underline-offset-4">Official website / other devices</a>
         </div>
         <p className="mt-4 text-sm">The program and original videos belong to their respective creators. These resources are not a substitute for medical advice.</p>

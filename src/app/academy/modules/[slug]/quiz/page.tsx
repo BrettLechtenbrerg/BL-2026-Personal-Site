@@ -247,7 +247,8 @@ export default function QuizPage() {
         >
           <ArrowLeft size={16} /> {title}
         </Link>
-        <span className="text-sm text-academy-fg/50">
+        {/* translate="no": Google Translate (Español switch) would freeze this counter at 1. */}
+        <span translate="no" className="text-sm text-academy-fg/50">
           {current + 1} / {questions.length}
         </span>
       </div>

@@ -237,9 +237,14 @@ function audioPrompt(m) {
 }
 
 function videoPrompt(m) {
+  // NotebookLM's image safety filter silently fails a video ("Status: failed", no reason, ~40 s in)
+  // when a lesson has bath or diaper-change scenes: GC Serve and Return failed 5 times without this
+  // line and succeeded with it (23 Sep 2026). Harmless for lessons with no such scenes.
+  // Kept inside the function: top-level code calls videoPrompt() before a module-level const would exist.
+  const VIDEO_VISUALS = "Visuals: never show a child undressed, in a bath or during a diaper change; for those moments show only faces, hands, toys or simple icons.";
   const a = SITE.academy;
   if (SITE.slug === "bl" || !a?.audience) return `Explainer video for business owners on "${m.title}" from Brett Lechtenberg's Master's Edge Academy. Cover every section of the source in order, end with the key points. Stay strictly within the source.`;
-  return `Explainer video for ${a.audience} on "${m.title}" from the ${academyTitle(a)}. Cover every section of the source in order, end with the key points. Stay strictly within the source.${NLM.guidance ? ` ${NLM.guidance}` : ""}`;
+  return `Explainer video for ${a.audience} on "${m.title}" from the ${academyTitle(a)}. Cover every section of the source in order, end with the key points. Stay strictly within the source.${NLM.guidance ? ` ${NLM.guidance}` : ""} ${VIDEO_VISUALS}`;
 }
 
 function nlm(argv) {

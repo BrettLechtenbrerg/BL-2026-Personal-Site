@@ -5,9 +5,13 @@
 //==============================================================================
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Award, Camera, Loader2, LogOut, Save, Trash2 } from "lucide-react";
+import { ArrowRight, Award, Camera, ClipboardList, Loader2, LogOut, Save, Trash2 } from "lucide-react";
 import { useAcademyUser } from "@/components/academy/useAcademyUser";
+import ChangePassword from "@/components/academy/ChangePassword";
+import { surveysEnabled } from "@/lib/surveys";
+import { LIST_PHRASE } from "@/lib/survey-text";
 import Avatar from "@/components/academy/Avatar";
 import { badgeBySlug, beltFor, TOP_BADGE_SLUG } from "@/content/academy/badges";
 import { academyConfig } from "@/content/academy.config";
@@ -247,6 +251,22 @@ export default function ProfilePage() {
           </div>
         )}
       </div>
+
+      <ChangePassword email={user.email ?? ""} />
+
+      {/* Member surveys (only when the site defines some): answers private to the member + the survey team. */}
+      {surveysEnabled && <Link
+        href="/academy/surveys"
+        className="mb-4 flex min-h-11 items-center justify-between gap-3 rounded-2xl border border-academy-fg/10 bg-academy-fg/5 p-6 backdrop-blur-md hover:bg-academy-fg/10"
+      >
+        <span className="min-w-0">
+          <span className="flex items-center gap-2 font-heading text-lg font-bold text-academy-accent">
+            <ClipboardList size={18} aria-hidden /> My Surveys
+          </span>
+          <span className="mt-1 block text-sm text-academy-fg/70">{`Your ${LIST_PHRASE} surveys and the answers you sent.`}</span>
+        </span>
+        <ArrowRight size={18} className="shrink-0" aria-hidden />
+      </Link>}
 
       <button
         onClick={logout}

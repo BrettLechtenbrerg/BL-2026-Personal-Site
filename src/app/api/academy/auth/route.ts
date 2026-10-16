@@ -15,18 +15,19 @@
 
 import { after, NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { timingSafeEqual } from "node:crypto";
 import {
   ACADEMY_SESSION_COOKIE,
   ACADEMY_TTL_MS,
   createAcademySessionValue,
   requireAcademyUser,
   academyCookieOptions,
+  PASSWORD_RESET_COOKIE,
 } from "@/lib/academy-session";
 import { db, getUserById, getBadges, awardBadge, awardXp } from "@/lib/academy-db";
 import { checkBotSignals, rejectBot } from "@/lib/bot-protection";
 import { academyConfig } from "@/content/academy.config";
 import { sendEnrollmentEmails } from "@/lib/academy-email";
+import { programCodeMatches } from "@/lib/program-code";
 
 //------------------------------------------------------------------------------
 // Rate limit — per-IP FAILED login attempts.
@@ -55,13 +56,6 @@ function recentFailures(ip: string): number[] {
 }
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-/** Constant-time string compare (lengths differ → false, no early exit on content). */
-function safeEqual(a: string, b: string): boolean {
-  const ab = Buffer.from(a);
-  const bb = Buffer.from(b);
-  return ab.length === bb.length && timingSafeEqual(ab, bb);
-}
 
 async function failAuth(ip: string, message: string, status = 401): Promise<NextResponse> {
   const recent = recentFailures(ip);
@@ -122,8 +116,10 @@ export async function POST(request: NextRequest) {
         if (!expectedCode) {
           return NextResponse.json({ error: `Signup is not configured (${codeEnv} missing).` }, { status: 503 });
         }
-        const accessCode = String(body?.accessCode || "").trim();
-        if (!accessCode || !safeEqual(accessCode.toLowerCase(), expectedCode.toLowerCase())) {
+        const accessCode = String(body?.accessCode || "").slice(0, 64);
+        if (!programCodeMatches(accessCode, expectedCode)) {
+          // Length only, never the value: enough to tell "blank" from "typo" in Vercel logs.
+          console.warn(`[signup] program code mismatch (entered ${accessCode.trim().length} chars)`);
           return failAuth(ip, academyConfig.signup.accessCodeMismatch, 403);
         }
       }
@@ -252,5 +248,6 @@ export async function GET() {
 export async function DELETE() {
   const response = NextResponse.json({ success: true });
   response.cookies.set(ACADEMY_SESSION_COOKIE, "", { ...academyCookieOptions(), maxAge: 0 });
+  response.cookies.set(PASSWORD_RESET_COOKIE, "", { ...academyCookieOptions(), maxAge: 0 });
   return response;
 }

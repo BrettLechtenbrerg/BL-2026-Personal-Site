@@ -130,7 +130,7 @@ export default function PodcastPlayer({ label, src }: { label: string; src: stri
           </button>
 
           <div className="ml-2 flex min-w-0 flex-1 items-center gap-3">
-            <span className="w-10 text-right text-xs tabular-nums text-academy-fg/60">{fmt(time)}</span>
+            <span translate="no" className="w-10 text-right text-xs tabular-nums text-academy-fg/60">{fmt(time)}</span>
             <input
               type="range"
               min={0}
@@ -144,7 +144,7 @@ export default function PodcastPlayer({ label, src }: { label: string; src: stri
               className="h-1.5 min-w-0 flex-1 cursor-pointer appearance-none rounded-full bg-academy-fg/15 accent-academy-accent"
               style={{ background: `linear-gradient(to right, var(--academy-accent) ${pct}%, rgba(255,255,255,0.15) ${pct}%)` }}
             />
-            <span className="w-10 text-xs tabular-nums text-academy-fg/60">{fmt(duration)}</span>
+            <span translate="no" className="w-10 text-xs tabular-nums text-academy-fg/60">{fmt(duration)}</span>
           </div>
         </div>
 

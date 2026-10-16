@@ -195,3 +195,30 @@ do $$ begin
   execute 'revoke all on me_login_tokens from anon, authenticated';
   execute 'grant all on me_login_tokens to service_role';
 end $$;
+
+-- Oct 16 2026: member surveys (from GIFT CONNECT's 7 Oct 2026 parent surveys).
+-- Additive only: one new table and one new column. The questions live in each
+-- site's content/academy/surveys.ts; an empty file keeps the feature off.
+-- (GIFT CONNECT's existing table keeps its stricter slug list; create-if-not-
+-- exists leaves it alone.)
+create table if not exists me_survey_responses (
+  id           uuid primary key default gen_random_uuid(),
+  user_id      uuid not null references me_users(id) on delete cascade,
+  survey_slug  text not null check (survey_slug ~ '^[a-z0-9-]{1,40}$'),
+  version      smallint not null default 1,
+  answers      jsonb not null check (jsonb_typeof(answers) = 'object'),
+  submitted_at timestamptz not null default now(),
+  -- One response per member per survey: answers are final once sent.
+  unique (user_id, survey_slug)
+);
+create index if not exists me_survey_responses_submitted_idx on me_survey_responses (submitted_at desc);
+
+-- The survey team: may read every member's answers (Academy admins can too).
+-- Granted per person:  update me_users set survey_reviewer = true where lower(email) = '<email>';
+alter table me_users add column if not exists survey_reviewer boolean not null default false;
+
+do $$ begin
+  execute 'alter table me_survey_responses enable row level security';
+  execute 'revoke all on me_survey_responses from anon, authenticated';
+  execute 'grant all on me_survey_responses to service_role';
+end $$;

@@ -22,6 +22,9 @@ import {
   ACADEMY_TTL_MS,
   academyCookieOptions,
   createAcademySessionValue,
+  createPasswordResetGrant,
+  PASSWORD_RESET_COOKIE,
+  PASSWORD_RESET_TTL_MS,
 } from "@/lib/academy-session";
 import { sendAcademyEmail, magicLinkEmail } from "@/lib/academy-email";
 import { academyConfig } from "@/content/academy.config";
@@ -118,5 +121,10 @@ export async function GET(request: NextRequest) {
   if (!value) return NextResponse.redirect(`${base}/academy?link=unavailable`);
   const response = NextResponse.redirect(`${base}/academy/dashboard`);
   response.cookies.set(ACADEMY_SESSION_COOKIE, value, { ...academyCookieOptions(), maxAge: Math.floor(ACADEMY_TTL_MS / 1000) });
+  // Opening the emailed link proves inbox control: allow a new password without the old one for 30 minutes.
+  const grant = createPasswordResetGrant(row.user_id);
+  if (grant) {
+    response.cookies.set(PASSWORD_RESET_COOKIE, grant, { ...academyCookieOptions(), maxAge: Math.floor(PASSWORD_RESET_TTL_MS / 1000) });
+  }
   return response;
 }

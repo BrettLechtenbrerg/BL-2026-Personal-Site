@@ -44,6 +44,12 @@ export interface PartnerProgram extends PartnerProgramSummary {
   catalogUrl: string;
   appUrl?: string;
   appDescription?: string;
+  /** Link text for appUrl. Defaults to "View the iPhone app" (Small Moments). */
+  appLabel?: string;
+  /** Chapter order for the unfiltered library. Unlisted chapters follow alphabetically. */
+  categoryOrder?: string[];
+  /** One in-app destination promoted under the description (e.g. the Vroom Tips page). */
+  feature?: { href: string; label: string; text: string };
   videos: PartnerVideo[];
   ribbon?: PartnerImage;
   thumbs?: PartnerThumbs;
@@ -101,6 +107,9 @@ export function definePartnerPrograms(programs: PartnerProgram[]): PartnerProgra
         (p.thumbs !== undefined && !validThumbs(p.thumbs)) ||
         (p.appUrl !== undefined && !httpsUrl(p.appUrl)) ||
         (p.appDescription !== undefined && !text(p.appDescription)) ||
+        (p.appLabel !== undefined && !text(p.appLabel, 80)) ||
+        (p.categoryOrder !== undefined && (p.categoryOrder.length > 20 || !p.categoryOrder.every(c => text(c, 100)))) ||
+        (p.feature !== undefined && (!/^\/academy\/[a-z0-9/-]+$/.test(p.feature.href) || !text(p.feature.label, 80) || !text(p.feature.text, 300))) ||
         p.videos.length < 1 || p.videos.length > 200) throw new Error("Invalid partner program metadata");
     slugs.add(p.slug);
     const ids = new Set<string>();
@@ -122,8 +131,13 @@ export function findPartnerProgram(programs: PartnerProgram[], slug: string) {
 }
 // Read the RAW query so percent-encoded paths are not silently decoded into allowed ones.
 // Only this exact internal route family is accepted; everything else retains the old destination.
+// Survey links (7 Oct 2026): a member sent a survey link lands on it after logging in. Same
+// exact-shape rule: lowercase slugs only, so nothing encoded or external can slip through.
+// (A slug the site doesn't define simply shows "not found".)
+const surveyReturnPath = /^\/academy\/surveys(\/(preview\/)?[a-z0-9-]{1,40})?$/;
 export function partnerReturnPath(search: string): string {
   const fallback = "/academy/dashboard";
+  if (search.length <= 256 && search.startsWith("?next=") && surveyReturnPath.test(search.slice(6))) return search.slice(6);
   if (search.length > 256 || !/^\?next=\/academy\/programs\/[a-z0-9-]+$/.test(search)) return fallback;
   const path = search.slice(6);
   return isPartnerSlug(path.slice("/academy/programs/".length)) ? path : fallback;

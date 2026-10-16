@@ -99,6 +99,38 @@ export function verifyAcademySessionValue(value: string | undefined | null): str
   return userId;
 }
 
+//------------------------------------------------------------------------------
+// Password reset grant (16 Oct 2026). Opening an emailed sign-in link proves
+// the member controls the inbox, so for a short while they may set a new
+// password without typing the old one (the "forgot my password" case).
+// Separate cookie, separate purpose prefix: a grant can never pass as a
+// session (different shape) and a session can never pass as a grant.
+//------------------------------------------------------------------------------
+export const PASSWORD_RESET_COOKIE = `${ACADEMY_SESSION_COOKIE}-pwreset`;
+export const PASSWORD_RESET_TTL_MS = 30 * 60 * 1000;
+const RESET_PURPOSE = "pwreset";
+
+export function createPasswordResetGrant(userId: string, ttlMs: number = PASSWORD_RESET_TTL_MS): string | null {
+  const secret = getSecret();
+  if (!secret || !/^[0-9a-f-]{36}$/i.test(userId)) return null;
+  const payload = `${RESET_PURPOSE}.${VERSION}.${userId}.${Date.now() + ttlMs}`;
+  return `${payload}.${sign(payload, secret)}`;
+}
+
+/** True only for an unexpired, correctly signed grant issued to this exact user. */
+export function verifyPasswordResetGrant(value: string | undefined | null, userId: string): boolean {
+  if (!value) return false;
+  const secret = getSecret();
+  if (!secret) return false;
+  const parts = value.split(".");
+  if (parts.length !== 5) return false;
+  const [purpose, version, grantUser, expiresAtRaw, signature] = parts;
+  if (purpose !== RESET_PURPOSE || version !== VERSION || grantUser !== userId) return false;
+  const expiresAt = Number(expiresAtRaw);
+  if (!Number.isFinite(expiresAt) || expiresAt < Date.now()) return false;
+  return timingSafeStringEqual(signature, sign(`${purpose}.${version}.${grantUser}.${expiresAtRaw}`, secret));
+}
+
 /** Read + verify the session cookie. Returns the user id, or null. */
 export async function getAcademyUserId(): Promise<string | null> {
   const store = await cookies();
@@ -115,14 +147,14 @@ export async function getAcademyUserId(): Promise<string | null> {
 export async function requireAcademyUser(): Promise<NextResponse | string> {
   if (!getSecret()) {
     return NextResponse.json(
-      { error: "Academy sessions are not configured (ACADEMY_SESSION_SECRET missing)." },
+      { error: "Sign-in is not configured yet (ACADEMY_SESSION_SECRET missing)." },
       { status: 503 }
     );
   }
   const userId = await getAcademyUserId();
   if (!userId) {
     return NextResponse.json(
-      { error: "Not signed in to the Academy. Please log in again." },
+      { error: `Not signed in to ${academyConfig.academy.name}. Please log in again.` },
       { status: 401 }
     );
   }

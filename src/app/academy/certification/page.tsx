@@ -184,7 +184,8 @@ export default function CertificationPage() {
       <div className="mx-auto max-w-2xl pt-6">
         <div className="mb-6 flex items-center justify-between">
           <h1 className="font-heading text-xl font-bold">Final Exam</h1>
-          <span className="text-sm text-academy-fg/50">
+          {/* translate="no": Google Translate (Español switch) would freeze this counter at 1. */}
+          <span translate="no" className="text-sm text-academy-fg/50">
             {current + 1} / {examQuestions.length}
           </span>
         </div>
