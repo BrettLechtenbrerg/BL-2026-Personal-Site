@@ -4,6 +4,12 @@
 **Since then:** Oct 9, 2026, Session 33: TSAI logo image fixed on /about and /ai-advisory (`0def7f4`, live).
 Oct 11, 2026, Session 34: sizzle reel v5 (3:25) replaced v3.1 in `public/videos/sizzle-reel-2026.mp4`; captions 2:56 -> 3:25 on /speaking,
 /media-kit, /book-brett (`a482d98`, live, verified). Reel project: `~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/RESUME_PROMPT.md`.
+Oct 16, 2026: Academy Forge engine upgrade (`0e93315`, live via vercel --prod): the academy gained "Back to main site"
+(header, menu moves to a second row; and a big button at the foot of every academy page), Change password on Profile,
+and the light/dark fix. Member surveys are installed but OFF (`src/content/academy/surveys.ts` empty) until Brett
+approves `~/Desktop/BL - Brett Lechtenberg/Projects/Academy Upgrade - Oct 2026/Survey questions - DRAFT for approval.md`;
+before turning them on, paste `supabase/academy-schema.sql` in BL's Supabase SQL editor (no access token here).
+Restore tag `pre-engine-upgrade-2026-10-16`. Engine notes: `~/dev/academy-forge/RESUME-PROMPT.md`.
 Nothing else changed; the state below still holds.
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
