@@ -4,6 +4,8 @@
 **Since then:** Oct 9, 2026, Session 33: TSAI logo image fixed on /about and /ai-advisory (`0def7f4`, live).
 Oct 11, 2026, Session 34: sizzle reel v5 (3:25) replaced v3.1 in `public/videos/sizzle-reel-2026.mp4`; captions 2:56 -> 3:25 on /speaking,
 /media-kit, /book-brett (`a482d98`, live, verified). Reel project: `~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/RESUME_PROMPT.md`.
+Oct 18, 2026, Session 35: sizzle reel v5.7 (3:27) replaced v5 in `public/videos/sizzle-reel-2026.mp4`; captions 3:25 -> 3:27
+(v5 archived in the reel project for rollback).
 Oct 16, 2026: Academy Forge engine upgrade (`0e93315`, live via vercel --prod): the academy gained "Back to main site"
 (header, menu moves to a second row; and a big button at the foot of every academy page), Change password on Profile,
 and the light/dark fix. Member surveys are installed but OFF (`src/content/academy/surveys.ts` empty) until Brett

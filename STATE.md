@@ -31,6 +31,9 @@ More"**, subheadline "Build the focus, leadership, and AI advantage to
 accomplish more, lead more effectively, and perform at your best—without
 adding more hours or overwhelm." (`src/components/sections/Hero.tsx`).
 
+**Session 35 (Oct 18):** sizzle reel v5.7 (3:27: new type system, research-based opening, AI credentials + book) replaced v5 on
+/speaking, /media-kit, /book-brett; captions 3:25 -> 3:27. Reel state: the reel folder's `RESUME_PROMPT.md`.
+
 **Session 34 (Oct 11):** sizzle reel v5 (3:25, new hybrid opening + KO music) replaced v3.1 on /speaking,
 /media-kit, /book-brett; captions 2:56 -> 3:25. Reel state: the reel folder's `RESUME_PROMPT.md`.
 

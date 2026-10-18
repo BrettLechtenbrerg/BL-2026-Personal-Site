@@ -2,6 +2,18 @@
 
 ---
 
+## Session 35 - October 18, 2026 - SIZZLE REEL v5.7
+
+**Focus:** Brett approved v5.7 ("This looks great. please make this our new master and replace the video on my site").
+`public/videos/sizzle-reel-2026.mp4` replaced with the v5.7 web encode (3:26.6, 17.8 MB, same ~1 Mbps settings as v5's): one type
+system on every card, research-based opening (Employee turnover / Low morale / Stress / Burnout / AI that isn't paying off), AI
+credentials (Total Success AI co-founder line over an AI workshop shot, "AI adoption that actually works", the AI book), methodology
+line fixed. Captions on /speaking, /media-kit, /book-brett: 3:25 -> 3:27. Poster unchanged. Previous v5 file archived in the reel project
+(`zz OLD MATERIAL - DO NOT USE/v5 ARCHIVE - was LIVE 11-18 Oct 2026 (superseded by v5.7)/…WEB_v5.mp4`) for rollback.
+Reel project: `~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/` (`00 CURRENT - APPROVED (v5.7 FINAL, 18 Oct 2026)/`).
+
+---
+
 ## Session 34 - October 11, 2026 - SIZZLE REEL v5
 
 **Focus:** Brett asked to put the new v5 reel on the site ("a big improvement"). `public/videos/sizzle-reel-2026.mp4`

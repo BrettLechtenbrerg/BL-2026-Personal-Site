@@ -284,7 +284,7 @@ export default function MediaKitPage() {
                   poster="/videos/sizzle-reel-poster.jpg"
                   label="Brett Lechtenberg 2026 speaker sizzle reel"
                   aspect="wide"
-                  caption="▶ Watch the 3:25 sizzle reel (with sound)"
+                  caption="▶ Watch the 3:27 sizzle reel (with sound)"
                 />
               </motion.div>
 
