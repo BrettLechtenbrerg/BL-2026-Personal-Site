@@ -582,7 +582,7 @@ export default function SpeakingPage() {
             </div>
             <div>
               <p className="text-cranberry font-black text-3xl">
-                <AnimatedCounter value={7} />
+                <AnimatedCounter value={8} />
               </p>
               <p className="text-warm-gray text-xs mt-1">Books · 5 Bestsellers</p>
             </div>

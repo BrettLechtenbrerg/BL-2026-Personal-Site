@@ -6,7 +6,7 @@ import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
 const stats = [
   { value: 30, suffix: "+", label: "Years in Business", color: "text-gold" },
-  { value: 7, suffix: "", label: "Books Authored", sublabel: "(5 Bestsellers)", color: "text-cranberry-light" },
+  { value: 8, suffix: "", label: "Books Authored", sublabel: "(5 Bestsellers)", color: "text-cranberry-light" },
   { value: 8, suffix: "th", label: "Degree Black Belt", color: "text-gold" },
   { value: 1000, suffix: "'s", label: "Trained", color: "text-cranberry-light" },
 ];

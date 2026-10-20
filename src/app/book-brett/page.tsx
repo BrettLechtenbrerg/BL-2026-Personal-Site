@@ -542,7 +542,7 @@ export default function BookBrettPage() {
                     </div>
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span className="text-black font-black text-xl">7</span>
+                        <span className="text-black font-black text-xl">8</span>
                       </div>
                       <div>
                         <p className="font-semibold text-black">Published Books</p>

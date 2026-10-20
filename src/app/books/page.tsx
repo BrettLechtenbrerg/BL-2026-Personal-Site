@@ -202,7 +202,7 @@ export default function BooksPage() {
               transition={{ delay: 0.2 }}
               className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
             >
-              Seven books, five bestsellers, and a growing library of media
+              Eight books, five bestsellers, and a growing library of media
               appearances, all built on one principle:{" "}
               <span className="text-white font-semibold">teach what you&apos;ve tested.</span>
             </motion.p>

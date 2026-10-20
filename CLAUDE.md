@@ -148,7 +148,7 @@ BL-2026-Personal-Site/
 | Coaching | `/coaching` | ✅ Complete | One-on-one coaching services |
 | AI Advisory | `/ai-advisory` | ✅ Complete | Total Success AI partnership |
 | About Brett | `/about` | ✅ Complete | Bio, credentials, story |
-| Books & Media | `/books` | ✅ Complete | 7 books, media appearances |
+| Books & Media | `/books` | ✅ Complete | 8 books, media appearances |
 | Testimonials | `/testimonials` | ✅ Complete | Featured testimonials |
 | Contact | `/contact` | ✅ Complete | Booking calendar, email |
 
@@ -219,14 +219,12 @@ BL-2026-Personal-Site/
   celebrated Aug 4, 2026; compute current figure from founding date)
 - **Martial Arts Rank:** 8th-Degree Black Belt
 - **Martial Arts Experience:** 40+ years
-- **Books:** 7 books, 5 bestsellers. Powerful AI Strategies for Business Owners
+- **Books:** 8 books, 5 bestsellers (Brett confirmed Oct 20 2026, counting The Master's Edge). Powerful AI Strategies for Business Owners
   (with Manny Torres) published Aug 2026 and is on /books. The Master's Edge
   PUBLISHED Oct 19 2026 (paperback ASIN B0HNHZ2D7M, ISBN 9798178891940; Kindle
   ASIN B0HNJ378J6); buy links live in `links.mastersEdgePaperback/Kindle`
   (src/lib/utils.ts). Use the real cover `public/books/masters-edge-cover.jpg`;
-  the older mockups (stack/shelf/devices) show a pre-publication cover. OPEN QUESTION for Brett (Sep 27
-  2026): /books lists 8 titles but the site says seven books; which title is
-  not counted? Update the count ONLY when Brett answers; never pre-count.
+  the older mockups (stack/shelf/devices) show a pre-publication cover.
 - **Speaking:** 250+ talks, trainings & seminars (verified by Brett Aug 8 2026;
   counts chamber events, corporate trainings, martial arts seminars — the
   broad label is what makes the number honest, so never shorten to
@@ -367,7 +365,7 @@ vercel logs            # View deployment logs
 
 - "Clarity Map" (evolved into The Master's Edge)
 - "A.M.P. program" (evolved into The Master's Edge)
-- "7 #1 Best-Selling Books" (incorrect - use "7 books, 5 bestsellers")
+- "8 #1 Best-Selling Books" (incorrect - use "8 books, 5 bestsellers")
 - "100+ Speaking Events" (replaced Aug 8 2026 → "250+ Talks, Trainings & Seminars")
 - "50+ Corporate Clients" (misleading "corporate" → "100+ Businesses Coached")
 - "Grand Master" in non-martial-arts contexts

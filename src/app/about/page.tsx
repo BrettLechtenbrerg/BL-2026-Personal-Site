@@ -84,7 +84,7 @@ const credentials = [
   },
   {
     icon: BookOpen,
-    title: "Author of 7 Books (5 Bestsellers)",
+    title: "Author of 8 Books (5 Bestsellers)",
     description:
       "From time management to family safety to personal empowerment, Brett's books reflect the breadth of his expertise. His newest is The Master's Edge (October 2026), which follows Powerful AI Strategies for Business Owners (August 2026).",
     gradient: "from-gold to-gold-dark",

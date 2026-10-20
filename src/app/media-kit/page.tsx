@@ -114,21 +114,21 @@ const eventPhotos = [
   { src: "/speaking-gallery/murray-chamber-training.webp", label: "Murray Chamber of Commerce", description: "Women in Business Empowerment Training, Murray Chamber of Commerce, May 2026" },
 ];
 
-const shortBio = `Brett Lechtenberg is a peak performance coach, author of seven books including five bestsellers, and the creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings real-world business experience, original flow state research, and proven leadership principles to every audience he serves.`;
+const shortBio = `Brett Lechtenberg is a peak performance coach, author of eight books including five bestsellers, and the creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings real-world business experience, original flow state research, and proven leadership principles to every audience he serves.`;
 
 const longBio = `Brett Lechtenberg is a peak performance coach, bestselling author, and the creator of The Master's Edge, a methodology built on three pillars: First Principles to clarify, Frontloading to simplify, and Flow to maximize.
 
 For over three decades, Brett has run Personal Mastery Martial Arts in Sandy, Utah, a living laboratory where every strategy was tested before it was ever taught. That real-world experience, combined with his formal research on flow states reviewed by the Flow Research Collective, gives Brett a perspective that resonates with audiences from corporate boardrooms to championship sports teams.
 
-An 8th-degree black belt and author of seven books, five of them bestsellers, on topics ranging from personal safety to time management to AI, Brett has spoken at organizations including America First Credit Union, Packsize, Purple, Thumbtack, American Express, Delta, and chambers of commerce across Utah. His approach combines evidence-based strategies with engaging storytelling and practical application, so audiences leave not just inspired but equipped with tools they can use immediately.
+An 8th-degree black belt and author of eight books, five of them bestsellers, on topics ranging from personal safety to time management to AI, Brett has spoken at organizations including America First Credit Union, Packsize, Purple, Thumbtack, American Express, Delta, and chambers of commerce across Utah. His approach combines evidence-based strategies with engaging storytelling and practical application, so audiences leave not just inspired but equipped with tools they can use immediately.
 
 Brett is also co-founder of Total Success AI, where he helps businesses adopt AI with a human-centered approach, and author of Powerful AI Strategies for Business Owners. His newest book, The Master's Edge, came out in October 2026 in paperback and on Kindle.`;
 
-const shortIntro = `Please welcome Brett Lechtenberg, peak performance coach, author of seven books including five bestsellers, and creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings practical, tested strategies for achieving peak performance. Please welcome, Brett Lechtenberg!`;
+const shortIntro = `Please welcome Brett Lechtenberg, peak performance coach, author of eight books including five bestsellers, and creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings practical, tested strategies for achieving peak performance. Please welcome, Brett Lechtenberg!`;
 
 const longIntro = `Our next speaker is someone who doesn't just teach peak performance. He lives it.
 
-Brett Lechtenberg has spent over 30 years running his own business, testing every strategy he teaches in the real world before sharing it with others. He's an 8th-degree black belt, author of seven books including five bestsellers, and the creator of The Master's Edge, a methodology that has helped thousands of leaders clarify their goals, simplify their approach, and maximize their results.
+Brett Lechtenberg has spent over 30 years running his own business, testing every strategy he teaches in the real world before sharing it with others. He's an 8th-degree black belt, author of eight books including five bestsellers, and the creator of The Master's Edge, a methodology that has helped thousands of leaders clarify their goals, simplify their approach, and maximize their results.
 
 His original research on flow states has been reviewed by the Flow Research Collective, and his client list includes America First Credit Union, Packsize, American Express, and Delta.
 

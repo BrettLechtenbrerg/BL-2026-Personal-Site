@@ -145,7 +145,7 @@ export function MediaFeature() {
                   <p className="text-gray-400 text-xs">Talks & Trainings</p>
                 </div>
                 <div>
-                  <p className="text-cranberry-light font-black text-2xl">7</p>
+                  <p className="text-cranberry-light font-black text-2xl">8</p>
                   <p className="text-gray-400 text-xs">Published Books</p>
                 </div>
               </div>

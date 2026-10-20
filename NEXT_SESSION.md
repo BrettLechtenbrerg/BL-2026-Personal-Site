@@ -19,7 +19,9 @@ Kindle amazon.com/dp/B0HNJ378J6). Every "coming October 2026" is now "out now": 
 Buy Paperback / Kindle buttons, about-the-book, 19 chapters, Sam Beard quote, Book JSON-LD with ISBN, new OG image
 public/books/masters-edge-og.jpg), /books card, /masters-edge (new book band), /media-kit (bio + real cover), /about,
 /speaking, llms.txt, Academy book-course banner (public/academy/covers/masters-edge-book.jpg), both one-sheets
-re-rendered + synced. Still open: "seven books" count (the book's own bio also says seven); /books hero background
+re-rendered + synced. Later Oct 20: Brett confirmed EIGHT books (5 bestsellers); count updated site-wide (home, /about, /books, /media-kit,
+/speaking, /book-brett, /masters-edge-program) + one-sheets, business card, pull-up banner re-rendered and synced.
+Still open: the published book's About the Author + KDP description still say "seven books" (book project, not this repo); /books hero background
 still uses the old stack mockup (pre-publication cover, dimmed); Bill's quote deliberately NOT added to the book page.
 Nothing else changed; the state below still holds.
 
@@ -99,7 +101,7 @@ ASK BRETT FIRST THING (he asked for this reminder, Sep 27 2026):
   and run scripts/one-sheet/sync-branding-assets.sh. Do NOT change the quote without his answer.
 
 OPEN QUESTIONS FOR BRETT (nothing blocked; don't guess):
-- /books lists 8 titles but the site says "seven books, five bestsellers": which isn't counted?
+- RESOLVED Oct 20 2026: Brett says 8 books, 5 bestsellers.
 - Pull-up banner (scripts/one-sheet/pullup-banner.html) still says "8 U.S. Presidents";
   one-sheets and website now say "8 United States Presidents". Re-render banner if Brett wants.
 - Agency one-sheet page 2 bottom sits ~0.3in into the margin (was like this before Sep 27;
