@@ -220,8 +220,11 @@ BL-2026-Personal-Site/
 - **Martial Arts Rank:** 8th-Degree Black Belt
 - **Martial Arts Experience:** 40+ years
 - **Books:** 7 books, 5 bestsellers. Powerful AI Strategies for Business Owners
-  (with Manny Torres) published Aug 2026 and is on /books; The Master's Edge is
-  "coming October 2026" (never a specific day). OPEN QUESTION for Brett (Sep 27
+  (with Manny Torres) published Aug 2026 and is on /books. The Master's Edge
+  PUBLISHED Oct 19 2026 (paperback ASIN B0HNHZ2D7M, ISBN 9798178891940; Kindle
+  ASIN B0HNJ378J6); buy links live in `links.mastersEdgePaperback/Kindle`
+  (src/lib/utils.ts). Use the real cover `public/books/masters-edge-cover.jpg`;
+  the older mockups (stack/shelf/devices) show a pre-publication cover. OPEN QUESTION for Brett (Sep 27
   2026): /books lists 8 titles but the site says seven books; which title is
   not counted? Update the count ONLY when Brett answers; never pre-count.
 - **Speaking:** 250+ talks, trainings & seminars (verified by Brett Aug 8 2026;

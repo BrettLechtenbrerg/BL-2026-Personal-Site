@@ -31,4 +31,7 @@ export const links = {
   email: "mailto:Brett@BrettLechtenberg.com",
   martialArts: "https://personalmasterymartialarts.com",
   ai: "https://totalsuccessai.com",
+  // The Master's Edge book on Amazon (published Oct 19, 2026)
+  mastersEdgePaperback: "https://www.amazon.com/dp/B0HNHZ2D7M",
+  mastersEdgeKindle: "https://www.amazon.com/dp/B0HNJ378J6",
 } as const;

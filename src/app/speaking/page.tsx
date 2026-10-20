@@ -105,7 +105,7 @@ const lanes: Lane[] = [
         flagship: true,
         paragraphs: [
           "Most performance advice hands you someone else's toolkit and hopes it fits. The Master's Edge does the opposite: it teaches your people to build their own, using First Principles to clarify what actually matters, Frontloading to simplify the path, and Flow to maximize execution.",
-          "Drawn from Brett's book of the same name, coming October 2026, this is the keynote that reframes high performance as something you build from the inside out, not something you white-knuckle from the outside in.",
+          "Drawn from Brett's new book of the same name, out now in paperback and on Kindle, this is the keynote that reframes high performance as something you build from the inside out, not something you white-knuckle from the outside in.",
         ],
         bestFor:
           "Conferences, leadership summits, corporate kickoffs, and any audience ready to trade hustle culture for mastery.",

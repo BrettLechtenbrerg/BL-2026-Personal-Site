@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Books by Brett Lechtenberg",
   description:
-    "Seven books, five bestsellers, on time management, family safety, and AI for business owners. Plus The Master's Edge, coming October 2026.",
+    "Seven books, five bestsellers, on time management, family safety, and AI for business owners. Plus his newest, The Master's Edge, out now in paperback and on Kindle.",
   keywords: [
     "Brett Lechtenberg books",
     "The Master's Edge book",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Books by Brett Lechtenberg",
     description:
-      "Seven books, five bestsellers. The Master's Edge is coming October 2026.",
+      "Seven books, five bestsellers. The Master's Edge is out now.",
   },
   alternates: {
     canonical: "https://www.brettlechtenberg.com/books",

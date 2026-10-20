@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import { Download, FileText, Image as ImageIcon, Mic2, Monitor, User, Copy, Check, Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { LiveClip } from "@/components/ui/LiveClip";
 
@@ -121,7 +122,7 @@ For over three decades, Brett has run Personal Mastery Martial Arts in Sandy, Ut
 
 An 8th-degree black belt and author of seven books, five of them bestsellers, on topics ranging from personal safety to time management to AI, Brett has spoken at organizations including America First Credit Union, Packsize, Purple, Thumbtack, American Express, Delta, and chambers of commerce across Utah. His approach combines evidence-based strategies with engaging storytelling and practical application, so audiences leave not just inspired but equipped with tools they can use immediately.
 
-Brett is also co-founder of Total Success AI, where he helps businesses adopt AI with a human-centered approach, and author of Powerful AI Strategies for Business Owners. His next book, The Master's Edge, is coming October 2026.`;
+Brett is also co-founder of Total Success AI, where he helps businesses adopt AI with a human-centered approach, and author of Powerful AI Strategies for Business Owners. His newest book, The Master's Edge, came out in October 2026 in paperback and on Kindle.`;
 
 const shortIntro = `Please welcome Brett Lechtenberg, peak performance coach, author of seven books including five bestsellers, and creator of The Master's Edge methodology. With over 30 years as a business owner and an 8th-degree black belt, Brett brings practical, tested strategies for achieving peak performance. Please welcome, Brett Lechtenberg!`;
 
@@ -472,24 +473,33 @@ export default function MediaKitPage() {
                   <p className="text-warm-gray leading-relaxed">{shortBio}</p>
                 </motion.div>
 
-                {/* Master's Edge cover (spec 3.11). Same mockup used on /books. */}
+                {/* Master's Edge cover (spec 3.11). The real published cover (Oct 2026). */}
                 <motion.figure
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100"
                 >
-                  <div className="relative aspect-[3/2] rounded-xl overflow-hidden">
+                  <a
+                    href="/books/masters-edge-cover.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open the full-size cover of The Master's Edge (opens in a new tab)"
+                    className="relative block mx-auto w-48 sm:w-56 aspect-[2/3] rounded-lg overflow-hidden shadow-md"
+                  >
                     <Image
-                      src="/books/masters-edge-stack.jpg"
+                      src="/books/masters-edge-cover.jpg"
                       alt="The Master's Edge by Brett Lechtenberg, book cover"
                       fill
-                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      sizes="224px"
                       className="object-cover"
                     />
-                  </div>
+                  </a>
                   <figcaption className="mt-3 text-center text-sm font-semibold text-cranberry">
-                    The Master&apos;s Edge, coming October 2026.
+                    The Master&apos;s Edge, out now in paperback and on Kindle.{" "}
+                    <Link href="/books/masters-edge" className="underline underline-offset-4 hover:text-cranberry-dark">
+                      About the book
+                    </Link>
                   </figcaption>
                 </motion.figure>
               </div>

@@ -15,12 +15,13 @@ import { useState, useEffect } from "react";
 const books = [
   {
     title: "The Master's Edge",
-    status: "Coming October 2026",
+    // Published Oct 19, 2026 (KDP paperback ISBN 9798178891940 + Kindle).
+    status: "New, October 2026 (Paperback and Kindle)",
     description:
-      "The definitive guide to Brett's proprietary peak performance methodology. Built on 30+ years of experience and original flow state research.",
+      "Brett's newest book: mastering business and life through Mindset, Skillset, and Systems Design. Nineteen chapters, each taught parable first, principle second, practice always.",
     bestseller: false,
-    upcoming: true,
-    image: "/books/masters-edge-devices.jpg",
+    featured: true,
+    image: "/books/masters-edge-cover.jpg",
     pageUrl: "/books/masters-edge",
     gradient: "bg-gradient-to-br from-cranberry/10 via-white to-gold/10",
   },
@@ -152,7 +153,7 @@ export default function BooksPage() {
           {/* Hero background image */}
           <Image
             src="/books/masters-edge-stack.jpg"
-            alt="Stack of The Master's Edge hardcover books by Brett Lechtenberg"
+            alt="Stack of The Master's Edge books by Brett Lechtenberg"
             fill
             className="object-cover opacity-50"
             priority
@@ -244,7 +245,7 @@ export default function BooksPage() {
                   <TiltCard className="relative h-full">
                   {/* Glow effect on hover */}
                   <div className={`absolute -inset-1 bg-gradient-to-r ${
-                    book.upcoming
+                    "featured" in book && book.featured
                       ? 'from-cranberry via-gold to-cranberry opacity-50 group-hover:opacity-60'
                       : "freebie" in book && book.freebie
                         ? 'from-green-500 via-emerald-400 to-green-500 opacity-40 group-hover:opacity-60'
@@ -253,7 +254,7 @@ export default function BooksPage() {
                           : 'from-cranberry via-gold to-cranberry opacity-0 group-hover:opacity-30'
                   } rounded-2xl blur-lg transition-opacity duration-300`} />
                   <div className={`relative rounded-2xl p-8 border-2 h-full flex flex-col overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-300 ${
-                    book.upcoming
+                    "featured" in book && book.featured
                       ? "border-cranberry/60 group-hover:border-cranberry"
                       : "freebie" in book && book.freebie
                         ? "border-green-500/60 group-hover:border-green-500"
@@ -292,7 +293,7 @@ export default function BooksPage() {
 
                       {/* Status */}
                       <p className={`text-sm font-semibold mb-4 flex-shrink-0 ${
-                        book.upcoming
+                        "featured" in book && book.featured
                           ? "text-cranberry"
                           : "freebie" in book && book.freebie
                             ? "text-green-600"
@@ -304,20 +305,10 @@ export default function BooksPage() {
                       {/* Description */}
                       <p className="text-warm-gray flex-grow">{book.description}</p>
 
-                      {/* Coming Soon placeholder for upcoming books */}
-                      {book.upcoming && !book.image && (
-                        <div className="mt-4 flex items-center justify-center">
-                          <div className="flex items-center gap-2 text-cranberry">
-                            <BookOpen className="w-5 h-5" />
-                            <span className="text-sm font-medium">Coming Soon</span>
-                          </div>
-                        </div>
-                      )}
-
                       {/* Link hint for books with their own page */}
                       {"pageUrl" in book && book.pageUrl && (
                         <p className="mt-4 text-sm font-semibold text-cranberry group-hover:underline underline-offset-4">
-                          Preview the book →
+                          See the book and order it →
                         </p>
                       )}
                     </div>

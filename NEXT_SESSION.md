@@ -14,6 +14,13 @@ before turning them on, paste `supabase/academy-schema.sql` in BL's Supabase SQL
 Later on Oct 16 (`0c5b17b`, live): surveys turned ON with PROPOSED questions so Brett can try them (database done; Brett is
 on the survey team). Wording edits go in `src/content/academy/surveys.ts`.
 Restore tag `pre-engine-upgrade-2026-10-16`. Engine notes: `~/dev/academy-forge/RESUME-PROMPT.md`.
+Oct 20, 2026, Session 36: THE MASTER'S EDGE BOOK IS OUT (published Oct 19: paperback amazon.com/dp/B0HNHZ2D7M,
+Kindle amazon.com/dp/B0HNJ378J6). Every "coming October 2026" is now "out now": /books/masters-edge rebuilt (real cover,
+Buy Paperback / Kindle buttons, about-the-book, 19 chapters, Sam Beard quote, Book JSON-LD with ISBN, new OG image
+public/books/masters-edge-og.jpg), /books card, /masters-edge (new book band), /media-kit (bio + real cover), /about,
+/speaking, llms.txt, Academy book-course banner (public/academy/covers/masters-edge-book.jpg), both one-sheets
+re-rendered + synced. Still open: "seven books" count (the book's own bio also says seven); /books hero background
+still uses the old stack mockup (pre-publication cover, dimmed); Bill's quote deliberately NOT added to the book page.
 Nothing else changed; the state below still holds.
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`

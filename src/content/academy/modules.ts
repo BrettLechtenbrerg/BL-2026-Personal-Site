@@ -122,7 +122,7 @@ export const academyCourses: AcademyCourse[] = [
       "Nineteen chapters of martial-arts wisdom meets performance science — parable by parable, from the Sword in the Shrine to the Six Pillars.",
     fromOrder: 24,
     toOrder: 42,
-    cover: "/books/masters-edge-shelf.jpg",
+    cover: "/academy/covers/masters-edge-book.jpg",
     priceEnv: "STRIPE_PRICE_BOOK",
   },
   {

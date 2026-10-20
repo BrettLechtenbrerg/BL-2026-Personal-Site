@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/Button";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { BookOpen, Brain, Swords, Workflow, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Swords, Workflow, Sparkles, ShoppingCart, Tablet, Quote } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const pillars = [
   {
@@ -29,6 +30,67 @@ const pillars = [
       "Flow isn't random luck. It's a repeatable state with specific conditions you can set up on purpose, so pressure turns into presence.",
   },
 ];
+
+// The 19 chapter topics, in book order (manuscript, Oct 2026).
+const chapters = [
+  "The Master's Edge",
+  "Acceptance",
+  "Personal Responsibility",
+  "Fixed vs Growth Mindset",
+  "Optimism",
+  "Resilience",
+  "Tenacity",
+  "G.R.I.T.",
+  "Anti-Anxiety",
+  "Personal Confidence",
+  "Lead With Your Strengths",
+  "Compassionate Communication",
+  "Goal Setting",
+  "Consistency",
+  "Help First",
+  "The Trust Trinity",
+  "Engineering Flow",
+  "Strong Ethical Character",
+  "The Six Pillars: Building Systems That Teach",
+];
+
+const howItTeaches = [
+  {
+    title: "Parable first",
+    description:
+      "Every chapter opens with a short parable, so the lesson lands before the explanation starts.",
+  },
+  {
+    title: "Principle second",
+    description:
+      "Then the idea underneath the story, in plain language, so you know why it works and when to use it.",
+  },
+  {
+    title: "Practice always",
+    description:
+      "Then exercises you can put to work right away. Every framework was tested on real students in Brett's academy before he taught it to a business audience.",
+  },
+];
+
+function BuyButtons({ center = false }: { center?: boolean }) {
+  return (
+    <div className={`flex flex-col sm:flex-row gap-4 ${center ? "justify-center" : "justify-center lg:justify-start"}`}>
+      <Button href={links.mastersEdgePaperback} external size="lg" variant="secondary">
+        <ShoppingCart className="w-5 h-5" />
+        Buy the Paperback
+      </Button>
+      <Button
+        href={links.mastersEdgeKindle}
+        external
+        size="lg"
+        className="bg-white/10 text-white border border-white/30 hover:bg-white/20"
+      >
+        <Tablet className="w-5 h-5" />
+        Get It on Kindle
+      </Button>
+    </div>
+  );
+}
 
 export default function MastersEdgeBookPage() {
   return (
@@ -61,7 +123,7 @@ export default function MastersEdgeBookPage() {
                 >
                   <Sparkles className="w-4 h-4 text-gold" />
                   <span className="text-gold font-semibold text-sm">
-                    New Book: Coming October 2026
+                    New Book: Out Now in Paperback and on Kindle
                   </span>
                 </motion.div>
 
@@ -81,6 +143,15 @@ export default function MastersEdgeBookPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 }}
+                  className="text-lg sm:text-xl font-semibold text-white mb-2"
+                >
+                  Mastering Business and Life Through Mindset, Skillset, and Systems Design
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.18 }}
                   className="text-sm uppercase tracking-[0.25em] text-gold mb-6"
                 >
                   Ancient Discipline · Modern Leadership
@@ -92,29 +163,21 @@ export default function MastersEdgeBookPage() {
                   transition={{ delay: 0.2 }}
                   className="text-xl text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
                 >
-                  The definitive guide to Brett&apos;s peak performance
-                  methodology: First Principles, Frontloading, and Flow. It&apos;s
-                  built on 30+ years of real-world testing and original flow
-                  state research reviewed by the Flow Research Collective.
+                  Mastery is a system you can build, on the mat and in the
+                  boardroom. Brett has taught it for more than thirty years to
+                  students, families, and business owners. The Master&apos;s Edge
+                  puts that system in your hands.
                 </motion.p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                 >
-                  <Button href="/masters-edge" size="lg">
-                    Explore the Methodology
-                  </Button>
-                  <Button
-                    href={links.booking}
-                    external
-                    size="lg"
-                    className="bg-white/10 text-white border border-white/30 hover:bg-white/20"
-                  >
-                    Talk With Brett
-                  </Button>
+                  <BuyButtons />
+                  <p className="mt-4 text-sm text-gray-400">
+                    Available on Amazon. 253 pages.
+                  </p>
                 </motion.div>
               </div>
 
@@ -122,27 +185,77 @@ export default function MastersEdgeBookPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="relative max-w-xl mx-auto w-full"
+                className="relative max-w-sm mx-auto w-full"
               >
                 <div className="absolute -inset-3 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-xl opacity-40" />
                 <TiltCard className="relative">
-                  <Image
-                    src="/books/masters-edge-shelf.jpg"
-                    alt="The Master's Edge hardcover on a bookstore shelf beside Atomic Habits and Leaders Eat Last"
-                    width={1536}
-                    height={1024}
-                    priority
-                    className="relative rounded-2xl shadow-2xl border border-white/10"
-                  />
+                  <a
+                    href={links.mastersEdgePaperback}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Buy The Master's Edge on Amazon (opens in a new tab)"
+                  >
+                    <Image
+                      src="/books/masters-edge-cover.jpg"
+                      alt="Cover of The Master's Edge: Mastering Business and Life Through Mindset, Skillset, and Systems Design, by Brett Lechtenberg"
+                      width={800}
+                      height={1200}
+                      priority
+                      className="relative rounded-lg shadow-2xl border border-white/10"
+                    />
+                  </a>
                 </TiltCard>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Pillars - Light */}
-        <section className="py-24 bg-gradient-to-b from-white via-gold/5 to-cranberry/5 relative overflow-hidden">
+        {/* About the book - Light */}
+        <section className="py-24 bg-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold via-cranberry to-gold" />
+          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <p className="text-2xl sm:text-3xl font-bold text-black mb-8">
+                The same path that forges a black belt{" "}
+                <span className="text-cranberry">forges a master.</span>
+              </p>
+              <p className="text-lg text-warm-gray leading-relaxed mb-6">
+                Its nineteen chapters grew out of a decade of monthly leadership
+                lessons and cover three disciplines: Mindset, Skillset, and
+                Systems Design. You&apos;ll work through acceptance, resilience,
+                flow, trust, and ethical character.
+              </p>
+              <p className="text-lg text-warm-gray leading-relaxed">
+                Every chapter shows how its skill works on both sides of your
+                front door: in your business and at home.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-6 mt-14">
+              {howItTeaches.map((step, index) => (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="rounded-2xl p-6 border-2 border-cranberry/20 bg-gradient-to-br from-cranberry/5 via-white to-gold/5"
+                >
+                  <h3 className="text-lg font-bold text-cranberry mb-2">{step.title}</h3>
+                  <p className="text-warm-gray leading-relaxed">{step.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pillars - Light gradient */}
+        <section className="py-24 bg-gradient-to-b from-white via-gold/5 to-cranberry/5 relative overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px]" />
 
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -153,12 +266,13 @@ export default function MastersEdgeBookPage() {
               className="text-center mb-16"
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                What&apos;s Inside the <span className="text-cranberry">Book</span>
+                The Science <span className="text-cranberry">Behind It</span>
               </h2>
               <p className="text-lg text-warm-gray max-w-2xl mx-auto">
                 One methodology, three pillars. It&apos;s the same framework Brett
                 teaches from corporate keynotes to the 12-week Master&apos;s
-                Edge program.
+                Edge program, and the book closes with his flow research thesis,
+                reviewed by the Flow Research Collective.
               </p>
             </motion.div>
 
@@ -190,7 +304,65 @@ export default function MastersEdgeBookPage() {
           </div>
         </section>
 
-        {/* Coming Soon CTA - Cranberry gradient */}
+        {/* Chapters - White */}
+        <section className="py-24 bg-white relative overflow-hidden">
+          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+                What&apos;s Inside the <span className="text-cranberry">Book</span>
+              </h2>
+              <p className="text-lg text-warm-gray max-w-2xl mx-auto">
+                Nineteen chapters, each one a skill you can practice.
+              </p>
+            </motion.div>
+
+            <motion.ol
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="grid sm:grid-cols-2 gap-x-10 gap-y-3"
+            >
+              {chapters.map((chapter, index) => (
+                <li key={chapter} className="flex items-baseline gap-3 border-b border-gray-100 pb-3">
+                  <span className="text-sm font-bold text-gold w-8 flex-shrink-0">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-black font-medium">{chapter}</span>
+                </li>
+              ))}
+            </motion.ol>
+          </div>
+        </section>
+
+        {/* Praise - Dark */}
+        <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+          <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+            <motion.figure
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <Quote className="w-10 h-10 text-gold mx-auto mb-6" />
+              <blockquote className="text-2xl sm:text-3xl font-semibold text-white leading-snug mb-6">
+                &ldquo;Brett Lechtenberg is one of the most multi-talented people I
+                have ever met.&rdquo;
+              </blockquote>
+              <figcaption className="text-gray-300">
+                <span className="font-bold text-gold">Sam Beard</span>
+                <br />
+                Creator of 6 Presidential Programs for 8 United States Presidents ·
+                Founder, National Development Council
+              </figcaption>
+            </motion.figure>
+          </div>
+        </section>
+
+        {/* Get your copy - Cranberry gradient */}
         <section className="py-24 bg-gradient-to-br from-cranberry via-cranberry-dark to-black relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
@@ -208,24 +380,29 @@ export default function MastersEdgeBookPage() {
                 <BookOpen className="w-10 h-10 text-white" />
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">
-                Arriving <span className="text-gold">October 2026</span>
+                Get Your <span className="text-gold">Copy</span>
               </h2>
               <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-                The Master&apos;s Edge is in its final stages. Want the
-                methodology before the book lands, or want Brett to bring it
-                to your team in person?
+                Read it in paperback or on Kindle. Want Brett to bring the
+                method to your team in person, or copies for your event? Let&apos;s
+                talk.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href={links.booking} external size="lg" variant="secondary">
-                  Talk With Brett
-                </Button>
-                <Button
-                  href="/speaking"
-                  size="lg"
-                  className="bg-white/10 text-white border border-white/30 hover:bg-white/20"
+              <BuyButtons center />
+              <div className="mt-6 flex flex-col sm:flex-row gap-x-8 gap-y-3 justify-center text-sm font-semibold">
+                <a
+                  href={links.booking}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white underline-offset-4 hover:underline"
                 >
-                  Bring It to Your Team
-                </Button>
+                  Talk With Brett →
+                </a>
+                <Link href="/speaking" className="text-white underline-offset-4 hover:underline">
+                  Bring It to Your Team →
+                </Link>
+                <Link href="/masters-edge" className="text-white underline-offset-4 hover:underline">
+                  Explore the Methodology →
+                </Link>
               </div>
             </motion.div>
           </div>

@@ -7,6 +7,7 @@ import { links } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Brain, Wrench, Building2, Sparkles, Target, Zap } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const foundations = [
   {
@@ -328,6 +329,55 @@ export default function MastersEdgePage() {
                   — Flow Research Collective
                 </cite>
               </blockquote>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* The Book - White (added Oct 2026, when the book was published) */}
+        <section className="py-20 bg-white relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold via-cranberry to-gold" />
+          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="grid md:grid-cols-[auto,1fr] gap-10 items-center"
+            >
+              <Link
+                href="/books/masters-edge"
+                className="relative block mx-auto w-44 sm:w-52 aspect-[2/3] rounded-lg overflow-hidden shadow-2xl ring-1 ring-black/10 hover:-translate-y-1 transition-transform"
+              >
+                <Image
+                  src="/books/masters-edge-cover.jpg"
+                  alt="The Master's Edge by Brett Lechtenberg, book cover"
+                  fill
+                  sizes="208px"
+                  className="object-cover"
+                />
+              </Link>
+              <div className="text-center md:text-left">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-gold mb-3">
+                  New Book · Out Now
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
+                  Read the Whole Method in{" "}
+                  <span className="text-cranberry">The Master&apos;s Edge</span>
+                </h2>
+                <p className="text-lg text-warm-gray leading-relaxed mb-8">
+                  Brett&apos;s new book puts the full system in your hands:
+                  nineteen chapters on Mindset, Skillset, and Systems Design,
+                  each taught parable first, principle second, practice always.
+                  In paperback and on Kindle.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  <Button href={links.mastersEdgePaperback} external size="lg">
+                    Buy the Book on Amazon
+                  </Button>
+                  <Button href="/books/masters-edge" size="lg" variant="outline">
+                    About the Book
+                  </Button>
+                </div>
+              </div>
             </motion.div>
           </div>
         </section>
