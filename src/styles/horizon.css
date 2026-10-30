@@ -451,25 +451,46 @@ html:has(.bl-h-page) { scroll-padding-top: 92px; }
 .bl-h .btn-ink { background: transparent; color: var(--cran); border-color: var(--cran); }
 .bl-h .btn-ink:hover { background: var(--cran); color: #fff; }
 
-/* The Journey (About): a golden line through the decades, like the home page's golden path. */
-.bl-h .tl { position: relative; display: grid; gap: 18px; list-style: none; margin: 0; padding: 0 0 0 34px; }
-.bl-h .tl::before { content: ""; position: absolute; left: 9px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(to bottom, var(--gold), rgb(212 175 55 / .25)); }
-.bl-h .tl-item { position: relative; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 20px; align-items: center; padding: 20px 22px; }
-.bl-h .tl-item::before { content: ""; position: absolute; left: -31px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 6px rgb(212 175 55 / .15), 0 0 18px rgb(212 175 55 / .6); }
-.bl-h .tl-thumb { position: relative; width: 76px; height: 76px; border-radius: 14px; background: #fff; overflow: hidden; }
+/* The Journey (About), Version B: the home page's travelling golden line, through six stops that alternate sides. */
+.bl-h .tl-map { max-width: 1080px; margin-inline: auto; }
+.bl-h .tl-stops { gap: clamp(36px, 5vh, 60px); }
+.bl-h .tl-stops .stop { max-width: 520px; margin-inline-start: 0; }
+.bl-h .tl-body { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 20px; align-items: start; }
+.bl-h .tl-thumb { position: relative; width: 88px; height: 88px; border-radius: 16px; background: #fff; overflow: hidden; box-shadow: 0 0 0 1px rgb(212 175 55 / .35), 0 14px 30px rgb(0 0 0 / .35); }
 .bl-h .tl-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
-.bl-h .tl-year { display: inline-block; margin-block-end: 6px; padding: 3px 12px; border-radius: 999px; font: 700 13px/1.4 var(--sans); color: var(--night); background: var(--gold); }
-.bl-h .tl-item h3 { font: 700 clamp(18px, 1.4vw, 21px)/1.25 var(--serif); color: var(--ivory); margin-block-end: 4px; }
-.bl-h .tl-item p { font-size: 15.5px; color: var(--sand); }
-@media (min-width: 1024px) {
-  .bl-h .tl { grid-template-columns: 1fr 1fr; column-gap: 28px; padding-left: 0; }
-  .bl-h .tl::before { left: 50%; margin-left: -1px; }
-  .bl-h .tl-item:nth-child(odd) { grid-column: 1; }
-  .bl-h .tl-item:nth-child(even) { grid-column: 2; margin-top: 70px; }
-  .bl-h .tl-item:nth-child(odd)::before { left: auto; right: -21px; }
-  .bl-h .tl-item:nth-child(even)::before { left: -21px; }
-  .bl-h .tl-item:nth-child(n+3) { margin-top: -50px; }
-  .bl-h .tl-item:nth-child(even):nth-child(n+3) { margin-top: 20px; }
+.bl-h .tl-year { display: inline-block; margin-block-end: 8px; padding: 3px 12px; border-radius: 999px; font: 700 13px/1.4 var(--sans); color: var(--night); background: var(--gold); }
+.bl-h .tl-body h3 { font: 700 clamp(20px, 1.7vw, 26px)/1.2 var(--serif); color: var(--gold-hi); }
+.bl-h .tl-body p { margin-block-start: 8px; font-size: 16px; color: #E6E0DA; }
+@media (min-width: 900px) {
+  .bl-h .tl-stops .stop:nth-child(n) { margin-inline-start: 0; }
+  .bl-h .tl-stops .stop:nth-child(even) { margin-inline-start: auto; }
+}
+
+/* The Journey (About), Version A: like the original: centre line, one step per row, cards on alternating sides. */
+.bl-h .tlc { position: relative; display: grid; gap: clamp(24px, 3.5vh, 40px); list-style: none; margin: 0 auto; padding: 0 0 0 36px; max-width: 1120px; }
+.bl-h .tlc::before { content: ""; position: absolute; left: 10px; top: 0; bottom: 0; width: 3px; border-radius: 3px; background: linear-gradient(to bottom, var(--cran), var(--gold), var(--cran)); }
+.bl-h .tlc-row { position: relative; }
+.bl-h .tlc-dot { position: absolute; left: -33px; top: 30px; z-index: 1; width: 20px; height: 20px; border-radius: 50%; background: var(--cran); border: 4px solid #fff; box-shadow: 0 4px 12px rgb(26 26 26 / .25); }
+.bl-h .tlc-row.is-right .tlc-dot { background: var(--gold); }
+.bl-h .tlc-card { position: relative; isolation: isolate; overflow: hidden; padding: clamp(22px, 2.4vw, 30px); border-radius: 20px; background: #fff; border: 1px solid var(--rule); box-shadow: 0 18px 44px rgb(26 26 26 / .1); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
+.bl-h .tlc-card:hover { transform: translateY(-3px); box-shadow: 0 24px 54px rgb(26 26 26 / .14); }
+.bl-h .tlc-bg { position: absolute; z-index: -1; right: 12px; top: 50%; translate: 0 -50%; width: auto; height: 82%; max-width: 46%; object-fit: contain; opacity: .14; filter: grayscale(1); }
+.bl-h .tlc-year { display: inline-block; margin-block-end: 14px; padding: 4px 14px; border-radius: 999px; font: 700 14px/1.4 var(--sans); color: #fff; background: linear-gradient(90deg, var(--cran), var(--cran-d)); }
+.bl-h .tlc-year.is-gold { color: var(--night); background: linear-gradient(90deg, var(--gold-hi), var(--gold)); }
+.bl-h .tlc-main { display: flex; gap: 16px; align-items: flex-start; }
+.bl-h .tlc-main h3 { font: 700 clamp(19px, 1.5vw, 22px)/1.25 var(--serif); color: var(--ink); margin-block-end: 6px; }
+.bl-h .tlc-main p { font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+@media (min-width: 900px) {
+  .bl-h .tlc { padding-left: 0; }
+  .bl-h .tlc::before { left: 50%; margin-left: -1.5px; }
+  .bl-h .tlc-row { width: calc(50% - 44px); }
+  .bl-h .tlc-row.is-right { margin-inline-start: auto; }
+  .bl-h .tlc-row.is-left .tlc-dot { left: auto; right: -54px; }
+  .bl-h .tlc-row.is-right .tlc-dot { left: -54px; }
+  /* Small notch on each card pointing at the line, like the original. */
+  .bl-h .tlc-row::after { content: ""; position: absolute; top: 34px; width: 14px; height: 14px; background: #fff; rotate: 45deg; }
+  .bl-h .tlc-row.is-left::after { right: -7px; border-top: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+  .bl-h .tlc-row.is-right::after { left: -7px; border-bottom: 1px solid var(--rule); border-left: 1px solid var(--rule); }
 }
 
 /* Feature split: photo or cover beside copy */
@@ -535,4 +556,21 @@ html:has(.bl-h-page) { scroll-padding-top: 92px; }
 .bl-h :is(.sec-paper, .sec-paper-2) + :is(.sec-paper, .sec-paper-2) { padding-block-start: calc(var(--sec-pad) * .6); }
 @media (min-width: 1024px) {
   .bl-h .ph .hero-media img { right: auto; left: calc(-1 * var(--shift, 0%)); width: calc(100% + var(--shift, 0%)); max-width: none; }
+}
+/* Photo beside the copy (wide screens): the photo keeps near its real size on the far side and fades into the dark. */
+@media (min-width: 1024px) {
+  /* Sized by the height of the top (whole photo shows, never stretched past its real size on big screens). */
+  .bl-h .ph.photo-beside .hero-media img { left: auto; right: 0; height: 100%; width: auto; aspect-ratio: var(--ar); min-width: 52%; max-width: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, rgb(0 0 0 / .25) 14%, rgb(0 0 0 / .7) 30%, #000 46%); mask-image: linear-gradient(to right, transparent 0, rgb(0 0 0 / .25) 14%, rgb(0 0 0 / .7) 30%, #000 46%); }
+  .bl-h .ph.photo-beside.is-right .hero-media img { right: auto; left: 0;
+    -webkit-mask-image: linear-gradient(to left, transparent 0, #000 34%); mask-image: linear-gradient(to left, transparent 0, #000 34%); }
+  .bl-h .ph.photo-beside .ph-grade { background:
+    linear-gradient(to top, var(--night) 0%, rgb(26 26 26 / .45) 20%, rgb(26 26 26 / 0) 50%, rgb(26 26 26 / .45) 100%),
+    linear-gradient(to right, rgb(26 26 26 / .7) 0%, rgb(26 26 26 / .35) 38%, rgb(26 26 26 / 0) 60%); }
+  .bl-h .ph.photo-beside .ph-copy { max-width: 620px; }
+}
+@media (max-width: 599px) {
+  .bl-h .tl-body { grid-template-columns: 60px minmax(0, 1fr); gap: 14px; }
+  .bl-h .tl-thumb { width: 60px; height: 60px; border-radius: 12px; }
+  .bl-h .tlc-bg { opacity: .07; }
 }

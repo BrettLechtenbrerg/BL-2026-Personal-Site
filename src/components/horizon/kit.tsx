@@ -8,7 +8,8 @@ export const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 export const NewTab = () => <span className="sr-only"> (opens in a new tab)</span>;
 
 // shift: on wide screens, slide the photo left by this much so its subject clears the copy (e.g. "22%").
-type Photo = { src: string; alt: string; w: number; h: number; pos?: string; shift?: string };
+// beside: on wide screens the photo sits on the far side of the copy instead of across the whole top (for smaller photos).
+type Photo = { src: string; alt: string; w: number; h: number; pos?: string; shift?: string; beside?: boolean };
 
 export function HorizonPage({ children }: { children: ReactNode }) {
   return <div className="bl-h bl-h-page bl-h-motion">{children}</div>;
@@ -19,11 +20,11 @@ export function PageHero({ id, eyebrow, lines, lede, photo, side = "left", child
   id: string; eyebrow: ReactNode; lines: ReactNode[]; lede?: ReactNode; photo: Photo; side?: "left" | "right"; children?: ReactNode;
 }) {
   return (
-    <section className={`hero ph${side === "right" ? " is-right" : ""}`} aria-labelledby={id}>
+    <section className={`hero ph${side === "right" ? " is-right" : ""}${photo.beside ? " photo-beside" : ""}`} aria-labelledby={id}>
       <div className="hero-top">
         <div className="hero-media" data-hero-media>
-          <Image data-hero-img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} sizes="100vw" preload
-            style={{ "--pos": photo.pos ?? "50% 35%", "--shift": photo.shift ?? "0%" } as CSSProperties} />
+          <Image data-hero-img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} sizes={photo.beside ? "(min-width: 1024px) 60vw, 100vw" : "100vw"} preload
+            style={{ "--pos": photo.pos ?? "50% 35%", "--shift": photo.shift ?? "0%", "--ar": `${photo.w} / ${photo.h}` } as CSSProperties} />
           <div className="hero-dawn" data-dawn aria-hidden="true" />
           <div className="ph-grade" aria-hidden="true" />
         </div>
