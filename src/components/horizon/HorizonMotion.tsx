@@ -1,6 +1,6 @@
 "use client";
 
-// Home page behaviour for the "Horizon" design (port of the master's HorizonMotion, tag horizon-d-master): the
+// Page behaviour for the "Horizon" design (home + inner pages, root .bl-h-motion) (port of the master's HorizonMotion, tag horizon-d-master): the
 // click-to-play YouTube video, the golden path through the three pillars, count-ups and the scroll motion. Motion only runs when <html> has `motion-ok` (set before paint in src/app/layout.tsx; absent with
 // reduced motion), so without it the page is complete and still.
 
@@ -12,7 +12,7 @@ const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 
 export function HorizonMotion() {
   useEffect(() => {
-    const root = document.querySelector<HTMLElement>(".bl-h-home");
+    const root = document.querySelector<HTMLElement>(".bl-h-motion");
     if (!root) return;
     (window as Window & { __blMotion?: boolean }).__blMotion = true;
     const $ = <T extends Element = HTMLElement>(s: string, r: ParentNode = root) => r.querySelector<T>(s);
@@ -80,7 +80,7 @@ export function HorizonMotion() {
       animate("[data-dawn]", { opacity: [1, 0.15] }, { duration: 2.4, ease: [0.4, 0, 0.2, 1] }),
       animate("[data-hero-img]", { transform: ["scale(1.14)", "scale(1.02)"], filter: ["saturate(.5) contrast(1.04) brightness(.6)", "saturate(.95) contrast(1.04) brightness(1)"] }, { duration: 2.8, ease }),
       animate("[data-horizon]", { transform: ["scaleX(0)", "scaleX(1)"] }, { duration: 2.1, delay: 0.5, ease }),
-      animate(".bl-h-home .hero .line > span", { transform: ["translateY(105%)", "translateY(0%)"] }, { duration: 1.3, delay: stagger(0.14, { startDelay: 0.6 }), ease }),
+      animate(".bl-h-motion .hero .line > span", { transform: ["translateY(105%)", "translateY(0%)"] }, { duration: 1.3, delay: stagger(0.14, { startDelay: 0.6 }), ease }),
       animate("[data-hero-fade]", { opacity: [0, 1], transform: ["translateY(14px)", "translateY(0px)"] }, { duration: 1, delay: stagger(0.12, { startDelay: 0.5 }), ease }),
     ];
     cleanups.push(() => anims.forEach((a) => a.stop()));
@@ -90,7 +90,7 @@ export function HorizonMotion() {
     const himg = $("[data-hero-img]");
     const hcontent = $("[data-hero-content]");
     const horizon = $("[data-horizon]");
-    const heroMedia = $(".hero-media");
+    const heroMedia = $("[data-hero-media]");
     let loaded = false;
     const loadTimer = window.setTimeout(() => { loaded = true; }, 2900);
     cleanups.push(() => window.clearTimeout(loadTimer));

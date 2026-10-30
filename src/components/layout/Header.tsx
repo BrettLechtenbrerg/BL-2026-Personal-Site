@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { links } from "@/lib/utils";
+import { HORIZON_HERO_PATHS } from "@/components/horizon/pages";
 
 type NavLink = { name: string; href: string };
 type NavItem = NavLink & { children?: NavLink[] };
@@ -88,7 +89,8 @@ function Dropdown({ item, pathname, onNavigate }: { item: NavItem; pathname: str
 
 export function Header() {
   const pathname = usePathname() ?? "/";
-  const isHome = pathname === "/";
+  // Pages whose Horizon photo top runs under the menu: transparent until scrolled.
+  const overHero = HORIZON_HERO_PATHS.has(pathname);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuId = useId();
@@ -117,7 +119,7 @@ export function Header() {
     return () => { window.removeEventListener("keydown", onKey); wide.removeEventListener("change", onWide); document.body.classList.remove("nav-open"); };
   }, [open]);
 
-  const headerClass = ["site-header", !isHome ? "is-solid" : scrolled ? "is-scrolled" : ""].filter(Boolean).join(" ");
+  const headerClass = ["site-header", !overHero ? "is-solid" : scrolled ? "is-scrolled" : ""].filter(Boolean).join(" ");
 
   return (
     <div className="bl-h">

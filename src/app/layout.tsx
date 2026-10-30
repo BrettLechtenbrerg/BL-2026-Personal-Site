@@ -14,7 +14,7 @@ const GA_MEASUREMENT_ID = "G-E1WQV8Q2DK";
 // Horizon design (30 Oct 2026): runs before first paint. `js` + `motion-ok` on <html> switch on the home page's reveal
 // styles (never with reduced motion). If the home motion code never starts (script blocked), the flag is removed so
 // nothing stays hidden.
-const motionFlag = `(function(){var d=document.documentElement;d.classList.add('js');if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion-ok');setTimeout(function(){if(!window.__blMotion&&document.querySelector('.bl-h-home'))d.classList.remove('motion-ok')},4000)})();`;
+const motionFlag = `(function(){var d=document.documentElement;d.classList.add('js');if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion-ok');setTimeout(function(){if(!window.__blMotion&&document.querySelector('.bl-h-motion'))d.classList.remove('motion-ok')},4000)})();`;
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",

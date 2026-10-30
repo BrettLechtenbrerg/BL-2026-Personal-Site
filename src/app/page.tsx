@@ -119,11 +119,11 @@ export default function Home() {
     <>
       <Header />
       <main id="main" className="flex-1">
-        <div className="bl-h bl-h-home">
+        <div className="bl-h bl-h-home bl-h-motion">
           {/* HERO: the Limitless horizon at dusk; content-height, photo anchored to its top edge. */}
           <section className="hero" aria-labelledby="hero-title">
             <div className="hero-top">
-              <div className="hero-media" aria-hidden="true">
+              <div className="hero-media" aria-hidden="true" data-hero-media>
                 <Image data-hero-img src="/horizon/limitless-horizon.jpg" alt="" width={3200} height={2133} sizes="100vw" preload />
                 <div className="hero-dawn" data-dawn />
                 <div className="hero-grade" />

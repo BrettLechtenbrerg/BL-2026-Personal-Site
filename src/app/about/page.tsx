@@ -1,62 +1,49 @@
-"use client";
-
+// ABOUT, "Horizon" design (Group 1, 30 Oct 2026). Words unchanged from the previous page (tag pre-horizon-inner-2026-10-30).
+import Image from "next/image";
+import { Award, BookOpen, Brain, Building, Bot, Shield } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
-import { TiltCard } from "@/components/ui/TiltCard";
-import { motion } from "framer-motion";
-import { Award, BookOpen, Brain, Building, Bot, Shield, GraduationCap, Users, Mic2, Sparkles } from "lucide-react";
-import Image from "next/image";
 
 const timeline = [
   {
     year: "1980s",
     title: "The Journey Begins",
     description: "Started martial arts training, beginning a lifelong pursuit of mastery and discipline that would shape everything to come.",
-    icon: Award,
-    gradient: "from-cranberry to-cranberry-dark",
-    image: "/timeline/8th-dan.webp",
+    image: { src: "/timeline/8th-dan.webp", w: 1130, h: 734 },
   },
   {
     year: "1990s",
     title: "Founds Personal Mastery Martial Arts",
     description: "Opened Personal Mastery Martial Arts & Family Success Center in Sandy, Utah, a living laboratory for testing peak performance principles.",
-    icon: Building,
-    gradient: "from-gold to-gold-dark",
-    image: "/timeline/pmma-logo.webp",
+    image: { src: "/timeline/pmma-logo.webp", w: 2250, h: 2527 },
   },
   {
     year: "2000s",
     title: "Author & Speaker Emerges",
     description: "Published first books on safety, time management, and personal empowerment. Began speaking at corporations and conferences nationwide.",
-    icon: BookOpen,
-    gradient: "from-cranberry to-cranberry-dark",
-    image: "/timeline/anti-bully.webp",
+    image: { src: "/timeline/anti-bully.webp", w: 500, h: 383 },
   },
   {
     year: "2010s",
     title: "Flow State Research",
     description: "Completed formal research thesis on flow states and accelerated learning. Reviewed by the Flow Research Collective (Steven Kotler's organization).",
-    icon: Brain,
-    gradient: "from-gold to-gold-dark",
-    image: "/timeline/thesis.webp",
+    image: { src: "/timeline/thesis.webp", w: 2166, h: 1558 },
   },
   {
     year: "2020s",
     title: "The Master's Edge is Born",
     description: "Synthesized 30+ years of experience into a proprietary coaching methodology. Began working with executives, business owners, and high performers.",
-    icon: Sparkles,
-    gradient: "from-cranberry to-cranberry-dark",
-    image: "/timeline/masters-edge.webp",
+    image: { src: "/timeline/masters-edge.webp", w: 768, h: 1206 },
   },
   {
     year: "Today",
     title: "Total Success AI & Beyond",
     description: "Co-founded Total Success AI to bring human-centered AI implementation to businesses. Continues coaching, speaking, and transforming lives.",
-    icon: Bot,
-    gradient: "from-gold to-gold-dark",
-    image: "/timeline/tsai-logo.webp",
+    // TSAI logo checked with ~/dev/forge/engines/guards/logo_guard.py (30 Oct 2026: correct logo).
+    image: { src: "/timeline/tsai-logo.webp", w: 1080, h: 1080 },
   },
 ];
 
@@ -66,35 +53,32 @@ const credentials = [
     title: "30+ Years as a Business Owner",
     description:
       "Brett founded Personal Mastery Martial Arts & Family Success Center in Sandy, Utah and has run it for over three decades. It's been his laboratory, the place where every strategy was tested before it was ever taught.",
-    gradient: "from-cranberry to-cranberry-dark",
   },
   {
     icon: Award,
     title: "8th-Degree Black Belt, 40+ Years in Martial Arts",
     description:
       "More than a rank, it's a way of thinking. The same progressive mastery, discipline, and flow state awareness that creates black belts is the foundation of The Master's Edge.",
-    gradient: "from-gold to-gold-dark",
+    gold: true,
   },
   {
     icon: Brain,
     title: "Flow State Researcher",
     description:
       "Brett completed a formal research thesis on using flow states to speed up human learning. The research was reviewed by the Flow Research Collective, Steven Kotler's peak performance organization.",
-    gradient: "from-cranberry to-cranberry-dark",
   },
   {
     icon: BookOpen,
     title: "Author of 8 Books (5 Bestsellers)",
     description:
       "From time management to family safety to personal empowerment, Brett's books reflect the breadth of his expertise. His newest is The Master's Edge (October 2026), which follows Powerful AI Strategies for Business Owners (August 2026).",
-    gradient: "from-gold to-gold-dark",
+    gold: true,
   },
   {
     icon: Bot,
     title: "Co-Founder of Total Success AI",
     description:
       "Brett brings the same Master's Edge methodology to AI adoption, helping businesses implement technology in a way that puts people first.",
-    gradient: "from-cranberry to-cranberry-dark",
   },
 ];
 
@@ -102,388 +86,142 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        {/* Hero - Dark */}
-        <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          {/* Hero background image */}
-          <Image
-            src="/heroes/about.jpg"
-            alt="Martial arts training and discipline"
-            fill
-            className="object-cover opacity-50"
-            priority
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="about-title"
+            eyebrow="About Brett"
+            lines={["30 Years of Watching", <><em>Impossible Transformations</em> Happen</>]}
+            lede={<>Brett Lechtenberg has spent three decades helping people discover who they&apos;re meant to become through martial arts, coaching, speaking, writing, and mentorship.</>}
+            photo={{ src: "/heroes/about.jpg", alt: "Martial arts training and discipline", w: 1920, h: 1278, pos: "30% 45%", shift: "24%" }}
+            side="right"
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-[500px] h-[500px] bg-cranberry/40 rounded-full blur-[120px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/30 rounded-full blur-[100px]"
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/30 rounded-full px-5 py-2 mb-6"
-            >
-              <span className="text-cranberry-light font-semibold text-sm">About Brett</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
-            >
-              30 Years of Watching{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Impossible Transformations
-              </span>{" "}
-              Happen
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
-            >
-              Brett Lechtenberg has spent three decades helping people discover who
-              they&apos;re meant to become through martial arts, coaching, speaking,
-              writing, and mentorship.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* The Story - Gradient */}
-        <section className="py-24 bg-gradient-to-b from-white via-cranberry/5 to-gold/5 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
-          <div className="absolute -top-40 -left-40 w-80 h-80 bg-cranberry/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-black mb-8">
-                How It <span className="text-cranberry">Started</span>
-              </h2>
-              <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
-                <div className="space-y-6 text-lg text-warm-gray">
-                  <p>I still remember the moment everything changed.</p>
+          {/* How It Started */}
+          <section className="sec sec-paper" aria-labelledby="started-title">
+            <div className="rail narrow" data-rise>
+              <h2 id="started-title" className="h2 sec-title">How It <em>Started</em></h2>
+              <div className="paper-card prose">
+                <p>I still remember the moment everything changed.</p>
+                <p>
+                  I was working with a shy, anxious kid who wouldn&apos;t make eye contact. His parents were desperate. School was a struggle. Other
+                  activities had failed. They&apos;d brought him to martial arts as a last resort.
+                </p>
+                <p>
+                  Three months later, that same kid walked into my office, looked me straight in the eye, and said:{" "}
+                  <em className="ink">&ldquo;Thank you for believing in me when I didn&apos;t believe in myself.&rdquo;</em>
+                </p>
+                <p>
+                  That&apos;s when I realized: the kicks and punches were never the point. They were just the delivery system for something much bigger.
+                  What I was really teaching was transformation. Self-belief. The discovery of who someone was always capable of being.
+                </p>
+                <div className="callout callout-night">
                   <p>
-                    I was working with a shy, anxious kid who wouldn&apos;t make eye
-                    contact. His parents were desperate. School was a struggle. Other
-                    activities had failed. They&apos;d brought him to martial arts as a
-                    last resort.
+                    That was over 25 years ago. Since then, I&apos;ve watched thousands of transformations like that one. And I&apos;ve learned something:
+                    everyone has <span className="t-gold">extraordinary potential</span> inside them. Most people just need someone to see it first.
                   </p>
-                  <p>
-                    Three months later, that same kid walked into my office, looked me
-                    straight in the eye, and said:{" "}
-                    <em className="text-black font-semibold">
-                      &ldquo;Thank you for believing in me when I didn&apos;t believe in
-                      myself.&rdquo;
-                    </em>
-                  </p>
-                  <p>
-                    That&apos;s when I realized: the kicks and punches were never the
-                    point. They were just the delivery system for something much bigger.
-                    What I was really teaching was transformation. Self-belief. The
-                    discovery of who someone was always capable of being.
-                  </p>
-                  <div className="bg-gradient-to-br from-black via-gray-900 to-black rounded-xl p-6 text-white">
-                    <p className="font-semibold">
-                      That was over 25 years ago. Since then, I&apos;ve watched thousands
-                      of transformations like that one. And I&apos;ve learned something:
-                      everyone has <span className="text-gold">extraordinary potential</span> inside them. Most people just
-                      need someone to see it first.
-                    </p>
-                  </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Timeline - The Journey (Light Mode) */}
-        <section className="py-24 bg-gradient-to-b from-gray-300 via-gray-200 to-gray-300 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
-          <div className="absolute -top-40 -left-40 w-80 h-80 bg-cranberry/20 rounded-full blur-[100px]" />
-          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                The <span className="bg-gradient-to-r from-cranberry to-gold bg-clip-text text-transparent">Journey</span>
-              </h2>
-              <p className="text-warm-gray max-w-2xl mx-auto">
-                Four decades of learning, teaching, and transformation, distilled into a methodology that works.
-              </p>
-            </motion.div>
-
-            {/* Timeline */}
-            <div className="relative">
-              {/* Center line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cranberry via-gold to-cranberry rounded-full hidden md:block" />
-
-              <div className="space-y-12 md:space-y-0">
-                {timeline.map((item, index) => (
-                  <div key={item.year} className="relative md:mb-16">
-                    {/* Timeline dot */}
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                      className={`absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br ${item.gradient} border-4 border-white shadow-lg z-10 hidden md:block`}
-                      style={{ top: "2rem" }}
-                    />
-
-                    {/* Content card - alternating sides */}
-                    <motion.div
-                      initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 60,
-                        damping: 15,
-                        delay: index * 0.1
-                      }}
-                      className={`relative md:w-[calc(50%-3rem)] ${
-                        index % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
-                      }`}
-                    >
-                      <div className="group relative">
-                        {/* Glow effect */}
-                        <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
-
-                        <div className="relative bg-white rounded-2xl p-6 border-2 border-gray-100 hover:border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
-                          {/* Background Image */}
-                          {item.image && (
-                            <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
-                              <Image
-                                src={item.image}
-                                alt=""
-                                fill
-                                className="object-contain opacity-20 grayscale"
-                              />
-                            </div>
-                          )}
-
-                          {/* Content */}
-                          <div className="relative z-10">
-                            {/* Year badge */}
-                            <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${item.gradient} rounded-full px-4 py-1 mb-4 shadow-md`}>
-                              <span className="text-white font-bold text-sm">{item.year}</span>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                              {/* Icon */}
-                              <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                                <item.icon className="w-6 h-6 text-white" />
-                              </div>
-
-                              <div className="flex-1">
-                                <h3 className="text-lg font-bold text-black mb-2">{item.title}</h3>
-                                <p className="text-warm-gray text-sm leading-relaxed">{item.description}</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Arrow pointing to timeline (desktop) */}
-                          <div
-                            className={`absolute top-8 hidden md:block w-4 h-4 bg-white border-gray-100 transform rotate-45 ${
-                              index % 2 === 0
-                                ? "right-0 translate-x-1/2 border-t border-r"
-                                : "left-0 -translate-x-1/2 border-b border-l"
-                            }`}
-                          />
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Credentials - Dark */}
-        <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 right-10 w-96 h-96 bg-gold/25 rounded-full blur-[120px]"
-          />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-white mb-12 text-center"
-            >
-              The Experience Behind the <span className="text-gold">Method</span>
-            </motion.h2>
-            <div className="space-y-6">
-              {credentials.map((credential, index) => (
-                <motion.div
-                  key={credential.title}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${credential.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity`} />
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex items-start gap-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${credential.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                      <credential.icon className="w-8 h-8 text-white" />
+          {/* The Journey: a golden line through the decades */}
+          <section className="sec sec-night" aria-labelledby="journey-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <h2 id="journey-title" className="h2">The <em>Journey</em></h2>
+                <p className="body-lg">Four decades of learning, teaching, and transformation, distilled into a methodology that works.</p>
+              </div>
+              <ol className="tl" data-stagger>
+                {timeline.map((item) => (
+                  <li key={item.year} className="tl-item glass">
+                    <div className="tl-thumb">
+                      <Image src={item.image.src} alt="" width={item.image.w} height={item.image.h} sizes="76px" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-2">{credential.title}</h3>
-                      <p className="text-gray-400">{credential.description}</p>
+                      <span className="tl-year">{item.year}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </li>
+                ))}
+              </ol>
             </div>
+          </section>
 
-            {/* Additional credentials */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mt-12 bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
-            >
-              <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-3">
-                <Shield className="w-6 h-6 text-gold" />
-                Also
-              </h3>
-              <ul className="grid md:grid-cols-2 gap-4 text-gray-400">
-                <li className="flex items-center gap-2"><span className="text-cranberry">•</span> 32nd-Degree Master Mason</li>
-                <li className="flex items-center gap-2"><span className="text-gold">•</span> 3x graduate of International Training Commission Executive Protection School</li>
-                <li className="flex items-center gap-2"><span className="text-cranberry">•</span> BA in Business Operations, Western Washington University</li>
-                <li className="flex items-center gap-2"><span className="text-gold">•</span> Featured on Good Things Utah, Channel 4, Channel 13</li>
-                <li className="flex items-center gap-2"><span className="text-cranberry">•</span> Trusted by America First Credit Union, American Express, Delta Airlines, Citigroup</li>
+          {/* The Experience Behind the Method */}
+          <section className="sec sec-paper" aria-labelledby="experience-title">
+            <div className="rail narrow">
+              <h2 id="experience-title" className="h2 sec-title center" data-rise>The Experience Behind the <em>Method</em></h2>
+              <ul className="row-list" data-stagger>
+                {credentials.map((c) => (
+                  <li key={c.title} className="paper-card row-card">
+                    <span className={`ico-badge${c.gold ? " is-gold" : ""}`} aria-hidden="true"><c.icon /></span>
+                    <div>
+                      <h3>{c.title}</h3>
+                      <p>{c.description}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
-            </motion.div>
-          </div>
-        </section>
+              <div className="callout callout-night also" data-rise>
+                <h3 className="also-title"><Shield className="ico t-gold" aria-hidden="true" />Also</h3>
+                <ul className="bullets">
+                  <li>32nd-Degree Master Mason</li>
+                  <li>3x graduate of International Training Commission Executive Protection School</li>
+                  <li>BA in Business Operations, Western Washington University</li>
+                  <li>Featured on Good Things Utah, Channel 4, Channel 13</li>
+                  <li>Trusted by America First Credit Union, American Express, Delta Airlines, Citigroup</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
-        {/* Philosophy - Gradient */}
-        <section className="py-24 bg-gradient-to-b from-gold/10 via-white to-cranberry/10 relative overflow-hidden">
-          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl font-bold text-black mb-8 text-center">
-                What I <span className="text-cranberry">Believe</span>
-              </h2>
-              <div className="space-y-6 text-lg text-warm-gray bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+          {/* What I Believe */}
+          <section className="sec sec-paper-2" aria-labelledby="believe-title">
+            <div className="rail narrow" data-rise>
+              <h2 id="believe-title" className="h2 sec-title center">What I <em>Believe</em></h2>
+              <div className="paper-card prose">
                 <p>
-                  In 30 years, I&apos;ve never met someone without extraordinary
-                  potential. I&apos;ve only met people who haven&apos;t discovered it yet.
+                  In 30 years, I&apos;ve never met someone without extraordinary potential. I&apos;ve only met people who haven&apos;t discovered it yet.
                 </p>
                 <p>
-                  The best teachers don&apos;t create followers. They create leaders
-                  who no longer need them. That&apos;s always been my goal. Not to
+                  The best teachers don&apos;t create followers. They create leaders who no longer need them. That&apos;s always been my goal. Not to
                   impress you with what I know, but to unlock what&apos;s already inside you.
                 </p>
-                <div className="bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl p-6 text-white">
-                  <p className="font-semibold">
-                    I don&apos;t teach theory. I teach what I&apos;ve tested. In my own
-                    business, on my own mat, with my own team. If it hasn&apos;t worked
+                <div className="callout callout-cran">
+                  <p>
+                    I don&apos;t teach theory. I teach what I&apos;ve tested. In my own business, on my own mat, with my own team. If it hasn&apos;t worked
                     for me, I don&apos;t teach it to you.
                   </p>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </section>
 
-        {/* Personal - Dark */}
-        <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-col md:flex-row items-center gap-10"
-            >
-              {/* Family Photo */}
-              <div className="group relative flex-shrink-0">
-                <TiltCard intensity={10} className="relative">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-full blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
-                  <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white/20 group-hover:border-gold/50 transition-colors duration-500">
-                    <Image
-                      src="/heroes/family.webp"
-                      alt="Brett Lechtenberg with family"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </TiltCard>
+          {/* Beyond Business */}
+          <section className="sec sec-night-2" aria-labelledby="beyond-title">
+            <div className="rail narrow split" data-rise>
+              <div className="round-photo">
+                <Image src="/heroes/family.webp" alt="Brett Lechtenberg with family" width={703} height={703} sizes="300px" />
               </div>
-
-              {/* Text */}
-              <div className="text-center md:text-left">
-                <h2 className="text-3xl font-bold text-white mb-6">
-                  Beyond <span className="text-gold">Business</span>
-                </h2>
-                <p className="text-lg text-gray-400">
-                  Brett lives in Sandy, Utah with his family. When he&apos;s not coaching,
-                  training, or speaking, you&apos;ll find him at Personal Mastery Martial
-                  Arts, still on the mat, still learning, still practicing what he teaches.
+              <div className="beyond-copy">
+                <h2 id="beyond-title" className="h2">Beyond <em>Business</em></h2>
+                <p className="body-lg">
+                  Brett lives in Sandy, Utah with his family. When he&apos;s not coaching, training, or speaking, you&apos;ll find him at Personal Mastery
+                  Martial Arts, still on the mat, still learning, still practicing what he teaches.
                 </p>
               </div>
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </section>
 
-        {/* CTA - Bold gradient */}
-        <section className="py-24 bg-gradient-to-br from-cranberry via-cranberry-dark to-black text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cranberry-light/30 rounded-full blur-[100px]" />
-          </div>
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
-                Let&apos;s Talk About What&apos;s Possible
-              </h2>
-              <Button href={links.booking} external size="lg" variant="secondary">
-                Talk With Brett
-              </Button>
-            </motion.div>
-          </div>
-        </section>
+          <FinalCta id="about-final" title={<>Let&apos;s Talk About What&apos;s Possible</>} photo={{ src: "/heroes/about.jpg", w: 1920, h: 1278, pos: "30% 50%" }}>
+            <Btn href={links.booking} external variant="gold" size="lg">Talk With Brett</Btn>
+          </FinalCta>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }
