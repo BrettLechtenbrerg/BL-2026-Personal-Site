@@ -124,7 +124,7 @@ export default function Home() {
           <section className="hero" aria-labelledby="hero-title">
             <div className="hero-top">
               <div className="hero-media" aria-hidden="true">
-                <Image data-hero-img src="/horizon/limitless-horizon.jpg" alt="" width={1920} height={1280} sizes="100vw" preload />
+                <Image data-hero-img src="/horizon/limitless-horizon.jpg" alt="" width={3200} height={2133} sizes="100vw" preload />
                 <div className="hero-dawn" data-dawn />
                 <div className="hero-grade" />
                 <div className="hero-sun" />
@@ -181,6 +181,7 @@ export default function Home() {
           {/* CLIENT LOGOS */}
           <section className="logos" aria-labelledby="logos-title">
             <p className="rail logos-k" id="logos-title">Trusted by Leading Organizations</p>
+            <div className="rail">
             <div className="logo-viewport">
               <ul className="logo-track animate-scroll">
                 {[...logos, ...logos].map((l, i) => {
@@ -200,6 +201,7 @@ export default function Home() {
                   );
                 })}
               </ul>
+            </div>
             </div>
           </section>
 
@@ -451,7 +453,7 @@ export default function Home() {
           {/* FINAL CALL TO ACTION: back to the horizon */}
           <section className="final" aria-labelledby="final-title">
             <div className="final-media" aria-hidden="true">
-              <Image data-drift src="/horizon/limitless-horizon.jpg" alt="" width={1920} height={1280} sizes="100vw" />
+              <Image data-drift src="/horizon/limitless-horizon.jpg" alt="" width={3200} height={2133} sizes="100vw" />
             </div>
             <div className="rail">
               <div className="glass final-panel" data-rise>

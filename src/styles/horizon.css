@@ -139,13 +139,13 @@ html:not(.js) .bl-h .dd:hover .dd-panel, html:not(.js) .bl-h .dd:focus-within .d
 /* Hero is content-height (master rule 1): photo layer runs 120px under the pillars and fades in/out with a mask. */
 .bl-h .hero { position: relative; overflow: hidden; isolation: isolate; padding-block-start: calc(var(--header-h) + 12px); background: var(--night); }
 .bl-h .hero-top { position: relative; isolation: isolate; }
-.bl-h .hero-media { position: absolute; inset: 0 0 -120px 0; z-index: -1; overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 140px), transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, #000 28px, #000 calc(100% - 140px), transparent 100%); }
+.bl-h .hero-media { position: absolute; inset: calc(-1 * (var(--header-h) + 12px)) 0 -120px 0; z-index: -1; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0 0 0 / .25) 0, #000 260px, #000 calc(100% - 160px), transparent 100%); mask-image: linear-gradient(to bottom, rgb(0 0 0 / .25) 0, #000 260px, #000 calc(100% - 160px), transparent 100%); }
 /* Anchored to the top edge (master rule 2) so the figure's head is never cropped. */
-.bl-h .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 46% 0%; transform-origin: 50% 0%; filter: saturate(.95) contrast(1.04); }
+.bl-h .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 46% 35%; transform-origin: 50% 35%; filter: saturate(.95) contrast(1.04); }
 .bl-h .hero-dawn { position: absolute; inset: 0; z-index: 3; background: linear-gradient(to bottom, #0d0b0b 0%, rgb(26 26 26 / .95) 55%, #0d0b0b 100%); opacity: .15; }
 .bl-h .hero-grade { position: absolute; inset: 0; z-index: 2; background:
-  linear-gradient(to top, var(--night) 0%, rgb(26 26 26 / .6) 20%, rgb(26 26 26 / .05) 50%, rgb(26 26 26 / .3) 100%),
+  linear-gradient(to top, var(--night) 0%, rgb(26 26 26 / .6) 20%, rgb(26 26 26 / .05) 50%, rgb(26 26 26 / .15) 85%, rgb(26 26 26 / .55) 100%),
   linear-gradient(to right, rgb(26 26 26 / .92) 0%, rgb(26 26 26 / .78) 26%, rgb(26 26 26 / .25) 50%, rgb(26 26 26 / 0) 72%); }
 .bl-h .hero-sun { position: absolute; inset: 0; z-index: 2; background: radial-gradient(40% 50% at 62% 40%, rgb(232 200 74 / .22), transparent 70%); mix-blend-mode: screen; pointer-events: none; }
 .bl-h .hero-grid { display: grid; gap: 36px; align-items: center; padding-block: clamp(24px, 4svh, 56px) 16px; }
@@ -184,11 +184,12 @@ html:not(.js) .bl-h .dd:hover .dd-panel, html:not(.js) .bl-h .dd:focus-within .d
 
 /* Client logos: white tiles so every mark stays legible on the dark page. */
 .bl-h .logos { padding-block: 8px clamp(48px, 6vh, 72px); background: var(--night); }
+.bl-h .logos .rail { overflow: hidden; }
 .bl-h .logos-k { margin-block-end: 22px; font: 600 13px/1.3 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--sand); text-align: center; }
-.bl-h .logo-viewport { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+.bl-h .logo-viewport { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
 .bl-h .logo-track { display: flex; width: max-content; list-style: none; margin: 0; padding: 0; }
-.bl-h .logo-tile { flex: none; display: grid; place-items: center; height: 88px; padding: 0 26px; margin-inline: 10px; border-radius: 16px; background: #fff; box-shadow: 0 12px 30px rgb(0 0 0 / .35); }
-.bl-h .logo-tile img { width: auto; height: var(--h, 46px); max-width: 190px; object-fit: contain; }
+.bl-h .logo-tile { flex: none; display: grid; place-items: center; height: 76px; padding: 0 22px; margin-inline: 8px; border-radius: 16px; background: #fff; box-shadow: 0 12px 30px rgb(0 0 0 / .35); }
+.bl-h .logo-tile img { width: auto; height: calc(var(--h, 46px) * .85); max-width: 170px; object-fit: contain; }
 .bl-h .logo-tile img.mul { mix-blend-mode: multiply; }
 
 /* The problem */
@@ -253,7 +254,7 @@ html:not(.js) .bl-h .dd:hover .dd-panel, html:not(.js) .bl-h .dd:focus-within .d
   .bl-h .pathways.is-pinned { height: var(--gallery-h, auto); }
   .bl-h .pathways.is-pinned .gallery-pin { position: sticky; top: var(--pin-top, var(--header-h)); padding-block: 24px; overflow: hidden; }
   .bl-h .pathways.is-pinned .gallery-track { display: flex; width: max-content; max-width: none; margin: 0; padding-inline: max(var(--gutter), calc((100vw - var(--rail)) / 2)); will-change: transform; }
-  .bl-h .pathways.is-pinned .slide { flex: none; width: clamp(520px, 40vw, 960px); height: clamp(440px, calc(100svh - 300px), 900px); min-height: 0; }
+  .bl-h .pathways.is-pinned .slide { flex: none; width: clamp(520px, calc((100svh - 300px) * .78), 720px); height: clamp(440px, calc(100svh - 300px), 900px); min-height: 0; }
 }
 
 /* Why Brett */
