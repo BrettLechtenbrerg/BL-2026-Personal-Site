@@ -25,6 +25,18 @@ Still open: the published book's About the Author + KDP description still say "s
 still uses the old stack mockup (pre-publication cover, dimmed); Bill's quote deliberately NOT added to the book page.
 Nothing else changed; the state below still holds.
 
+**Oct 30, 2026, Session 37: HORIZON REDESIGN LIVE (Version D).** Brett approved and it went live on main.
+New home page plus new header and footer on all 20 public pages, built from the Horizon master
+(`~/dev/pts-style-mockups/HORIZON-D-MASTER.md`, tag `horizon-d-master`) in Brett's brand (Montserrat + Inter;
+cranberry/gold/black/white). Same words, links, numbers, forms, academy, analytics and SEO. Files: `src/styles/horizon.css`
+(scoped `.bl-h`), `src/components/horizon/HorizonMotion.tsx`, `src/components/layout/Header.tsx` + `Footer.tsx`, motion flag in
+`src/app/layout.tsx`, photos in `public/horizon/` (Limitless hero from Brett's original file; compass + climber CC0 rawpixel).
+Good Things Utah video loads from YouTube only on Play (Brett OK'd). "How Brett Works With You" = three cards side by side
+(Brett: the sideways strip looked out of balance on full screen). Inner pages kept their own content; only header/footer changed.
+**Restore point:** tag `pre-horizon-2026-10-30` (main before this). Every change must pass
+`node ~/dev/pts-style-mockups/_tools/horizon-check.cjs https://www.brettlechtenberg.com/` (empty band ≤ 220px).
+Not done (Brett's call): restyling the inner pages' own content in Horizon.
+
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
 (filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
 Paste the block below into a fresh session.
