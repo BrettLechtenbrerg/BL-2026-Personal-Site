@@ -1,8 +1,7 @@
 "use client";
 
 // Home page behaviour for the "Horizon" design (port of the master's HorizonMotion, tag horizon-d-master): the
-// click-to-play YouTube video, the golden path through the three pillars, the pinned film strip, count-ups and the
-// scroll motion. Motion only runs when <html> has `motion-ok` (set before paint in src/app/layout.tsx; absent with
+// click-to-play YouTube video, the golden path through the three pillars, count-ups and the scroll motion. Motion only runs when <html> has `motion-ok` (set before paint in src/app/layout.tsx; absent with
 // reduced motion), so without it the page is complete and still.
 
 import { useEffect } from "react";
@@ -114,47 +113,6 @@ export function HorizonMotion() {
       const to = Number(el.dataset.count); const suffix = el.dataset.suffix ?? "";
       animate(0, to, { duration: 2, ease: [0.25, 0.1, 0.25, 1], onUpdate: (v) => { el.textContent = `${Math.round(v).toLocaleString("en-US")}${suffix}`; } });
     }, { amount: 0.6 })));
-
-    // How Brett Works With You: pinned film strip on desktop, only when there is real sideways travel.
-    const gallery = $("[data-gallery]");
-    const gtrack = $("[data-gallery-track]");
-    const bar = $("[data-gallery-progress]");
-    const desktop = window.matchMedia("(min-width: 960px)");
-    let stopGallery: (() => void) | null = null;
-    const setup = () => {
-      if (stopGallery) { stopGallery(); stopGallery = null; }
-      if (!gallery || !gtrack || !bar) return;
-      gtrack.style.transform = "";
-      gallery.classList.remove("is-pinned");
-      gallery.style.removeProperty("--gallery-h");
-      gallery.style.removeProperty("--pin-top");
-      if (!desktop.matches) return;
-      const pin = $(".gallery-pin", gallery);
-      if (!pin) return;
-      gallery.classList.add("is-pinned");
-      const travelX = () => Math.max(0, gtrack.scrollWidth - document.documentElement.clientWidth);
-      if (travelX() < 40) { gallery.classList.remove("is-pinned"); return; }
-      let top = 0;
-      // Section height = pin + the sideways distance, so the strip moves 1:1.3 with the scroll and then lets go.
-      const place = () => {
-        const headerH = parseFloat(getComputedStyle(root).getPropertyValue("--header-h")) || 80;
-        top = headerH + Math.max(0, (window.innerHeight - headerH - pin.offsetHeight) / 2);
-        gallery.style.setProperty("--pin-top", `${top}px`);
-        gallery.style.setProperty("--gallery-h", `${Math.round(pin.offsetHeight + travelX() * 1.3)}px`);
-      };
-      place();
-      window.addEventListener("resize", place);
-      const stopScroll = scroll(() => {
-        const travel = gallery.offsetHeight - pin.offsetHeight;
-        const p = travel > 0 ? clamp01((top - gallery.getBoundingClientRect().top) / travel) : 0;
-        gtrack.style.transform = `translate3d(${-p * travelX()}px, 0, 0)`;
-        bar.style.transform = `scaleX(${p})`;
-      });
-      stopGallery = () => { stopScroll(); window.removeEventListener("resize", place); };
-    };
-    setup();
-    on(desktop, "change", setup);
-    cleanups.push(() => stopGallery?.());
 
     // The Master's Edge: the path draws itself, lights each pillar, and the pinned photo follows.
     const stops = $$("[data-stop]");

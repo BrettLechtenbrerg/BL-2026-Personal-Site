@@ -1,6 +1,6 @@
 // HOME, "Horizon" design (Version D, built 30 Oct 2026 from the Horizon master: ~/dev/pts-style-mockups/HORIZON-D-MASTER.md).
 // Words, links and numbers are unchanged from the previous home page (restore point: git tag pre-horizon-2026-10-30).
-// Styles: src/styles/horizon.css (.bl-h). Motion, golden path, film strip and the click-to-play video: HorizonMotion.
+// Styles: src/styles/horizon.css (.bl-h). Motion, golden path and the click-to-play video: HorizonMotion.
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -274,16 +274,14 @@ export default function Home() {
             </div>
           </section>
 
-          {/* HOW BRETT WORKS WITH YOU: film strip */}
-          <section className="pathways" aria-labelledby="pathways-title" data-gallery>
-            <div className="gallery-pin">
-              <div className="rail">
-                <h2 id="pathways-title" className="h2">How Brett Works <em>With You</em></h2>
-              </div>
-              <ul className="gallery-track" data-gallery-track>
+          {/* HOW BRETT WORKS WITH YOU: three cards side by side */}
+          <section className="pathways" aria-labelledby="pathways-title">
+            <div className="rail">
+              <h2 id="pathways-title" className="h2 pathways-head" data-rise>How Brett Works <em>With You</em></h2>
+              <ul className="pathway-cards" data-stagger>
                 {pathways.map((p) => (
                   <li key={p.title} className="slide">
-                    <Image src={p.img.src} alt="" width={p.img.w} height={p.img.h} sizes="(min-width: 960px) 760px, 92vw" style={{ objectPosition: p.img.pos }} />
+                    <Image src={p.img.src} alt="" width={p.img.w} height={p.img.h} sizes="(min-width: 1024px) 420px, (min-width: 700px) 50vw, 92vw" style={{ objectPosition: p.img.pos }} />
                     <div className="glass slide-copy">
                       <p className="slide-k">{p.title}</p>
                       <h3>{p.headline}</h3>
@@ -296,9 +294,6 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="rail">
-                <div className="gallery-progress" aria-hidden="true"><span data-gallery-progress /></div>
-              </div>
             </div>
           </section>
 
