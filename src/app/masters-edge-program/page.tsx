@@ -272,7 +272,7 @@ export default function MastersEdgeProgramPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-20">
+      <main id="main" className="flex-1 pt-20">
         {/* SECTION 1: HERO */}
         <section className="relative py-24 lg:py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Hero background image */}

@@ -139,7 +139,7 @@ export default function ApplyPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-20">
+      <main id="main" className="flex-1 pt-20">
         {/* Hero */}
         <section className="relative py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Hero background image */}

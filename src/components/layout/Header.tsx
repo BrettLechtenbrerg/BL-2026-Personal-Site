@@ -1,241 +1,189 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+// Site header, "Horizon" design (30 Oct 2026; master ~/dev/pts-style-mockups/HORIZON-D-MASTER.md): fixed, transparent
+// over the home hero and frosted once scrolled; solid on every other page (those pages keep their own pt-20 offset).
+
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { links } from "@/lib/utils";
 
-const mastersEdgeDropdown = [
-  { name: "The Methodology", href: "/masters-edge" },
-  { name: "12-Week Program", href: "/masters-edge-program" },
-];
+type NavLink = { name: string; href: string };
+type NavItem = NavLink & { children?: NavLink[] };
 
-const speakingDropdown = [
-  { name: "Speaking Overview", href: "/speaking" },
-  { name: "Book Brett", href: "/book-brett" },
-  { name: "Media Kit", href: "/media-kit" },
-];
-
-const booksDropdown = [
-  { name: "All Books", href: "/books" },
-  { name: "New: The Master's Edge", href: "/books/masters-edge" },
-  { name: "Rockstar Team Quiz", href: "/rockstar-team-quiz" },
-];
-
-const navigation = [
-  { name: "The Master's Edge", href: "/masters-edge", hasDropdown: true, dropdownType: "mastersEdge" },
-  { name: "Speaking", href: "/speaking", hasDropdown: true, dropdownType: "speaking" },
+const navigation: NavItem[] = [
+  {
+    name: "The Master's Edge",
+    href: "/masters-edge",
+    children: [
+      { name: "The Methodology", href: "/masters-edge" },
+      { name: "12-Week Program", href: "/masters-edge-program" },
+    ],
+  },
+  {
+    name: "Speaking",
+    href: "/speaking",
+    children: [
+      { name: "Speaking Overview", href: "/speaking" },
+      { name: "Book Brett", href: "/book-brett" },
+      { name: "Media Kit", href: "/media-kit" },
+    ],
+  },
   { name: "Coaching", href: "/coaching" },
   { name: "AI Advisory", href: "/ai-advisory" },
-  { name: "Books & Media", href: "/books", hasDropdown: true, dropdownType: "books" },
+  {
+    name: "Books & Media",
+    href: "/books",
+    children: [
+      { name: "All Books", href: "/books" },
+      { name: "New: The Master's Edge", href: "/books/masters-edge" },
+      { name: "Rockstar Team Quiz", href: "/rockstar-team-quiz" },
+    ],
+  },
   { name: "Testimonials", href: "/testimonials" },
   { name: "About", href: "/about" },
 ];
 
-export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
+const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 
-  // Reading-progress bar along the bottom edge of the header
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const getDropdownItems = (type: string) => {
-    if (type === "mastersEdge") return mastersEdgeDropdown;
-    if (type === "speaking") return speakingDropdown;
-    if (type === "books") return booksDropdown;
-    return [];
-  };
+function Dropdown({ item, pathname, onNavigate }: { item: NavItem; pathname: string; onNavigate: () => void }) {
+  const [open, setOpen] = useState(false);
+  const panelId = useId();
+  const button = useRef<HTMLButtonElement>(null);
+  // Hover opens the menu; a click right after that hover must not close it again.
+  const hoverOpenedAt = useRef(0);
+  const children = item.children ?? [];
+  const inSection = children.some((c) => pathname === c.href || pathname.startsWith(`${c.href}/`));
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-xl border-gray-200/80 shadow-lg shadow-black/[0.06]"
-          : "bg-white/90 backdrop-blur-md border-gray-100"
-      }`}
+    <div
+      className={`dd${open ? " open" : ""}`}
+      onMouseEnter={() => { if (!open) hoverOpenedAt.current = Date.now(); setOpen(true); }}
+      onMouseLeave={() => setOpen(false)}
+      onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setOpen(false); }}
+      onKeyDown={(e) => { if (e.key === "Escape" && open) { e.preventDefault(); setOpen(false); button.current?.focus(); } }}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="relative"
-            >
-              <Image
-                src="/logo.jpg"
-                alt="Brett Lechtenberg"
-                width={48}
-                height={48}
-                className="rounded-full"
-                priority
-              />
-            </motion.div>
-            <motion.span
-              className="hidden sm:block text-xl font-bold text-black tracking-tight"
-              whileHover={{ scale: 1.02 }}
-            >
-              <span className="text-cranberry">Brett</span> Lechtenberg
-            </motion.span>
+      <button
+        ref={button}
+        className="nav-link dd-btn"
+        type="button"
+        aria-expanded={open}
+        aria-controls={panelId}
+        aria-current={inSection ? "page" : undefined}
+        onClick={(e) => { if (e.detail > 0 && Date.now() - hoverOpenedAt.current < 700) return; setOpen((v) => !v); }}
+      >
+        {item.name}<span className="chev" aria-hidden="true" />
+      </button>
+      <div className="dd-panel" id={panelId}>
+        {children.map((c) => (
+          <Link key={c.href} href={c.href} aria-current={pathname === c.href ? "page" : undefined} onClick={() => { setOpen(false); onNavigate(); }}>
+            {c.name}
           </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:gap-8">
-            {navigation.map((item) => (
-              item.hasDropdown && item.dropdownType ? (
-                <div
-                  key={item.name}
-                  className="relative"
-                  onMouseEnter={() => setOpenDropdown(item.dropdownType!)}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <button
-                    className="group relative flex items-center gap-1 py-1 text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
-                  >
-                    {item.name}
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openDropdown === item.dropdownType ? 'rotate-180' : ''}`} />
-                    <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-cranberry to-gold transition-all duration-300 group-hover:w-full" />
-                  </button>
-                  <AnimatePresence>
-                    {openDropdown === item.dropdownType && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-50"
-                      >
-                        {getDropdownItems(item.dropdownType).map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-3 text-sm text-gray-700 hover:bg-cranberry/5 hover:text-cranberry transition-colors"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+export function Header() {
+  const pathname = usePathname() ?? "/";
+  const isHome = pathname === "/";
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const menuId = useId();
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const close = () => setOpen(false);
+  const current = (href: string) => (pathname === href || pathname.startsWith(`${href}/`) ? ("page" as const) : undefined);
+
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 24);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  // Escape closes the phone menu; the full bar takes over from 1240px.
+  useEffect(() => {
+    document.body.classList.toggle("nav-open", open);
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !e.defaultPrevented) { setOpen(false); menuButton.current?.focus(); }
+    };
+    const wide = window.matchMedia("(min-width: 1240px)");
+    const onWide = (m: MediaQueryListEvent) => { if (m.matches) setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    wide.addEventListener("change", onWide);
+    return () => { window.removeEventListener("keydown", onKey); wide.removeEventListener("change", onWide); document.body.classList.remove("nav-open"); };
+  }, [open]);
+
+  const headerClass = ["site-header", !isHome ? "is-solid" : scrolled ? "is-scrolled" : ""].filter(Boolean).join(" ");
+
+  return (
+    <div className="bl-h">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-black"
+      >
+        Skip to main content
+      </a>
+      <header className={headerClass}>
+        <div className="rail header-inner">
+          <Link className="brand" href="/" aria-label="Brett Lechtenberg, home" onClick={close}>
+            <Image src="/logo.jpg" alt="" width={48} height={48} preload />
+            <span className="brand-name" aria-hidden="true"><span className="brand-first">Brett</span> Lechtenberg</span>
+          </Link>
+          <nav className="primary-nav" aria-label="Main">
+            {navigation.map((item) =>
+              item.children ? (
+                <Dropdown key={item.name} item={item} pathname={pathname} onNavigate={close} />
               ) : (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="group relative py-1 text-sm font-medium text-gray-700 hover:text-cranberry transition-colors"
-                >
+                <Link key={item.name} className="nav-link" href={item.href} aria-current={current(item.href)}>
                   {item.name}
-                  <span className="absolute -bottom-0.5 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-cranberry to-gold transition-all duration-300 group-hover:w-full" />
                 </Link>
-              )
-            ))}
-            <Button href={links.booking} external size="sm">
-              Talk With Brett
-            </Button>
-          </div>
-
-          {/* Mobile menu button - 48px touch target */}
-          <button
-            type="button"
-            className="lg:hidden p-3 -mr-2 min-w-[48px] min-h-[48px] flex items-center justify-center text-gray-700"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <span className="sr-only">Toggle menu</span>
-            {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
+              ),
             )}
-          </button>
+          </nav>
+          <div className="header-actions">
+            <a className="btn btn-cran btn-sm" href={links.booking} {...ext}>
+              Talk With Brett<span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <button
+              ref={menuButton}
+              className="menu-btn"
+              type="button"
+              data-nav-toggle
+              aria-expanded={open}
+              aria-controls={menuId}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className="menu-lines" aria-hidden="true" />
+              <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
+            </button>
+          </div>
         </div>
-      </nav>
-
-      {/* Scroll progress bar — anchored under the nav row (top-20) so it stays
-          put when the mobile menu expands the header */}
-      <motion.div
-        style={{ scaleX: progress }}
-        className="absolute top-20 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-cranberry via-gold to-cranberry"
-      />
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-gray-100"
-          >
-            <div className="px-4 py-4 space-y-1">
-              {navigation.map((item) => (
-                item.hasDropdown && item.dropdownType ? (
-                  <div key={item.name}>
-                    <button
-                      onClick={() => setMobileOpenDropdown(mobileOpenDropdown === item.dropdownType ? null : item.dropdownType!)}
-                      className="flex items-center justify-between w-full py-3 min-h-[48px] text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
-                    >
-                      {item.name}
-                      <ChevronDown className={`w-5 h-5 transition-transform ${mobileOpenDropdown === item.dropdownType ? 'rotate-180' : ''}`} />
-                    </button>
-                    <AnimatePresence>
-                      {mobileOpenDropdown === item.dropdownType && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: "auto" }}
-                          exit={{ opacity: 0, height: 0 }}
-                          className="pl-4 space-y-1"
-                        >
-                          {getDropdownItems(item.dropdownType).map((subItem) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block py-3 min-h-[44px] text-sm text-gray-600 hover:text-cranberry transition-colors"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {subItem.name}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block py-3 min-h-[48px] text-base font-medium text-gray-700 hover:text-cranberry transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
+        <nav className="mobile-nav" id={menuId} aria-label="Main mobile" hidden={!open}>
+          {navigation.map((item) =>
+            item.children ? (
+              <div key={item.name} style={{ display: "contents" }}>
+                <p className="m-group">{item.name}</p>
+                {item.children.map((c) => (
+                  <Link key={c.href} className="m-sub" href={c.href} aria-current={pathname === c.href ? "page" : undefined} onClick={close}>
+                    {c.name}
                   </Link>
-                )
-              ))}
-              <div className="pt-4">
-                <Button href={links.booking} external className="w-full">
-                  Talk With Brett
-                </Button>
+                ))}
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+            ) : (
+              <Link key={item.name} href={item.href} aria-current={current(item.href)} onClick={close}>
+                {item.name}
+              </Link>
+            ),
+          )}
+          <a className="btn btn-cran m-cta" href={links.booking} {...ext} onClick={close}>
+            Talk With Brett<span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        </nav>
+      </header>
+    </div>
   );
 }

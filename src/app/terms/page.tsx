@@ -11,7 +11,7 @@ export default function TermsOfServicePage() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-20">
+      <main id="main" className="flex-1 pt-20">
         <div className="bg-gradient-to-b from-gray-50 to-white py-16">
           <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl font-bold text-black mb-4">Terms of Service</h1>

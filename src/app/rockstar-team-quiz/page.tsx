@@ -22,7 +22,7 @@ export default function RockstarTeamQuizPage() {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main id="main" className="pt-20">
         {/* Intro band */}
         <section className="bg-black text-white py-14 md:py-20">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

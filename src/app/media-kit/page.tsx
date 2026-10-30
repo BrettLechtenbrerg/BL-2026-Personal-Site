@@ -148,7 +148,7 @@ export default function MediaKitPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-20">
+      <main id="main" className="flex-1 pt-20">
         {/* Hero */}
         <section className="relative py-16 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Background Image */}

@@ -12,7 +12,7 @@ export default function ThankYouPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-20">
+      <main id="main" className="flex-1 pt-20">
         {/* Hero */}
         <section className="relative min-h-[70vh] flex items-center py-24 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Hero background image */}

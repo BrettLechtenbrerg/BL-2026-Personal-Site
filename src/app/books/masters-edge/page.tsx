@@ -96,7 +96,7 @@ export default function MastersEdgeBookPage() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-20">
+      <main id="main" className="flex-1 pt-20">
         {/* Hero - Dark */}
         <section className="relative py-24 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">

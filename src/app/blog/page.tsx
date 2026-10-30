@@ -36,7 +36,7 @@ export default function BlogIndexPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white">
+      <main id="main" className="min-h-screen bg-white">
         {/* Hero */}
         <section className="relative bg-gradient-to-br from-black via-cranberry-dark to-cranberry text-white overflow-hidden">
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--gold),_transparent_60%)]" />

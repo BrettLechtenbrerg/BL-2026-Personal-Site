@@ -64,7 +64,7 @@ export default function MastersEdgePage() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-20">
+      <main id="main" className="flex-1 pt-20">
         {/* Hero - Dark with animated orbs */}
         <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
           {/* Hero background image */}

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import "@/styles/horizon.css";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 // Google Analytics 4 Measurement ID for brettlechtenberg.com
@@ -9,6 +10,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 // Website" (540646703), data flowing. Do not change without confirming
 // GA4 -> Admin -> Data streams matches this ID.
 const GA_MEASUREMENT_ID = "G-E1WQV8Q2DK";
+
+// Horizon design (30 Oct 2026): runs before first paint. `js` + `motion-ok` on <html> switch on the home page's reveal
+// styles (never with reduced motion). If the home motion code never starts (script blocked), the flag is removed so
+// nothing stays hidden.
+const motionFlag = `(function(){var d=document.documentElement;d.classList.add('js');if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion-ok');setTimeout(function(){if(!window.__blMotion&&document.querySelector('.bl-h-home'))d.classList.remove('motion-ok')},4000)})();`;
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -140,8 +146,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${montserrat.variable} ${inter.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: motionFlag }} />
         {/* Google Analytics 4 (gtag.js) — loaded in <head> per Google guidance */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
