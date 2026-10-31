@@ -72,9 +72,9 @@ initials badges (now real photos). AI Advisory top = `public/horizon/ai-advisory
 - **Fonts are stored with the site** (`src/fonts/`, `next/font/local` in `src/app/layout.tsx`): builds no longer
   download from Google Fonts, which failed two Vercel builds. Never switch back to `next/font/google`.
 - Readability scan of all converted pages: `/tmp/g1/contrast.cjs` (recreate if gone) – all pass.
-- Open question for Brett: `/masters-edge-program`, `/masters-edge-program/apply`, `/privacy`, `/terms` set their
-  canonical address to the HOME page (tells search engines they are copies of it). Brett said "do what you need to";
-  fixed in Group 4 if not before.
+- **SEO fix:** `/masters-edge-program`, `/apply`, `/thank-you`, `/privacy`, `/terms` were inheriting the home page's
+  canonical (root layout default). Each page now sets `alternates.canonical` to itself; thank-you (noindex) is out
+  of the sitemap. **Every new page must set its own canonical.**
 **Next:** Group 4 (Book Brett, Contact, Apply, Thank-you, Rockstar Quiz, Privacy, Terms: look only).
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
