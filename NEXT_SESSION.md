@@ -37,6 +37,19 @@ Good Things Utah video loads from YouTube only on Play (Brett OK'd). "How Brett 
 `node ~/dev/pts-style-mockups/_tools/horizon-check.cjs https://www.brettlechtenberg.com/` (empty band ≤ 220px).
 Not done (Brett's call): restyling the inner pages' own content in Horizon.
 
+**Oct 30, 2026, Session 37 (later): HORIZON INNER PAGES, GROUP 1 LIVE (About, Coaching, The Master's Edge).**
+Brett chose **Option A**: dark Horizon tops and feature bands, warm off-white (`--paper`) for reading sections; gold never as
+text on light. Shared kit: `src/components/horizon/kit.tsx` (HorizonPage, PageHero, FinalCta, Btn) + the inner-page block
+in `src/styles/horizon.css` (`.bl-h-page`, `.sec-paper` / `.sec-night`, cards, quotes, honors). `HorizonMotion` now runs on
+any page with `.bl-h-motion` (home + inner). The header stays transparent over photo tops only on paths listed in
+`src/components/horizon/pages.ts`: **add each page there when it is converted.** About: top photo = Brett receiving his
+8th Dan certificate from Grand Master Na (`public/horizon/about-8th-dan-certificate.jpg`, Brett's pick; the karate kid
+"has nothing to do with me"); The Journey = travelling golden line (`src/app/about/Journey.tsx`); "Also" = five honor cards.
+Words checked word-for-word against the live pages (only change: About's five typed "•" became drawn dots).
+**Restore point:** tag `pre-horizon-inner-2026-10-30`. **Next:** Group 2 (Speaking, AI Advisory, 12-Week Program,
+Testimonials), then 3 (Books, Master's Edge book, Media Kit, Blog), then 4 (Book Brett, Contact, Apply, Thank-you, Quiz,
+Privacy, Terms: look only, forms and quiz logic untouched). Each group: preview + Brett's OK before main.
+
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
 (filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
 Paste the block below into a fresh session.
