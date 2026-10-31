@@ -1,6 +1,11 @@
+// ROCKSTAR TEAM QUIZ, "Horizon" page top (Group 4, 31 Oct 2026). Words unchanged (tag pre-horizon-inner-2026-10-30).
+// The quiz itself (src/components/RockstarTeamQuiz.tsx: questions, scoring, results, lead form, /api/team-lead) is untouched.
+// Top photo: Brett with the America First Credit Union team (speaking-gallery), lightly smoothed so it loads fast on phones.
 import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { HorizonPage, PageHero } from "@/components/horizon/kit";
 import RockstarTeamQuiz from "@/components/RockstarTeamQuiz";
 
 export const metadata: Metadata = {
@@ -22,29 +27,22 @@ export default function RockstarTeamQuizPage() {
   return (
     <>
       <Header />
-      <main id="main" className="pt-20">
-        {/* Intro band */}
-        <section className="bg-black text-white py-14 md:py-20">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="inline-block rounded-full bg-cranberry px-4 py-1 text-xs font-bold uppercase tracking-wider text-white">
-              Free 2-Minute Diagnostic
-            </span>
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold">
-              Build a <span className="text-gold">Rockstar Team</span>, Not a
-              Revolving Door
-            </h1>
-            <p className="mt-4 text-lg text-white/80">
-              After 30 years of building teams through the toughest economies,
-              Brett distilled team-building into 15 strategies. This quiz finds
-              the ONE gap costing you the most, then hands you the full book
-              that fixes it, free.
-            </p>
-          </div>
-        </section>
-
-        <RockstarTeamQuiz />
+      <main id="main">
+        <HorizonPage>
+          <PageHero
+            id="quiz-title"
+            eyebrow="Free 2-Minute Diagnostic"
+            lines={[<>Build a <em>Rockstar Team</em>, Not a</>, "Revolving Door"]}
+            lede="After 30 years of building teams through the toughest economies, Brett distilled team-building into 15 strategies. This quiz finds the ONE gap costing you the most, then hands you the full book that fixes it, free."
+            photo={{ src: "/horizon/quiz-team-soft.jpg", alt: "", w: 1600, h: 993, pos: "50% 20%", beside: true }}
+          />
+        </HorizonPage>
+        <div className="quiz-host">
+          <RockstarTeamQuiz />
+        </div>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }

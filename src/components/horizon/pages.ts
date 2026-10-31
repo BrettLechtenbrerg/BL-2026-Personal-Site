@@ -3,6 +3,8 @@
 const HORIZON_HERO_PATHS: ReadonlySet<string> = new Set([
   "/", "/about", "/coaching", "/masters-edge", "/speaking", "/ai-advisory", "/testimonials", "/masters-edge-program",
   "/books", "/books/masters-edge", "/media-kit", "/blog",
+  "/book-brett", "/contact", "/masters-edge-program/apply", "/masters-edge-program/thank-you", "/rockstar-team-quiz",
+  "/privacy", "/terms",
 ]);
 
 export function isHorizonHeroPath(pathname: string): boolean {

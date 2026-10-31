@@ -1,12 +1,14 @@
 "use client";
 
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { motion } from "framer-motion";
-import { Loader2, CheckCircle, Sparkles } from "lucide-react";
-import Image from "next/image";
+// APPLY (The Master's Edge Program), "Horizon" design (Group 4, 31 Oct 2026). Words unchanged (tag pre-horizon-inner-2026-10-30).
+// The application is unchanged in behaviour: same fields, names, required marks, options, webhook, tags and redirect.
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { CheckCircle, Loader2, Sparkles } from "lucide-react";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { HorizonPage, PageHero } from "@/components/horizon/kit";
 
 // Revenue range options
 const revenueRanges = [
@@ -139,328 +141,134 @@ export default function ApplyPage() {
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        {/* Hero */}
-        <section className="relative py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          {/* Hero background image */}
-          <Image
-            src="/heroes/masters-edge.jpg"
-            alt="Mountain peak at sunrise"
-            fill
-            className="object-cover opacity-40"
-            priority
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="apply-title"
+            eyebrow={<><Sparkles className="eyebrow-ico" aria-hidden="true" />Founding Cohort Application</>}
+            lines={["Apply to", <em key="p">The Master&apos;s Edge Program</em>]}
+            lede="Tell us about yourself and your goals. Brett personally reviews every application."
+            photo={{ src: "/heroes/masters-edge.jpg", alt: "Mountain peak at sunrise", w: 1920, h: 1280, pos: "60% 40%" }}
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80" />
 
-          {/* Animated orbs */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-[400px] h-[400px] bg-cranberry/30 rounded-full blur-[100px]"
-            />
-            <motion.div
-              animate={{ scale: [1.1, 1, 1.1], opacity: [0.15, 0.25, 0.15] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gold/20 rounded-full blur-[80px]"
-            />
-          </div>
-
-          <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 rounded-full px-5 py-2 mb-6"
-            >
-              <Sparkles className="w-4 h-4 text-gold" />
-              <span className="text-gold font-semibold text-sm">Founding Cohort Application</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
-            >
-              Apply to{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                The Master&apos;s Edge Program
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto"
-            >
-              Tell us about yourself and your goals. Brett personally reviews every application.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* Application Form */}
-        <section className="py-16 bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden">
-          {/* Background orbs */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 -left-20 w-[400px] h-[400px] bg-cranberry/20 rounded-full blur-[120px]" />
-            <div className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-gold/15 rounded-full blur-[120px]" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cranberry/10 rounded-full blur-[150px]" />
-          </div>
-
-          {/* Subtle grid pattern */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-
-          <div className="relative mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              onSubmit={handleSubmit}
-              className="bg-white rounded-2xl shadow-2xl border border-white/20 p-8 sm:p-10 relative"
-            >
-              <div className="space-y-6">
-                {/* Full Name */}
-                <div>
-                  <label htmlFor="fullName" className="block text-sm font-semibold text-black mb-2">
-                    Full Name <span className="text-cranberry">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black"
-                    placeholder="John Smith"
-                  />
-                </div>
-
-                {/* Email & Phone */}
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-black mb-2">
-                      Email <span className="text-cranberry">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black"
-                      placeholder="john@company.com"
-                    />
+          <section className="sec sec-paper" aria-label="Application form">
+            <div className="rail">
+              <form onSubmit={handleSubmit} className="paper-card form-card is-calm apply-form" data-rise>
+                <div className="form-stack">
+                  {/* Full Name */}
+                  <div className="fld">
+                    <label htmlFor="fullName">Full Name <span className="req">*</span></label>
+                    <input className="inp" type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleChange} required autoComplete="name" placeholder="John Smith" />
                   </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-black mb-2">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black"
-                      placeholder="(555) 123-4567"
-                    />
+
+                  {/* Email & Phone */}
+                  <div className="form-grid cols-2">
+                    <div className="fld">
+                      <label htmlFor="email">Email <span className="req">*</span></label>
+                      <input className="inp" type="email" id="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" placeholder="john@company.com" />
+                    </div>
+                    <div className="fld">
+                      <label htmlFor="phone">Phone</label>
+                      <input className="inp" type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} autoComplete="tel" placeholder="(555) 123-4567" />
+                    </div>
                   </div>
-                </div>
 
-                {/* Company & Role */}
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-semibold text-black mb-2">
-                      Company / Business Name <span className="text-cranberry">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black"
-                      placeholder="Acme Inc."
-                    />
+                  {/* Company & Role */}
+                  <div className="form-grid cols-2">
+                    <div className="fld">
+                      <label htmlFor="company">Company / Business Name <span className="req">*</span></label>
+                      <input className="inp" type="text" id="company" name="company" value={formData.company} onChange={handleChange} required autoComplete="organization" placeholder="Acme Inc." />
+                    </div>
+                    <div className="fld">
+                      <label htmlFor="role">Your Role / Title <span className="req">*</span></label>
+                      <input className="inp" type="text" id="role" name="role" value={formData.role} onChange={handleChange} required autoComplete="organization-title" placeholder="CEO, Founder, Vice President of Sales, etc." />
+                    </div>
                   </div>
-                  <div>
-                    <label htmlFor="role" className="block text-sm font-semibold text-black mb-2">
-                      Your Role / Title <span className="text-cranberry">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="role"
-                      name="role"
-                      value={formData.role}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black"
-                      placeholder="CEO, Founder, Vice President of Sales, etc."
-                    />
+
+                  {/* Revenue Range */}
+                  <div className="fld">
+                    <label htmlFor="revenueRange">Annual Revenue Range <span className="req">*</span></label>
+                    <select className="inp" id="revenueRange" name="revenueRange" value={formData.revenueRange} onChange={handleChange} required>
+                      <option value="">Select a range</option>
+                      {revenueRanges.map((range) => (
+                        <option key={range} value={range}>{range}</option>
+                      ))}
+                    </select>
                   </div>
-                </div>
 
-                {/* Revenue Range */}
-                <div>
-                  <label htmlFor="revenueRange" className="block text-sm font-semibold text-black mb-2">
-                    Annual Revenue Range <span className="text-cranberry">*</span>
-                  </label>
-                  <select
-                    id="revenueRange"
-                    name="revenueRange"
-                    value={formData.revenueRange}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black bg-white"
-                  >
-                    <option value="">Select a range</option>
-                    {revenueRanges.map((range) => (
-                      <option key={range} value={range}>{range}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Referral Source */}
-                <div>
-                  <label htmlFor="referralSource" className="block text-sm font-semibold text-black mb-2">
-                    How did you hear about The Master&apos;s Edge? <span className="text-cranberry">*</span>
-                  </label>
-                  <select
-                    id="referralSource"
-                    name="referralSource"
-                    value={formData.referralSource}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black bg-white"
-                  >
-                    <option value="">Select an option</option>
-                    {referralSources.map((source) => (
-                      <option key={source} value={source}>{source}</option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Main Challenge */}
-                <div>
-                  <label htmlFor="challenge" className="block text-sm font-semibold text-black mb-2">
-                    What&apos;s the #1 challenge you&apos;re facing right now? <span className="text-cranberry">*</span>
-                  </label>
-                  <textarea
-                    id="challenge"
-                    name="challenge"
-                    value={formData.challenge}
-                    onChange={handleChange}
-                    required
-                    rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black resize-none"
-                    placeholder="Be specific. The more detail, the better Brett can assess fit."
-                  />
-                </div>
-
-                {/* Success Outcome */}
-                <div>
-                  <label htmlFor="successOutcome" className="block text-sm font-semibold text-black mb-2">
-                    What would a successful outcome look like after 12 weeks? <span className="text-cranberry">*</span>
-                  </label>
-                  <textarea
-                    id="successOutcome"
-                    name="successOutcome"
-                    value={formData.successOutcome}
-                    onChange={handleChange}
-                    required
-                    rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black resize-none"
-                    placeholder="Describe your ideal transformation."
-                  />
-                </div>
-
-                {/* Investment Option */}
-                <div>
-                  <label className="block text-sm font-semibold text-black mb-3">
-                    Which investment option are you considering? <span className="text-cranberry">*</span>
-                  </label>
-                  <div className="space-y-3">
-                    {investmentOptions.map((option) => (
-                      <label
-                        key={option.value}
-                        className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition-all ${
-                          formData.investmentOption === option.value
-                            ? "border-cranberry bg-cranberry/5"
-                            : "border-gray-200 hover:border-gray-300"
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="investmentOption"
-                          value={option.value}
-                          checked={formData.investmentOption === option.value}
-                          onChange={handleChange}
-                          required
-                          className="w-4 h-4 text-cranberry focus:ring-cranberry"
-                        />
-                        <span className="text-black">{option.label}</span>
-                      </label>
-                    ))}
+                  {/* Referral Source */}
+                  <div className="fld">
+                    <label htmlFor="referralSource">How did you hear about The Master&apos;s Edge? <span className="req">*</span></label>
+                    <select className="inp" id="referralSource" name="referralSource" value={formData.referralSource} onChange={handleChange} required>
+                      <option value="">Select an option</option>
+                      {referralSources.map((source) => (
+                        <option key={source} value={source}>{source}</option>
+                      ))}
+                    </select>
                   </div>
-                </div>
 
-                {/* Additional Info */}
-                <div>
-                  <label htmlFor="additionalInfo" className="block text-sm font-semibold text-black mb-2">
-                    Anything else Brett should know?
-                  </label>
-                  <textarea
-                    id="additionalInfo"
-                    name="additionalInfo"
-                    value={formData.additionalInfo}
-                    onChange={handleChange}
-                    rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cranberry focus:border-transparent outline-none transition-all text-black resize-none"
-                    placeholder="Optional"
-                  />
-                </div>
-
-                {/* Error Message */}
-                {error && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <p className="text-red-600 text-sm">{error}</p>
+                  {/* Main Challenge */}
+                  <div className="fld">
+                    <label htmlFor="challenge">What&apos;s the #1 challenge you&apos;re facing right now? <span className="req">*</span></label>
+                    <textarea className="inp" id="challenge" name="challenge" value={formData.challenge} onChange={handleChange} required rows={3} placeholder="Be specific. The more detail, the better Brett can assess fit." />
                   </div>
-                )}
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-cranberry to-cranberry-dark text-white py-4 rounded-lg font-semibold hover:from-cranberry-dark hover:to-black transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-cranberry/25"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      <CheckCircle className="w-5 h-5" />
-                      Submit Application
-                    </>
+                  {/* Success Outcome */}
+                  <div className="fld">
+                    <label htmlFor="successOutcome">What would a successful outcome look like after 12 weeks? <span className="req">*</span></label>
+                    <textarea className="inp" id="successOutcome" name="successOutcome" value={formData.successOutcome} onChange={handleChange} required rows={3} placeholder="Describe your ideal transformation." />
+                  </div>
+
+                  {/* Investment Option */}
+                  <fieldset className="fld">
+                    <legend className="fld-k">Which investment option are you considering? <span className="req">*</span></legend>
+                    <div className="opts">
+                      {investmentOptions.map((option) => (
+                        <label key={option.value} className="opt">
+                          <input type="radio" name="investmentOption" value={option.value} checked={formData.investmentOption === option.value} onChange={handleChange} required />
+                          <span>{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+
+                  {/* Additional Info */}
+                  <div className="fld">
+                    <label htmlFor="additionalInfo">Anything else Brett should know?</label>
+                    <textarea className="inp" id="additionalInfo" name="additionalInfo" value={formData.additionalInfo} onChange={handleChange} rows={3} placeholder="Optional" />
+                  </div>
+
+                  {/* Error Message */}
+                  {error && (
+                    <div className="form-error" role="alert">
+                      <p>{error}</p>
+                    </div>
                   )}
-                </button>
 
-                <p className="text-xs text-gray-500 text-center">
-                  Brett personally reviews every application. You&apos;ll hear back within 48 hours.
-                </p>
-              </div>
-            </motion.form>
-          </div>
-        </section>
+                  {/* Submit Button */}
+                  <button type="submit" disabled={isSubmitting} className="btn btn-cran btn-lg form-submit">
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="spin" aria-hidden="true" />
+                        Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <CheckCircle className="ico" aria-hidden="true" />
+                        Submit Application
+                      </>
+                    )}
+                  </button>
+
+                  <p className="form-note">Brett personally reviews every application. You&apos;ll hear back within 48 hours.</p>
+                </div>
+              </form>
+            </div>
+          </section>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }

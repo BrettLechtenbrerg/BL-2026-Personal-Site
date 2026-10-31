@@ -2,16 +2,28 @@
 
 // Interactive pieces of the Books page: the free-eBook button (opens the existing lead form) and the USA Today carousel.
 import { useEffect, useState, type ReactNode } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { EbookModal } from "@/components/ui/EbookModal";
+// The sign-up box is loaded only once someone presses the free-eBook button (it is ~70 KB of code that competed with
+// the page-top photo on slow phones; Brett OK'd the speed-up, 31 Oct 2026).
+const EbookModal = dynamic(() => import("@/components/ui/EbookModal").then((m) => m.EbookModal), { ssr: false });
 
 export function FreeBookButton({ className, children }: { className?: string; children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [wanted, setWanted] = useState(false);
   return (
     <>
-      <button type="button" className={className} onClick={() => setOpen(true)}>{children}</button>
-      <EbookModal isOpen={open} onClose={() => setOpen(false)} />
+      <button
+        type="button"
+        className={className}
+        onClick={() => { setWanted(true); setOpen(true); }}
+        onPointerEnter={() => setWanted(true)}
+        onFocus={() => setWanted(true)}
+      >
+        {children}
+      </button>
+      {wanted && <EbookModal isOpen={open} onClose={() => setOpen(false)} />}
     </>
   );
 }

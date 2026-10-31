@@ -20,7 +20,7 @@ export function HorizonPage({ children }: { children: ReactNode }) {
 // pre: lines between the headline and the lede (e.g. a book subtitle). aside: a figure beside the copy on wide screens
 // (e.g. a book cover). small: a smaller headline for long titles (blog posts).
 export function PageHero({ id, eyebrow, lines, pre, lede, photo, side = "left", wide, small, aside, children }: {
-  id: string; eyebrow: ReactNode; lines: ReactNode[]; pre?: ReactNode; lede?: ReactNode; photo: Photo; side?: "left" | "right";
+  id: string; eyebrow?: ReactNode; lines: ReactNode[]; pre?: ReactNode; lede?: ReactNode; photo: Photo; side?: "left" | "right";
   wide?: boolean; small?: boolean; aside?: ReactNode; children?: ReactNode;
 }) {
   return (
@@ -34,7 +34,7 @@ export function PageHero({ id, eyebrow, lines, pre, lede, photo, side = "left", 
         </div>
         <div className="rail ph-inner">
           <div className="ph-copy" data-hero-content>
-            <div className="eyebrow" data-hero-fade>{eyebrow}</div>
+            {eyebrow && <div className="eyebrow" data-hero-fade>{eyebrow}</div>}
             <div className="horizon" data-horizon aria-hidden="true" />
             <h1 id={id} className="display">
               {lines.map((l, i) => (

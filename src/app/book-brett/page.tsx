@@ -1,11 +1,14 @@
 "use client";
 
+// BOOK BRETT, "Horizon" design (Group 4, 31 Oct 2026). Words unchanged (tag pre-horizon-inner-2026-10-30).
+// The form is unchanged in behaviour: same fields, names, required marks, options and webhook. Only the look changed
+// (and each label is now tied to its field, so tapping a label focuses the field and screen readers read it).
 import { useState } from "react";
+import { Calendar, CheckCircle, Clock, Mic2, Play, Send, Sparkles, Users } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { motion } from "framer-motion";
-import { Mic2, Calendar, Users, CheckCircle, Clock, Sparkles, Send, Play } from "lucide-react";
-import Image from "next/image";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { HorizonPage, PageHero } from "@/components/horizon/kit";
 import { LiveClip } from "@/components/ui/LiveClip";
 
 const eventTypes = [
@@ -122,387 +125,181 @@ export default function BookBrettPage() {
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        {/* Hero */}
-        <section className="relative py-16 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          <Image
-            src="/heroes/speaking.jpg"
-            alt="Brett speaking on stage"
-            fill
-            className="object-cover opacity-40"
-            priority
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="book-title"
+            eyebrow={<><Mic2 className="eyebrow-ico" aria-hidden="true" />Book Brett</>}
+            lines={[<>Bring <em>The Master&apos;s Edge</em></>, "to Your Event"]}
+            lede="Keynote, workshop, or full-day training, your audience leaves with real tools they can use on Monday, not a pep talk that fades by Friday."
+            photo={{ src: "/heroes/speaking.jpg", alt: "Brett speaking on stage", w: 1920, h: 1280, pos: "40% 45%" }}
+            side="right"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-[500px] h-[500px] bg-cranberry/40 rounded-full blur-[120px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/30 rounded-full blur-[100px]"
-            />
-          </div>
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/30 rounded-full px-5 py-2 mb-6"
-            >
-              <Mic2 className="w-4 h-4 text-gold" />
-              <span className="text-cranberry-light font-semibold text-sm">Book Brett</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
-            >
-              Bring{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                The Master&apos;s Edge
-              </span>{" "}
-              to Your Event
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
-            >
-              Keynote, workshop, or full-day training, your audience leaves with
-              real tools they can use on Monday, not a pep talk that fades by Friday.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* Main Content */}
-        <section className="py-20 bg-gradient-to-b from-white via-cranberry/5 to-gold/5">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-
+          <section className="sec sec-paper" aria-label="Booking request">
+            <div className="rail book-layout">
               {/* Form */}
-              <div className="lg:col-span-3">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 lg:p-10"
-                >
-                  {isSubmitted ? (
-                    <div className="text-center py-12">
-                      <div className="w-20 h-20 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-full flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle className="w-10 h-10 text-white" />
+              <div className="paper-card form-card is-calm" data-rise>
+                {isSubmitted ? (
+                  <div className="form-done" role="status">
+                    <span className="done-ico" aria-hidden="true"><CheckCircle /></span>
+                    <h2>Request Received</h2>
+                    <p>
+                      Thank you for your interest in having Brett speak at your event.
+                      You&apos;ll receive a response within 48 hours.
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    <h2>Tell Us About Your Event</h2>
+                    <p className="form-intro">Fill out the form below and we&apos;ll get back to you within 48 hours.</p>
+
+                    <form onSubmit={handleSubmit} className="form-stack">
+                      {/* Contact Info */}
+                      <div className="form-grid cols-2">
+                        <div className="fld">
+                          <label htmlFor="bb-name">Your Name <span className="req">*</span></label>
+                          <input id="bb-name" className="inp" type="text" name="name" required autoComplete="name" value={formData.name} onChange={handleChange} placeholder="John Smith" />
+                        </div>
+                        <div className="fld">
+                          <label htmlFor="bb-email">Email <span className="req">*</span></label>
+                          <input id="bb-email" className="inp" type="email" name="email" required autoComplete="email" value={formData.email} onChange={handleChange} placeholder="john@company.com" />
+                        </div>
                       </div>
-                      <h2 className="text-2xl font-bold text-black mb-4">Request Received</h2>
-                      <p className="text-warm-gray max-w-md mx-auto">
-                        Thank you for your interest in having Brett speak at your event.
-                        You&apos;ll receive a response within 48 hours.
-                      </p>
-                    </div>
-                  ) : (
-                    <>
-                      <h2 className="text-2xl font-bold text-black mb-2">Tell Us About Your Event</h2>
-                      <p className="text-warm-gray mb-8">
-                        Fill out the form below and we&apos;ll get back to you within 48 hours.
-                      </p>
 
-                      <form onSubmit={handleSubmit} className="space-y-6">
-                        {/* Contact Info */}
-                        <div className="grid md:grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              Your Name <span className="text-cranberry">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              name="name"
-                              required
-                              value={formData.name}
-                              onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                              placeholder="John Smith"
-                            />
+                      <div className="form-grid cols-2">
+                        <div className="fld">
+                          <label htmlFor="bb-phone">Phone Number</label>
+                          <input id="bb-phone" className="inp" type="tel" name="phone" autoComplete="tel" value={formData.phone} onChange={handleChange} placeholder="(555) 123-4567" />
+                        </div>
+                        <div className="fld">
+                          <label htmlFor="bb-org">Organization <span className="req">*</span></label>
+                          <input id="bb-org" className="inp" type="text" name="organization" required autoComplete="organization" value={formData.organization} onChange={handleChange} placeholder="Company or Organization" />
+                        </div>
+                      </div>
+
+                      <div className="fld">
+                        <label htmlFor="bb-role">Your Role</label>
+                        <input id="bb-role" className="inp" type="text" name="role" autoComplete="organization-title" value={formData.role} onChange={handleChange} placeholder="Event Planner, People Director, etc." />
+                      </div>
+
+                      {/* Event Details */}
+                      <div className="form-part">
+                        <h3>Event Details</h3>
+
+                        <div className="form-grid cols-2">
+                          <div className="fld">
+                            <label htmlFor="bb-type">Event Type <span className="req">*</span></label>
+                            <select id="bb-type" className="inp" name="eventType" required value={formData.eventType} onChange={handleChange}>
+                              <option value="">Select event type</option>
+                              {eventTypes.map(type => (
+                                <option key={type} value={type}>{type}</option>
+                              ))}
+                            </select>
                           </div>
-                          <div>
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              Email <span className="text-cranberry">*</span>
-                            </label>
-                            <input
-                              type="email"
-                              name="email"
-                              required
-                              value={formData.email}
-                              onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                              placeholder="john@company.com"
-                            />
+                          <div className="fld">
+                            <label htmlFor="bb-date">Tentative Date <span className="req">*</span></label>
+                            <input id="bb-date" className="inp" type="date" name="eventDate" required value={formData.eventDate} onChange={handleChange} />
                           </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              Phone Number
-                            </label>
-                            <input
-                              type="tel"
-                              name="phone"
-                              value={formData.phone}
-                              onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                              placeholder="(555) 123-4567"
-                            />
+                        <div className="form-grid cols-2">
+                          <div className="fld">
+                            <label htmlFor="bb-location">Location</label>
+                            <input id="bb-location" className="inp" type="text" name="location" value={formData.location} onChange={handleChange} placeholder="City, State or Virtual" />
                           </div>
-                          <div>
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              Organization <span className="text-cranberry">*</span>
-                            </label>
-                            <input
-                              type="text"
-                              name="organization"
-                              required
-                              value={formData.organization}
-                              onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                              placeholder="Company or Organization"
-                            />
+                          <div className="fld">
+                            <label htmlFor="bb-size">Expected Audience Size</label>
+                            <select id="bb-size" className="inp" name="audienceSize" value={formData.audienceSize} onChange={handleChange}>
+                              <option value="">Select size</option>
+                              {audienceSizes.map(size => (
+                                <option key={size} value={size}>{size.replace("-", " to ")}</option>
+                              ))}
+                            </select>
                           </div>
                         </div>
 
-                        <div>
-                          <label className="block text-sm font-semibold text-black mb-2">
-                            Your Role
-                          </label>
-                          <input
-                            type="text"
-                            name="role"
-                            value={formData.role}
-                            onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                            placeholder="Event Planner, People Director, etc."
-                          />
+                        <div className="fld">
+                          <label htmlFor="bb-audience">Describe Your Audience</label>
+                          <input id="bb-audience" className="inp" type="text" name="audienceDescription" value={formData.audienceDescription} onChange={handleChange} placeholder="e.g., Sales managers, small business owners, executives..." />
                         </div>
 
-                        {/* Event Details */}
-                        <div className="border-t border-gray-100 pt-6 mt-6">
-                          <h3 className="text-lg font-bold text-black mb-4">Event Details</h3>
+                        <div className="fld">
+                          <label htmlFor="bb-goals">What Do You Want Your Audience to Walk Away With?</label>
+                          <textarea id="bb-goals" className="inp" name="goals" value={formData.goals} onChange={handleChange} rows={3} placeholder="What transformation or outcome are you hoping for?" />
+                        </div>
+                      </div>
 
-                          <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                              <label className="block text-sm font-semibold text-black mb-2">
-                                Event Type <span className="text-cranberry">*</span>
-                              </label>
-                              <select
-                                name="eventType"
-                                required
-                                value={formData.eventType}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all bg-white"
-                              >
-                                <option value="">Select event type</option>
-                                {eventTypes.map(type => (
-                                  <option key={type} value={type}>{type}</option>
-                                ))}
-                              </select>
-                            </div>
-                            <div>
-                              <label className="block text-sm font-semibold text-black mb-2">
-                                Tentative Date <span className="text-cranberry">*</span>
-                              </label>
-                              <input
-                                type="date"
-                                name="eventDate"
-                                required
-                                value={formData.eventDate}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                              />
-                            </div>
+                      {/* Additional Info */}
+                      <div className="form-part">
+                        <div className="form-grid cols-2">
+                          <div className="fld">
+                            <label htmlFor="bb-budget">Budget Range</label>
+                            <select id="bb-budget" className="inp" name="budget" value={formData.budget} onChange={handleChange}>
+                              <option value="">Select range</option>
+                              <option value="Under $5,000">Under $5,000</option>
+                              <option value="$5,000 - $10,000">$5,000 to $10,000</option>
+                              <option value="$10,000 - $15,000">$10,000 to $15,000</option>
+                              <option value="$15,000 - $25,000">$15,000 to $25,000</option>
+                              <option value="$25,000+">$25,000+</option>
+                              <option value="Not sure yet">Not sure yet</option>
+                            </select>
                           </div>
-
-                          <div className="grid md:grid-cols-2 gap-6 mt-6">
-                            <div>
-                              <label className="block text-sm font-semibold text-black mb-2">
-                                Location
-                              </label>
-                              <input
-                                type="text"
-                                name="location"
-                                value={formData.location}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                                placeholder="City, State or Virtual"
-                              />
-                            </div>
-                            <div>
-                              <label className="block text-sm font-semibold text-black mb-2">
-                                Expected Audience Size
-                              </label>
-                              <select
-                                name="audienceSize"
-                                value={formData.audienceSize}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all bg-white"
-                              >
-                                <option value="">Select size</option>
-                                {audienceSizes.map(size => (
-                                  <option key={size} value={size}>{size.replace("-", " to ")}</option>
-                                ))}
-                              </select>
-                            </div>
-                          </div>
-
-                          <div className="mt-6">
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              Describe Your Audience
-                            </label>
-                            <input
-                              type="text"
-                              name="audienceDescription"
-                              value={formData.audienceDescription}
-                              onChange={handleChange}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                              placeholder="e.g., Sales managers, small business owners, executives..."
-                            />
-                          </div>
-
-                          <div className="mt-6">
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              What Do You Want Your Audience to Walk Away With?
-                            </label>
-                            <textarea
-                              name="goals"
-                              value={formData.goals}
-                              onChange={handleChange}
-                              rows={3}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all resize-none"
-                              placeholder="What transformation or outcome are you hoping for?"
-                            />
+                          <div className="fld">
+                            <label htmlFor="bb-heard">How Did You Hear About Brett?</label>
+                            <input id="bb-heard" className="inp" type="text" name="howHeard" value={formData.howHeard} onChange={handleChange} placeholder="Referral, Google, social media, etc." />
                           </div>
                         </div>
 
-                        {/* Additional Info */}
-                        <div className="border-t border-gray-100 pt-6 mt-6">
-                          <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                              <label className="block text-sm font-semibold text-black mb-2">
-                                Budget Range
-                              </label>
-                              <select
-                                name="budget"
-                                value={formData.budget}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all bg-white"
-                              >
-                                <option value="">Select range</option>
-                                <option value="Under $5,000">Under $5,000</option>
-                                <option value="$5,000 - $10,000">$5,000 to $10,000</option>
-                                <option value="$10,000 - $15,000">$10,000 to $15,000</option>
-                                <option value="$15,000 - $25,000">$15,000 to $25,000</option>
-                                <option value="$25,000+">$25,000+</option>
-                                <option value="Not sure yet">Not sure yet</option>
-                              </select>
-                            </div>
-                            <div>
-                              <label className="block text-sm font-semibold text-black mb-2">
-                                How Did You Hear About Brett?
-                              </label>
-                              <input
-                                type="text"
-                                name="howHeard"
-                                value={formData.howHeard}
-                                onChange={handleChange}
-                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all"
-                                placeholder="Referral, Google, social media, etc."
-                              />
-                            </div>
-                          </div>
-
-                          <div className="mt-6">
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              Anything Else We Should Know?
-                            </label>
-                            <textarea
-                              name="message"
-                              value={formData.message}
-                              onChange={handleChange}
-                              rows={4}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-cranberry focus:ring-2 focus:ring-cranberry/20 outline-none transition-all resize-none"
-                              placeholder="Any additional context, questions, or special requirements..."
-                            />
-                          </div>
+                        <div className="fld">
+                          <label htmlFor="bb-message">Anything Else We Should Know?</label>
+                          <textarea id="bb-message" className="inp" name="message" value={formData.message} onChange={handleChange} rows={4} placeholder="Any additional context, questions, or special requirements..." />
                         </div>
+                      </div>
 
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full bg-gradient-to-r from-cranberry to-cranberry-dark text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl hover:shadow-cranberry/30 transition-all hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none flex items-center justify-center gap-2"
-                        >
-                          {isSubmitting ? (
-                            <>
-                              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                              Submitting...
-                            </>
-                          ) : (
-                            <>
-                              Submit Request
-                              <Send className="w-5 h-5" />
-                            </>
-                          )}
-                        </button>
-                      </form>
-                    </>
-                  )}
-                </motion.div>
+                      <button type="submit" disabled={isSubmitting} className="btn btn-cran btn-lg form-submit">
+                        {isSubmitting ? (
+                          <>
+                            <span className="spin-ring" aria-hidden="true" />
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Submit Request
+                            <Send className="ico" aria-hidden="true" />
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
 
               {/* Sidebar */}
-              <div className="lg:col-span-2 space-y-8">
+              <div className="side" data-stagger>
                 {/* What to Expect */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl p-8 text-white"
-                >
-                  <h3 className="text-xl font-bold mb-6">What to Expect</h3>
-                  <div className="space-y-5">
-                    {expectations.map((item, index) => (
-                      <div key={item.title} className="flex gap-4">
-                        <div className="w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl flex items-center justify-center flex-shrink-0">
-                          <item.icon className="w-5 h-5 text-white" />
-                        </div>
+                <div className="dark-card">
+                  <h3>What to Expect</h3>
+                  <ul className="expect">
+                    {expectations.map((item) => (
+                      <li key={item.title}>
+                        <span className="ico-badge" aria-hidden="true"><item.icon /></span>
                         <div>
-                          <h4 className="font-semibold mb-1">{item.title}</h4>
-                          <p className="text-gray-400 text-sm">{item.description}</p>
+                          <h4>{item.title}</h4>
+                          <p>{item.description}</p>
                         </div>
-                      </div>
+                      </li>
                     ))}
-                  </div>
-                </motion.div>
+                  </ul>
+                </div>
 
-                {/* See Brett in Action — 2026 sizzle reel */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.05 }}
-                  className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl p-8 text-white"
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    <Play className="w-4 h-4 text-gold" />
-                    <h3 className="text-xl font-bold">See Brett in Action</h3>
+                {/* See Brett in Action: 2026 sizzle reel */}
+                <div className="dark-card">
+                  <div className="dc-head">
+                    <Play aria-hidden="true" />
+                    <h3 className="dc-title">See Brett in Action</h3>
                   </div>
-                  <p className="text-gray-400 text-sm mb-6">
-                    The official 3:27 sizzle reel: keynotes, trainings, and
-                    live audiences.
-                  </p>
+                  <p className="dc-sub">The official 3:27 sizzle reel: keynotes, trainings, and live audiences.</p>
                   <LiveClip
                     src="/videos/sizzle-reel-2026.mp4"
                     poster="/videos/sizzle-reel-poster.jpg"
@@ -510,76 +307,48 @@ export default function BookBrettPage() {
                     aspect="wide"
                     caption="▶ Watch with sound"
                   />
-                </motion.div>
+                </div>
 
                 {/* Quick Stats */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8"
-                >
-                  <h3 className="text-lg font-bold text-black mb-6">Why Organizations Choose Brett</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span className="text-black font-black text-xl">30+</span>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-black">Years Experience</p>
-                        <p className="text-sm text-warm-gray">Real-world tested strategies</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Users className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-black">Customized Content</p>
-                        <p className="text-sm text-warm-gray">Every talk tailored to your audience</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-gold to-gold-dark rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span className="text-black font-black text-xl">8</span>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-black">Published Books</p>
-                        <p className="text-sm text-warm-gray">Proven thought leader</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                <div className="paper-card why-card">
+                  <h3>Why Organizations Choose Brett</h3>
+                  <ul className="why-list">
+                    <li>
+                      <span className="why-num">30+</span>
+                      <div><b>Years Experience</b><span>Real-world tested strategies</span></div>
+                    </li>
+                    <li>
+                      <span className="why-num is-cran" aria-hidden="true"><Users /></span>
+                      <div><b>Customized Content</b><span>Every talk tailored to your audience</span></div>
+                    </li>
+                    <li>
+                      <span className="why-num">8</span>
+                      <div><b>Published Books</b><span>Proven thought leader</span></div>
+                    </li>
+                  </ul>
+                </div>
 
                 {/* Testimonial */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="bg-gradient-to-br from-cranberry/10 via-white to-gold/10 rounded-2xl p-8 border border-gray-100"
-                >
-                  <p className="text-black italic mb-4">
+                <figure className="paper-card side-quote">
+                  <blockquote>
                     &ldquo;Brett is as good an instructor as I have been around. His training methods
                     and information are always cutting-edge.&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold text-sm">
-                      MG
-                    </div>
-                    <div>
-                      <p className="font-semibold text-black text-sm">Matt Gibbons</p>
-                      <p className="text-cranberry text-xs">Murray Area Chamber of Commerce</p>
-                    </div>
-                  </div>
-                </motion.div>
+                  </blockquote>
+                  <figcaption className="qcard-by">
+                    <span className="initials">MG</span>
+                    <span>
+                      <span className="q-name">Matt Gibbons</span>
+                      <span className="q-title">Murray Area Chamber of Commerce</span>
+                    </span>
+                  </figcaption>
+                </figure>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }

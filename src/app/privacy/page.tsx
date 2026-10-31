@@ -1,5 +1,8 @@
+// PRIVACY POLICY, "Horizon" page top (Group 4, 31 Oct 2026). The legal text is unchanged (tag pre-horizon-inner-2026-10-30).
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { HorizonPage, PageHero } from "@/components/horizon/kit";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,11 +17,19 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        <div className="bg-gradient-to-b from-gray-50 to-white py-16">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl font-bold text-black mb-4">Privacy Policy</h1>
-            <p className="text-gray-600 mb-8">Last Updated: April 4, 2026</p>
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="privacy-title"
+            small
+            lines={["Privacy Policy"]}
+            lede="Last Updated: April 4, 2026"
+            photo={{ src: "/horizon/limitless-horizon.jpg", alt: "", w: 3200, h: 2133, pos: "46% 35%" }}
+          />
+        </HorizonPage>
+        <div className="legal">
+          <div className="legal-sheet">
+            
 
             <div className="prose prose-lg max-w-none">
               <section className="mb-8">
@@ -169,6 +180,7 @@ export default function PrivacyPolicyPage() {
         </div>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }
