@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { links } from "@/lib/utils";
-import { HORIZON_HERO_PATHS } from "@/components/horizon/pages";
+import { isHorizonHeroPath } from "@/components/horizon/pages";
 
 type NavLink = { name: string; href: string };
 type NavItem = NavLink & { children?: NavLink[] };
@@ -90,7 +90,7 @@ function Dropdown({ item, pathname, onNavigate }: { item: NavItem; pathname: str
 export function Header() {
   const pathname = usePathname() ?? "/";
   // Pages whose Horizon photo top runs under the menu: transparent until scrolled.
-  const overHero = HORIZON_HERO_PATHS.has(pathname);
+  const overHero = isHorizonHeroPath(pathname);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuId = useId();

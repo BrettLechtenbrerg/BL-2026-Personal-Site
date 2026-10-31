@@ -27,7 +27,7 @@ export function HorizonMotion() {
       on(link, "click", (e) => {
         e.preventDefault();
         const f = document.createElement("iframe");
-        f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.yt}?autoplay=1&rel=0&playsinline=1`;
+        f.src = `https://www.youtube-nocookie.com/embed/${box.dataset.yt}?autoplay=1&rel=0&playsinline=1${box.dataset.ytStart ? `&start=${box.dataset.ytStart}` : ""}`;
         f.title = box.dataset.ytTitle || "Video";
         f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         f.allowFullscreen = true;

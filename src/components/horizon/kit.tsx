@@ -17,11 +17,14 @@ export function HorizonPage({ children }: { children: ReactNode }) {
 
 // Page top. `lines` = the headline, one entry per line; wrap accent words in <em>.
 // wide: a longer headline gets a wider copy column so it breaks into fewer, fuller lines.
-export function PageHero({ id, eyebrow, lines, lede, photo, side = "left", wide, children }: {
-  id: string; eyebrow: ReactNode; lines: ReactNode[]; lede?: ReactNode; photo: Photo; side?: "left" | "right"; wide?: boolean; children?: ReactNode;
+// pre: lines between the headline and the lede (e.g. a book subtitle). aside: a figure beside the copy on wide screens
+// (e.g. a book cover). small: a smaller headline for long titles (blog posts).
+export function PageHero({ id, eyebrow, lines, pre, lede, photo, side = "left", wide, small, aside, children }: {
+  id: string; eyebrow: ReactNode; lines: ReactNode[]; pre?: ReactNode; lede?: ReactNode; photo: Photo; side?: "left" | "right";
+  wide?: boolean; small?: boolean; aside?: ReactNode; children?: ReactNode;
 }) {
   return (
-    <section className={`hero ph${side === "right" ? " is-right" : ""}${photo.beside ? " photo-beside" : ""}${wide ? " is-wide" : ""}`} aria-labelledby={id}>
+    <section className={`hero ph${side === "right" ? " is-right" : ""}${photo.beside ? " photo-beside" : ""}${wide ? " is-wide" : ""}${small ? " is-small" : ""}${aside ? " has-aside" : ""}`} aria-labelledby={id}>
       <div className="hero-top">
         <div className="hero-media" data-hero-media>
           <Image data-hero-img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} sizes={photo.beside ? "(min-width: 1024px) 60vw, 100vw" : "100vw"} preload
@@ -31,16 +34,18 @@ export function PageHero({ id, eyebrow, lines, lede, photo, side = "left", wide,
         </div>
         <div className="rail ph-inner">
           <div className="ph-copy" data-hero-content>
-            <p className="eyebrow" data-hero-fade>{eyebrow}</p>
+            <div className="eyebrow" data-hero-fade>{eyebrow}</div>
             <div className="horizon" data-horizon aria-hidden="true" />
             <h1 id={id} className="display">
               {lines.map((l, i) => (
                 <span key={i}>{i > 0 && " "}<span className="line"><span>{l}</span></span></span>
               ))}
             </h1>
+            {pre && <div className="ph-pre" data-hero-fade>{pre}</div>}
             {lede && <p className="lede" data-hero-fade>{lede}</p>}
             {children && <div className="hero-ctas" data-hero-fade>{children}</div>}
           </div>
+          {aside && <div className="ph-aside" data-hero-fade>{aside}</div>}
         </div>
       </div>
     </section>
@@ -120,13 +125,13 @@ export function LogoStrip({ id, hideMartialArts, children }: { id: string; hideM
 }
 
 // YouTube video that loads from YouTube only when played (HorizonMotion swaps in the player; without JS the link opens YouTube).
-export function VideoPoster({ id, title, poster, label, sizes = "(min-width: 1024px) 840px, 92vw" }: {
-  id: string; title: string; poster: string; label?: ReactNode; sizes?: string;
+export function VideoPoster({ id, title, poster, label, start, sizes = "(min-width: 1024px) 840px, 92vw" }: {
+  id: string; title: string; poster: string; label?: ReactNode; start?: number; sizes?: string;
 }) {
   return (
     <div>
-      <div className="vplayer" data-yt={id} data-yt-title={title}>
-        <a className="vposter" href={`https://www.youtube.com/watch?v=${id}`} {...ext} aria-label={`Play video: ${title} (plays from YouTube)`}>
+      <div className="vplayer" data-yt={id} data-yt-title={title} data-yt-start={start}>
+        <a className="vposter" href={`https://www.youtube.com/watch?v=${id}${start ? `&t=${start}s` : ""}`} {...ext} aria-label={`Play video: ${title} (plays from YouTube)`}>
           <Image src={poster} alt="" width={1280} height={720} sizes={sizes} />
           <span className="vplay" aria-hidden="true" />
         </a>

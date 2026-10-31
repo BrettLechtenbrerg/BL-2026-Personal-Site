@@ -1,12 +1,15 @@
+// BLOG POST, "Horizon" design (Group 3, 30 Oct 2026). Words, JSON-LD and metadata unchanged (tag pre-horizon-inner-2026-10-30).
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { ArrowRight, Clock } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { HorizonMotion } from '@/components/horizon/HorizonMotion';
+import { Btn, FinalCta, HorizonPage, PageHero } from '@/components/horizon/kit';
 import { getPost, getAllSlugs } from '@/lib/blog';
 
 interface BlogPostParams {
@@ -77,6 +80,8 @@ function formatDate(iso: string): string {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    // Date-only post dates are UTC midnight; format in UTC so a build in any timezone shows the posted day.
+    timeZone: 'UTC',
   });
 }
 
@@ -127,7 +132,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <Header />
-      <main id="main" className="min-h-screen bg-white">
+      <main id="main" className="flex-1">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -138,124 +143,79 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
           />
         )}
-
-        {/* Hero */}
-        <section className="relative bg-gradient-to-br from-black via-cranberry-dark to-cranberry text-white overflow-hidden">
-          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--gold),_transparent_60%)]" />
-          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-            <Link
-              href="/blog"
-              className="text-gold text-sm hover:text-gold-light inline-flex items-center gap-2 mb-6"
-            >
-              ← Back to all posts
-            </Link>
-            <div className="flex items-center gap-3 text-sm text-white/70 mb-4">
-              <span>{formatDate(post.date)}</span>
-              <span className="text-white/40">·</span>
-              <span className="inline-flex items-center gap-1">
-                <Clock className="w-3 h-3" /> {post.readingMinutes} min read
+        <HorizonPage>
+          <PageHero
+            id="post-title"
+            small
+            eyebrow={
+              <span className="post-top">
+                <Link href="/blog" className="post-back">← Back to all posts</Link>
+                <span className="post-meta">
+                  <span>{formatDate(post.date)}</span>
+                  <span aria-hidden="true">·</span>
+                  <span className="post-time"><Clock aria-hidden="true" /> {post.readingMinutes} min read</span>
+                </span>
               </span>
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 font-heading">
-              {post.title}
-            </h1>
-            <p className="text-lg text-white/85 max-w-2xl">{post.description}</p>
-          </div>
-        </section>
+            }
+            lines={[post.title]}
+            lede={post.description}
+            photo={{ src: post.heroImage, alt: post.title, w: 1536, h: 1024, pos: "50% 45%", beside: true }}
+          />
 
-        {/* Hero image */}
-        <section className="bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
-              <Image
-                src={post.heroImage}
-                alt={post.title}
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 1024px"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Body */}
-        <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="prose-blog">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
-          </div>
-
-          {/* FAQ (if any) — visible HTML version. JSON-LD above handles SEO. */}
-          {post.faq && post.faq.length > 0 && (
-            <section className="mt-16 pt-12 border-t border-gray-200">
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-8 font-heading">
-                Frequently asked questions
-              </h2>
-              <dl className="space-y-6">
-                {post.faq.map((f, i) => (
-                  <div key={i}>
-                    <dt className="text-lg font-bold text-cranberry mb-2">{f.question}</dt>
-                    <dd className="text-warm-gray leading-relaxed">{f.answer}</dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
-          )}
-        </article>
-
-        {/* Author bio */}
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row gap-6 items-start">
-              <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 bg-cranberry/10 ring-2 ring-gold/30">
-                <Image
-                  src="/brett-hero.webp"
-                  alt="Brett Lechtenberg"
-                  fill
-                  className="object-cover"
-                  sizes="96px"
-                />
+          <section className="sec sec-paper post-sec" aria-label="Article">
+            <article className="post-article">
+              <div className="prose-blog">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
               </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-wider text-cranberry mb-2">
-                  Written by
-                </p>
-                <h3 className="text-xl font-bold text-black mb-2 font-heading">Brett Lechtenberg</h3>
-                <p className="text-warm-gray leading-relaxed">
-                  Peak performance coach, speaker, and author. Four decades on the
-                  mat. Brett works with leaders, athletes, and entrepreneurs who
-                  refuse to coast, turning discipline into outcomes.
-                </p>
+
+              {/* FAQ (if any): visible HTML version. JSON-LD above handles SEO. */}
+              {post.faq && post.faq.length > 0 && (
+                <section className="post-faq" aria-labelledby="post-faq-title">
+                  <h2 id="post-faq-title" className="h3">Frequently asked questions</h2>
+                  <dl>
+                    {post.faq.map((f, i) => (
+                      <div key={i} className="paper-card is-calm">
+                        <dt>{f.question}</dt>
+                        <dd>{f.answer}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
+              )}
+            </article>
+          </section>
+
+          {/* Author */}
+          <section className="sec sec-paper-2 author-sec" aria-label="About the author">
+            <div className="rail">
+              <div className="paper-card author is-calm" data-rise>
+                <span className="author-photo">
+                  <Image src="/brett-hero.webp" alt="Brett Lechtenberg" fill sizes="96px" />
+                </span>
+                <div>
+                  <p className="kicker">Written by</p>
+                  <h3>Brett Lechtenberg</h3>
+                  <p>
+                    Peak performance coach, speaker, and author. Four decades on the mat. Brett works with leaders, athletes, and entrepreneurs who
+                    refuse to coast, turning discipline into outcomes.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* CTA */}
-        <section className="py-16 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-cranberry to-cranberry-dark rounded-2xl p-8 md:p-12 text-white text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading">
-                Want to work together?
-              </h2>
-              <p className="text-white/90 text-lg mb-6 max-w-xl mx-auto">
-                Coaching, speaking, advisory. Book a conversation and let&apos;s
-                see where I can move the needle.
-              </p>
-              <a
-                href="https://www.speaktobrett.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gold text-black font-semibold px-8 py-3 rounded-full hover:bg-gold-light transition-colors"
-              >
-                Speak to Brett
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </section>
+          <FinalCta
+            id="post-final"
+            title="Want to work together?"
+            text={<>Coaching, speaking, advisory. Book a conversation and let&apos;s see where I can move the needle.</>}
+            photo={{ src: "/horizon/limitless-horizon.jpg", w: 3200, h: 2133, pos: "46% 35%" }}
+          >
+            <Btn href="https://www.speaktobrett.com" external variant="gold" size="lg" arrow>Speak to Brett</Btn>
+          </FinalCta>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }

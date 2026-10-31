@@ -1,14 +1,13 @@
-"use client";
-
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
-import { TiltCard } from "@/components/ui/TiltCard";
-import { links } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { BookOpen, Brain, Swords, Workflow, Sparkles, ShoppingCart, Tablet, Quote } from "lucide-react";
+// THE MASTER'S EDGE (book), "Horizon" design (Group 3, 30 Oct 2026). Words unchanged from the previous page
+// (tag pre-horizon-inner-2026-10-30). Paperback and Kindle links are the same Amazon links as before.
 import Image from "next/image";
 import Link from "next/link";
+import { Brain, Quote, ShoppingCart, Sparkles, Swords, Tablet, Workflow } from "lucide-react";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { Btn, FinalCta, HorizonPage, NewTab, PageHero, ext } from "@/components/horizon/kit";
+import { links } from "@/lib/utils";
 
 const pillars = [
   {
@@ -22,6 +21,7 @@ const pillars = [
     title: "Frontloading (Simplify)",
     description:
       "Be prepared, not surprised. Load the knowledge, tools, and mental frameworks you need before the challenge shows up, not during and not after.",
+    gold: true,
   },
   {
     icon: Workflow,
@@ -57,13 +57,11 @@ const chapters = [
 const howItTeaches = [
   {
     title: "Parable first",
-    description:
-      "Every chapter opens with a short parable, so the lesson lands before the explanation starts.",
+    description: "Every chapter opens with a short parable, so the lesson lands before the explanation starts.",
   },
   {
     title: "Principle second",
-    description:
-      "Then the idea underneath the story, in plain language, so you know why it works and when to use it.",
+    description: "Then the idea underneath the story, in plain language, so you know why it works and when to use it.",
   },
   {
     title: "Practice always",
@@ -72,23 +70,12 @@ const howItTeaches = [
   },
 ];
 
-function BuyButtons({ center = false }: { center?: boolean }) {
+function BuyButtons() {
   return (
-    <div className={`flex flex-col sm:flex-row gap-4 ${center ? "justify-center" : "justify-center lg:justify-start"}`}>
-      <Button href={links.mastersEdgePaperback} external size="lg" variant="secondary">
-        <ShoppingCart className="w-5 h-5" />
-        Buy the Paperback
-      </Button>
-      <Button
-        href={links.mastersEdgeKindle}
-        external
-        size="lg"
-        className="bg-white/10 text-white border border-white/30 hover:bg-white/20"
-      >
-        <Tablet className="w-5 h-5" />
-        Get It on Kindle
-      </Button>
-    </div>
+    <>
+      <Btn href={links.mastersEdgePaperback} external variant="gold" size="lg"><ShoppingCart className="ico" aria-hidden="true" />Buy the Paperback</Btn>
+      <Btn href={links.mastersEdgeKindle} external variant="glass" size="lg"><Tablet className="ico" aria-hidden="true" />Get It on Kindle</Btn>
+    </>
   );
 }
 
@@ -96,319 +83,136 @@ export default function MastersEdgeBookPage() {
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        {/* Hero - Dark */}
-        <section className="relative py-24 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/40 rounded-full blur-[120px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-cranberry/30 rounded-full blur-[100px]"
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="book-title"
+            eyebrow={<><Sparkles className="eyebrow-ico" aria-hidden="true" />New Book: Out Now in Paperback and on Kindle</>}
+            lines={["The Master's", <em key="e">Edge</em>]}
+            pre={
+              <>
+                <p className="book-sub">Mastering Business and Life Through Mindset, Skillset, and Systems Design</p>
+                <p className="book-tag">Ancient Discipline · Modern Leadership</p>
+              </>
+            }
+            lede="Mastery is a system you can build, on the mat and in the boardroom. Brett has taught it for more than thirty years to students, families, and business owners. The Master's Edge puts that system in your hands."
+            photo={{ src: "/heroes/masters-edge.jpg", alt: "", w: 1920, h: 1280, pos: "60% 40%" }}
+            aside={
+              <a className="book-cover" href={links.mastersEdgePaperback} {...ext} aria-label="Buy The Master's Edge on Amazon (opens in a new tab)">
+                <Image
+                  src="/books/masters-edge-cover.jpg"
+                  alt="Cover of The Master's Edge: Mastering Business and Life Through Mindset, Skillset, and Systems Design, by Brett Lechtenberg"
+                  width={800}
+                  height={1200}
+                  sizes="(min-width: 1024px) 340px, 260px"
+                  preload
+                />
+              </a>
+            }
+          >
+            <BuyButtons />
+            <p className="hero-note">Available on Amazon. 253 pages.</p>
+          </PageHero>
 
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="text-center lg:text-left">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/40 rounded-full px-5 py-2 mb-6"
-                >
-                  <Sparkles className="w-4 h-4 text-gold" />
-                  <span className="text-gold font-semibold text-sm">
-                    New Book: Out Now in Paperback and on Kindle
-                  </span>
-                </motion.div>
-
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
-                >
-                  The Master&apos;s{" "}
-                  <span className="bg-gradient-to-r from-gold via-gold to-cranberry bg-clip-text text-transparent">
-                    Edge
-                  </span>
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
-                  className="text-lg sm:text-xl font-semibold text-white mb-2"
-                >
-                  Mastering Business and Life Through Mindset, Skillset, and Systems Design
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.18 }}
-                  className="text-sm uppercase tracking-[0.25em] text-gold mb-6"
-                >
-                  Ancient Discipline · Modern Leadership
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-xl text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8"
-                >
-                  Mastery is a system you can build, on the mat and in the
-                  boardroom. Brett has taught it for more than thirty years to
-                  students, families, and business owners. The Master&apos;s Edge
-                  puts that system in your hands.
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25 }}
-                >
-                  <BuyButtons />
-                  <p className="mt-4 text-sm text-gray-400">
-                    Available on Amazon. 253 pages.
+          {/* About the book */}
+          <section className="sec sec-paper" aria-labelledby="about-book-title">
+            <div className="rail narrow">
+              <div className="center" data-rise>
+                <h2 id="about-book-title" className="h2 sec-title">The same path that forges a black belt <em>forges a master.</em></h2>
+                <div className="prose">
+                  <p>
+                    Its nineteen chapters grew out of a decade of monthly leadership lessons and cover three disciplines: Mindset, Skillset, and Systems
+                    Design. You&apos;ll work through acceptance, resilience, flow, trust, and ethical character.
                   </p>
-                </motion.div>
+                  <p>Every chapter shows how its skill works on both sides of your front door: in your business and at home.</p>
+                </div>
               </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="relative max-w-sm mx-auto w-full"
-              >
-                <div className="absolute -inset-3 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-xl opacity-40" />
-                <TiltCard className="relative">
-                  <a
-                    href={links.mastersEdgePaperback}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Buy The Master's Edge on Amazon (opens in a new tab)"
-                  >
-                    <Image
-                      src="/books/masters-edge-cover.jpg"
-                      alt="Cover of The Master's Edge: Mastering Business and Life Through Mindset, Skillset, and Systems Design, by Brett Lechtenberg"
-                      width={800}
-                      height={1200}
-                      priority
-                      className="relative rounded-lg shadow-2xl border border-white/10"
-                    />
-                  </a>
-                </TiltCard>
-              </motion.div>
+              <ol className="card-grid cols-3 teach" data-stagger>
+                {howItTeaches.map((step) => (
+                  <li key={step.title} className="paper-card teach-card">
+                    <span className="teach-dot" aria-hidden="true" />
+                    <h3>{step.title}</h3>
+                    <p>{step.description}</p>
+                  </li>
+                ))}
+              </ol>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* About the book - Light */}
-        <section className="py-24 bg-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold via-cranberry to-gold" />
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <p className="text-2xl sm:text-3xl font-bold text-black mb-8">
-                The same path that forges a black belt{" "}
-                <span className="text-cranberry">forges a master.</span>
-              </p>
-              <p className="text-lg text-warm-gray leading-relaxed mb-6">
-                Its nineteen chapters grew out of a decade of monthly leadership
-                lessons and cover three disciplines: Mindset, Skillset, and
-                Systems Design. You&apos;ll work through acceptance, resilience,
-                flow, trust, and ethical character.
-              </p>
-              <p className="text-lg text-warm-gray leading-relaxed">
-                Every chapter shows how its skill works on both sides of your
-                front door: in your business and at home.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-6 mt-14">
-              {howItTeaches.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="rounded-2xl p-6 border-2 border-cranberry/20 bg-gradient-to-br from-cranberry/5 via-white to-gold/5"
-                >
-                  <h3 className="text-lg font-bold text-cranberry mb-2">{step.title}</h3>
-                  <p className="text-warm-gray leading-relaxed">{step.description}</p>
-                </motion.div>
-              ))}
+          {/* The science */}
+          <section className="sec sec-night" aria-labelledby="science-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <h2 id="science-title" className="h2">The Science <em>Behind It</em></h2>
+                <p className="body-lg">
+                  One methodology, three pillars. It&apos;s the same framework Brett teaches from corporate keynotes to the 12-week Master&apos;s Edge
+                  program, and the book closes with his flow research thesis, reviewed by the Flow Research Collective.
+                </p>
+              </div>
+              <ul className="card-grid cols-3" data-stagger>
+                {pillars.map((p) => (
+                  <li key={p.title} className="glass gcard">
+                    <span className={`ico-badge${p.gold ? " is-gold" : ""}`} aria-hidden="true"><p.icon /></span>
+                    <h3>{p.title}</h3>
+                    <p>{p.description}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Pillars - Light gradient */}
-        <section className="py-24 bg-gradient-to-b from-white via-gold/5 to-cranberry/5 relative overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                The Science <span className="text-cranberry">Behind It</span>
-              </h2>
-              <p className="text-lg text-warm-gray max-w-2xl mx-auto">
-                One methodology, three pillars. It&apos;s the same framework Brett
-                teaches from corporate keynotes to the 12-week Master&apos;s
-                Edge program, and the book closes with his flow research thesis,
-                reviewed by the Flow Research Collective.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {pillars.map((pillar, index) => (
-                <motion.div
-                  key={pillar.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-                  <div className="relative bg-white rounded-2xl p-8 border-2 border-gold/30 group-hover:border-gold/60 shadow-lg group-hover:shadow-2xl transition-all duration-300 h-full">
-                    <div className="w-14 h-14 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl flex items-center justify-center mb-6">
-                      <pillar.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-black mb-3">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-warm-gray leading-relaxed">
-                      {pillar.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Chapters */}
+          <section className="sec sec-paper-2" aria-labelledby="inside-title">
+            <div className="rail narrow">
+              <div className="sec-head center" data-rise>
+                <h2 id="inside-title" className="h2">What&apos;s Inside the <em>Book</em></h2>
+                <p className="body-lg">Nineteen chapters, each one a skill you can practice.</p>
+              </div>
+              <ol className="chapters" data-stagger>
+                {chapters.map((chapter, i) => (
+                  <li key={chapter}>
+                    <span className="ch-num">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="ch-name">{chapter}</span>
+                  </li>
+                ))}
+              </ol>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Chapters - White */}
-        <section className="py-24 bg-white relative overflow-hidden">
-          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                What&apos;s Inside the <span className="text-cranberry">Book</span>
-              </h2>
-              <p className="text-lg text-warm-gray max-w-2xl mx-auto">
-                Nineteen chapters, each one a skill you can practice.
-              </p>
-            </motion.div>
-
-            <motion.ol
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="grid sm:grid-cols-2 gap-x-10 gap-y-3"
-            >
-              {chapters.map((chapter, index) => (
-                <li key={chapter} className="flex items-baseline gap-3 border-b border-gray-100 pb-3">
-                  <span className="text-sm font-bold text-gold w-8 flex-shrink-0">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-black font-medium">{chapter}</span>
-                </li>
-              ))}
-            </motion.ol>
-          </div>
-        </section>
-
-        {/* Praise - Dark */}
-        <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.figure
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Quote className="w-10 h-10 text-gold mx-auto mb-6" />
-              <blockquote className="text-2xl sm:text-3xl font-semibold text-white leading-snug mb-6">
-                &ldquo;Brett Lechtenberg is one of the most multi-talented people I
-                have ever met.&rdquo;
-              </blockquote>
-              <figcaption className="text-gray-300">
-                <span className="font-bold text-gold">Sam Beard</span>
-                <br />
-                Creator of 6 Presidential Programs for 8 United States Presidents ·
-                Founder, National Development Council
+          {/* Praise */}
+          <section className="sec sec-night-2 praise" aria-label="Praise for the book">
+            <figure className="rail praise-fig" data-rise>
+              <Quote className="praise-mark" aria-hidden="true" />
+              <blockquote>&ldquo;Brett Lechtenberg is one of the most multi-talented people I have ever met.&rdquo;</blockquote>
+              <figcaption>
+                <span className="portrait" aria-hidden="true">
+                  <Image src="/testimonials/sam-beard.jpg" alt="" fill sizes="64px" style={{ objectPosition: "38% 22%" }} />
+                </span>
+                <span>
+                  <span className="q-name">Sam Beard</span>
+                  <span className="q-title">Creator of 6 Presidential Programs for 8 United States Presidents · Founder, National Development Council</span>
+                </span>
               </figcaption>
-            </motion.figure>
-          </div>
-        </section>
+            </figure>
+          </section>
 
-        {/* Get your copy - Cranberry gradient */}
-        <section className="py-24 bg-gradient-to-br from-cranberry via-cranberry-dark to-black relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cranberry-light/30 rounded-full blur-[100px]" />
-          </div>
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20"
-            >
-              <div className="w-20 h-20 mx-auto bg-gradient-to-br from-gold to-gold-dark rounded-2xl flex items-center justify-center mb-8 shadow-lg">
-                <BookOpen className="w-10 h-10 text-white" />
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Get Your <span className="text-gold">Copy</span>
-              </h2>
-              <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-                Read it in paperback or on Kindle. Want Brett to bring the
-                method to your team in person, or copies for your event? Let&apos;s
-                talk.
-              </p>
-              <BuyButtons center />
-              <div className="mt-6 flex flex-col sm:flex-row gap-x-8 gap-y-3 justify-center text-sm font-semibold">
-                <a
-                  href={links.booking}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white underline-offset-4 hover:underline"
-                >
-                  Talk With Brett →
-                </a>
-                <Link href="/speaking" className="text-white underline-offset-4 hover:underline">
-                  Bring It to Your Team →
-                </Link>
-                <Link href="/masters-edge" className="text-white underline-offset-4 hover:underline">
-                  Explore the Methodology →
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+          <FinalCta
+            id="book-final"
+            title={<>Get Your <em>Copy</em></>}
+            text={<>Read it in paperback or on Kindle. Want Brett to bring the method to your team in person, or copies for your event? Let&apos;s talk.</>}
+            photo={{ src: "/heroes/masters-edge.jpg", w: 1920, h: 1280, pos: "50% 60%" }}
+          >
+            <div className="final-ctas"><BuyButtons /></div>
+            <div className="final-links">
+              <a href={links.booking} {...ext}>Talk With Brett →<NewTab /></a>
+              <Link href="/speaking">Bring It to Your Team →</Link>
+              <Link href="/masters-edge">Explore the Methodology →</Link>
+            </div>
+          </FinalCta>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }
