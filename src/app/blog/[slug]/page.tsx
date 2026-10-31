@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Clock } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { HorizonMotion } from '@/components/horizon/HorizonMotion';
 import { Btn, FinalCta, HorizonPage, PageHero } from '@/components/horizon/kit';
-import { getPost, getAllSlugs } from '@/lib/blog';
+import { getPost, getAllPosts, getAllSlugs } from '@/lib/blog';
+import { PostToc, type TocItem } from './PostToc';
 
 interface BlogPostParams {
   slug: string;
@@ -85,6 +86,21 @@ function formatDate(iso: string): string {
   });
 }
 
+// Section headings (## lines) become link targets for the "In this article" guide.
+const slugify = (text: string) =>
+  text.toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
+function headingsOf(markdown: string): TocItem[] {
+  return markdown
+    .split('\n')
+    .filter((line) => /^## /.test(line))
+    .map((line) => line.replace(/^## /, '').replace(/[*_`]/g, '').trim())
+    .map((text) => ({ id: slugify(text), text }));
+}
+
+const textOf = (children: React.ReactNode): string =>
+  Array.isArray(children) ? children.map(textOf).join('') : typeof children === 'string' ? children : '';
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = getPost(slug);
@@ -94,6 +110,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const heroAbsolute = post.heroImage.startsWith('http')
     ? post.heroImage
     : `${SITE_URL}${post.heroImage}`;
+  const toc = headingsOf(post.content);
+  const morePosts = getAllPosts().filter((p) => p.slug !== post.slug).slice(0, 3);
 
   // Schema.org JSON-LD — Article + optional FAQPage if frontmatter has FAQs.
   const articleSchema = {
@@ -144,6 +162,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           />
         )}
         <HorizonPage>
+          {/* Reading progress (CSS scroll-driven; hidden where browsers lack support). */}
+          <div className="read-progress" aria-hidden="true" />
           <PageHero
             id="post-title"
             small
@@ -163,9 +183,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           />
 
           <section className="sec sec-paper post-sec" aria-label="Article">
+            <div className="post-layout">
+            {toc.length > 1 && <PostToc items={toc} />}
             <article className="post-article">
               <div className="prose-blog">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={{ h2: ({ children }) => <h2 id={slugify(textOf(children))}>{children}</h2> }}
+                >
+                  {post.content}
+                </ReactMarkdown>
               </div>
 
               {/* FAQ (if any): visible HTML version. JSON-LD above handles SEO. */}
@@ -183,6 +210,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </section>
               )}
             </article>
+            </div>
           </section>
 
           {/* Author */}
@@ -203,6 +231,34 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
           </section>
+
+          {/* Keep reading: the other posts */}
+          {morePosts.length > 0 && (
+            <section className="sec sec-night keep-reading" aria-labelledby="keep-title">
+              <div className="rail">
+                <h2 id="keep-title" className="h2 sec-title center" data-rise>Keep <em>reading</em></h2>
+                <ul className="posts" data-stagger>
+                  {morePosts.map((p) => (
+                    <li key={p.slug} className="paper-card post-card">
+                      <div className="post-art">
+                        <Image src={p.heroImage} alt="" fill sizes="(min-width: 1100px) 400px, (min-width: 768px) 50vw, 92vw" />
+                      </div>
+                      <div className="post-body">
+                        <p className="post-meta">
+                          <span>{formatDate(p.date)}</span>
+                          <span aria-hidden="true">·</span>
+                          <span className="post-time"><Clock aria-hidden="true" />{p.readingMinutes} min read</span>
+                        </p>
+                        <h3><Link className="post-link" href={`/blog/${p.slug}`}>{p.title}</Link></h3>
+                        <p className="post-desc">{p.description}</p>
+                        <span className="post-more" aria-hidden="true">Read article<ArrowRight /></span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          )}
 
           <FinalCta
             id="post-final"

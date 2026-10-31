@@ -6,7 +6,7 @@ import { Brain, Quote, ShoppingCart, Sparkles, Swords, Tablet, Workflow } from "
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
-import { Btn, FinalCta, HorizonPage, NewTab, PageHero, ext } from "@/components/horizon/kit";
+import { Book3D, Btn, FinalCta, HorizonPage, NewTab, PageHero, ext } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
 
 const pillars = [
@@ -98,13 +98,16 @@ export default function MastersEdgeBookPage() {
             lede="Mastery is a system you can build, on the mat and in the boardroom. Brett has taught it for more than thirty years to students, families, and business owners. The Master's Edge puts that system in your hands."
             photo={{ src: "/heroes/masters-edge.jpg", alt: "", w: 1920, h: 1280, pos: "60% 40%" }}
             aside={
-              <a className="book-cover" href={links.mastersEdgePaperback} {...ext} aria-label="Buy The Master's Edge on Amazon (opens in a new tab)">
-                <Image
+              <a className="book3d-link" href={links.mastersEdgePaperback} {...ext} aria-label="Buy The Master's Edge on Amazon (opens in a new tab)">
+                <Book3D
                   src="/books/masters-edge-cover.jpg"
                   alt="Cover of The Master's Edge: Mastering Business and Life Through Mindset, Skillset, and Systems Design, by Brett Lechtenberg"
-                  width={800}
-                  height={1200}
-                  sizes="(min-width: 1024px) 340px, 260px"
+                  w={800}
+                  h={1200}
+                  spine="/horizon/books/masters-edge-spine.jpg"
+                  spineColor="#efe9df"
+                  depth={0.093}
+                  sizes="(min-width: 1024px) 300px, 260px"
                   preload
                 />
               </a>

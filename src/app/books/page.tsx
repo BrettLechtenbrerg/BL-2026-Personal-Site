@@ -6,7 +6,7 @@ import { BookOpen, Newspaper, Play, Star, Tv } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
-import { Btn, FinalCta, HorizonPage, NewTab, PageHero, VideoPoster, ext } from "@/components/horizon/kit";
+import { Book3D, Btn, FinalCta, HorizonPage, NewTab, PageHero, VideoPoster, ext } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
 import { FreeBookButton, PressCarousel } from "./BooksClient";
 
@@ -30,6 +30,7 @@ const books = [
       "A real-world guide to saving time, serving customers, and growing your business with AI. People-first, no hype, tested in real businesses.",
     bestseller: false,
     image: "/books/powerful-ai-strategies.jpg",
+    book3d: { w: 750, h: 1200, spine: "/horizon/books/powerful-ai-spine.jpg", spineColor: "#16244a", depth: 0.054 },
     amazonUrl: "https://www.amazon.com/Powerful-Strategies-Business-Owners-Real-World/dp/B0HH6YZYQV",
   },
   {
@@ -65,6 +66,7 @@ const books = [
       "A collaborative work bringing together experts on child empowerment and safety.",
     bestseller: true,
     image: "/books/bullyproof.png",
+    book3d: { w: 568, h: 850, spineColor: "#c3c9cd", depth: 0.07 },
     amazonUrl: "https://www.amazon.com/Bullyproof-Unleash-Hero-Inside-Your/dp/0692522719",
   },
   {
@@ -74,6 +76,7 @@ const books = [
       "Essential safety training for travelers, missionaries, and anyone heading abroad.",
     bestseller: true,
     image: "/books/travel-safety-program.png",
+    book3d: { w: 1626, h: 2440, spineColor: "#f1f0f4", depth: 0.05 },
     amazonUrl: "https://www.amazon.com/Ultimate-Travel-Safety-Program-missionaries/dp/1532765312",
   },
   {
@@ -119,11 +122,15 @@ function BookCard({ book }: { book: Book }) {
   const freebie = "freebie" in book && book.freebie;
   const amazon = "amazonUrl" in book ? book.amazonUrl : undefined;
   const page = "pageUrl" in book ? book.pageUrl : undefined;
+  // Flat covers are shown as 3D books (Brett, 30 Oct 2026).
+  const mock = "book3d" in book ? book.book3d : undefined;
   return (
     <li className={`paper-card book${featured ? " is-featured" : ""}${freebie ? " is-free" : ""}`}>
-      <div className="book-art">
+      <div className={`book-art${mock ? " is-3d" : ""}`}>
         {featured ? (
           <Image src="/books/masters-edge-stack.jpg" alt="Stack of The Master's Edge books by Brett Lechtenberg" fill sizes="(min-width: 1024px) 460px, 92vw" />
+        ) : mock ? (
+          <Book3D src={book.image} alt="" w={mock.w} h={mock.h} spine={"spine" in mock ? mock.spine : undefined} spineColor={mock.spineColor} depth={mock.depth} sizes="120px" />
         ) : (
           <Image src={book.image} alt="" fill sizes="160px" />
         )}

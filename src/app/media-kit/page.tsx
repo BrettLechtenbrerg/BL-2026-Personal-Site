@@ -7,7 +7,7 @@ import { Check, Download, FileText, Image as ImageIcon, Mic2, Monitor, Play, Use
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
-import { Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
+import { Book3D, Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { LiveClip } from "@/components/ui/LiveClip";
 import { CopyButton } from "./CopyButton";
 
@@ -262,8 +262,8 @@ export default function MediaKitPage() {
                   </div>
                   {/* Master's Edge cover (spec 3.11). The real published cover (Oct 2026). */}
                   <figure className="paper-card cover-card is-calm" data-rise>
-                    <a href="/books/masters-edge-cover.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size cover of The Master's Edge (opens in a new tab)">
-                      <Image src="/books/masters-edge-cover.jpg" alt="The Master's Edge by Brett Lechtenberg, book cover" fill sizes="224px" />
+                    <a className="book3d-link" href="/books/masters-edge-cover.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size cover of The Master's Edge (opens in a new tab)">
+                      <Book3D src="/books/masters-edge-cover.jpg" alt="The Master's Edge by Brett Lechtenberg, book cover" w={800} h={1200} spine="/horizon/books/masters-edge-spine.jpg" spineColor="#efe9df" depth={0.093} sizes="200px" />
                     </a>
                     <figcaption>
                       The Master&apos;s Edge, out now in paperback and on Kindle.{" "}

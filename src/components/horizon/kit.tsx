@@ -159,3 +159,28 @@ export function Stats({ items, className = "" }: {
     </ul>
   );
 }
+
+// A real cover shown as a 3D book (CSS 3D, no generated art): the front is the published cover; the spine is the real
+// spine from the print cover file when we have it (public/horizon/books/*-spine.jpg), otherwise a plain spine in the
+// cover's own edge colour. depth = spine width / cover width (Master's Edge 0.093, Powerful AI 0.054).
+export function Book3D({ src, alt, w, h, spine, spineColor = "#d9d4cc", depth = 0.07, sizes, preload, className = "" }: {
+  src: string; alt: string; w: number; h: number; spine?: string; spineColor?: string; depth?: number; sizes: string;
+  preload?: boolean; className?: string;
+}) {
+  return (
+    <div className={`book3d ${className}`} style={{ "--ar": `${w} / ${h}`, "--depth": depth } as CSSProperties}>
+      <div className="b3-body">
+        <span className="b3-front">
+          <Image src={src} alt={alt} width={w} height={h} sizes={sizes} preload={preload} />
+        </span>
+        <span
+          className="b3-spine"
+          aria-hidden="true"
+          style={spine ? { backgroundImage: `url(${spine})` } : { backgroundColor: spineColor }}
+        />
+        <span className="b3-pages" aria-hidden="true" />
+        <span className="b3-back" aria-hidden="true" style={{ backgroundColor: spineColor }} />
+      </div>
+    </div>
+  );
+}
