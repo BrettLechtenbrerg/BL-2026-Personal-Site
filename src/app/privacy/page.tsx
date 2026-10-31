@@ -5,6 +5,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Brett Lechtenberg",
   description: "Privacy Policy for Brett Lechtenberg's coaching, speaking, and consulting services.",
+  alternates: {
+    canonical: "https://www.brettlechtenberg.com/privacy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

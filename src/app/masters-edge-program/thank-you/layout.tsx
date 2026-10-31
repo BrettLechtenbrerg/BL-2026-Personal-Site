@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     index: false,
     follow: true,
   },
+  alternates: {
+    canonical: "https://www.brettlechtenberg.com/masters-edge-program/thank-you",
+  },
 };
 
 export default function ThankYouLayout({

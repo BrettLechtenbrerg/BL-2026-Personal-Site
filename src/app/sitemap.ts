@@ -104,12 +104,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/masters-edge-program/thank-you`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.3,
-    },
-    {
       url: `${baseUrl}/blog`,
       lastModified,
       changeFrequency: "weekly" as const,

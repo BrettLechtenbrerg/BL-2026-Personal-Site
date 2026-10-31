@@ -5,6 +5,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service | Brett Lechtenberg",
   description: "Terms of Service for Brett Lechtenberg's coaching, speaking, and consulting services.",
+  alternates: {
+    canonical: "https://www.brettlechtenberg.com/terms",
+  },
 };
 
 export default function TermsOfServicePage() {

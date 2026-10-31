@@ -37,6 +37,9 @@ export const metadata: Metadata = {
       "12 weeks that change how you lead, operate, and perform. Applications open for the founding cohort.",
     images: ["/brett-hero.webp"],
   },
+  alternates: {
+    canonical: "https://www.brettlechtenberg.com/masters-edge-program",
+  },
 };
 
 export default function MastersEdgeProgramLayout({
