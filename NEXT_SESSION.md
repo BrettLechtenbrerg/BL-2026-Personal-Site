@@ -75,7 +75,16 @@ initials badges (now real photos). AI Advisory top = `public/horizon/ai-advisory
 - **SEO fix:** `/masters-edge-program`, `/apply`, `/thank-you`, `/privacy`, `/terms` were inheriting the home page's
   canonical (root layout default). Each page now sets `alternates.canonical` to itself; thank-you (noindex) is out
   of the sitemap. **Every new page must set its own canonical.**
-**Next:** Group 4 (Book Brett, Contact, Apply, Thank-you, Rockstar Quiz, Privacy, Terms: look only).
+**Oct 31, 2026, Session 37 (cont.): HORIZON GROUP 4 LIVE. Every public page is now in the Horizon design.**
+Book Brett, Contact, Apply, Thank-you, Rockstar Quiz, Privacy, Terms. Forms unchanged in behaviour (submit handlers
+byte-identical to before; same field names, required marks, options, Go High Level webhooks, tags, redirect); labels
+now tied to fields. `src/components/RockstarTeamQuiz.tsx` untouched (it sits outside the Horizon wrapper in
+`.quiz-host`). Privacy/Terms legal text untouched, shown in `.legal` / `.legal-sheet` (plain CSS, outside `.bl-h`).
+Quiz top photo `public/horizon/quiz-team-soft.jpg` (lightly smoothed America First team photo). Books: free-eBook
+form loads on demand (`next/dynamic` in `src/app/books/BooksClient.tsx`). **Testing forms:** intercept the webhooks
+(never submit test data to the real Go High Level hooks or `/api/team-lead`).
+**Not converted on purpose:** `/academy` (own design), `/hub`, `/quiz-results-gallery`.
+**Restore points:** `pre-horizon-2026-10-30` (before any Horizon), `pre-horizon-inner-2026-10-30` (home only).
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
 (filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
