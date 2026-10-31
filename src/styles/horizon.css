@@ -568,7 +568,7 @@ html:has(.bl-h-page) { scroll-padding-top: 92px; }
 @media (min-width: 1024px) { .bl-h .split.split-even { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 5vw, 72px); } }
 @media (min-width: 860px) and (max-width: 1023px) { .bl-h .split.split-even { grid-template-columns: minmax(0, 1fr); } }
 .bl-h .chip { display: inline-flex; align-items: center; gap: 8px; width: fit-content; padding: 7px 16px; border-radius: 999px; font: 600 14px/1.2 var(--sans);
-  color: var(--cran-l); background: rgb(155 27 48 / .18); border: 1px solid rgb(196 50 74 / .35); }
+  color: var(--ivory); background: rgb(155 27 48 / .32); border: 1px solid rgb(196 50 74 / .55); }
 .bl-h .chip svg { width: 16px; height: 16px; color: var(--gold); }
 .bl-h .chip-gold { color: var(--gold); background: rgb(212 175 55 / .14); border-color: rgb(212 175 55 / .35); }
 .bl-h :is(.sec-paper, .sec-paper-2) .chip { color: var(--cran); background: rgb(155 27 48 / .07); border-color: rgb(155 27 48 / .2); }
@@ -1116,3 +1116,5 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 }
 /* Sam Beard's quote band (book page) is a short pause like Speaking's "Hacks" band: less padding keeps gaps under 220px. */
 .bl-h .sec.praise { padding-block: calc(var(--sec-pad) * .6); }
+/* The one-sheet band is dark cranberry inside a light section: keep its heading white (the light-section rule turns headings ink). */
+.bl-h .onesheet .onesheet-copy h2 { color: #fff; }
