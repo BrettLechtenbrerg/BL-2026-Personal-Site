@@ -50,6 +50,17 @@ Words checked word-for-word against the live pages (only change: About's five ty
 Testimonials), then 3 (Books, Master's Edge book, Media Kit, Blog), then 4 (Book Brett, Contact, Apply, Thank-you, Quiz,
 Privacy, Terms: look only, forms and quiz logic untouched). Each group: preview + Brett's OK before main.
 
+**Oct 30, 2026, Session 37 (later): HORIZON INNER PAGES, GROUP 2 LIVE (Speaking, AI Advisory, 12-Week Program, Testimonials).**
+Kit additions in `src/components/horizon/kit.tsx`: `LogoStrip` (single client-logo list; home uses it too), `VideoPoster`
+(YouTube loads only on Play), `Stats`. Speaking talks = `src/app/speaking/TalkCard.tsx` (flagship open, others collapse);
+12-Week questions = `src/app/masters-edge-program/ProgramFaq.tsx` (all answers show without JS). Word check vs live:
+AI Advisory + Program identical; Speaking only its 4 counters (real numbers instead of "0+"); Testimonials only the 6
+initials badges (now real photos). AI Advisory top = `public/horizon/ai-advisory-soft.jpg`; video posters in
+`public/horizon/video/`. **Hover pop** on every box (Brett's request), site-wide at the end of `horizon.css`: uses the
+`translate`/`scale` properties because the scroll-in animation leaves an inline `transform` that cancels :hover transforms.
+**Gap check at 2560x1300:** the official `horizon-check.cjs` ignores a SIZES env var; patch a copy to test Brett's screen.
+**Next:** Group 3 (Books, Master's Edge book, Media Kit, Blog + posts), then Group 4.
+
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
 (filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
 Paste the block below into a fresh session.
