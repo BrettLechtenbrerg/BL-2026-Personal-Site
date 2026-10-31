@@ -2,7 +2,7 @@
 // (tag pre-horizon-inner-2026-10-30). Paperback and Kindle links are the same Amazon links as before.
 import Image from "next/image";
 import Link from "next/link";
-import { Brain, Quote, ShoppingCart, Sparkles, Swords, Tablet, Workflow } from "lucide-react";
+import { Brain, Dumbbell, Lightbulb, Quote, ScrollText, ShoppingCart, Sparkles, Swords, Tablet, Workflow } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
@@ -57,14 +57,18 @@ const chapters = [
 const howItTeaches = [
   {
     title: "Parable first",
+    icon: ScrollText,
     description: "Every chapter opens with a short parable, so the lesson lands before the explanation starts.",
   },
   {
     title: "Principle second",
+    icon: Lightbulb,
+    gold: true,
     description: "Then the idea underneath the story, in plain language, so you know why it works and when to use it.",
   },
   {
     title: "Practice always",
+    icon: Dumbbell,
     description:
       "Then exercises you can put to work right away. Every framework was tested on real students in Brett's academy before he taught it to a business audience.",
   },
@@ -130,10 +134,14 @@ export default function MastersEdgeBookPage() {
                   <p>Every chapter shows how its skill works on both sides of your front door: in your business and at home.</p>
                 </div>
               </div>
-              <ol className="card-grid cols-3 teach" data-stagger>
+            </div>
+            {/* How each chapter teaches: three steps joined by a gold line, in the full-width rail (Brett, 30 Oct: the
+                narrow three boxes looked cramped). Step numbers come from CSS so the page text stays the same. */}
+            <div className="rail">
+              <ol className="teach-steps" data-stagger>
                 {howItTeaches.map((step) => (
-                  <li key={step.title} className="paper-card teach-card">
-                    <span className="teach-dot" aria-hidden="true" />
+                  <li key={step.title} className="paper-card teach-step">
+                    <span className={`ico-badge${"gold" in step && step.gold ? " is-gold" : ""}`} aria-hidden="true"><step.icon /></span>
                     <h3>{step.title}</h3>
                     <p>{step.description}</p>
                   </li>

@@ -838,11 +838,21 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .ph.is-small .display { font-size: clamp(30px, 3.2vw, 52px); line-height: 1.1; }
 
 /* The Master's Edge book */
-.bl-h .teach { margin-block-start: clamp(32px, 4vh, 48px); }
-.bl-h .teach-card { position: relative; display: grid; gap: 8px; align-content: start; }
-.bl-h .teach-card h3 { font: 700 19px/1.3 var(--serif); color: var(--cran); }
-.bl-h .teach-card p { color: var(--ink-soft); line-height: 1.6; }
-.bl-h .teach-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgb(212 175 55 / .2); margin-block-end: 6px; }
+.bl-h .teach-steps { position: relative; display: grid; gap: 22px; max-width: 1120px; margin: clamp(36px, 5vh, 56px) auto 0; padding: 0; list-style: none; counter-reset: step; }
+@media (min-width: 900px) {
+  .bl-h .teach-steps { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  /* Gold line joining the three steps, behind the cards at icon height. */
+  .bl-h .teach-steps::before { content: ""; position: absolute; left: 12%; right: 12%; top: 62px; height: 2px; z-index: 0;
+    background: linear-gradient(90deg, var(--cran), var(--gold) 50%, var(--cran)); opacity: .5; }
+}
+.bl-h .teach-step { position: relative; z-index: 1; display: grid; gap: 12px; align-content: start; padding: clamp(28px, 2.8vw, 38px); overflow: hidden; counter-increment: step; }
+.bl-h .teach-step::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--cran), var(--gold)); }
+/* Big faint step number in the corner (CSS only, so it is not page text). */
+.bl-h .teach-step::after { content: counter(step, decimal-leading-zero); position: absolute; top: 14px; right: 22px; font: 800 64px/1 var(--serif);
+  color: rgb(155 27 48 / .08); letter-spacing: -.02em; pointer-events: none; }
+.bl-h .teach-step .ico-badge { margin-block-end: 6px; }
+.bl-h .teach-step h3 { font: 700 clamp(21px, 1.7vw, 25px)/1.25 var(--serif); color: var(--ink); }
+.bl-h .teach-step p { color: var(--ink-soft); line-height: 1.65; font-size: 16.5px; }
 .bl-h .chapters { display: grid; gap: 0 40px; list-style: none; margin: 0; padding: 0; }
 @media (min-width: 640px) { .bl-h .chapters { grid-template-columns: 1fr 1fr; } }
 .bl-h .chapters li { display: flex; align-items: baseline; gap: 14px; padding: 13px 4px; border-bottom: 1px solid var(--rule); transition: background-color .3s ease, padding-left .35s var(--ease); }
