@@ -238,7 +238,7 @@ html:not(.js) .bl-h .dd:hover .dd-panel, html:not(.js) .bl-h .dd:focus-within .d
 .bl-h .slide { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; min-height: 480px; border-radius: 24px;
   box-shadow: 0 0 0 1px rgb(212 175 55 / .2), 0 24px 60px rgb(0 0 0 / .35); transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
 .bl-h .slide > img { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; filter: saturate(.9) contrast(1.04); transition: transform 1.2s var(--ease); }
-.bl-h .slide:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px rgb(212 175 55 / .5), 0 30px 70px rgb(0 0 0 / .45); }
+.bl-h .slide:hover { translate: 0 -4px; box-shadow: 0 0 0 1px rgb(212 175 55 / .5), 0 30px 70px rgb(0 0 0 / .45); }
 .bl-h .slide:hover > img { transform: scale(1.04); }
 .bl-h .slide::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to top, rgb(13 11 11 / .85), transparent 62%), linear-gradient(160deg, rgb(212 175 55 / .16), transparent 40%); }
 .bl-h .slide-copy { margin: 12px; padding: 22px 24px; display: grid; gap: 10px; justify-items: start; width: calc(100% - 24px); border-radius: 18px; }
@@ -552,7 +552,7 @@ html:has(.bl-h-page) { scroll-padding-top: 92px; }
 .bl-h .honor { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 26px 22px 24px; text-align: center;
   border-radius: 18px; background: #fff; border: 1px solid var(--rule); box-shadow: 0 14px 34px rgb(26 26 26 / .07); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
 .bl-h .honor::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(90deg, var(--cran), var(--gold)); }
-.bl-h .honor:hover { transform: translateY(-3px); box-shadow: 0 22px 46px rgb(26 26 26 / .12); }
+.bl-h .honor:hover { translate: 0 -3px; box-shadow: 0 22px 46px rgb(26 26 26 / .12); }
 .bl-h .honor .ico-badge { width: 46px; height: 46px; border-radius: 13px; }
 .bl-h .honor .ico-badge svg { width: 22px; height: 22px; }
 .bl-h .honor p { font-weight: 600; font-size: 16px; line-height: 1.45; color: var(--ink); text-wrap: balance; }
@@ -818,3 +818,40 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 /* The quote band is a short pause between lanes: less padding, so the space around it stays under the 220px rule. */
 .bl-h .sec.hacks { padding-block: calc(var(--sec-pad) * .6); }
 .bl-h .hacks .rail { gap: 10px; }
+
+/* ---------- Hover "pop" on boxes (Brett, 30 Oct 2026) ----------
+   Mouse/trackpad: the box lifts, its shadow deepens and its edge warms (cranberry on light, gold on dark); icon badges
+   grow a touch. Keyboard users get the same when a link or button inside has focus. Lifts use the `translate` / `scale`
+   properties, not `transform`: the scroll-in animation leaves an inline transform on cards that would cancel a :hover
+   transform (that is why the older lifts never moved). No movement with reduced motion; the colour change stays. */
+.bl-h :is(.paper-card:not(.prose), .gcard, .glass.price, .included > li, .stats > li, .mini-stats > li, .video-grid > li,
+  .bento-tile, .honor, .slide, .talk, .acc-item, .faq > div, .ticks > li) {
+  transition: translate .45s var(--ease), box-shadow .45s var(--ease), border-color .35s ease, background-color .35s ease;
+}
+.bl-h :is(.paper-card, .gcard, .glass.price, .included > li, .honor, .talk, .row-card) .ico-badge { transition: scale .45s var(--ease), rotate .45s var(--ease); }
+
+/* Light boxes */
+.bl-h :is(.paper-card:not(.prose), .honor, .talk):is(:hover, :has(:focus-visible)) {
+  border-color: rgb(155 27 48 / .3);
+  box-shadow: inset 0 3px 0 var(--gold), 0 0 0 1px rgb(155 27 48 / .12), 0 30px 64px rgb(26 26 26 / .15);
+}
+.bl-h :is(.acc-item, .ticks > li):hover { border-color: rgb(155 27 48 / .3); box-shadow: 0 16px 36px rgb(26 26 26 / .1); }
+/* Dark boxes */
+.bl-h :is(.gcard, .glass.price, .included > li):is(:hover, :has(:focus-visible)) {
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .14), 0 0 0 1px rgb(212 175 55 / .55), 0 36px 84px rgb(0 0 0 / .55), 0 0 60px rgb(212 175 55 / .08);
+}
+.bl-h :is(.stats > li, .mini-stats > li, .faq > div):hover { background-color: rgb(255 255 255 / .1); border-color: rgb(212 175 55 / .45); }
+.bl-h .video-grid > li:is(:hover, :has(:focus-visible)) .vplayer { box-shadow: 0 0 0 1px rgb(212 175 55 / .6), 0 30px 70px rgb(0 0 0 / .5); }
+.bl-h .bento-tile:is(:hover, :has(:focus-visible)) { box-shadow: 0 0 0 1px rgb(212 175 55 / .55), 0 26px 60px rgb(0 0 0 / .5); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .bl-h :is(.paper-card:not(.prose), .gcard, .glass.price, .included > li, .video-grid > li, .bento-tile):is(:hover, :has(:focus-visible)) { translate: 0 -6px; }
+  .bl-h :is(.stats > li, .mini-stats > li, .faq > div, .talk):hover { translate: 0 -3px; }
+  .bl-h .ticks > li:hover { translate: 4px 0; }
+  .bl-h :is(.paper-card, .gcard, .glass.price, .included > li, .honor, .talk, .row-card):is(:hover, :has(:focus-visible)) .ico-badge { scale: 1.1; rotate: -4deg; }
+}
+/* Touch screens: no sticky hover state after a tap. */
+@media (hover: none) {
+  .bl-h :is(.paper-card, .gcard, .glass.price, .included > li, .stats > li, .mini-stats > li, .video-grid > li, .bento-tile, .honor, .slide, .talk, .faq > div, .ticks > li):hover { translate: none; }
+  .bl-h :is(.paper-card, .gcard, .glass.price, .included > li, .honor, .talk, .row-card):hover .ico-badge { scale: none; rotate: none; }
+}
