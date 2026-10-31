@@ -1,5 +1,6 @@
 // BOOKS & MEDIA, "Horizon" design (Group 3, 30 Oct 2026). Words unchanged from the previous page (tag pre-horizon-inner-2026-10-30).
 // Book cards are now real links (before, only a click handler on the whole card); the four TV clips load on Play.
+// Top photo: a lightly smoothed copy of the bookshelf photo (it sits behind a dark overlay), 63 KB → 40 KB on phones (31 Oct).
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Newspaper, Play, Star, Tv } from "lucide-react";
@@ -173,7 +174,7 @@ export default function BooksPage() {
             eyebrow={<><BookOpen className="eyebrow-ico" aria-hidden="true" />Books &amp; Media</>}
             lines={["Ideas That Have Helped", <em key="t">Thousands</em>]}
             lede={<>Eight books, five bestsellers, and a growing library of media appearances, all built on one principle: <strong>teach what you&apos;ve tested.</strong></>}
-            photo={{ src: "/books/masters-edge-shelf.jpg", alt: "", w: 1536, h: 1024, pos: "70% 45%" }}
+            photo={{ src: "/horizon/books-shelf-soft.jpg", alt: "", w: 1536, h: 1024, pos: "70% 45%" }}
           />
 
           {/* Books */}
