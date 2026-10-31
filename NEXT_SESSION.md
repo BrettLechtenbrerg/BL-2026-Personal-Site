@@ -84,6 +84,7 @@ Quiz top photo `public/horizon/quiz-team-soft.jpg` (lightly smoothed America Fir
 form loads on demand (`next/dynamic` in `src/app/books/BooksClient.tsx`). **Testing forms:** intercept the webhooks
 (never submit test data to the real Go High Level hooks or `/api/team-lead`).
 **Not converted on purpose:** `/academy` (own design), `/hub`, `/quiz-results-gallery`.
+Books top photo = `public/horizon/books-shelf-soft.jpg` (lighter copy): live slow-phone LCP ~2.0–2.6s (was ~3.0s).
 **Restore points:** `pre-horizon-2026-10-30` (before any Horizon), `pre-horizon-inner-2026-10-30` (home only).
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
