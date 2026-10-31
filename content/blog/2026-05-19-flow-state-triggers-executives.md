@@ -22,7 +22,7 @@ The CEO who asked me about flow last month had a problem most leaders don't admi
 
 His calendar was the reason. Twenty-six meetings a week. Two hours of "deep work" blocked in his calendar that always got eaten. A 6am gym session that was the only thing he protected. The flow research was real. The advice he was reading was not designed for his life.
 
-This is the gap most flow content ignores. The 22 flow triggers identified by [Steven Kotler and the Flow Research Collective](https://www.flowresearchcollective.com/) are valid. They are also written assuming you control most of your day. An operating CEO does not. So the question is not "what are the flow triggers?" That's covered everywhere. The question is which triggers actually move the needle when your day is structurally hostile to flow, and how you engineer them inside a calendar you cannot fully control.
+This is the gap most flow content ignores. The 22 flow triggers identified by Steven Kotler and the Flow Research Collective are valid. They are also written assuming you control most of your day. An operating CEO does not. So the question is not "what are the flow triggers?" That's covered everywhere. The question is which triggers actually move the needle when your day is structurally hostile to flow, and how you engineer them inside a calendar you cannot fully control.
 
 That is what I want to walk through. Not the full list of 22. The handful that produce 80% of the result for an executive, ranked by payoff.
 
