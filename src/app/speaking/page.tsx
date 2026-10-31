@@ -1,40 +1,23 @@
-"use client";
-
-// Speaking & Training — four-lane talk structure (10 talks, collapsible
-// cards), live-action bento gallery, Juan Diego live speaking video,
-// outcomes grid, and testimonials. Promoted from the v3 draft July 3, 2026.
-
+// SPEAKING & TRAINING, "Horizon" design (Group 2, 30 Oct 2026). Words unchanged from the previous page (tag pre-horizon-inner-2026-10-30).
+// Four lanes of talks (collapsible cards), live sizzle reel, outcomes, gallery and testimonials.
+import Image from "next/image";
+import Link from "next/link";
+import { Camera, Lightbulb, Play, Quote, Smile, Sparkles, Target, Users, Zap } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
-import { LogoScroller } from "@/components/sections/LogoScroller";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { Btn, FinalCta, HorizonPage, LogoStrip, PageHero, Stats, VideoPoster } from "@/components/horizon/kit";
 import { LiveClip } from "@/components/ui/LiveClip";
-import { AnimatePresence, motion } from "framer-motion";
-import {
-  Camera,
-  ChevronDown,
-  Lightbulb,
-  Play,
-  Quote,
-  Smile,
-  Sparkles,
-  Star,
-  Target,
-  Users,
-  Zap,
-} from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
+import { TalkCard } from "./TalkCard";
 
 // ── From live /speaking (v1): outcomes grid + action gallery ──────────────
 const outcomes = [
-  { icon: Sparkles, title: "Lasting Impact", description: "Practical tools your people keep using after the event ends", gradient: "from-cranberry to-cranberry-dark" },
-  { icon: Target, title: "Tailored Customization", description: "High-level customization that resonates with your specific audience", gradient: "from-gold to-gold-dark" },
-  { icon: Lightbulb, title: "Actionable Insights", description: "Strategies they can implement immediately", gradient: "from-cranberry to-cranberry-dark" },
-  { icon: Zap, title: "Grounded Presence", description: "Calm, confident delivery that holds a room without hype", gradient: "from-gold to-gold-dark" },
-  { icon: Users, title: "Evidence-Based", description: "Science-backed strategies from original research", gradient: "from-cranberry to-cranberry-dark" },
-  { icon: Smile, title: "Engaging Humor", description: "Substance combined with fun", gradient: "from-gold to-gold-dark" },
+  { icon: Sparkles, title: "Lasting Impact", description: "Practical tools your people keep using after the event ends" },
+  { icon: Target, title: "Tailored Customization", description: "High-level customization that resonates with your specific audience", gold: true },
+  { icon: Lightbulb, title: "Actionable Insights", description: "Strategies they can implement immediately" },
+  { icon: Zap, title: "Grounded Presence", description: "Calm, confident delivery that holds a room without hype", gold: true },
+  { icon: Users, title: "Evidence-Based", description: "Science-backed strategies from original research" },
+  { icon: Smile, title: "Engaging Humor", description: "Substance combined with fun", gold: true },
 ];
 
 // Added Sep 27 2026 (Website-Fixes spec 2.2). Quotes are verbatim; Sam
@@ -68,7 +51,7 @@ const galleryImages = [
   { src: "/speaking-gallery/speaking-4.jpg", alt: "AI for Business Owners, Park City Chamber, Blair Education Center", size: "large" },
 ];
 
-type Talk = {
+export type Talk = {
   id: string;
   title: string;
   subtitle: string;
@@ -80,7 +63,7 @@ type Talk = {
   flagship?: boolean;
 };
 
-type Lane = {
+export type Lane = {
   number: string;
   name: string;
   problem: string;
@@ -314,307 +297,84 @@ const lanes: Lane[] = [
   },
 ];
 
-// Alternating light backgrounds for lane sections, matching the site's gradient rhythm.
-const laneBackgrounds = [
-  "bg-gradient-to-b from-white via-cranberry/5 to-gold/5",
-  "bg-gradient-to-b from-white via-gold/5 to-cranberry/5",
-  "bg-gradient-to-b from-white via-cranberry/5 to-gold/5",
-  "bg-gradient-to-b from-white via-gold/5 to-cranberry/5",
+// Verified stats (Session 22, Aug 8 2026, figures confirmed by Brett; see CLAUDE.md Credential Standards).
+const stats = [
+  { value: 250, suffix: "+", label: "Talks, Trainings & Seminars" },
+  { value: 100, suffix: "+", label: "Businesses Coached", color: "t-cran" },
+  { value: 30, suffix: "+", label: "Years in Business" },
+  { value: 8, label: "Books · 5 Bestsellers", color: "t-cran" },
 ];
 
-function TalkCard({ talk, index }: { talk: Talk; index: number }) {
-  // Flagship keynote starts open; everything else starts as a scannable
-  // title row so the four lanes read like a menu, not a manuscript.
-  const [expanded, setExpanded] = useState(!!talk.flagship);
-
+function LaneSection({ lane, tone }: { lane: Lane; tone: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="group relative"
-    >
-      {talk.flagship && (
-        <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-      )}
-      <div
-        className={`relative rounded-2xl shadow-lg border h-full transition-all duration-300 group-hover:shadow-xl overflow-hidden ${
-          talk.flagship
-            ? "border-gold/60 bg-gradient-to-br from-orange-50/60 via-white to-gold/10"
-            : "border-gray-100 bg-white"
-        }`}
-      >
-        {/* Always-visible header — click to expand/collapse */}
-        <button
-          type="button"
-          onClick={() => setExpanded((e) => !e)}
-          aria-expanded={expanded}
-          className="w-full text-left p-8 pb-6 cursor-pointer"
-        >
-          {talk.flagship && (
-            <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/40 rounded-full px-4 py-1.5 mb-4">
-              <Star className="w-3.5 h-3.5 text-gold-dark fill-gold-dark" />
-              <span className="text-gold-dark font-semibold text-xs tracking-wide uppercase">
-                Flagship Keynote
-              </span>
-            </div>
-          )}
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h3 className="text-2xl font-bold text-black mb-1 font-heading">
-                {talk.title}
-              </h3>
-              <p className="text-cranberry font-medium italic">{talk.subtitle}</p>
-              <p className="text-sm text-warm-gray mt-2">
-                <span className="font-semibold text-black">Duration:</span>{" "}
-                {talk.duration}
-              </p>
-            </div>
-            <span
-              className={`flex items-center justify-center w-10 h-10 rounded-full border flex-shrink-0 mt-1 transition-all duration-300 ${
-                expanded
-                  ? "bg-cranberry border-cranberry text-white rotate-180"
-                  : "bg-white border-gray-200 text-cranberry group-hover:border-cranberry/50"
-              }`}
-            >
-              <ChevronDown className="w-5 h-5" />
-            </span>
-          </div>
-          {!expanded && (
-            <p className="text-sm text-cranberry font-semibold mt-3">
-              See full description →
-            </p>
-          )}
-        </button>
-
-        <AnimatePresence initial={false}>
-          {expanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: "easeInOut" }}
-            >
-              <div className="px-8 pb-8">
-                {talk.paragraphs.map((paragraph, i) => (
-                  <p key={i} className="text-warm-gray leading-relaxed mb-4">
-                    {paragraph}
-                  </p>
-                ))}
-                {talk.proof && (
-                  <p className="inline-flex items-center gap-2 bg-cranberry/5 border border-cranberry/20 rounded-full px-4 py-1.5 text-sm font-semibold text-cranberry mb-5">
-                    <Star className="w-3.5 h-3.5 fill-cranberry text-cranberry" />
-                    {talk.proof}
-                  </p>
-                )}
-                <p className="text-sm text-warm-gray mb-5">
-                  <span className="font-semibold text-cranberry">Best for:</span>{" "}
-                  {talk.bestFor}
-                </p>
-                <div>
-                  <p className="font-semibold text-black text-sm mb-2">
-                    Your audience leaves with:
-                  </p>
-                  <ul className="space-y-2">
-                    {talk.leavesWith.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-warm-gray">
-                        <span className="w-1.5 h-1.5 bg-gold-dark rounded-full flex-shrink-0 mt-1.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.div>
-  );
-}
-
-function LaneSection({ lane, laneIndex }: { lane: Lane; laneIndex: number }) {
-  return (
-    <section className={`py-20 ${laneBackgrounds[laneIndex]} relative overflow-hidden`}>
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-10"
-        >
-          <p className="text-gold-dark font-semibold text-sm tracking-[0.2em] uppercase mb-3">
-            Lane {lane.number}
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4 font-heading">
-            {lane.name}
-          </h2>
-          <p className="text-cranberry italic mb-4">{lane.problem}</p>
-          <p className="text-warm-gray leading-relaxed max-w-3xl">{lane.intro}</p>
-        </motion.div>
-
-        <div className="space-y-8">
-          {lane.talks.map((talk, index) => (
-            <TalkCard key={talk.id} talk={talk} index={index} />
-          ))}
+    <section className={`sec ${tone}`} aria-labelledby={`lane-${lane.number}`}>
+      <div className="rail lane">
+        <div className="lane-head" data-rise>
+          <p className="kicker">Lane {lane.number}</p>
+          <h2 id={`lane-${lane.number}`} className="h2">{lane.name}</h2>
+          <p className="lane-problem">{lane.problem}</p>
+          <p className="body-lg">{lane.intro}</p>
         </div>
+        <ul className="talks" data-stagger>
+          {lane.talks.map((talk) => <TalkCard key={talk.id} talk={talk} />)}
+        </ul>
       </div>
     </section>
   );
 }
 
+const quotes = [
+  {
+    quote: "Brett is as good an instructor as I have been around. His training methods and information are always cutting-edge.",
+    name: "Matt Gibbons",
+    initials: "MG",
+    role: "President, Murray Area Chamber of Commerce",
+  },
+  // Juan Diego testimonial (moved from under the reel, Sep 27 2026)
+  {
+    quote:
+      "The impact of this two-phase event on our team has been nothing short of extraordinary. The lessons learned have not only improved our performance on the field but have also instilled a renewed sense of confidence and camaraderie.",
+    name: "Danny Larson",
+    initials: "DL",
+    role: "Head Football Coach, Juan Diego High School",
+  },
+  ...extraTestimonials,
+];
+
 export default function SpeakingPage() {
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        {/* ===== 1. HERO ===== */}
-        <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          <Image
-            src="/heroes/speaking.jpg"
-            alt="Speaker on stage with dramatic lighting"
-            fill
-            className="object-cover opacity-50"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-[500px] h-[500px] bg-cranberry/40 rounded-full blur-[120px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/30 rounded-full blur-[100px]"
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="speaking-title"
+            eyebrow="Keynotes · Corporate Training · Workshops"
+            lines={["Your Audience Leaves", <><em>Changed</em>, Not Just Entertained</>]}
+            lede={<>Science-backed keynotes and training built on one promise: transformation over transaction. Every talk is grounded in the Master&apos;s Edge methodology of First Principles, Frontloading, and the strategic use of Flow, so your people don&apos;t just hear new ideas. They leave with clarity, motivation, and tools they use Monday morning.</>}
+            photo={{ src: "/heroes/speaking.jpg", alt: "Speaker on stage with dramatic lighting", w: 1920, h: 1280, pos: "40% 45%" }}
+            side="right"
+            wide
+          >
+            <Btn href="/book-brett" size="lg" arrow>Book Brett for Your Event</Btn>
+            <Btn href="/media-kit" variant="glass" size="lg">View the Media Kit</Btn>
+          </PageHero>
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-gold font-semibold text-sm tracking-[0.25em] uppercase mb-6"
-            >
-              Keynotes · Corporate Training · Workshops
-            </motion.p>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-heading"
-            >
-              Your Audience Leaves{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Changed
-              </span>
-              , Not Just Entertained
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto"
-            >
-              Science-backed keynotes and training built on one promise:
-              transformation over transaction. Every talk is grounded in the
-              Master&apos;s Edge methodology of First Principles, Frontloading, and
-              the strategic use of Flow, so your people don&apos;t just hear new
-              ideas. They leave with clarity, motivation, and tools they use
-              Monday morning.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-4"
-            >
-              <Button href="/book-brett" size="lg">
-                Book Brett for Your Event
-              </Button>
-              <Button
-                href="/media-kit"
-                variant="outline"
-                size="lg"
-                className="border-white/40 text-white hover:bg-white/10 hover:text-white hover:border-white"
-              >
-                View the Media Kit
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== 2. TRUST BAR ===== */}
-        <LogoScroller hideMartialArts />
-        {/* Supporting text for SEO/accessibility (carousel logos are images) */}
-        <div className="bg-gray-50 py-6">
-          <p className="text-center text-sm text-warm-gray/80 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            From America First Credit Union, Packsize, and Purple to American
-            Express, Delta, and chambers of commerce across Utah, Brett
-            delivers transformation that outlasts the event.
-          </p>
-          {/* Verified stats (Session 22, Aug 8 2026 — figures confirmed by Brett;
-              see CLAUDE.md Credential Standards) */}
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div>
-              <p className="text-cranberry font-black text-3xl">
-                <AnimatedCounter value={250} suffix="+" />
+          {/* Trust bar: logos, supporting text (the logos are images) and verified numbers */}
+          <LogoStrip id="speaking-logos" hideMartialArts>
+            <div className="rail trust-more">
+              <p className="trust-line">
+                From America First Credit Union, Packsize, and Purple to American Express, Delta, and chambers of commerce across Utah, Brett
+                delivers transformation that outlasts the event.
               </p>
-              <p className="text-warm-gray text-xs mt-1">Talks, Trainings &amp; Seminars</p>
+              <Stats items={stats} className="stats-compact" />
             </div>
-            <div>
-              <p className="text-cranberry font-black text-3xl">
-                <AnimatedCounter value={100} suffix="+" />
-              </p>
-              <p className="text-warm-gray text-xs mt-1">Businesses Coached</p>
-            </div>
-            <div>
-              <p className="text-cranberry font-black text-3xl">
-                <AnimatedCounter value={30} suffix="+" />
-              </p>
-              <p className="text-warm-gray text-xs mt-1">Years in Business</p>
-            </div>
-            <div>
-              <p className="text-cranberry font-black text-3xl">
-                <AnimatedCounter value={8} />
-              </p>
-              <p className="text-warm-gray text-xs mt-1">Books · 5 Bestsellers</p>
-            </div>
-          </div>
-        </div>
+          </LogoStrip>
 
-        {/* ===== NEW: SEE BRETT LIVE — Juan Diego video + matching testimonial ===== */}
-        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 left-0 w-[500px] h-[500px] bg-cranberry/30 rounded-full blur-[130px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
-              transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold/25 rounded-full blur-[110px]"
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
-          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* The clip */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-                className="mx-auto w-full"
-              >
+          {/* See Brett live: sizzle reel + America First feedback */}
+          <section className="sec sec-night-2" aria-labelledby="live-title">
+            <div className="rail split split-even">
+              <div data-rise>
                 <LiveClip
                   src="/videos/sizzle-reel-2026.mp4"
                   poster="/videos/sizzle-reel-poster.jpg"
@@ -622,487 +382,175 @@ export default function SpeakingPage() {
                   aspect="wide"
                   caption="▶ Watch the 3:27 sizzle reel (with sound)"
                 />
-              </motion.div>
-
-              {/* Context + testimonial */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-              >
-                <div className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/30 rounded-full px-5 py-2 mb-6">
-                  <Play className="w-4 h-4 text-gold" />
-                  <span className="text-cranberry-light font-semibold text-sm">
-                    Live From the Room
-                  </span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-heading">
-                  Don&apos;t Take Our Word for It.{" "}
-                  <span className="text-shimmer bg-gradient-to-r from-gold via-cranberry-light to-gold bg-clip-text text-transparent">
-                    Watch.
-                  </span>
-                </h2>
-                <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  Three minutes, no pitch. Live keynotes, corporate trainings,
-                  and the business owners, executives, and teams Brett works
-                  with. Watch it and you&apos;ll know whether he&apos;s right for
-                  your room.
+              </div>
+              <div className="live-copy" data-rise>
+                <p className="chip"><Play aria-hidden="true" />Live From the Room</p>
+                <h2 id="live-title" className="h2">Don&apos;t Take Our Word for It. <em>Watch.</em></h2>
+                <p className="body-lg">
+                  Three minutes, no pitch. Live keynotes, corporate trainings, and the business owners, executives, and teams Brett works with.
+                  Watch it and you&apos;ll know whether he&apos;s right for your room.
                 </p>
-
-                {/* [America First] Initial text feedback from Lindsey Powers, day
-                    after the Aug 4, 2026 Super Ethical Sales & Team Building
-                    session. Swap in the formal letter of recommendation when it
-                    arrives. */}
-                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                  <Quote className="w-6 h-6 text-gold mb-3" />
-                  <p className="text-white/90 italic leading-relaxed mb-4">
-                    &ldquo;Thank you again, Brett!! I heard some more great comments
-                    from our team that they really enjoyed your training!&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full bg-gradient-to-br from-gold to-cranberry flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      LP
-                    </div>
-                    <div>
-                      <p className="font-bold text-white text-sm">Lindsey Powers</p>
-                      <p className="text-gold text-xs">
-                        America First Credit Union · Super Ethical Sales &amp;
-                        Team Building, August 2026
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== FROM V1: WHAT YOU CAN EXPECT ===== */}
-        <section className="py-24 bg-gradient-to-b from-white via-cranberry/5 to-gold/5 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-cranberry/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-black mb-12 text-center font-heading"
-            >
-              What You Can <span className="text-cranberry">Expect</span>
-            </motion.h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {outcomes.map((outcome, index) => (
-                <motion.div
-                  key={outcome.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${outcome.gradient} rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300`} />
-                  <div className="relative flex items-start gap-4 bg-white rounded-xl p-6 shadow-lg border border-gray-100 h-full group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300">
-                    <div className={`w-14 h-14 bg-gradient-to-br ${outcome.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6`}>
-                      <outcome.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-black mb-1">{outcome.title}</h3>
-                      <p className="text-warm-gray text-sm">{outcome.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ===== 3. UMBRELLA INTRO ===== */}
-        <section className="py-20 bg-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-cranberry/10 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8 font-heading">
-                One Methodology.{" "}
-                <span className="text-cranberry">
-                  Four Ways It Transforms Your People.
-                </span>
-              </h2>
-              <div className="space-y-5 text-lg text-warm-gray leading-relaxed text-left">
-                <p>
-                  Every Brett Lechtenberg keynote and training is built on the
-                  same foundation: the Master&apos;s Edge, a science-backed system
-                  for inside-out transformation, grounded in a thesis reviewed
-                  by the Flow Research Collective and forged through 30 years of
-                  business ownership and four decades on the martial arts mat.
-                </p>
-                <figure className="relative border-l-4 border-gold bg-gradient-to-r from-gold/10 to-transparent rounded-r-2xl pl-6 pr-4 py-5">
-                  <Quote className="w-6 h-6 text-gold mb-2" />
-                  <blockquote className="text-xl sm:text-2xl italic text-black font-heading leading-snug">
-                    &ldquo;Excellent. The paper makes a compelling, empirical case
-                    for the utilization of flow for accelerated learning and skill
-                    acquisition.&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-3 text-sm font-semibold text-cranberry">
-                    &mdash; Flow Research Collective, on Brett&apos;s flow research
+                {/* [America First] Initial text feedback from Lindsey Powers, day after the Aug 4, 2026 Super Ethical Sales & Team
+                    Building session. Swap in the formal letter of recommendation when it arrives. */}
+                <figure className="glass dquote">
+                  <Quote className="dquote-mark" aria-hidden="true" />
+                  <blockquote>&ldquo;Thank you again, Brett!! I heard some more great comments from our team that they really enjoyed your training!&rdquo;</blockquote>
+                  <figcaption>
+                    <span className="initials" aria-hidden="true">LP</span>
+                    <span>
+                      <span className="q-name">Lindsey Powers</span>
+                      <span className="q-title">America First Credit Union · Super Ethical Sales &amp; Team Building, August 2026</span>
+                    </span>
                   </figcaption>
                 </figure>
-                <p>
-                  Brett doesn&apos;t do off-the-shelf content, and he doesn&apos;t do
-                  shortcuts. As he puts it: &ldquo;Hacks are for hacks.&rdquo;
-                  What he delivers instead is a custom-fit experience built from
-                  three pillars, First Principles to Clarify, Frontloading to
-                  Simplify, and Flow to Maximize, then tailored to your room, your industry, and your outcomes.
-                </p>
-                <p>
-                  Choose the lane that matches the problem you&apos;re solving. The
-                  delivery is his. The transformation is yours.
-                </p>
               </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== 4. LANE 1 ===== */}
-        <LaneSection lane={lanes[0]} laneIndex={0} />
-
-        {/* ===== PULL-QUOTE BAND (between Lane 1 and Lane 2) ===== */}
-        <section className="py-20 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.35, 0.2] }}
-              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-gold/25 rounded-full blur-[110px]"
-            />
-          </div>
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Quote className="w-10 h-10 text-gold mx-auto mb-6" />
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-heading mb-6">
-                &ldquo;Hacks are for{" "}
-                <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent">
-                  hacks
-                </span>
-                .&rdquo;
-              </p>
-              <p className="text-gold font-semibold tracking-wide">
-                — Brett Lechtenberg
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ===== LANES 2–4 ===== */}
-        <LaneSection lane={lanes[1]} laneIndex={1} />
-        <LaneSection lane={lanes[2]} laneIndex={2} />
-        <LaneSection lane={lanes[3]} laneIndex={3} />
-
-        {/* ===== 5. CUSTOMIZATION LINE ===== */}
-        <section className="py-10 bg-white border-t border-gray-100">
-          <p className="text-center text-sm text-warm-gray px-4 sm:px-6 lg:px-8">
-            All talks can be customized to your audience and event format.{" "}
-            <a
-              href="/book-brett"
-              className="font-semibold text-cranberry hover:underline"
-            >
-              Request a custom presentation
-            </a>
-          </p>
-        </section>
-
-        {/* ===== FROM V1: BRETT IN ACTION GALLERY (bento, no unverified stats) ===== */}
-        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-20 -right-20 w-[600px] h-[600px] bg-cranberry/30 rounded-full blur-[150px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-gold/25 rounded-full blur-[120px]"
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:60px_60px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-full px-5 py-2 mb-6">
-                <Camera className="w-4 h-4 text-gold" />
-                <span className="text-gold font-semibold text-sm">Gallery</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-heading">
-                Brett in{" "}
-                <span className="bg-gradient-to-r from-cranberry via-gold to-cranberry bg-clip-text text-transparent">
-                  Action
-                </span>
-              </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                From corporate boardrooms to championship teams, Brett delivers
-                transformation everywhere.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
-              {galleryImages.map((image, index) => (
-                <motion.div
-                  key={image.src}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
-                  className={`group relative overflow-hidden rounded-2xl cursor-pointer ${
-                    image.size === "large"
-                      ? "col-span-2 row-span-2"
-                      : "col-span-1 row-span-1"
-                  }`}
-                >
-                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500 z-0" />
-                  <div className="relative w-full h-full overflow-hidden rounded-2xl border border-white/10 group-hover:border-gold/50 transition-all duration-500">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="text-white font-medium text-sm md:text-base drop-shadow-lg">
-                        {image.alt}
-                      </p>
-                    </div>
-                    <div className="absolute top-3 right-3 w-8 h-8 bg-gradient-to-br from-gold to-cranberry rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-                      <Sparkles className="w-4 h-4 text-white" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* ===== FROM V1: SPEAKING TESTIMONIAL ===== */}
-        <section className="py-20 bg-gradient-to-b from-gold/10 via-white to-cranberry/10 relative overflow-hidden">
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-8">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-                <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full transition-transform duration-500 group-hover:-translate-y-1">
-                  <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-full flex items-center justify-center">
-                    <Quote className="w-5 h-5 text-white" />
-                  </div>
-                  <p className="text-lg italic text-black mb-4 pt-4">
-                    &ldquo;Brett is as good an instructor as I have been around. His
-                    training methods and information are always cutting-edge.&rdquo;
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold">
-                      MG
-                    </div>
+          {/* What you can expect */}
+          <section className="sec sec-paper" aria-labelledby="expect-title">
+            <div className="rail">
+              <h2 id="expect-title" className="h2 sec-title center" data-rise>What You Can <em>Expect</em></h2>
+              <ul className="card-grid cols-3" data-stagger>
+                {outcomes.map((o) => (
+                  <li key={o.title} className="paper-card row-card">
+                    <span className={`ico-badge${o.gold ? " is-gold" : ""}`} aria-hidden="true"><o.icon /></span>
                     <div>
-                      <p className="font-bold text-black">Matt Gibbons</p>
-                      <p className="text-sm text-cranberry">
-                        President, Murray Area Chamber of Commerce
-                      </p>
+                      <h3>{o.title}</h3>
+                      <p>{o.description}</p>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Juan Diego testimonial (moved from under the reel, Sep 27 2026) */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15 }}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-gold via-cranberry to-gold rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-                <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full transition-transform duration-500 group-hover:-translate-y-1">
-                  <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-to-br from-gold to-gold-dark rounded-full flex items-center justify-center">
-                    <Quote className="w-5 h-5 text-white" />
-                  </div>
-                  <p className="text-lg italic text-black mb-4 pt-4">
-                    &ldquo;The impact of this two-phase event on our team has been
-                    nothing short of extraordinary. The lessons learned have not
-                    only improved our performance on the field but have also
-                    instilled a renewed sense of confidence and camaraderie.&rdquo;
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold">
-                      DL
-                    </div>
-                    <div>
-                      <p className="font-bold text-black">Danny Larson</p>
-                      <p className="text-sm text-cranberry">
-                        Head Football Coach, Juan Diego High School
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {extraTestimonials.map((t, index) => (
-                <motion.div
-                  key={t.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.15 * index }}
-                  className="relative group"
-                >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-white rounded-2xl p-8 shadow-xl border border-gray-100 h-full transition-transform duration-500 group-hover:-translate-y-1">
-                    <div className="absolute -top-4 left-8 w-10 h-10 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-full flex items-center justify-center">
-                      <Quote className="w-5 h-5 text-white" />
-                    </div>
-                    <p className="text-lg italic text-black mb-4 pt-4">
-                      &ldquo;{t.quote}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold flex-shrink-0">
-                        {t.initials}
-                      </div>
-                      <div>
-                        <p className="font-bold text-black">{t.name}</p>
-                        <p className="text-sm text-cranberry">{t.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* ===== 6. MEDIA KIT BLOCK ===== */}
-        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-cranberry/30 rounded-full blur-[120px]"
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
-          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-heading">
-                  Everything Your{" "}
-                  <span className="bg-gradient-to-r from-gold via-cranberry-light to-gold bg-clip-text text-transparent">
-                    Event Team
-                  </span>{" "}
-                  Needs
-                </h2>
-                <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                  Planning an event is hard enough. Booking Brett is easy. The
-                  full media kit (speaker one-sheet, headshots, ready-to-read
-                  introductions, and AV requirements) is one click away, ready
-                  to share with your committee.
+          {/* One methodology */}
+          <section className="sec sec-paper-2" aria-labelledby="method-title">
+            <div className="rail narrow" data-rise>
+              <h2 id="method-title" className="h2 sec-title center">One Methodology. <em>Four Ways It Transforms Your People.</em></h2>
+              <div className="prose">
+                <p>
+                  Every Brett Lechtenberg keynote and training is built on the same foundation: the Master&apos;s Edge, a science-backed system for
+                  inside-out transformation, grounded in a thesis reviewed by the Flow Research Collective and forged through 30 years of business
+                  ownership and four decades on the martial arts mat.
                 </p>
-                <Button href="/media-kit" variant="secondary" size="lg">
-                  Get the Media Kit
-                </Button>
-              </motion.div>
-
-              {/* [PLACEHOLDER: dedicated speaking reel — using homepage
-                  "Brett in Action" ABC4 embed until a reel exists] */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.15 }}
-                className="relative group"
-              >
-                <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity" />
-                <div className="relative bg-black rounded-2xl overflow-hidden border border-white/10">
-                  <div className="aspect-video">
-                    <iframe
-                      src="https://www.youtube.com/embed/Dq7agUEBr6I"
-                      title="Brett Lechtenberg on Good Things Utah"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-xl flex items-center justify-center">
-                    <Play className="w-5 h-5 text-white fill-white" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold">Good Things Utah</p>
-                    <p className="text-gray-400 text-sm">
-                      ABC4 Utah - Peak Performance Interview
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+                <figure className="pull-fig">
+                  <Quote className="pull-mark" aria-hidden="true" />
+                  <blockquote>&ldquo;Excellent. The paper makes a compelling, empirical case for the utilization of flow for accelerated learning and skill acquisition.&rdquo;</blockquote>
+                  <figcaption>&mdash; Flow Research Collective, on Brett&apos;s flow research</figcaption>
+                </figure>
+                <p>
+                  Brett doesn&apos;t do off-the-shelf content, and he doesn&apos;t do shortcuts. As he puts it: &ldquo;Hacks are for hacks.&rdquo; What he
+                  delivers instead is a custom-fit experience built from three pillars, First Principles to Clarify, Frontloading to Simplify, and Flow
+                  to Maximize, then tailored to your room, your industry, and your outcomes.
+                </p>
+                <p>Choose the lane that matches the problem you&apos;re solving. The delivery is his. The transformation is yours.</p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* ===== 7. CLOSING CTA ===== */}
-        <section className="py-24 bg-gradient-to-br from-cranberry via-cranberry-dark to-black text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cranberry-light/30 rounded-full blur-[100px]" />
+          <LaneSection lane={lanes[0]} tone="sec-paper" />
+
+          {/* Pull-quote band between Lane 1 and Lane 2 */}
+          <section className="sec sec-night hacks" aria-label="Hacks are for hacks">
+            <div className="rail center" data-rise>
+              <Quote className="hacks-mark" aria-hidden="true" />
+              <p className="display-2 hacks-q">&ldquo;Hacks are for <em>hacks</em>.&rdquo;</p>
+              <p className="hacks-by">— Brett Lechtenberg</p>
+            </div>
+          </section>
+
+          <LaneSection lane={lanes[1]} tone="sec-paper" />
+          <LaneSection lane={lanes[2]} tone="sec-paper-2" />
+          <LaneSection lane={lanes[3]} tone="sec-paper" />
+
+          {/* Customization line */}
+          <div className="custom-line">
+            <p className="rail">
+              All talks can be customized to your audience and event format.{" "}
+              <Link href="/book-brett">Request a custom presentation</Link>
+            </p>
           </div>
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 font-heading">
-                The First Step Is Always a Conversation
-              </h2>
-              <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
-                No pitch. No pressure. Just a genuine discussion about your
-                event, your audience, and the transformation you want them to
-                walk away with. If Brett&apos;s the right fit, you&apos;ll know. If he&apos;s
-                not, he&apos;ll tell you and point you toward someone who is.
-              </p>
-              <Button href="/book-brett" size="lg" variant="secondary">
-                Book Brett for Your Event
-              </Button>
-            </motion.div>
-          </div>
-        </section>
+          {/* Brett in Action gallery (bento, no unverified stats) */}
+          <section className="sec sec-night" aria-labelledby="gallery-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <p className="chip chip-gold"><Camera aria-hidden="true" />Gallery</p>
+                <h2 id="gallery-title" className="h2">Brett in <em>Action</em></h2>
+                <p className="body-lg">From corporate boardrooms to championship teams, Brett delivers transformation everywhere.</p>
+              </div>
+              <ul className="bento" data-stagger>
+                {galleryImages.map((image) => (
+                  <li key={image.src} className={`bento-tile${image.size === "large" ? " is-large" : ""}`}>
+                    <Image src={image.src} alt={image.alt} fill sizes={image.size === "large" ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"} />
+                    <p className="bento-cap">{image.alt}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* Speaking testimonials */}
+          <section className="sec sec-paper" aria-label="What event hosts say">
+            <div className="rail">
+              <ul className="quote-grid" data-stagger>
+                {quotes.map((t, i) => (
+                  <li key={t.name} className="paper-card qcard">
+                    <span className={`qcard-mark${i % 2 ? " is-gold" : ""}`} aria-hidden="true"><Quote /></span>
+                    <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+                    <p className="qcard-by">
+                      <span className="initials" aria-hidden="true">{t.initials}</span>
+                      <span><span className="q-name">{t.name}</span><span className="q-title">{t.role}</span></span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* Media kit block */}
+          <section className="sec sec-night-2" aria-labelledby="kit-title">
+            <div className="rail split split-even">
+              <div className="kit-copy" data-rise>
+                <h2 id="kit-title" className="h2">Everything Your <em>Event Team</em> Needs</h2>
+                <p className="body-lg">
+                  Planning an event is hard enough. Booking Brett is easy. The full media kit (speaker one-sheet, headshots, ready-to-read
+                  introductions, and AV requirements) is one click away, ready to share with your committee.
+                </p>
+                <div><Btn href="/media-kit" variant="gold" size="lg">Get the Media Kit</Btn></div>
+              </div>
+              {/* [PLACEHOLDER: dedicated speaking reel; using homepage "Brett in Action" ABC4 video until a reel exists] */}
+              <div data-rise>
+                <VideoPoster
+                  id="Dq7agUEBr6I"
+                  title="Brett Lechtenberg on Good Things Utah"
+                  poster="/horizon/good-things-utah-poster.jpg"
+                  sizes="(min-width: 1024px) 600px, 92vw"
+                  label={
+                    <div className="video-label">
+                      <span className="ico-badge" aria-hidden="true"><Play /></span>
+                      <span><span className="v-name">Good Things Utah</span><span className="v-sub">ABC4 Utah - Peak Performance Interview</span></span>
+                    </div>
+                  }
+                />
+              </div>
+            </div>
+          </section>
+
+          <FinalCta
+            id="speaking-final"
+            title="The First Step Is Always a Conversation"
+            text={<>No pitch. No pressure. Just a genuine discussion about your event, your audience, and the transformation you want them to walk away with. If Brett&apos;s the right fit, you&apos;ll know. If he&apos;s not, he&apos;ll tell you and point you toward someone who is.</>}
+            photo={{ src: "/heroes/speaking.jpg", w: 1920, h: 1280, pos: "40% 50%" }}
+          >
+            <Btn href="/book-brett" variant="gold" size="lg">Book Brett for Your Event</Btn>
+          </FinalCta>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }

@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { LogoStrip } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
 
 const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
@@ -18,20 +19,6 @@ const pillars = [
   { main: "MAXIMIZE", sub: "Focus, Confidence, Actions, Results" },
 ];
 
-// Official client order (Sep 27 2026): business clients, then chambers, USA Martial Arts last.
-const logos = [
-  { name: "America First Credit Union", src: "/logos/america-first.png", w: 1240, h: 403, px: 46 },
-  { name: "Packsize", src: "/logos/packsize.png", w: 1016, h: 208, px: 30 },
-  { name: "Purple", src: "/logos/purple.jpg", w: 174, h: 174, px: 60, mul: true },
-  { name: "Thumbtack", src: "/logos/thumbtack.png", w: 1698, h: 756, px: 46 },
-  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", w: 190, h: 192, px: 60, mul: true },
-  { name: "American Express", src: "/logos/american-express.png", w: 512, h: 512, px: 62 },
-  { name: "Delta", src: "/logos/delta.png", w: 3840, h: 2160, px: 50 },
-  { name: "Murray Chamber", src: "/logos/murray-chamber.png", w: 204, h: 126, px: 54 },
-  { name: "Park City Chamber", src: "/logos/park-city-chamber.png", w: 5126, h: 1344, px: 36 },
-  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", w: 2109, h: 1381, px: 54 },
-  { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png", w: 124, h: 185, px: 62 },
-];
 
 const steps = [
   {
@@ -179,31 +166,7 @@ export default function Home() {
           </section>
 
           {/* CLIENT LOGOS */}
-          <section className="logos" aria-labelledby="logos-title">
-            <p className="rail logos-k" id="logos-title">Trusted by Leading Organizations</p>
-            <div className="rail">
-            <div className="logo-viewport">
-              <ul className="logo-track animate-scroll">
-                {[...logos, ...logos].map((l, i) => {
-                  const dup = i >= logos.length;
-                  return (
-                    <li key={`${l.name}-${i}`} className="logo-tile" aria-hidden={dup || undefined} data-dup={dup || undefined}>
-                      <Image
-                        className={l.mul ? "mul" : undefined}
-                        src={l.src}
-                        alt={dup ? "" : l.name}
-                        width={l.w}
-                        height={l.h}
-                        sizes="200px"
-                        style={{ "--h": `${l.px}px` } as React.CSSProperties}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            </div>
-          </section>
+          <LogoStrip id="logos-title" />
 
           {/* THE PROBLEM */}
           <section className="problem" aria-labelledby="problem-title">

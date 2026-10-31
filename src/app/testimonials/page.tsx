@@ -1,13 +1,22 @@
-"use client";
-
+// TESTIMONIALS, "Horizon" design (Group 2, 30 Oct 2026). Words unchanged from the previous page (tag pre-horizon-inner-2026-10-30).
+// Quotes are verbatim (Bill Schuffenhauer's wording here is one of three live versions awaiting Brett's answer: do not edit).
+// The six video testimonials load from YouTube only when played (like the home page video).
+import Image from "next/image";
+import { Award, Star, TrendingUp, Users, Video } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { Btn, FinalCta, HorizonPage, PageHero, VideoPoster } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
-import { TiltCard } from "@/components/ui/TiltCard";
-import { motion } from "framer-motion";
-import { Quote, Star, TrendingUp, Users, Award, Play, Video } from "lucide-react";
-import Image from "next/image";
+
+const videos = [
+  { id: "pofzL8xGFsQ", name: "Dana Fisher", company: "On Point Health" },
+  { id: "OA7ptNxEjdM", name: "Bob Morris", company: "Sierra Home Services" },
+  { id: "60csverI6oI", name: "Joyce Mathie", company: "Clean Differently" },
+  { id: "ryGzHBHCjcg", name: "Rich Lavine", company: "South Paw Home Inspection" },
+  { id: "fwlsFGANDJc", name: "Roger Knecht", company: "Universal Business Builder" },
+  { id: "p3E50SvodVc", name: "Matt Gibbons", company: "Matt Gibbons Consulting" },
+];
 
 const featuredTestimonials = [
   {
@@ -15,48 +24,48 @@ const featuredTestimonials = [
       "In my lifetime I have had the opportunity to meet extraordinary people from around the world and Brett Lechtenberg is one of them. I love to collaborate with Brett on big ideas because he helps me get into FLOW.",
     name: "Sam Beard",
     title: "Creator of 6 Presidential Programs for 8 United States Presidents",
-    gradient: "from-gold to-gold-dark",
     image: "/testimonials/sam-beard.jpg",
+    pos: "38% 22%",
   },
   {
     quote:
       "Brett knows flow, peak performance and goals. I have been around a ton of business coaches and high level performers and Brett is a top tier trainer, teacher and coach.",
     name: "Bill Schuffenhauer",
     title: "Olympic Silver Medalist & 3x Olympian",
-    gradient: "from-cranberry to-cranberry-dark",
     image: "/testimonials/bill-schuffenhauer.png",
+    pos: "72% 30%",
   },
   {
     quote:
       "In my military career I had to perform in any conditions, at any given time, without fail. If you want to learn that kind of mindset in business and building teams then Brett Lechtenberg is definitely a person that I turn to help me with my goals and objectives.",
     name: "Sal Rossano",
     title: "Green Beret (Ret.) - Trauma Survival Specialist",
-    gradient: "from-gold to-gold-dark",
     image: "/testimonials/sal-rossano.png",
+    pos: "50% 30%",
   },
   {
     quote:
       "Brett is as good an instructor as I have been around. His training methods and information is always cutting edge. If you want to learn how to take your business to the next level with individual, or team training then Brett Lechtenberg is the person to get on your team.",
     name: "Matt Gibbons",
     title: "President, Murray Chamber of Commerce",
-    gradient: "from-cranberry to-cranberry-dark",
     image: "/testimonials/matt-gibbons.png",
+    pos: "50% 25%",
   },
   {
     quote:
       "Brett is one of my 300. Just like Spartans of old had to pick 300 to face down their foes who were no nonsense amazing people. Brett is someone I turn to when I need to pick my 300.",
     name: "Jerry Fontanez",
     title: "8-Time World Karate Champion",
-    gradient: "from-gold to-gold-dark",
     image: "/testimonials/jerry-fontanez.jpg",
+    pos: "44% 14%",
   },
   {
     quote:
       "Brett has an innate ability to break down complicated subjects into easy to learn and quick to implement subject matter. He has helped me motivate my staff, implement more cash generation systems and help build a culture of fun and positive growth.",
     name: "John Nottingham",
     title: "Sword and Shield Security, Phoenix, AZ",
-    gradient: "from-cranberry to-cranberry-dark",
     image: "/testimonials/john-nottingham.webp",
+    pos: "52% 30%",
   },
 ];
 
@@ -75,6 +84,7 @@ const businessResults = [
     name: "Al Agon",
     title: "Perfect Balance Fitness, Miami, FL",
     image: "/testimonials/al-agon.webp",
+    pos: "44% 24%",
   },
   {
     quote:
@@ -142,515 +152,141 @@ const moreTestimonials = [
   },
 ];
 
+const initials = (name: string) => name.split(" ").map((n) => n[0]).join("").slice(0, 2);
+
+function Stars({ count = 5 }: { count?: number }) {
+  return (
+    <span className="stars-row" role="img" aria-label={`${count} out of 5 stars`}>
+      {Array.from({ length: count }, (_, i) => <Star key={i} aria-hidden="true" />)}
+    </span>
+  );
+}
+
 export default function TestimonialsPage() {
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        {/* Hero - Dark */}
-        <section className="relative py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          {/* Hero background image */}
-          <Image
-            src="/heroes/testimonials.jpg"
-            alt="Successful professionals collaborating"
-            fill
-            className="object-cover opacity-45"
-            priority
-          />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-[500px] h-[500px] bg-cranberry/40 rounded-full blur-[120px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/30 rounded-full blur-[100px]"
-            />
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 mb-6"
-            >
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-gold fill-gold" />
-              ))}
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
-            >
-              See What&apos;s{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Possible
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
-            >
-              Don&apos;t take Brett&apos;s word for it. Hear from the leaders, athletes,
-              coaches, and business owners who&apos;ve experienced The Master&apos;s Edge firsthand.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* Video Testimonials - Dark */}
-        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-20 left-10 w-96 h-96 bg-cranberry/25 rounded-full blur-[120px]"
-          />
-          <motion.div
-            animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.25, 0.15] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-20 right-10 w-80 h-80 bg-gold/20 rounded-full blur-[100px]"
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="testimonials-title"
+            eyebrow={<Stars />}
+            lines={["See What's", <em key="p">Possible</em>]}
+            lede={<>Don&apos;t take Brett&apos;s word for it. Hear from the leaders, athletes, coaches, and business owners who&apos;ve experienced The Master&apos;s Edge firsthand.</>}
+            photo={{ src: "/heroes/testimonials.jpg", alt: "Successful professionals collaborating", w: 1920, h: 1280, pos: "62% 35%" }}
+            side="right"
           />
 
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <div className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/30 rounded-full px-5 py-2 mb-6">
-                <Video className="w-4 h-4 text-cranberry" />
-                <span className="text-cranberry font-semibold text-sm">Video Testimonials</span>
+          {/* Video testimonials */}
+          <section className="sec sec-night" aria-labelledby="videos-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <p className="chip"><Video aria-hidden="true" />Video Testimonials</p>
+                <h2 id="videos-title" className="h2">Hear It <em>Directly</em> From Them</h2>
               </div>
-              <h2 className="text-3xl font-bold text-white">
-                Hear It <span className="text-gold">Directly</span> From Them
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Dana Fisher - On Point Health */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="relative group">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                    <iframe
-                      src="https://www.youtube.com/embed/pofzL8xGFsQ"
-                      title="Dana Fisher - On Point Health Testimonial"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
-                    <Play className="w-4 h-4 text-white fill-white" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-white text-sm font-medium block">Dana Fisher</span>
-                    <span className="text-gray-400 text-xs">On Point Health</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Bob Morris - Sierra Home Services */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-              >
-                <div className="relative group">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                    <iframe
-                      src="https://www.youtube.com/embed/OA7ptNxEjdM"
-                      title="Bob Morris - Sierra Home Services Testimonial"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
-                    <Play className="w-4 h-4 text-white fill-white" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-white text-sm font-medium block">Bob Morris</span>
-                    <span className="text-gray-400 text-xs">Sierra Home Services</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Joyce Mathie - Clean Differently */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <div className="relative group">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                    <iframe
-                      src="https://www.youtube.com/embed/60csverI6oI"
-                      title="Joyce Mathie - Clean Differently Testimonial"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
-                    <Play className="w-4 h-4 text-white fill-white" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-white text-sm font-medium block">Joyce Mathie</span>
-                    <span className="text-gray-400 text-xs">Clean Differently</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Rich Lavine - South Paw Home Inspection */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-              >
-                <div className="relative group">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                    <iframe
-                      src="https://www.youtube.com/embed/ryGzHBHCjcg"
-                      title="Rich Lavine - South Paw Home Inspection Testimonial"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
-                    <Play className="w-4 h-4 text-white fill-white" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-white text-sm font-medium block">Rich Lavine</span>
-                    <span className="text-gray-400 text-xs">South Paw Home Inspection</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Roger Knecht - Universal Business Builder */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-              >
-                <div className="relative group">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-cranberry via-gold to-cranberry rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                    <iframe
-                      src="https://www.youtube.com/embed/fwlsFGANDJc"
-                      title="Roger Knecht - Universal Business Builder Testimonial"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-cranberry to-cranberry-dark rounded-lg flex items-center justify-center">
-                    <Play className="w-4 h-4 text-white fill-white" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-white text-sm font-medium block">Roger Knecht</span>
-                    <span className="text-gray-400 text-xs">Universal Business Builder</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Matt Gibbons - Matt Gibbons Consulting */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-              >
-                <div className="relative group">
-                  <div className="absolute -inset-2 bg-gradient-to-r from-gold via-cranberry to-gold rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                  <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-white/10">
-                    <iframe
-                      src="https://www.youtube.com/embed/p3E50SvodVc"
-                      title="Matt Gibbons - Matt Gibbons Consulting Testimonial"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="w-full h-full"
-                    />
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center">
-                    <Play className="w-4 h-4 text-white fill-white" />
-                  </div>
-                  <div className="text-left">
-                    <span className="text-white text-sm font-medium block">Matt Gibbons</span>
-                    <span className="text-gray-400 text-xs">Matt Gibbons Consulting</span>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Testimonials - Gradient */}
-        <section className="py-24 bg-gradient-to-b from-gold/10 via-white to-cranberry/10 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-cranberry via-gold to-cranberry" />
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <div className="inline-flex items-center gap-2 bg-cranberry/10 border border-cranberry/20 rounded-full px-5 py-2 mb-6">
-                <Award className="w-4 h-4 text-cranberry" />
-                <span className="text-cranberry font-semibold text-sm">High-Profile Endorsements</span>
-              </div>
-              <h2 className="text-3xl font-bold text-black">
-                Featured <span className="text-cranberry">Testimonials</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              {featuredTestimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative group h-full"
-                >
-                  <TiltCard className="relative h-full">
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${testimonial.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-300`} />
-                  <div className={`relative bg-white rounded-2xl p-8 lg:p-10 shadow-xl border-2 border-gray-200 group-hover:border-transparent group-hover:shadow-2xl h-full flex flex-col overflow-hidden transition-all duration-300`}>
-                    {/* Background person image - 15% darker for visibility */}
-                    {"image" in testimonial && testimonial.image && (
-                      <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
-                        <Image
-                          src={testimonial.image}
-                          alt=""
-                          fill
-                          className="object-contain opacity-[0.15] grayscale"
-                        />
-                      </div>
-                    )}
-                    <div className="relative z-10 flex flex-col h-full">
-                      <div className={`absolute -top-5 -left-2 w-12 h-12 bg-gradient-to-br ${testimonial.gradient} rounded-2xl flex items-center justify-center shadow-lg`}>
-                        <Quote className="w-6 h-6 text-white" />
-                      </div>
-                      <blockquote className="text-lg text-black leading-relaxed mb-6 pt-10 flex-1">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </blockquote>
-                      <div className="flex items-center gap-4 mt-auto">
-                        <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg shrink-0`}>
-                          {testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+              <ul className="video-grid" data-stagger>
+                {videos.map((v) => (
+                  <li key={v.id}>
+                    <VideoPoster
+                      id={v.id}
+                      title={`${v.name} - ${v.company} Testimonial`}
+                      poster={`/horizon/video/${v.id}.jpg`}
+                      sizes="(min-width: 1024px) 420px, (min-width: 640px) 50vw, 92vw"
+                      label={
+                        <div className="video-label">
+                          <span><span className="v-name">{v.name}</span><span className="v-sub">{v.company}</span></span>
                         </div>
-                        <div>
-                          <p className="font-bold text-black">{testimonial.name}</p>
-                          {testimonial.title && (
-                            <p className="text-sm text-cranberry font-medium">{testimonial.title}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  </TiltCard>
-                </motion.div>
-              ))}
+                      }
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Business Results - Dark */}
-        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-20 left-10 w-96 h-96 bg-gold/25 rounded-full blur-[120px]"
-          />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/30 rounded-full px-5 py-2 mb-6">
-                <TrendingUp className="w-4 h-4 text-gold" />
-                <span className="text-gold font-semibold text-sm">Business Results</span>
+          {/* Featured testimonials */}
+          <section className="sec sec-paper" aria-labelledby="featured-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <p className="chip"><Award aria-hidden="true" />High-Profile Endorsements</p>
+                <h2 id="featured-title" className="h2">Featured <em>Testimonials</em></h2>
               </div>
-              <h2 className="text-3xl font-bold text-white">
-                Results That Speak for <span className="text-gold">Themselves</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {businessResults.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative h-full"
-                >
-                  <TiltCard className="relative h-full">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-gold via-cranberry to-gold rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" />
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex gap-6 h-full overflow-hidden">
-                    {/* Background person image */}
-                    {"image" in testimonial && testimonial.image && (
-                      <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
-                        <Image
-                          src={testimonial.image}
-                          alt=""
-                          fill
-                          className="object-contain opacity-10 grayscale"
-                        />
-                      </div>
-                    )}
-                    {testimonial.stat && (
-                      <div className="relative z-10 hidden md:flex flex-col items-center justify-center bg-gradient-to-br from-gold to-gold-dark rounded-xl p-6 text-black min-w-[100px] shrink-0">
-                        <span className="text-3xl font-black">{testimonial.stat}</span>
-                        <span className="text-xs text-black/80">{testimonial.statLabel}</span>
-                      </div>
-                    )}
-                    <div className="relative z-10 flex-1 flex flex-col">
-                      <blockquote className="text-gray-300 mb-4 flex-1">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </blockquote>
-                      <div className="mt-auto">
-                        <cite className="text-white font-semibold not-italic">— {testimonial.name}</cite>
-                        {testimonial.title && (
-                          <p className="text-sm text-gold">{testimonial.title}</p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  </TiltCard>
-                </motion.div>
-              ))}
+              <ul className="quote-grid cols-3" data-stagger>
+                {featuredTestimonials.map((t) => (
+                  <li key={t.name} className="paper-card tcard">
+                    <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+                    <p className="qcard-by">
+                      <span className="portrait">
+                        <Image src={t.image} alt="" fill sizes="64px" style={{ objectPosition: t.pos }} />
+                      </span>
+                      <span><span className="q-name">{t.name}</span>{t.title && <span className="q-title">{t.title}</span>}</span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* More Reviews - Light Gradient */}
-        <section className="py-24 bg-gradient-to-b from-white via-cranberry/5 to-gold/10 relative overflow-hidden">
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cranberry/10 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <div className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-5 py-2 mb-6 shadow-sm">
-                <Users className="w-4 h-4 text-cranberry" />
-                <span className="text-black font-semibold text-sm">5-Star Reviews</span>
+          {/* Business results */}
+          <section className="sec sec-night-2" aria-labelledby="results-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <p className="chip chip-gold"><TrendingUp aria-hidden="true" />Business Results</p>
+                <h2 id="results-title" className="h2">Results That Speak for <em>Themselves</em></h2>
               </div>
-              <h2 className="text-3xl font-bold text-black">
-                More <span className="text-cranberry">Success Stories</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {moreTestimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="group relative h-full"
-                >
-                  <TiltCard className="relative h-full">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-cranberry/50 to-gold/50 rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity" />
-                  <div className="relative bg-white rounded-xl p-6 shadow-lg border border-gray-100 h-full flex flex-col">
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-gold fill-gold" />
-                      ))}
+              <ul className="card-grid cols-2" data-stagger>
+                {businessResults.map((t) => (
+                  <li key={t.name} className="glass gcard biz-result">
+                    {"image" in t && t.image && (
+                      <span className="biz-result-photo" aria-hidden="true">
+                        <Image src={t.image} alt="" fill sizes="220px" style={{ objectPosition: t.pos }} />
+                      </span>
+                    )}
+                    {t.stat && <p className="biz-result-stat"><b>{t.stat}</b><span>{t.statLabel}</span></p>}
+                    <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+                    <div className="biz-result-by">
+                      <cite>— {t.name}</cite>
+                      {t.title && <p>{t.title}</p>}
                     </div>
-                    <blockquote className="text-gray-700 text-sm leading-relaxed mb-4 flex-1">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </blockquote>
-                    <div className="flex items-center gap-3 mt-auto">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cranberry to-gold flex items-center justify-center text-white font-bold text-sm shrink-0">
-                        {testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-black text-sm">{testimonial.name}</p>
-                        <p className="text-xs text-gray-500">{testimonial.title}</p>
-                      </div>
-                    </div>
-                  </div>
-                  </TiltCard>
-                </motion.div>
-              ))}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* CTA - Bold gradient */}
-        <section className="py-24 bg-gradient-to-br from-cranberry via-cranberry-dark to-black text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cranberry-light/30 rounded-full blur-[100px]" />
-          </div>
+          {/* More reviews */}
+          <section className="sec sec-paper-2" aria-labelledby="more-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <p className="chip"><Users aria-hidden="true" />5-Star Reviews</p>
+                <h2 id="more-title" className="h2">More <em>Success Stories</em></h2>
+              </div>
+              <ul className="masonry" data-stagger>
+                {moreTestimonials.map((t) => (
+                  <li key={t.name} className="paper-card review">
+                    <Stars count={t.rating} />
+                    <blockquote>&ldquo;{t.quote}&rdquo;</blockquote>
+                    <p className="qcard-by">
+                      <span className="initials" aria-hidden="true">{initials(t.name)}</span>
+                      <span><span className="q-name">{t.name}</span><span className="q-title">{t.title}</span></span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
 
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
-                Ready to Write Your Own Transformation Story?
-              </h2>
-              <Button href={links.booking} external size="lg" variant="secondary">
-                Talk With Brett
-              </Button>
-            </motion.div>
-          </div>
-        </section>
+          <FinalCta
+            id="testimonials-final"
+            title="Ready to Write Your Own Transformation Story?"
+            photo={{ src: "/heroes/testimonials.jpg", w: 1920, h: 1280, pos: "55% 40%" }}
+          >
+            <Btn href={links.booking} external variant="gold" size="lg">Talk With Brett</Btn>
+          </FinalCta>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }

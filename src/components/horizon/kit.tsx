@@ -16,11 +16,12 @@ export function HorizonPage({ children }: { children: ReactNode }) {
 }
 
 // Page top. `lines` = the headline, one entry per line; wrap accent words in <em>.
-export function PageHero({ id, eyebrow, lines, lede, photo, side = "left", children }: {
-  id: string; eyebrow: ReactNode; lines: ReactNode[]; lede?: ReactNode; photo: Photo; side?: "left" | "right"; children?: ReactNode;
+// wide: a longer headline gets a wider copy column so it breaks into fewer, fuller lines.
+export function PageHero({ id, eyebrow, lines, lede, photo, side = "left", wide, children }: {
+  id: string; eyebrow: ReactNode; lines: ReactNode[]; lede?: ReactNode; photo: Photo; side?: "left" | "right"; wide?: boolean; children?: ReactNode;
 }) {
   return (
-    <section className={`hero ph${side === "right" ? " is-right" : ""}${photo.beside ? " photo-beside" : ""}`} aria-labelledby={id}>
+    <section className={`hero ph${side === "right" ? " is-right" : ""}${photo.beside ? " photo-beside" : ""}${wide ? " is-wide" : ""}`} aria-labelledby={id}>
       <div className="hero-top">
         <div className="hero-media" data-hero-media>
           <Image data-hero-img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} sizes={photo.beside ? "(min-width: 1024px) 60vw, 100vw" : "100vw"} preload
@@ -74,5 +75,82 @@ export function FinalCta({ id, title, text, photo, children }: {
         </div>
       </div>
     </section>
+  );
+}
+
+// Official client order (Sep 27 2026): business clients, then chambers, USA Martial Arts last.
+export const clientLogos = [
+  { name: "America First Credit Union", src: "/logos/america-first.png", w: 1240, h: 403, px: 46 },
+  { name: "Packsize", src: "/logos/packsize.png", w: 1016, h: 208, px: 30 },
+  { name: "Purple", src: "/logos/purple.jpg", w: 174, h: 174, px: 60, mul: true },
+  { name: "Thumbtack", src: "/logos/thumbtack.png", w: 1698, h: 756, px: 46 },
+  { name: "MemberSolutions", src: "/logos/membersolutions.jpg", w: 190, h: 192, px: 60, mul: true },
+  { name: "American Express", src: "/logos/american-express.png", w: 512, h: 512, px: 62 },
+  { name: "Delta", src: "/logos/delta.png", w: 3840, h: 2160, px: 50 },
+  { name: "Murray Chamber", src: "/logos/murray-chamber.png", w: 204, h: 126, px: 54 },
+  { name: "Park City Chamber", src: "/logos/park-city-chamber.png", w: 5126, h: 1344, px: 36 },
+  { name: "Heber Valley Chamber", src: "/logos/heber-valley-chamber.png", w: 2109, h: 1381, px: 54 },
+  { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png", w: 124, h: 185, px: 62 },
+];
+
+// Client logo strip (white tiles on dark, scrolls; still with reduced motion). `hideMartialArts` for business pages.
+export function LogoStrip({ id, hideMartialArts, children }: { id: string; hideMartialArts?: boolean; children?: ReactNode }) {
+  const logos = hideMartialArts ? clientLogos.filter((l) => l.name !== "USA Martial Arts") : clientLogos;
+  return (
+    <section className="logos" aria-labelledby={id}>
+      <p className="rail logos-k" id={id}>Trusted by Leading Organizations</p>
+      <div className="rail">
+        <div className="logo-viewport">
+          <ul className="logo-track animate-scroll">
+            {[...logos, ...logos].map((l, i) => {
+              const dup = i >= logos.length;
+              return (
+                <li key={`${l.name}-${i}`} className="logo-tile" aria-hidden={dup || undefined} data-dup={dup || undefined}>
+                  <Image className={l.mul ? "mul" : undefined} src={l.src} alt={dup ? "" : l.name} width={l.w} height={l.h} sizes="200px"
+                    style={{ "--h": `${l.px}px` } as CSSProperties} />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+      {children}
+    </section>
+  );
+}
+
+// YouTube video that loads from YouTube only when played (HorizonMotion swaps in the player; without JS the link opens YouTube).
+export function VideoPoster({ id, title, poster, label, sizes = "(min-width: 1024px) 840px, 92vw" }: {
+  id: string; title: string; poster: string; label?: ReactNode; sizes?: string;
+}) {
+  return (
+    <div>
+      <div className="vplayer" data-yt={id} data-yt-title={title}>
+        <a className="vposter" href={`https://www.youtube.com/watch?v=${id}`} {...ext} aria-label={`Play video: ${title} (plays from YouTube)`}>
+          <Image src={poster} alt="" width={1280} height={720} sizes={sizes} />
+          <span className="vplay" aria-hidden="true" />
+        </a>
+      </div>
+      {label}
+    </div>
+  );
+}
+
+// Numbers row: the real figure is in the page; motion only replays it from zero when it scrolls into view.
+export function Stats({ items, className = "" }: {
+  items: { value: number; suffix?: string; label: string; sublabel?: string; color?: string }[]; className?: string;
+}) {
+  return (
+    <ul className={`stats ${className}`} data-stagger>
+      {items.map((s) => (
+        <li key={s.label}>
+          <span className={`stat-v ${s.color ?? "t-gold"}`} data-count={s.value} data-suffix={s.suffix ?? ""}>
+            {s.value.toLocaleString("en-US")}{s.suffix}
+          </span>
+          <span className="stat-l">{s.label}</span>
+          {s.sublabel && <span className="stat-s">{s.sublabel}</span>}
+        </li>
+      ))}
+    </ul>
   );
 }

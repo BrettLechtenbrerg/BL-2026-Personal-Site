@@ -1,34 +1,15 @@
-"use client";
-
+// THE MASTER'S EDGE PROGRAM (12 weeks), "Horizon" design (Group 2, 30 Oct 2026). Words unchanged from the previous page
+// (tag pre-horizon-inner-2026-10-30). Prices, dates and the application path are exactly as before.
+import Image from "next/image";
+import {
+  BookOpen, Check, Clock, FileText, Filter, MessageCircle, Rocket, Sparkles, Target, Users, Video, Wrench, X, Zap,
+} from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Button } from "@/components/ui/Button";
+import { HorizonMotion } from "@/components/horizon/HorizonMotion";
+import { Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
-import { motion } from "framer-motion";
-import {
-  Target,
-  Filter,
-  Rocket,
-  Users,
-  FileText,
-  Wrench,
-  MessageCircle,
-  Video,
-  BookOpen,
-  Clock,
-  Sparkles,
-  Check,
-  X,
-  ChevronDown,
-  Award,
-  Mic,
-  Building2,
-  BookMarked,
-  Shield,
-  Zap,
-} from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
+import { ProgramFaq } from "./ProgramFaq";
 
 // Phase data for the 12-week program
 const phases = [
@@ -220,8 +201,8 @@ const faqs = [
   },
 ];
 
-// Client logos
-const clientLogos = [
+// Client logos ("Trusted by teams at:")
+const programLogos = [
   { name: "America First Credit Union", src: "/logos/america-first.png" },
   { name: "American Express", src: "/logos/american-express.png" },
   { name: "Delta", src: "/logos/delta.png" },
@@ -235,744 +216,269 @@ const clientLogos = [
   { name: "USA Martial Arts", src: "/logos/usa-martial-arts.png" },
 ];
 
-// FAQ Accordion component
-function FAQItem({ question, answer, isOpen, onClick }: { question: string; answer: string; isOpen: boolean; onClick: () => void }) {
-  return (
-    <div className="border-b border-gray-200">
-      <button
-        onClick={onClick}
-        className="w-full py-6 flex items-center justify-between text-left focus:outline-none group"
-      >
-        <span className="text-lg font-semibold text-black group-hover:text-cranberry transition-colors pr-4">
-          {question}
-        </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex-shrink-0"
-        >
-          <ChevronDown className={`w-5 h-5 ${isOpen ? 'text-cranberry' : 'text-gray-400'}`} />
-        </motion.div>
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <p className="pb-6 text-warm-gray leading-relaxed">{answer}</p>
-      </motion.div>
-    </div>
-  );
-}
-
 export default function MastersEdgeProgramPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   return (
     <>
       <Header />
-      <main id="main" className="flex-1 pt-20">
-        {/* SECTION 1: HERO */}
-        <section className="relative py-24 lg:py-32 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
-          {/* Hero background image */}
-          <Image
-            src="/heroes/masters-edge.jpg"
-            alt="Mountain peak at sunrise representing transformation"
-            fill
-            className="object-cover opacity-50"
-            priority
-          />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
+      <main id="main" className="flex-1">
+        <HorizonPage>
+          <PageHero
+            id="program-title"
+            eyebrow={<><Sparkles className="eyebrow-ico" aria-hidden="true" />Limited Enrollment for each Cohort</>}
+            lines={["12 Weeks That Change How You", <><em>Focus</em>, <em>Lead</em>, <em>Operate</em>, and <em>Perform</em></>]}
+            lede={<>The Master&apos;s Edge is a 12-week group coaching program for business owners and leaders who want sharper focus, stronger leadership, better execution, and a more intentional way to operate in business and life. Applications are now open for the upcoming cohorts.</>}
+            photo={{ src: "/heroes/masters-edge.jpg", alt: "Mountain peak at sunrise representing transformation", w: 1920, h: 1280, pos: "60% 40%" }}
+            wide
+          >
+            <Btn href="/masters-edge-program/apply" size="lg" arrow>Apply Now (Limited to 12 Members)</Btn>
+            <Btn href="#program" variant="glass" size="lg">See What&apos;s Inside</Btn>
+          </PageHero>
 
-          {/* Animated background orbs */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 w-[500px] h-[500px] bg-cranberry/40 rounded-full blur-[120px]"
-            />
-            <motion.div
-              animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/30 rounded-full blur-[100px]"
-            />
-          </div>
-
-          {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            {/* Scarcity badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 rounded-full px-5 py-2 mb-6"
-            >
-              <Sparkles className="w-4 h-4 text-gold" />
-              <span className="text-gold font-semibold text-sm">Limited Enrollment for each Cohort</span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
-            >
-              12 Weeks That Change How You{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Focus
-              </span>
-              ,{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Lead
-              </span>
-              ,{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Operate
-              </span>
-              , and{" "}
-              <span className="bg-gradient-to-r from-cranberry via-cranberry-light to-gold bg-clip-text text-transparent">
-                Perform
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto"
-            >
-              The Master&apos;s Edge is a 12-week group coaching program for business owners and leaders who want sharper focus, stronger leadership, better execution, and a more intentional way to operate in business and life. Applications are now open for the upcoming cohorts.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button href="/masters-edge-program/apply" size="lg">
-                Apply Now (Limited to 12 Members)
-              </Button>
-              <Button href="#program" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-                See What&apos;s Inside
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* SECTION 2: WHO THIS PROGRAM IS FOR */}
-        <section className="py-24 bg-white relative overflow-hidden">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">
-                Who This Program Is For
-              </h2>
-
-              <div className="space-y-6 text-lg text-warm-gray leading-relaxed">
+          {/* Who it's for */}
+          <section className="sec sec-paper" aria-labelledby="who-title">
+            <div className="rail narrow" data-rise>
+              <h2 id="who-title" className="h2 sec-title">Who This Program Is For</h2>
+              <div className="prose">
                 <p>
-                  The Master&apos;s Edge is built for business owners, executives, and growth-minded leaders who have already achieved meaningful success but know they are still operating below their full capability.
+                  The Master&apos;s Edge is built for business owners, executives, and growth-minded leaders who have already achieved meaningful success but
+                  know they are still operating below their full capability.
                 </p>
                 <p>
-                  If you are carrying too much, reacting too often, struggling to maintain focus, or leading without the structure and rhythm you know you need, this program was designed for you.
+                  If you are carrying too much, reacting too often, struggling to maintain focus, or leading without the structure and rhythm you know you
+                  need, this program was designed for you.
                 </p>
-                <p className="font-semibold text-black">
-                  Over 12 weeks, you will learn how to:
-                </p>
-                <ul className="space-y-3 pl-6">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
-                    <span>Clarify what matters most</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
-                    <span>Lead with more confidence and consistency</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
-                    <span>Simplify the way you operate</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
-                    <span>Make better decisions with less hesitation</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-cranberry flex-shrink-0 mt-1" />
-                    <span>Build a stronger system for execution, energy, and performance</span>
-                  </li>
+                <p>Over 12 weeks, you will learn how to:</p>
+                <ul className="ticks">
+                  {["Clarify what matters most", "Lead with more confidence and consistency", "Simplify the way you operate", "Make better decisions with less hesitation", "Build a stronger system for execution, energy, and performance"].map((t) => (
+                    <li key={t}><Check aria-hidden="true" /><span>{t}</span></li>
+                  ))}
                 </ul>
-                <p className="pt-4 border-t border-gray-100">
-                  This is not generic motivation. It is a structured coaching experience designed to help you operate at a higher level in business and life.
-                </p>
+                <p>This is not generic motivation. It is a structured coaching experience designed to help you operate at a higher level in business and life.</p>
               </div>
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </section>
 
-        {/* SECTION 3: EMOTIONAL CONNECTION */}
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gold via-cranberry to-gold" />
-
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-8">
-                You&apos;ve Built Something Real.{" "}
-                <span className="text-cranberry">But Something&apos;s Off.</span>
-              </h2>
-
-              <div className="space-y-6 text-lg text-warm-gray leading-relaxed">
+          {/* The gap */}
+          <section className="problem" aria-labelledby="off-title">
+            <div className="rail problem-inner" data-rise>
+              <h2 id="off-title" className="h2">You&apos;ve Built Something Real. <em>But Something&apos;s Off.</em></h2>
+              <div className="prose prose-dark">
+                <p>You&apos;ve built something meaningful. From the outside, it may look like things are working. Revenue is solid. The team is growing. People see progress.</p>
+                <p><strong>But you know there is another level you have not fully stepped into yet.</strong></p>
                 <p>
-                  You&apos;ve built something meaningful. From the outside, it may look like things are working. Revenue is solid. The team is growing. People see progress.
+                  Too many days still feel reactive instead of intentional. The same problems keep showing up. The business depends on you more than it
+                  should. And the version of yourself you know is possible, the one who leads with clarity, operates from flow, and performs at a higher
+                  level, keeps getting pushed further down the road.
                 </p>
-                <p>
-                  <strong className="text-black">But you know there is another level you have not fully stepped into yet.</strong>
-                </p>
-                <p>
-                  Too many days still feel reactive instead of intentional. The same problems keep showing up. The business depends on you more than it should. And the version of yourself you know is possible, the one who leads with clarity, operates from flow, and performs at a higher level, keeps getting pushed further down the road.
-                </p>
-                <p>
-                  That gap is not about working harder. It is about building a different way to operate.
-                </p>
-                <p className="text-xl font-semibold text-black pt-4 border-t border-gray-100">
-                  The Master&apos;s Edge Program is that system.
-                </p>
+                <p>That gap is not about working harder. It is about building a different way to operate.</p>
               </div>
-            </motion.div>
-          </div>
-        </section>
+              <p className="problem-turn">The Master&apos;s Edge Program is that system.</p>
+            </div>
+          </section>
 
-        {/* SECTION 3: THE PROGRAM - 12 Weeks, 3 Phases */}
-        <section id="program" className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                12 Weeks. Three Phases.{" "}
-                <span className="text-gold">One Transformation.</span>
-              </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-4">
-                This program is designed to move you from scattered and reactive to clear, structured, and high-performing.
-              </p>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                Every week builds on the last. By Week 12, you&apos;ll have more than a set of new tools. You&apos;ll have a new way of running your week.
-              </p>
-            </motion.div>
-
-            {/* Phase Cards */}
-            <div className="grid lg:grid-cols-3 gap-8">
-              {phases.map((phase, index) => (
-                <motion.div
-                  key={phase.phase}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                  className="group relative"
-                >
-                  <div className={`absolute -inset-1 rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity ${
-                    phase.accent === "cranberry" ? "bg-gradient-to-r from-cranberry to-cranberry-dark" :
-                    phase.accent === "gold" ? "bg-gradient-to-r from-gold to-gold-dark" :
-                    "bg-gradient-to-r from-cranberry via-gold to-cranberry"
-                  }`} />
-
-                  <div className="relative bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 border border-white/10 h-full flex flex-col">
-                    {/* Phase header */}
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${
-                        phase.accent === "cranberry" ? "bg-gradient-to-br from-cranberry to-cranberry-dark" :
-                        phase.accent === "gold" ? "bg-gradient-to-br from-gold to-gold-dark" :
-                        "bg-gradient-to-br from-cranberry to-gold"
-                      }`}>
-                        <phase.icon className="w-7 h-7 text-white" />
-                      </div>
+          {/* Twelve weeks, three phases */}
+          <section id="program" className="sec sec-paper-2" aria-labelledby="phases-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <h2 id="phases-title" className="h2">12 Weeks. Three Phases. <em>One Transformation.</em></h2>
+                <p className="body-lg">This program is designed to move you from scattered and reactive to clear, structured, and high-performing.</p>
+                <p className="body-lg">Every week builds on the last. By Week 12, you&apos;ll have more than a set of new tools. You&apos;ll have a new way of running your week.</p>
+              </div>
+              <ol className="card-grid cols-3 phases" data-stagger>
+                {phases.map((phase) => (
+                  <li key={phase.phase} className={`paper-card phase is-${phase.accent}`}>
+                    <div className="phase-top">
+                      <span className={`ico-badge${phase.accent === "gold" ? " is-gold" : ""}`} aria-hidden="true"><phase.icon /></span>
                       <div>
-                        <p className={`text-sm font-bold ${
-                          phase.accent === "cranberry" ? "text-cranberry-light" :
-                          phase.accent === "gold" ? "text-gold" :
-                          "text-gold"
-                        }`}>
-                          Phase {phase.phase}
-                        </p>
-                        <h3 className="text-2xl font-bold text-white">{phase.title}</h3>
+                        <p className="kicker">Phase {phase.phase}</p>
+                        <h3>{phase.title}</h3>
                       </div>
                     </div>
-
-                    <p className="text-gray-400 text-sm mb-6">{phase.weeks}</p>
-
-                    {/* Weekly breakdown */}
-                    <div className="space-y-4 flex-grow">
+                    <p className="phase-weeks">{phase.weeks}</p>
+                    <ol className="weeks">
                       {phase.weeks_detail.map((week) => (
-                        <div key={week.week} className="border-l-2 border-white/20 pl-4">
-                          <p className="text-gold font-semibold text-sm">Week {week.week}</p>
-                          <p className="text-white font-medium">{week.title}</p>
-                          <p className="text-gray-500 text-sm">{week.desc}</p>
-                        </div>
+                        <li key={week.week}>
+                          <p className="wk">Week {week.week}</p>
+                          <p className="wk-title">{week.title}</p>
+                          <p className="wk-desc">{week.desc}</p>
+                        </li>
                       ))}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+                    </ol>
+                  </li>
+                ))}
+              </ol>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* SECTION 4: WHAT'S INCLUDED */}
-        <section className="py-24 bg-gradient-to-b from-white via-gold/5 to-cranberry/5 relative overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gold/20 rounded-full blur-[100px]" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cranberry/20 rounded-full blur-[100px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
-                Everything You Get in{" "}
-                <span className="text-cranberry">The Master&apos;s Edge Program</span>
-              </h2>
-              <p className="text-lg text-warm-gray max-w-3xl mx-auto">
-                This is a high-touch coaching experience designed to give you both transformation and practical tools you can use immediately.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {included.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="group bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-cranberry/20 transition-all duration-300 flex items-center gap-4"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <item.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-base font-semibold text-black">{item.title}</h3>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 5: WHO THIS IS FOR / NOT FOR */}
-        <section className="py-24 bg-white">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black">
-                This Program Is <span className="text-cranberry">Not for Everyone</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-              {/* For You */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border border-green-100"
-              >
-                <h3 className="text-xl font-bold text-black mb-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
-                    <Check className="w-5 h-5 text-white" />
-                  </div>
-                  This program is for you if...
-                </h3>
-                <ul className="space-y-4">
-                  {forYou.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-warm-gray">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              {/* Not For You */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-red-50 to-white rounded-2xl p-8 border border-red-100"
-              >
-                <h3 className="text-xl font-bold text-black mb-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center">
-                    <X className="w-5 h-5 text-white" />
-                  </div>
-                  This program is not for you if...
-                </h3>
-                <ul className="space-y-4">
-                  {notForYou.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-warm-gray">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 6: ABOUT BRETT */}
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black">
-                Built by Someone Who&apos;s{" "}
-                <span className="text-cranberry">Done the Work</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Image */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <div className="absolute -inset-4 bg-gradient-to-r from-cranberry to-gold rounded-2xl blur-lg opacity-20" />
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
-                  <Image
-                    src="/media-kit/brett-twins-nobg.png"
-                    alt="Brett Lechtenberg"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Content */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <p className="text-lg text-warm-gray leading-relaxed">
-                  Brett Lechtenberg has spent decades helping people and organizations think, lead, and perform at a higher level.
-                </p>
-                <p className="text-lg text-warm-gray leading-relaxed">
-                  With more than 30 years of coaching, training, and leadership experience, Brett has worked with business owners, teams, and organizations across a wide range of industries. His work blends real-world leadership development, flow state research, personal discipline, and high-performance strategy into a practical system that creates lasting change.
-                </p>
-                <p className="text-lg text-warm-gray leading-relaxed">
-                  He has delivered 250+ talks, trainings, and seminars, coached 100+ businesses, written eight books (five of them bestsellers), and spent more than 40 years immersed in martial arts and human performance.
-                </p>
-                <p className="text-xl font-semibold text-black">
-                  Brett only teaches what he has tested himself. That is the difference.
-                </p>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 pt-6 border-t border-gray-200">
-                  {stats.map((stat) => (
-                    <div key={stat.label} className="text-center">
-                      <p className="text-2xl font-bold text-cranberry">{stat.value}</p>
-                      <p className="text-xs text-warm-gray">{stat.label}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Client logos */}
-                <div className="pt-6">
-                  <p className="text-sm text-gray-500 mb-4">Trusted by teams at:</p>
-                  <div className="flex flex-wrap gap-6 items-center">
-                    {clientLogos.map((logo) => (
-                      <div key={logo.name} className="relative h-8 w-20 grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
-                        <Image
-                          src={logo.src}
-                          alt={logo.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 7: TESTIMONIALS */}
-        <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px]" />
-
-          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                In Their <span className="text-gold">Words</span>
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group relative"
-                >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cranberry to-gold rounded-xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 h-full flex flex-col">
-                    <p className="text-gray-300 italic flex-grow mb-6">
-                      &quot;{testimonial.quote}&quot;
-                    </p>
-                    {testimonial.highlight && (
-                      <p className="text-gold font-bold text-xl mb-4">{testimonial.highlight}</p>
-                    )}
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cranberry to-cranberry-dark flex items-center justify-center text-white font-bold">
-                        {testimonial.initials}
-                      </div>
-                      <div>
-                        <p className="text-white font-semibold">{testimonial.name}</p>
-                        <p className="text-gray-500 text-sm">{testimonial.title}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 8: PRICING */}
-        <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cranberry/20 rounded-full blur-[120px]" />
-            <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[120px]" />
-          </div>
-
-          <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Investment
-              </h2>
-              <p className="text-gray-400">
-                Founding Cohort Pricing: Available for a Limited Time
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {/* Founding Member */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-cranberry to-cranberry-dark rounded-2xl blur-lg opacity-50 group-hover:opacity-70 transition-opacity" />
-                <div className="relative bg-gray-900 rounded-2xl p-8 border border-cranberry/30 h-full flex flex-col">
-                  <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 rounded-full px-4 py-1 mb-6 self-start">
-                    <span className="text-gold font-semibold text-sm">FOUNDING RATE</span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white mb-6">Founding Member</h3>
-
-                  <div className="mb-6">
-                    <span className="text-5xl font-bold text-white">$997</span>
-                    <span className="text-gray-400">/month for 3 months</span>
-                    <p className="text-gray-500 text-sm mt-2">Total Investment: $2,991</p>
-                  </div>
-
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <Check className="w-5 h-5 text-gold" />
-                      Full 12-week program access
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <Check className="w-5 h-5 text-gold" />
-                      All live group coaching sessions
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <Check className="w-5 h-5 text-gold" />
-                      2 private 1:1 sessions
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <Check className="w-5 h-5 text-gold" />
-                      Toolkit, community, and post-program support
-                    </li>
-                  </ul>
-
-                  <p className="text-gray-500 text-sm mb-6 italic">
-                    Future cohorts will be priced at $1,500/month.
-                  </p>
-
-                  <Button href="/masters-edge-program/apply" size="lg" className="w-full">
-                    Apply Now
-                  </Button>
-                </div>
-              </motion.div>
-
-              {/* Pay in Full */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="relative group"
-              >
-                <div className="absolute -inset-1 bg-gradient-to-r from-gold to-gold-dark rounded-2xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
-                <div className="relative bg-gray-900 rounded-2xl p-8 border border-gold/30 h-full flex flex-col">
-                  <div className="inline-flex items-center gap-2 bg-cranberry/20 border border-cranberry/40 rounded-full px-4 py-1 mb-6 self-start">
-                    <span className="text-cranberry-light font-semibold text-sm">BEST VALUE</span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white mb-6">Pay in Full</h3>
-
-                  <div className="mb-6">
-                    <span className="text-5xl font-bold text-white">$2,691</span>
-                    <span className="text-gray-400"> one-time payment</span>
-                    <p className="text-green-400 text-sm mt-2">Save $300</p>
-                  </div>
-
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <Check className="w-5 h-5 text-gold" />
-                      Everything in the Founding Member option
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <Check className="w-5 h-5 text-gold" />
-                      Bonus 3rd private 1:1 session
-                    </li>
-                    <li className="flex items-center gap-2 text-gray-300">
-                      <Check className="w-5 h-5 text-gold" />
-                      Priority scheduling
-                    </li>
-                  </ul>
-
-                  <Button href="/masters-edge-program/apply" variant="secondary" size="lg" className="w-full">
-                    Apply Now
-                  </Button>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Book a conversation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mt-12"
-            >
-              <p className="text-gray-400 mb-4">
-                Not sure yet? Book a free 15-minute conversation with Brett. No pitch. No pressure. Just a real discussion about whether this is the right fit.
-              </p>
-              <Button href={links.booking} external variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-                Book a 15-Minute Conversation
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* SECTION 9: FAQ */}
-        <section className="py-24 bg-white">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-black">
-                Common <span className="text-cranberry">Questions</span>
-              </h2>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              {faqs.map((faq, index) => (
-                <FAQItem
-                  key={index}
-                  question={faq.q}
-                  answer={faq.a}
-                  isOpen={openFaq === index}
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                />
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* SECTION 10: FINAL CTA */}
-        <section className="py-24 bg-gradient-to-br from-cranberry via-cranberry-dark to-black text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/20 rounded-full blur-[100px]" />
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cranberry-light/30 rounded-full blur-[100px]" />
-          </div>
-
-          <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                The First Step Is Always a Conversation
-              </h2>
-              <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
-                No pitch. No pressure. Just a real conversation about where you are, where you want to go, and whether The Master&apos;s Edge is the right next step.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button href="/masters-edge-program/apply" size="lg" variant="secondary">
-                  Apply Now
-                </Button>
-                <Button href={links.booking} external size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-                  Book a Conversation
-                </Button>
+          {/* What's included */}
+          <section className="sec sec-night" aria-labelledby="included-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <h2 id="included-title" className="h2">Everything You Get in <em>The Master&apos;s Edge Program</em></h2>
+                <p className="body-lg">This is a high-touch coaching experience designed to give you both transformation and practical tools you can use immediately.</p>
               </div>
-            </motion.div>
-          </div>
-        </section>
+              <ul className="included" data-stagger>
+                {included.map((item, i) => (
+                  <li key={item.title} className="glass">
+                    <span className={`ico-badge${i % 2 ? " is-gold" : ""}`} aria-hidden="true"><item.icon /></span>
+                    <h3>{item.title}</h3>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* For / not for */}
+          <section className="sec sec-paper" aria-labelledby="fit-title">
+            <div className="rail">
+              <h2 id="fit-title" className="h2 sec-title center" data-rise>This Program Is <em>Not for Everyone</em></h2>
+              <div className="fit" data-stagger>
+                <div className="paper-card fit-yes">
+                  <h3><span className="fit-ico" aria-hidden="true"><Check /></span>This program is for you if...</h3>
+                  <ul>
+                    {forYou.map((item, i) => <li key={i}><Check aria-hidden="true" /><span>{item}</span></li>)}
+                  </ul>
+                </div>
+                <div className="paper-card fit-no">
+                  <h3><span className="fit-ico" aria-hidden="true"><X /></span>This program is not for you if...</h3>
+                  <ul>
+                    {notForYou.map((item, i) => <li key={i}><X aria-hidden="true" /><span>{item}</span></li>)}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Built by Brett */}
+          <section className="sec sec-night-2" aria-labelledby="built-title">
+            <div className="rail">
+              <h2 id="built-title" className="h2 sec-title center" data-rise>Built by Someone Who&apos;s <em>Done the Work</em></h2>
+              <div className="builtby">
+                <div className="builtby-photo" data-rise>
+                  <Image src="/media-kit/brett-twins-nobg.png" alt="Brett Lechtenberg" fill sizes="(min-width: 1024px) 420px, 80vw" />
+                </div>
+                <div className="builtby-copy" data-rise>
+                  <div className="prose prose-dark">
+                    <p>Brett Lechtenberg has spent decades helping people and organizations think, lead, and perform at a higher level.</p>
+                    <p>
+                      With more than 30 years of coaching, training, and leadership experience, Brett has worked with business owners, teams, and
+                      organizations across a wide range of industries. His work blends real-world leadership development, flow state research, personal
+                      discipline, and high-performance strategy into a practical system that creates lasting change.
+                    </p>
+                    <p>
+                      He has delivered 250+ talks, trainings, and seminars, coached 100+ businesses, written eight books (five of them bestsellers), and
+                      spent more than 40 years immersed in martial arts and human performance.
+                    </p>
+                    <p>Brett only teaches what he has tested himself. That is the difference.</p>
+                  </div>
+                  <ul className="mini-stats">
+                    {stats.map((stat, i) => (
+                      <li key={stat.label}><b className={i % 2 ? "t-cran" : "t-gold"}>{stat.value}</b><span>{stat.label}</span></li>
+                    ))}
+                  </ul>
+                  <div className="trusted">
+                    <p>Trusted by teams at:</p>
+                    <ul className="logo-grid">
+                      {programLogos.map((logo) => (
+                        <li key={logo.name}><Image src={logo.src} alt={logo.name} fill sizes="120px" /></li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* In their words */}
+          <section className="sec sec-paper" aria-labelledby="words-title">
+            <div className="rail">
+              <h2 id="words-title" className="h2 sec-title center" data-rise>In Their <em>Words</em></h2>
+              <ul className="quote-grid cols-3" data-stagger>
+                {testimonials.map((t) => (
+                  <li key={t.name} className="paper-card tcard">
+                    <p className="tcard-q">&quot;{t.quote}&quot;</p>
+                    {t.highlight && <p className="tcard-hi">{t.highlight}</p>}
+                    <p className="qcard-by">
+                      <span className="initials" aria-hidden="true">{t.initials}</span>
+                      <span><span className="q-name">{t.name}</span><span className="q-title">{t.title}</span></span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* Investment */}
+          <section className="sec sec-night" aria-labelledby="price-title">
+            <div className="rail">
+              <div className="sec-head center" data-rise>
+                <h2 id="price-title" className="h2">Investment</h2>
+                <p className="body-lg">Founding Cohort Pricing: Available for a Limited Time</p>
+              </div>
+              <div className="prices" data-stagger>
+                <div className="glass price">
+                  <p className="price-badge">FOUNDING RATE</p>
+                  <h3>Founding Member</h3>
+                  <div className="price-amt">
+                    <span className="amt">$997</span>
+                    <span className="per">/month for 3 months</span>
+                    <p className="price-note">Total Investment: $2,991</p>
+                  </div>
+                  <ul className="price-list">
+                    <li><Check aria-hidden="true" />Full 12-week program access</li>
+                    <li><Check aria-hidden="true" />All live group coaching sessions</li>
+                    <li><Check aria-hidden="true" />2 private 1:1 sessions</li>
+                    <li><Check aria-hidden="true" />Toolkit, community, and post-program support</li>
+                  </ul>
+                  <p className="price-future">Future cohorts will be priced at $1,500/month.</p>
+                  <Btn href="/masters-edge-program/apply" size="lg">Apply Now</Btn>
+                </div>
+                <div className="glass price is-best">
+                  <p className="price-badge">BEST VALUE</p>
+                  <h3>Pay in Full</h3>
+                  <div className="price-amt">
+                    <span className="amt">$2,691</span>
+                    <span className="per"> one-time payment</span>
+                    <p className="price-note">Save $300</p>
+                  </div>
+                  <ul className="price-list">
+                    <li><Check aria-hidden="true" />Everything in the Founding Member option</li>
+                    <li><Check aria-hidden="true" />Bonus 3rd private 1:1 session</li>
+                    <li><Check aria-hidden="true" />Priority scheduling</li>
+                  </ul>
+                  <Btn href="/masters-edge-program/apply" variant="gold" size="lg">Apply Now</Btn>
+                </div>
+              </div>
+              <div className="price-talk" data-rise>
+                <p>Not sure yet? Book a free 15-minute conversation with Brett. No pitch. No pressure. Just a real discussion about whether this is the right fit.</p>
+                <Btn href={links.booking} external variant="glass">Book a 15-Minute Conversation</Btn>
+              </div>
+            </div>
+          </section>
+
+          {/* Common questions */}
+          <section className="sec sec-paper-2" aria-labelledby="faq-title">
+            <div className="rail narrow">
+              <h2 id="faq-title" className="h2 sec-title center" data-rise>Common <em>Questions</em></h2>
+              <ProgramFaq faqs={faqs} />
+            </div>
+          </section>
+
+          <FinalCta
+            id="program-final"
+            title="The First Step Is Always a Conversation"
+            text={<>No pitch. No pressure. Just a real conversation about where you are, where you want to go, and whether The Master&apos;s Edge is the right next step.</>}
+            photo={{ src: "/heroes/masters-edge.jpg", w: 1920, h: 1280, pos: "60% 45%" }}
+          >
+            <div className="final-ctas">
+              <Btn href="/masters-edge-program/apply" variant="gold" size="lg">Apply Now</Btn>
+              <Btn href={links.booking} external variant="glass" size="lg">Book a Conversation</Btn>
+            </div>
+          </FinalCta>
+        </HorizonPage>
       </main>
       <Footer />
+      <HorizonMotion />
     </>
   );
 }
