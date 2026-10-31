@@ -133,7 +133,7 @@ const testimonials = [
   {
     quote: "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.",
     name: "Bill Schuffenhauer",
-    title: "3x Olympian, Olympic Silver Medalist",
+    title: "Olympic Silver Medalist\u00a0· 3-Time Olympian",
     initials: "BS",
   },
   {

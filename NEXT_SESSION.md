@@ -85,6 +85,9 @@ form loads on demand (`next/dynamic` in `src/app/books/BooksClient.tsx`). **Test
 (never submit test data to the real Go High Level hooks or `/api/team-lead`).
 **Not converted on purpose:** `/academy` (own design), `/hub`, `/quiz-results-gallery`.
 Books top photo = `public/horizon/books-shelf-soft.jpg` (lighter copy): live slow-phone LCP ~2.0–2.6s (was ~3.0s).
+**Workbook (`/masters-edge/workbook`, hidden course):** typing bug fixed 31 Oct (helpers moved outside the page; test:
+type a sentence into every box in all 4 weeks). Background = the site's samurai drawing, greyscale at 30% (Brett).
+Full-site ESLint is now 0 errors / 0 warnings: keep it that way.
 **Restore points:** `pre-horizon-2026-10-30` (before any Horizon), `pre-horizon-inner-2026-10-30` (home only).
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
@@ -143,24 +146,8 @@ STATE AT END OF SESSION 32 (Sep 27, 2026) — everything committed, pushed, depl
 - One-sheets rebuilt from scripts/one-sheet/*.html (website + agency), synced to all three
   branding folders. render.cjs now prints a page-fit check and accepts CHROMIUM_PATH.
 
-ASK BRETT FIRST THING (he asked for this reminder, Sep 27 2026):
-- DOUBLE-CHECK BILL SCHUFFENHAUER'S QUOTE. Three versions are live; ask Brett which
-  is word-for-word what Bill said (and which title to use), then make all 6 places match:
-    A "Brett really knows flow, peak performance, and goals. I have been around a ton of
-      business coaches and high-level performers, and Brett is a top-tier trainer,
-      teacher, and coach."   <- src/app/speaking/page.tsx, src/app/masters-edge-program/page.tsx,
-      src/components/sections/Testimonials.tsx (home), scripts/one-sheet/one-sheet.html
-    B "Brett knows flow, peak performance and goals. I have been around a ton of business
-      coaches and high level performers and Brett is a top tier trainer, teacher and coach."
-      <- src/app/testimonials/page.tsx
-    C "Brett really knows how to increase flow states and peak performance. I have been
-      around a ton of business coaches and high-level performers, and Brett is a top-tier
-      trainer, teacher, and coach."   <- scripts/one-sheet/agency-one-sheet.html
-  Titles also vary: "3-Time Olympian" (speaking, website one-sheet); "Olympic Silver
-  Medalist & 3x Olympian" (testimonials); "Olympic Silver Medalist, 3x Olympian" (home);
-  "3x Olympian, Olympic Silver Medalist" (program); "Olympic Silver Medalist &
-  3-Time Olympian" (agency one-sheet). After editing either one-sheet HTML, re-render it
-  and run scripts/one-sheet/sync-branding-assets.sh. Do NOT change the quote without his answer.
+DONE (Oct 31 2026): Bill Schuffenhauer's quote now matches the back cover of The Master's Edge everywhere
+(source of truth, see CLAUDE.md). Both one-sheet PDFs re-rendered and synced to the three branding folders.
 
 OPEN QUESTIONS FOR BRETT (nothing blocked; don't guess):
 - RESOLVED Oct 20 2026: Brett says 8 books, 5 bestsellers.

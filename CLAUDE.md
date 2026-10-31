@@ -239,11 +239,14 @@ BL-2026-Personal-Site/
   Jefferson Awards (he co-founded it, but the org no longer exists; NDC is
   still active). Sam is writing the foreword to Brett's Human First AI book —
   add that credit when the book launches.
-- **Bill Schuffenhauer quote: UNCONFIRMED (Sep 27 2026).** Three wordings and
-  five title variants are live across 6 files. Brett asked to double-check which
-  is verbatim. Full list of versions and locations: the "ASK BRETT FIRST THING"
-  section of NEXT_SESSION.md. Do not edit or reuse his quote until Brett
-  confirms; then make all 6 places match.
+- **Bill Schuffenhauer quote: CONFIRMED (Oct 31 2026).** Source of truth = the back
+  cover of The Master's Edge (print cover file `covers/wrap-masters-edge-6x9-250pp.html`
+  in the book project; Brett approved it 4 Oct 2026). Use exactly:
+  "Brett really knows flow, peak performance, and goals. I have been around a ton of
+  business coaches and high-level performers, and Brett is a top-tier trainer,
+  teacher, and coach." — Bill Schuffenhauer, Olympic Silver Medalist · 3-Time Olympian.
+  All 7 places match (home, speaking, testimonials, 12-week program, sections/
+  Testimonials.tsx, both one-sheets). Site titles use a non-breaking space before "·".
 - **Research:** Flow state researcher; his work was REVIEWED by the Flow Research
   Collective (never "validated by")
 - **Three layers (The Master's Edge, Sep 27 2026):** Layer 1 The Science = the

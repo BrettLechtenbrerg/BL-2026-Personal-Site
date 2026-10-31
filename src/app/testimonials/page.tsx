@@ -1,5 +1,5 @@
 // TESTIMONIALS, "Horizon" design (Group 2, 30 Oct 2026). Words unchanged from the previous page (tag pre-horizon-inner-2026-10-30).
-// Quotes are verbatim (Bill Schuffenhauer's wording here is one of three live versions awaiting Brett's answer: do not edit).
+// Quotes are verbatim. Bill Schuffenhauer's quote and title match the back cover of The Master's Edge (Brett's source of truth, 31 Oct 2026).
 // The six video testimonials load from YouTube only when played (like the home page video).
 import Image from "next/image";
 import { Award, Star, TrendingUp, Users, Video } from "lucide-react";
@@ -29,9 +29,9 @@ const featuredTestimonials = [
   },
   {
     quote:
-      "Brett knows flow, peak performance and goals. I have been around a ton of business coaches and high level performers and Brett is a top tier trainer, teacher and coach.",
+      "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.",
     name: "Bill Schuffenhauer",
-    title: "Olympic Silver Medalist & 3x Olympian",
+    title: "Olympic Silver Medalist\u00a0· 3-Time Olympian",
     image: "/testimonials/bill-schuffenhauer.png",
     pos: "72% 30%",
   },

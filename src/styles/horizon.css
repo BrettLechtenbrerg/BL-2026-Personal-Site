@@ -1339,3 +1339,5 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .side-quote .q-title { color: var(--cran); }
 /* Dark cards inside a light section: headings stay light (beats the light-section heading colour). */
 .bl-h .sec .dark-card :is(h3, h4, .dc-title) { color: var(--ivory); }
+/* Long credit lines (e.g. "Olympic Silver Medalist · 3-Time Olympian") break evenly instead of splitting "3-Time". */
+.bl-h .q-title { text-wrap: balance; }

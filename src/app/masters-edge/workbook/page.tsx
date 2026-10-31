@@ -456,7 +456,15 @@ export default function MastersEdgeWorkbook() {
   // RENDER
   // ==============================
   return (
-    <div className="min-h-screen pt-24 pb-16 bg-[#FBF8F4]">
+    <div className="relative isolate min-h-screen pt-24 pb-16 bg-[#FBF8F4]">
+      {/* Samurai line drawing (the site's Master's Edge art) as a quiet background: greyscale at 30%, blended so its
+          white paper disappears. Behind everything, ignores clicks, hidden when printing; the PDF export captures only
+          #workbookContent, so it never appears in a participant's PDF. (Brett, 31 Oct 2026) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 -z-10 bg-contain bg-center bg-no-repeat opacity-30 grayscale mix-blend-multiply print:hidden"
+        style={{ backgroundImage: "url(/timeline/masters-edge.webp)" }}
+      />
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" />
 
       {/* ===== STICKY TOOLBAR ===== */}

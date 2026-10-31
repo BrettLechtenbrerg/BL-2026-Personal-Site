@@ -35,7 +35,7 @@ const extraTestimonials = [
       "Brett really knows flow, peak performance, and goals. I have been around a ton of business coaches and high-level performers, and Brett is a top-tier trainer, teacher, and coach.",
     name: "Bill Schuffenhauer",
     initials: "BS",
-    role: "3-Time Olympian",
+    role: "Olympic Silver Medalist\u00a0· 3-Time Olympian",
   },
 ];
 
