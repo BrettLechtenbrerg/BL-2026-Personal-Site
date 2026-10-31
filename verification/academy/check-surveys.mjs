@@ -51,7 +51,8 @@ for (const def of SURVEYS) {
     assert.equal(S.validateSubmission(def.slug, { ratings, text: { [def.shortAnswers[0].id]: 42 } }).ok, false, "not text");
   }
   if (RATING_QUESTIONS.length) {
-    const { [RATING_QUESTIONS[0].id]: _, ...missing } = ratings;
+    const missing = { ...ratings };
+    delete missing[RATING_QUESTIONS[0].id];
     assert.equal(S.validateSubmission(def.slug, { ratings: missing, text }).ok, false, "a rating is required");
     assert.equal(S.validateSubmission(def.slug, { ratings: { ...ratings, [RATING_QUESTIONS[0].id]: 999 }, text }).ok, false, "only offered values");
   }

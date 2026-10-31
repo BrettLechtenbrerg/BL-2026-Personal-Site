@@ -31,7 +31,7 @@ export default function AcademyLoginPage() {
   const needsCode = Boolean(academyConfig.signup.accessCodeEnv);
   // Magic link ("forgot password"): idle → sending → sent
   const [linkState, setLinkState] = useState<"idle" | "sending" | "sent">("idle");
-  const [notice, setNotice] = useState<string | null>(() => {
+  const [notice] = useState<string | null>(() => {
     if (typeof window === "undefined") return null;
     const why = new URLSearchParams(window.location.search).get("link");
     if (why === "expired") return "That sign-in link has expired or was already used. Request a fresh one below.";

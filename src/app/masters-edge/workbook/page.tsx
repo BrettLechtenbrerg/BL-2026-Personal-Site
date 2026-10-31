@@ -207,6 +207,70 @@ function HabitTracker({
 // ==============================
 // COMPONENT
 // ==============================
+// ==============================
+// SHARED UI HELPERS
+// ==============================
+// Defined outside the page on purpose: helpers defined inside it were re-created on every keystroke, which made React
+// replace the exercise cards (and their text boxes) after each letter, so participants could only type one letter at a
+// time (found and fixed 31 Oct 2026).
+const WeekHeader = ({
+  section,
+  quote,
+  quoteSource,
+}: {
+  section: Exclude<Section, "welcome">;
+  quote: string;
+  quoteSource: string;
+}) => {
+  const meta = sectionMeta[section];
+  return (
+    <div className="mb-8">
+      <div className="flex items-center gap-3 mb-4">
+        <span
+          className={`w-12 h-12 rounded-xl ${meta.color} text-white flex items-center justify-center`}
+        >
+          {meta.icon}
+        </span>
+        <div>
+          <p className="text-xs uppercase tracking-widest text-gold-dark font-bold">
+            Week {weekNumber[section]}
+          </p>
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-cranberry">
+            {meta.label.split("· ")[1]}
+          </h2>
+        </div>
+      </div>
+      <blockquote className="flex gap-3 rounded-xl border-l-4 border-gold bg-black/[0.03] p-4">
+        <Quote size={18} className="shrink-0 text-gold-dark mt-1" />
+        <div>
+          <p className="italic text-black">{quote}</p>
+          <cite className="block mt-1 text-sm not-italic text-warm-gray">
+            — {quoteSource}
+          </cite>
+        </div>
+      </blockquote>
+    </div>
+  );
+};
+
+const IdeaBlock = ({ children }: { children: React.ReactNode }) => (
+  <div className="rounded-xl bg-cranberry/[0.04] p-5 mb-6">
+    <div className="flex items-center gap-2 mb-2">
+      <Lightbulb size={18} className="text-cranberry" />
+      <h3 className="font-heading font-bold text-cranberry">The Idea</h3>
+    </div>
+    <p className="text-black leading-relaxed">{children}</p>
+  </div>
+);
+
+const ExerciseCard = ({ children }: { children: React.ReactNode }) => (
+  <div className="rounded-2xl border border-cranberry/20 bg-white shadow-sm p-6">
+    <h3 className="font-heading font-bold text-black mb-1">In-Room Exercise</h3>
+    <div className="space-y-4 mt-4">{children}</div>
+  </div>
+);
+
+
 export default function MastersEdgeWorkbook() {
   const [data, setData] = useState<WorkbookData>(defaultData);
   const [currentSection, setCurrentSection] = useState<Section>("welcome");
@@ -214,12 +278,14 @@ export default function MastersEdgeWorkbook() {
   const [showHelp, setShowHelp] = useState(false);
   const [isPrinting, setIsPrinting] = useState(false);
 
-  // Load saved data
+  // Load saved data. This must run after the page appears: the page is pre-rendered without the visitor's saved
+  // answers, and reading them during the first render would not match that pre-rendered page.
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time restore from the browser after mount (see above)
         setData((prev) => ({ ...prev, ...parsed.data }));
         if (parsed.section && sections.includes(parsed.section)) {
           setCurrentSection(parsed.section);
@@ -385,66 +451,6 @@ export default function MastersEdgeWorkbook() {
     );
     window.location.href = `mailto:${data.participantEmail}?subject=${subject}&body=${encodeURIComponent(body)}`;
   };
-
-  // ==============================
-  // SHARED UI HELPERS
-  // ==============================
-  const WeekHeader = ({
-    section,
-    quote,
-    quoteSource,
-  }: {
-    section: Exclude<Section, "welcome">;
-    quote: string;
-    quoteSource: string;
-  }) => {
-    const meta = sectionMeta[section];
-    return (
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <span
-            className={`w-12 h-12 rounded-xl ${meta.color} text-white flex items-center justify-center`}
-          >
-            {meta.icon}
-          </span>
-          <div>
-            <p className="text-xs uppercase tracking-widest text-gold-dark font-bold">
-              Week {weekNumber[section]}
-            </p>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-cranberry">
-              {meta.label.split("· ")[1]}
-            </h2>
-          </div>
-        </div>
-        <blockquote className="flex gap-3 rounded-xl border-l-4 border-gold bg-black/[0.03] p-4">
-          <Quote size={18} className="shrink-0 text-gold-dark mt-1" />
-          <div>
-            <p className="italic text-black">{quote}</p>
-            <cite className="block mt-1 text-sm not-italic text-warm-gray">
-              — {quoteSource}
-            </cite>
-          </div>
-        </blockquote>
-      </div>
-    );
-  };
-
-  const IdeaBlock = ({ children }: { children: React.ReactNode }) => (
-    <div className="rounded-xl bg-cranberry/[0.04] p-5 mb-6">
-      <div className="flex items-center gap-2 mb-2">
-        <Lightbulb size={18} className="text-cranberry" />
-        <h3 className="font-heading font-bold text-cranberry">The Idea</h3>
-      </div>
-      <p className="text-black leading-relaxed">{children}</p>
-    </div>
-  );
-
-  const ExerciseCard = ({ children }: { children: React.ReactNode }) => (
-    <div className="rounded-2xl border border-cranberry/20 bg-white shadow-sm p-6">
-      <h3 className="font-heading font-bold text-black mb-1">In-Room Exercise</h3>
-      <div className="space-y-4 mt-4">{children}</div>
-    </div>
-  );
 
   // ==============================
   // RENDER
