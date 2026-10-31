@@ -61,6 +61,22 @@ initials badges (now real photos). AI Advisory top = `public/horizon/ai-advisory
 **Gap check at 2560x1300:** the official `horizon-check.cjs` ignores a SIZES env var; patch a copy to test Brett's screen.
 **Next:** Group 3 (Books, Master's Edge book, Media Kit, Blog + posts), then Group 4.
 
+**Oct 31, 2026, Session 37 (cont.): HORIZON GROUP 3 LIVE (Books, The Master's Edge book, Media Kit, Blog + 5 posts).**
+- `Book3D` in `src/components/horizon/kit.tsx`: a real cover on a CSS 3D book. Master's Edge + Powerful AI use their
+  real spines (cut from the print cover PDFs into `public/horizon/books/*-spine.jpg`). Desktop's 3D "Bullyproof" image is
+  Volume 4, a different book: do not use it.
+- Blog posts: progress bar, sticky "In this article" guide (`src/app/blog/[slug]/PostToc.tsx`), numbered sections,
+  drop cap, "Keep reading". Post dates format in UTC (were a day early when built in Utah).
+- Flow state post: **no Jamie Wheal** (Brett has no relationship with him), Flow Research Collective / Kotler down to
+  one plain-text credit, and **no links to the Flow Research Collective anywhere** (no ongoing relationship).
+- **Fonts are stored with the site** (`src/fonts/`, `next/font/local` in `src/app/layout.tsx`): builds no longer
+  download from Google Fonts, which failed two Vercel builds. Never switch back to `next/font/google`.
+- Readability scan of all converted pages: `/tmp/g1/contrast.cjs` (recreate if gone) – all pass.
+- Open question for Brett: `/masters-edge-program`, `/masters-edge-program/apply`, `/privacy`, `/terms` set their
+  canonical address to the HOME page (tells search engines they are copies of it). Brett said "do what you need to";
+  fixed in Group 4 if not before.
+**Next:** Group 4 (Book Brett, Contact, Apply, Thank-you, Rockstar Quiz, Privacy, Terms: look only).
+
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
 (filed off the Desktop 2026-09-28; move log: `~/Documents/File Organization Records/2026-09-28/MOVE-LOG.md`).
 Paste the block below into a fresh session.
