@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import "@/styles/horizon.css";
@@ -16,18 +16,23 @@ const GA_MEASUREMENT_ID = "G-E1WQV8Q2DK";
 // nothing stays hidden.
 const motionFlag = `(function(){var d=document.documentElement;d.classList.add('js');if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion-ok');setTimeout(function(){if(!window.__blMotion&&document.querySelector('.bl-h-motion'))d.classList.remove('motion-ok')},4000)})();`;
 
-const montserrat = Montserrat({
+// Brand fonts are stored with the site (src/fonts) instead of downloaded from Google during every build: on 30-31 Oct
+// 2026 Vercel builds failed twice when that download failed. Same files Google serves (Montserrat v31, Inter v20, latin,
+// variable weight 100-900, SIL Open Font License), so the letters are identical. Update by re-downloading both files.
+const montserrat = localFont({
+  src: "../fonts/Montserrat-latin-variable.woff2",
   variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "900"],
+  weight: "100 900",
   display: "swap",
+  adjustFontFallback: "Arial",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: "../fonts/Inter-latin-variable.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: "100 900",
   display: "swap",
+  adjustFontFallback: "Arial",
 });
 
 // Base URL for all metadata (important for resolving relative URLs)
