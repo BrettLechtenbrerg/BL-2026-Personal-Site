@@ -238,7 +238,7 @@ export default function BooksPage() {
             <div className="rail">
               <div className="glass freebook" data-rise>
                 <div className="freebook-art" aria-hidden="true">
-                  <Image src="/books/rockstar-team.png" alt="" width={1500} height={1383} sizes="(min-width: 860px) 320px, 70vw" />
+                  <Book3D src="/horizon/books/rockstar-team-cover.jpg" alt="" w={800} h={1133} spineColor="#1c1c1c" depth={0.06} sizes="(min-width: 860px) 240px, 55vw" />
                 </div>
                 <div className="freebook-copy">
                   <h2 id="free-title" className="h2">Get Your Free Copy of <em>How to Build a Rockstar Team</em></h2>

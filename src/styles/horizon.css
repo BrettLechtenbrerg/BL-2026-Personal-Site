@@ -938,8 +938,9 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .freebook { display: grid; gap: clamp(24px, 4vw, 56px); align-items: center; padding: clamp(28px, 4vw, 56px); max-width: 1080px; margin-inline: auto;
   background: linear-gradient(135deg, rgb(155 27 48 / .5), rgb(26 26 26 / .7) 60%); }
 @media (min-width: 860px) { .bl-h .freebook { grid-template-columns: minmax(220px, 320px) minmax(0, 1fr); } }
-.bl-h .freebook-art { justify-self: center; width: min(100%, 320px); border-radius: 18px; background: #fff; padding: 12px; box-shadow: 0 30px 70px rgb(0 0 0 / .45); rotate: -2deg; }
-.bl-h .freebook-art img { display: block; width: 100%; height: auto; }
+.bl-h .freebook-art { justify-self: center; width: min(70%, 240px); padding-block: 8px 24px; }
+.bl-h .freebook-art .book3d { --turn: 30deg; }
+.bl-h .freebook-art .book3d::after { background: radial-gradient(closest-side, rgb(0 0 0 / .75), transparent); }
 .bl-h .freebook-copy { display: grid; gap: 18px; justify-items: start; }
 .bl-h .freebook-copy .body-lg { color: #EDE8E3; }
 .bl-h .freebook-quiz { color: #E6E0DA; }
@@ -1104,8 +1105,8 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .b3-pages { top: 1.2%; bottom: 1.2%; left: calc(100cqw - 50cqw * var(--depth) - 2px); width: calc(100cqw * var(--depth) - 2px); transform: rotateY(90deg);
   background: repeating-linear-gradient(90deg, #f7f3ea 0 2px, #e4ded2 2px 3px); }
 @media (prefers-reduced-motion: no-preference) and (hover: hover) {
-  .bl-h :is(.book, .ph-aside a, .cover-card a, .cover-3d):hover .b3-body { transform: rotateY(calc(var(--turn) * .45)) rotateX(2deg); translate: 0 -6px; }
-  .bl-h :is(.book, .ph-aside a, .cover-card a, .cover-3d):hover .book3d::after { translate: -4% 4px; opacity: .8; }
+  .bl-h :is(.book, .ph-aside a, .cover-card a, .cover-3d, .freebook):hover .b3-body { transform: rotateY(calc(var(--turn) * .45)) rotateX(2deg); translate: 0 -6px; }
+  .bl-h :is(.book, .ph-aside a, .cover-card a, .cover-3d, .freebook):hover .book3d::after { translate: -4% 4px; opacity: .8; }
 }
 @media (prefers-reduced-motion: reduce) { .bl-h .b3-body { transition: none; } }
 
