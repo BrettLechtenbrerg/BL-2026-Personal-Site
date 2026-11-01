@@ -2,6 +2,12 @@
 
 **Updated:** September 17, 2026 (Phase 1 shipped · Phase 2 plan drafted, awaiting approval · Lightfield assessed, recommend not adopting)
 
+> **31 Oct 2026 — Brett: "build our own CRM and get rid of Go High Level" is the NEXT session's first job.** Pick up at
+> Phase 2 (still awaiting approval). The full list of GHL touch points left on the site (booking link, Book Brett,
+> Apply, free eBook, quiz and workbook webhooks, hub merge vars) is in the "▶ RESUME HERE" block of the repo's
+> `NEXT_SESSION.md`. Note the Apply form's tags changed 31 Oct (prices removed): me-lead, ME - Group Coaching Interest,
+> ME - Personal Coaching Interest, ME - Wants Call.
+
 **How to restart:** open a new session and say
 > "I want to work on the CRM system for brettlechtenberg.com — read `~/Desktop/EDGE-CRM-RESUME-PROMPT.md` and pick up where we left off."
 

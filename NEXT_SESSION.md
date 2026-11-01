@@ -1,5 +1,35 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
+## ▶ RESUME HERE (31 Oct 2026, end of Session 37)
+
+**State:** everything committed, pushed and live (main = `ddff9f2`, branch `horizon-inner` = same). Horizon redesign
+COMPLETE on every public page; workbook typing fix + samurai background; Bill's quote = book back cover; no prices on
+the site; full-site ESLint 0/0. Details in the Session 37 entries below.
+
+**NEXT SESSION — Brett's plan (31 Oct 2026):**
+1. **Build our own CRM and retire Go High Level.** This CONTINUES the existing **Edge CRM** project (say "resume Edge
+   CRM"; notes `docs/crm/RESUME-PROMPT.md` + `docs/crm/DECISIONS.md`): Phase 1 shipped 17 Sep 2026 (/hub off GHL: Twenty
+   CRM + Resend); Phase 2 plan (`docs/crm/05-PHASE2-PLAN.md`) has been waiting for Brett's approval since then. Start there,
+   don't start a new CRM. Every GHL touch point still on this site today (move each one over, then remove GHL):
+   - Booking link `links.booking` in `src/lib/utils.ts` (GHL booking widget) — used by every "Talk With Brett" button.
+   - Book Brett form → GHL webhook (`src/app/book-brett/page.tsx`).
+   - 12-Week Program application → GHL webhook + tags (`src/app/masters-edge-program/apply/page.tsx`; tags
+     me-lead, ME - Group Coaching Interest, ME - Personal Coaching Interest, ME - Wants Call).
+   - Free eBook form → GHL webhook (`src/components/ui/EbookModal.tsx`).
+   - Rockstar Team Quiz → `/api/team-lead` → env `GHL_TEAM_WEBHOOK_URL` (`src/app/api/team-lead/route.ts`).
+   - Workbook started/completed → `/api/workbook-lead` → env `GHL_WORKBOOK_STARTED_URL` / `GHL_WORKBOOK_COMPLETED_URL`.
+   - Comms Hub messaging (`src/lib/messaging-render.ts`, "GHL lead" merge vars; hub email deliverability item below).
+   Supabase (project `yrfsquzzbgnmkfbuapfk`, already used by the Academy + Comms Hub) is the natural home for contacts.
+   Plan first, keep every form working during the switch, and test with webhooks intercepted (never real test leads).
+   Load the `durable` skill before creating or reshaping any stored data.
+2. **Build our own budgeting workflows** (scope to be set with Brett at the start).
+3. **Connect the site to the Brettlechtenberg Stripe account** (`acct_16xJo3Kq6AqfCeIO`). The Academy already uses it
+   (see "STATE AT END OF SESSION 30": `src/lib/stripe.ts`, `api/academy/checkout`, `api/stripe/webhook`; key in Vercel
+   prod + `.env.local`, rotate with `scripts/add-stripe-key.sh`). Next: coaching/program payments once Brett sets his
+   new pricing models (prices were removed 31 Oct; they go back in the 12-Week Program "Two Ways to Work With Brett"
+   section and the Apply options).
+
+
 **Updated:** September 27, 2026 (end of Session 32: website copy + one-sheets)
 **Since then:** Oct 9, 2026, Session 33: TSAI logo image fixed on /about and /ai-advisory (`0def7f4`, live).
 Oct 11, 2026, Session 34: sizzle reel v5 (3:25) replaced v3.1 in `public/videos/sizzle-reel-2026.mp4`; captions 2:56 -> 3:25 on /speaking,
