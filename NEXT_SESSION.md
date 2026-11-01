@@ -1,6 +1,6 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-## ▶ RESUME HERE (31 Oct 2026, end of Session 37)
+## ▶ RESUME HERE (1 Nov 2026, Session 39: Power Hub + Budget live)
 
 **State:** everything committed, pushed and live (main = `ddff9f2`, branch `horizon-inner` = same). Horizon redesign
 COMPLETE on every public page; workbook typing fix + samurai background; Bill's quote = book back cover; no prices on
@@ -11,6 +11,15 @@ turn, `.cover-3d`); /books free Rockstar Team eBook is a straight `Book3D` from 
 (`public/horizon/books/rockstar-team-cover.jpg`, page 1 of the PDF), tilted white card removed, hover turn on the whole card.
 Workbook (`/masters-edge/workbook`): toolbar now pinned at the very top (`sticky top-0`, no `pt-24`); it had left
 room for a site menu the workbook never had, showing a gap above it (main 4efb144).
+
+**1 Nov 2026 (Session 39), LIVE (main dd2cbcb): POWER HUB + BUDGET & SALES.** `/hub` is now the **Power Hub** (left
+menu: Dashboard (Budget) · Monthly Setup · Messaging · Academy · CRM soon); login lands on `/hub/budget`, a port of the
+PMMA Budget fitted to Brett: 6 income lines (group / individual coaching, company / hourly consulting at $500/hr, other,
+not-BL-business), Stripe read-only catch-up (`BL_STRIPE_READ_KEY`), checks / transfers / cash / other, calendar-day pace,
+Clients + Needs-attention cards, CSV, 19th/20th reminders (OFF). 5 new `bl_budget_*` tables (Brett ran the SQL; RLS on).
+New `HUB_PASSWORD` set by Brett. November set up by Brett. Everything: `docs/BUDGET.md`. Plan item 2 below = DONE (income
+side); expenses come after the income dashboard is proven. Open: monthly CSV backup outside Supabase + check Supabase
+backups (free plan); Stripe matching words are guesses until real BL payments arrive.
 
 **NEXT SESSION — Brett's plan (31 Oct 2026):**
 1. **Build our own CRM and retire Go High Level.** This CONTINUES the existing **Edge CRM** project (say "resume Edge
@@ -28,7 +37,7 @@ room for a site menu the workbook never had, showing a gap above it (main 4efb14
    Supabase (project `yrfsquzzbgnmkfbuapfk`, already used by the Academy + Comms Hub) is the natural home for contacts.
    Plan first, keep every form working during the switch, and test with webhooks intercepted (never real test leads).
    Load the `durable` skill before creating or reshaping any stored data.
-2. **Build our own budgeting workflows** (scope to be set with Brett at the start).
+2. ~~**Build our own budgeting workflows**~~ DONE 1 Nov 2026 (income side: Power Hub → Budget, `docs/BUDGET.md`); expenses next, after it's proven.
 3. **Connect the site to the Brettlechtenberg Stripe account** (`acct_16xJo3Kq6AqfCeIO`). The Academy already uses it
    (see "STATE AT END OF SESSION 30": `src/lib/stripe.ts`, `api/academy/checkout`, `api/stripe/webhook`; key in Vercel
    prod + `.env.local`, rotate with `scripts/add-stripe-key.sh`). Next: coaching/program payments once Brett sets his

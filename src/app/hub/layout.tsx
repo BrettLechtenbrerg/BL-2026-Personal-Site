@@ -7,7 +7,7 @@ import HubFrame from "@/components/hub/HubFrame";
 // cookie every /api/hub/* route verifies (src/lib/hub-session.ts); this
 // metadata just keeps the pages out of search results.
 export const metadata: Metadata = {
-  title: "Power Hub | Brett Lechtenberg",
+  title: "Power Hub",
   description: "Internal back office.",
   robots: {
     index: false,
