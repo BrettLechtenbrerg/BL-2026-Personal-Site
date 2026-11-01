@@ -472,9 +472,6 @@ html:has(.bl-h-page) { scroll-padding-top: 92px; }
 @media (min-width: 860px) { .bl-h .split { grid-template-columns: auto minmax(0, 1fr); } }
 .bl-h .round-photo { position: relative; width: clamp(220px, 24vw, 300px); aspect-ratio: 1; margin-inline: auto; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 3px rgb(212 175 55 / .55), 0 30px 70px rgb(0 0 0 / .45); }
 .bl-h .round-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
-.bl-h .cover-link { display: block; width: clamp(170px, 18vw, 220px); margin-inline: auto; border-radius: 8px; overflow: hidden; box-shadow: 0 30px 60px rgb(26 26 26 / .25), 0 0 0 1px var(--rule); transition: transform .5s var(--ease); }
-.bl-h .cover-link:hover { transform: translateY(-4px); }
-.bl-h .cover-link img { display: block; width: 100%; height: auto; }
 
 /* Motion (only with html.motion-ok: never with reduced motion, removed if the motion code never starts). */
 .motion-ok .bl-h .hero .line > span { transform: translateY(105%); }
@@ -1107,8 +1104,8 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .b3-pages { top: 1.2%; bottom: 1.2%; left: calc(100cqw - 50cqw * var(--depth) - 2px); width: calc(100cqw * var(--depth) - 2px); transform: rotateY(90deg);
   background: repeating-linear-gradient(90deg, #f7f3ea 0 2px, #e4ded2 2px 3px); }
 @media (prefers-reduced-motion: no-preference) and (hover: hover) {
-  .bl-h :is(.book, .ph-aside a, .cover-card a):hover .b3-body { transform: rotateY(calc(var(--turn) * .45)) rotateX(2deg); translate: 0 -6px; }
-  .bl-h :is(.book, .ph-aside a, .cover-card a):hover .book3d::after { translate: -4% 4px; opacity: .8; }
+  .bl-h :is(.book, .ph-aside a, .cover-card a, .cover-3d):hover .b3-body { transform: rotateY(calc(var(--turn) * .45)) rotateX(2deg); translate: 0 -6px; }
+  .bl-h :is(.book, .ph-aside a, .cover-card a, .cover-3d):hover .book3d::after { translate: -4% 4px; opacity: .8; }
 }
 @media (prefers-reduced-motion: reduce) { .bl-h .b3-body { transition: none; } }
 
@@ -1119,6 +1116,7 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .ph-aside .book3d { --turn: 32deg; }
 .bl-h .ph-aside .book3d::after { background: radial-gradient(closest-side, rgb(0 0 0 / .7), transparent); }
 .bl-h .cover-card .book3d-link { display: block; width: min(52%, 200px); padding-block: 8px 20px; }
+.bl-h .cover-3d { display: block; width: clamp(180px, 19vw, 240px); margin-inline: auto; padding-block: 10px 24px; }
 
 /* Blog post extras (Brett, 30 Oct: "a little plain"): progress bar, section guide, numbered sections, drop cap, keep reading. */
 .bl-h .read-progress { display: none; }

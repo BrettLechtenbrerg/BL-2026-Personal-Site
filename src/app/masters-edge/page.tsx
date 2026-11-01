@@ -1,11 +1,10 @@
 // THE MASTER'S EDGE (methodology), "Horizon" design (Group 1, 30 Oct 2026). Words unchanged (tag pre-horizon-inner-2026-10-30).
-import Image from "next/image";
 import Link from "next/link";
 import { Brain, Building2, Sparkles, Target, Wrench, Zap } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
-import { Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
+import { Book3D, Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
 
 const foundations = [
@@ -159,8 +158,8 @@ export default function MastersEdgePage() {
           {/* The book */}
           <section className="sec sec-paper-2" aria-labelledby="book-title">
             <div className="rail narrow split" data-rise>
-              <Link href="/books/masters-edge" className="cover-link">
-                <Image src="/books/masters-edge-cover.jpg" alt="The Master's Edge by Brett Lechtenberg, book cover" width={800} height={1200} sizes="220px" />
+              <Link href="/books/masters-edge" className="book3d-link cover-3d">
+                <Book3D src="/books/masters-edge-cover.jpg" alt="The Master's Edge by Brett Lechtenberg, book cover" w={800} h={1200} spine="/horizon/books/masters-edge-spine.jpg" spineColor="#efe9df" depth={0.093} sizes="250px" />
               </Link>
               <div className="book-copy">
                 <p className="kicker">New Book · Out Now</p>
