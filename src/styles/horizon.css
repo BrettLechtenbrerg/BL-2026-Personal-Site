@@ -1341,3 +1341,6 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .sec .dark-card :is(h3, h4, .dc-title) { color: var(--ivory); }
 /* Long credit lines (e.g. "Olympic Silver Medalist · 3-Time Olympian") break evenly instead of splitting "3-Time". */
 .bl-h .q-title { text-wrap: balance; }
+/* Coaching option cards (12-Week Program, 31 Oct 2026: no prices shown). */
+.bl-h .price-model { font: 600 15px/1.4 var(--sans); letter-spacing: .04em; color: var(--gold); margin-top: -8px; }
+.bl-h .price-desc { color: #E6E0DA; line-height: 1.6; }

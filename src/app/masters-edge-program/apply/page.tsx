@@ -29,11 +29,11 @@ const referralSources = [
   "Other",
 ];
 
-// Investment options
+// Coaching options (prices removed 31 Oct 2026: Brett is changing his pricing models)
 const investmentOptions = [
-  { value: "founding", label: "Founding Member ($997/mo × 3)" },
-  { value: "pay-in-full", label: "Pay in Full ($2,691)" },
-  { value: "not-sure", label: "Not sure yet" },
+  { value: "group", label: "Group Coaching (The Master's Edge 12-week cohort)" },
+  { value: "personal", label: "Personal Coaching (one-on-one with Brett)" },
+  { value: "not-sure", label: "Not sure yet, I'd like to talk it through" },
 ];
 
 export default function ApplyPage() {
@@ -67,12 +67,13 @@ export default function ApplyPage() {
     setError("");
 
     try {
-      // Determine tags based on investment option
+      // Determine tags based on the coaching option chosen ("me-lead" and "ME - Wants Call" unchanged; the two price
+      // tags were replaced 31 Oct 2026, so Go High Level workflows keyed on the old tags need the new names)
       const tags = ["me-lead"];
-      if (formData.investmentOption === "founding") {
-        tags.push("ME - Founding Member Interest");
-      } else if (formData.investmentOption === "pay-in-full") {
-        tags.push("ME - Pay in Full Interest");
+      if (formData.investmentOption === "group") {
+        tags.push("ME - Group Coaching Interest");
+      } else if (formData.investmentOption === "personal") {
+        tags.push("ME - Personal Coaching Interest");
       } else if (formData.investmentOption === "not-sure") {
         tags.push("ME - Wants Call");
       }
@@ -82,11 +83,10 @@ export default function ApplyPage() {
       const firstName = nameParts[0] || "";
       const lastName = nameParts.slice(1).join(" ") || "";
 
-      // Build investment option label for readability
+      // Readable label for the coaching option (sent in the existing investment_preference field, so the Go High Level
+      // field mapping keeps working)
       const investmentLabel =
-        formData.investmentOption === "founding" ? "Founding Member ($997/mo × 3)" :
-        formData.investmentOption === "pay-in-full" ? "Pay in Full ($2,691)" :
-        "Not sure yet";
+        investmentOptions.find((o) => o.value === formData.investmentOption)?.label ?? "Not sure yet";
 
       const response = await fetch(
         "https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/035c7c0c-d9c7-47d5-ae85-4d0e6855d23e",
@@ -221,7 +221,7 @@ export default function ApplyPage() {
 
                   {/* Investment Option */}
                   <fieldset className="fld">
-                    <legend className="fld-k">Which investment option are you considering? <span className="req">*</span></legend>
+                    <legend className="fld-k">Which coaching option are you interested in? <span className="req">*</span></legend>
                     <div className="opts">
                       {investmentOptions.map((option) => (
                         <label key={option.value} className="opt">

@@ -1,5 +1,6 @@
 // THE MASTER'S EDGE PROGRAM (12 weeks), "Horizon" design (Group 2, 30 Oct 2026). Words unchanged from the previous page
-// (tag pre-horizon-inner-2026-10-30). Prices, dates and the application path are exactly as before.
+// (tag pre-horizon-inner-2026-10-30). Prices removed 31 Oct 2026 (Brett is changing pricing models): the old Investment
+// section is now "Two Ways to Work With Brett" (group and personal coaching, no prices).
 import Image from "next/image";
 import {
   BookOpen, Check, Clock, FileText, Filter, MessageCircle, Rocket, Sparkles, Target, Users, Video, Wrench, X, Zap,
@@ -408,45 +409,51 @@ export default function MastersEdgeProgramPage() {
             </div>
           </section>
 
-          {/* Investment */}
-          <section className="sec sec-night" aria-labelledby="price-title">
+          {/* Coaching options: Brett is changing his pricing models (31 Oct 2026), so no prices are shown.
+              Wording uses only facts stated elsewhere on the site (this program; the one-on-one /coaching page). */}
+          <section className="sec sec-night" aria-labelledby="options-title">
             <div className="rail">
               <div className="sec-head center" data-rise>
-                <h2 id="price-title" className="h2">Investment</h2>
-                <p className="body-lg">Founding Cohort Pricing: Available for a Limited Time</p>
+                <p className="kicker">Coaching Options</p>
+                <h2 id="options-title" className="h2">Two Ways to Work <em>With Brett</em></h2>
+                <p className="body-lg">
+                  Choose the format that fits how you grow best: alongside a small group of leaders, or one-on-one with Brett.
+                  The details and investment for each are shared personally in your conversation with Brett.
+                </p>
               </div>
               <div className="prices" data-stagger>
-                <div className="glass price">
-                  <p className="price-badge">FOUNDING RATE</p>
-                  <h3>Founding Member</h3>
-                  <div className="price-amt">
-                    <span className="amt">$997</span>
-                    <span className="per">/month for 3 months</span>
-                    <p className="price-note">Total Investment: $2,991</p>
-                  </div>
-                  <ul className="price-list">
-                    <li><Check aria-hidden="true" />Full 12-week program access</li>
-                    <li><Check aria-hidden="true" />All live group coaching sessions</li>
-                    <li><Check aria-hidden="true" />2 private 1:1 sessions</li>
-                    <li><Check aria-hidden="true" />Toolkit, community, and post-program support</li>
-                  </ul>
-                  <p className="price-future">Future cohorts will be priced at $1,500/month.</p>
-                  <Btn href="/masters-edge-program/apply" size="lg">Apply Now</Btn>
-                </div>
                 <div className="glass price is-best">
-                  <p className="price-badge">BEST VALUE</p>
-                  <h3>Pay in Full</h3>
-                  <div className="price-amt">
-                    <span className="amt">$2,691</span>
-                    <span className="per"> one-time payment</span>
-                    <p className="price-note">Save $300</p>
-                  </div>
+                  <p className="price-badge">Small Group · 12 Weeks</p>
+                  <h3>Group Coaching</h3>
+                  <p className="price-model">The Master&apos;s Edge Cohort</p>
+                  <p className="price-desc">
+                    Grow alongside a small group of business owners and leaders who are working on the same things you are. The
+                    group creates momentum, insight, and accountability.
+                  </p>
                   <ul className="price-list">
-                    <li><Check aria-hidden="true" />Everything in the Founding Member option</li>
-                    <li><Check aria-hidden="true" />Bonus 3rd private 1:1 session</li>
-                    <li><Check aria-hidden="true" />Priority scheduling</li>
+                    <li><Check aria-hidden="true" />12 weekly live group coaching sessions</li>
+                    <li><Check aria-hidden="true" />Private 1:1 sessions with Brett</li>
+                    <li><Check aria-hidden="true" />Custom diagnostic assessment and The Master&apos;s Edge Toolkit</li>
+                    <li><Check aria-hidden="true" />Private community and post-program support</li>
+                    <li><Check aria-hidden="true" />Limited to 12 members per cohort</li>
                   </ul>
-                  <Btn href="/masters-edge-program/apply" variant="gold" size="lg">Apply Now</Btn>
+                  <Btn href="/masters-edge-program/apply" variant="gold" size="lg">Apply for the Cohort</Btn>
+                </div>
+                <div className="glass price">
+                  <p className="price-badge">Private · Custom</p>
+                  <h3>Personal Coaching</h3>
+                  <p className="price-model">One-on-One With Brett</p>
+                  <p className="price-desc">
+                    A fully custom engagement built around your goals, your business, and your situation, using the same
+                    Master&apos;s Edge methodology applied only to you.
+                  </p>
+                  <ul className="price-list">
+                    <li><Check aria-hidden="true" />One-on-one coaching sessions with Brett</li>
+                    <li><Check aria-hidden="true" />A custom toolkit that fits you and no one else</li>
+                    <li><Check aria-hidden="true" />First Principles, Frontloading, and Flow, tailored to your situation</li>
+                    <li><Check aria-hidden="true" />Also available for leadership teams</li>
+                  </ul>
+                  <Btn href="/coaching" size="lg">Explore Personal Coaching</Btn>
                 </div>
               </div>
               <div className="price-talk" data-rise>

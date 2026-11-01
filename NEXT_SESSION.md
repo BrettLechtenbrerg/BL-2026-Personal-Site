@@ -88,6 +88,12 @@ Books top photo = `public/horizon/books-shelf-soft.jpg` (lighter copy): live slo
 **Workbook (`/masters-edge/workbook`, hidden course):** typing bug fixed 31 Oct (helpers moved outside the page; test:
 type a sentence into every box in all 4 weeks). Background = the site's samurai drawing, greyscale at 30% (Brett).
 Full-site ESLint is now 0 errors / 0 warnings: keep it that way.
+**No prices on the site (Brett, 31 Oct 2026: changing his pricing models).** 12-Week Program "Investment" section is now
+"Two Ways to Work With Brett" (Group Coaching = the cohort; Personal Coaching = one-on-one, links to /coaching); details
+and investment "shared personally in your conversation with Brett". Apply form question is now "Which coaching option
+are you interested in?" (group / personal / not-sure). Go High Level tags: "me-lead" and "ME - Wants Call" unchanged;
+"ME - Founding Member Interest" / "ME - Pay in Full Interest" replaced by "ME - Group Coaching Interest" /
+"ME - Personal Coaching Interest"; field `investment_preference` kept (now holds the option label).
 **Restore points:** `pre-horizon-2026-10-30` (before any Horizon), `pre-horizon-inner-2026-10-30` (home only).
 
 A copy of this file is also at `~/Desktop/BL - Brett Lechtenberg/Projects/_Resume Prompts Archive/Collected 2026-09-28/From Desktop/BrettLechtenberg-Site-RESUME-PROMPT.txt`
