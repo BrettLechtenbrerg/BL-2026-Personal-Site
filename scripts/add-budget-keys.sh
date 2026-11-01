@@ -2,6 +2,7 @@
 # Power Hub Budget — store the secrets Brett types (never shown, never logged).
 #   bash scripts/add-budget-keys.sh            → Production: BL_STRIPE_READ_KEY + new HUB_PASSWORD
 #   bash scripts/add-budget-keys.sh --preview  → Preview for branch power-hub-budget only (to test before merging)
+#   bash scripts/add-budget-keys.sh --password → Production: change HUB_PASSWORD only
 # The Stripe key must be a RESTRICTED read-only key (rk_live_…). A new HUB_PASSWORD
 # signs out every existing Power Hub session (src/lib/hub-session.ts).
 # Uses the vercel CLI already installed on this Mac (no download).
@@ -32,6 +33,15 @@ ask_password() {
   [ ${#p1} -ge 16 ] || { echo "Please use at least 16 characters. Nothing saved."; exit 1; }
   NEW_PASSWORD="$p1"
 }
+
+if [ "${1:-}" = "--password" ]; then
+  echo "Change the Power Hub password on the live site (Production). Nothing else changes."
+  ask_password
+  VALUE="$NEW_PASSWORD" add HUB_PASSWORD production
+  unset NEW_PASSWORD VALUE REPLY_SECRET
+  echo "DONE. The new password works after the next deploy of the live site; old sessions end then."
+  exit 0
+fi
 
 if [ "${1:-}" = "--preview" ]; then
   echo "Preview setup for branch $BRANCH (Production is not touched)."
