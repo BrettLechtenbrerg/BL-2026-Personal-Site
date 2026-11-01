@@ -1,16 +1,16 @@
 "use client";
 
 //==============================================================================
-// Comms Hub — login
+// Power Hub — login
 //==============================================================================
-// Minimal login gate for the Comms Hub. POSTs to /api/hub/auth which sets the
-// HMAC session cookie; on success we land on /hub/messaging. If a valid
-// session already exists we skip the form entirely.
+// Login gate for the Power Hub. POSTs to /api/hub/auth which sets the HMAC
+// session cookie; on success we land on the Budget dashboard (/hub/budget).
+// If a valid session already exists we skip the form entirely.
 //==============================================================================
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Eye, EyeOff, Loader2, Lock, MessageSquare } from "lucide-react";
+import { Eye, EyeOff, LayoutDashboard, Loader2, Lock } from "lucide-react";
 
 export default function HubLoginPage() {
   const router = useRouter();
@@ -22,12 +22,12 @@ export default function HubLoginPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Already signed in? Straight to messaging.
+  // Already signed in? Straight to the Budget dashboard.
   useEffect(() => {
     let cancelled = false;
     fetch("/api/hub/auth")
       .then((res) => {
-        if (!cancelled && res.ok) router.replace("/hub/messaging");
+        if (!cancelled && res.ok) router.replace("/hub/budget");
         else if (!cancelled) setChecking(false);
       })
       .catch(() => {
@@ -50,7 +50,7 @@ export default function HubLoginPage() {
       });
       const json = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(json.error || "Login failed.");
-      router.replace("/hub/messaging");
+      router.replace("/hub/budget");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Login failed.");
       setSubmitting(false);
@@ -70,11 +70,11 @@ export default function HubLoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#9B1B30] to-[#7A1526] mb-4">
-            <MessageSquare className="w-7 h-7 text-white" />
+            <LayoutDashboard className="w-7 h-7 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-white">Comms Hub</h1>
+          <h1 className="text-2xl font-bold text-white">Power Hub</h1>
           <p className="text-sm text-gray-400 mt-1">
-            Brett Lechtenberg — internal messaging
+            Brett Lechtenberg — back office
           </p>
         </div>
 

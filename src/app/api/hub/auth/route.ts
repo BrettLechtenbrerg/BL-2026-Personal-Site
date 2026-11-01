@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     const adminPassword = resolveCredential(process.env.HUB_PASSWORD, "bl-dev-2026");
     if (adminUsername === null || adminPassword === null) {
       return NextResponse.json(
-        { error: "Comms Hub login is not configured on this deploy (HUB_USERNAME / HUB_PASSWORD missing)." },
+        { error: "Power Hub login is not configured on this deploy (HUB_USERNAME / HUB_PASSWORD missing)." },
         { status: 503 }
       );
     }

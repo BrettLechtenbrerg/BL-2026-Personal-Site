@@ -151,14 +151,14 @@ export async function hasHubSession(): Promise<boolean> {
 export async function requireHubSession(): Promise<NextResponse | null> {
   if (!getSecret()) {
     return NextResponse.json(
-      { error: "Comms Hub sessions are not configured (HUB_SESSION_SECRET missing)." },
+      { error: "Power Hub sessions are not configured (HUB_SESSION_SECRET missing)." },
       { status: 503 }
     );
   }
   const ok = await hasHubSession();
   if (!ok) {
     return NextResponse.json(
-      { error: "Not signed in to the Comms Hub. Please log in again." },
+      { error: "Not signed in to the Power Hub. Please log in again." },
       { status: 401 }
     );
   }

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import HubFrame from "@/components/hub/HubFrame";
 
-// COMMS HUB — internal tool. noindex + not in sitemap.ts + not linked in the
-// nav. The real security boundary is the HMAC session cookie every /api/hub/*
-// route verifies (src/lib/hub-session.ts); this metadata just keeps the login
-// page out of search results.
+// POWER HUB — Brett's private back office (Budget, Messaging, Academy; CRM
+// later). noindex + not in sitemap.ts + not linked in the nav + /hub/ is
+// disallowed in robots.ts. The real security boundary is the HMAC session
+// cookie every /api/hub/* route verifies (src/lib/hub-session.ts); this
+// metadata just keeps the pages out of search results.
 export const metadata: Metadata = {
-  title: "Comms Hub | Brett Lechtenberg",
-  description: "Internal communication tool.",
+  title: "Power Hub | Brett Lechtenberg",
+  description: "Internal back office.",
   robots: {
     index: false,
     follow: false,
@@ -14,5 +16,5 @@ export const metadata: Metadata = {
 };
 
 export default function HubLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return <HubFrame>{children}</HubFrame>;
 }
