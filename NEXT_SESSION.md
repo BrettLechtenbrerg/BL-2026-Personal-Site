@@ -9,6 +9,8 @@ the site; full-site ESLint 0/0. Details in the Session 37 entries below.
 **1 Nov 2026 (Session 38), LIVE (main f3b33f9):** /masters-edge book band cover is now the `Book3D` (real spine, hover
 turn, `.cover-3d`); /books free Rockstar Team eBook is a straight `Book3D` from the real eBook cover
 (`public/horizon/books/rockstar-team-cover.jpg`, page 1 of the PDF), tilted white card removed, hover turn on the whole card.
+Workbook (`/masters-edge/workbook`): toolbar now pinned at the very top (`sticky top-0`, no `pt-24`); it had left
+room for a site menu the workbook never had, showing a gap above it (main 4efb144).
 
 **NEXT SESSION — Brett's plan (31 Oct 2026):**
 1. **Build our own CRM and retire Go High Level.** This CONTINUES the existing **Edge CRM** project (say "resume Edge
