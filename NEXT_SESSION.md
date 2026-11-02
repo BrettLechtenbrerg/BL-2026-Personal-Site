@@ -1,8 +1,10 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-## ▶ RESUME HERE (1 Nov 2026, Session 39: Power Hub + Budget live)
+## ▶ RESUME HERE (1 Nov 2026, Session 40: wide screens live)
 
-**State:** everything committed, pushed and live (main = `ddff9f2`, branch `horizon-inner` = same). Horizon redesign
+**State:** everything committed, pushed and live (main = `a3763b7`, Vercel Ready, checked on brettlechtenberg.com).
+Session 40 = the site no longer looks narrow on big monitors (see the "Session 40" entry below; no open items from it;
+next is still Brett's plan below, item 1 = own CRM). Earlier state: main was `ddff9f2` / `horizon-inner` before Sessions 38–40. Horizon redesign
 COMPLETE on every public page; workbook typing fix + samurai background; Bill's quote = book back cover; no prices on
 the site; full-site ESLint 0/0. Details in the Session 37 entries below.
 
