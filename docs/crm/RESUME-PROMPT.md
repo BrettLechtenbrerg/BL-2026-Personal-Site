@@ -2,6 +2,12 @@
 
 **Updated:** September 17, 2026 (Phase 1 shipped · Phase 2 plan drafted, awaiting approval · Lightfield assessed, recommend not adopting)
 
+> **2 Nov 2026: first TSAI form built on Edge CRM** (free *Powerful AI Strategies* PDF for GEW Utah guests,
+> totalsuccessai.com/gew). Code: TSAI-Site branch `wip/2026-11-02-gew-book-download` (`lib/lead.ts`, `/api/lead`, `/gew`),
+> not deployed. Brett's answers: one Twenty workspace for BL + TSAI; TSAI sender info@totalsuccessai.com; Manny gets Twenty
+> access later. Waiting on Brett: Twenty key "TSAI-Site" + totalsuccessai.com in Resend. Plan + state:
+> `~/Desktop/TSAI - Total Success AI/Projects/GEW Utah 2026 - AI Marketing Workshop (Nov 16)/BOOK-DOWNLOAD-PLAN.md`.
+
 > **31 Oct 2026 — Brett: "build our own CRM and get rid of Go High Level" is the NEXT session's first job.** Pick up at
 > Phase 2 (still awaiting approval). The full list of GHL touch points left on the site (booking link, Book Brett,
 > Apply, free eBook, quiz and workbook webhooks, hub merge vars) is in the "▶ RESUME HERE" block of the repo's

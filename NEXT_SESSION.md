@@ -35,7 +35,8 @@ bands stay under the Horizon 220px limit. Quiz + Privacy/Terms (Tailwind) scale 
 1. **Build our own CRM and retire Go High Level.** This CONTINUES the existing **Edge CRM** project (say "resume Edge
    CRM"; notes `docs/crm/RESUME-PROMPT.md` + `docs/crm/DECISIONS.md`): Phase 1 shipped 17 Sep 2026 (/hub off GHL: Twenty
    CRM + Resend); Phase 2 plan (`docs/crm/05-PHASE2-PLAN.md`) has been waiting for Brett's approval since then. Start there,
-   don't start a new CRM. Every GHL touch point still on this site today (move each one over, then remove GHL):
+   don't start a new CRM. **2 Nov 2026: TSAI's first form (GEW free book, totalsuccessai.com/gew) was built on Edge CRM** in
+   TSAI-Site branch `wip/2026-11-02-gew-book-download` (see `docs/crm/RESUME-PROMPT.md`); reuse its `lib/lead.ts` pattern here. Every GHL touch point still on this site today (move each one over, then remove GHL):
    - Booking link `links.booking` in `src/lib/utils.ts` (GHL booking widget) — used by every "Talk With Brett" button.
    - Book Brett form → GHL webhook (`src/app/book-brett/page.tsx`).
    - 12-Week Program application → GHL webhook + tags (`src/app/masters-edge-program/apply/page.tsx`; tags
