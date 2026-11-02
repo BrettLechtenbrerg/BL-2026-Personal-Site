@@ -21,6 +21,14 @@ New `HUB_PASSWORD` set by Brett. November set up by Brett. Everything: `docs/BUD
 side); expenses come after the income dashboard is proven. Open: monthly CSV backup outside Supabase + check Supabase
 backups (free plan); Stripe matching words are guesses until real BL payments arrive.
 
+**1 Nov 2026 (Session 40), LIVE: WIDE SCREENS.** Brett: the site looked narrow on big monitors. Every size, gap and
+font in `src/styles/horizon.css` is now `calc(Npx * var(--bl-k))`; `--bl-k` = 1 below 1680px (phones/tablets/laptops
+pixel-identical to before, checked on all 19 pages), then 1.08 / 1.15 / 1.24 / 1.32 at 1680 / 1880 / 2160 / 2440px.
+Section padding (`--sec-pad`), footer padding, form-card padding and the praise quote mark stay unscaled so empty
+bands stay under the Horizon 220px limit. Quiz + Privacy/Terms (Tailwind) scale via Tailwind's size variables on
+`.quiz-host` / `.legal`. **Any new CSS in horizon.css: write px sizes as `calc(Npx * var(--bl-k))`.** All pages pass
+`horizon-check.cjs` at 1440/1920/2560; no sideways scroll up to 3840px.
+
 **NEXT SESSION — Brett's plan (31 Oct 2026):**
 1. **Build our own CRM and retire Go High Level.** This CONTINUES the existing **Edge CRM** project (say "resume Edge
    CRM"; notes `docs/crm/RESUME-PROMPT.md` + `docs/crm/DECISIONS.md`): Phase 1 shipped 17 Sep 2026 (/hub off GHL: Twenty
