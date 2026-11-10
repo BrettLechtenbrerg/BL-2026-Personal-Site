@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { academyConfig } from "@/content/academy.config";
+import { spamReasonIn } from "./spam-signals";
 
 // ---------------------------------------------------------------------------
 // Shared bot/spam protection for lead-capture API routes.
@@ -9,6 +10,7 @@ import { academyConfig } from "@/content/academy.config";
 //   2. Timing gate   — submissions faster than a human could type are bots.
 //   3. Origin check  — POSTs must come from our own site, not a curl script.
 //   4. Rate limit    — caps submissions per IP within a warm instance.
+//   5. Spam text     — dot-stuffed Gmail addresses and random-text names/messages.
 //
 // Every protected form sends two extra fields produced by `useBotProtection`:
 //   - `hp_leave_blank`  : the honeypot (must stay EMPTY)
@@ -120,6 +122,13 @@ export function checkBotSignals(
     return { ok: false, reason: "rate_limit", status: 429 };
   }
 
+  // 5) Spam text — sent by a real browser, so layers 1-4 pass (lib/spam-signals.ts).
+  const spam = spamReasonIn(body);
+  if (spam) {
+    console.warn(`[bot-protection] rejected: spam ${spam}`);
+    return { ok: false, reason: `spam:${spam}`, status: 422 };
+  }
+
   return { ok: true };
 }
 
@@ -129,6 +138,13 @@ export function checkBotSignals(
 export function rejectBot(verdict: Extract<BotVerdict, { ok: false }>) {
   if (verdict.status === 200) {
     return NextResponse.json({ success: true });
+  }
+  // Visible, not a silent drop: a real person wrongly caught is told how to reach us.
+  if (verdict.status === 422) {
+    return NextResponse.json(
+      { error: "We could not send this form. Please email brett@brettlechtenberg.com." },
+      { status: 422 }
+    );
   }
   return NextResponse.json(
     { error: "Request blocked." },

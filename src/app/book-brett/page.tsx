@@ -10,6 +10,7 @@ import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
 import { HorizonPage, PageHero } from "@/components/horizon/kit";
 import { LiveClip } from "@/components/ui/LiveClip";
+import { useBotProtection } from "@/lib/useBotProtection";
 
 const eventTypes = [
   "Corporate Keynote",
@@ -72,6 +73,8 @@ export default function BookBrettPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const { honeypotProps, withBotFields } = useBotProtection();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -80,16 +83,18 @@ export default function BookBrettPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
     try {
-      const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/d9dd43d9-b424-44bd-b7ec-409bd33163db",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
+      // Through our own server (bot gate + spam filter), which forwards to GoHighLevel.
+      const response = await fetch("/api/ghl-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          withBotFields({
+            form: "book-brett",
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
@@ -104,10 +109,15 @@ export default function BookBrettPage() {
             budget: formData.budget,
             howHeard: formData.howHeard,
             message: formData.message,
-          }),
-        }
-      );
+          })
+        ),
+      });
 
+      // The spam filter's refusal must be seen, or a real request wrongly caught is lost.
+      if (response.status === 422) {
+        setError("We could not send this form. Please email brett@brettlechtenberg.com.");
+        return;
+      }
       if (!response.ok) {
         throw new Error("Failed to submit form");
       }
@@ -155,6 +165,7 @@ export default function BookBrettPage() {
                     <p className="form-intro">Fill out the form below and we&apos;ll get back to you within 48 hours.</p>
 
                     <form onSubmit={handleSubmit} className="form-stack">
+                      <input {...honeypotProps} />
                       {/* Contact Info */}
                       <div className="form-grid cols-2">
                         <div className="fld">
@@ -256,6 +267,12 @@ export default function BookBrettPage() {
                           <textarea id="bb-message" className="inp" name="message" value={formData.message} onChange={handleChange} rows={4} placeholder="Any additional context, questions, or special requirements..." />
                         </div>
                       </div>
+
+                      {error && (
+                        <div className="form-error" role="alert">
+                          <p>{error}</p>
+                        </div>
+                      )}
 
                       <button type="submit" disabled={isSubmitting} className="btn btn-cran btn-lg form-submit">
                         {isSubmitting ? (

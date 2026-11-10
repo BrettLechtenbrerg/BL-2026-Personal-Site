@@ -37,6 +37,8 @@ export function useBotProtection() {
     name: HONEYPOT_FIELD,
     tabIndex: -1,
     autoComplete: "off",
+    // Chrome AutoFill skips read-only and invisible fields (TSAI fix, 4 Nov 2026).
+    readOnly: true,
     // Password managers (LastPass, 1Password) skip fields marked like this.
     "data-lpignore": "true",
     "data-1p-ignore": "true",
@@ -47,6 +49,7 @@ export function useBotProtection() {
       width: "1px",
       height: "1px",
       opacity: 0,
+      visibility: "hidden" as const,
       pointerEvents: "none" as const,
     },
   };

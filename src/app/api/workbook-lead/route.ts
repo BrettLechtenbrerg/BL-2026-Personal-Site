@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkBotSignals, rejectBot } from "@/lib/bot-protection";
 
 // ============================================================================
 // THE MASTER'S EDGE — WORKBOOK LEAD CAPTURE (GoHighLevel)
@@ -34,6 +35,9 @@ const GHL_COMPLETED_URL = process.env.GHL_WORKBOOK_COMPLETED_URL;
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+
+    const verdict = checkBotSignals(request, body);
+    if (!verdict.ok) return rejectBot(verdict);
 
     if (!body.email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });

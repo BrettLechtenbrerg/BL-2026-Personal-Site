@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, BookOpen, CheckCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import { useBotProtection } from "@/lib/useBotProtection";
 
 interface EbookModalProps {
   isOpen: boolean;
@@ -17,6 +18,7 @@ export function EbookModal({ isOpen, onClose }: EbookModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
+  const { honeypotProps, withBotFields } = useBotProtection();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,21 +26,22 @@ export function EbookModal({ isOpen, onClose }: EbookModalProps) {
     setError("");
 
     try {
-      const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/6b344d66-7b41-4533-a8e1-e747a3da3143",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
+      // Through our own server (bot gate + spam filter), which forwards to GoHighLevel.
+      const response = await fetch("/api/ghl-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          withBotFields({
+            form: "ebook",
             firstName,
             lastName,
             email,
             tags: ["rockstar ebook"],
-          }),
-        }
-      );
+          })
+        ),
+      });
 
       if (response.ok) {
         setIsSuccess(true);
@@ -46,6 +49,8 @@ export function EbookModal({ isOpen, onClose }: EbookModalProps) {
         setFirstName("");
         setLastName("");
         setEmail("");
+      } else if (response.status === 422) {
+        setError("We could not send this form. Please email brett@brettlechtenberg.com.");
       } else {
         setError("Something went wrong. Please try again.");
       }
@@ -137,6 +142,7 @@ export function EbookModal({ isOpen, onClose }: EbookModalProps) {
                 ) : (
                   /* Form State */
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    <input {...honeypotProps} />
                     <p className="text-warm-gray text-sm text-center mb-4">
                       Enter your details below and we&apos;ll send the eBook straight to your inbox.
                     </p>

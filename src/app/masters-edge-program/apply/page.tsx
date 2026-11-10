@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
 import { HorizonPage, PageHero } from "@/components/horizon/kit";
+import { useBotProtection } from "@/lib/useBotProtection";
 
 // Revenue range options
 const revenueRanges = [
@@ -40,6 +41,7 @@ export default function ApplyPage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const { honeypotProps, withBotFields } = useBotProtection();
 
   // Form state
   const [formData, setFormData] = useState({
@@ -88,14 +90,15 @@ export default function ApplyPage() {
       const investmentLabel =
         investmentOptions.find((o) => o.value === formData.investmentOption)?.label ?? "Not sure yet";
 
-      const response = await fetch(
-        "https://services.leadconnectorhq.com/hooks/OfcMDEmwDKM6qQZahiuf/webhook-trigger/035c7c0c-d9c7-47d5-ae85-4d0e6855d23e",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
+      // Through our own server (bot gate + spam filter), which forwards to GoHighLevel.
+      const response = await fetch("/api/ghl-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(
+          withBotFields({
+            form: "masters-edge-apply",
             // Contact info
             firstName,
             lastName,
@@ -121,13 +124,15 @@ export default function ApplyPage() {
             // Metadata
             source: "Master's Edge Program Application",
             submitted_at: new Date().toISOString(),
-          }),
-        }
-      );
+          })
+        ),
+      });
 
       if (response.ok) {
         // Redirect to thank you page
         router.push("/masters-edge-program/thank-you");
+      } else if (response.status === 422) {
+        setError("We could not send this form. Please email brett@brettlechtenberg.com.");
       } else {
         setError("Something went wrong. Please try again or email brett@brettlechtenberg.com directly.");
       }
@@ -154,6 +159,7 @@ export default function ApplyPage() {
           <section className="sec sec-paper" aria-label="Application form">
             <div className="rail">
               <form onSubmit={handleSubmit} className="paper-card form-card is-calm apply-form" data-rise>
+                <input {...honeypotProps} />
                 <div className="form-stack">
                   {/* Full Name */}
                   <div className="fld">

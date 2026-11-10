@@ -2,6 +2,17 @@
 
 ## ▶ RESUME HERE (1 Nov 2026, Session 40: wide screens live)
 
+**10 Nov 2026: SPAM FILTER, LIVE (pushed 10 Nov with Brett's OK).**
+Same filter as the PMMA site (`src/lib/spam-signals.ts`, layer 5 of `checkBotSignals`): refuses a Gmail address with
+4+ dots and a name, company or message that is one random mixed-case word; answers 422 "please email brett@" (never a
+silent drop). The eBook box, /book-brett and /masters-edge-program/apply used to post straight from the browser to
+GoHighLevel with no checks; they now go through `/api/ghl-form` (bot gate + filter, body forwarded unchanged).
+`/api/workbook-lead` got the gate too; honeypot is now read-only + hidden (TSAI's 4 Nov AutoFill fix). Tests:
+`node --test --experimental-strip-types scripts/spam-signals-unit-test.ts`. **Open:** the three GHL webhook addresses
+are still public (this repo is public and they were in the site's code), so spam can be posted straight to GHL; the
+full fix is new webhook addresses made in GHL and saved in Vercel as `GHL_EBOOK_WEBHOOK_URL`,
+`GHL_BOOK_BRETT_WEBHOOK_URL`, `GHL_APPLY_WEBHOOK_URL` (the route already reads them), then remove the fallbacks.
+
 **State:** everything committed, pushed and live (main = `a3763b7`, Vercel Ready, checked on brettlechtenberg.com).
 Session 40 = the site no longer looks narrow on big monitors (see the "Session 40" entry below; no open items from it;
 next is still Brett's plan below, item 1 = own CRM). Earlier state: main was `ddff9f2` / `horizon-inner` before Sessions 38–40. Horizon redesign
