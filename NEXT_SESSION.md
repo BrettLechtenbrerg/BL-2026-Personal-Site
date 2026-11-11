@@ -1,19 +1,35 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-## ▶ RESUME HERE (1 Nov 2026, Session 40: wide screens live)
+## ▶ RESUME HERE (10 Nov 2026, Session 41: spam filter live)
 
-**10 Nov 2026: SPAM FILTER, LIVE (pushed 10 Nov with Brett's OK).**
+**⭐ FIRST OPEN ITEM (raise with Brett): three public GoHighLevel webhook addresses.** The eBook, Book Brett and
+Master's Edge application webhook addresses are public (this repo is public and they were in the site's code until
+10 Nov; they are still the fallbacks in `src/app/api/ghl-form/route.ts`). A spammer who has them can skip the site
+and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he is ready:
+1. Brett makes three new Inbound Webhook addresses in the GHL dashboard (one per workflow: free eBook, Book Brett,
+   Master's Edge application). Walk him through one at a time; GHL workflows cannot be edited through the API.
+2. Save each in Vercel (production) as `GHL_EBOOK_WEBHOOK_URL`, `GHL_BOOK_BRETT_WEBHOOK_URL`,
+   `GHL_APPLY_WEBHOOK_URL` (the route already reads them first). Never paste them into the repo or the notes.
+3. Remove the three fallback addresses from `src/app/api/ghl-form/route.ts`, redeploy, test each form with a real
+   entry (Brett's OK first: it creates a real lead), then turn the old webhook triggers off in GHL.
+Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
+`src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
+
+**10 Nov 2026 (Session 41), LIVE (main `eec1779`, Vercel Ready, re-tested on brettlechtenberg.com): SPAM FILTER.**
+Brett was getting fake leads on the PMMA site (example: `l.e.k.uv.i.m.o.v.u.j353@gmail.com`, message
+`cveyQWXcRnQplXSeWVxDI`), sent by a real browser so the usual bot checks pass; he asked for the same fix here.
 Same filter as the PMMA site (`src/lib/spam-signals.ts`, layer 5 of `checkBotSignals`): refuses a Gmail address with
 4+ dots and a name, company or message that is one random mixed-case word; answers 422 "please email brett@" (never a
 silent drop). The eBook box, /book-brett and /masters-edge-program/apply used to post straight from the browser to
-GoHighLevel with no checks; they now go through `/api/ghl-form` (bot gate + filter, body forwarded unchanged).
-`/api/workbook-lead` got the gate too; honeypot is now read-only + hidden (TSAI's 4 Nov AutoFill fix). Tests:
-`node --test --experimental-strip-types scripts/spam-signals-unit-test.ts`. **Open:** the three GHL webhook addresses
-are still public (this repo is public and they were in the site's code), so spam can be posted straight to GHL; the
-full fix is new webhook addresses made in GHL and saved in Vercel as `GHL_EBOOK_WEBHOOK_URL`,
-`GHL_BOOK_BRETT_WEBHOOK_URL`, `GHL_APPLY_WEBHOOK_URL` (the route already reads them), then remove the fallbacks.
+GoHighLevel with no checks; they now go through `/api/ghl-form` (bot gate + filter, body forwarded unchanged, so the
+GHL workflows see the same fields). `/api/workbook-lead` got the gate too; honeypot is now read-only + hidden (TSAI's
+4 Nov AutoFill fix). /book-brett no longer shows "Request Received" when the filter refuses. Tests:
+`node --test --experimental-strip-types scripts/spam-signals-unit-test.ts` (3). Live checks 10 Nov: spam refused on
+all five forms (eBook, Book Brett, Apply, team quiz, workbook) and in a real browser on the three page forms; a
+real-person entry was tested only locally against a stand-in (a live one would create a real GHL lead). Sister
+changes the same day: PMMA `0ddcfa2`, TSAI-Site `418dc50`.
 
-**State:** everything committed, pushed and live (main = `a3763b7`, Vercel Ready, checked on brettlechtenberg.com).
+**State before Session 41:** everything committed, pushed and live (main = `a3763b7`, Vercel Ready, checked on brettlechtenberg.com).
 Session 40 = the site no longer looks narrow on big monitors (see the "Session 40" entry below; no open items from it;
 next is still Brett's plan below, item 1 = own CRM). Earlier state: main was `ddff9f2` / `horizon-inner` before Sessions 38–40. Horizon redesign
 COMPLETE on every public page; workbook typing fix + samurai background; Bill's quote = book back cover; no prices on
