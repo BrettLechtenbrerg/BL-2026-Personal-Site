@@ -23,6 +23,10 @@ the frame so the menu bar never covers his face); /testimonials hero = the earli
 source `Brett's Sizzle Reel/Source Videos/Brett_Lechtenberg_Speech USAMA.mov`); /speaking bottom band = Phoenix wide, room raising hands 0:06
 (`speaking-final-phoenix.mp4`, `FinalCta` has a new `video` prop); homepage Speaking card = Brett smiling, same moment (`speaking-card-phoenix-smile2.jpg`; first pick had "a weird expression").
 Image files get a new name when replaced: Next/Vercel cache optimized images by URL.
+Then (Brett: /speaking "initial image is a little frozen … should at least have my eyes open"; "both could use a better smile"): /speaking
+hero still = the loop's frame at 1.5 s (`speaking-phoenix-2.jpg`, eyes open) and `PageHero videoStart={1.5}`: `HeroVideo` now loads, waits
+1.5 s (was 2.9 s), seeks to `start` and plays, then fades in, so the photo-to-video change is seamless. Card + /media-kit = Phoenix 10:06.6
+(big smile, eyes open): `speaking-card-phoenix-smile3.jpg`, `media-kit-brett-smile4.jpg`.
 This replaces every use of the stock `/heroes/speaking.jpg` except the /media-kit bottom band. `HeroVideo` now takes an `id` (toggle via
 `aria-controls`) so a page can have two, and loads only when near the screen. horizon-check PASS on all five pages; lint + build pass.
 

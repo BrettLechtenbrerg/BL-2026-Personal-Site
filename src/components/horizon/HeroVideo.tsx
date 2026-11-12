@@ -2,10 +2,10 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Pause, Play } from "lucide-react";
 
-// Muted background loop over a photo (the photo is the video's first frame, so the fade-in is seamless).
-// Loads only on screens 768px+ with motion allowed and Data Saver off, and only once it comes near the screen;
-// everyone else keeps the still photo. `id` links it to its HeroVideoToggle.
-export function HeroVideo({ id, src, pos, shift }: { id: string; src: string; pos?: string; shift?: string }) {
+// Muted background loop over a photo. The photo is the video's frame at `start` seconds: the video starts from that same
+// frame and fades in over it, so the change is seamless. Loads only on screens 768px+ with motion allowed and Data Saver
+// off, and only once it comes near the screen; everyone else keeps the still photo. `id` links it to its HeroVideoToggle.
+export function HeroVideo({ id, src, start = 0, pos, shift }: { id: string; src: string; start?: number; pos?: string; shift?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [on, setOn] = useState(false);
   useEffect(() => {
@@ -14,20 +14,31 @@ export function HeroVideo({ id, src, pos, shift }: { id: string; src: string; po
     const allowed = window.matchMedia("(min-width: 768px) and (prefers-reduced-motion: no-preference)").matches;
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
     if (!allowed || saveData) return;
-    // A page-top video waits out the hero's 2.8 s load animation on the photo before it takes over.
+    // A page-top video lets the hero's load animation settle on the photo for 1.5 s before it takes over.
     const t0 = performance.now();
     let timer = 0;
-    const onPlaying = () => { timer = window.setTimeout(() => setOn(true), Math.max(0, 2900 - (performance.now() - t0))); };
-    v.addEventListener("playing", onPlaying, { once: true });
+    const onPlaying = () => setOn(true);
+    const begin = () => {
+      timer = window.setTimeout(() => {
+        v.addEventListener("playing", onPlaying, { once: true });
+        if (start) v.currentTime = start;
+        v.play().catch(() => {});
+      }, Math.max(0, 1500 - (performance.now() - t0)));
+    };
     const io = new IntersectionObserver((entries) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       io.disconnect();
+      v.addEventListener("canplay", begin, { once: true });
+      v.preload = "auto";
       v.src = src;
-      v.play().catch(() => {});
+      v.load();
     }, { rootMargin: "300px 0px" });
     io.observe(v);
-    return () => { io.disconnect(); window.clearTimeout(timer); v.removeEventListener("playing", onPlaying); v.pause(); };
-  }, [src]);
+    return () => {
+      io.disconnect(); window.clearTimeout(timer);
+      v.removeEventListener("canplay", begin); v.removeEventListener("playing", onPlaying); v.pause();
+    };
+  }, [src, start]);
   return (
     <video ref={ref} id={id} className={`ph-video${on ? " is-on" : ""}`} muted loop playsInline preload="none"
       aria-hidden="true" tabIndex={-1} style={{ "--pos": pos ?? "50% 35%", "--shift": shift ?? "0%" } as CSSProperties} />

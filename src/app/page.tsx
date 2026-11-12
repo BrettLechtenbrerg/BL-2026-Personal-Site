@@ -53,7 +53,7 @@ const pathways = [
       "Keynotes, workshops, and training sessions built on The Master's Edge methodology. Every session is customized. Every audience leaves with practical tools they can apply immediately.",
     href: "/speaking",
     cta: "Explore Speaking",
-    img: { src: "/heroes/speaking-card-phoenix-smile2.jpg", w: 1600, h: 1200, pos: "50% 15%" },
+    img: { src: "/heroes/speaking-card-phoenix-smile3.jpg", w: 1600, h: 1200, pos: "50% 15%" },
   },
   {
     title: "Executive Coaching",
