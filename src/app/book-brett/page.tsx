@@ -142,7 +142,8 @@ export default function BookBrettPage() {
             eyebrow={<><Mic2 className="eyebrow-ico" aria-hidden="true" />Book Brett</>}
             lines={[<>Bring <em>The Master&apos;s Edge</em></>, "to Your Event"]}
             lede="Keynote, workshop, or full-day training, your audience leaves with real tools they can use on Monday, not a pep talk that fades by Friday."
-            photo={{ src: "/heroes/speaking.jpg", alt: "Brett speaking on stage", w: 1920, h: 1280, pos: "40% 45%" }}
+            photo={{ src: "/heroes/book-brett-phoenix.jpg", alt: "Brett Lechtenberg speaking at USA Martial Arts in Phoenix", w: 1920, h: 1080, pos: "50% 20%", shift: "18%" }}
+            video="/videos/book-brett-hero-phoenix.mp4"
             side="right"
           />
 

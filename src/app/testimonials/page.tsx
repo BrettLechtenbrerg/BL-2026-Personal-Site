@@ -173,7 +173,8 @@ export default function TestimonialsPage() {
             eyebrow={<Stars />}
             lines={["See What's", <em key="p">Possible</em>]}
             lede={<>Don&apos;t take Brett&apos;s word for it. Hear from the leaders, athletes, coaches, and business owners who&apos;ve experienced The Master&apos;s Edge firsthand.</>}
-            photo={{ src: "/heroes/testimonials.jpg", alt: "Successful professionals collaborating", w: 1920, h: 1280, pos: "62% 35%" }}
+            photo={{ src: "/heroes/testimonials-usama.jpg", alt: "Brett Lechtenberg speaking at USA Martial Arts", w: 1920, h: 1080, pos: "50% 30%", shift: "12%" }}
+            video="/videos/testimonials-hero-usama.mp4"
             side="right"
           />
 

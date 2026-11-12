@@ -15,6 +15,15 @@ and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he
 Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
 `src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
 
+**12 Nov 2026 (Session 42, later), MORE BACKGROUND VIDEOS (branch `feat/more-background-videos`, PREVIEW ONLY until Brett OKs):**
+Brett: "go with your suggestions … different clips for each page … keep it private". Every page now has its own clip (grey, 10 s, still =
+first frame): /book-brett hero = Phoenix 3:56 (Brett head to knees, `book-brett-hero-phoenix.mp4`); /media-kit hero = Phoenix wide room
+listening 6:45 (`media-kit-hero-phoenix.mp4`); /testimonials hero = the earlier USA Martial Arts talk 11:59.5 (`testimonials-hero-usama.mp4`,
+source `Brett's Sizzle Reel/Source Videos/Brett_Lechtenberg_Speech USAMA.mov`); /speaking bottom band = Phoenix wide, room raising hands 0:06
+(`speaking-final-phoenix.mp4`, `FinalCta` has a new `video` prop); homepage Speaking card = a still from Phoenix (`speaking-card-phoenix.jpg`).
+This replaces every use of the stock `/heroes/speaking.jpg` except the /media-kit bottom band. `HeroVideo` now takes an `id` (toggle via
+`aria-controls`) so a page can have two, and loads only when near the screen. horizon-check PASS on all five pages; lint + build pass.
+
 **12 Nov 2026 (Session 42), /speaking HERO VIDEO, LIVE (Brett approved; main `27440b5`, verified on brettlechtenberg.com, horizon-check PASS live):** the
 stock "speaker on stage" hero photo is replaced by a 10-second grey loop of Brett from the Phoenix "Raise Your Stone" talk (Brett picked
 take "C3", source 11:49.66; `public/videos/speaking-hero-phoenix.mp4`, 0.8 MB; still = its first frame, `public/heroes/speaking-phoenix.jpg`).

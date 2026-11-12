@@ -31,11 +31,11 @@ export function PageHero({ id, eyebrow, lines, pre, lede, photo, video, side = "
         <div className="hero-media" data-hero-media>
           <Image data-hero-img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} sizes={photo.beside ? "(min-width: 1024px) 60vw, 100vw" : "100vw"} preload
             style={{ "--pos": photo.pos ?? "50% 35%", "--shift": photo.shift ?? "0%", "--ar": `${photo.w} / ${photo.h}` } as CSSProperties} />
-          {video && <HeroVideo src={video} pos={photo.pos} shift={photo.shift} />}
+          {video && <HeroVideo id={`${id}-bg`} src={video} pos={photo.pos} shift={photo.shift} />}
           <div className="hero-dawn" data-dawn aria-hidden="true" />
           <div className="ph-grade" aria-hidden="true" />
         </div>
-        {video && <HeroVideoToggle />}
+        {video && <HeroVideoToggle target={`${id}-bg`} />}
         <div className="rail ph-inner">
           <div className="ph-copy" data-hero-content>
             {eyebrow && <div className="eyebrow" data-hero-fade>{eyebrow}</div>}
@@ -68,14 +68,17 @@ export function Btn({ href, external, variant = "cran", size, arrow, children }:
 }
 
 // Closing band: the page's photo behind a glass panel (same build as the home page's final call to action).
-export function FinalCta({ id, title, text, photo, children }: {
-  id: string; title: ReactNode; text?: ReactNode; photo: Omit<Photo, "alt">; children: ReactNode;
+// video: a muted grey background loop whose first frame is `photo` (see HeroVideo).
+export function FinalCta({ id, title, text, photo, video, children }: {
+  id: string; title: ReactNode; text?: ReactNode; photo: Omit<Photo, "alt">; video?: string; children: ReactNode;
 }) {
   return (
     <section className="final" aria-labelledby={id}>
       <div className="final-media" aria-hidden="true">
         <Image data-drift src={photo.src} alt="" width={photo.w} height={photo.h} sizes="100vw" style={{ objectPosition: photo.pos ?? "50% 40%" }} />
+        {video && <HeroVideo id={`${id}-bg`} src={video} pos={photo.pos ?? "50% 40%"} />}
       </div>
+      {video && <HeroVideoToggle target={`${id}-bg`} />}
       <div className="rail">
         <div className="final-panel glass" data-rise>
           <h2 id={id} className="display-2">{title}</h2>

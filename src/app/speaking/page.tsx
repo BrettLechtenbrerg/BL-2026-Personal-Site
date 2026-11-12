@@ -544,7 +544,8 @@ export default function SpeakingPage() {
             id="speaking-final"
             title="The First Step Is Always a Conversation"
             text={<>No pitch. No pressure. Just a genuine discussion about your event, your audience, and the transformation you want them to walk away with. If Brett&apos;s the right fit, you&apos;ll know. If he&apos;s not, he&apos;ll tell you and point you toward someone who is.</>}
-            photo={{ src: "/heroes/speaking.jpg", w: 1920, h: 1280, pos: "40% 50%" }}
+            photo={{ src: "/heroes/speaking-final-phoenix.jpg", w: 1920, h: 1080, pos: "50% 50%" }}
+            video="/videos/speaking-final-phoenix.mp4"
           >
             <Btn href="/book-brett" variant="gold" size="lg">Book Brett for Your Event</Btn>
           </FinalCta>

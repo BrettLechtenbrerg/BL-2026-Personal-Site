@@ -350,6 +350,9 @@ html:not(.js) .bl-h .dd:hover .dd-panel, html:not(.js) .bl-h .dd:focus-within .d
 .bl-h .final { position: relative; isolation: isolate; overflow: hidden; padding-block: clamp(calc(96px * var(--bl-k)), 14vh, calc(160px * var(--bl-k))); }
 .bl-h .final-media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
 .bl-h .final-media img { width: 100%; height: 115%; object-fit: cover; object-position: 46% 30%; filter: saturate(.95) brightness(.8); }
+.bl-h .final-media .ph-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 40%);
+  filter: brightness(.8); opacity: 0; transition: opacity 1.2s ease; pointer-events: none; }
+.bl-h .final-media .ph-video.is-on { opacity: 1; }
 .bl-h .final-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, var(--night-2) 0%, rgb(26 26 26 / .45) 35%, rgb(122 21 38 / .25) 72%, var(--night) 100%); }
 .bl-h .final-panel { max-width: calc(880px * var(--bl-k)); margin-inline: auto; padding: clamp(calc(32px * var(--bl-k)), 5vw, calc(68px * var(--bl-k))); display: grid; justify-items: center; gap: calc(22px * var(--bl-k)); text-align: center; }
 .bl-h .final-panel .body-lg { color: #EDE8E3; }
