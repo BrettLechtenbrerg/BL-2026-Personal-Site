@@ -355,7 +355,7 @@ export default function MediaKitPage() {
             id="kit-final"
             title="Ready to Book Brett?"
             text={<>Have questions or need something not listed here? We&apos;re happy to help.</>}
-            photo={{ src: "/heroes/speaking.jpg", w: 1920, h: 1280, pos: "40% 50%" }}
+            photo={{ src: "/heroes/media-kit-final-phoenix-3.jpg", w: 2760, h: 1080, pos: "0% 20%" }}
           >
             <div className="final-ctas">
               <Btn href="/book-brett" variant="gold" size="lg" arrow>Request Booking</Btn>

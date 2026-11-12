@@ -15,6 +15,11 @@ and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he
 Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
 `src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
 
+**12 Nov 2026 (Session 42, last), /media-kit BOTTOM BAND (branch `feat/media-kit-final-photo`, PREVIEW ONLY until Brett OKs):**
+the last stock photo (`/heroes/speaking.jpg`, another speaker) is gone from the site: "Ready to Book Brett?" now sits over Brett smiling at
+the room (Phoenix 10:59.7, wider camera), placed at the left edge so he shows beside the panel (`media-kit-final-phoenix-3.jpg`, 2760x1080:
+the frame plus a blurred extension to the right). horizon-check PASS.
+
 **12 Nov 2026 (Session 42, later), MORE BACKGROUND VIDEOS, LIVE (Brett: "all of these updates … are great. lets make this live and our new source of truth"; main `a7bb3c8`, every video and still checked byte-identical on www.brettlechtenberg.com):**
 Brett: "go with your suggestions … different clips for each page … keep it private". Every page now has its own clip (grey, 10 s, still =
 first frame): /book-brett hero = Phoenix 3:56 (Brett head to knees, `book-brett-hero-phoenix.mp4`); /media-kit hero = NO video (Brett didn't
