@@ -15,7 +15,7 @@ and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he
 Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
 `src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
 
-**12 Nov 2026 (Session 42), /speaking HERO VIDEO (branch `feat/speaking-hero-video`, preview only until Brett OKs):** the
+**12 Nov 2026 (Session 42), /speaking HERO VIDEO, LIVE (Brett approved; main `27440b5`, verified on brettlechtenberg.com, horizon-check PASS live):** the
 stock "speaker on stage" hero photo is replaced by a 10-second grey loop of Brett from the Phoenix "Raise Your Stone" talk (Brett picked
 take "C3", source 11:49.66; `public/videos/speaking-hero-phoenix.mp4`, 0.8 MB; still = its first frame, `public/heroes/speaking-phoenix.jpg`).
 `PageHero` has a new optional `video` prop (`src/components/horizon/HeroVideo.tsx`): loads only on screens 768px+ with motion allowed and
