@@ -3,6 +3,7 @@ import type { CSSProperties, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { HeroVideo, HeroVideoToggle } from "./HeroVideo";
 
 export const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 export const NewTab = () => <span className="sr-only"> (opens in a new tab)</span>;
@@ -10,6 +11,7 @@ export const NewTab = () => <span className="sr-only"> (opens in a new tab)</spa
 // shift: on wide screens, slide the photo left by this much so its subject clears the copy (e.g. "22%").
 // beside: on wide screens the photo sits on the far side of the copy instead of across the whole top (for smaller photos).
 type Photo = { src: string; alt: string; w: number; h: number; pos?: string; shift?: string; beside?: boolean };
+// video: a muted grey background loop whose first frame is `photo` (see HeroVideo).
 
 export function HorizonPage({ children }: { children: ReactNode }) {
   return <div className="bl-h bl-h-page bl-h-motion">{children}</div>;
@@ -19,8 +21,8 @@ export function HorizonPage({ children }: { children: ReactNode }) {
 // wide: a longer headline gets a wider copy column so it breaks into fewer, fuller lines.
 // pre: lines between the headline and the lede (e.g. a book subtitle). aside: a figure beside the copy on wide screens
 // (e.g. a book cover). small: a smaller headline for long titles (blog posts).
-export function PageHero({ id, eyebrow, lines, pre, lede, photo, side = "left", wide, small, aside, children }: {
-  id: string; eyebrow?: ReactNode; lines: ReactNode[]; pre?: ReactNode; lede?: ReactNode; photo: Photo; side?: "left" | "right";
+export function PageHero({ id, eyebrow, lines, pre, lede, photo, video, side = "left", wide, small, aside, children }: {
+  id: string; eyebrow?: ReactNode; lines: ReactNode[]; pre?: ReactNode; lede?: ReactNode; photo: Photo; video?: string; side?: "left" | "right";
   wide?: boolean; small?: boolean; aside?: ReactNode; children?: ReactNode;
 }) {
   return (
@@ -29,9 +31,11 @@ export function PageHero({ id, eyebrow, lines, pre, lede, photo, side = "left", 
         <div className="hero-media" data-hero-media>
           <Image data-hero-img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} sizes={photo.beside ? "(min-width: 1024px) 60vw, 100vw" : "100vw"} preload
             style={{ "--pos": photo.pos ?? "50% 35%", "--shift": photo.shift ?? "0%", "--ar": `${photo.w} / ${photo.h}` } as CSSProperties} />
+          {video && <HeroVideo src={video} pos={photo.pos} shift={photo.shift} />}
           <div className="hero-dawn" data-dawn aria-hidden="true" />
           <div className="ph-grade" aria-hidden="true" />
         </div>
+        {video && <HeroVideoToggle />}
         <div className="rail ph-inner">
           <div className="ph-copy" data-hero-content>
             {eyebrow && <div className="eyebrow" data-hero-fade>{eyebrow}</div>}

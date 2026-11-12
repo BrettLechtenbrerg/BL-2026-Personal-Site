@@ -352,7 +352,8 @@ export default function SpeakingPage() {
             eyebrow="Keynotes · Corporate Training · Workshops"
             lines={["Your Audience Leaves", <><em>Changed</em>, Not Just Entertained</>]}
             lede={<>Science-backed keynotes and training built on one promise: transformation over transaction. Every talk is grounded in the Master&apos;s Edge methodology of First Principles, Frontloading, and the strategic use of Flow, so your people don&apos;t just hear new ideas. They leave with clarity, motivation, and tools they use Monday morning.</>}
-            photo={{ src: "/heroes/speaking.jpg", alt: "Speaker on stage with dramatic lighting", w: 1920, h: 1280, pos: "40% 45%" }}
+            photo={{ src: "/heroes/speaking-phoenix.jpg", alt: "Brett Lechtenberg speaking at USA Martial Arts in Phoenix", w: 1920, h: 1080, pos: "50% 15%", shift: "18%" }}
+            video="/videos/speaking-hero-phoenix.mp4"
             side="right"
             wide
           >

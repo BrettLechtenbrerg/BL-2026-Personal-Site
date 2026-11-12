@@ -15,6 +15,15 @@ and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he
 Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
 `src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
 
+**12 Nov 2026 (Session 42), /speaking HERO VIDEO (branch `feat/speaking-hero-video`, preview only until Brett OKs):** the
+stock "speaker on stage" hero photo is replaced by a 10-second grey loop of Brett from the Phoenix "Raise Your Stone" talk (Brett picked
+take "C3", source 11:49.66; `public/videos/speaking-hero-phoenix.mp4`, 0.8 MB; still = its first frame, `public/heroes/speaking-phoenix.jpg`).
+`PageHero` has a new optional `video` prop (`src/components/horizon/HeroVideo.tsx`): loads only on screens 768px+ with motion allowed and
+Data Saver off (phones and reduce-motion keep the still), fades in after the hero's load animation, pause/play button (WCAG 2.2.2), same
+`--pos`/`--shift` as the photo (shift 18% on wide screens keeps Brett left of the copy and a child at the frame edge out of view).
+horizon-check PASS (1440/1920/2560). The bottom "First Step" band still uses the stock photo. Project notes:
+`~/Desktop/BL - Brett Lechtenberg/Projects/Website Background Video - Nov 2026/`.
+
 **12 Nov 2026 (Session 42), SIZZLE REEL v5.10 LIVE:** `public/videos/sizzle-reel-2026.mp4` replaced with v5.10 (Brett approved):
 three shots from the 7 Nov Phoenix "Raise Your Stone" talk + background music down 40%. Same length (3:26.6), so the "3:27"
 captions on /speaking, /media-kit and /book-brett are unchanged; poster unchanged (same opening). Master + rollback (v5.7 archive):
