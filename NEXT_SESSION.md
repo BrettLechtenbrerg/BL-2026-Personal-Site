@@ -15,6 +15,11 @@ and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he
 Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
 `src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
 
+**12 Nov 2026 (Session 42), SIZZLE REEL v5.10 LIVE:** `public/videos/sizzle-reel-2026.mp4` replaced with v5.10 (Brett approved):
+three shots from the 7 Nov Phoenix "Raise Your Stone" talk + background music down 40%. Same length (3:26.6), so the "3:27"
+captions on /speaking, /media-kit and /book-brett are unchanged; poster unchanged (same opening). Master + rollback (v5.7 archive):
+`~/Desktop/BL - Brett Lechtenberg/Projects/Brett's Sizzle Reel/00 CURRENT - APPROVED (v5.10 FINAL, 12 Nov 2026)/`.
+
 **10 Nov 2026 (Session 41), LIVE (main `eec1779`, Vercel Ready, re-tested on brettlechtenberg.com): SPAM FILTER.**
 Brett was getting fake leads on the PMMA site (example: `l.e.k.uv.i.m.o.v.u.j353@gmail.com`, message
 `cveyQWXcRnQplXSeWVxDI`), sent by a real browser so the usual bot checks pass; he asked for the same fix here.
