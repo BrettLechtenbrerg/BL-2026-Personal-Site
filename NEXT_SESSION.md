@@ -15,7 +15,7 @@ and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he
 Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
 `src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
 
-**12 Nov 2026 (Session 42, later), MORE BACKGROUND VIDEOS (branch `feat/more-background-videos`, PREVIEW ONLY until Brett OKs):**
+**12 Nov 2026 (Session 42, later), MORE BACKGROUND VIDEOS, LIVE (Brett: "all of these updates … are great. lets make this live and our new source of truth"; main `a7bb3c8`, every video and still checked byte-identical on www.brettlechtenberg.com):**
 Brett: "go with your suggestions … different clips for each page … keep it private". Every page now has its own clip (grey, 10 s, still =
 first frame): /book-brett hero = Phoenix 3:56 (Brett head to knees, `book-brett-hero-phoenix.mp4`); /media-kit hero = NO video (Brett didn't
 like it): a still of Brett smiling (Phoenix 10:08.9, `media-kit-brett-smile3.jpg`, `beside` layout; 300px of blurred wall added above
