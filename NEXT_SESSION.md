@@ -17,10 +17,12 @@ Also ask Brett whether spam still arrives; have him forward any that gets throug
 
 **12 Nov 2026 (Session 42, later), MORE BACKGROUND VIDEOS (branch `feat/more-background-videos`, PREVIEW ONLY until Brett OKs):**
 Brett: "go with your suggestions … different clips for each page … keep it private". Every page now has its own clip (grey, 10 s, still =
-first frame): /book-brett hero = Phoenix 3:56 (Brett head to knees, `book-brett-hero-phoenix.mp4`); /media-kit hero = Phoenix wide room
-listening 6:45 (`media-kit-hero-phoenix.mp4`); /testimonials hero = the earlier USA Martial Arts talk 11:59.5 (`testimonials-hero-usama.mp4`,
+first frame): /book-brett hero = Phoenix 3:56 (Brett head to knees, `book-brett-hero-phoenix.mp4`); /media-kit hero = NO video (Brett didn't
+like it): a still of Brett smiling (Phoenix 10:08.9, `media-kit-brett-smile3.jpg`, `beside` layout; 300px of blurred wall added above
+the frame so the menu bar never covers his face); /testimonials hero = the earlier USA Martial Arts talk 11:59.5 (`testimonials-hero-usama.mp4`,
 source `Brett's Sizzle Reel/Source Videos/Brett_Lechtenberg_Speech USAMA.mov`); /speaking bottom band = Phoenix wide, room raising hands 0:06
-(`speaking-final-phoenix.mp4`, `FinalCta` has a new `video` prop); homepage Speaking card = a still from Phoenix (`speaking-card-phoenix.jpg`).
+(`speaking-final-phoenix.mp4`, `FinalCta` has a new `video` prop); homepage Speaking card = Brett smiling, same moment (`speaking-card-phoenix-smile2.jpg`; first pick had "a weird expression").
+Image files get a new name when replaced: Next/Vercel cache optimized images by URL.
 This replaces every use of the stock `/heroes/speaking.jpg` except the /media-kit bottom band. `HeroVideo` now takes an `id` (toggle via
 `aria-controls`) so a page can have two, and loads only when near the screen. horizon-check PASS on all five pages; lint + build pass.
 

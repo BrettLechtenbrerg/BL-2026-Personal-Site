@@ -178,8 +178,7 @@ export default function MediaKitPage() {
             eyebrow={<><Download className="eyebrow-ico" aria-hidden="true" />Media Kit</>}
             lines={["Event Planner", <em key="r">Resources</em>]}
             lede={<>Everything you need to promote Brett&apos;s appearance at your event: biography, headshots, introductions, topics, and AV requirements.</>}
-            photo={{ src: "/heroes/media-kit-phoenix.jpg", alt: "An audience listening to Brett Lechtenberg at USA Martial Arts in Phoenix", w: 1920, h: 1080, pos: "50% 40%" }}
-            video="/videos/media-kit-hero-phoenix.mp4"
+            photo={{ src: "/heroes/media-kit-brett-smile3.jpg", alt: "Brett Lechtenberg smiling while speaking at USA Martial Arts in Phoenix", w: 1440, h: 1380, pos: "50% 30%", beside: true }}
             side="right"
           />
 
