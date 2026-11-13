@@ -15,7 +15,7 @@ and post straight to GoHighLevel. Brett, 10 Nov: "no time now". The fix, when he
 Also ask Brett whether spam still arrives; have him forward any that gets through, then widen
 `src/lib/spam-signals.ts` (tests first). Offered, not decided: Cloudflare Turnstile as a second layer.
 
-**12 Nov 2026 (Session 42, last), /media-kit BOTTOM BAND (branch `feat/media-kit-final-photo`, PREVIEW ONLY until Brett OKs):**
+**12 Nov 2026 (Session 42, last), /media-kit BOTTOM BAND, LIVE (Brett: "push it all live … this is our new source of truth"):**
 the last stock photo (`/heroes/speaking.jpg`, another speaker) is gone from the site: "Ready to Book Brett?" now sits over Brett smiling at
 the room (Phoenix 10:59.7, wider camera), placed at the left edge so he shows beside the panel (`media-kit-final-phoenix-3.jpg`, 2760x1080:
 the frame plus a blurred extension to the right). horizon-check PASS.
