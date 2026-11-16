@@ -2,6 +2,23 @@
 
 ## ▶ RESUME HERE (10 Nov 2026, Session 41: spam filter live)
 
+**16 Nov 2026 (Session 44): SPEED + MOBILE PASS, LIVE (Brett: "make any of your suggested changes live and committed"; main `8cacacb`, checked on www.brettlechtenberg.com):**
+all 19 public pages tested at iPhone size on slow 4G (main content in 1.2-2.9 s, no sideways scroll, no broken images). Changes:
+- **Sizzle reel loads only on tap** (`LiveClip` `preload="none"`; it pulled ~4 MB per visit). Measured live, phone: /speaking 5.6 -> 1.4 MB,
+  /book-brett 4.9 -> 0.8 MB, /media-kit 5.4 -> 1.2 MB; the reel still plays on tap on all three.
+- **/books "Bestseller" badge** ran past the card edge on phones and at 900-1023px: it now sits above the title there (`horizon.css` `.book-head`).
+- **Source images shrunk** (about 43 MB -> 4 MB): `speaking-gallery/speaking-1/2/3` and `referral-community` and `books/travel-safety-program`
+  are now `.jpg` (the `.png` files are gone); `murray-chamber-2.jpeg`, `speaking-4.jpg`, the six `images/quiz/gap-*.webp` and
+  `books/reclaiming-the-clock.png` were re-saved smaller under the same names. Not touched: media-kit download photos, blog images (their
+  addresses are shared on social), `usa-today/`.
+- **Security headers** in `next.config.ts`: nosniff, Referrer-Policy, Permissions-Policy (camera, microphone, location off),
+  `frame-ancestors 'self' https://*.brettlechtenberg.com`. No full Content-Security-Policy (would need every script source listed).
+- **/quiz-results-gallery** (internal preview): first card image preloads (3.5 -> 2.9 s), 11px labels -> 12px.
+- **brettlechtenberg.com -> www is now a permanent (308) redirect** (Vercel project domain setting, changed through `vercel api`; was 307).
+Lint 0/0, tsc and build pass. Left as is: `public/videos/juan-diego-clip.mp4` (9 MB, on no page, still reachable; remove only with
+Brett's OK), AVIF images (would raise Vercel image-processing use: a cost decision for Brett), blog image PNGs (1.5-2.7 MB each, also the
+social-share images), Google PageSpeed scores (free daily quota was used up on 16 Nov; re-run another day).
+
 **15 Nov 2026 (Session 43): /hub/tools "My tools" LIVE** (5 dashboard tiles with live status, `src/lib/my-tools.ts`,
 `/api/hub/tools`, test `scripts/my-tools-unit-test.ts`), /coaching FAQ links launch.brettlechtenberg.com, dashboards added
 to `docs/BUSINESS-ASSETS.md`. Commit `bc2b066`, deployed with `vercel --prod`. Full record:
