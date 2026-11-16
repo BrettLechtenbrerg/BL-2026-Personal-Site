@@ -15,8 +15,13 @@ all 19 public pages tested at iPhone size on slow 4G (main content in 1.2-2.9 s,
   `frame-ancestors 'self' https://*.brettlechtenberg.com`. No full Content-Security-Policy (would need every script source listed).
 - **/quiz-results-gallery** (internal preview): first card image preloads (3.5 -> 2.9 s), 11px labels -> 12px.
 - **brettlechtenberg.com -> www is now a permanent (308) redirect** (Vercel project domain setting, changed through `vercel api`; was 307).
-Lint 0/0, tsc and build pass. Left as is: `public/videos/juan-diego-clip.mp4` (9 MB, on no page, still reachable; remove only with
-Brett's OK), AVIF images (would raise Vercel image-processing use: a cost decision for Brett), blog image PNGs (1.5-2.7 MB each, also the
+- **Clean-up (Brett: "remove the clip and any unnecessary clutter"):** 18 files that no page used were removed from `public/` (13 MB):
+  `videos/juan-diego-clip.mp4` + poster (old /speaking clip, replaced by the sizzle reel), the stock `heroes/speaking.jpg`, `heroes/about.jpg`,
+  `heroes/ai-advisory-hero.webp`, `books/masters-edge-devices.jpg`, `-shelf.jpg` and `masters-edge.png`, `usa-today/usa-today-logo.png`, four
+  unused `logos/*.svg` and the five Next.js starter icons. All are in git history. Kept: `google609cf9c0414c568d.html` (Google Search Console
+  proof) and the two square blog images (used for social posts). Not done: eight pre-Horizon components in `src/components/sections/`
+  (Hero, LogoScroller, Testimonials, Credibility, Solution, Pathways, MediaFeature, QuizPromo) are imported nowhere; they never reach visitors.
+Lint 0/0, tsc and build pass. Left as is: AVIF images (would raise Vercel image-processing use: a cost decision for Brett), blog image PNGs (1.5-2.7 MB each, also the
 social-share images), Google PageSpeed scores (free daily quota was used up on 16 Nov; re-run another day).
 
 **15 Nov 2026 (Session 43): /hub/tools "My tools" LIVE** (5 dashboard tiles with live status, `src/lib/my-tools.ts`,
