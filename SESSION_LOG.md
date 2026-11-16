@@ -1413,3 +1413,9 @@ b2db867 Brighten hero images by 10% across all pages
 - Pushed to origin/main
 
 ---
+
+## Session 43 — 15 Nov 2026: My tools + dashboards on brettlechtenberg.com
+- New hub page /hub/tools (My tools): Speaker's Edge, Launch Portal, Visibility Edge, Book Studio, Audiobook Studio, live status dots (server-side check of a fixed URL list). Menu item in HubShell.
+- /coaching FAQ: Launch Portal link (links.launchPortal).
+- docs/BUSINESS-ASSETS.md: Dashboards table (addresses, Vercel projects, sign-in, cost, handover).
+- Checks: tsc, eslint, 4 unit tests; deployed with vercel --prod; commit bc2b066.

@@ -2,6 +2,11 @@
 
 ## ▶ RESUME HERE (10 Nov 2026, Session 41: spam filter live)
 
+**15 Nov 2026 (Session 43): /hub/tools "My tools" LIVE** (5 dashboard tiles with live status, `src/lib/my-tools.ts`,
+`/api/hub/tools`, test `scripts/my-tools-unit-test.ts`), /coaching FAQ links launch.brettlechtenberg.com, dashboards added
+to `docs/BUSINESS-ASSETS.md`. Commit `bc2b066`, deployed with `vercel --prod`. Full record:
+`~/Desktop/BL - Brett Lechtenberg/Projects/Connect Dashboards - Nov 2026/RESUME-PROMPT.md`.
+
 **⭐ FIRST OPEN ITEM (raise with Brett): three public GoHighLevel webhook addresses.** The eBook, Book Brett and
 Master's Edge application webhook addresses are public (this repo is public and they were in the site's code until
 10 Nov; they are still the fallbacks in `src/app/api/ghl-form/route.ts`). A spammer who has them can skip the site
