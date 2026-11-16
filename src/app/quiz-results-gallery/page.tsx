@@ -97,7 +97,7 @@ const GALLERY: GalleryResult[] = [
   },
 ];
 
-function ResultCard({ result }: { result: GalleryResult }) {
+function ResultCard({ result, first }: { result: GalleryResult; first?: boolean }) {
   return (
     <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col">
       <div className="relative w-full aspect-[3/2]">
@@ -106,6 +106,7 @@ function ResultCard({ result }: { result: GalleryResult }) {
           alt={result.headline}
           fill
           sizes="(max-width: 768px) 100vw, 640px"
+          preload={first}
           className="object-cover"
         />
         <div
@@ -176,8 +177,8 @@ export default function QuizResultsGalleryPage() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
-          {GALLERY.map((result) => (
-            <ResultCard key={result.gap} result={result} />
+          {GALLERY.map((result, i) => (
+            <ResultCard key={result.gap} result={result} first={i === 0} />
           ))}
         </div>
 
@@ -251,7 +252,7 @@ function DownArrow({ label }: { label?: string }) {
     <div className="flex flex-col items-center py-1" aria-hidden>
       <div className="h-5 w-0.5 bg-black/30" />
       {label && (
-        <span className="my-0.5 rounded-full bg-black/10 px-3 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-warm-gray">
+        <span className="my-0.5 rounded-full bg-black/10 px-3 py-0.5 text-xs font-semibold uppercase tracking-wide text-warm-gray">
           {label}
         </span>
       )}
@@ -339,7 +340,7 @@ function FlowDiagram() {
               >
                 {g.icon}
               </span>
-              <span className="text-[11px] font-bold leading-tight text-black">
+              <span className="text-xs font-bold leading-tight text-black">
                 Gap {g.n}
                 <br />
                 {g.label}

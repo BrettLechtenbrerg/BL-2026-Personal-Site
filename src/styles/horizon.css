@@ -906,6 +906,9 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 .bl-h .book.is-featured .book-art > img { object-fit: cover; padding: 0; }
 .bl-h .book-body { display: flex; flex-direction: column; gap: calc(10px * var(--bl-k)); height: 100%; }
 .bl-h .book-head { display: flex; align-items: flex-start; justify-content: space-between; gap: calc(12px * var(--bl-k)); }
+/* Narrow cards (phones, and the two-column grid below 1024px): the badge sits above the title; beside it, a long first
+   word pushed it past the card edge. */
+@media (max-width: 559px), (min-width: 900px) and (max-width: 1023px) { .bl-h .book-head { flex-direction: column-reverse; gap: calc(8px * var(--bl-k)); } }
 .bl-h .book h3 { font: 700 clamp(calc(19px * var(--bl-k)), 1.5vw, calc(23px * var(--bl-k)))/1.25 var(--serif); color: var(--ink); }
 .bl-h .book.is-featured h3 { font-size: clamp(calc(24px * var(--bl-k)), 2.2vw, calc(32px * var(--bl-k))); }
 /* The title is the card's link: its click area covers the whole card. */

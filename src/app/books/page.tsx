@@ -76,8 +76,8 @@ const books = [
     description:
       "Essential safety training for travelers, missionaries, and anyone heading abroad.",
     bestseller: true,
-    image: "/books/travel-safety-program.png",
-    book3d: { w: 1626, h: 2440, spineColor: "#f1f0f4", depth: 0.05 },
+    image: "/books/travel-safety-program.jpg",
+    book3d: { w: 1000, h: 1501, spineColor: "#f1f0f4", depth: 0.05 },
     amazonUrl: "https://www.amazon.com/Ultimate-Travel-Safety-Program-missionaries/dp/1532765312",
   },
   {

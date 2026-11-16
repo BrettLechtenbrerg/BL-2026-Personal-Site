@@ -43,11 +43,11 @@ const extraTestimonials = [
 const galleryImages = [
   { src: "/speaking-gallery/america-first-training.jpg", alt: "Brett with the America First Credit Union team, Super Ethical Sales & Team Building, August 2026", size: "large" },
   { src: "/speaking-gallery/murray-chamber-training.webp", alt: "Women in Business Empowerment Training, Murray Chamber of Commerce, May 2026", size: "medium" },
-  { src: "/speaking-gallery/speaking-2.png", alt: "Financial Literacy Event, Heber Valley Chamber, Utah Valley University", size: "medium" },
-  { src: "/speaking-gallery/speaking-1.png", alt: "Digital Marketing Training, Park City Chamber", size: "large" },
-  { src: "/speaking-gallery/speaking-3.png", alt: "Team Building Training, Blair Education Center, Park City Hospital", size: "medium" },
+  { src: "/speaking-gallery/speaking-2.jpg", alt: "Financial Literacy Event, Heber Valley Chamber, Utah Valley University", size: "medium" },
+  { src: "/speaking-gallery/speaking-1.jpg", alt: "Digital Marketing Training, Park City Chamber", size: "large" },
+  { src: "/speaking-gallery/speaking-3.jpg", alt: "Team Building Training, Blair Education Center, Park City Hospital", size: "medium" },
   { src: "/speaking-gallery/murray-chamber-2.jpeg", alt: "Team training at Murray Chamber", size: "medium" },
-  { src: "/speaking-gallery/referral-community.png", alt: "Referral Community Event", size: "large" },
+  { src: "/speaking-gallery/referral-community.jpg", alt: "Referral Community Event", size: "large" },
   { src: "/speaking-gallery/speaking-4.jpg", alt: "AI for Business Owners, Park City Chamber, Blair Education Center", size: "large" },
 ];
 

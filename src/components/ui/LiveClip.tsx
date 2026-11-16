@@ -54,7 +54,8 @@ export function LiveClip({
           poster={poster}
           controls={playing}
           playsInline
-          preload="metadata"
+          // The poster covers the frame, so nothing is downloaded until the visitor taps play ("metadata" pulled ~4 MB per visit).
+          preload="none"
           aria-label={label}
           className="absolute inset-0 w-full h-full object-cover"
         />
