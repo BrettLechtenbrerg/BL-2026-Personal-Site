@@ -29,6 +29,7 @@ export const easings = {
 export const links = {
   booking: "https://api.leadconnectorhq.com/widget/booking/SIk1yXBC2uMftMiRrBe9",
   email: "mailto:Brett@BrettLechtenberg.com",
+  launchPortal: "https://launch.brettlechtenberg.com",
   martialArts: "https://personalmasterymartialarts.com",
   ai: "https://totalsuccessai.com",
   // The Master's Edge book on Amazon (published Oct 19, 2026)

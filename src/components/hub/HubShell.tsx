@@ -13,13 +13,14 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { BarChart3, GraduationCap, Loader2, LogOut, Menu, MessageSquare, Settings2, Users, X } from 'lucide-react';
+import { BarChart3, GraduationCap, LayoutGrid, Loader2, LogOut, Menu, MessageSquare, Settings2, Users, X } from 'lucide-react';
 
 const NAV = [
   { href: '/hub/budget', label: 'Dashboard (Budget)', icon: BarChart3 },
   { href: '/hub/budget/setup', label: 'Monthly Setup', icon: Settings2 },
   { href: '/hub/messaging', label: 'Messaging', icon: MessageSquare },
   { href: '/hub/academy', label: 'Academy', icon: GraduationCap },
+  { href: '/hub/tools', label: 'My tools', icon: LayoutGrid },
 ] as const;
 
 function isActive(pathname: string, href: string) {

@@ -70,6 +70,10 @@ const faqs = [
     q: "How long does it take to see results?",
     a: "Most clients experience a shift in clarity and mindset within the first few sessions. Tangible business results typically emerge within 60 to 90 days.",
   },
+  {
+    q: "I already have a book, talk or brand. Can you help me launch it?",
+    a: <>Yes. The <a href={links.launchPortal} className="text-link">Launch Portal</a> turns your answers into one plan for your brand, book, talk, bookings and press, with a dashboard that shows every step.</>,
+  },
 ];
 
 export default function CoachingPage() {
