@@ -1419,3 +1419,13 @@ b2db867 Brighten hero images by 10% across all pages
 - /coaching FAQ: Launch Portal link (links.launchPortal).
 - docs/BUSINESS-ASSETS.md: Dashboards table (addresses, Vercel projects, sign-in, cost, handover).
 - Checks: tsc, eslint, 4 unit tests; deployed with vercel --prod; commit bc2b066.
+
+## Session 44 — 16 Nov 2026: speed + mobile pass, clean-up, Google SEO pass (all live)
+- Audit: all 19 public pages at iPhone size on slow 4G (main content 1.2-2.9 s, no sideways scroll, no broken images).
+- Speed: sizzle reel loads on tap only (LiveClip preload none): /speaking 5.6 -> 1.4 MB, /book-brett 4.9 -> 0.8 MB, /media-kit 5.4 -> 1.2 MB on a phone. Source images about 43 MB -> 4 MB (five PNG photos became JPG).
+- Mobile: /books Bestseller badge stays inside its card (phones and 900-1023px).
+- Security headers in next.config.ts; brettlechtenberg.com -> www is now a permanent (308) redirect (Vercel domain setting).
+- Clean-up: 18 unused files removed from public/ (Juan Diego clip + poster, old heroes and book mockups, starter icons); the eight old pre-Horizon homepage sections + homepage.jpg removed, restore tag pre-old-sections-removal-2026-11-16.
+- Google SEO pass (22 sitemap pages, against Google Search Central docs to 12 Nov 2026): real /og-image.jpg share image, no doubled name in titles, honest sitemap dates, structured data clean-up, og:type/og:url everywhere. 22 of 22 pages pass live.
+- Checks: eslint, tsc, build; live checks after each deploy. Commits 8cacacb, fec9e03, 8279efa, c4186bd, f581308.
+- Open: see "WHAT'S NEXT" at the top of NEXT_SESSION.md (GHL webhooks first; Search Console items are Brett's).

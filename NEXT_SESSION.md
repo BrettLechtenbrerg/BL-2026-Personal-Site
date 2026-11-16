@@ -1,6 +1,29 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-## ▶ RESUME HERE (10 Nov 2026, Session 41: spam filter live)
+## ▶ RESUME HERE (16 Nov 2026, Session 44: speed, mobile, clean-up and Google SEO pass, all live)
+
+**State at close (16 Nov 2026):** everything is committed, on GitHub and live on www.brettlechtenberg.com. Nothing from Session 44 is
+unfinished. Commits: speed + mobile `8cacacb`, clean-up `8279efa`, old homepage sections removed `c4186bd` (restore tag
+`pre-old-sections-removal-2026-11-16`), Google SEO pass `f581308`. Details of each are in the Session 44 entry just below.
+
+**WHAT'S NEXT (the list Brett chose to keep, 16 Nov 2026: "i like your list so we are going to keep it"):**
+1. **Three public GoHighLevel webhook addresses** (the only item with a security angle; about 15 minutes of Brett's time in the GHL
+   dashboard). Steps: "⭐ FIRST OPEN ITEM" below.
+2. **Brett, in Google Search Console (10 minutes):** confirm the site is included in "Search generative AI features"; look at the Core
+   Web Vitals and Pages reports. Until then the "meets Google's standards" answer covers only what can be checked from outside.
+3. **Google PageSpeed scores:** not run on 16 Nov (free daily quota used up). Re-run on another day:
+   `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=<page>&strategy=mobile`.
+4. **Pricing for coaching and the 12-Week Program** (removed 31 Oct): once Brett sets it, it goes back on the program page and Stripe
+   payments get connected ("Brett's plan" item 3 below).
+5. **Edge CRM, retiring Go High Level** ("Brett's plan" item 1 below; say "resume Edge CRM"). Phase 2 plan waits for Brett's approval.
+6. **Power Hub Budget:** expenses side next; monthly backup of the budget data outside Supabase still open (`docs/BUDGET.md`).
+7. **Optional, Brett's call:** AVIF images (smaller, but more Vercel image-processing use); shrink the blog image PNGs (1.5-2.7 MB, also the
+   social-share images, so their addresses would change); check the site on a real phone; remove `src/components/ui/AnimatedCounter.tsx`
+   and `TiltCard.tsx` (only the removed old homepage sections used them; they never reach visitors).
+8. **Parked, from older notes, not re-checked on 16 Nov:** the published book's About the Author + Amazon description say "seven books"
+   (book project); /books top image is the pre-publication mockup; /speaking: America First letter of recommendation to replace a quote
+   card when it arrives, and the speaking stats bar to verify or retire; hub emails landing in spam (sending-domain setup).
+
 
 **16 Nov 2026 (Session 44): SPEED + MOBILE PASS, LIVE (Brett: "make any of your suggested changes live and committed"; main `8cacacb`, checked on www.brettlechtenberg.com):**
 all 19 public pages tested at iPhone size on slow 4G (main content in 1.2-2.9 s, no sideways scroll, no broken images). Changes:
