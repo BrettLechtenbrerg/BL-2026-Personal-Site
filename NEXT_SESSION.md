@@ -19,8 +19,12 @@ all 19 public pages tested at iPhone size on slow 4G (main content in 1.2-2.9 s,
   `videos/juan-diego-clip.mp4` + poster (old /speaking clip, replaced by the sizzle reel), the stock `heroes/speaking.jpg`, `heroes/about.jpg`,
   `heroes/ai-advisory-hero.webp`, `books/masters-edge-devices.jpg`, `-shelf.jpg` and `masters-edge.png`, `usa-today/usa-today-logo.png`, four
   unused `logos/*.svg` and the five Next.js starter icons. All are in git history. Kept: `google609cf9c0414c568d.html` (Google Search Console
-  proof) and the two square blog images (used for social posts). Not done: eight pre-Horizon components in `src/components/sections/`
-  (Hero, LogoScroller, Testimonials, Credibility, Solution, Pathways, MediaFeature, QuizPromo) are imported nowhere; they never reach visitors.
+  proof) and the two square blog images (used for social posts).
+- **Old homepage sections removed (Brett: "remove the old pieces as long as we can find them later"):** the eight pre-Horizon components in
+  `src/components/sections/` (Hero, LogoScroller, Testimonials, Credibility, Solution, Pathways, MediaFeature, QuizPromo; imported nowhere
+  since 30 Oct) and the old homepage banner `public/heroes/homepage.jpg` (only Hero used it). To get them back:
+  `git checkout pre-old-sections-removal-2026-11-16 -- src/components/sections public/heroes/homepage.jpg` (tag is on GitHub; the whole old
+  site is also at `pre-horizon-2026-10-30`). The four style options (A-D) are a separate project, `~/dev/bl-style-mockups`, untouched.
 Lint 0/0, tsc and build pass. Left as is: AVIF images (would raise Vercel image-processing use: a cost decision for Brett), blog image PNGs (1.5-2.7 MB each, also the
 social-share images), Google PageSpeed scores (free daily quota was used up on 16 Nov; re-run another day).
 
