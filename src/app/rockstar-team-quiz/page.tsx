@@ -9,7 +9,7 @@ import { HorizonPage, PageHero } from "@/components/horizon/kit";
 import RockstarTeamQuiz from "@/components/RockstarTeamQuiz";
 
 export const metadata: Metadata = {
-  title: "Rockstar Team Quiz | Brett Lechtenberg",
+  title: "Rockstar Team Quiz",
   description:
     "6 quick questions to diagnose the #1 gap between you and a rockstar team, and get the complete 'How To Build A Rockstar Team' book free.",
   alternates: {
@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     description:
       "Take the free 2-minute diagnostic and get Brett Lechtenberg's 'How To Build A Rockstar Team' book free.",
     url: "https://www.brettlechtenberg.com/rockstar-team-quiz",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brett Lechtenberg - Peak Performance Coach, Speaker & Author" }],
   },
 };
 

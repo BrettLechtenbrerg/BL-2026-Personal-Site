@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "coaching client feedback",
   ],
   openGraph: {
+    type: "website",
     title: "Client Testimonials | Brett Lechtenberg",
     description:
       "Real results from real clients. Success stories from leaders transformed by The Master's Edge.",

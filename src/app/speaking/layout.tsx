@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "Utah keynote speaker",
   ],
   openGraph: {
+    type: "website",
     title: "Speaking & Training | Brett Lechtenberg",
     description:
       "Keynotes and workshops that leave your audience changed, not just entertained. Book Brett for your event.",

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     follow: false,
   },
   openGraph: {
+    type: "website",
     title: "The Master's Edge | Workbook",
     description:
       "Four Weeks to Peak Performance. Clarify. Simplify. Maximize. Complete your activities on any device.",

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "Utah business coach",
   ],
   openGraph: {
+    type: "website",
     title: "Executive & Business Coaching | Brett Lechtenberg",
     description:
       "Break through business plateaus with The Master's Edge coaching. Custom toolkit for peak performance.",

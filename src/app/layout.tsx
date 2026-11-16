@@ -104,11 +104,11 @@ export const metadata: Metadata = {
       "Discover who you're meant to become. Unlock peak performance through The Master's Edge methodology: 30+ years of real-world experience helping leaders achieve extraordinary results.",
     images: [
       {
-        url: "/brett-hero.webp",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Brett Lechtenberg - Peak Performance Coach, Speaker & Author",
-        type: "image/webp",
+        type: "image/jpeg",
       },
     ],
   },
@@ -116,7 +116,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Brett Lechtenberg | Peak Performance Coach",
     description: "Discover who you're meant to become with The Master's Edge methodology.",
-    images: ["/brett-hero.webp"],
+    images: ["/og-image.jpg"],
     creator: "@BrettLechtenberg",
   },
   robots: {

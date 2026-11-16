@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "martial arts leadership",
   ],
   openGraph: {
+    type: "website",
     title: "The Master's Edge | New Book by Brett Lechtenberg, Out Now",
     description:
       "Ancient Discipline, Modern Leadership. Brett Lechtenberg's definitive guide to First Principles, Frontloading, and Flow.",

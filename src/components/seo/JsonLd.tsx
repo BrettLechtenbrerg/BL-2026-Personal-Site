@@ -100,14 +100,6 @@ export function JsonLd() {
       "@type": "Person",
       name: "Brett Lechtenberg",
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://www.brettlechtenberg.com/?q={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 
   return (

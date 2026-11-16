@@ -19,6 +19,7 @@ export const metadata: Metadata = {
       "Access Brett's official bio, headshots, speaking topics, and press materials for media and event planning.",
     url: "https://www.brettlechtenberg.com/media-kit",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brett Lechtenberg - Peak Performance Coach, Speaker & Author" }],
   },
   alternates: {
     canonical: "https://www.brettlechtenberg.com/media-kit",

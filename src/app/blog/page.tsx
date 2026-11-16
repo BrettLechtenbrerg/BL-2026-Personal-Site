@@ -10,7 +10,7 @@ import { Btn, FinalCta, HorizonPage, PageHero } from '@/components/horizon/kit';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog · Brett Lechtenberg',
+  title: 'Blog',
   description:
     'Practical writing on peak performance, leadership, and the disciplines that drive real results. From Brett Lechtenberg: coach, speaker, author.',
   alternates: { canonical: 'https://www.brettlechtenberg.com/blog' },
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
       'Practical writing on peak performance, leadership, and the disciplines that drive real results.',
     url: 'https://www.brettlechtenberg.com/blog',
     type: 'website',
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brett Lechtenberg - Peak Performance Coach, Speaker & Author" }],
   },
   robots: { index: true, follow: true },
 };

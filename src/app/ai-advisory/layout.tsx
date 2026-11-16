@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "enterprise AI solutions",
   ],
   openGraph: {
+    type: "website",
     title: "AI Advisory Services | Brett Lechtenberg",
     description:
       "AI done right starts with people. Training, integration, and full-service AI implementation.",

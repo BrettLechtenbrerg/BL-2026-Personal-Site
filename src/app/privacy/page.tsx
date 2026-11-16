@@ -6,10 +6,16 @@ import { HorizonPage, PageHero } from "@/components/horizon/kit";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Brett Lechtenberg",
+  title: "Privacy Policy",
   description: "Privacy Policy for Brett Lechtenberg's coaching, speaking, and consulting services.",
   alternates: {
     canonical: "https://www.brettlechtenberg.com/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Brett Lechtenberg",
+    url: "https://www.brettlechtenberg.com/privacy",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brett Lechtenberg - Peak Performance Coach, Speaker & Author" }],
   },
 };
 

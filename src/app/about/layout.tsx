@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Brett Lechtenberg",
+  title: { absolute: "About Brett Lechtenberg | Peak Performance Coach, Speaker & Author" },
   description:
     "8th-degree black belt, 30+ years in business, author of eight books (five bestsellers), and flow state researcher. Discover the person behind The Master's Edge methodology.",
   keywords: [
@@ -17,13 +17,14 @@ export const metadata: Metadata = {
     "Sandy Utah coach",
   ],
   openGraph: {
+    type: "website",
     title: "About Brett Lechtenberg",
     description:
       "8th-degree black belt, 30+ years in business, flow state researcher. The person behind The Master's Edge.",
     url: "https://www.brettlechtenberg.com/about",
     images: [
       {
-        url: "/brett-hero.webp",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Brett Lechtenberg",

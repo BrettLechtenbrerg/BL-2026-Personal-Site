@@ -25,6 +25,18 @@ all 19 public pages tested at iPhone size on slow 4G (main content in 1.2-2.9 s,
   since 30 Oct) and the old homepage banner `public/heroes/homepage.jpg` (only Hero used it). To get them back:
   `git checkout pre-old-sections-removal-2026-11-16 -- src/components/sections public/heroes/homepage.jpg` (tag is on GitHub; the whole old
   site is also at `pre-horizon-2026-10-30`). The four style options (A-D) are a separate project, `~/dev/bl-style-mockups`, untouched.
+- **Google SEO check (16 Nov, against Google Search Central's documentation changelog to 12 Nov 2026 + its May 2026 AI-features guide):** all 22
+  sitemap pages scanned. Fixed: `/og-image.jpg` did not exist (7 pages pointed their share/preview image at it; 4 more had none): it is now a
+  real 1200x630 JPG (the dual portrait on black, same picture as `brett-hero.webp`) and every page uses it or its own image; page titles no
+  longer repeat "Brett Lechtenberg" twice (root template adds it once; blog titles 20 characters shorter); sitemap no longer stamps every
+  static page with the build time as "last changed" (blog posts keep their real dates); WebSite schema lost its SearchAction (no site
+  search; Google retired the search box); Article publisher logo pointed at a missing `/icon.png` (now `/logo.jpg`); `og:type` on every
+  page; /privacy and /terms no longer share the homepage's `og:url`. Check script idea: every sitemap page must have one h1, canonical =
+  its own address, a share image that loads, and no brand twice in the title.
+  Known and left: FAQPage on blog posts and Course on /masters-edge give no Google rich result any more (FAQ retired 7 May 2026, course
+  info in 2025) but are harmless and other engines read them; `llms.txt` is ignored by Google (fine to keep); home description is 250
+  characters (Google trims it). **Brett, in Search Console:** confirm the site is included in "Search generative AI features" (now required
+  to appear in AI Overviews / AI Mode), and look at the Core Web Vitals and Pages reports.
 Lint 0/0, tsc and build pass. Left as is: AVIF images (would raise Vercel image-processing use: a cost decision for Brett), blog image PNGs (1.5-2.7 MB each, also the
 social-share images), Google PageSpeed scores (free daily quota was used up on 16 Nov; re-run another day).
 

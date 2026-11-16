@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Books by Brett Lechtenberg",
+  title: { absolute: "Books by Brett Lechtenberg | Eight Books, Five Bestsellers" },
   description:
     "Eight books, five bestsellers, on peak performance, time management, family safety, and AI for business owners, including his newest, The Master's Edge.",
   keywords: [
@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     "professional development books",
   ],
   openGraph: {
+    type: "website",
     title: "Books by Brett Lechtenberg",
     description:
       "Eight books, five bestsellers, on peak performance, time management, family safety, and AI for business owners.",

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "The Master's Edge Program | 12-Week Peak Performance Coaching | Brett Lechtenberg",
+  title: "The Master's Edge Program | 12-Week Peak Performance Coaching",
   description:
     "Join The Master's Edge, a 12-week group coaching program for business leaders. Clarify your vision, simplify your operations, and maximize your results. Limited to 12 members per cohort.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "Brett Lechtenberg",
     images: [
       {
-        url: "/brett-hero.webp",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "The Master's Edge Program - Brett Lechtenberg",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "The Master's Edge Program | Brett Lechtenberg",
     description:
       "12 weeks that change how you lead, operate, and perform. Applications open for the founding cohort.",
-    images: ["/brett-hero.webp"],
+    images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://www.brettlechtenberg.com/masters-edge-program",

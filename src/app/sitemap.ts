@@ -3,109 +3,92 @@ import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.brettlechtenberg.com";
-  const lastModified = new Date();
+  // Static pages carry no lastModified: Google ignores the field unless it is the real date the page changed.
 
   // Main pages
   const routes = [
     {
       url: baseUrl,
-      lastModified,
       changeFrequency: "weekly" as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/masters-edge`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/coaching`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/speaking`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/ai-advisory`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/books`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/books/masters-edge`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/rockstar-team-quiz`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
     {
       url: `${baseUrl}/testimonials`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.6,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/book-brett`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/media-kit`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.5,
     },
     {
       url: `${baseUrl}/privacy`,
-      lastModified,
       changeFrequency: "yearly" as const,
       priority: 0.2,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified,
       changeFrequency: "yearly" as const,
       priority: 0.2,
     },
     {
       url: `${baseUrl}/masters-edge-program`,
-      lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.9,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.7,
     },
@@ -114,7 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts (one entry per markdown file in content/blog/)
   const blogPosts = getAllPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: post.date ? new Date(post.date) : lastModified,
+    lastModified: post.date ? new Date(post.date) : undefined,
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));

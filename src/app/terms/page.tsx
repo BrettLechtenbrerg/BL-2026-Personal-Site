@@ -6,10 +6,16 @@ import { HorizonPage, PageHero } from "@/components/horizon/kit";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Brett Lechtenberg",
+  title: "Terms of Service",
   description: "Terms of Service for Brett Lechtenberg's coaching, speaking, and consulting services.",
   alternates: {
     canonical: "https://www.brettlechtenberg.com/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | Brett Lechtenberg",
+    url: "https://www.brettlechtenberg.com/terms",
+    type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brett Lechtenberg - Peak Performance Coach, Speaker & Author" }],
   },
 };
 

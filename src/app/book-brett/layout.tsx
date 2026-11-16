@@ -20,6 +20,7 @@ export const metadata: Metadata = {
       "Book Brett for keynote speaking, corporate training, or executive coaching. Transform your organization with The Master's Edge methodology.",
     url: "https://www.brettlechtenberg.com/book-brett",
     type: "website",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Brett Lechtenberg - Peak Performance Coach, Speaker & Author" }],
   },
   alternates: {
     canonical: "https://www.brettlechtenberg.com/book-brett",

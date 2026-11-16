@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "Brett Lechtenberg",
   ],
   openGraph: {
+    type: "website",
     title: "The Master's Edge by Brett Lechtenberg",
     description:
       "A science-backed coaching system for peak performance. CLARIFY. SIMPLIFY. MAXIMIZE.",

@@ -35,7 +35,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) {
-    return { title: 'Post not found · Brett Lechtenberg' };
+    return { title: 'Post not found' };
   }
 
   const url = `${SITE_URL}/blog/${post.slug}`;
@@ -44,7 +44,7 @@ export async function generateMetadata({
     : `${SITE_URL}${post.heroImage}`;
 
   return {
-    title: `${post.title} · Brett Lechtenberg`,
+    title: post.title,
     description: post.description,
     keywords: [post.keyword],
     authors: [{ name: 'Brett Lechtenberg', url: SITE_URL }],
@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     publisher: {
       '@type': 'Person',
       name: 'Brett Lechtenberg',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon.png` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.jpg` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   };
