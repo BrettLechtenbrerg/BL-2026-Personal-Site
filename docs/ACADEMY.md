@@ -53,10 +53,10 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
   feeds `unlockedSlugs()` (progress + quiz APIs) AND the module page, which
   renders a Locked panel instead of the lesson. Fails closed (DB error → only
   free courses).
-- **Not gated**: media under `public/academy/<slug>/` (mp4/m4a/pdf) is
-  public by URL. Lesson text, flashcards, and quizzes are gated. Upgrade path:
-  move media to a private Supabase Storage bucket + signed URLs from the
-  module page.
+- **Lesson video and audio are gated too (18 Nov 2026)**: they play from a
+  private Cloudflare R2 bucket through a members-only gate; see "Lesson media
+  on R2" below. **Still public by URL**: PDFs, covers and certificate art
+  under `public/academy/`. Lesson text, flashcards and quizzes are gated.
 - **Flow**: banner “Unlock course · $X” → `POST /api/academy/checkout` →
   Stripe Checkout (promo-code field on) → `/academy/checkout/success`
   fulfils immediately, `/api/stripe/webhook` fulfils again (idempotent) for
@@ -83,6 +83,67 @@ project (signup → lesson → quiz fail/pass → badges/XP → community → le
 - **Grant by hand** (no Stripe): SQL editor →
   `insert into me_course_access (user_id, course_id, source) values ('<uuid>', 'reclaiming-the-clock', 'admin') on conflict do nothing;`
 - Certification still needs all 43 modules passed (all 4 courses).
+
+## Lesson media on R2 (18 Nov 2026)
+
+**Why:** 89 lesson video and audio files (3.4 GB) made every Vercel
+deployment about 3.3 GB and set off Vercel's storage warning. They were also
+playable by anyone who had the file's address.
+
+**How it works**
+
+- The files stay in the repo under `public/academy/<slug>/` exactly as before.
+  Nothing was deleted; R2 is an extra copy that the live site plays from.
+- `npm run build` first runs `scripts/academy-media-r2.mjs build`. **On
+  Vercel** it copies any new or changed file to the private R2 bucket
+  `bl-academy-media`, checks every copy against the original (size and
+  fingerprint), then leaves the media out of the deployment. If R2 can't be
+  reached or a copy doesn't match, the build fails and the current live site
+  stays up. **On a Mac** that step does nothing and removes nothing.
+- A lesson still points at `/academy/<slug>/video-overview.mp4` (no change in
+  `modules.ts`). On Vercel no such file exists, so the rewrite in
+  `next.config.ts` sends the request to the gate,
+  `src/app/api/media/academy/[slug]/[file]/route.ts`: signed in and owns the
+  course → redirect to a link on R2 that expires (6 hours, same link for the
+  whole hour); signed out → 401; course not owned → 403; not a file the lesson
+  lists → 404. On a Mac the file is still in `public/`, so `npm run dev`
+  serves it directly and never goes through the gate.
+- **New lessons need no extra step.** Add the files as usual and push; the
+  Vercel build copies them to R2. Media must sit at
+  `public/academy/<slug>/<lower-case-name>.mp4|m4a|mp3|mov|webm|wav` (the build
+  stops if one doesn't) and be listed in the module's `audio` or `videoFiles`.
+
+**Commands (on this Mac)**
+
+```bash
+node scripts/academy-media-r2.mjs upload          # copy anything new to R2 now, then check all
+node scripts/academy-media-r2.mjs verify          # check all copies (size + fingerprint)
+node scripts/academy-media-r2.mjs verify --deep   # also download every copy and compare
+node --test --experimental-strip-types scripts/media-gate-unit-test.ts scripts/r2-presign-unit-test.mjs
+```
+
+**Keys:** `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` in
+Vercel (Production only) and in `.env.local` on the iMac. The key ("bl-academy-media
+site", made in Brett's Cloudflare account, R2 → Manage API Tokens) can read and
+write objects in that one bucket only. To replace it: make a new token the
+same way, then `bash scripts/add-r2-keys.sh` (tests the keys before saving).
+A preview deployment has no keys, so its build would stop; add them to
+Preview in Vercel if previews are ever used.
+
+**Undo:** revert the commit that added this section and redeploy. The site
+goes back to serving the files itself (and to 3.3 GB deployments).
+
+**Good to know**
+
+- A lesson left paused for more than about five hours needs a page refresh
+  before it plays again (the link has expired).
+- The script never deletes from R2. A file removed from the repo stays on R2
+  until someone removes it in the Cloudflare dashboard.
+- An empty, misspelled bucket `bl-academy-meida` was made by mistake on
+  18 Nov 2026; it is unused and can be deleted in the Cloudflare dashboard.
+- Later, Brett's call: take the media out of the repo (it grows about 80 MB a
+  lesson); the same set-up for TSAI in its own Cloudflare account, at which
+  point the gate moves into the Academy Forge.
 
 ## How auth works
 
@@ -183,6 +244,7 @@ Badges in `src/content/academy/badges.ts`. Ledger table `me_xp_events`;
 | Schema (idempotent) | `supabase/academy-schema.sql` |
 | Session + guard | `src/lib/academy-session.ts` |
 | Course ownership (paywall) | `src/lib/academy-access.ts`, `src/lib/stripe.ts` |
+| Lesson media on R2 (gate, links, build step) | `src/app/api/media/academy/[slug]/[file]/route.ts`, `src/lib/media-gate.ts`, `src/lib/r2-presign.mjs`, `scripts/academy-media-r2.mjs`, `next.config.ts` (rewrite) |
 | Checkout / webhook / return | `src/app/api/academy/checkout`, `src/app/api/stripe/webhook`, `src/app/academy/checkout/success` |
 | DB helpers (XP, badges, certify) | `src/lib/academy-db.ts` |
 | Content (modules, quizzes, exam) | `src/content/academy/modules.ts` |
