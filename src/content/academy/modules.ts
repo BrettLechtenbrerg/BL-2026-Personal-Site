@@ -184,6 +184,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Fire Yourself Exercise (NotebookLM video overview)", href: "/academy/fire-yourself/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Fire Yourself Exercise (narrated lesson)", href: "/academy/fire-yourself/read-aloud.m4a" },
       { label: "Deep Dive: The Fire Yourself Exercise (NotebookLM audio overview)", href: "/academy/fire-yourself/deep-dive.m4a" },
     ],
     order: 1,
@@ -314,6 +315,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Ideal Week Designer (NotebookLM video overview)", href: "/academy/ideal-week/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Ideal Week Designer (narrated lesson)", href: "/academy/ideal-week/read-aloud.m4a" },
       { label: "Deep Dive: The Ideal Week Designer (NotebookLM audio overview)", href: "/academy/ideal-week/deep-dive.m4a" },
     ],
     order: 2,
@@ -427,6 +429,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Decision Journal (NotebookLM video overview)", href: "/academy/decision-journal/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Decision Journal (narrated lesson)", href: "/academy/decision-journal/read-aloud.m4a" },
       { label: "Deep Dive: The Decision Journal (NotebookLM audio overview)", href: "/academy/decision-journal/deep-dive.m4a" },
     ],
     order: 3,
@@ -539,6 +542,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Problem Explainer (NotebookLM video overview)", href: "/academy/problem-explainer/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Problem Explainer (narrated lesson)", href: "/academy/problem-explainer/read-aloud.m4a" },
       { label: "Deep Dive: The Problem Explainer (NotebookLM audio overview)", href: "/academy/problem-explainer/deep-dive.m4a" },
     ],
     order: 4,
@@ -652,6 +656,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Vendor Negotiation Prep (NotebookLM video overview)", href: "/academy/vendor-negotiation/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Vendor Negotiation Prep (narrated lesson)", href: "/academy/vendor-negotiation/read-aloud.m4a" },
       { label: "Deep Dive: The Vendor Negotiation Prep (NotebookLM audio overview)", href: "/academy/vendor-negotiation/deep-dive.m4a" },
     ],
     order: 5,
@@ -765,6 +770,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Partnership Evaluator (NotebookLM video overview)", href: "/academy/partnership-evaluator/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Partnership Evaluator (narrated lesson)", href: "/academy/partnership-evaluator/read-aloud.m4a" },
       { label: "Deep Dive: The Partnership Evaluator (NotebookLM audio overview)", href: "/academy/partnership-evaluator/deep-dive.m4a" },
     ],
     order: 6,
@@ -878,6 +884,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Delegation Engine (NotebookLM video overview)", href: "/academy/delegation-engine/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Delegation Engine (narrated lesson)", href: "/academy/delegation-engine/read-aloud.m4a" },
       { label: "Deep Dive: The Delegation Engine (NotebookLM audio overview)", href: "/academy/delegation-engine/deep-dive.m4a" },
     ],
     order: 7,
@@ -991,6 +998,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The SOP Factory (NotebookLM video overview)", href: "/academy/sop-factory/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The SOP Factory (narrated lesson)", href: "/academy/sop-factory/read-aloud.m4a" },
       { label: "Deep Dive: The SOP Factory (NotebookLM audio overview)", href: "/academy/sop-factory/deep-dive.m4a" },
     ],
     order: 8,
@@ -1104,6 +1112,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Difficult Conversations Coach (NotebookLM video overview)", href: "/academy/difficult-conversations/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Difficult Conversations Coach (narrated lesson)", href: "/academy/difficult-conversations/read-aloud.m4a" },
       { label: "Deep Dive: The Difficult Conversations Coach (NotebookLM audio overview)", href: "/academy/difficult-conversations/deep-dive.m4a" },
     ],
     order: 9,
@@ -1217,6 +1226,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Hiring Oracle (NotebookLM video overview)", href: "/academy/hiring-oracle/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Hiring Oracle (narrated lesson)", href: "/academy/hiring-oracle/read-aloud.m4a" },
       { label: "Deep Dive: The Hiring Oracle (NotebookLM audio overview)", href: "/academy/hiring-oracle/deep-dive.m4a" },
     ],
     order: 10,
@@ -1330,6 +1340,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Brand Book Creator (NotebookLM video overview)", href: "/academy/brand-book/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Brand Book Creator (narrated lesson)", href: "/academy/brand-book/read-aloud.m4a" },
       { label: "Deep Dive: The Brand Book Creator (NotebookLM audio overview)", href: "/academy/brand-book/deep-dive.m4a" },
     ],
     order: 11,
@@ -1443,6 +1454,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The P&L Creation System (NotebookLM video overview)", href: "/academy/pl-creation/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The P&L Creation System (narrated lesson)", href: "/academy/pl-creation/read-aloud.m4a" },
       { label: "Deep Dive: The P&L Creation System (NotebookLM audio overview)", href: "/academy/pl-creation/deep-dive.m4a" },
     ],
     order: 12,
@@ -1556,6 +1568,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Referral Engine (NotebookLM video overview)", href: "/academy/referral-engine/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Referral Engine (narrated lesson)", href: "/academy/referral-engine/read-aloud.m4a" },
       { label: "Deep Dive: The Referral Engine (NotebookLM audio overview)", href: "/academy/referral-engine/deep-dive.m4a" },
     ],
     order: 13,
@@ -1669,6 +1682,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The CEO Dashboard (NotebookLM video overview)", href: "/academy/ceo-dashboard/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The CEO Dashboard (narrated lesson)", href: "/academy/ceo-dashboard/read-aloud.m4a" },
       { label: "Deep Dive: The CEO Dashboard (NotebookLM audio overview)", href: "/academy/ceo-dashboard/deep-dive.m4a" },
     ],
     order: 14,
@@ -1781,6 +1795,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Competitor Intelligence System (NotebookLM video overview)", href: "/academy/competitor-intelligence/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Competitor Intelligence System (narrated lesson)", href: "/academy/competitor-intelligence/read-aloud.m4a" },
       { label: "Deep Dive: The Competitor Intelligence System (NotebookLM audio overview)", href: "/academy/competitor-intelligence/deep-dive.m4a" },
     ],
     order: 15,
@@ -1902,6 +1917,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Time Maze (NotebookLM video overview)", href: "/academy/time-maze/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Time Maze (narrated lesson)", href: "/academy/time-maze/read-aloud.m4a" },
       { label: "Deep Dive: The Time Maze (NotebookLM audio overview)", href: "/academy/time-maze/deep-dive.m4a" },
     ],
     order: 16,
@@ -2012,6 +2028,7 @@ export const academyModules: AcademyModule[] = [
   {
     slug: "mapping-values",
     audio: [
+      { label: "Read Aloud: Mapping Your Values (narrated lesson)", href: "/academy/mapping-values/read-aloud.m4a" },
       { label: "Deep Dive: Mapping Your Values (NotebookLM audio overview)", href: "/academy/mapping-values/deep-dive.m4a" },
     ],
     videoFiles: [
@@ -2125,6 +2142,7 @@ export const academyModules: AcademyModule[] = [
   {
     slug: "daily-dozen",
     audio: [
+      { label: "Read Aloud: The Daily Dozen (narrated lesson)", href: "/academy/daily-dozen/read-aloud.m4a" },
       { label: "Deep Dive: The Daily Dozen (NotebookLM audio overview)", href: "/academy/daily-dozen/deep-dive.m4a" },
     ],
     videoFiles: [
@@ -2241,6 +2259,7 @@ export const academyModules: AcademyModule[] = [
       { label: "Your 5% and Impact Zones (NotebookLM video overview)", href: "/academy/five-percent/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: Your 5% and Impact Zones (narrated lesson)", href: "/academy/five-percent/read-aloud.m4a" },
       { label: "Deep Dive: Your 5% and Impact Zones (NotebookLM audio overview)", href: "/academy/five-percent/deep-dive.m4a" },
     ],
     order: 19,
@@ -2354,6 +2373,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Ten Rules of Freedom (NotebookLM video overview)", href: "/academy/rules-of-freedom/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Ten Rules of Freedom (narrated lesson)", href: "/academy/rules-of-freedom/read-aloud.m4a" },
       { label: "Deep Dive: The Ten Rules of Freedom (NotebookLM audio overview)", href: "/academy/rules-of-freedom/deep-dive.m4a" },
     ],
     order: 20,
@@ -2467,6 +2487,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Laws of Maximization (NotebookLM video overview)", href: "/academy/laws-of-maximization/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Laws of Maximization (narrated lesson)", href: "/academy/laws-of-maximization/read-aloud.m4a" },
       { label: "Deep Dive: The Laws of Maximization (NotebookLM audio overview)", href: "/academy/laws-of-maximization/deep-dive.m4a" },
     ],
     order: 21,
@@ -2580,6 +2601,7 @@ export const academyModules: AcademyModule[] = [
       { label: "Harmony and the Acceptance Catapult (NotebookLM video overview)", href: "/academy/harmony-acceptance/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: Harmony and the Acceptance Catapult (narrated lesson)", href: "/academy/harmony-acceptance/read-aloud.m4a" },
       { label: "Deep Dive: Harmony and the Acceptance Catapult (NotebookLM audio overview)", href: "/academy/harmony-acceptance/deep-dive.m4a" },
     ],
     order: 22,
@@ -2690,6 +2712,7 @@ export const academyModules: AcademyModule[] = [
   {
     slug: "tools-and-stick",
     audio: [
+      { label: "Read Aloud: Tools, Technology, and Making It Stick (narrated lesson)", href: "/academy/tools-and-stick/read-aloud.m4a" },
       { label: "Deep Dive: Tools, Technology, and Making It Stick (NotebookLM audio overview)", href: "/academy/tools-and-stick/deep-dive.m4a" },
     ],
     videoFiles: [
@@ -2808,6 +2831,7 @@ export const academyModules: AcademyModule[] = [
       { label: "Video Overview (NotebookLM)", href: "/academy/sword-in-shrine/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Sword in the Shrine: The Master's Edge (narrated lesson)", href: "/academy/sword-in-shrine/read-aloud.m4a" },
       { label: "Deep Dive (NotebookLM audio overview)", href: "/academy/sword-in-shrine/deep-dive.m4a" },
     ],
     order: 24,
@@ -2916,6 +2940,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Acceptance Catapult (NotebookLM video overview)", href: "/academy/acceptance-catapult/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Acceptance Catapult (narrated lesson)", href: "/academy/acceptance-catapult/read-aloud.m4a" },
       { label: "Deep Dive: The Acceptance Catapult (NotebookLM audio overview)", href: "/academy/acceptance-catapult/deep-dive.m4a" },
     ],
     order: 25,
@@ -3026,6 +3051,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Master's Garden: Personal Responsibility (NotebookLM video overview)", href: "/academy/masters-garden/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Master's Garden: Personal Responsibility (narrated lesson)", href: "/academy/masters-garden/read-aloud.m4a" },
       { label: "Deep Dive: The Master's Garden: Personal Responsibility (NotebookLM audio overview)", href: "/academy/masters-garden/deep-dive.m4a" },
     ],
     order: 26,
@@ -3134,6 +3160,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Two Beliefs: Fixed vs Growth Mindset (NotebookLM video overview)", href: "/academy/two-beliefs/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Two Beliefs: Fixed vs Growth Mindset (narrated lesson)", href: "/academy/two-beliefs/read-aloud.m4a" },
       { label: "Deep Dive: The Two Beliefs: Fixed vs Growth Mindset (NotebookLM audio overview)", href: "/academy/two-beliefs/deep-dive.m4a" },
     ],
     order: 27,
@@ -3242,6 +3269,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Burned Dojo: Optimism (NotebookLM video overview)", href: "/academy/burned-dojo/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Burned Dojo: Optimism (narrated lesson)", href: "/academy/burned-dojo/read-aloud.m4a" },
       { label: "Deep Dive: The Burned Dojo: Optimism (NotebookLM audio overview)", href: "/academy/burned-dojo/deep-dive.m4a" },
     ],
     order: 28,
@@ -3350,6 +3378,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Bamboo Warrior: Resilience (NotebookLM video overview)", href: "/academy/bamboo-warrior/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Bamboo Warrior: Resilience (narrated lesson)", href: "/academy/bamboo-warrior/read-aloud.m4a" },
       { label: "Deep Dive: The Bamboo Warrior: Resilience (NotebookLM audio overview)", href: "/academy/bamboo-warrior/deep-dive.m4a" },
     ],
     order: 29,
@@ -3463,6 +3492,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Swordsmith's Fire: Tenacity (NotebookLM video overview)", href: "/academy/swordsmiths-fire/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Swordsmith's Fire: Tenacity (narrated lesson)", href: "/academy/swordsmiths-fire/read-aloud.m4a" },
       { label: "Deep Dive: The Swordsmith's Fire: Tenacity (NotebookLM audio overview)", href: "/academy/swordsmiths-fire/deep-dive.m4a" },
     ],
     order: 30,
@@ -3577,6 +3607,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The One Mountain: G.R.I.T. (NotebookLM video overview)", href: "/academy/one-mountain/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The One Mountain: G.R.I.T. (narrated lesson)", href: "/academy/one-mountain/read-aloud.m4a" },
       { label: "Deep Dive: The One Mountain: G.R.I.T. (NotebookLM audio overview)", href: "/academy/one-mountain/deep-dive.m4a" },
     ],
     order: 31,
@@ -3690,6 +3721,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Calm River: Reappraisal Over Anxiety (NotebookLM video overview)", href: "/academy/calm-river/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Calm River: Reappraisal Over Anxiety (narrated lesson)", href: "/academy/calm-river/read-aloud.m4a" },
       { label: "Deep Dive: The Calm River: Reappraisal Over Anxiety (NotebookLM audio overview)", href: "/academy/calm-river/deep-dive.m4a" },
     ],
     order: 32,
@@ -3801,6 +3833,7 @@ export const academyModules: AcademyModule[] = [
   {
     slug: "warriors-ledger",
     audio: [
+      { label: "Read Aloud: The Warrior's Ledger: Confidence (narrated lesson)", href: "/academy/warriors-ledger/read-aloud.m4a" },
       { label: "Deep Dive: The Warrior's Ledger: Confidence (NotebookLM audio overview)", href: "/academy/warriors-ledger/deep-dive.m4a" },
     ],
     videoFiles: [
@@ -3915,6 +3948,7 @@ export const academyModules: AcademyModule[] = [
   {
     slug: "twin-tigers",
     audio: [
+      { label: "Read Aloud: The Twin Tigers: Lead With Your Strengths (narrated lesson)", href: "/academy/twin-tigers/read-aloud.m4a" },
       { label: "Deep Dive: The Twin Tigers: Lead With Your Strengths (NotebookLM audio overview)", href: "/academy/twin-tigers/deep-dive.m4a" },
     ],
     videoFiles: [
@@ -4031,6 +4065,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Garden of Words: Compassionate Communication (NotebookLM video overview)", href: "/academy/garden-of-words/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Garden of Words: Compassionate Communication (narrated lesson)", href: "/academy/garden-of-words/read-aloud.m4a" },
       { label: "Deep Dive: The Garden of Words: Compassionate Communication (NotebookLM audio overview)", href: "/academy/garden-of-words/deep-dive.m4a" },
     ],
     order: 35,
@@ -4146,6 +4181,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Stone Steps: Goal Setting (NotebookLM video overview)", href: "/academy/stone-steps/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Stone Steps: Goal Setting (narrated lesson)", href: "/academy/stone-steps/read-aloud.m4a" },
       { label: "Deep Dive: The Stone Steps: Goal Setting (NotebookLM audio overview)", href: "/academy/stone-steps/deep-dive.m4a" },
     ],
     order: 36,
@@ -4259,6 +4295,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Consistent Warrior: Consistency (NotebookLM video overview)", href: "/academy/consistent-warrior/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Consistent Warrior: Consistency (narrated lesson)", href: "/academy/consistent-warrior/read-aloud.m4a" },
       { label: "Deep Dive: The Consistent Warrior: Consistency (NotebookLM audio overview)", href: "/academy/consistent-warrior/deep-dive.m4a" },
     ],
     order: 37,
@@ -4369,6 +4406,7 @@ export const academyModules: AcademyModule[] = [
   {
     slug: "lantern-bearer",
     audio: [
+      { label: "Read Aloud: The Lantern Bearer: Help First (narrated lesson)", href: "/academy/lantern-bearer/read-aloud.m4a" },
       { label: "Deep Dive: The Lantern Bearer: Help First (NotebookLM audio overview)", href: "/academy/lantern-bearer/deep-dive.m4a" },
     ],
     videoFiles: [
@@ -4485,6 +4523,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Trust Trinity (NotebookLM video overview)", href: "/academy/trust-trinity/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Trust Trinity (narrated lesson)", href: "/academy/trust-trinity/read-aloud.m4a" },
       { label: "Deep Dive: The Trust Trinity (NotebookLM audio overview)", href: "/academy/trust-trinity/deep-dive.m4a" },
     ],
     order: 39,
@@ -4591,6 +4630,7 @@ export const academyModules: AcademyModule[] = [
   {
     slug: "masters-state",
     audio: [
+      { label: "Read Aloud: The Master's State: Engineering Flow (narrated lesson)", href: "/academy/masters-state/read-aloud.m4a" },
       { label: "Deep Dive: The Master's State: Engineering Flow (NotebookLM audio overview)", href: "/academy/masters-state/deep-dive.m4a" },
     ],
     videoFiles: [
@@ -4704,6 +4744,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Unseen Belt: Strong Ethical Character (NotebookLM video overview)", href: "/academy/unseen-belt/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Unseen Belt: Strong Ethical Character (narrated lesson)", href: "/academy/unseen-belt/read-aloud.m4a" },
       { label: "Deep Dive: The Unseen Belt: Strong Ethical Character (NotebookLM audio overview)", href: "/academy/unseen-belt/deep-dive.m4a" },
     ],
     order: 41,
@@ -4813,6 +4854,7 @@ export const academyModules: AcademyModule[] = [
       { label: "The Six Pillars: Building Systems That Teach (NotebookLM video overview)", href: "/academy/six-pillars/video-overview.mp4" },
     ],
     audio: [
+      { label: "Read Aloud: The Six Pillars: Building Systems That Teach (narrated lesson)", href: "/academy/six-pillars/read-aloud.m4a" },
       { label: "Deep Dive: The Six Pillars: Building Systems That Teach (NotebookLM audio overview)", href: "/academy/six-pillars/deep-dive.m4a" },
     ],
     order: 42,
@@ -4929,6 +4971,7 @@ export const academyModules: AcademyModule[] = [
     title: "The Master's Edge Framework",
     tagline: "The Framework",
     audio: [
+      { label: "Read Aloud: The Master's Edge Framework (narrated lesson)", href: "/academy/masters-edge-framework/read-aloud.m4a" },
       {
         label: "Deep Dive: The Master's Edge for Peak Performance (NotebookLM audio overview)",
         href: "/academy/masters-edge-framework/deep-dive.m4a",

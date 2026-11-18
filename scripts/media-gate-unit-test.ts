@@ -1,7 +1,7 @@
 // Unit tests for src/lib/media-gate.ts:  node --test --experimental-strip-types scripts/media-gate-unit-test.ts
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { mediaGate, MEDIA_LINK_SECONDS, type MediaLesson } from '../src/lib/media-gate.ts';
 import { r2Config } from '../src/lib/r2-presign.mjs';
@@ -89,5 +89,8 @@ test('every lesson media file in modules.ts is gated by its own course', async (
       count++;
     }
   }
-  assert.equal(count, 89);
+  // Nothing on disk is left out of the lesson list (it would be on R2 with no way to play it).
+  const academyDir = path.join(import.meta.dirname, '..', 'public', 'academy');
+  const onDisk = readdirSync(academyDir, { recursive: true }).filter((f) => /\.(mp4|m4a|mp3|mov|webm|wav)$/i.test(String(f))).length;
+  assert.equal(count, onDisk);
 });

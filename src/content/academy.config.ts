@@ -125,8 +125,8 @@ export const academyConfig: AcademyConfig = {
     "stripeProductPrefix": "Master's Edge Academy — "
   },
   "narration": {
-    "voice": "am_michael",
-    "narrator": "Brett"
+    "voice": "af_heart",
+    "narrator": "your Master's Edge guide"
   },
   "session": {
     "cookie": "bl_academy_session"

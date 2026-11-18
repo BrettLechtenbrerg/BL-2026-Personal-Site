@@ -14,11 +14,13 @@
 - **Open from this session:**
   1. **Confirm the storage figure with Brett in the Vercel dashboard** (19 Nov or later). One 3.3 GB deployment from 16 Nov remains
      as a quick rollback; Vercel drops it by itself once three newer ones exist.
-  2. **Read Aloud (audiobook-style player) and PDF downloads: only 1 of 44 lessons has them** ("How to Build a Rockstar Team", the
-     newest lesson, order 44). Brett asked about this on 18 Nov. Both features are built into the lesson page and show only when a
-     lesson has the file; the other 43 lessons have no narration and no PDF (the Parent Training System has Read Aloud on all 6
-     lessons and one shared handbook PDF). Adding them is Academy Forge work (rule 13;
-     `node scripts/academy-lesson.mjs narrate <slug>`, about 9 MB a lesson, would go to R2 by itself). Waits for Brett's decision.
+  2. **Read Aloud for all 44 lessons: PUBLISHED 18 Nov (Brett's "go"; the commit after `86b1be3`).** Woman's voice `af_heart`, the same as the
+     Parent Training System (Brett heard a sample and chose it); narrator label is now "your Master's Edge guide" (profile
+     `~/dev/academy-forge/brands/bl/academy.json`, config regenerated with the generator only). 44
+     `public/academy/<slug>/read-aloud.m4a` (117 MB, 2.6 hours; on R2, 132 of 132 copies verified); Rockstar Team was redone to match.
+     Made with `node scripts/academy-lesson.mjs narrate <slug>`. Only one lesson was listened to before release. Sword in the Shrine and The Master's Edge
+     Framework read the OLD pillar order aloud until that open item is fixed (then re-narrate those two, free).
+     **PDF downloads: still only Rockstar Team has one;** PDFs for the other 43 would have to be written first (not started).
   3. Empty, misspelled bucket `bl-academy-meida` in Cloudflare: unused, Brett can delete it.
   4. Later, Brett's call: take the media out of the repo (grows about 80 MB a lesson); same set-up for TSAI in its own Cloudflare
      account (then the gate moves into the Academy Forge).
