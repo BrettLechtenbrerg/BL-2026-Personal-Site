@@ -1,4 +1,7 @@
 # BrettLechtenberg.com — GHL Replacement Pilot Plan
+
+> **Update 18 Nov 2026 (Brett): texting = Telnyx, a new texting number per business. No Twilio and no GoHighLevel anywhere in Edge CRM.** Where this page says Twilio, read Telnyx. See `DECISIONS.md` (18 Nov) and `~/dev/TSAI-Site/docs/crm/SMS-TEXTING-RESEARCH.md`.
+
 **Date:** Sept 6, 2026 · **Status:** PLAN FOR REVIEW — nothing built.
 **Repo:** `/Users/brettlechtenberg/dev/BL-2026-Personal-Site` (only). PMMA + TSAI untouched.
 Companions: `CRM-REPLACEMENT-ANALYSIS.md`, `EDGE-CRM-ARCHITECTURE.md`.

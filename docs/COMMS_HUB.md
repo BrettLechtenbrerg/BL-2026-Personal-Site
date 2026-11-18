@@ -32,7 +32,8 @@ session guard on every `/api/hub/*` route (`src/lib/hub-session.ts`).
 | `src/lib/crm/twenty.ts` | Twenty CRM People: list (cursor-paged), find, create, delete |
 | `src/lib/messaging/send.ts` | **the** send entry point: consent gate → render → provider → one hub_messages row |
 | `src/lib/messaging/resend.ts` | Resend email adapter (Reply-To Brett's Gmail, List-Unsubscribe) |
-| `src/lib/messaging/sms.ts` | SMS stub — paused until Phase 6 (Twilio) |
+| `src/lib/messaging/sms.ts` | SMS stub — paused until Phase 6 (Telnyx since 18 Nov 2026; never Twilio or GHL) |
+| `src/app/hub/messaging/TapToText.tsx` + `src/lib/messaging/text-link.ts` | **Text (my phone)** (18 Nov 2026): in Compose, the Text channel gives each selected lead a Text button that opens Messages on the iPhone/Mac with the message filled in (merge tags per person); Brett presses Send. Not logged in hub_messages; marketing texts stay off until the texting service (consent check). Same helper as TSAI-Site `lib/text-link.ts`; tests `scripts/text-link-unit-test.ts` |
 | `src/lib/messaging/consent.ts` | `contact_consent` reads/writes + HMAC unsubscribe tokens |
 | `src/lib/messaging/inbox.ts` | threads per contact from hub_messages |
 | `src/app/api/webhooks/resend/route.ts` | Svix-verified delivery events → delivered/bounced/complained; bounce/complaint revokes consent |

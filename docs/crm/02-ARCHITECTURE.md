@@ -1,4 +1,7 @@
 # Edge CRM — Cost, Twilio, and How It All Fits
+
+> **Update 18 Nov 2026 (Brett): texting = Telnyx, a new texting number per business. No Twilio and no GoHighLevel anywhere in Edge CRM.** Where this page says Twilio, read Telnyx. See `DECISIONS.md` (18 Nov) and `~/dev/TSAI-Site/docs/crm/SMS-TEXTING-RESEARCH.md`.
+
 **Date:** Sept 6, 2026 · Companion to `CRM-REPLACEMENT-ANALYSIS.md` · Nothing built yet.
 
 ---

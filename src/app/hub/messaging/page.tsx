@@ -9,8 +9,9 @@
 // workbook leads, Master's Edge applications), newest first.
 //
 // Pick recipients, compose an SMS or email (with merge tags), preview the
-// rendered message, and send — email via Resend; SMS paused until Phase 6
-// (docs/crm/03-BL-PILOT-PLAN.md). Every attempt is logged to hub_messages.
+// rendered message, and send — email via Resend (logged to hub_messages).
+// Texts (18 Nov 2026): "Text from my phone" opens Messages on the iPhone/Mac
+// per person (TapToText.tsx); automatic SMS waits for Telnyx (Phase 6).
 //
 // Data:
 //   GET  /api/hub/messaging/leads        → Twenty people for the picker
@@ -25,6 +26,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import TapToText from "./TapToText";
 import {
   Send,
   Mail,
@@ -504,7 +506,7 @@ export default function HubMessagingPage() {
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Comms Hub — Messaging</h1>
             <p className="text-sm text-gray-500 mt-1">
-              Email leads straight from here — SMS returns in Phase 6.
+              Email leads from here, or text them from your own phone.
             </p>
           </div>
           <button
@@ -593,7 +595,7 @@ export default function HubMessagingPage() {
                     ) : (
                       <Mail className="w-4 h-4" />
                     )}
-                    {c === "sms" ? "SMS (paused)" : "Email"}
+                    {c === "sms" ? "Text (my phone)" : "Email"}
                   </button>
                 ))}
               </div>
@@ -821,6 +823,9 @@ export default function HubMessagingPage() {
                 </div>
               )}
 
+              {channel === "sms" ? (
+                <TapToText leads={selectedLeadRows} body={body} marketing={marketing} />
+              ) : (
               <button
                 disabled={!canSend || sending}
                 onClick={() => setConfirming(true)}
@@ -829,6 +834,7 @@ export default function HubMessagingPage() {
                 <Send className="w-4 h-4" />
                 Send to {totalSelected} {totalSelected === 1 ? "recipient" : "recipients"}
               </button>
+              )}
 
               {/* Results */}
               {results && (
