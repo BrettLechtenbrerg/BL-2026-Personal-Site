@@ -137,6 +137,9 @@ goes back to serving the files itself (and to 3.3 GB deployments).
 
 - A lesson left paused for more than about five hours needs a page refresh
   before it plays again (the link has expired).
+- **Read Aloud (18 Nov 2026):** every lesson has `read-aloud.m4a`, made with `node scripts/academy-lesson.mjs narrate <slug>`
+  (add `--force` to redo one) in the voice set in the Academy Forge profile (`af_heart`, shown as "Narrated by your
+  Master's Edge guide"). After narrating: `node scripts/academy-media-r2.mjs upload`, commit, push.
 - The script never deletes from R2. A file removed from the repo stays on R2
   until someone removes it in the Cloudflare dashboard.
 - An empty, misspelled bucket `bl-academy-meida` was made by mistake on

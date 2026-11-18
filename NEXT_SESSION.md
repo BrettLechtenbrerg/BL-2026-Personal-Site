@@ -1,6 +1,8 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-## ▶ RESUME HERE (18 Nov 2026, Session 45: academy lesson video and audio moved to Cloudflare R2, live)
+## ▶ RESUME HERE (18 Nov 2026, Session 45: academy lesson media on Cloudflare R2 + Read Aloud on all 44 lessons, both live)
+
+**State at close (18 Nov 2026):** everything is committed, on GitHub and live. Nothing is half-done. Brett played lessons and a Read Aloud signed in on the live site ("it sounds good"). First thing next time: open item 1 below (Vercel storage figure).
 
 **18 Nov 2026 (Session 45): LESSON MEDIA ON R2, LIVE (main `a0a4394`; Brett's "go"; plan `~/.gg/plans/bl-academy-media-to-r2.md`):**
 - **Why:** Vercel's storage warning. The 89 lesson video and audio files (3.37 GB, 44 lessons) made every deployment about 3.3 GB.
@@ -18,7 +20,7 @@
      Parent Training System (Brett heard a sample and chose it); narrator label is now "your Master's Edge guide" (profile
      `~/dev/academy-forge/brands/bl/academy.json`, config regenerated with the generator only). 44
      `public/academy/<slug>/read-aloud.m4a` (117 MB, 2.6 hours; on R2, 132 of 132 copies verified); Rockstar Team was redone to match.
-     Made with `node scripts/academy-lesson.mjs narrate <slug>`. Only one lesson was listened to before release. Sword in the Shrine and The Master's Edge
+     Made with `node scripts/academy-lesson.mjs narrate <slug>`. Only one lesson was listened to before release; Brett played a Read Aloud live afterwards. Sword in the Shrine and The Master's Edge
      Framework read the OLD pillar order aloud until that open item is fixed (then re-narrate those two, free).
      **PDF downloads: still only Rockstar Team has one;** PDFs for the other 43 would have to be written first (not started).
   3. Empty, misspelled bucket `bl-academy-meida` in Cloudflare: unused, Brett can delete it.
