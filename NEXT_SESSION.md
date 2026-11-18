@@ -1,6 +1,29 @@
 # BL 2026 Personal Site — Next Session Restart Prompt
 
-## ▶ RESUME HERE (16 Nov 2026, Session 44: speed, mobile, clean-up and Google SEO pass, all live)
+## ▶ RESUME HERE (18 Nov 2026, Session 45: academy lesson video and audio moved to Cloudflare R2, live)
+
+**18 Nov 2026 (Session 45): LESSON MEDIA ON R2, LIVE (main `a0a4394`; Brett's "go"; plan `~/.gg/plans/bl-academy-media-to-r2.md`):**
+- **Why:** Vercel's storage warning. The 89 lesson video and audio files (3.37 GB, 44 lessons) made every deployment about 3.3 GB.
+- **What changed:** the live site plays them from the private Cloudflare R2 bucket `bl-academy-media` (Brett's Cloudflare account,
+  free tier) through a members-only gate. Signed out -> "Not signed in"; course not owned -> refused. The Vercel build copies any new
+  media to R2, checks it, then leaves it out of the deployment. **Nothing was deleted:** the files are still in the repo and on GitHub.
+- **Checked:** 89 of 89 copies match the originals (size + fingerprint, and a full download-and-compare). Vercel build passed and left
+  3.37 GB out. Live, signed out: lesson files locked, 12 other pages and images unchanged. **Brett, signed in on the live site
+  (18 Nov): videos, quiz and flashcards worked.** Not checked: a real iPhone.
+- **How it works, commands, keys, undo:** `docs/ACADEMY.md` -> "Lesson media on R2". Undo = revert `a0a4394` and redeploy.
+- **Open from this session:**
+  1. **Confirm the storage figure with Brett in the Vercel dashboard** (19 Nov or later). One 3.3 GB deployment from 16 Nov remains
+     as a quick rollback; Vercel drops it by itself once three newer ones exist.
+  2. **Read Aloud (audiobook-style player) and PDF downloads: only 1 of 44 lessons has them** ("How to Build a Rockstar Team", the
+     newest lesson, order 44). Brett asked about this on 18 Nov. Both features are built into the lesson page and show only when a
+     lesson has the file; the other 43 lessons have no narration and no PDF (the Parent Training System has Read Aloud on all 6
+     lessons and one shared handbook PDF). Adding them is Academy Forge work (rule 13;
+     `node scripts/academy-lesson.mjs narrate <slug>`, about 9 MB a lesson, would go to R2 by itself). Waits for Brett's decision.
+  3. Empty, misspelled bucket `bl-academy-meida` in Cloudflare: unused, Brett can delete it.
+  4. Later, Brett's call: take the media out of the repo (grows about 80 MB a lesson); same set-up for TSAI in its own Cloudflare
+     account (then the gate moves into the Academy Forge).
+
+## Earlier: 16 Nov 2026, Session 44: speed, mobile, clean-up and Google SEO pass, all live
 
 **State at close (16 Nov 2026):** everything is committed, on GitHub and live on www.brettlechtenberg.com. Nothing from Session 44 is
 unfinished. Commits: speed + mobile `8cacacb`, clean-up `8279efa`, old homepage sections removed `c4186bd` (restore tag

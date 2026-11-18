@@ -1429,3 +1429,11 @@ b2db867 Brighten hero images by 10% across all pages
 - Google SEO pass (22 sitemap pages, against Google Search Central docs to 12 Nov 2026): real /og-image.jpg share image, no doubled name in titles, honest sitemap dates, structured data clean-up, og:type/og:url everywhere. 22 of 22 pages pass live.
 - Checks: eslint, tsc, build; live checks after each deploy. Commits 8cacacb, fec9e03, 8279efa, c4186bd, f581308.
 - Open: see "WHAT'S NEXT" at the top of NEXT_SESSION.md (GHL webhooks first; Search Console items are Brett's).
+
+## Session 45 — 18 Nov 2026: academy lesson video and audio moved to Cloudflare R2 (live)
+- Why: Vercel storage warning; 89 lesson media files (3.37 GB) made each deployment about 3.3 GB and were playable by anyone with the address.
+- Built: scripts/academy-media-r2.mjs (upload, verify, Vercel-only step that leaves media out), src/lib/r2-presign.mjs (expiring links, Node crypto, no new package), src/lib/media-gate.ts + src/app/api/media/academy/[slug]/[file]/route.ts (members-only gate), rewrite in next.config.ts, build script in package.json, scripts/add-r2-keys.sh.
+- Brett made the private bucket bl-academy-media and a one-bucket key in Cloudflare; keys in .env.local and Vercel production.
+- Checks: 89 of 89 copies match (size + fingerprint + full download compare); rehearsal build on a scratch copy (public 3.2 GB -> 75 MB); real Chrome played and skipped through video and audio at iMac and iPhone size; 27 unit tests, tsc, eslint. Live: build passed, signed-out checks passed, Brett played lessons signed in.
+- Nothing deleted: the media stays in the repo. Commit a0a4394. Docs: docs/ACADEMY.md "Lesson media on R2".
+- Open: storage figure in the Vercel dashboard (19 Nov or later); Read Aloud + PDFs exist on 1 of 44 lessons (Brett asked, waits for his decision); misspelled empty bucket bl-academy-meida.
