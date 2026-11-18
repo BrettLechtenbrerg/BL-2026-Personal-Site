@@ -2,6 +2,10 @@
 
 **Updated:** September 17, 2026 (Phase 1 shipped · Phase 2 plan drafted, awaiting approval · Lightfield assessed, recommend not adopting)
 
+> **18 Nov 2026: texting decided + Text button live.** No SMS8/MacroDroid (Mint bans automated texting). Automatic texts
+> later via **Telnyx**, a new number per business; **never Twilio or GoHighLevel**. Free tap-to-text is live in the BL Comms
+> Hub (Compose → Text (my phone)) and the TSAI Follow-Up List. Research: `~/dev/TSAI-Site/docs/crm/SMS-TEXTING-RESEARCH.md`.
+
 > **2 Nov 2026: first TSAI form built on Edge CRM** (free *Powerful AI Strategies* PDF for GEW Utah guests,
 > totalsuccessai.com/gew). Code: TSAI-Site branch `wip/2026-11-02-gew-book-download` (`lib/lead.ts`, `/api/lead`, `/gew`),
 > not deployed. Brett's answers: one Twenty workspace for BL + TSAI; TSAI sender info@totalsuccessai.com; Manny gets Twenty
