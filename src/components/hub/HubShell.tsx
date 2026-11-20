@@ -16,8 +16,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { BarChart3, GraduationCap, LayoutGrid, Loader2, LogOut, Menu, MessageSquare, Settings2, Users, X } from 'lucide-react';
 
 const NAV = [
-  { href: '/hub/budget', label: 'Dashboard (Budget)', icon: BarChart3 },
-  { href: '/hub/budget/setup', label: 'Monthly Setup', icon: Settings2 },
+  { href: '/hub/budget', label: 'Daily Financials', icon: BarChart3 },
+  { href: '/hub/budget/setup', label: 'Monthly Budgets', icon: Settings2 },
   { href: '/hub/messaging', label: 'Messaging', icon: MessageSquare },
   { href: '/hub/academy', label: 'Academy', icon: GraduationCap },
   { href: '/hub/tools', label: 'My tools', icon: LayoutGrid },

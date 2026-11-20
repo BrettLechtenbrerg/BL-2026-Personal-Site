@@ -7,7 +7,7 @@ PMMA Budget (`~/dev/PMMA-Website-2026-Master/docs/BUDGET.md`) and fitted to Bret
 ## The Power Hub
 `/hub` is now the **Power Hub** (was "Comms Hub"): same login (`HUB_USERNAME` / `HUB_PASSWORD`, signed cookie in
 `src/lib/hub-session.ts`), lands on `/hub/budget`. Left menu (`src/components/hub/HubShell.tsx`, wrapped around every
-hub page except the login by `HubFrame` in `src/app/hub/layout.tsx`): Dashboard (Budget) · Monthly Setup · Messaging ·
+hub page except the login by `HubFrame` in `src/app/hub/layout.tsx`): Daily Financials · Monthly Budgets (renamed 20 Nov 2026 to match the TSAI hub) · Messaging ·
 Academy · CRM ("soon", for Edge CRM Phase 2). Messaging and Academy pages are unchanged inside the menu.
 
 ## Income lines (`src/lib/budget.ts`, keys are stored in the data; labels and words can change)
