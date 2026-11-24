@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
             id="privacy-title"
             small
             lines={["Privacy Policy"]}
-            lede="Last Updated: April 4, 2026"
+            lede="Last Updated: November 24, 2026"
             photo={{ src: "/horizon/limitless-horizon.jpg", alt: "", w: 3200, h: 2133, pos: "46% 35%" }}
           />
         </HorizonPage>
@@ -155,22 +155,57 @@ export default function PrivacyPolicyPage() {
                 </p>
               </section>
 
+              <section id="messenger-assistant" className="mb-8 scroll-mt-28">
+                <h2 className="text-2xl font-bold text-black mb-4">11. Brett&apos;s AI Assistant on Facebook Messenger</h2>
+                <p className="text-gray-700 mb-4">
+                  When you send a message to Brett Lechtenberg&apos;s Facebook Page, an AI assistant writes a draft reply. Brett reads every conversation, and no reply is sent unless Brett approves it. The assistant says it is an AI assistant in its first reply, and answers truthfully whenever you ask.
+                </p>
+                <h3 className="text-xl font-semibold text-black mb-3">What we keep</h3>
+                <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
+                  <li>Your messages to the Page</li>
+                  <li>Your Facebook display name, and the Page-scoped ID that Facebook gives us for you (a number that works only for this Page)</li>
+                  <li>The draft reply, and the reply Brett sent</li>
+                </ul>
+                <p className="text-gray-700 mb-4">
+                  We do not look up anything else about you. We do not use your messages for advertising, and we do not sell them.
+                </p>
+                <h3 className="text-xl font-semibold text-black mb-3">Why we keep it</h3>
+                <p className="text-gray-700 mb-4">
+                  To answer you, to keep track of the conversation, and to improve the assistant&apos;s replies (Brett reviews the drafts he changes).
+                </p>
+                <h3 className="text-xl font-semibold text-black mb-3">Who helps us</h3>
+                <p className="text-gray-700 mb-4">
+                  Meta delivers the messages through Facebook Messenger. Anthropic&apos;s Claude writes the drafts, so the text of your message is sent to Anthropic to create a reply. The service runs on Vercel, and the conversation is stored with Supabase. These providers handle it only to run this service for us.
+                </p>
+                <h3 className="text-xl font-semibold text-black mb-3">How long we keep it</h3>
+                <p className="text-gray-700 mb-4">
+                  12 months from the day of each message. After that it is deleted automatically.
+                </p>
+                <h3 id="data-deletion" className="text-xl font-semibold text-black mb-3 scroll-mt-28">How to have it deleted sooner</h3>
+                <p className="text-gray-700 mb-4">
+                  Send the Page a message saying &quot;please delete my data&quot;, or email Brett@BrettLechtenberg.com with the name on your Facebook account. We will delete everything the assistant kept about you within 30 days and tell you when it is done. This does not remove the conversation from your own Messenger app; you can delete it there yourself.
+                </p>
+                <p className="text-gray-700 mb-4">
+                  The assistant is not meant for anyone under 18. A message from anyone who says they are under 18 goes straight to Brett.
+                </p>
+              </section>
+
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-black mb-4">11. Third-Party Links</h2>
+                <h2 className="text-2xl font-bold text-black mb-4">12. Third-Party Links</h2>
                 <p className="text-gray-700 mb-4">
                   Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. We encourage you to read the privacy policies of any third-party sites you visit.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-black mb-4">12. Changes to This Privacy Policy</h2>
+                <h2 className="text-2xl font-bold text-black mb-4">13. Changes to This Privacy Policy</h2>
                 <p className="text-gray-700 mb-4">
                   We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date. Your continued use of our services after any changes indicates your acceptance of the updated policy.
                 </p>
               </section>
 
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-black mb-4">13. Contact Us</h2>
+                <h2 className="text-2xl font-bold text-black mb-4">14. Contact Us</h2>
                 <p className="text-gray-700 mb-4">
                   If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us at:
                 </p>
