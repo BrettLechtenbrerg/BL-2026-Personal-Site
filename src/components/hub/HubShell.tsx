@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { BarChart3, GraduationCap, LayoutGrid, Loader2, LogOut, Menu, MessageSquare, Settings2, Users, X } from 'lucide-react';
+import { BarChart3, ExternalLink, GraduationCap, LayoutGrid, Loader2, LogOut, Menu, MessageCircle, MessageSquare, Settings2, Users, X } from 'lucide-react';
 
 const NAV = [
   { href: '/hub/budget', label: 'Daily Financials', icon: BarChart3 },
@@ -22,6 +22,9 @@ const NAV = [
   { href: '/hub/academy', label: 'Academy', icon: GraduationCap },
   { href: '/hub/tools', label: 'My tools', icon: LayoutGrid },
 ] as const;
+
+// Separate app on purpose: Meta's App Review points at this address, and the Page token stays out of the Hub.
+const PAGE_ASSISTANT_URL = 'https://assistant.brettlechtenberg.com/inbox';
 
 function isActive(pathname: string, href: string) {
   if (href === '/hub/budget') return pathname === '/hub/budget';
@@ -80,6 +83,14 @@ export default function HubShell({ children }: { children: React.ReactNode }) {
             </li>
           );
         })}
+        <li>
+          <a href={PAGE_ASSISTANT_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
+            className="flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-lg text-[15px] font-semibold transition-colors text-white/80 hover:bg-white/10 hover:text-white">
+            <MessageCircle size={18} /> Facebook Page
+            <ExternalLink size={14} className="ml-auto text-white/55" aria-hidden="true" />
+            <span className="sr-only">(opens in a new tab)</span>
+          </a>
+        </li>
         <li>
           <span aria-disabled="true" className="flex items-center gap-3 px-3 py-2.5 min-h-[44px] rounded-lg text-[15px] font-semibold text-white/55 cursor-default">
             <Users size={18} /> CRM <span className="ml-auto text-[11px] font-bold uppercase tracking-wide text-[#D4AF37]">soon</span>
