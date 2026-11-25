@@ -1439,3 +1439,13 @@ b2db867 Brighten hero images by 10% across all pages
 - Open: storage figure in the Vercel dashboard (19 Nov or later); Read Aloud + PDFs exist on 1 of 44 lessons (Brett asked, waits for his decision); misspelled empty bucket bl-academy-meida.
 - Later the same day: Read Aloud on all 44 lessons in the woman's voice af_heart (same as the Parent Training System; Brett chose it from a sample). 43 new narrations + Rockstar Team redone (2.6 hours, 117 MB), narrator label "your Master's Edge guide" (Academy Forge profile d362ace, config regenerated). 132 of 132 media copies on R2 verified. Commit 67995cc, live; Brett played one signed in.
 - Still open: Vercel storage figure; PDFs on 1 of 44 lessons; Sword in the Shrine + Master's Edge Framework read the old pillar order aloud until the parked text fix.
+
+## 25 Nov 2026: Coaching FAQ wording (flow research)
+
+**Focus:** one line on /coaching. FAQ "How is this different from other coaching programs?" said "the methodology is grounded in
+original flow state research reviewed by the Flow Research Collective", which read as if they reviewed the coaching. Brett's rule:
+saying his flow research was reviewed is fine; never make it sound like they reviewed the coaching or program. New answer: "...the
+method is built on the science of flow, how people perform at their very best, and Brett only teaches what he has tested in his own
+business." `a101fe2`, Brett's OK, live and checked (desktop + phone width, FAQ structured data too). Other mentions on the site
+(About, Speaking, home, Master's Edge, media kit) say his research/thesis was reviewed and were left as they are. Matching video
+script: Video Edge `03 - Script Library/Website FAQ/FAQ-SCRIPTS.md` (FAQ 2).
