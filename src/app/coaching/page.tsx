@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     q: "How is this different from other coaching programs?",
-    a: "Two things. First, every tool we build is custom. There are no templates. Second, the methodology is grounded in original flow state research reviewed by the Flow Research Collective.",
+    a: "Two things. First, every tool we build is custom. There are no templates. Second, the method is built on the science of flow, how people perform at their very best, and Brett only teaches what he has tested in his own business.",
   },
   {
     q: "How long does it take to see results?",
