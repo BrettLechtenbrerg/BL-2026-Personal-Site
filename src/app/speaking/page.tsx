@@ -9,6 +9,8 @@ import { HorizonMotion } from "@/components/horizon/HorizonMotion";
 import { Btn, FinalCta, HorizonPage, LogoStrip, PageHero, Stats, VideoPoster } from "@/components/horizon/kit";
 import { LiveClip } from "@/components/ui/LiveClip";
 import { TalkCard } from "./TalkCard";
+import { FaqIntro, FaqVideo } from "@/components/horizon/FaqVideo";
+import { faqVideos, faqVideoSchema } from "@/lib/faq-videos";
 
 // ── From live /speaking (v1): outcomes grid + action gallery ──────────────
 const outcomes = [
@@ -537,6 +539,30 @@ export default function SpeakingPage() {
                     </div>
                   }
                 />
+              </div>
+            </div>
+          </section>
+
+          {/* Common questions, each with a video answer from Brett's AI Assistant (25 Nov 2026) */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqVideoSchema([faqVideos.intro, faqVideos.booking, faqVideos.topics], "/speaking")) }}
+          />
+          <section className="sec sec-night" aria-labelledby="speaking-faq-title">
+            <div className="rail narrow">
+              <h2 id="speaking-faq-title" className="h2 sec-title center" data-rise>Common <em>Questions</em></h2>
+              <FaqIntro video={faqVideos.intro} />
+              <div className="faq" data-stagger>
+                <div>
+                  <h3>{faqVideos.booking.question}</h3>
+                  <p>Start with the short form on the <a href="/book-brett" className="text-link">Book Brett page</a>: tell us about your audience and what you want them to walk away with. You&apos;ll hear back within 48 hours with availability and next steps, then a brief call to understand your people and your goals. Every talk is customized for the room.</p>
+                  <FaqVideo video={faqVideos.booking} />
+                </div>
+                <div>
+                  <h3>{faqVideos.topics.question}</h3>
+                  <p>Peak performance, leadership and putting AI to work, all built on The Master&apos;s Edge. His flagship keynote is <em>The Master&apos;s Edge: The Science of Inside-Out Transformation</em>, and he also speaks on flow, habits and time, team culture, and leading through AI. Brett has given 250+ talks, trainings and seminars for groups such as America First Credit Union, American Express, Delta and chambers of commerce across Utah.</p>
+                  <FaqVideo video={faqVideos.topics} />
+                </div>
               </div>
             </div>
           </section>

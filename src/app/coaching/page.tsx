@@ -5,6 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
 import { Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
+import { FaqIntro, FaqVideo } from "@/components/horizon/FaqVideo";
+import { faqVideos, faqVideoSchema } from "@/lib/faq-videos";
 
 const phases = [
   {
@@ -60,18 +62,22 @@ const results = [
 const faqs = [
   {
     q: "Who is The Master's Edge coaching for?",
+    video: faqVideos.coachingWho,
     a: "Business owners, executives, and leaders who know they're capable of more but can't identify what's holding them back. People who have tried generic programs and found them too broad.",
   },
   {
     q: "How is this different from other coaching programs?",
+    video: faqVideos.coachingDifferent,
     a: "Two things. First, every tool we build is custom. There are no templates. Second, the method is built on the science of flow, how people perform at their very best, and Brett only teaches what he has tested in his own business.",
   },
   {
     q: "How long does it take to see results?",
+    video: faqVideos.coachingResults,
     a: "Most clients experience a shift in clarity and mindset within the first few sessions. Tangible business results typically emerge within 60 to 90 days.",
   },
   {
     q: "I already have a book, talk or brand. Can you help me launch it?",
+    video: faqVideos.coachingLaunch,
     a: <>Yes. The <a href={links.launchPortal} className="text-link">Launch Portal</a> turns your answers into one plan for your brand, book, talk, bookings and press, with a dashboard that shows every step.</>,
   },
 ];
@@ -163,14 +169,20 @@ export default function CoachingPage() {
           </section>
 
           {/* Common questions */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqVideoSchema([faqVideos.intro, ...faqs.map((f) => f.video)], "/coaching")) }}
+          />
           <section className="sec sec-night-2" aria-labelledby="faq-title">
             <div className="rail narrow">
               <h2 id="faq-title" className="h2 sec-title center" data-rise>Common <em>Questions</em></h2>
+              <FaqIntro video={faqVideos.intro} />
               <div className="faq" data-stagger>
                 {faqs.map((f) => (
                   <div key={f.q}>
                     <h3>{f.q}</h3>
                     <p>{f.a}</p>
+                    <FaqVideo video={f.video} />
                   </div>
                 ))}
               </div>

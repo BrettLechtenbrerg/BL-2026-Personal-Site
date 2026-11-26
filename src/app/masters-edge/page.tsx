@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
 import { Book3D, Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
+import { FaqIntro, FaqVideo } from "@/components/horizon/FaqVideo";
+import { faqVideos, faqVideoSchema } from "@/lib/faq-videos";
 
 const foundations = [
   {
@@ -171,6 +173,25 @@ export default function MastersEdgePage() {
                 <div className="hero-ctas">
                   <Btn href={links.mastersEdgePaperback} external size="lg">Buy the Book on Amazon</Btn>
                   <Btn href="/books/masters-edge" variant="ink" size="lg">About the Book</Btn>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Common questions, each with a video answer from Brett's AI Assistant (25 Nov 2026) */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqVideoSchema([faqVideos.intro, faqVideos.method], "/masters-edge")) }}
+          />
+          <section className="sec sec-night-2" aria-labelledby="me-faq-title">
+            <div className="rail narrow">
+              <h2 id="me-faq-title" className="h2 sec-title center" data-rise>Common <em>Questions</em></h2>
+              <FaqIntro video={faqVideos.intro} />
+              <div className="faq" data-stagger>
+                <div>
+                  <h3>{faqVideos.method.question}</h3>
+                  <p>It is the method behind everything Brett teaches, built over more than 30 years in business and more than 40 years in martial arts. It has three steps. Clarify (First Principles): strip away assumptions and see the real problem. Simplify (Frontloading): be prepared, not surprised, with the tools you need before the challenge arrives. Maximize (Flow): build the conditions for peak performance, so it isn&apos;t left to luck.</p>
+                  <FaqVideo video={faqVideos.method} />
                 </div>
               </div>
             </div>

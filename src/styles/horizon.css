@@ -1373,3 +1373,24 @@ html:not(.js) .bl-h .acc-chev { display: none; }
 /* Coaching option cards (12-Week Program, 31 Oct 2026: no prices shown). */
 .bl-h .price-model { font: 600 calc(15px * var(--bl-k))/1.4 var(--sans); letter-spacing: .04em; color: var(--gold); margin-top: calc(-8px * var(--bl-k)); }
 .bl-h .price-desc { color: #E6E0DA; line-height: 1.6; }
+
+/* FAQ answer videos ("Watch Brett's AI Assistant answer", 25 Nov 2026). Works on dark (.faq) and light (.acc) FAQ lists. */
+.bl-h .faqv { margin-block-start: calc(14px * var(--bl-k)); }
+.bl-h .acc-panel .faqv { padding: 0 calc(22px * var(--bl-k)) calc(20px * var(--bl-k)); margin-block-start: calc(-6px * var(--bl-k)); }
+.bl-h .faqv-btn { display: inline-flex; align-items: center; gap: calc(10px * var(--bl-k)); min-height: 44px; padding: calc(8px * var(--bl-k)) calc(16px * var(--bl-k)) calc(8px * var(--bl-k)) calc(8px * var(--bl-k));
+  border-radius: 999px; border: 1px solid rgb(212 175 55 / .55); background: rgb(212 175 55 / .1); color: inherit; font: 600 calc(14px * var(--bl-k))/1.2 var(--sans, inherit); cursor: pointer; transition: background-color .25s, border-color .25s; }
+.bl-h .faqv-btn:hover { background: rgb(212 175 55 / .2); border-color: var(--gold); }
+.bl-h .faqv-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.bl-h .faqv-ico { display: grid; place-items: center; width: calc(30px * var(--bl-k)); height: calc(30px * var(--bl-k)); border-radius: 50%; background: var(--cran); color: #fff; flex: none; }
+.bl-h .faqv-ico svg { width: 15px; height: 15px; }
+.bl-h .faqv-ico svg.lucide-play { fill: currentColor; translate: 1px 0; }
+.bl-h .faqv-time { opacity: .7; font-weight: 500; font-variant-numeric: tabular-nums; }
+.bl-h .faqv-fig { margin: calc(14px * var(--bl-k)) 0 0; max-width: calc(300px * var(--bl-k)); }
+.bl-h .faqv-fig video { display: block; width: 100%; aspect-ratio: 9 / 16; border-radius: calc(16px * var(--bl-k)); background: #000; border: 1px solid rgb(212 175 55 / .4); }
+.bl-h .faqv-fig figcaption { margin-block-start: calc(8px * var(--bl-k)); font-size: calc(13px * var(--bl-k)); line-height: 1.5; opacity: .75; }
+.bl-h .faq-intro { display: flex; flex-direction: column; align-items: center; gap: calc(10px * var(--bl-k)); text-align: center; margin: calc(-6px * var(--bl-k)) auto calc(26px * var(--bl-k)); max-width: 46rem; }
+.bl-h .faq-intro p { margin: 0; opacity: .85; }
+.bl-h .faq-intro .faqv { margin: 0; }
+.bl-h .faq-intro .faqv-fig { margin-inline: auto; }
+.bl-h .acc-item .faqv-btn { color: var(--ink); }
+.bl-h .faqv-btn > span:nth-child(2) { text-align: left; }

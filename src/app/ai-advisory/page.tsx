@@ -8,6 +8,8 @@ import { Footer } from "@/components/layout/Footer";
 import { HorizonMotion } from "@/components/horizon/HorizonMotion";
 import { Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
+import { FaqIntro, FaqVideo } from "@/components/horizon/FaqVideo";
+import { faqVideos, faqVideoSchema } from "@/lib/faq-videos";
 
 const tiers = [
   {
@@ -204,6 +206,25 @@ export default function AIAdvisoryPage() {
                 AI consulting, implementation, and custom tools.
               </p>
               <div><Btn href={links.ai} external size="lg" arrow>Visit Total Success AI</Btn></div>
+            </div>
+          </section>
+
+          {/* Common questions, each with a video answer from Brett's AI Assistant (25 Nov 2026) */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqVideoSchema([faqVideos.intro, faqVideos.aiStart], "/ai-advisory")) }}
+          />
+          <section className="sec sec-night-2" aria-labelledby="ai-faq-title">
+            <div className="rail narrow">
+              <h2 id="ai-faq-title" className="h2 sec-title center" data-rise>Common <em>Questions</em></h2>
+              <FaqIntro video={faqVideos.intro} />
+              <div className="faq" data-stagger>
+                <div>
+                  <h3>{faqVideos.aiStart.question}</h3>
+                  <p>With the problem, not the technology. Brett and his Total Success AI co-founder Manny Torres begin with an AI Impact Analysis: how your business really works, and where AI can save time, cut costs and grow revenue. Then they help you choose the right tools for your goals and either set them up for you or guide you every step of the way.</p>
+                  <FaqVideo video={faqVideos.aiStart} />
+                </div>
+              </div>
             </div>
           </section>
 

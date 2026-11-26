@@ -11,6 +11,8 @@ import { HorizonMotion } from "@/components/horizon/HorizonMotion";
 import { Btn, FinalCta, HorizonPage, PageHero } from "@/components/horizon/kit";
 import { links } from "@/lib/utils";
 import { ProgramFaq } from "./ProgramFaq";
+import { FaqIntro } from "@/components/horizon/FaqVideo";
+import { faqVideos, faqVideoSchema } from "@/lib/faq-videos";
 
 // Phase data for the 12-week program
 const phases = [
@@ -174,30 +176,37 @@ const testimonials = [
 const faqs = [
   {
     q: "When does the next cohort start?",
+    video: faqVideos.programCohort,
     a: "The next cohort start date will be shared after your application is reviewed and approved.",
   },
   {
     q: "How much time should I expect to commit each week?",
+    video: faqVideos.programTime,
     a: "Plan for the live coaching session, implementation time, and reflection. This program is designed for real growth, not passive consumption.",
   },
   {
     q: "Is this virtual or in person?",
+    video: faqVideos.programVirtual,
     a: "The program is delivered virtually so you can participate from anywhere.",
   },
   {
     q: "What if I miss a session?",
+    video: faqVideos.programMissed,
     a: "If you miss a live session, you will still have access to the program materials and support.",
   },
   {
     q: "How is this different from 1:1 coaching?",
+    video: faqVideos.programVs1to1,
     a: "The Master's Edge combines the power of live coaching, structured curriculum, practical tools, and a small-group environment that creates momentum, insight, and accountability.",
   },
   {
     q: "Is there a refund policy?",
+    video: faqVideos.programRefund,
     a: "Please review the program terms during the application process. If you have questions before applying, book a conversation first.",
   },
   {
     q: "What if I still have questions?",
+    video: faqVideos.programQuestions,
     a: "Book a short conversation and we will talk through where you are, what you want, and whether this program is the right fit.",
   },
 ];
@@ -464,9 +473,14 @@ export default function MastersEdgeProgramPage() {
           </section>
 
           {/* Common questions */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqVideoSchema([faqVideos.intro, ...faqs.map((f) => f.video)], "/masters-edge-program")) }}
+          />
           <section className="sec sec-paper-2" aria-labelledby="faq-title">
             <div className="rail narrow">
               <h2 id="faq-title" className="h2 sec-title center" data-rise>Common <em>Questions</em></h2>
+              <FaqIntro video={faqVideos.intro} />
               <ProgramFaq faqs={faqs} />
             </div>
           </section>

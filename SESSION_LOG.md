@@ -1449,3 +1449,17 @@ method is built on the science of flow, how people perform at their very best, a
 business." `a101fe2`, Brett's OK, live and checked (desktop + phone width, FAQ structured data too). Other mentions on the site
 (About, Speaking, home, Master's Edge, media kit) say his research/thesis was reviewed and were left as they are. Matching video
 script: Video Edge `03 - Script Library/Website FAQ/FAQ-SCRIPTS.md` (FAQ 2).
+
+## 25 Nov 2026: FAQ answer videos from Brett's AI Assistant (built, waiting for Brett's OK before going live)
+
+**Focus:** a "Watch Brett's AI Assistant answer" button inside every FAQ answer (16 videos made in HeyGen with Brett's
+approved scripts; Video Edge project). Nothing loads until tapped; the written answers stay. Captions (.vtt from HeyGen,
+checked word for word against the scripts) are on by default; the "Brett's AI Assistant" label is burned into each video.
+- /coaching (4) and /masters-edge-program (7, inside the accordion; closing an answer pauses its video).
+- New "Common Questions" sections: /masters-edge (What is The Master's Edge?), /speaking (booking, topics), /ai-advisory
+  (where to start with AI). Each FAQ section opens with "Prefer to listen?" + the "Is this really Brett?" video.
+- Files: `public/videos/faq/<slug>.mp4|.jpg|.vtt` (540x960, about 2-3 MB each, 31 MB total; served by the site, not R2:
+  the R2 bucket is private and members-only). Data: `src/lib/faq-videos.ts`; player: `src/components/horizon/FaqVideo.tsx`;
+  styles at the end of `src/styles/horizon.css` (`.faqv`, `.faq-intro`). VideoObject structured data on each page.
+- Checks: tsc, eslint (changed files), `npm run build`, factcheck (new copy), Horizon check PASS on all 5 pages, local phone
+  and laptop checks (plays, captions showing, no horizontal scroll, no video requests before a tap).
