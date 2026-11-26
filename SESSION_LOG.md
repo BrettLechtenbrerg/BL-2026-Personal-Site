@@ -1450,7 +1450,7 @@ business." `a101fe2`, Brett's OK, live and checked (desktop + phone width, FAQ s
 (About, Speaking, home, Master's Edge, media kit) say his research/thesis was reviewed and were left as they are. Matching video
 script: Video Edge `03 - Script Library/Website FAQ/FAQ-SCRIPTS.md` (FAQ 2).
 
-## 25 Nov 2026: FAQ answer videos from Brett's AI Assistant (built, waiting for Brett's OK before going live)
+## 25 Nov 2026: FAQ answer videos from Brett's AI Assistant (LIVE, Brett's OK)
 
 **Focus:** a "Watch Brett's AI Assistant answer" button inside every FAQ answer (16 videos made in HeyGen with Brett's
 approved scripts; Video Edge project). Nothing loads until tapped; the written answers stay. Captions (.vtt from HeyGen,
@@ -1463,3 +1463,4 @@ checked word for word against the scripts) are on by default; the "Brett's AI As
   styles at the end of `src/styles/horizon.css` (`.faqv`, `.faq-intro`). VideoObject structured data on each page.
 - Checks: tsc, eslint (changed files), `npm run build`, factcheck (new copy), Horizon check PASS on all 5 pages, local phone
   and laptop checks (plays, captions showing, no horizontal scroll, no video requests before a tap).
+- Live: a94571c pushed with Brett's OK ("make them live please"), Vercel Ready; live check: buttons and VideoObject data on all 5 pages, videos play with captions on phone (390 px) and laptop.
