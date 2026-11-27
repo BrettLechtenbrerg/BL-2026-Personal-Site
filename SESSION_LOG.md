@@ -1464,3 +1464,13 @@ checked word for word against the scripts) are on by default; the "Brett's AI As
 - Checks: tsc, eslint (changed files), `npm run build`, factcheck (new copy), Horizon check PASS on all 5 pages, local phone
   and laptop checks (plays, captions showing, no horizontal scroll, no video requests before a tap).
 - Live: a94571c pushed with Brett's OK ("make them live please"), Vercel Ready; live check: buttons and VideoObject data on all 5 pages, videos play with captions on phone (390 px) and laptop.
+
+## 26–27 Nov 2026: FAQ 11 video re-rendered (LIVE, Brett's OK)
+
+- Brett: "the hands flow through each other when the hands cross" (FAQ 11, "What if I still have questions?"). New gesture text
+  keeps the hands apart; re-rendered in HeyGen (21 s, 7 credits), frame-checked (no overlap), captions unchanged word for word.
+  Swapped `public/videos/faq/faq-11-still-have-questions.mp4|.jpg`; live `565bc1a` ("looks great please make it live now"), live file
+  checksum matched, plays with captions on phone and laptop.
+- Not done yet, by Brett's choice (27 Nov): the TSAI-style video cards on this site. Ready to go: see Video Edge
+  `00 - Master Plan & SOPs/RESUME-PROMPT.md` → "READY, NOT STARTED: the same video cards on brettlechtenberg.com".
+
